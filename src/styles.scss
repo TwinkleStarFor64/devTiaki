@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+     height: 100%; 
+     background: url('./assets/img/BgVector2.svg'),rgba(242, 183, 5, 0.1);
+     background-repeat: no-repeat;
+     background-size:cover ;
+     background-position: center;
+     transform: matrix(1, 0, 0, 1, 0, 0);
+
+    body {
+        height: 100%;
+        
+        
+        @font-face {
+            font-family:'Raleway', sans-serif;
+            src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+        }
+    }
+}

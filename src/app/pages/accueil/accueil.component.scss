@@ -1,0 +1,126 @@
+$font-family: 'Raleway', sans-serif;
+$card-nutri:#D9042B;
+$card-kine: #F22F1D;
+$card-opto: #F28705;
+$aside-color1:#270140;
+$aside-color2:#805E96;
+$aside-color3:#F0C02E;
+
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: $font-family;
+
+    section:nth-child(1){
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        article:nth-child(1) {
+
+            display: flex;
+            align-items: baseline;
+            width: 30%;
+            height: 80%;
+            justify-content: space-evenly;
+            
+
+            h1 {
+                height: 50%;
+                color: $card-nutri ;
+                font-size:  3rem;
+                font-weight: 100;
+                font-style: normal;
+                line-height: 56px;
+            }
+            span{
+                color:$aside-color1;
+            }
+        }
+        p {
+           
+            width: 60%;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: justify;
+            color:$aside-color2;
+        }
+        
+    }
+    section:nth-child(2){
+        display: flex;
+        justify-content: space-around;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            transition: transform 250ms;
+            height: 100%;
+            
+            &:hover{
+                transform: scale(1.1);
+
+            }
+            &:nth-child(1){
+                background-color:$card-opto ;
+                width: 20%;
+
+                button {
+                    background-color: #ffffff;
+                    color: $card-opto;
+                    width: 45%;
+                    border-color: $card-opto;
+
+                }
+
+                img{
+                    width: 100%;
+                   
+                }
+            }
+            &:nth-child(2){
+                background-color: $card-nutri;
+                width: 20%;
+
+                button {
+                    background-color: #ffffff;
+                    color: $card-nutri;
+                    width: 40%;
+                    border-color: $card-nutri;
+                    
+                }
+
+                img{
+                    width: 100%;
+                  
+                }
+            }
+            &:nth-child(3){
+                background-color: $card-kine;
+                width: 20%;
+
+                button {
+                    background-color: #ffffff;
+                    color: $card-kine;
+                    width: 45%;
+                    border-color: $card-kine;
+                    
+                }
+
+                img{
+                    width: 100%;
+                   
+                }
+
+            }
+        }
+    }
+}
