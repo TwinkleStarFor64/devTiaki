@@ -7,11 +7,13 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { AsidebarComponent } from './components/asidebar/asidebar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AccueilComponent,
-    AsidebarComponent
+    AsidebarComponent,
+
   ],
   imports: [
     BrowserModule,

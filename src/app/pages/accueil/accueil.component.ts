@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
-  cards:any = [
+  public cards:any = [
     {
       title:"Optométrie",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
@@ -29,10 +30,17 @@ export class AccueilComponent implements OnInit {
   ]
 
   
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
-
+ 
   }
-
+  public toNutri(): void{
+    this.router.navigateByUrl('/nutrition');
+  }public toKine(): void{
+    this.router.navigateByUrl('/kinésithérapie');
+  }public toOpto(): void{
+    this.router.navigateByUrl('/optométrie');
+  }
+ 
 }
