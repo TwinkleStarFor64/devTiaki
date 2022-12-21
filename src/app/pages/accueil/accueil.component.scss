@@ -6,120 +6,183 @@ $aside-color1:#270140;
 $aside-color2:#805E96;
 $aside-color3:#F0C02E;
 
-main{
-    height: 100%;
+body{
+    margin: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
-
-    section:nth-child(1){
+    justify-content:space-evenly;
+    main{
+        height: 100%;
         display: flex;
-        align-items: center;
         flex-direction: column;
-        
-        article:nth-child(1) {
+        justify-content: space-between;
+        font-family: $font-family;
 
+        section:nth-child(1){
             display: flex;
-            align-items: baseline;
-            width: 30%;
-            height: 80%;
-            justify-content: space-evenly;
-            
-
-            h1 {
-                height: 50%;
-                color: $card-nutri ;
-                font-size:  3rem;
-                font-weight: 100;
-                font-style: normal;
-                line-height: 56px;
-            }
-            span{
-                color:$aside-color1;
-            }
-        }
-        p {
-           
-            width: 60%;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 16px;
-            text-align: justify;
-            color:$aside-color2;
-        }
-        
-    }
-    section:nth-child(2){
-        display: flex;
-        justify-content: space-around;
-
-        article {
-            display: flex;
+            align-items: center;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            color: #ffffff;
-            transition: transform 250ms;
-            height: 100%;
+            height: 40%;
             
-            &:hover{
-                transform: scale(1.1);
+            article:nth-child(1) {
 
-            }
-            &:nth-child(1){
-                background-color:$card-opto ;
-                width: 20%;
+                display: flex;
+                align-items: baseline;
+                width: 30%;
+                height: 40%;
+                justify-content: space-evenly;
+                
 
-                button {
-                    background-color: #ffffff;
-                    color: $card-opto;
-                    width: 45%;
-                    border-color: $card-opto;
-
+                h2 {
+                    color: $card-nutri ;
+                    font-size:  3rem;
+                    font-weight: 100;
+                    font-style: normal;
+                                
                 }
-
-                img{
-                    width: 100%;
-                   
+                span{
+                    color:$aside-color1;
                 }
             }
-            &:nth-child(2){
-                background-color: $card-nutri;
-                width: 20%;
+            p {
+                height: 50%;
+                width: 60%;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.2vw;
+                line-height: 16px;
+                text-align: justify;
+                color:$aside-color2;
+            }
+            
+        }
+        section:nth-child(2){
+            display: flex;
+            justify-content: space-around;
+            height: 60%;
 
-                button {
-                    background-color: #ffffff;
-                    color: $card-nutri;
-                    width: 40%;
-                    border-color: $card-nutri;
+            article {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                color: #ffffff;
+                transition: transform 250ms;
+                height: 100%;
+                
+                &:hover{
+                    transform: translateY(-3vw);
+                }
+                &:nth-child(1){
+                    background-color:$card-opto ;
+                    width: 20%;
+
+                    h3 {
+                        height: 15%;
+                        font-size: 2vw;
+                    }
+
+                    p{
+                        height: 20%;
+                        font-size: 0.8vw;
+                        text-align:left;
+                        margin:10px;
+
+                    }
+
+                    button {
+                        background-color: #ffffff;
+                        color: $card-opto;
+                        width: 60%;
+                        height: 15%;
+                        margin-bottom: 1vw;
+                        border-color: $card-opto;
+                        font-weight: bolder;
+                        font-size: 1vw;
+
+
+                    }
+
+                    img{
+                       width: 100%;
+
+                    }
+                }
+                &:nth-child(2){
+                    background-color: $card-nutri;
+                    width: 20%;
+
+                    h3 {
+                        height: 15%;
+                        font-size: 2vw;
+
+                    }
+
+                    p{
+                        height: 20%;
+                        font-size: 0.8vw;
+                        text-align:left;
+                        margin:10px;
+
+                    }
+
+                    button {
+                        background-color: #ffffff;
+                        color: $card-nutri;
+                        width: 60%;
+                        height: 15%;
+                        margin-bottom: 1vw;
+                        border-color: $card-nutri;
+                        font-weight: bolder;
+                        font-size: 1vw;
+                        
+                    }
+
+                    img{
+                        width: 100%;
+                        font-size: 2vw;
+
                     
+                    }
                 }
+                &:nth-child(3){
+                    background-color: $card-kine;
+                    width: 20%;
 
-                img{
-                    width: 100%;
-                  
-                }
-            }
-            &:nth-child(3){
-                background-color: $card-kine;
-                width: 20%;
+                    h3 {
+                        height: 15%;
+                        font-size: 2vw;
 
-                button {
-                    background-color: #ffffff;
-                    color: $card-kine;
-                    width: 45%;
-                    border-color: $card-kine;
+                    }
+
+                    p{
+                        height: 20%;
+                        font-size: 0.8vw;
+                        text-align:left;
+                        margin:10px;
+                        
+                    }
+
+                    button {
+                        background-color: #ffffff;
+                        color: $card-kine;
+                        width: 60%;
+                        height: 15%;
+                        margin-bottom: 1vw;
+                        border-color: $card-kine;
+                        font-weight: bolder;
+                        font-size: 1vw;
+
+                        
+                    }
+
+                    img{
+                        width: 100%;
                     
-                }
+                    }
 
-                img{
-                    width: 100%;
-                   
                 }
-
             }
         }
     }

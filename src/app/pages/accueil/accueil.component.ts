@@ -11,19 +11,19 @@ export class AccueilComponent implements OnInit {
       title:"Optométrie",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Optométrie",
-      image:"../../../assets/img/opto.svg"
+      image:"../../../assets/img/acc1.png"
     },
     {
       title:"Nutrition",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Nutrition",
-      image:"../../../assets/img/nutrition.svg"
+      image:"../../../assets/img/acc2.png"
     },
     {
       title:"Kinésithérapie",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Kinésithérapie",
-      image:"../../../assets/img/kinésithérapie.svg"
+      image:"../../../assets/img/acc3.png"
     },
 
   ]

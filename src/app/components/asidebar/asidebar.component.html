@@ -1,18 +1,20 @@
 <aside>
-    <section>
-      <img src="" alt="" />
-      <p></p>
-    </section>
-    <section>
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-    </section>
-    <section>
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-      <img src="" alt="" />
-    </section>
-  </aside>
+  <section>
+    <article *ngFor="let avatar of avatars">
+      <img [src]="avatar.image" alt="avatar" />
+      <p>{{ avatar.nom }}</p>
+    </article>
+  </section>
+  <section *ngFor="let appli of applis">
+    <img [src]="appli.nutri" alt="appli-nutri" />
+    <img [src]="appli.kine" alt="appli-kine" />
+    <img [src]="appli.opto" alt="appli-opto" />
+      </section>
+  <section *ngFor="let tool of tools">
+    <img [src]="tool.note" alt="note" />
+    <img [src]="tool.schedule" alt="schedule" />
+    <img [src]="tool.message" alt="message" />
+    <img [src]="tool.profil" alt="profil" />
+    <img [src]="tool.setting" alt="setting" />
+  </section>
+</aside>
