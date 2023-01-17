@@ -3,9 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { KnobModule } from 'primeng/knob';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccueilComponent } from './pages/accueil/accueil.component';
-import { AsidebarComponent } from './components/asidebar/asidebar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+
+import { ProgressionKineComponent } from './pages/progression-kine/progression-kine.component';
+import { AsidebarComponent } from './pages/components/asidebar/asidebar.component';
+import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-opto/bottom-bar-kine-opto.component';
+
 
 
 @NgModule({
@@ -13,6 +17,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppComponent,
     AccueilComponent,
     AsidebarComponent,
+    ProgressionKineComponent,
+    BottomBarKineOptoComponent,
+   
+   
 
   ],
   imports: [
@@ -24,4 +32,5 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

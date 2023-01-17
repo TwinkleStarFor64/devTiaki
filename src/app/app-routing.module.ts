@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './pages/accueil/accueil.component';
+import { ProgressionKineComponent } from './pages/progression-kine/progression-kine.component';
+
+
 
 
 const routes: Routes = [
   {path:'', component: AccueilComponent},
   // {path:'nutrition', component: NutritionComponent},
-  // {path:'kinesitherapie', component: KinesitherapieComponent},
+  {path:'progressionKine', component: ProgressionKineComponent},
   // {path:'optometrie', component: OptometrieComponent}
 ];
 

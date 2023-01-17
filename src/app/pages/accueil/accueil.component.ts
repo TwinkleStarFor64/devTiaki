@@ -7,24 +7,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./accueil.component.scss']
 })
 export class AccueilComponent implements OnInit {
+
   public cards:any = [
     {
       title:"Optométrie",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Optométrie",
-      image:"../../../assets/img/acc1.png"
+      image:"assets/imgAsidebar/acc1.png"
     },
     {
       title:"Nutrition",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Nutrition",
-      image:"../../../assets/img/acc2.png"
+      image:"assets/imgAsidebar/acc2.png"
     },
     {
       title:"Kinésithérapie",
       text:" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem",
       button:"Accéder à l'espace Kinésithérapie",
-      image:"../../../assets/img/acc3.png"
+      image:"assets/imgAsidebar/acc3.png"
     },
 
   ]
@@ -38,9 +39,11 @@ export class AccueilComponent implements OnInit {
   public toNutri(): void{
     this.router.navigateByUrl('/nutrition');
   }public toKine(): void{
-    this.router.navigateByUrl('/kinésithérapie');
+    this.router.navigateByUrl('/progressionKine');
   }public toOpto(): void{
     this.router.navigateByUrl('/optométrie');
   }
  
 }
+ 
+

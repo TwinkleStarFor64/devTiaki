@@ -1,0 +1,46 @@
+$font-family: 'Raleway', sans-serif;
+$card-nutri:#D9042B;
+$card-kine: #F22F1D;
+$card-opto: #F28705;
+$aside-color1:#270140;
+$aside-color2:#805E96;
+$aside-color3:#F0C02E;
+
+footer{
+    background-color:$card-kine ;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: $font-family;
+    height: 10%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+   
+
+    nav{
+        display: flex;
+        width: 30%;
+        align-items: center;
+
+        img{
+            width: 30%;
+            height: 55%;
+        }
+        article {
+
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+
+
+            h4{
+                margin: 0;
+
+            }
+            p{
+
+            }
+        }
+    }
+    
+}

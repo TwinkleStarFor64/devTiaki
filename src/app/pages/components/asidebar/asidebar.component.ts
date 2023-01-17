@@ -8,31 +8,33 @@ import { KnobModule } from 'primeng/knob';
 })
 export class AsidebarComponent implements OnInit {
 value: number = 7; 
+
+
 //Modifier cette fonctionnalité.
 avatars:any = [
   {
-    image:'../../../assets/img/cheerleader1.svg',
+    image:'assets/imgAsidebar/cheerleader1.svg',
     nom:'Émilie',
   },
   {
-    image:'../../../assets/img/skier1.svg',
+    image:'assets/imgAsidebar/skier1.svg',
     nom:'Kalhifa',
   }
 ];
 applis:any = [
   {
-    nutri:"../../../assets/img/Vector.svg",
-    kine:"../../../assets/img/Vector1.svg",
-    opto:"../../../assets/img/Group1.svg"
+    nutri:"assets/imgAsidebar/Vector.svg",
+    kine:"assets/imgAsidebar/Vector1.svg",
+    opto:"assets/imgAsidebar/Group1.svg"
   }
 ];
 tools:any =[
   {
-    note:"../../../assets/img/Group2.svg",
-    schedule:"../../../assets/img/Group3.svg",
-    message:"../../../assets/img/Group4.svg",
-    profil:"../../../assets/img/Group5.svg",
-    setting:"../../../assets/img/Group6.svg",
+    note:"assets/imgAsidebar/Group2.svg",
+    schedule:"assets/imgAsidebar/Group3.svg",
+    message:"assets/imgAsidebar/Group4.svg",
+    profil:"assets/imgAsidebar/Group5.svg",
+    setting:"assets/imgAsidebar/Group6.svg",
   }
 ]
   constructor() { }
