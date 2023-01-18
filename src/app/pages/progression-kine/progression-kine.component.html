@@ -1,26 +1,28 @@
 <app-asidebar></app-asidebar>
-<section>
+<main>
+  <section>
     <article>
-        <span>Tiaki   ......</span>
-      <div> 
-        <p>Kinésithérapie > </p>
-        <img [src]="avatar">
+      <span>Tiaki ......</span>
+      <div>
+        <p>Kinésithérapie ></p>
+        <img [src]="avatar" />
         <p>Le parcours de Cheer Émilie</p>
-      </div> 
+      </div>
     </article>
     <section class="exercice">
-        <article *ngFor="let exercice of exercices">
-            <img [src]="exercice.photo" alt="photo-exercice">
-            <h6>{{exercice.title}}</h6>
-            <p>{{exercice.description}}</p>
-          <div>
-            <img [src]="exercice.horloge" alt="horloge">
-            <p>Durée</p>
-            <img [src]="exercice.materiel" alt="materiel">
-            <p>Matériels</p>
-          </div>  
-            <!-- bar de progression -->
-        </article>
-      </section>
+      <article *ngFor="let exercice of exercices">
+        <img [src]="exercice.photo" alt="photo-exercice" />
+        <h6>{{ exercice.title }}</h6>
+        <p>{{ exercice.description }}</p>
+        <div>
+          <img [src]="exercice.horloge" alt="horloge" />
+          <p>Durée</p>
+          <img [src]="exercice.materiel" alt="materiel" />
+          <p>Matériels</p>
+        </div>
+        <!-- bar de progression -->
+      </article>
     </section>
-    <app-bottom-bar-kine-opto></app-bottom-bar-kine-opto>
+  </section>
+  <app-bottom-bar-kine-opto></app-bottom-bar-kine-opto>
+</main>

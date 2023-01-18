@@ -11,7 +11,7 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     width: 4vw;
-    height: 90%;
+    height: 100%;
     float: right;
     
     section:nth-child(1) {
@@ -71,8 +71,6 @@ aside {
         img {
             cursor: pointer;
             width:40%;
-
-
         }
     }
 

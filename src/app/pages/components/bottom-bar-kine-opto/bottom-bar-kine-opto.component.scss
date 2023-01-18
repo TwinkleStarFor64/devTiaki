@@ -11,34 +11,35 @@ footer{
     display: flex;
     justify-content: space-evenly;
     font-family: $font-family;
-    height: 10%;
+    height: 12vh;
     width: 100%;
-    position: fixed;
-    bottom: 0;
    
 
     nav{
         display: flex;
-        width: 30%;
+        width: 25%;
         align-items: center;
+        justify-content: space-evenly;
 
         img{
-            width: 30%;
-            height: 55%;
+            width: 3vw;
+            height: 4vw;
         }
         article {
 
             color: #FFFFFF;
             display: flex;
             flex-direction: column;
+            width: 70%;
 
 
             h4{
                 margin: 0;
+                font-size: 1.2vw;
 
             }
             p{
-
+                font-size: 0.8vw;
             }
         }
     }
