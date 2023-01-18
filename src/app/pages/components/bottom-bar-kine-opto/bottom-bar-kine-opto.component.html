@@ -1,9 +1,13 @@
 <footer>
   <nav *ngFor="let bottom of bottoms">
-    <img [src]="bottom.image" alt="" />
-    <article>
-      <h4>{{ bottom.title }}</h4>
-      <p>{{ bottom.info }}</p>
-    </article>
+      <a  [routerLink] ="[bottom.url]">
+      <section>
+        <img [src]="bottom.image" alt="image d'exercice" />
+        <article>
+          <h4>{{ bottom.title}}</h4>
+          <p>{{ bottom.info }}</p>
+        </article>
+      </section>
+    </a>
   </nav>
 </footer>

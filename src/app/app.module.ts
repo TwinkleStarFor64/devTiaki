@@ -9,6 +9,7 @@ import { AccueilComponent } from './pages/accueil/accueil.component';
 import { ExerciceKineComponent } from './pages/exercice-kine/exercice-kine.component';
 import { AsidebarComponent } from './pages/components/asidebar/asidebar.component';
 import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-opto/bottom-bar-kine-opto.component';
+import { ProgrammeKineComponent } from './pages/programme-kine/programme-kine.component';
 
 
 
@@ -19,6 +20,7 @@ import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-o
     AsidebarComponent,
     ExerciceKineComponent,
     BottomBarKineOptoComponent,
+    ProgrammeKineComponent,
    
    
 
