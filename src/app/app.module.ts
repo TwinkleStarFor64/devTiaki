@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 
-import { ProgressionKineComponent } from './pages/progression-kine/progression-kine.component';
+import { ExerciceKineComponent } from './pages/exercice-kine/exercice-kine.component';
 import { AsidebarComponent } from './pages/components/asidebar/asidebar.component';
 import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-opto/bottom-bar-kine-opto.component';
 
@@ -17,7 +17,7 @@ import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-o
     AppComponent,
     AccueilComponent,
     AsidebarComponent,
-    ProgressionKineComponent,
+    ExerciceKineComponent,
     BottomBarKineOptoComponent,
    
    

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-progression-kine',
-  templateUrl: './progression-kine.component.html',
-  styleUrls: ['./progression-kine.component.scss']
+  selector: 'app-exercice-kine',
+  templateUrl: './exercice-kine.component.html',
+  styleUrls: ['./exercice-kine.component.scss']
 })
-export class ProgressionKineComponent implements OnInit {
+export class ExerciceKineComponent implements OnInit {
   avatar!:string;
   public exercices:any = [
     {

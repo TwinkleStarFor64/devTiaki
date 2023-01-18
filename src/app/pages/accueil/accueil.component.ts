@@ -39,7 +39,7 @@ export class AccueilComponent implements OnInit {
   public toNutri(): void{
     this.router.navigateByUrl('/nutrition');
   }public toKine(): void{
-    this.router.navigateByUrl('/progressionKine');
+    this.router.navigateByUrl('/exerciceKine');
   }public toOpto(): void{
     this.router.navigateByUrl('/optométrie');
   }
