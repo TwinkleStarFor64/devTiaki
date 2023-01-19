@@ -6,10 +6,16 @@
     </article>
   </section>
   <section *ngFor="let appli of applis">
-    <img [src]="appli.nutri" alt="appli-nutri" />
-    <img [src]="appli.kine" alt="appli-kine" />
-    <img [src]="appli.opto" alt="appli-opto" />
-      </section>
+    <a [routerLink]="[appli.urlKine]">
+      <img [src]="appli.nutri" alt="appli-nutri" />
+    </a>
+    <a [routerLink]="[appli.urlKine]">
+      <img [src]="appli.kine" alt="appli-kine" />
+    </a>
+    <a [routerLink]="[appli.urlKine]">
+      <img [src]="appli.opto" alt="appli-opto" />
+    </a>
+  </section>
   <section *ngFor="let tool of tools">
     <img [src]="tool.note" alt="note" />
     <img [src]="tool.schedule" alt="schedule" />

@@ -25,6 +25,7 @@ applis:any = [
   {
     nutri:"assets/imgAsidebar/Vector.svg",
     kine:"assets/imgAsidebar/Vector1.svg",
+    urlKine:'/progressionKine',
     opto:"assets/imgAsidebar/Group1.svg"
   }
 ];
