@@ -47,7 +47,7 @@ export class BottomBarKineOptoComponent implements OnInit {
     });
  
   }
-  onNavItemClick(bottom: Bottom) {
+  onNavItemClick(bottom:Bottom) {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
 }

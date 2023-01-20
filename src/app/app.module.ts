@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AccueilComponent } from './accueil/accueil.component';
 
-import { ExerciceKineComponent } from './Kine/exercice-kine/exercice-kine.component';
+import { ExerciceKineComponent } from './kine/exercice-kine/exercice-kine.component';
 import { AsidebarComponent } from './pages/components/asidebar/asidebar.component';
 import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-opto/bottom-bar-kine-opto.component';
-import { ProgrammeKineComponent } from './Kine/programme-kine/programme-kine.component';
-import { ProgressionKineComponent } from './Kine/progression-kine/progression-kine.component';
+import { ProgrammeKineComponent } from './kine/programme-kine/programme-kine.component';
+import { ProgressionKineComponent } from './kine/progression-kine/progression-kine.component';
 
 
 

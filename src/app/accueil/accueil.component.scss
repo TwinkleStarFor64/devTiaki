@@ -6,12 +6,13 @@ $aside-color1:#270140;
 $aside-color2:#805E96;
 $aside-color3:#F0C02E;
 
-body{
+main{
     margin: 0;
     display: flex;
     justify-content:space-evenly;
+    height: 100vh;
     
-    main{
+    .container{
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -81,8 +82,9 @@ body{
                     width: 20%;
 
                     h3 {
-                        height: 5%;
+                        height: 10%;
                         font-size: 2vw;
+                        font-weight: 100;
                     }
 
                     p{
@@ -119,6 +121,7 @@ body{
                     h3 {
                         height: 10%;
                         font-size: 2vw;
+                        font-weight: 100;
                     }
 
                     p{
@@ -154,7 +157,7 @@ body{
                     h3 {
                         height: 10%;
                         font-size: 2vw;
-                        
+                        font-weight: 100;
                     }
 
                     p{

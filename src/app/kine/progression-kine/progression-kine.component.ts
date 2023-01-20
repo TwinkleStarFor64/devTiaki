@@ -77,6 +77,7 @@ export class ProgressionKineComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.avatar = 'assets/imgAsidebar/cheerleader1.svg'
   }
 
 }

@@ -1,0 +1,42 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: $font-family;
+
+  
+      a{
+        color: #f22f1d;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        width: 10vw;
+
+        div{
+          border-bottom: dashed 1px black;
+          width: 3vw;
+          margin-bottom: 10px;
+          
+        }
+        span {
+          font-weight: 100;
+          font-size: 2.5vw;
+          
+        } 
+     }
+    }
+  }

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
-import { ExerciceKineComponent } from './Kine/exercice-kine/exercice-kine.component';
-import { ProgrammeKineComponent } from './Kine/programme-kine/programme-kine.component';
-import { ProgressionKineComponent } from './Kine/progression-kine/progression-kine.component';
+import { ExerciceKineComponent } from './kine/exercice-kine/exercice-kine.component';
+import { ProgrammeKineComponent } from './kine/programme-kine/programme-kine.component';
+import { ProgressionKineComponent } from './kine/progression-kine/progression-kine.component';
 
 
 
