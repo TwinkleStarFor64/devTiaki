@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ExerciceI } from '../../modeles/Types.js'
 
 @Component({
   selector: 'app-progression-kine',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgressionKineComponent implements OnInit {
   avatar!:string;
-  public exercices:any = [
+  public exercices:ExerciceI[] =[
     {
       photo:'assets/iconeKineOpto/exercice1.png',
-      title:"Muscles profonds",
+      titre:"Muscles profonds",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -18,7 +19,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice2.png',
-      title:"Étirements",
+      titre:"Étirements",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -26,7 +27,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice3.png',
-      title:"Grenouille",
+      titre:"Grenouille",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -34,7 +35,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice4.png',
-      title:"Quotidien",
+      titre:"Quotidien",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -42,7 +43,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice1.png',
-      title:"Muscles profonds",
+      titre:"Muscles profonds",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -50,7 +51,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice2.png',
-      title:"Étirements",
+      titre:"Étirements",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -58,7 +59,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice3.png',
-      title:"Grenouille",
+      titre:"Grenouille",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
@@ -66,7 +67,7 @@ export class ProgressionKineComponent implements OnInit {
     },
     {
       photo:'assets/iconeKineOpto/exercice4.png',
-      title:"Quotidien",
+      titre:"Quotidien",
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',

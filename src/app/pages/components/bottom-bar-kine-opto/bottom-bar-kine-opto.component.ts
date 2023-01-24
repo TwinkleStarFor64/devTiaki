@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Bottom } from 'src/app/interfaces/bottom.interface';
+import { Bottom } from 'src/app/modeles/bottom.interface';
 
 @Component({
   selector: 'app-bottom-bar-kine-opto',
