@@ -2,7 +2,57 @@
 <main>
   <section>
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <a routerLink="/">
+        <div></div>
+        <span>Tiaki</span>
+        <div></div>
+      </a>
     </article>
- </section>
+    <article>
+      <h2>Journaux de suivi</h2>
+    </article>
+    <article>
+      <h4>médecins</h4>
+      <span *ngFor="let medecin of medecins">
+        <p>. {{ medecin.nom }}</p>
+      </span>
+    </article>
+    <article>
+      <h4>réalisations</h4>
+      <span *ngFor="let realisation of realisations">
+        <p>. {{ realisation.nom }}</p>
+      </span>
+    </article>
+  </section>
+  <section>
+    <article>
+      <img [src]="[]" alt="">
+      <p>Historiques des journaux sur ces activités</p>
+    </article>
+  </section>
+  <section>
+    <article>
+      <h3>Ajouter un journal</h3>
+    </article>
+    <article>
+      <form [formGroup]="formJournal">
+        <span class="p-float-label">
+          <input type="text" pInputText />
+          <label for="float-input">Objet</label>
+        </span>
+        <span class="p-float-label">
+          <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
+          <label for="float-input">Note</label>
+        </span>
+        <span class="p-float-label">
+          <textarea id="float-input" rows="5" cols="30" pInputTextarea></textarea>
+          <label for="float-input">Commentaire</label>
+        </span>
+        <p-dropdown [options]="journal" placeholder="Relier un journal précédent" optionLabel="name" [showClear]="true"></p-dropdown>
+      </form>
+    </article>
+  </section>
+  <section>
+    <h3>Concerne</h3>
+  </section>
 </main>

@@ -24,8 +24,10 @@ import { MenusComponent } from './nutrition/menus/menus.component';
 import { RecettesComponent } from './nutrition/recettes/recettes.component';
 import { BottomBarNutriComponent } from './components/bottom-bar-nutri/bottom-bar-nutri.component';
 import { BottomBarOptoComponent } from './components/bottom-bar-opto/bottom-bar-opto.component';
-
-
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 @NgModule({
@@ -51,6 +53,7 @@ import { BottomBarOptoComponent } from './components/bottom-bar-opto/bottom-bar-
     RecettesComponent,
     BottomBarNutriComponent,
     BottomBarOptoComponent,
+
    
    
 
@@ -59,7 +62,11 @@ import { BottomBarOptoComponent } from './components/bottom-bar-opto/bottom-bar-
     BrowserModule,
     AppRoutingModule,
     KnobModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule,
+    InputTextareaModule,
+    ReactiveFormsModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

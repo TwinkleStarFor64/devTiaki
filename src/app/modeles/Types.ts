@@ -46,3 +46,22 @@ export interface BottomI {
     url:string,
     active: boolean,
   }
+ //Interface de l'aside-bar servant à naviguer sur l'application
+ export interface AsideI {
+    nom?:string,
+    image:string,
+    url:string
+ } 
+// Interface de la page journal pour les réalisations
+ export interface RealisationI{
+    nom:string
+ }
+ //Interface de la page journal pour les Medecins
+ export interface MedecinI{
+    nom:string
+ }
+ //Interface de test pour le formulaire Dropdown
+ export interface  CityI {
+    name: string,
+    code: string
+ }

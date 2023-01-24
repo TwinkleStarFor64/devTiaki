@@ -1,36 +1,39 @@
 <aside>
-  <section>
-    <article *ngFor="let avatar of avatars">
-      <img [src]="avatar.image" alt="avatar" />
-      <p>{{ avatar.nom }}</p>
+  <section *ngFor="let aside of asides">
+    <article>
+     <a [routerLink]="[aside.url]">
+      <img [src]="aside.image" alt="image de l'icone" />
+      <p>{{ aside.nom }}</p>
+    </a> 
     </article>
   </section>
-  <section *ngFor="let appli of applis">
-    <a [routerLink]="[appli.urlNutri]">
-      <img [src]="appli.nutri" alt="appli-nutri" />
-    </a>
-    <a [routerLink]="[appli.urlKine]">
-      <img [src]="appli.kine" alt="appli-kine" />
-    </a>
-    <a [routerLink]="[appli.urlOpto]">
-      <img [src]="appli.opto" alt="appli-opto" />
-    </a>
-  </section>
-  <section *ngFor="let tool of tools">
-    <a [routerLink]="[tool.urlJournal]">
-    <img [src]="tool.note" alt="note" />
-  </a>
-  <a [routerLink]="[tool.urlHistorique]" >
-    <img [src]="tool.schedule" alt="schedule" />
-  </a>
-   <a [routerLink]="[tool.urlMessage]" >
-    <img [src]="tool.message" alt="message" />
-  </a> 
-   <a [routerLink]="[tool.urlProfil]">
-     <img [src]="tool.profil" alt="profil" />
-  </a>
-   <a [routerLink]=""> 
-    <img [src]="tool.setting" alt="setting" />
-  </a>
-  </section>
 </aside>
+
+<!-- <section *ngFor="let aside of asides">
+  <a [routerLink]="[aside.url]">
+    <img [src]="aside.image" alt="aside-nutri" />
+  </a>
+  <a [routerLink]="[aside.url]">
+    <img [src]="aside.image" alt="aside-kine" />
+  </a>
+  <a [routerLink]="[aside.url]">
+    <img [src]="aside.image" alt="aside-opto" />
+  </a>
+</section>
+<section *ngFor="let aside of asides">
+  <a [routerLink]="[aside.url]">
+  <img [src]="aside.image" alt="note" />
+</a>
+<a [routerLink]="[aside.url]" >
+  <img [src]="aside.image" alt="schedule" />
+</a>
+ <a [routerLink]="[aside.url]" >
+  <img [src]="aside.image" alt="message" />
+</a> 
+ <a [routerLink]="[aside.url]">
+   <img [src]="aside.image" alt="profil" />
+</a>
+ <a [routerLink]=""> 
+  <img [src]="aside.image" alt="setting" />
+</a>
+</section> -->

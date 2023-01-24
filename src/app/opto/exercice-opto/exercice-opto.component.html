@@ -4,11 +4,24 @@
     <article>
       <a routerLink="/"><span>Tiaki</span><div></div></a>
       <div>
-        <p>Kinésithérapie ></p>
+        <p>Optométrie ></p>
         <img [src]="avatar" />
         <p>Le parcours de Cheer Émilie</p>
       </div>
     </article>
- </section>
+    <section class="exercice">
+      <article *ngFor="let exercice of exercices">
+        <img [src]="exercice.photo" alt="photo-exercice" />
+        <h6>{{ exercice.titre }}</h6>
+        <p>{{ exercice.description }}</p>
+        <div>
+          <img [src]="exercice.horloge" alt="horloge" />
+          <p>Durée</p>
+          <img [src]="exercice.materiel" alt="materiel" />
+          <p>Matériels</p>
+        </div>
+      </article>
+    </section>
+  </section>
  <app-bottom-bar-opto></app-bottom-bar-opto>
 </main>
