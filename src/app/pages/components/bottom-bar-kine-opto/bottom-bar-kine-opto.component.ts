@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Bottom } from 'src/app/modeles/bottom.interface';
+//import { Bottom } from 'src/app/modeles/bottom.interface';
+import { BottomI } from 'src/app/modeles/Types';
 
 @Component({
   selector: 'app-bottom-bar-kine-opto',
@@ -9,7 +10,7 @@ import { Bottom } from 'src/app/modeles/bottom.interface';
 })
 export class BottomBarKineOptoComponent implements OnInit {
   
-  public bottoms: Bottom[] = [
+  public bottoms: BottomI[] = [
     {
       image:"assets/iconeBottom/cheerleader.svg",
       title:"Progression d'Émilie",
@@ -47,7 +48,7 @@ export class BottomBarKineOptoComponent implements OnInit {
     });
  
   }
-  onNavItemClick(bottom:Bottom) {
+  onNavItemClick(bottom:BottomI) {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
 }
