@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Bottom } from 'src/app/modeles/bottom.interface';
+import { Router } from '@angular/router';
+import { BottomI } from 'src/app/modeles/Types.js';
+
 
 @Component({
-  selector: 'app-bottom-bar-kine-opto',
-  templateUrl: './bottom-bar-kine-opto.component.html',
-  styleUrls: ['./bottom-bar-kine-opto.component.scss']
+  selector: 'app-bottom-bar-kine',
+  templateUrl: './bottom-bar-kine.component.html',
+  styleUrls: ['./bottom-bar-kine.component.scss']
 })
-export class BottomBarKineOptoComponent implements OnInit {
+export class BottomBarKineComponent implements OnInit {
   
-  public bottoms: Bottom[] = [
+  public bottoms: BottomI[] = [
     {
       image:"assets/iconeBottom/cheerleader.svg",
-      title:"Progression d'Émilie",
+      titre:"Progression d'Émilie",
       info:"Suivez les progréssion d'Émilie",
       lien:'ProgressionKine',
       url:'/progressionKine',
@@ -20,7 +21,7 @@ export class BottomBarKineOptoComponent implements OnInit {
     },
     {
       image:"assets/iconeBottom/programme.svg",
-      title:"Programmes",
+      titre:"Programmes",
       info:"Des programmes de kinésithérapie",
       lien:'ProgrammeKine',
       url:'/programmeKine',
@@ -28,7 +29,7 @@ export class BottomBarKineOptoComponent implements OnInit {
     },
     {
       image:"assets/iconeBottom/exerciceIcon.svg",
-      title:"Exercices",
+      titre:"Exercices",
       info:"Découvrez les exercices.",
       lien:'ExerciceKine',
       url:'/exerciceKine',
@@ -47,7 +48,7 @@ export class BottomBarKineOptoComponent implements OnInit {
     });
  
   }
-  onNavItemClick(bottom:Bottom) {
+  onNavItemClick(bottom:BottomI) {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
 }

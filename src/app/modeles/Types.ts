@@ -40,7 +40,7 @@ export interface ExerciceI {
 //Interface de la bottom bar servant à naviguer sur les pages de chaque application
 export interface BottomI {
     image:string,
-    title:string,
+    titre:string,
     info:string,
     lien:string,
     url:string,
