@@ -19,7 +19,7 @@ import { ProfilComponent } from './outils/profil/profil.component';
 
 
 
-
+// Toutes le routes permettant de naviguer sur l'application.
 const routes: Routes = [
   {path:'', component: AccueilComponent},
   {path:'exerciceKine', component: ExerciceKineComponent},

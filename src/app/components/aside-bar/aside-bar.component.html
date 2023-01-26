@@ -1,39 +1,9 @@
+<!-- Bar de navigation permettant de se déplacer sur l'application -->
 <aside>
-  <section *ngFor="let aside of asides">
-    <article>
+  <div *ngFor="let aside of asides"> 
      <a [routerLink]="[aside.url]">
-      <img [src]="aside.image" alt="image de l'icone" />
+      <img [src]="aside.image" alt="image" />
       <p>{{ aside.nom }}</p>
     </a> 
-    </article>
-  </section>
+  </div>
 </aside>
-
-<!-- <section *ngFor="let aside of asides">
-  <a [routerLink]="[aside.url]">
-    <img [src]="aside.image" alt="aside-nutri" />
-  </a>
-  <a [routerLink]="[aside.url]">
-    <img [src]="aside.image" alt="aside-kine" />
-  </a>
-  <a [routerLink]="[aside.url]">
-    <img [src]="aside.image" alt="aside-opto" />
-  </a>
-</section>
-<section *ngFor="let aside of asides">
-  <a [routerLink]="[aside.url]">
-  <img [src]="aside.image" alt="note" />
-</a>
-<a [routerLink]="[aside.url]" >
-  <img [src]="aside.image" alt="schedule" />
-</a>
- <a [routerLink]="[aside.url]" >
-  <img [src]="aside.image" alt="message" />
-</a> 
- <a [routerLink]="[aside.url]">
-   <img [src]="aside.image" alt="profil" />
-</a>
- <a [routerLink]=""> 
-  <img [src]="aside.image" alt="setting" />
-</a>
-</section> -->

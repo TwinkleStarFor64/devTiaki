@@ -28,6 +28,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { MessagesModule } from 'primeng/messages';
 
 
 @NgModule({
@@ -66,7 +68,10 @@ import { DropdownModule } from 'primeng/dropdown';
     InputTextModule,
     InputTextareaModule,
     ReactiveFormsModule,
-    DropdownModule
+    DropdownModule,
+    MessagesModule,
+    ConfirmDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

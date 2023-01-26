@@ -65,3 +65,7 @@ export interface BottomI {
     name: string,
     code: string
  }
+ //Interface de la page journal 
+ export interface RelierI{
+    nom:string
+ }
