@@ -1,0 +1,16 @@
+[
+    {
+        "nom":"Toto",
+        "prenom":"Titi",
+        "age":"26",
+        "email":"toto@titi.fr",
+        "adresse":"22 rue charles 3"
+    },
+    {
+        "nom":"Tata",
+        "prenom":"Tutu",
+        "age":"35",
+        "email":"tata@tutu.fr",
+        "adresse":"23 rue charles 3"
+    }
+]
