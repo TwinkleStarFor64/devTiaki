@@ -24,7 +24,7 @@ public asides: AsideI[] = [
   {
     nom:'',
     image:'assets/imgAsidebar/Vector.svg',
-    url:'/intranet/nutrition/journalRepas'
+    url:'/intranet/nutrition'
   },
   {
     nom:'',

@@ -14,7 +14,7 @@ export class BottomBarOptoComponent implements OnInit {
       titre:"Progression d'Émilie",
       info:"Suivez les progréssion d'Émilie",
       lien:'ProgressionOpto',
-      url:'intranet/opto/progressionOpto',
+      url:'/intranet/opto/progressionOpto',
       active: false,
     },
     {
@@ -22,7 +22,7 @@ export class BottomBarOptoComponent implements OnInit {
       titre:"Programmes",
       info:"Des programmes de kinésithérapie",
       lien:'ProgrammeOpto',
-      url:'intranet/opto/programmeOpto',
+      url:'/intranet/opto/programmeOpto',
       active: false,
     },
     {
@@ -30,7 +30,7 @@ export class BottomBarOptoComponent implements OnInit {
       titre:"Exercices",
       info:"Découvrez les exercices.",
       lien:'ExerciceOpto',
-      url:'intranet/opto/exerciceOpto',
+      url:'/intranet/opto/exerciceOpto',
       active: false,
     },
   ]

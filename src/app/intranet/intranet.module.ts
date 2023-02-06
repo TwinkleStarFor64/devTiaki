@@ -8,14 +8,12 @@ import { AccueilComponent } from './accueil/accueil.component';
 
 
 
-
 @NgModule({
   declarations: [
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
-  
-    
+   
  
   ],
   imports: [

@@ -16,7 +16,7 @@ export class BottomBarKineComponent implements OnInit {
       titre:"Progression d'Émilie",
       info:"Suivez les progréssion d'Émilie",
       lien:'ProgressionKine',
-      url:'/progressionKine',
+      url:'/intranet/kine/progressionKine',
       active: false,
     },
     {
@@ -24,7 +24,7 @@ export class BottomBarKineComponent implements OnInit {
       titre:"Programmes",
       info:"Des programmes de kinésithérapie",
       lien:'ProgrammeKine',
-      url:'/programmeKine',
+      url:'/intranet/kine/programmeKine',
       active: false,
     },
     {
@@ -32,7 +32,7 @@ export class BottomBarKineComponent implements OnInit {
       titre:"Exercices",
       info:"Découvrez les exercices.",
       lien:'ExerciceKine',
-      url:'/exerciceKine',
+      url:'/intranet/kine/exerciceKine',
       active: false,
     },
   ]

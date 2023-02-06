@@ -18,6 +18,7 @@ import { FooterComponent } from './intranet/template/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { CommonModule } from '@angular/common';
     MentionsLegalesComponent,
     RgpdComponent,
     FooterComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,

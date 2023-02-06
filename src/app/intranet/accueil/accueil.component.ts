@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
@@ -14,40 +13,28 @@ export class AccueilComponent implements OnInit {
       text:" Des exercices conseillés, des tutoriels et un suivi quotidien.",
       button:"Accéder à l'espace Optométrie",
       image:"assets/imgAsidebar/acc1.png",
-      url:'/progressionOpto'
+      url:'opto/progressionOpto'
     },
     {
       title:"Nutrition",
       text:" Suivez les consommations caloriques, élaborez des menus, surveillez les allergies.",
       button:"Accéder à l'espace Nutrition",
       image:"assets/imgAsidebar/acc2.png",
-      url:'/journalRepas'
+      url:'nutrition/journalRepas'
     },
     {
       title:"Kinésithérapie",
       text:" Motricité, musculature, souplesse, découvrez et suivez des exercices quotidiens.",
       button:"Accéder à l'espace Kinésithérapie",
       image:"assets/imgAsidebar/acc3.png",
-      url:'/progressionKine'
+      url:'kine/progressionKine'
     },
 
   ]
 
-  
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
- 
   }
-  public toNutri(): void{
-    this.router.navigateByUrl('/journalRepas');
-  }public toKine(): void{
-    this.router.navigateByUrl('/progressionKine');
-  }public toOpto(): void{
-    this.router.navigateByUrl('/progressionOpto');
-  }
- 
- 
-}
- 
 
+}

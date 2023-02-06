@@ -7,16 +7,22 @@ import { ProgressionOptoComponent } from './progression-opto/progression-opto.co
 import { BottomBarOptoComponent } from './bottom-bar-opto/bottom-bar-opto.component';
 
 
+
+
 @NgModule({
   declarations: [
     ExerciceOptoComponent,
     ProgrammeOptoComponent,
     ProgressionOptoComponent,
-    BottomBarOptoComponent
+    BottomBarOptoComponent,
+   
+   
+  
   ],
   imports: [
     CommonModule,
     OptoRoutingModule,
+    
   ]
 })
 export class OptoModule { }

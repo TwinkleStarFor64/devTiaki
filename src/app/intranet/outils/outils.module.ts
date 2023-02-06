@@ -12,9 +12,7 @@ import { MessagesModule } from 'primeng/messages';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
+
 
 
 
@@ -28,8 +26,6 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     CommonModule,
     OutilsRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     InputTextModule,
     InputTextareaModule,
     ReactiveFormsModule,

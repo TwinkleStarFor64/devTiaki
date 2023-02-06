@@ -23,7 +23,7 @@ export class BottomBarNutriComponent implements OnInit {
       titre:"Menus",
       info:"Les listes de vos menus et de ceux de la communautés",
       lien:'Menus',
-      url:'/intranet/nutrition//menus',
+      url:'/intranet/nutrition/menus',
       active:false
     },
     {
@@ -31,7 +31,7 @@ export class BottomBarNutriComponent implements OnInit {
       titre:"Plats",
       info:"Vos plats ou ceux de la communauté",
       lien:'Plats',
-      url:'/intranet/nutrition//plats',
+      url:'/intranet/nutrition/plats',
       active:false
     },
     {
@@ -39,7 +39,7 @@ export class BottomBarNutriComponent implements OnInit {
       titre:"Ingrédients",
       info:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
       lien:'Ingredients',
-      url:'/intranet/nutrition//ingredients',
+      url:'/intranet/nutrition/ingredients',
       active:false
     }
   ]
