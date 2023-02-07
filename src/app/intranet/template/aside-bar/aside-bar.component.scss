@@ -1,0 +1,56 @@
+$font-family: 'Raleway', sans-serif;
+$card-nutri:#D9042B;
+$card-kine: #F22F1D;
+$card-opto: #F28705;
+$aside-color1:#270140;
+$aside-color2:#805E96;
+$aside-color3:#F0C02E;
+
+aside{
+    height: 100vh;
+    width:3.5vw;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+// Section des personnes et pouvant naviguer ver le tableau de bord
+    div:nth-child(n+3){
+       
+        background-color: $aside-color2;
+        border-bottom: 1px dashed #ffffff;
+    }
+//div permettant d'accéder à une des trois applications
+    div:nth-child(n+6){
+        
+        background-color: $aside-color3;
+    }
+ 
+//div permettant d'accéder aux outils de l'application     
+    div{
+    display: flex;
+    flex-direction: column;
+    height: 10%;
+    width: 100%;
+    justify-content: flex-end;
+    background-color:  $aside-color1;
+ 
+        a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        height: 80%;
+     
+
+        img{
+            width:1.7vw;
+            height: 100%;
+        }
+        p{
+            font-size: 0.8vw;
+        }
+        }
+    }
+}
