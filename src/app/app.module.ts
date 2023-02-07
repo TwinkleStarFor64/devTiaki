@@ -38,14 +38,14 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     BrowserAnimationsModule,
     InputTextModule,
     InputTextareaModule,
-    ReactiveFormsModule,
     DropdownModule,
     MessagesModule,
     ConfirmDialogModule,
-    FormsModule,
     HttpClientModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
 
   ],
   providers: [],

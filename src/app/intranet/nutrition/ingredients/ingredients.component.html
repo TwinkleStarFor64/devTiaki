@@ -2,8 +2,25 @@
 <main>
   <section>
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <a routerLink="/"><span>Tiaki</span>
+        <div></div>
+      </a>
     </article>
- </section>
- <app-bottom-bar-nutri></app-bottom-bar-nutri>
+  </section>
+  <section>    
+      <input name="filtrer" [(ngModel)]="filtre">
+    
+    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre | slice:debut:debut+ecart; let i=index">
+      <h3>{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h3>
+      <p>Sucre : {{ ingredient['Sucres (g\/100 g)'] }}</p><!-- Je rajoute [''] pour les noms aux caractéres spéciaux -->
+
+    </article>
+  </section>
+  <section>
+    <article>
+      <button (click)="retourPagination()"><</button>
+      <button (click)="suitePagination()">></button>
+    </article>
+  </section>
+  <app-bottom-bar-nutri></app-bottom-bar-nutri>
 </main>

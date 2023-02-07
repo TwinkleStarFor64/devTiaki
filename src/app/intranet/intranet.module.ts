@@ -4,6 +4,7 @@ import { IntranetRoutingModule } from './intranet-routing.module';
 import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,12 +14,13 @@ import { AccueilComponent } from './accueil/accueil.component';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
-   
+       
  
   ],
   imports: [
     CommonModule,
-    IntranetRoutingModule
+    IntranetRoutingModule,
+    FormsModule
   ]
 })
 export class IntranetModule { }

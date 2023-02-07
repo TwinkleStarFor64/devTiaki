@@ -15,6 +15,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
+import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 
 
 @NgModule({
@@ -25,19 +26,20 @@ import { HttpClientModule } from '@angular/common/http';
     MenusComponent,
     PlatsComponent,
     RecettesComponent,
-    NutritionComponent
+    NutritionComponent,
+    AlimentsPipe
   ],
   imports: [
     CommonModule,
     NutritionRoutingModule,
     InputTextModule,
     InputTextareaModule,
-    ReactiveFormsModule,
     DropdownModule,
     MessagesModule,
     ConfirmDialogModule,
+    HttpClientModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,    
   ]
 })
 export class NutritionModule { }
