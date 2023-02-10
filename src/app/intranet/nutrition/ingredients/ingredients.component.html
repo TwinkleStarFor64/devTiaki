@@ -2,25 +2,35 @@
 <main>
   <section>
     <article>
-      <a routerLink="/"><span>Tiaki</span>
-        <div></div>
-      </a>
-    </article>
-  </section>
-  <section>    
-      <input name="filtrer" [(ngModel)]="filtre">
-    
-    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre | slice:debut:debut+ecart; let i=index">
-      <h3>{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h3>
-      <p>Sucre : {{ ingredient['Sucres (g\/100 g)'] }}</p><!-- Je rajoute [''] pour les noms aux caractéres spéciaux -->
-
+      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <p>Ingrédients et valeurs</p><div></div>
     </article>
   </section>
   <section>
+    <div>  
+        <h1>Ingrédients</h1>
+        <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">    
+    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre  let i=index" (click)="onSelect(ingredient)">
+        <h3>{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h3> 
+    </article>
+    </div>  
+    <div>
+    <!-- <article *ngFor="let ingredient of composition.ciqual | aliments:filtre | slice:debut:debut+ecart;">
+      <p *ngIf="selectedIngredient">Sucre : {{ ingredient['Sucres (g\/100 g)'] }}</p>
+    </article> -->
+    <p>Valeurs ingrédients ( en cours )</p>
+    <article *ngIf="selectedIngredient">
+        <h2>{{ selectedIngredient }}</h2>
+    </article>
+  </div>
+  </section>
+  <!-- <section>
     <article>
       <button (click)="retourPagination()"><</button>
       <button (click)="suitePagination()">></button>
     </article>
-  </section>
+  </section> -->
   <app-bottom-bar-nutri></app-bottom-bar-nutri>
 </main>
+
+<!-- slice:debut:debut+ecart; -->
