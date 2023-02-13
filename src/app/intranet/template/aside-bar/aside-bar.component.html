@@ -1,0 +1,9 @@
+<!-- Bar de navigation permettant de se déplacer sur l'application -->
+<aside>
+  <div *ngFor="let aside of asides"> 
+     <a [routerLink]="[aside.url]">
+      <img [src]="aside.image" alt="image" />
+      <p>{{ aside.nom }}</p>
+    </a> 
+  </div>
+</aside>

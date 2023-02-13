@@ -4,34 +4,49 @@ import { KnobModule } from 'primeng/knob';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AccueilComponent } from './accueil/accueil.component';
-
-import { ExerciceKineComponent } from './kine/exercice-kine/exercice-kine.component';
-import { AsidebarComponent } from './pages/components/asidebar/asidebar.component';
-import { BottomBarKineOptoComponent } from './pages/components/bottom-bar-kine-opto/bottom-bar-kine-opto.component';
-import { ProgrammeKineComponent } from './kine/programme-kine/programme-kine.component';
-import { ProgressionKineComponent } from './kine/progression-kine/progression-kine.component';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DropdownModule } from 'primeng/dropdown';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { MessagesModule } from 'primeng/messages';
+import { ConnexionComponent } from './extranet/connexion/connexion.component';
+import { InfosComponent } from './extranet/infos/infos.component';
+import { MentionsLegalesComponent } from './extranet/mentions-legales/mentions-legales.component';
+import { RgpdComponent } from './extranet/rgpd/rgpd.component';
+import { FooterComponent } from './intranet/template/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccueilComponent,
-    AsidebarComponent,
-    ExerciceKineComponent,
-    BottomBarKineOptoComponent,
-    ProgrammeKineComponent,
-    ProgressionKineComponent,
-   
-   
-
+    ConnexionComponent,
+    InfosComponent,
+    MentionsLegalesComponent,
+    RgpdComponent,
+    FooterComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     KnobModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule,
+    InputTextareaModule,
+    ReactiveFormsModule,
+    DropdownModule,
+    MessagesModule,
+    ConfirmDialogModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+    CommonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

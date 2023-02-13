@@ -1,0 +1,438 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+$historique: #F8E6AF;
+$button-color1:#33BB27;
+$card-opto-hover: #cf7507;
+$aside-color3-hover: #c29d2e;
+$button-color1-hover: #2b9b1c;
+
+main {
+    font-family: $font-family;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    
+    
+
+ // Section permettant de voir les medecin
+    section:nth-child(1){
+        background-color: $aside-color3;
+        width: 13%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #ffffff;
+        align-items: center;
+        gap: 1vw;
+
+        article:nth-child(1){
+            a{
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                text-decoration: none;
+                width: 100%;
+                color: #ffffff;
+                font-size: 3vw;
+                font-weight: 100;
+                div{
+                    border-bottom: dashed 1px rgb(255, 255, 255);
+                    width: 3vw;
+                    margin-bottom: 10px;
+                }
+                span{
+                    font-weight: 100;
+                }
+            }
+        }
+        article:nth-child(2){
+            border-bottom: 1px white dashed;
+            h2{
+                margin: 0;
+                font-size: 1.4vw;
+                font-weight: 700;
+                width: 60%;
+            }
+        }
+        .medecin{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin: 0;
+            height: 30%;
+            width: 100%;
+
+            div{
+                display: flex;
+                align-items: flex-end;
+                gap: 9px;
+                justify-content: flex-start;
+                
+                img{
+                    width: 3vw;
+                }
+                h4{
+                    margin: 0;
+                    font-size: 1.2vw;
+                }
+            }
+            span{
+                margin: 4px;
+                font-size: 0.8vw;
+                margin-left: 2vw;
+            }
+        }
+        .realisation{
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            height: 30%;
+            justify-content: space-evenly;
+            width: 100%;
+
+            div{
+                display: flex;
+                align-items: flex-end;
+                gap: 9px;
+                justify-content: flex-start;
+                img{
+                    width: 3vw;
+                }
+                h4{
+                    margin: 0;
+                    font-size: 1.2vw;
+                    
+                }
+            }
+            span{
+                margin: 4px;
+                font-size: 0.8vw;
+                margin-left: 2vw;
+            }
+        }
+    }
+}    
+// Section permettant de voir l'historique des journaux
+    section:nth-child(2){
+        background-color: $historique;
+        width: 13%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+            div{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 18%;
+                justify-content: flex-end;
+                gap: 1vw;
+
+                img{
+                    height: 4vw;
+                }
+                p{
+                    font-size: 1vw;
+                    font-weight: 600;
+                    margin: 4px;
+                    width: 100%;
+                }
+            }
+            ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: flex-start;
+                height: 30%;
+              
+                
+
+                li{
+                    text-align: center;
+                    font-size: 0.8vw;
+                    font-family:'Courier New', Courier, monospace;
+                }
+            }
+            
+        }
+    
+// Section qui comporte le formulaire d'enregistrement du journal
+    section:nth-child(3){
+        //background-color: blue;
+        width: 61%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4vw;
+
+    // Article du titre avec la ligne de dashed
+        article:nth-child(1){
+            width: 80%;
+            height: 10%;
+            border-bottom: 1px dashed black;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            h3{
+                align-self:flex-start ;
+                font-size: 1.5vw;
+            }
+        }
+    //Article comportant le formulaire
+        article:nth-child(2){
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            form{
+                width: 80%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                span:nth-child(1){
+                    width: 100%;
+                    height: 2vw ;
+                    
+                    input{
+                        width: 80%;
+                        height: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                }
+                   
+                span:nth-child(2){
+                    width: 100%;
+                    height: 10vw;
+                    
+                    textarea{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                }
+                span:nth-child(3){
+                    height: 20%;
+                    width: 100%;
+
+                    textarea{
+                        height: 100%;
+                        width: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                }
+                span:nth-child(4){
+                    
+                    width: 80%;
+                    .ui-dropdown {
+                    width: 100%;
+                    }
+                }
+                div{
+                    display: flex;
+                    justify-content: space-between;
+
+                    div:nth-child(3){
+                        display: flex;
+                        width: 30%;
+                        height: 10%;
+                    }
+                }
+            }
+        }
+    }
+    //Section Concerner permettant de choisir les activités éffectué sur l'application 
+    .concerner{
+        background-color: $historique;
+        width: 13%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+        h3{
+            font-size: 1.3vw;
+        }
+        article{
+            margin: 1vw;
+        }
+        h5{
+            font-size: 0.8vw;
+            margin: 0;
+        }
+
+        .buttonPlats{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+
+            button{
+                background-color: $card-nutri;
+                border: 1px solid #999;
+                text-align: center;
+                font-size: 0.6vw;
+                color: #ffffff;
+                border-radius: 8px;
+                width: 5vw;
+                height: 1.5vw;
+
+            }
+        }
+
+        input{
+            background-color: transparent;
+            align-self: center;
+            width: 70%;
+            border-radius: 8px ;
+            height: 1vw;
+            border-color: #ffffff;
+        }
+
+        .buttonKine{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+
+            button{
+                background-color: $card-kine;
+                border: 1px solid #999;
+                font-size: 0.6vw;
+                color: #ffffff;
+                border-radius: 8px;
+                width: 5vw;
+                height: 1.5vw;
+            }
+        }
+        .buttonOpto{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+
+            button{
+                background-color: $card-opto;
+                border: 1px solid #999;
+                text-align: center;
+                font-size: 0.6vw;
+                color: #ffffff;
+                border-radius: 8px;
+                width: 5vw;
+                height: 1.5vw;
+
+            }
+        }
+        .buttonMedecin{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+
+            button{
+                background-color: transparent;
+                border: 1px solid #ffffff;
+                text-align: center;
+                font-size: 0.6vw;
+                border-radius: 8px;
+                width: 5vw;
+                height: 1.2vw;
+            }
+        }
+        .buttonOrg{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-gap: 10px;
+
+            button{
+                background-color: transparent;
+                border: 1px solid #ffffff;
+                text-align: center;
+                font-size: 0.6vw;
+                border-radius: 8px;
+                width: 5vw;
+                height: 1.5vw;
+                
+
+            }
+        }
+
+    }
+
+ // Button de PrieNg Css personnalisé
+ :host::ng-deep { //:host::ngdeep pour préciser les modifications CSS des composants PrimeNg
+    .partager { //Le bouton orange Partager et son hover
+        background-color: $card-opto;
+        border-color: $card-opto;
+        font-size: 0.7vw;
+        border-radius: 0px;
+
+        :hover{
+            background-color: $card-opto-hover;
+            border-color: $card-opto-hover;
+        }
+    }
+
+    .annuler { //Le bouton vert Annuler et son hover
+        background-color: $button-color1;
+        border-color: $button-color1;
+        font-size: 0.7vw;
+        border-radius: 0px;
+       
+
+        :hover{
+            background-color: $button-color1-hover;
+            border-color: $button-color1-hover;
+        }
+    }
+
+    .p-button.enregistrer{ //Le bouton jaune Enregistrer - avec une opacity gérer dans le html via [disabled]
+        background-color: $aside-color3;
+        border-color: $aside-color3;
+        border-radius: 0px;
+        font-size: 0.7vw;
+       
+
+    }
+
+    .p-button.enregistrer:hover{ //Le hover du bouton jaune Enregistrer - ne fonctionne pas en imbrication SCSS - à cause de [disabled] ?
+    background-color: $aside-color3-hover;
+    border-color: $aside-color3-hover;
+    }
+    .p-confirm-dialog-accept{
+        background-color: $button-color1;
+        border-color: $button-color1;
+    }
+    .p-confirm-dialog-accept:hover{
+        background-color: $button-color1-hover;
+        color: #ffffff;
+        border-color: $button-color1-hover;
+    }
+
+    .p-confirm-dialog-reject{
+        background-color: $aside-color3;
+        border-color: $aside-color3;
+        color: #ffffff;
+    }
+    .p-confirm-dialog-reject:not([disabled]):hover{
+        background-color: $aside-color3-hover;
+        border-color: $aside-color3-hover;
+        color: #ffffff;
+    }
+}
