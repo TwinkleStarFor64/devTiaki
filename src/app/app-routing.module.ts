@@ -6,10 +6,7 @@ import { MentionsLegalesComponent } from './extranet/mentions-legales/mentions-l
 import { RgpdComponent } from './extranet/rgpd/rgpd.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
-
-
-
-// Toutes le routes permettant de naviguer sur l'application.
+// Toutes les routes permettant de naviguer sur l'application.
 const routes: Routes = [
   {path:'', component:ConnexionComponent},
 

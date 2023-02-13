@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IngredientsServiceService } from './services/ingredients-service.service';
 
 @Component({
   selector: 'app-ingredients',
@@ -7,9 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IngredientsComponent implements OnInit {
 
-  constructor() { }
+  filtre:string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel
+  ecart:number = 8; //L'écart de la pagination
+  debut:number = 0; //Le début de la pagination
+
+  selectedIngredient?:IngredientsServiceService;
+
+  constructor(public composition:IngredientsServiceService) { }
 
   ngOnInit(): void {
+    //Lancer la récupération de la table ciqual
+    this.composition.getCiqual();//Je récupére la méthode de ingredients-service.services
+
+  }
+
+  suitePagination(){
+    this.debut += this.ecart;
+  }
+
+  retourPagination(){
+    this.debut -= this.ecart;
+  }
+
+  onSelect(ingredient:IngredientsServiceService): void {
+    console.log(this.selectedIngredient = this.selectedIngredient);
+    this.selectedIngredient = ingredient;
   }
 
 }
