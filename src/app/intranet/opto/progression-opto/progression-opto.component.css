@@ -1,0 +1,91 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+}
+main section article {
+  display: flex;
+  align-items: flex-start;
+  color: #f28705;
+  height: 13vh;
+}
+main section article a {
+  color: #f28705;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  width: 10vw;
+}
+main section article a div {
+  border-bottom: dashed 1px black;
+  width: 3vw;
+  margin-bottom: 10px;
+}
+main section article a span {
+  font-weight: 100;
+  font-size: 2.5vw;
+}
+main section article > :nth-child(2) {
+  display: flex;
+  align-items: baseline;
+  width: 40%;
+  height: 30%;
+  gap: 2%;
+  margin-left: 2%;
+}
+main section article > :nth-child(2) p {
+  font-size: 1.5vw;
+  font-weight: 100;
+}
+main section article > :nth-child(2) img {
+  width: 6%;
+}
+main section .exercice {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  align-content: center;
+  justify-items: center;
+  height: 74vh;
+}
+main section .exercice article {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width: 70%;
+}
+main section .exercice article img {
+  width: 100%;
+  height: 30vh;
+}
+main section .exercice article h6 {
+  margin: 0.5vw;
+  font-size: 1vw;
+  text-align: start;
+  width: 100%;
+}
+main section .exercice article p {
+  margin: 0;
+  font-size: 0.8vw;
+}
+main section .exercice div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: center;
+}
+main section .exercice div img {
+  width: 10%;
+  height: 60%;
+}
+main section .exercice div p {
+  margin: 0;
+  font-size: 0.8vw;
+}/*# sourceMappingURL=progression-opto.component.css.map */

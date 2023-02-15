@@ -1,0 +1,18 @@
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+}
+main section article {
+  display: flex;
+  align-items: flex-start;
+  color: #f22f1d;
+  height: 13vh;
+}/*# sourceMappingURL=recettes.component.css.map */

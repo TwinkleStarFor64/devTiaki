@@ -1,0 +1,153 @@
+main {
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  height: 100vh;
+}
+main .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+main .container section:nth-child(1) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+}
+main .container section:nth-child(1) article:nth-child(1) {
+  display: flex;
+  align-items: baseline;
+  width: 30%;
+  height: 30%;
+  justify-content: space-evenly;
+}
+main .container section:nth-child(1) article:nth-child(1) h2 {
+  margin: 0;
+  color: #D9042B;
+  font-size: 3rem;
+  font-weight: 100;
+  font-style: normal;
+}
+main .container section:nth-child(1) article:nth-child(1) span {
+  color: #270140;
+}
+main .container section:nth-child(1) p {
+  height: 50%;
+  width: 60%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2vw;
+  text-align: justify;
+  color: #805E96;
+}
+main .container section:nth-child(2) {
+  display: flex;
+  justify-content: space-around;
+  height: 60%;
+}
+main .container section:nth-child(2) article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 250ms;
+  height: 100%;
+}
+main .container section:nth-child(2) article:hover {
+  transform: translateY(-3vw);
+}
+main .container section:nth-child(2) article:nth-child(1) {
+  background-color: #F28705;
+  width: 20%;
+}
+main .container section:nth-child(2) article:nth-child(1) h3 {
+  height: 10%;
+  font-size: 2vw;
+  font-weight: 100;
+}
+main .container section:nth-child(2) article:nth-child(1) p {
+  height: 10%;
+  font-size: 0.8vw;
+  text-align: left;
+  margin: 10px;
+}
+main .container section:nth-child(2) article:nth-child(1) a button {
+  background-color: #ffffff;
+  color: #F28705;
+  width: 70%;
+  height: 100%;
+  margin-bottom: 1vw;
+  border-color: #F28705;
+  font-weight: bolder;
+  font-size: 1vw;
+  cursor: pointer;
+}
+main .container section:nth-child(2) article:nth-child(1) img {
+  width: 100%;
+}
+main .container section:nth-child(2) article:nth-child(2) {
+  background-color: #D9042B;
+  width: 20%;
+}
+main .container section:nth-child(2) article:nth-child(2) h3 {
+  height: 10%;
+  font-size: 2vw;
+  font-weight: 100;
+}
+main .container section:nth-child(2) article:nth-child(2) p {
+  height: 10%;
+  font-size: 0.8vw;
+  text-align: left;
+  margin: 10px;
+}
+main .container section:nth-child(2) article:nth-child(2) a button {
+  background-color: #ffffff;
+  color: #D9042B;
+  width: 70%;
+  height: 100%;
+  margin-bottom: 1vw;
+  border-color: #D9042B;
+  font-weight: bolder;
+  font-size: 1vw;
+  cursor: pointer;
+}
+main .container section:nth-child(2) article:nth-child(2) img {
+  width: 100%;
+  font-size: 2vw;
+}
+main .container section:nth-child(2) article:nth-child(3) {
+  background-color: #F22F1D;
+  width: 20%;
+}
+main .container section:nth-child(2) article:nth-child(3) h3 {
+  height: 10%;
+  font-size: 2vw;
+  font-weight: 100;
+}
+main .container section:nth-child(2) article:nth-child(3) p {
+  height: 10%;
+  font-size: 0.8vw;
+  text-align: left;
+  margin: 10px;
+}
+main .container section:nth-child(2) article:nth-child(3) a button {
+  background-color: #ffffff;
+  color: #F22F1D;
+  width: 60%;
+  height: 100%;
+  margin-bottom: 1vw;
+  border-color: #F22F1D;
+  font-weight: bolder;
+  font-size: 1vw;
+  cursor: pointer;
+}
+main .container section:nth-child(2) article:nth-child(3) img {
+  width: 100%;
+}/*# sourceMappingURL=accueil.component.css.map */

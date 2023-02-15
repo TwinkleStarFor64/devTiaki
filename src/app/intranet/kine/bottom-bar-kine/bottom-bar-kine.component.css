@@ -1,0 +1,45 @@
+footer {
+  background-color: #f22f1d;
+  display: flex;
+  justify-content: space-evenly;
+  font-family: "Raleway", sans-serif;
+  height: 12vh;
+  width: 100%;
+}
+footer nav {
+  display: flex;
+  width: 25%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+footer nav a {
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+footer nav a .active {
+  filter: brightness(50%);
+}
+footer nav a section {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+footer nav a section img {
+  width: 3vw;
+  height: 4vw;
+}
+footer nav a section article {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+footer nav a section article h4 {
+  margin: 0;
+  font-size: 1.2vw;
+}
+footer nav a section article p {
+  font-size: 0.8vw;
+}/*# sourceMappingURL=bottom-bar-kine.component.css.map */
