@@ -2,35 +2,60 @@
 <main>
   <section>
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
-      <p>Ingrédients et valeurs</p><div></div>
+      <a routerLink="/"><span>Tiaki</span>
+        <div></div>
+      </a>
+      <p>Ingrédients et valeurs</p>
+      <div></div>
     </article>
   </section>
   <section>
-    <div>  
-        <h1>Ingrédients</h1>
-        <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">    
-    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre  let i=index" (click)="onSelect(ingredient)">
-        <h3>{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h3> 
-    </article>
-    </div>  
     <div>
-    <!-- <article *ngFor="let ingredient of composition.ciqual | aliments:filtre | slice:debut:debut+ecart;">
-      <p *ngIf="selectedIngredient">Sucre : {{ ingredient['Sucres (g\/100 g)'] }}</p>
-    </article> -->
-    <p>Valeurs ingrédients ( en cours )</p>
-    <article *ngIf="selectedIngredient">
-        <h2>{{ selectedIngredient }}</h2>
-    </article>
-  </div>
+      <h1>Ingrédients</h1>
+      <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.componet.ts -->
+      <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
+      <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
+      <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
+      <article *ngFor="let ingredient of composition.ciqual | aliments:filtre  let i=index">
+        <h4 (click)="onSelect(ingredient)">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h4>
+      </article>
+    </div>
+    <div>
+      <article *ngIf="selectedIngredient">
+        <span>
+          <h1>{{ selectedIngredient.alim_nom_fr}}</h1>
+          <p>Cet ingrédient est mal supporté <input type="checkbox" name="allergie" id="allergie"></p>
+        </span>
+        <span>
+          <h3>Valeurs et compositions</h3>
+          <p> <img src="assets/photoNutri/compl.svg" alt="icône composition"> 
+             Composition : Protéines : {{ selectedIngredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+                           Glucides : {{ selectedIngredient['Glucides (g\/100 g)'] }} Gr -
+                           Lipide : {{ selectedIngredient['Lipides (g\/100 g)'] }} Gr -
+                           Sucre : {{ selectedIngredient['Sucres (g/100 g)'] }} Gr
+          </p>         
+          <p> <img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+            Vitamines : C : {{ selectedIngredient["Vitamine C (mg\/100 g)"] }} Mg - 
+                        B1 : {{ selectedIngredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+                        B2 : {{ selectedIngredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+                        B3 : {{ selectedIngredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+                        B5 : {{ selectedIngredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }}          
+          </p>          
+          <p> <img src="assets/photoNutri/vitamine.svg" alt="icône minéraux">
+            Minéraux et oligo-éléments : Magnésium : {{ selectedIngredient["Magnésium (mg\/100 g)"] }} Mg -
+                                         Potassium : {{ selectedIngredient["Potassium (mg\/100 g)"] }} Mg - 
+                                         Cuivre : {{ selectedIngredient["Cuivre (mg\/100 g)"] }} Mg -
+                                         Manganése: {{ selectedIngredient["Manganèse (mg\/100 g)"] }} Mg
+          </p>
+        </span> 
+        <span>
+          <h3>Plats contenant cet ingrédient</h3>
+          <p>Note du dev : Travail en cours sur la base de donnée</p>
+          <img src="https://cdn.pixabay.com/photo/2017/08/07/16/36/cat-2605502_960_720.jpg" alt="">
+        </span>       
+      </article>
+    </div>
   </section>
-  <!-- <section>
-    <article>
-      <button (click)="retourPagination()"><</button>
-      <button (click)="suitePagination()">></button>
-    </article>
-  </section> -->
+
   <app-bottom-bar-nutri></app-bottom-bar-nutri>
 </main>
-
-<!-- slice:debut:debut+ecart; -->
