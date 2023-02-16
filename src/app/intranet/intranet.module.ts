@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
+    
        
  
   ],

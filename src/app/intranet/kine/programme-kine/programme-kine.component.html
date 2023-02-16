@@ -1,4 +1,3 @@
-<!-- <app-aside-bar></app-aside-bar> -->
 <main>
     <section>
         <a routerLink="/"><span>Tiaki</span><div></div></a> 
@@ -8,7 +7,38 @@
           <label for="allergie">Tenir compte de mes allergies </label>
           <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait">
           <label for="jamaisFait">Jamais faites </label>
-        </article>   
+        </article>
+        <article class="dashed"></article>   
+    </section>
+    <section>
+      <div class="modal" *ngIf="(modalService.showModal$ | async)">
+        <div class="modal-content">
+          <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
+          <article *ngIf="selectedMedia?.type === 'image'">
+            <img [src]="selectedMedia?.url" alt="image">
+          </article>
+          <article *ngIf="selectedMedia?.type === 'video'">
+            <video [src]="selectedMedia?.url" controls></video>
+          </article>
+        </div>
+      </div>
+      <!-- <video>
+       <source [src]="sanitizer.bypassSecurityTrustResourceUrl('assets/videoKine/pexel.mp4')" type="video/mp4">
+        Your browser does not support the video tag.  
+      </video>  -->
+    </section>
+    <section>
+      <article>
+        <h2>Occluimetrie</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, dolor!</p>
+      </article>
+      <article>
+          <img src="assets/iconeKineOpto/horloge.png">
+        <p>Durée</p>
+            <img src="assets/iconeKineOpto/materielOpto.png">
+        <p>Matériels</p>       
+      </article>
+       <app-carousel></app-carousel>
     </section>
     <app-bottom-bar-kine></app-bottom-bar-kine>
   </main>

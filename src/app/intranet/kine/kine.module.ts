@@ -5,6 +5,8 @@ import { ProgressionKineComponent } from './progression-kine/progression-kine.co
 import { BottomBarKineComponent } from 'src/app/intranet/kine/bottom-bar-kine/bottom-bar-kine.component';
 import { ExerciceKineComponent } from './exercice-kine/exercice-kine.component';
 import { ProgrammeKineComponent } from './programme-kine/programme-kine.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 @NgModule({
@@ -12,10 +14,12 @@ import { ProgrammeKineComponent } from './programme-kine/programme-kine.componen
     ProgressionKineComponent,
     ExerciceKineComponent,
     ProgrammeKineComponent,
-    BottomBarKineComponent
+    BottomBarKineComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
+    NgImageSliderModule,
     KineRoutingModule
   ]
 })
