@@ -3,13 +3,22 @@
     <section>
       <a routerLink="/"><span>Tiaki</span><div></div></a> 
       <article>
-        <input type="search">
+        <form class="example-form">
+            <input type="text" matInput [formControl]="myProg" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" >
+              <mat-option *ngFor="let tutoriel of programmeOpto.programme | programmeOpto:filtre " [value]="tutoriel">
+                {{tutoriel.titre}}
+              </mat-option>
+            </mat-autocomplete>
+        </form>
         <input type="checkbox" id="allergie" name="allergie" value="allergie">
         <label for="allergie">Tenir compte de mes allergies </label>
         <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait">
         <label for="jamaisFait">Jamais faites </label>
       </article>
       <article class="dashed"></article>   
+  </section>
+  <section>
   </section>
  <app-bottom-bar-opto></app-bottom-bar-opto>
 </main>

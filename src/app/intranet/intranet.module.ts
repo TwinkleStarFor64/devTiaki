@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
     
-       
- 
+    
   ],
   imports: [
     CommonModule,
