@@ -12,10 +12,9 @@
     <a class="carousel-prev" (click)="prevSlide()"></a>
     <a class="carousel-next" (click)="nextSlide()"></a>
   </div>
-  
-  <div class="modal" *ngIf="showModal">
+  <article class="modal" *ngIf="(modalService.showModal$ | async)">
     <div class="modal-content">
-      <span class="close" (click)="closeModal()">&times;</span>
+      <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
       <article *ngIf="selectedMedia?.type === 'image'">
         <img [src]="selectedMedia?.url" alt="image">
       </article>
@@ -23,5 +22,5 @@
         <video [src]="selectedMedia?.url" controls></video>
       </article>
     </div>
-  </div>
+  </article>
   

@@ -14,15 +14,16 @@ export class CarouselComponent {
     { type: 'video', url: 'video1.mp4' },
     { type: 'image', url: 'assets/iconeKineOpto/exercice3.png' },
     { type: 'image', url: 'assets/iconeKineOpto/exercice4.png'},
-    { type: 'video', url: 'assets/iconeKineOpto/exercice1.png' },
+    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
     { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
     { type: 'image', url: 'assets/iconeKineOpto/exercice1.png'},
   ];
 
   currentSlide = 0;
   selectedMedia: any;
+ 
   showModal = false;
-  constructor(private modalService: ModalService) {
+  constructor(public modalService: ModalService) {
     this.carouselContainer = new ElementRef(null);
   }
   nextSlide() {

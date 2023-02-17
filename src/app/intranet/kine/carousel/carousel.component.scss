@@ -1,3 +1,7 @@
+:host{
+  height: 100%;
+  width: 100%;
+}
 .carousel {
     position: relative;
     display: flex;
@@ -10,6 +14,7 @@
     .carousel-container {
       display: flex;
       transition: transform 0.3s ease-in-out;
+      height: 100%;
     }
   
     .carousel-slide {
@@ -70,51 +75,51 @@
     }
   }
   
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+  // .modal {
+  //   display: none;
+  //   position: fixed;
+  //   z-index: 9999;
+  //   left: 0;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   overflow: auto;
+  //   background-color: rgba(0, 0, 0, 0.9);
   
-    .modal-content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
+  //   .modal-content {
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     height: 100%;
+  //     width: 100%;
   
-      article {
-        max-height: 90%;
-        max-width: 90%;
+  //     article {
+  //       max-height: 90%;
+  //       max-width: 90%;
   
-        img,
-        video {
-          max-height: 100%;
-          max-width: 100%;
-          display: block;
-          margin: 0 auto;
-        }
-      }
-    }
+  //       img,
+  //       video {
+  //         max-height: 100%;
+  //         max-width: 100%;
+  //         display: block;
+  //         margin: 0 auto;
+  //       }
+  //     }
+  //   }
   
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 35px;
-      font-weight: bold;
-      color: #f1f1f1;
-      cursor: pointer;
-      transition: opacity 0.3s ease-in-out;
+  //   .close {
+  //     position: absolute;
+  //     top: 10px;
+  //     right: 25px;
+  //     font-size: 35px;
+  //     font-weight: bold;
+  //     color: #f1f1f1;
+  //     cursor: pointer;
+  //     transition: opacity 0.3s ease-in-out;
   
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
+  //     &:hover {
+  //       opacity: 0.8;
+  //     }
+  //   }
+  // }
   

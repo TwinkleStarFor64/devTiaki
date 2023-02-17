@@ -11,11 +11,7 @@ export class ProgrammeKineComponent implements OnInit {
   avatar!:string;
   selectedMedia: { type: string, url: string } | null = null;
 
-  mediaList: { type: string, url: string }[] = [  // Ajout de mediaList ici
-  { type: 'image', url: 'assets/iconeKineOpto/exercice1.jpg' },
-  { type: 'image', url: 'assets/iconeKineOpto/exercice2.jpg' },
-  { type: 'video', url: 'assets/iconeKineOpto/exercice3.mp4' },
-];
+  mediaList: { type: string, url: string }[] = [];
   
   constructor(public sanitizer: DomSanitizer,public modalService: ModalService) { }
 

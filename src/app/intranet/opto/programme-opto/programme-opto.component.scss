@@ -12,17 +12,54 @@ main {
   flex-direction: column;
   justify-content: space-between;
 
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
-
-    article {
+  // Section contenant le logo et la barre de recherche des programmes
+    section {
       display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: $font-family;
+      align-items: center;
+      width: 100%;
+
+      a {
+        color: $card-opto;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-around;
+        width: 10vw;
+        align-items: flex-end;
+        align-self: baseline;
+
+        div{
+          border-bottom: dashed 1px black;
+          height: 1vh;
+          width: 3vw;
+        }
+        span {
+          font-weight: 100;
+          font-size: 2.5vw;
+        }
+
+        .dashed {
+          border-bottom: dashed 1px black;
+          width: 3vw;
+          margin-bottom: 10px;
+        }
+      }
+      article{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5vw;
+        height: 5vh;
+        width: 100%;
+      }
+      .dashed{
+        width: 90%;
+        height: 1vh;
+        border-bottom: dashed 1px black;
+      }
     }
+    
   }
-}
+

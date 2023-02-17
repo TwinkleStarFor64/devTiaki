@@ -11,22 +11,20 @@
         <article class="dashed"></article>   
     </section>
     <section>
-      <div class="modal" *ngIf="(modalService.showModal$ | async)">
-        <div class="modal-content">
-          <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
-          <article *ngIf="selectedMedia?.type === 'image'">
-            <img [src]="selectedMedia?.url" alt="image">
-          </article>
-          <article *ngIf="selectedMedia?.type === 'video'">
-            <video [src]="selectedMedia?.url" controls></video>
-          </article>
-        </div>
-      </div>
-      <!-- <video>
-       <source [src]="sanitizer.bypassSecurityTrustResourceUrl('assets/videoKine/pexel.mp4')" type="video/mp4">
-        Your browser does not support the video tag.  
-      </video>  -->
     </section>
+      <!-- <ng-container *ngIf="modalService.showModal$ | async">
+        <article class="modal" *ngIf="(modalService.showModal$ | async)">
+          <div class="modal-content">
+            <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
+            <article *ngIf="selectedMedia?.type === 'image'">
+              <img [src]="selectedMedia?.url" alt="image">
+            </article>
+            <article *ngIf="selectedMedia?.type === 'video'">
+              <video [src]="selectedMedia?.url" controls></video>
+            </article>
+          </div>
+        </article>
+      </ng-container> -->
     <section>
       <article>
         <h2>Occluimetrie</h2>
