@@ -8,6 +8,7 @@ $aside-color3:#F0C02E;
    
    html{
         height: 100%;
+   }
        body {
             border-spacing: 0;
             height: 100vh;
@@ -20,7 +21,7 @@ $aside-color3:#F0C02E;
             transform: matrix(1, 0, 0, 1, 0, 0);
             height: 100vh;
             border-spacing: 0;
-            
+       }
             app-root{
                 height: 100%;
                 
@@ -30,11 +31,11 @@ $aside-color3:#F0C02E;
             font-family:'Raleway', sans-serif;
             src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
         }
-    }
+    
     // app-programme-kine > header{
     //     background-color: $aside-color2;
     // }
-   }
+   
 //    main{
 //     display:flex;
 //     flex-flow:row nowrap;
