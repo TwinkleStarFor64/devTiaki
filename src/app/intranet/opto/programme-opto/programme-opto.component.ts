@@ -11,27 +11,21 @@ import { ProgrammeOptoService } from './services/programme-opto.service';
 export class ProgrammeOptoComponent implements OnInit {
   formGroup!: FormGroup
   myProg = new FormControl<string | ProgrammeOptoI>('');
-  filtre:string = ''; //Ce qui va servir à filtrer le tableau des programmes- utiliser dans ngModel
-  ecart:number = 8; //L'écart de la pagination
-  debut:number = 1; //Le début de la pagination
+  filtre:string = '';
+  ecart:number = 8;
+  debut:number = 1;
   selectedProgrammeOpto?:ProgrammeOptoI;
 
   constructor(public programmeOpto:ProgrammeOptoService) { }
 
-  ngOnInit(): any {
-    this.programmeOpto.getProgrammeOpto();
+  ngOnInit(): void {
+    this.programmeOpto.getProgrammeOpto().subscribe(programmes => {
+      this.programmeOpto.programme = programmes;
+    });
   }
 
-  onSelect(tutoriel:ProgrammeOptoI): void {
-    console.log(this.selectedProgrammeOpto = tutoriel);
-    //console.log(this.selectedIngredient = miam.alim_nom_fr);
-    this.selectedProgrammeOpto = tutoriel;   
-  }
-  
-  displayFn(prog: ProgrammeOptoI): string {
-    return prog && prog.titre ? prog.titre : '';
-  }
-  
+  onSelectProgramme(programme: ProgrammeOptoI): void {
+    this.selectedProgrammeOpto = programme;
+  } 
+ }
 
-
-}

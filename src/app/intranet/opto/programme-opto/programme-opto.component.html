@@ -1,24 +1,29 @@
 <main>
   <!-- section contenant la barre de recherche et les checkbox -->
-    <section>
-      <a routerLink="/"><span>Tiaki</span><div></div></a> 
-      <article>
-        <form class="example-form">
-            <input type="text" matInput [formControl]="myProg" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" >
-              <mat-option *ngFor="let tutoriel of programmeOpto.programme | programmeOpto:filtre " [value]="tutoriel">
-                {{tutoriel.titre}}
-              </mat-option>
-            </mat-autocomplete>
-        </form>
-        <input type="checkbox" id="allergie" name="allergie" value="allergie">
-        <label for="allergie">Tenir compte de mes allergies </label>
-        <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait">
-        <label for="jamaisFait">Jamais faites </label>
-      </article>
-      <article class="dashed"></article>   
-  </section>
   <section>
+    <a routerLink="/">
+      <span>Tiaki</span>
+      <div></div>
+    </a>
+    <mat-form-field>
+      <mat-label>Choisir un programme</mat-label>
+      <mat-select [(ngModel)]="filtre">
+        <mat-option *ngFor="let programme of programmeOpto.programme" [value]="programme" (click)="onSelectProgramme(programme)">
+          <p>{{ programme.titre }}</p>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <article class="dashed"></article>
   </section>
- <app-bottom-bar-opto></app-bottom-bar-opto>
+  <!-- section contenant la photo ou image principale et le titre la description le carroussel -->
+  <section *ngIf="selectedProgrammeOpto">
+    <div>
+      <article>
+        <img src= "{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
+        <h2>{{selectedProgrammeOpto.titre}}</h2>
+        <p>{{selectedProgrammeOpto.description}}</p>
+      </article>
+    </div>
+  </section>
+  <app-bottom-bar-opto></app-bottom-bar-opto>
 </main>

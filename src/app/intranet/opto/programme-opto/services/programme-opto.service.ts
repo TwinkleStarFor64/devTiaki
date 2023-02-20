@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProgrammeOptoI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
@@ -9,15 +10,11 @@ export class ProgrammeOptoService {
 
   programme:ProgrammeOptoI[] = [];
 
-  constructor(private http:HttpClient) { }
+  private programmeUrl = 'assets/data/fakeDataProgramme.json';
 
-  getProgrammeOpto(){
-    this.http.get<ProgrammeOptoI[]>('assets/data/fakeDataProgramme.json').subscribe(
-      {
-        next:r => this.programme = r,
-        error:er => console.log(er),
-        complete:() => console.log(this.programme)  
-      }
-    );
+  constructor(private http: HttpClient) { }
+
+  getProgrammeOpto(): Observable<ProgrammeOptoI[]> {
+    return this.http.get<ProgrammeOptoI[]>(this.programmeUrl);
   }
 }
