@@ -21,8 +21,10 @@ export interface CiqualI {
     ["Potassium (mg\/100 g)"]:string,
     ["Cuivre (mg\/100 g)"]:string,
     ["Manganèse (mg\/100 g)"]:string,
+}
 
-
-    
+export interface PlatI {
+    nom:string,
+    ingredient:CiqualI,
 }
 

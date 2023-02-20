@@ -17,7 +17,7 @@
       <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
       <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
       <article *ngFor="let ingredient of composition.ciqual | aliments:filtre  let i=index">
-        <h4 (click)="onSelect(ingredient)">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h4>
+        <h4 (click)="onSelect(ingredient,ingredient)">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h4>
       </article>
     </div>
     <div>
