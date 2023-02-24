@@ -23,4 +23,12 @@ export interface CiqualI {
     ["Manganèse (mg\/100 g)"]:string,
 }
 
+export interface ProgrammeOptoI {
+    photo?:string,
+    video?:string,
+    titre:string,
+    description:string,
+    duree:string,
+    materiel:string
+}
 
