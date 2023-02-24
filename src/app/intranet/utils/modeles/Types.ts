@@ -20,8 +20,7 @@ export interface CiqualI {
     ["Magnésium (mg\/100 g)"]:string,
     ["Potassium (mg\/100 g)"]:string,
     ["Cuivre (mg\/100 g)"]:string,
-    ["Manganèse (mg\/100 g)"]:string,
-    
+    ["Manganèse (mg/100 g)"]:string,
 }
 
 export interface ProgrammeOptoI {
