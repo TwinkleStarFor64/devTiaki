@@ -1,24 +1,67 @@
 <main>
   <!-- section contenant la barre de recherche et les checkbox -->
-    <section>
-      <a routerLink="/"><span>Tiaki</span><div></div></a> 
-      <article>
-        <form class="example-form">
-            <input type="text" matInput [formControl]="myProg" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete" >
-              <mat-option *ngFor="let tutoriel of programmeOpto.programme | programmeOpto:filtre " [value]="tutoriel">
-                {{tutoriel.titre}}
-              </mat-option>
-            </mat-autocomplete>
-        </form>
-        <input type="checkbox" id="allergie" name="allergie" value="allergie">
-        <label for="allergie">Tenir compte de mes allergies </label>
-        <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait">
-        <label for="jamaisFait">Jamais faites </label>
-      </article>
-      <article class="dashed"></article>   
-  </section>
   <section>
+    <a routerLink="/">
+      <span>Tiaki</span>
+      <div></div>
+    </a>
+    <article>
+      <form class="example-form">
+        <input
+          class="example-input"
+          type="text"
+          name="myProg"
+          placeholder="Recherche"
+          [formControl]="control"
+          [matAutocomplete]="auto"
+          (keyup)="filtrerProgrammes()"/>
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)">
+        
+          <mat-option
+            *ngFor="let programme of programmesFiltres"
+            [value]="programme"
+            (mouseover)="hoverSelectedProgramme(programme)">
+          
+            {{ programme.titre }}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+      <input type="checkbox" id="allergie" name="allergie" value="allergie" />
+      <label for="allergie">Tenir compte de mes allergies </label>
+      <input
+        type="checkbox"
+        id="jamaisFait"
+        name="jamaisFait"
+        value="jamaisFait"
+      />
+      <label for="jamaisFait">Jamais faites </label>
+    </article>
+    <article class="dashed"></article>
   </section>
- <app-bottom-bar-opto></app-bottom-bar-opto>
+  <!-- section contenant la photo ou image principale et le titre la description le carroussel -->
+  <section *ngIf="selectedProgrammeOpto; selectedProgramme">
+    <article>
+      <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
+      <article>
+        <div>
+          <h2>{{ selectedProgrammeOpto.titre }}</h2>
+          <p>{{ selectedProgrammeOpto.description }}</p>
+        </div>
+        <div class="bottomContainer">
+          <div class="horlMatBox">
+            <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+            <p>{{ selectedProgrammeOpto.duree }}</p>
+          </div>
+          <div class="horlMatBox">
+            <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+            <p>{{ selectedProgrammeOpto.materiel }}</p>
+          </div>
+        </div>
+        <!-- <app-carousel-opto></app-carousel-opto> -->
+      </article>
+    </article>
+  </section>
+  <app-bottom-bar-opto></app-bottom-bar-opto>
 </main>

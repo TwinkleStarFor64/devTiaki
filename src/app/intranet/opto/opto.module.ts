@@ -8,6 +8,8 @@ import { BottomBarOptoComponent } from './bottom-bar-opto/bottom-bar-opto.compon
 import { ProgrammeOptoPipe } from '../utils/pipes/programme-opto.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 
 
 
@@ -17,7 +19,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     ProgrammeOptoComponent,
     ProgressionOptoComponent,
     BottomBarOptoComponent,
-    ProgrammeOptoPipe
+    ProgrammeOptoPipe,
+    CarouselOptoComponent,
+
    
   
   ],
@@ -26,7 +30,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     OptoRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule
     
     
   ]

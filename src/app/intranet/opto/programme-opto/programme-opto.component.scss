@@ -46,6 +46,23 @@ main {
           margin-bottom: 10px;
         }
       }
+      .mat-mdc-form-field{
+        width: 20vw;
+        height: 8vh;
+      }
+      .mat-form-field-outline {
+        background-color: white;
+        color: black;
+        height: 2vh;
+        width: 6vw;
+
+        .mat-form-field-label {
+          color: #000000;
+        }
+        
+      }
+
+      
       article{
         display: flex;
         align-items: center;
@@ -60,6 +77,58 @@ main {
         border-bottom: dashed 1px black;
       }
     }
-    
+    section:nth-child(2){
+      display: flex;
+      flex-direction: column;
+      height: 60vh;
+      width: 100%;
+      
+      
+        article:nth-child(1){
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+         height: 100%;
+         width: 100%;
+  
+          img{
+            height: 90%;
+            width: 60%;
+          }
+          article{
+            display: flex;
+            height: 15vh;
+  
+            .div:nth-child(1){
+              display: flex;
+              flex-direction: column;
+              justify-content: space-evenly;
+              
+              h2{
+                font-size: 1vw;
+              }
+              p{
+                font-size: 0.8vw;
+              }
+            }
+            .bottomContainer{
+               display: flex;
+               flex-direction: column;
+  
+              .horlMatBox{
+                display: flex;
+                align-items: center;
+                img{
+                  height: 1vh;
+                  width: 2vw;
+                }
+                p{
+                  margin: 0;
+                }
+              }   
+           }
+          } 
+  
+      }
   }
-
+}

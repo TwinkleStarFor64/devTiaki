@@ -1,0 +1,25 @@
+<div class="carousel">
+    <div class="carousel-container"  #carouselContainer>
+      <section class="carousel-slide" *ngFor="let media of mediaList; let i = index" (click)="showMedia(i)">
+        <article *ngIf="media.type === 'image'">
+          <img [src]="media.url" alt="image">
+        </article>
+        <article *ngIf="media.type === 'video'">
+          <video [src]="media.url" controls></video>
+        </article>
+      </section>
+    </div>
+    <a class="carousel-prev" (click)="prevSlide()"></a>
+    <a class="carousel-next" (click)="nextSlide()"></a>
+  </div>
+  <article class="modal" *ngIf="(modalService.showModal$ | async)">
+    <div class="modal-content">
+      <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
+      <article *ngIf="selectedMedia?.type === 'image'">
+        <img [src]="selectedMedia?.url" alt="image">
+      </article>
+      <article *ngIf="selectedMedia?.type === 'video'">
+        <video [src]="selectedMedia?.url" controls></video>
+      </article>
+    </div>
+  </article>

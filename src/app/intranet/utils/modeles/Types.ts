@@ -28,7 +28,6 @@ export interface ProgrammeOptoI {
     video?:string,
     titre:string,
     description:string,
-    durée:string,
+    duree:string,
     materiel:string
-
 }
