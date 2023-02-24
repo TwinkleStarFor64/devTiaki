@@ -23,8 +23,4 @@ export interface CiqualI {
     ["Manganèse (mg\/100 g)"]:string,
 }
 
-export interface PlatI {
-    nom:string,
-    ingredient:CiqualI,
-}
 
