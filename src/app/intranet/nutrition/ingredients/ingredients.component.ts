@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, PlatI } from '../../utils/modeles/Types';
+import { CiqualI } from '../../utils/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
 
 @Component({
@@ -14,23 +14,20 @@ export class IngredientsComponent implements OnInit {
   debut:number = 1; //Le début de la pagination
   
   selectedIngredient?:CiqualI;
-  selectedPlat?:PlatI;
-  
+    
   constructor(public composition:IngredientsServiceService) { }
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
-   this.composition.getCiqual();   
+   this.composition.getCiqual();  
   }
 
-  onSelect(aliment:CiqualI, plat:PlatI): void {
+  onSelect(aliment:CiqualI): void {
     console.log(this.selectedIngredient = aliment);
     //console.log(this.selectedIngredient = miam.alim_nom_fr);
-    this.selectedIngredient = aliment; 
-    this.selectedPlat = plat;  
+    this.selectedIngredient = aliment;       
   }
-
-  
+    
 }
 
