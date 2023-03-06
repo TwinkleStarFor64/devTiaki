@@ -20,7 +20,7 @@ export class BottomBarOptoComponent implements OnInit {
     {
       image:"assets/iconeBottom/programme.svg",
       titre:"Programmes",
-      info:"Des programmes de kinésithérapie",
+      info:"Des programmes d'optométrie",
       lien:'ProgrammeOpto',
       url:'/intranet/opto/programmeOpto',
       active: false,
