@@ -17,7 +17,5 @@ export class AlimentsPipe implements PipeTransform {
 //Ci-dessus 
       }
     )
-
   }
-
 }
