@@ -10,7 +10,7 @@ export class ProgrammeOptoService {
 
   programme:ProgrammeOptoI[] = [];
 
-  private programmeUrl = 'assets/data/fakeDataProgramme.json';
+  private programmeUrl = 'assets/data/dataOpto.json';
 
   constructor(private http: HttpClient) { }
 

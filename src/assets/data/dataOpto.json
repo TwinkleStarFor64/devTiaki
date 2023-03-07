@@ -1,0 +1,60 @@
+[
+    {
+        "id":1,
+        "photo":"assets/exoOpto/tangramPerception.png",
+        "video":"",
+        "titre":"Perception Tangram",
+        "description":"Nous allons construire le TANGRAM à l'aide d'un carré de carton ou de carton côté fort de 120 millimètres comme suit :. Nous allons tracer les diagonales du carré. Nous ferons des marques sur deux de ses côtés qui les divisent en 30, 30 et60 millimètres.Nous joindrons ces marques comme indiqué sur le dessin.Nous supprimons les lignes inutiles.Et enfin on coupe les morceaux. ",
+        "duree":"5 min",
+        "materiel":"aucun"
+    },
+    {
+        "id":2,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }, {
+        "id":3,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }, {
+        "id":4,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }, {
+        "id":5,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }, {
+        "id":6,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }, {
+        "id":7,
+        "photo":"",
+        "video":"",
+        "titre":"",
+        "description":"",
+        "duree":"",
+        "materiel":""
+    }
+]
