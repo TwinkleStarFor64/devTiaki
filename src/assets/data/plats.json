@@ -8,7 +8,13 @@
     {
         "id": 2,
         "nom": "Soupe de courgette",
-        "description": "Une tarte avec des kiwis",
+        "description": "Une soupe avec plein de courgettes",
         "alim_code": 20020
+    },
+    {
+        "id": 3,
+        "nom": "Salade de laitue ",
+        "description": "Simple salade de laitue",
+        "alim_code": 20031
     }
 ]

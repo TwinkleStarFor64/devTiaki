@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
-import { PlatsPipe } from '../../utils/pipes/plats.pipe';
 
 @Component({
   selector: 'app-ingredients',
@@ -11,28 +10,28 @@ import { PlatsPipe } from '../../utils/pipes/plats.pipe';
 export class IngredientsComponent implements OnInit {
 
   filtre:string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel
-  ecart:number = 8; //L'écart de la pagination
-  debut:number = 1; //Le début de la pagination
+  debut:number = 1; //Le début de l'index - utiliser en HTML pour ajouter un chiffre à chaque élément du tableau
   
-  toto:number= 13021;
-
-  selectedIngredient?:CiqualI;
+  alimCodeFiltre:number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
+  
+  selectedIngredient?:CiqualI; //Je récupére dans la variable mon interface CiqualI déclaré dans Types.ts
   selectedPlat?:MesPlatsI;
     
-  constructor(public composition:IngredientsServiceService) { }
+  constructor(public composition:IngredientsServiceService) { } 
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
    this.composition.getCiqual(); 
    this.composition.getMesPlats();  
-  
   }
 
   onSelect(aliment:CiqualI): void {
-    console.log(this.selectedIngredient = aliment);
     this.selectedIngredient = aliment;    
-  }
+    console.log("La méthode onSelect, j'ai cliqué sur : " + aliment.alim_nom_fr);
+    this.alimCodeFiltre = aliment.alim_code;
+    console.log("Je veux ce code : " + this.alimCodeFiltre);    
+  } 
   
 }
 

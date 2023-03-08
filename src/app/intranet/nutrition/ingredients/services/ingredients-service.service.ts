@@ -33,6 +33,7 @@ export class IngredientsServiceService {
         complete: () => console.log(this.plat)
       }
     );
+    return this.plat
   };
 
 }

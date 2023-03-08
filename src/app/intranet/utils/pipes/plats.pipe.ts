@@ -6,28 +6,25 @@ import { CiqualI, MesPlatsI } from '../modeles/Types';
   name: 'plats'
 })
 export class PlatsPipe implements PipeTransform {
-  constructor(public composition:IngredientsServiceService) { }
+  constructor(public composition:IngredientsServiceService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
 
   transform(items: MesPlatsI[], filter: number): any {
-    // Utiliser le service pour récupérer le tableau des ingrédients
+    // Utiliser le service pour récupérer le tableau des ingrédients ciqual 
     const ingredients = this.composition.getCiqual();
     
-    if (!items || filter === undefined) {
+    if (!items || filter === undefined) { //Si pas de plats ou pas de numéro alim_code
       return items;
   }  
   // Faire le filtrage en utilisant le tableau des ingrédients
+  // Si alim_code identique sur MesPlatsI et CiqualI et identique au nombre de filter
+  // Utilisation de la méthode SOME https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/some
   return items.filter(item => ingredients.some(i => i.alim_code === item.alim_code) && item.alim_code === filter);    
   }
   
 }
 
 
-/* transform(values: CiqualI[], filter: MesPlatsI[]): Array<any> {
 
-  const alimCodes = filter.map(plat => plat.alim_code);
-  console.log(alimCodes);
-  return values.filter(element => alimCodes.includes(element.alim_code));
-} */
 
 
 //AVEC CE CODE JE FILTRE ALIM_CODE SUR LE TABLEAU DE PLATS.JSON
@@ -37,8 +34,6 @@ export class PlatsPipe implements PipeTransform {
 }  
 return items.filter(item => item.alim_code === filter);     
 } */
-
-
 
 
 
