@@ -14,12 +14,12 @@ export class IngredientsServiceService {
   constructor(private http: HttpClient) { }
 
   getCiqual() {
-    //Après le get je déclare un tableau comme pour la variable ligne 10
+    //Après le get je déclare un tableau comme pour la variable ligne 11
     this.http.get<CiqualI[]>('assets/data/ciqual.json').subscribe( //Je récupére mon tableau Json et j'y subscribe
       {
         next: r => this.ciqual = r, //Variable ciqual ligne 10
-        error: er => console.log(er),
-        complete: () => console.log(this.ciqual)
+        error: er => console.log(er), //Si une erreur
+        complete: () => console.log(this.ciqual) //Si la méthode fonctionne
       }
     );
     return this.ciqual

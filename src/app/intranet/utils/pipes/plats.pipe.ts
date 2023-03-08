@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IngredientsServiceService } from '../../nutrition/ingredients/services/ingredients-service.service';
-import { CiqualI, MesPlatsI } from '../modeles/Types';
+import { MesPlatsI } from '../modeles/Types';
 
 @Pipe({
   name: 'plats'
@@ -8,19 +8,14 @@ import { CiqualI, MesPlatsI } from '../modeles/Types';
 export class PlatsPipe implements PipeTransform {
   constructor(public composition:IngredientsServiceService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
 
-  transform(items: MesPlatsI[], filter: number): any {
-    // Utiliser le service pour récupérer le tableau des ingrédients ciqual 
-    const ingredients = this.composition.getCiqual();
-    
-    if (!items || filter === undefined) { //Si pas de plats ou pas de numéro alim_code
+  transform(items: MesPlatsI[], codeAlim: number): any { // codeAlim est un filtre de type number
+        
+    if (!items || codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
       return items;
+  }   
+      //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim  
+      return items.filter( item => item.alim_code === codeAlim);   
   }  
-  // Faire le filtrage en utilisant le tableau des ingrédients
-  // Si alim_code identique sur MesPlatsI et CiqualI et identique au nombre de filter
-  // Utilisation de la méthode SOME https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/some
-  return items.filter(item => ingredients.some(i => i.alim_code === item.alim_code) && item.alim_code === filter);    
-  }
-  
 }
 
 
@@ -37,6 +32,19 @@ return items.filter(item => item.alim_code === filter);
 
 
 
+//PREMIÉRE VERSION DU TRANSFORM
+//transform(items: MesPlatsI[], filter: number): any {
+  // Utiliser le service pour récupérer le tableau des ingrédients ciqual 
+  //const ingredients = this.composition.getCiqual();
+  //Si pas de plats ou pas de numéro alim_code
+  //if (!items || filter === undefined) { 
+    //return items;
+//}  
+// Faire le filtrage en utilisant le tableau des ingrédients
+// Si alim_code identique sur MesPlatsI et CiqualI et identique au nombre de filter
+// Utilisation de la méthode SOME https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/some
+//return items.filter(item => ingredients.some(i => i.alim_code === item.alim_code) && item.alim_code === filter);    
+//}
 
 
 
