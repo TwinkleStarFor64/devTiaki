@@ -38,5 +38,6 @@ export interface MesPlatsI {
     id:number,
     nom:string,
     description:string,
-    alim_code:number
+    alim_code:number,
+    reaction?:string
 }

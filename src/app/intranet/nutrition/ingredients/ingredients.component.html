@@ -19,11 +19,12 @@
       <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
         <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
         <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
-        <h4 (click)="onSelect(ingredient)" style="cursor: pointer">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h4>
+        <h4 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h4>
       </article>
     </div>
     <div>
-      <!-- Avec *ngIf selectedIngredient appeler avec la méthode onSelect - declaré ligne 17 dans ingredients.component.ts -->
+      <!-- *ngIf selectedIngredient appeler avec la méthode onSelect - declaré ligne 17 dans ingredients.component.ts -->
+      <!-- selectedIngredient à pour valeur l'ingrédient sur lequel j'ai cliqué -->
       <article *ngIf="selectedIngredient">
         <span>
           <h1>{{ selectedIngredient.alim_nom_fr}}</h1>
@@ -53,11 +54,16 @@
         </span> 
         <!-- *ngFor sur l'interface MesPlatsI qui s'éxécute dans le le *ngFor de CiqualI (ligne 19)-->
         <!-- J'applique le pipe plats avec le filtre alimCodeFiltre - ligne 15 dans ingredients.component.ts -->
-        <span *ngFor="let mesPlats of composition.plat | plats:alimCodeFiltre">
-          <h3>Plats contenant cet ingrédient</h3>
-          <p>{{ mesPlats.nom }}</p>
-          <p>{{ mesPlats.description }}</p>
-          <p>{{ mesPlats.alim_code }}</p>
+        <span *ngIf="selectedPlat">
+            <h3>Plats contenant cet ingrédient</h3>
+          <div class="mesPlats" *ngFor="let mesPlats of composition.plat | plats:alimCodeFiltre">
+            <p>{{ mesPlats.nom }}</p>  
+          </div>
+            <h3>Réactions constatées</h3>
+          <div class="mesObservations" *ngFor="let mesPlats of composition.plat | plats:alimCodeFiltre">
+            <p>{{ mesPlats.reaction }} </p>
+            <img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">                      
+          </div>          
         </span>       
       </article>
     </div>

@@ -112,34 +112,61 @@ main {
             }
           }
         }// <------ Fin de la première balise span
-        span:nth-child(2){
+        span:nth-child(2){ //La seconde balise span contient les valeurs et compositions de l'ingrédient
           margin-left: 4vw;
           h3{
             font-weight: 100;
             color: #f22f1d;
             border-bottom: dashed 1px #f22f1d;
-            padding: 1vh;
+            padding-bottom: 1vh;
             width: 40%;
           }
           p{
+            margin-left: 1.5vw;
             img{ // Les petits logo
-              width: 1vw;
+              width: 0.8vw;
               margin-right: 0.8vw;
             }
           }
         }// <------ Fin de la seconde balise span
-        span:nth-child(3){
+        span:nth-child(3){ //La 3e balise span contient les plats enregistrés ne s'affiche que si des plats existent (ngIf)
           margin-left: 4vw;
+          display: flex;
+          flex-direction: column;
           h3{
             font-weight: 100;
             color: #f22f1d;
             border-bottom: dashed 1px #f22f1d;
-            padding: 1vh;
+            padding-bottom: 1vh;
             width: 40%;
           }
-          img{
-            width: 20%;
+          .mesPlats{
+            justify-content: flex-start;
+            width: 40%;                       
+            p{
+              margin: 0.3vw 0 0 1.5vw;
+              color: #4A4A4A;
+              border: #C4C4C4 solid 2px;
+              border-radius: 5%;
+              padding: 1vh;
+              width: 50%;
+            }
           }
+          .mesObservations{
+            display: flex;
+            flex-direction: row;
+            align-items: center;       
+            p{
+              margin-left: 1.5vw;
+              color: #4A4A4A;
+              width: 50%;
+            }
+            img{ // Les petits logo
+              width: 1.2vw;
+              margin-right: 0.8vw;
+            }
+          }
+          
         }
 
       }// <------ Fin de article dans la seconde div
