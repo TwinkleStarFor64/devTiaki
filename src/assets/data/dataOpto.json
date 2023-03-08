@@ -1,60 +1,83 @@
 [
-    {
-        "id":1,
-        "photo":"assets/exoOpto/tangramPerception.png",
-        "video":"",
-        "titre":"Perception Tangram",
-        "description":"Nous allons construire le TANGRAM à l'aide d'un carré de carton ou de carton côté fort de 120 millimètres comme suit :. Nous allons tracer les diagonales du carré. Nous ferons des marques sur deux de ses côtés qui les divisent en 30, 30 et60 millimètres.Nous joindrons ces marques comme indiqué sur le dessin.Nous supprimons les lignes inutiles.Et enfin on coupe les morceaux. ",
-        "duree":"5 min",
-        "materiel":"aucun"
-    },
-    {
-        "id":2,
-        "photo":"assets/exoOpto/occlumotricirte.png",
-        "video":"",
-        "titre":"Oculomotricité",
-        "description":"PHASE 1.- Lire en alternant la première et la dernière lettre de chaque ligne en vision de loin alternant avec celles en vision de près. Exemple : 1ère ligne de loin à partir de la première à la dernière lettre / 2ème ligne lettre de près de la première à la dernière lettre / 3ème ligne de loin de la première à la dernière / 4ème ligne jusqu’à la fin de la page. PHASE 2.- Rapprochez les petites lettres du visage du patient et continuez à y apporter des modifications deLoin/Proche. PHASE3.- Lorsque vous faites l’exercice, éloignez facilement les lettres. Recommandable en monoculaire pour assurer que les deux yeux aient la même capacité en vision de près et de loin.",
-        "duree":"1 ou 2 minutes pour chaque œil",
-        "materiel":"Obturateur Lentilles Métronome"
-    }, {
-        "id":3,
-        "photo":"assets/exoOpto/carteMcDonald.png",
-        "video":"",
-        "titre":"Périphérie du centre d'intégration",
-        "description":"• Faites d'abord monoculaire (avec patch) puis binoculaire (avec les deux yeux ouverts) • Accrochez la carte McDonald's au mur et placez-vous à environ 40 cm devant.• Fixer le point central.• En regardant le point central essayez de voir et de reconnaître les lettres autour • Vous pouvez dire les lettres et les toucher avec votre doigt en regardant toujours le point central.• Lorsque l'exercice se fait facilement, rapprochez-vous un peu de la carte McDonald's et répétez la procédure.",
-        "duree":"3 min",
-        "materiel":"Aucun"
-    }, {
-        "id":4,
-        "photo":"assets/exoOpto/hemi2.png",
-        "video":"",
-        "titre":"Exercices hémisphérique II",
-        "description":"1. Placez le papier au niveau des yeux et tenez-vous à environ 60 cm, la distance peut êtremodifiée au fur et à mesure que vous vous entraînez jusqu'à ce que vous soyez à environ 3 mètres. 2. Dites la lettre, le chiffre, la syllabe, la figure ou la couleur à voix haute et faites attention à la lettre ci-dessous, si c'est un d levez la main droite, si c'est un i levez la main gauche et si c'est j levez les deux mains.3. Faites la même chose que ci-dessus mais par colonnes de haut en bas. 4. Demandez-lui de lever également la jambe homolatérale (main droite-jambe droite) et controlatérale (main droite-jambe gauche).  5. Changez l'instruction des lettres, maintenant le d est la main gauche et le i est la main droite.  6. Dans le cas des figures, vous pouvez commencer l'exercice en prononçant les formes, puis modifier l'instruction et dire la couleur des figures.",
-        "duree":"3 min",
-        "materiel":"Aucun"
-    }, {
-        "id":5,
-        "photo":"assets/exoOpto/hemi1.png",
-        "video":"",
-        "titre":"Suite Exercices hémisphérique II",
-        "description":"1. Placez le papier au niveau des yeux et tenez-vous à environ 60 cm, la distance peut être modifiée au fur et à mesure que vous vous entraînez jusqu'à ce que vous soyez à environ 3 mètres. 2. Dites la lettre, le chiffre, la syllabe, la figure ou la couleur à voix haute et faites attention à la lettre ci-dessous, si c'est un d levez la main droite, si c'est un i levez la main gauche et si c'est j levez les deux mains.3. Faites la même chose que ci-dessus mais par colonnes de haut en bas. 4. Demandez-lui de lever également la jambe homolatérale (main droite-jambe droite) et controlatérale (main droite-jambe gauche).  5. Changez l'instruction des lettres, maintenant le d est la main gauche et le i est la main droite.  6. Dans le cas des figures, vous pouvez commencer l'exercice en prononçant les formes, puis modifier l'instruction et dire la couleur des figures.",
-        "duree":"5 min",
-        "materiel":"Aucun"
-    }, {
-        "id":6,
-        "photo":"assets/imageOpto/exerciceOpto1.png",
-        "video":"",
-        "titre":"Contrôle des yeux de Kraskin",
-        "description":"1. Le patient doit être debout ou assis dans une position confortable.2. Une deuxième personne se place davant le patient et tient l’objet de fixation à une distance entre 2,5 et 5 cm.3. Déplacez lentement l’objet de fixation vers la droite, la gauche, le haut, le bas et tout en vous déplaçant dire la direction de l’objet à voix haute (il est important de mettre l’objet à droite et à gauche du nez). 4. Effectuez l’exercice en peu de temps.",
-        "duree":"5 min",
-        "materiel":"Petit objet de fixation"
-    }, {
-        "id":7,
-        "photo":"assets/exoOpto/cercles.png",
-        "video":"",
-        "titre":"Cercle de couleur",
-        "description":"• Mettre le patch filtre rouge sur l’œil qui (chante fort) (non amblyope).• Avec un crayon orange qui filtre bien (quand on regarde avec l’œil qui a le filtre rouge activé, rien de ce que nousdessinons avec le caryon ne doit se voir orange).• Peignez les cercles qui apparaissent sur le dessin. • L’enfant doit être dans une bonne posture et le coup doit être précis, sans sortir de la ligne et tout le cercle doit être colorié.",
-        "duree":"5 min",
-        "materiel":"Aucun"
-    }
+  {
+    "id": 1,
+    "photo": "assets/exoOpto/tangramPerception.png",
+    "video": "",
+    "titre": "Perception Tangram",
+    "description": "Nous allons construire le TANGRAM à l'aide d'un carré de carton ou de carton côté fort de 120 millimètres comme suit :. Nous allons tracer les diagonales du carré. Nous ferons des marques sur deux de ses côtés qui les divisent en 30, 30 et 60 millimètres ",
+    "duree": "5 min",
+    "materiel": "aucun"
+  },
+  {
+    "id": 2,
+    "photo": "assets/exoOpto/occlumotricirte.png",
+    "video": "",
+    "titre": "Oculomotricité partie 1",
+    "description": "PHASE 1.- Lire en alternant la première et la dernière lettre de chaque ligne en vision de loin alternant avec celles en vision de près. Exemple : 1ère ligne de loin à partir de la première à la dernière lettre / 2ème ligne lettre de près de la première à la dernière lettre  ",
+    "duree": "1 ou 2 minutes pour chaque œil",
+    "materiel": "Obturateur Lentilles Métronome"
+  },
+  {
+    "id": 3,
+    "photo": "assets/exoOpto/occlumotricirte.png",
+    "video": "",
+    "titre": "Oculomotricité partie 2 ",
+    "description": "PHASE 2.- Rapprochez les petites lettres du visage du patient et continuez à y apporter des modifications deLoin/Proche",
+    "duree": "1 ou 2 minutes pour chaque œil",
+    "materiel": "Obturateur Lentilles Métronome"
+  },
+  {
+    "id": 4,
+    "photo": "assets/exoOpto/occlumotricirte.png",
+    "video": "",
+    "titre": "Oculomotricité partie 3",
+    "description": "PHASE3.- Lorsque vous faites l’exercice, éloignez facilement les lettres. Recommandable en monoculaire pour assurer que les deux yeux aient la même capacité en vision de près et de loin.",
+    "duree": "1 ou 2 minutes pour chaque œil",
+    "materiel": "Obturateur Lentilles Métronome"
+  },
+  {
+    "id": 5,
+    "photo": "assets/exoOpto/carteMcDonald.png",
+    "video": "",
+    "titre": "Périphérie du centre d'intégration",
+    "description": "• Faites d'abord monoculaire (avec patch) puis binoculaire (avec les deux yeux ouverts) • Accrochez la carte McDonald's au mur et placez-vous à environ 40 cm devant.• Fixer le point central.",
+    "duree": "3 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 6,
+    "photo": "assets/exoOpto/hemi2.png",
+    "video": "",
+    "titre": "Exercices hémisphérique II",
+    "description": "1. Placez le papier au niveau des yeux et tenez-vous à environ 60 cm, la distance peut êtremodifiée au fur et à mesure que vous vous entraînez jusqu'à ce que vous soyez à environ 3 mètres. ",
+    "duree": "3 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 7,
+    "photo": "assets/exoOpto/hemi1.png",
+    "video": "",
+    "titre": "Suite Exercices hémisphérique II",
+    "description": " 2. Demandez-lui de lever également la jambe homolatérale (main droite-jambe droite) et controlatérale (main droite-jambe gauche).  ",
+    "duree": "5 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 8,
+    "photo": "assets/imageOpto/exerciceOpto1.png",
+    "video": "",
+    "titre": "Contrôle des yeux de Kraskin",
+    "description": "1. Le patient doit être debout ou assis dans une position confortable.2. Une deuxième personne se place davant le patient et tient l’objet de fixation à une distance entre 2,5 et 5 cm.3. ",
+    "duree": "5 min",
+    "materiel": "Petit objet de fixation"
+  },
+  {
+    "id": 9,
+    "photo": "assets/exoOpto/cercles.png",
+    "video": "",
+    "titre": "Cercle de couleur",
+    "description": "• Mettre le patch filtre rouge sur l’œil qui (chante fort) (non amblyope).• Avec un crayon orange qui filtre bien (quand on regarde avec l’œil qui a le filtre rouge activé, rien de ce que nousdessinons avec le caryon ne doit se voir orange).",
+    "duree": "5 min",
+    "materiel": "Aucun"
+  }
 ]

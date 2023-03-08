@@ -26,7 +26,6 @@ export class IngredientsComponent implements OnInit {
 
   onSelect(aliment:CiqualI): void {
     console.log(this.selectedIngredient = aliment);
-    //console.log(this.selectedIngredient = miam.alim_nom_fr);
     this.selectedIngredient = aliment;   
   }
 

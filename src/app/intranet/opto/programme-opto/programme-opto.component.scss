@@ -97,8 +97,8 @@ main {
           }
           article{
             display: flex;
-            height: 15vh;
-            width: 50vw;
+            height: 20vh;
+            width: 55vw;
   
             .div:nth-child(1){
               display: flex;
@@ -107,22 +107,26 @@ main {
               
               
               h2{
-                font-size: 1vw;
+                font-size: 0.8vw;
               }
               p{
-                font-size: 0.8vw;
+                font-size: 0.6vw;
                 
               }
             }
             .bottomContainer{
                display: flex;
                flex-direction: column;
+               height: 8vw;
+               justify-content: space-around;
   
               .horlMatBox{
                 display: flex;
                 align-items: center;
+                gap: 1vw;
+                width: 15vw;
                 img{
-                  height: 1vh;
+                  height: 2vh;
                   width: 2vw;
                 }
                 p{

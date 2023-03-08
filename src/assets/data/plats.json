@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "nom": "Tarte au kiwi",
+        "description": "Une tarte avec des kiwis",
+        "alim_code": 13021
+    },
+    {
+        "id": 2,
+        "nom": "Soupe de courgette",
+        "description": "Une tarte avec des kiwis",
+        "alim_code": 20020
+    }
+]
