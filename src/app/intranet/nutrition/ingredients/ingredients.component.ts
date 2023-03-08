@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI } from '../../utils/modeles/Types';
+import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
+import { PlatsPipe } from '../../utils/pipes/plats.pipe';
 
 @Component({
   selector: 'app-ingredients',
@@ -13,21 +14,25 @@ export class IngredientsComponent implements OnInit {
   ecart:number = 8; //L'écart de la pagination
   debut:number = 1; //Le début de la pagination
   
+  toto:number= 13021;
+
   selectedIngredient?:CiqualI;
+  selectedPlat?:MesPlatsI;
     
   constructor(public composition:IngredientsServiceService) { }
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
-   this.composition.getCiqual();  
+   this.composition.getCiqual(); 
+   this.composition.getMesPlats();  
+  
   }
 
   onSelect(aliment:CiqualI): void {
     console.log(this.selectedIngredient = aliment);
-    //console.log(this.selectedIngredient = miam.alim_nom_fr);
-    this.selectedIngredient = aliment;       
+    this.selectedIngredient = aliment;    
   }
-    
+  
 }
 

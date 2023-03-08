@@ -16,6 +16,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
+import { PlatsPipe } from '../utils/pipes/plats.pipe';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
     PlatsComponent,
     RecettesComponent,
     NutritionComponent,
-    AlimentsPipe
+    AlimentsPipe,
+    PlatsPipe
   ],
   imports: [
     CommonModule,
