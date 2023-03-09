@@ -3,12 +3,25 @@
         "id": 1,
         "nom": "Tarte au kiwi",
         "description": "Une tarte avec des kiwis",
-        "alim_code": 13021
+        "alim_code": 13021,
+        "reaction": "Réaction limite avec la vitamine B1, mon enfant y réagit mal et elle semble être très présente dans cet aliment."     
     },
     {
         "id": 2,
         "nom": "Soupe de courgette",
-        "description": "Une tarte avec des kiwis",
+        "description": "Une soupe avec plein de courgettes",
         "alim_code": 20020
+    },
+    {
+        "id": 3,
+        "nom": "Salade de laitue ",
+        "description": "Simple salade de laitue",
+        "alim_code": 20031
+    },
+    {
+        "id": 4,
+        "nom": "Jambon sauce kiwi",
+        "description": "Un jamboneau arôme kiwi",
+        "alim_code": 13021
     }
 ]
