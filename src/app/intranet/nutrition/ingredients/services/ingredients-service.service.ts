@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CiqualI } from 'src/app/intranet/utils/modeles/Types';
+import { CiqualI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
   providedIn: 'root'

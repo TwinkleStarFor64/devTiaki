@@ -9,7 +9,6 @@ export interface ProfilI{
 export interface CiqualI {
     alim_code:number,
     alim_nom_fr:string,
-    alim_code:number,
     ['Protéines, N x 6.25 (g\/100 g)']:string,
     ['Glucides (g\/100 g)']:string,
     ['Lipides (g\/100 g)']:string,
