@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CiqualI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
-import { Observable } from 'rxjs';
+import { CiqualI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +31,9 @@ export class IngredientsServiceService {
         error: er => console.log(er),
         complete: () => console.log(this.plat)
       }
+      
     );
-    return this.plat
-  };
+  }
 
 }
 

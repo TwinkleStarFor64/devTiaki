@@ -1,7 +1,7 @@
 <footer>
     <nav *ngFor="let bottom of bottoms">
       <a  [routerLink] ="[bottom.url]" (click)="onNavItemClick(bottom)">
-       <section [ngStyle]="{'filter': bottom.active ? 'none' : 'brightness(50%)'}">
+       <section [ngStyle]="{'filter': bottom.active ? 'none' : 'contrast(65%)'}">
           <img [src]="bottom.image" alt="image d'exercice" />
           <article>
             <h4>{{ bottom.titre}}</h4>
