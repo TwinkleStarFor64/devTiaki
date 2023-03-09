@@ -5,6 +5,7 @@
       <span>Tiaki</span>
       <div></div>
     </a>
+    <!-- Article contenant le formulaire permettant de rechercher les programmes -->
     <article>
       <form class="example-form">
         <input
@@ -18,12 +19,10 @@
         <mat-autocomplete
           #auto="matAutocomplete"
           (optionSelected)="onOptionSelected($event)">
-        
           <mat-option
             *ngFor="let programme of programmesFiltres"
             [value]="programme"
             (mouseover)="hoverSelectedProgramme(programme)">
-          
             {{ programme.titre }}
           </mat-option>
         </mat-autocomplete>

@@ -11,7 +11,7 @@ footer {
     display: flex;
     justify-content: space-evenly;
     font-family: $font-family;
-    height: 12vh;
+    height: 15vh;
     width: 100%;
   
     nav {
@@ -52,6 +52,7 @@ footer {
             }
             p {
               font-size: 0.8vw;
+              margin: 0;
             }
           }
         }

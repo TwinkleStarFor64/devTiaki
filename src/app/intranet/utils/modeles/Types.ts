@@ -7,6 +7,7 @@ export interface ProfilI{
 }
 
 export interface CiqualI {
+    alim_code:number,
     alim_nom_fr:string,
     ['Protéines, N x 6.25 (g\/100 g)']:string,
     ['Glucides (g\/100 g)']:string,
@@ -20,7 +21,8 @@ export interface CiqualI {
     ["Magnésium (mg\/100 g)"]:string,
     ["Potassium (mg\/100 g)"]:string,
     ["Cuivre (mg\/100 g)"]:string,
-    ["Manganèse (mg\/100 g)"]:string,  
+    ["Manganèse (mg\/100 g)"]:string,
+     
 }
 
 export interface ProgrammeOptoI {
@@ -30,4 +32,12 @@ export interface ProgrammeOptoI {
     description:string,
     duree:string,
     materiel:string
+}
+
+export interface MesPlatsI {
+    id:number,
+    nom:string,
+    description:string,
+    alim_code:number,
+    reaction?:string
 }
