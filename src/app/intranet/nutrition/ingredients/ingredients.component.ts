@@ -36,8 +36,7 @@ export class IngredientsComponent implements OnInit {
     //alimCodeFiltre contient maintenant l'alim_code de l'ingrédient sur lequel j'ai cliqué
     //Je m'en sers de valeur sur le filtre appliqué au pipe plats
     this.alimCodeFiltre = aliment.alim_code;
-    console.log("Je veux ce code : " + this.alimCodeFiltre);
-       
+    console.log("Je veux ce code : " + this.alimCodeFiltre);       
   } 
 
   onMesPlats(plat:MesPlatsI) : void {
