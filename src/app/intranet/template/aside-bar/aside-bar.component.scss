@@ -6,110 +6,50 @@ $aside-color1:#270140;
 $aside-color2:#805E96;
 $aside-color3:#F0C02E;
 
-// Bar de navigation
-aside{
-    height: 100vh;
-    width:2.5vw;
-    float: right;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+$l:65px;
 
-    
-// Blocks des personnes et pouvant naviguer vers le tableau de bord
-    :nth-child(1){
-        height: 10%;
-        >a{
-            height: 90%;
-            border-bottom: 0.5px dashed #ffffff;
-        }
-    }  
-    :nth-child(2){
-        height: 10%;
-        >a{
-            height: 90%;
-            border-bottom: 0.5px dashed #ffffff;
-
-        }
-    }
-    :nth-child(3){
-        height: 5%;
-        >a{
-            height: 50%;
-
-            img{
-                visibility: hidden;
-            }
-        }
-    }
-// Blocks permettant de modifier la hauter des liens de navigations
-    :nth-child(4)>a{
-        height: 45%;
-    }
-
-    :nth-child(6)>a{
-        height: 90%;
-    }
-
-    :nth-child(7)>a{
-        height: 45%;
-    }
-// Bordure et couleur de fond
-    div:nth-child(n+4){
-       
-        background-color: $aside-color2;
-        border-bottom: 0.5px dashed #ffffff;
-    }
-
-// Enlever le border dashed du block kine    
-    div:nth-child(n + 6){
-        border-bottom: none;
-    }
-
-
-//div permettant d'accéder aux objets à l'interieur des divs
-    div{
-    display: flex;
-    flex-direction: column;
-    height: 10%;
-    width: 100%;
-    justify-content: flex-end;
-    background-color:  $aside-color1;
- 
-        a{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        color: #ffffff;
-        height: 65%;
-        gap: 0.5vw;
-     
-
-        img{
-            width: 1.4vw;
-            height: 100%;
-        }
-        p{
-            font-size: 0.5vw;
-            margin: 0;
-            width: auto;
-            height: 100%;
-        }
-        }
-    }
-
-//div permettant d'accéder aux outils de l'application  
-    div:nth-child(n+7){
-        background-color: $aside-color3;
-        border-bottom:  0.5px dashed #000000;
-    } 
-// enlever le dashed et monter changer le liens de hauteur.
-    div:nth-child(n+11){
-        border-bottom: none;
-
-        a{
-            height: 90%;
-        }  
-    }
+nav {
+  height: 100vh;
+  width:$l;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
+ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding:0;
+  margin:0;
+  background-color: #270140;
+}
+li{
+  list-style: none;
+  padding:0;
+  margin:0;
+  flex-grow: 1;
+  display:flex;
+  width:100%;
+}
+ul li:nth-child(n+3) {
+  background-color: #805E96;
+  border-bottom: 1px dashed #ffffff;
+}
+ul li:nth-child(n+6) {
+  background-color: #F0C02E;
+}
+
+ul a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin:auto;
+}
+ul a img {
+}
+ul a p {
+  font-size: 0.8vw;
+}/*# sourceMappingURL=aside-bar.component.css.map */

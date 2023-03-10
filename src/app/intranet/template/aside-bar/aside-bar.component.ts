@@ -7,7 +7,7 @@ import { AsideI } from 'src/app/intranet/modeles/Types.js';
   styleUrls: ['./aside-bar.component.scss']
 })
 export class AsideBarComponent implements OnInit {
-value: number = 7; 
+value: number = 7;
 
 // Insertion de l'interface Aside permettant de changer les image et les urls
 public asides: AsideI[] = [
@@ -23,13 +23,8 @@ public asides: AsideI[] = [
   },
   {
     nom:'',
-    image:'',
-    url:'/'
-  },
-  {
-    nom:'',
     image:'assets/imgAsidebar/Vector.svg',
-    url:'/intranet/nutrition'
+    url:'/intranet/nutrition',
   },
   {
     nom:'',

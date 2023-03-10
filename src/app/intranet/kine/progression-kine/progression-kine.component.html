@@ -1,14 +1,13 @@
-<main>
-  <section>
-    <article>
+  <section id="exercices">
+    <header>
       <a routerLink="/"><span>Tiaki</span><div></div></a>
       <div>
         <p>Kinésithérapie ></p>
         <img [src]="avatar" />
         <p>Le parcours de Cheer Émilie</p>
       </div>
-    </article>
-    <section class="exercice">
+    </header>
+    <section>
       <article *ngFor="let exercice of exercices">
         <img [src]="exercice.photo" alt="photo-exercice" />
         <h6>{{ exercice.titre }}</h6>
@@ -23,5 +22,6 @@
       </article>
     </section>
   </section>
+  <footer>
   <app-bottom-bar-kine></app-bottom-bar-kine>
-</main>
+</footer>

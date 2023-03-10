@@ -1,9 +1,11 @@
 <!-- Bar de navigation permettant de se déplacer sur l'application -->
-<aside>
-  <div *ngFor="let aside of asides"> 
-     <a [routerLink]="[aside.url]">
-      <img [src]="aside.image" alt="image" />
-      <p>{{ aside.nom }}</p>
-    </a> 
-  </div>
-</aside>
+<nav>
+  <ul>
+    <li *ngFor="let aside of asides">
+      <a [routerLink]="[aside.url]" [title]="">
+        <img [src]="aside.image" [alt]=""/>
+        <p *ngIf="aside.nom && aside.nom.length > 0">{{ aside.nom }}</p>
+      </a>
+    </li>
+  </ul>
+</nav>
