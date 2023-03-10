@@ -11,7 +11,7 @@ export class BottomBarNutriComponent implements OnInit {
 
   public bottoms:BottomI[] = [
     {
-      image:"assets/iconeBottom/journalBottom.png",
+      image:"assets/iconeBottom/journalBottom.svg",
       titre:"Journal",
       info:"Naviguer dans votre historique alimentaire",
       lien:'Journal',
@@ -19,7 +19,7 @@ export class BottomBarNutriComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/journalBottom.png",
+      image:"assets/iconeBottom/journalBottom.svg",
       titre:"Menus",
       info:"Les listes de vos menus et de ceux de la communautés",
       lien:'Menus',
@@ -27,7 +27,7 @@ export class BottomBarNutriComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/platBottom.png",
+      image:"assets/iconeBottom/platBottom.svg",
       titre:"Plats",
       info:"Vos plats ou ceux de la communauté",
       lien:'Plats',
@@ -35,7 +35,7 @@ export class BottomBarNutriComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/ingredientBottom.png",
+      image:"assets/iconeBottom/ingredientBottom.svg",
       titre:"Ingrédients",
       info:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
       lien:'Ingredients',

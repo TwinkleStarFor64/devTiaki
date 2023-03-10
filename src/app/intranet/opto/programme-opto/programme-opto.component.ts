@@ -72,7 +72,6 @@ export class ProgrammeOptoComponent implements OnInit {
     if (programme) {
       this.selectedProgrammeOpto = programme;
       this.control.setValue(programme.titre);
-      // this.control.markAsDirty();
     }
   }
 
@@ -85,6 +84,5 @@ export class ProgrammeOptoComponent implements OnInit {
   //methode permettant de voir le titre dans l'input en survolant les titres des programme du menu déroulant
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
-    // this.control.markAsDirty();
   }
 }
