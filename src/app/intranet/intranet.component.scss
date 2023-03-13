@@ -1,4 +1,5 @@
 $l:65px;
+$foot:150px;
 
 :host{
   height:100vh;
@@ -13,8 +14,13 @@ aside{
 }
 main{
   width:calc(100vw - $l);
-  height:100vh;
+  height:calc(100vh - $foot);
+  flex-direction: column;
 }
 main > * {
   width:calc(100vw - $l);
 }
+main > footer  {
+  background-color: #f28705;
+}
+

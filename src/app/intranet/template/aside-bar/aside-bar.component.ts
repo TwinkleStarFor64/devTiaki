@@ -29,12 +29,12 @@ public asides: AsideI[] = [
   {
     nom:'',
     image:'assets/imgAsidebar/Vector1.svg',
-    url:'/intranet/kine/progressionKine'
+    url:'/intranet/kine/progression-Kine'
   },
   {
     nom:'',
     image:'assets/imgAsidebar/Group1.svg',
-    url:'/intranet/opto/progressionOpto'
+    url:'/intranet/opto/progression-Opto'
   },
   {
     nom:'',

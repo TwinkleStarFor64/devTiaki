@@ -1,11 +1,11 @@
-<section id="exercices">
+<section id="principale">
   <header>
     <a routerLink="/">Tiaki</a>
     <p>Optométrie ></p>
     <img [src]="avatar" />
     <p>Le parcours de Cheer Émilie</p>
   </header>
-  <section class="exercice">
+  <section id="exercices">
     <article *ngFor="let exercice of exercices">
       <img [src]="exercice.photo" alt="photo-exercice" />
       <h6>{{ exercice.titre }}</h6>
@@ -18,7 +18,4 @@
       </div>
     </article>
   </section>
-  <footer>
-    <app-bottom-bar-opto></app-bottom-bar-opto>
-  </footer>
 </section>

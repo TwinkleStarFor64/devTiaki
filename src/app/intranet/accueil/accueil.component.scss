@@ -7,31 +7,21 @@ $aside-color2:#805E96;
 $aside-color3:#F0C02E;
 $l:65px;
 
-main{
-    margin: 0;
-    display: flex;
-    justify-content:space-evenly;
-    height: 100vh;
-    width: calc(100vw - $l );
+
     
-    .container{
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        font-family: $font-family;
-        width: 100%;
+   
 
         section:nth-child(1){
             display: flex;
             align-items: center;
-            flex-direction: column;
+            // flex-direction: column;
             justify-content: center;
             height: 40%;
             
             article:nth-child(1) {
 
                 display: flex;
+                flex-direction: row;
                 align-items: baseline;
                 width: 30%;
                 height: 30%;
@@ -63,8 +53,9 @@ main{
         }
         section:nth-child(2){
             display: flex;
+            flex-direction: row;
             justify-content: space-around;
-            height: 60%;
+            height: 100%;
 
             article {
                 display: flex;
@@ -192,5 +183,4 @@ main{
                 }
             }
         }
-    }
-}
+    

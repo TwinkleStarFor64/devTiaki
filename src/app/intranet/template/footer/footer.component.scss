@@ -1,0 +1,52 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+$foot:150px; // Hauteur des menus du bas
+
+:host{
+  display: flex;
+  width: 100%;
+ 
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  height: $foot;
+  width: 100%;
+ 
+    section:nth-child(1) {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      justify-content: center;
+      gap: 1vw;
+      align-items: center;
+
+      img {
+        width: 3vw;
+        height: 5vh;
+        margin-bottom: 15px;
+      }
+
+      article {
+        color: #ffffff;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        
+        h1 {
+          margin: 0;
+          font-size: 1.2vw;
+        }
+        p {
+          font-size: 0.6vw;
+         
+        }
+      }
+    }
+  }
+}
+

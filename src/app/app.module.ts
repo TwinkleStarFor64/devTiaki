@@ -28,7 +28,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     InfosComponent,
     MentionsLegalesComponent,
     RgpdComponent,
-    FooterComponent,
     PagenotfoundComponent,
   ],
   imports: [

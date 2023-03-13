@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { IntranetComponent } from './intranet.component';
-import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
+
 
 const routes: Routes = [
     {path:'', component:IntranetComponent, children:[

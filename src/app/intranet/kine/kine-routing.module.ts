@@ -5,9 +5,9 @@ import { ProgrammeKineComponent } from './programme-kine/programme-kine.componen
 import { ProgressionKineComponent } from './progression-kine/progression-kine.component';
 
 const routes: Routes = [
-  {path:'progressionKine', component:ProgressionKineComponent},
-  {path:'programmeKine', component:ProgrammeKineComponent},
-  {path:'exerciceKine', component:ExerciceKineComponent}
+  {path:'progression-Kine', component:ProgressionKineComponent},
+  {path:'programme-Kine', component:ProgrammeKineComponent},
+  {path:'exercice-Kine', component:ExerciceKineComponent}
 ];
 
 @NgModule({

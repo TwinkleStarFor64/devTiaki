@@ -5,7 +5,7 @@ import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
-import { PlatsPipe } from './utils/pipes/plats.pipe';
+import { FooterComponent } from './template/footer/footer.component';
 
 
 
@@ -16,7 +16,7 @@ import { PlatsPipe } from './utils/pipes/plats.pipe';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
-    //PlatsPipe,
+    FooterComponent
     
     
   ],

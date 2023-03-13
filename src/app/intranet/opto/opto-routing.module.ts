@@ -6,8 +6,8 @@ import { ProgressionOptoComponent } from './progression-opto/progression-opto.co
 
 const routes: Routes = [
   {path:'progression-Opto', component:ProgressionOptoComponent},
-  {path:'exerciceOpto' , component:ExerciceOptoComponent},
-  {path:'programmeOpto' , component:ProgrammeOptoComponent}
+  {path:'exercice-Opto' , component:ExerciceOptoComponent},
+  {path:'programme-Opto' , component:ProgrammeOptoComponent}
 ];
 
 @NgModule({
