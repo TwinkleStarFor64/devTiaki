@@ -5,12 +5,14 @@ $card-opto: #F28705;
 $aside-color1:#270140;
 $aside-color2:#805E96;
 $aside-color3:#F0C02E;
+$l:65px;
 
 main{
     margin: 0;
     display: flex;
     justify-content:space-evenly;
     height: 100vh;
+    width: calc(100vw - $l );
     
     .container{
         height: 100%;
