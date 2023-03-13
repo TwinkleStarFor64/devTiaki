@@ -1,32 +1,6 @@
-<app-aside-bar></app-aside-bar>
-<!-- <main>
-  <section class="container">
-    <section>
-      <article>
-        <span>..........</span>
-        <h2>Tiaki</h2>
-        <span>..........</span>
-      </article>
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
-        tempora, quas porro nisi impedit ex? Quae ex ipsum alias at rem,
-        voluptate molestiae nam veniam, quod consequuntur ab sint vel, ullam
-        expedita! Provident praesentium, qui quasi aut cum atque odio! Unde,
-        necessitatibus! Sequi esse unde omnis, soluta in quaerat, rerum nisi
-        pariatur qui mollitia .
-      </p>
-    </section>
-    <section>
-      <article *ngFor="let card of cards">
-        <h3>{{ card.title }}</h3>
-        <p>{{ card.text }}</p>
-        <a [routerLink] ="[card.url]">
-           <button>{{ card.button }}</button>
-        </a>
-        <img [src]="card.image" alt="photo" />
-      </article>
-    </section>
-  </section >
-</main> -->
-<router-outlet></router-outlet>
-
+<main>
+  <router-outlet></router-outlet>
+</main>
+<aside>
+  <app-aside-bar></app-aside-bar>
+</aside>

@@ -1,54 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600;800&display=swap');
+
 $font-family: 'Raleway', sans-serif;
-$card-nutri:#D9042B;
+$card-nutri: #D9042B;
 $card-kine: #F22F1D;
 $card-opto: #F28705;
-$aside-color1:#270140;
-$aside-color2:#805E96;
-$aside-color3:#F0C02E;
-   
-   html{
-        height: 100%;
-   }
-       body {
-            border-spacing: 0;
-            height: 100vh;
-            margin:0 ;
-            padding: 0;
-            background: url('./assets/imgAsidebar/BgVector2.svg'),rgba(242, 183, 5, 0.1);
-            background-repeat: no-repeat;
-            background-size:cover ;
-            background-position: center;
-            transform: matrix(1, 0, 0, 1, 0, 0);
-            height: 100vh;
-            border-spacing: 0;
-       }
-            app-root{
-                height: 100%;
-                
-            }
-            
-        @font-face {
-            font-family:'Raleway', sans-serif;
-            src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
-        }
-    
-    // app-programme-kine > header{
-    //     background-color: $aside-color2;
-    // }
-   
-//    main{
-//     display:flex;
-//     flex-flow:row nowrap;
-//     width:100vw;
-//     height:100vh;
-//    }
-//    main > aside {
-//     width:200px;
-//     height:100vh;
-//    }
-//    main > section{
-//     width: calc(100vw - 200px);
-//     height:100vh;
-//    }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$aside-color1: #270140;
+$aside-color2: #805E96;
+$aside-color3: #F0C02E;
+
+$clair: white;
+$sombre: black;
+
+$head:60px; // Hauteur de l'entête des pages
+$foot:150px; // Hauteur des menus du bas
+$l:65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+
+html {
+  height: 100%;
+}
+
+body {
+  border-spacing: 0;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url('./assets/imgAsidebar/BgVector2.svg'), rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  height: 100vh;
+  border-spacing: 0;
+}
+html,
+body {
+  height: 100%;
+  overflow:hidden;
+}
+body {
+  margin: 0;
+  font-family: $font-family;
+}
+* {
+  box-sizing: border-box;
+}
+main,
+section,
+article, header, footer {
+  display: flex;
+}
+a{
+  text-decoration: none;
+  color:$aside-color1;
+}
+// AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
+#exercices {
+  width: 100%;
+  display:flex;
+  flex-flow: row wrap;
+  color: $sombre;
+  height:100vh;
+}
+#exercices > * {
+  width:100%;
+}
+#exercices > header {
+  flex-flow:row nowrap;
+  height:$head;
+  padding:10px;
+  margin:0;
+  align-items: center;
+}
+#exercices > section {
+  width:100%;
+  flex-flow:row wrap;
+  overflow-x:hidden;
+  overflow-y:auto;
+  justify-content: space-around;
+  height:calc(100vh - $head - $foot);
+}
+#exercices > footer {
+  height:$foot;
+  width:calc(100vw - $l)
+}
+#exercices > header > a:nth-child(1) {
+  font-size:32px;
+  font-weight: 100;
+}
+#exercices > header > a:nth-child(1):after {
+  content:'   ......';
+  font-size:50%;
+}
+#exercices > header img{
+  width:30px;
+}
+#exercices > header > *{
+  margin:5px;
+  padding:0;
+}
+#exercices article {
+  flex-flow: column nowrap;
+  width: 20%;
+  background: $clair;
+  padding: 10px;
+  margin:5px;
+}
+#exercices article > div {
+  display:flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+#exercices article > div > *{
+  margin-left:10px;
+}
+#exercices article > figure {
+  width: 100%;
+  margin: -10px -10px 0;
+  background-size: contain;
+  background-position: 50%;
+}
+// Menu des pages d'exercices
+#exercices > footer > *{
+  width:100%;
+  height:$foot;
+  margin:0;
+  padding: 0;
+}
+#exercices > footer nav{
+  display:flex;
+  flex-flow:row nowrap;
+  width:100%;
+  height:100%;
+  // justify-content: space-around;
+}
+#exercices > footer nav a{
+  display:flex;
+  color:$clair;
+  flex-flow: row nowrap;
+  margin:auto;
+  max-width:25%;
+  height:fit-content;
+}
+#exercices > footer nav a article{
+  color:$clair;
+  background: none;
+  width:auto;
+}
+#exercices > footer nav a article > *{
+  margin:0;
+}

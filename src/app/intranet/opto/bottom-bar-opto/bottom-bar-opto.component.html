@@ -1,15 +1,9 @@
-<footer>
-  <a
-    *ngFor="let bottom of bottoms"
-    [routerLink]="[bottom.url]"
-    (click)="onNavItemClick(bottom)"
-  >
-    <section [ngStyle]="{ filter: bottom.active ? 'none' : 'opacity(65%)' }">
+<nav class="menu-exercices">
+  <a *ngFor="let bottom of bottoms" [routerLink]="[bottom.url]" (click)="onNavItemClick(bottom)">
       <img [src]="bottom.image" alt="image d'exercice" />
       <article>
-        <h4>{{ bottom.titre }}</h4>
+        <h4>{{ bottom.titre}}</h4>
         <p>{{ bottom.info }}</p>
       </article>
-    </section>
   </a>
-</footer>
+</nav>

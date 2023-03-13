@@ -14,8 +14,8 @@ const routes: Routes = [
   {path:'mentions-legales', component:MentionsLegalesComponent},
   {path:'infos', component:InfosComponent},
   {path:'intranet', loadChildren: () =>  import('./intranet/intranet.module').then( m => m.IntranetModule)},
-  { path: 'pageNotFound', component: PagenotfoundComponent},
-  { path: '**', redirectTo: '/pageNotFound' },
+  { path: '**', component: PagenotfoundComponent},
+  // { path: '**', redirectTo: '/pageNotFound' },
 ];
 
 @NgModule({

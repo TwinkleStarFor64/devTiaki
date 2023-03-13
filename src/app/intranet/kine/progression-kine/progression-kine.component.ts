@@ -15,7 +15,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-      
+
     },
     {
       photo:'assets/iconeKineOpto/exercice2.png',
@@ -23,7 +23,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-      
+
     },
     {
       photo:'assets/iconeKineOpto/exercice3.png',
@@ -31,7 +31,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-    
+
     },
     {
       photo:'assets/iconeKineOpto/exercice4.png',
@@ -39,7 +39,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-     
+
     },
     {
       photo:'assets/iconeKineOpto/exercice1.png',
@@ -47,7 +47,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-      
+
     },
     {
       photo:'assets/iconeKineOpto/exercice2.png',
@@ -55,7 +55,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-      
+
     },
     {
       photo:'assets/iconeKineOpto/exercice3.png',
@@ -63,7 +63,7 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-    
+
     },
     {
       photo:'assets/iconeKineOpto/exercice4.png',
@@ -71,7 +71,6 @@ export class ProgressionKineComponent implements OnInit {
       description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
       horloge:'assets/iconeKineOpto/horloge.svg',
       materiel:'assets/iconeKineOpto/materiel.svg',
-     
     }
 
   ]

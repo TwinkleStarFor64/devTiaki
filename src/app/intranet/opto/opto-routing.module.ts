@@ -5,7 +5,7 @@ import { ProgrammeOptoComponent } from './programme-opto/programme-opto.componen
 import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
 
 const routes: Routes = [
-  {path:'progressionOpto', component:ProgressionOptoComponent},
+  {path:'progression-Opto', component:ProgressionOptoComponent},
   {path:'exerciceOpto' , component:ExerciceOptoComponent},
   {path:'programmeOpto' , component:ProgrammeOptoComponent}
 ];
