@@ -6,20 +6,10 @@
   </header>
   <article>
     <form class="example-form">
-      <input
-        class="example-input"
-        type="text"
-        name="myProg"
-        placeholder="Recherche"
-        [formControl]="control"
-        [matAutocomplete]="auto"
-        (keyup)="filtrerProgrammes()"/>
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        (optionSelected)="onOptionSelected($event)">
-        <mat-option
-          *ngFor="let programme of programmesFiltres"
-          [value]="programme"
+      <input class="example-input" type="text" name="myProg" placeholder="Recherche" [formControl]="control"
+        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
           (mouseover)="hoverSelectedProgramme(programme)">
           {{ programme.titre }}
         </mat-option>
@@ -27,15 +17,10 @@
     </form>
     <input type="checkbox" id="allergie" name="allergie" value="allergie" />
     <label for="allergie">Tenir compte de mes allergies </label>
-    <input
-      type="checkbox"
-      id="jamaisFait"
-      name="jamaisFait"
-      value="jamaisFait"
-    />
+    <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
-  <article class="dashed"></article>
+  <div class="dashed"></div>
   <article *ngIf="selectedProgrammeKine; selectedProgramme">
     <img src="{{ selectedProgrammeKine.photo }}" alt="imageOpto" />
     <article>

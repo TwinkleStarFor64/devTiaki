@@ -54,6 +54,7 @@ a{
   text-decoration: none;
   color:$aside-color1;
 }
+
 //header 
 
 #head {
@@ -63,7 +64,6 @@ a{
   margin:0;
   align-items: center;
 }
-
 #head > a:nth-child(1) {
   font-size:32px;
   font-weight: 100;
@@ -89,23 +89,82 @@ a{
 #programmes {
   width: 100%;
   display:flex;
-  flex-flow: row wrap;
+  flex-direction: column;
   color: $sombre;
   height:calc(100vh - $foot);
 }
-
-#programmes > * {
-  width:100%;
-}
-
-
 #programmes > section {
   width:100%;
   flex-direction: column;
-  justify-content: space-around;
   height:calc(100vh - $head - $foot);
+  overflow-x:hidden;
+  overflow-y:auto;
+
+}
+// search bar
+#programmes > article:nth-child(2) {
+  width:100%;
+  gap: 1.5vw;
+  justify-content: center;
+  
 }
 
+// #programmes > div{
+//   width: 80vw;
+//   border-bottom: dashed 1px black;
+//   align-self: center;
+  
+// }
+
+// article avec l'image
+#programmes > article:nth-child(3) {
+  width:100%;
+  justify-content: space-around;
+  flex-direction: column; 
+}
+#programmes > article:nth-child(4){
+  width:100%;
+  height:calc(100vh - $foot );
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+
+}
+#programmes article:nth-child(4) img{
+  width:45vw;
+  height: 45vh;
+ 
+}
+// Article de description
+#programmes article:nth-child(4)>article >div:nth-child(1){
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+#programmes article:nth-child(4)>article{
+ margin: 10px;
+}
+
+#programmes article:nth-child(4)>article> div:nth-child(2){
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+// block horloge et materiels
+#programmes article:nth-child(4)>article> div:nth-child(2) div{
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  height: 50%;
+  width: 100%; 
+}
+#programmes article:nth-child(4)>article> div:nth-child(2) div img{
+  height: 2vh;
+  width: 3vw; 
+  color: #F22F1D;
+}
 // AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
 #exercices {
   width: 100%;
@@ -117,7 +176,6 @@ a{
 #exercices > * {
   width:100%;
 }
-
 #exercices > section {
   width:100%;
   flex-flow:row wrap;
@@ -130,7 +188,6 @@ a{
   height:$foot;
   width:calc(100vw - $l)
 }
-
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
