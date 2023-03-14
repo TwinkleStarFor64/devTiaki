@@ -6,6 +6,8 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 $foot:150px; // Hauteur des menus du bas
+$clair: white;
+$sombre: black;
 
 :host{
   display: flex;
@@ -13,30 +15,32 @@ $foot:150px; // Hauteur des menus du bas
  
 nav{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   height: $foot;
   width: 100%;
+  align-items: center;
  
-    section:nth-child(1) {
-      display: flex;
-      flex-wrap: nowrap;
-      width: 100%;
-      justify-content: center;
-      gap: 1vw;
-      align-items: center;
+    a {
+      display:flex;
+      color:$clair;
+      flex-flow: row nowrap;
+      margin:auto;
+      max-width:25%;
+      height:fit-content;
 
+      
       img {
-        width: 3vw;
-        height: 5vh;
-        margin-bottom: 15px;
+        width: 4vw;
+        height: 4vh;
+        margin-top: 7px;
       }
-
       article {
         color: #ffffff;
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: column nowrap;
         flex-direction: column;
-        
+        margin: 5px;
+      
         h1 {
           margin: 0;
           font-size: 1.2vw;

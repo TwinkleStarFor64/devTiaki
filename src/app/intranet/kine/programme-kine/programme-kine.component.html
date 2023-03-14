@@ -1,50 +1,58 @@
-<main>
-  <section>
-    <a routerLink="/"
-      ><span>Tiaki</span>
-      <div></div
-    ></a>
-    <article>
-      <input type="search" />
-      <input type="checkbox" id="allergie" name="allergie" value="allergie" />
-      <label for="allergie">Tenir compte de mes allergies </label>
+<section id="programmes">
+  <header id="head">
+    <a routerLink="/">Tiaki</a>
+    <p>Kinésithérapie ></p>
+    <p>Programmes</p>
+  </header>
+  <article>
+    <form class="example-form">
       <input
-        type="checkbox"
-        id="jamaisFait"
-        name="jamaisFait"
-        value="jamaisFait"
-      />
-      <label for="jamaisFait">Jamais faites </label>
-    </article>
-    <article class="dashed"></article>
-  </section>
-  <section></section>
-  <!-- <ng-container *ngIf="modalService.showModal$ | async">
-        <article class="modal" *ngIf="(modalService.showModal$ | async)">
-          <div class="modal-content">
-            <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
-            <article *ngIf="selectedMedia?.type === 'image'">
-              <img [src]="selectedMedia?.url" alt="image">
-            </article>
-            <article *ngIf="selectedMedia?.type === 'video'">
-              <video [src]="selectedMedia?.url" controls></video>
-            </article>
-          </div>
-        </article>
-      </ng-container> -->
-  <section>
+        class="example-input"
+        type="text"
+        name="myProg"
+        placeholder="Recherche"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerProgrammes()"/>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)">
+        <mat-option
+          *ngFor="let programme of programmesFiltres"
+          [value]="programme"
+          (mouseover)="hoverSelectedProgramme(programme)">
+          {{ programme.titre }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+    <input type="checkbox" id="allergie" name="allergie" value="allergie" />
+    <label for="allergie">Tenir compte de mes allergies </label>
+    <input
+      type="checkbox"
+      id="jamaisFait"
+      name="jamaisFait"
+      value="jamaisFait"
+    />
+    <label for="jamaisFait">Jamais faites </label>
+  </article>
+  <article class="dashed"></article>
+  <article *ngIf="selectedProgrammeKine; selectedProgramme">
+    <img src="{{ selectedProgrammeKine.photo }}" alt="imageOpto" />
     <article>
-      <h2>Occluimetrie</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, dolor!
-      </p>
+      <div>
+        <h2>{{ selectedProgrammeKine.titre }}</h2>
+        <p>{{ selectedProgrammeKine.description }}</p>
+      </div>
+      <div class="bottomContainer">
+        <div class="horlMatBox">
+          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+          <p>{{ selectedProgrammeKine.duree }}</p>
+        </div>
+        <div class="horlMatBox">
+          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+          <p>{{ selectedProgrammeKine.materiel }}</p>
+        </div>
+      </div>
     </article>
-    <article>
-      <img src="assets/iconeKineOpto/horloge.png" />
-      <p>Durée</p>
-      <img src="assets/iconeKineOpto/materielOpto.png" />
-      <p>Matériels</p>
-    </article>
-    <app-carousel></app-carousel>
-  </section>
-</main>
+  </article>
+</section>

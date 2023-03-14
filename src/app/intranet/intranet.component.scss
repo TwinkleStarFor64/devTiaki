@@ -1,6 +1,6 @@
 $l:65px;
 $foot:150px;
-
+$foot-color:#f28705;
 :host{
   height:100vh;
   width:100vw;
@@ -21,6 +21,6 @@ main > * {
   width:calc(100vw - $l);
 }
 main > footer  {
-  background-color: #f28705;
+  background-color:$foot-color;
 }
 

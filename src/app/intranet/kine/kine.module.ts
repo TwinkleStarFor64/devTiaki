@@ -7,6 +7,9 @@ import { ExerciceKineComponent } from './exercice-kine/exercice-kine.component';
 import { ProgrammeKineComponent } from './programme-kine/programme-kine.component';
 
 import { CarouselComponent } from './carousel/carousel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -19,7 +22,11 @@ import { CarouselComponent } from './carousel/carousel.component';
   ],
   imports: [
     CommonModule,
-    KineRoutingModule
+    KineRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatSelectModule
   ]
 })
 export class KineModule { }

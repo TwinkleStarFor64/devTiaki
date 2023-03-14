@@ -25,7 +25,7 @@ export interface CiqualI {
      
 }
 
-export interface ProgrammeOptoI {
+export interface ProgrammeI {
     photo?:string,
     video?:string,
     titre:string,

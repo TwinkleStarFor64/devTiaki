@@ -6,7 +6,7 @@ import { ProgrammeI } from 'src/app/intranet/utils/modeles/Types';
 @Injectable({
   providedIn: 'root'
 })
-export class ProgrammeOptoService {
+export class ProgrammeKineService {
 
   programme:ProgrammeI[] = [];
 
@@ -14,7 +14,7 @@ export class ProgrammeOptoService {
 
   constructor(private http: HttpClient) { }
 
-  getProgrammeOpto(): Observable<ProgrammeI[]> {
+  getProgrammeKine(): Observable<ProgrammeI[]> {
     return this.http.get<ProgrammeI[]>(this.programmeUrl);
   }
 }
