@@ -31,7 +31,7 @@ export class FooterComponent implements OnInit {
       titre:"Exercices",
       info:"Découvrez les exercices.",
       lien:'ExerciceKine',
-      url:'/intranet/kine/exercice-Kine',
+      url:'/intranet/nutrition/ingredients',
       active: false,
     },
   ]

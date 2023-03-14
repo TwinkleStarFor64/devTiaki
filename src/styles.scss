@@ -54,8 +54,8 @@ a{
   text-decoration: none;
   color:$aside-color1;
 }
-//header 
 
+//HEADER
 #head {
   flex-flow:row nowrap;
   height:$head;
@@ -85,7 +85,6 @@ a{
 }
 
 // AFFICHAGE PAGES PROGRAMMES
-
 #programmes {
   width: 100%;
   display:flex;

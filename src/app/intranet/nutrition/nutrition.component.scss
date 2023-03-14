@@ -5,18 +5,25 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-:host {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+$clair: white;
+$sombre: black;
 
-  section {
-    display: flex;
-    flex-flow: column nowrap;
+$head: 60px; // Hauteur de l'entête des pages
+$foot: 150px; // Hauteur des menus du bas  
 
-    article {
-      height: 8vh;
-    }
+section {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+
+  #head > p{
+    color: $card-kine;
+  }
+  #head > p:after {
+    content:'   ......';
+    font-size:50%;
+  }  
+  #head > a:nth-child(1) {
+    color: $card-kine;
   }
 }
+
