@@ -40,8 +40,7 @@ export class IngredientsComponent implements OnInit {
   } 
 
   onMesPlats(plat:MesPlatsI) : void {
-    this.selectedPlat = plat;
-      
+    this.selectedPlat = plat;      
   }
   
 }
