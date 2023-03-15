@@ -10,6 +10,10 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { KineComponent } from './kine.component';
+import { FooterModule } from '../footer/footer.module';
+import { FooterComponent } from '../footer/footer.component';
+
 
 
 @NgModule({
@@ -18,7 +22,9 @@ import { MatSelectModule } from '@angular/material/select';
     ExerciceKineComponent,
     ProgrammeKineComponent,
     BottomBarKineComponent,
-    CarouselComponent
+    CarouselComponent,
+    KineComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    
+    
   ]
 })
 export class KineModule { }

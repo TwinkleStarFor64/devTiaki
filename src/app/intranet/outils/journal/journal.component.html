@@ -51,7 +51,7 @@
       <h3>Ajouter un journal</h3>
     </article>
     <article>
-      <form [formGroup]="formJournal">
+      <form >
         <span class="p-float-label">
           <input type="text" formControlName="objet" pInputText />
           <label for="float-input">Objet</label>
@@ -76,20 +76,7 @@
           ></textarea>
           <label for="float-input">Commentaire</label>
         </span>
-        <span>
-          <p-dropdown class="relier" [options]="reliers" placeholder="Relier un journal précédent" optionLabel="nom" [showClear]="true" formControlName="relier"></p-dropdown>
-        </span>
-        <div>
-          <p-button label="Partager" styleClass="partager" class="partager"  [ngStyle]="{'text-align':'center'}" ></p-button>
-          <!-- Ci-dessous le code primeNg pour un bouton annuler et sa confirmation -https://www.primefaces.org/primeng/confirmdialog -->
-          <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" acceptLabel="oui" rejectLabel="non"></p-confirmDialog>
-          <div>
-            <!-- Le bouton est disabled si les champs avec Validators.required ne sont pas remplis -->
-            <p-button (click)="onCancel()" label="Annuler" class="annuler" styleClass="annuler" ></p-button>
-            <!-- <p-messages [value]="msgs"></p-messages> -->
-            <p-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid" label="Enregistrer" class="enregistrer" styleClass="enregistrer"></p-button>
-          </div>
-        </div>
+      
       </form>
     </article>
   </section>

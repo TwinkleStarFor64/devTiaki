@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI } from '../../modeles/Types';
+import { BottomI } from '../modeles/Types';
 
 @Component({
   selector: 'app-footer',
@@ -17,6 +17,7 @@ export class FooterComponent implements OnInit {
       lien:'ProgressionKine',
       url:'/intranet/kine/progression-Kine',
       active: false,
+      activeUrl:'/intranet/kine/progression-Kine'
     },
     {
       image:"assets/iconeBottom/programme.svg",
@@ -25,6 +26,8 @@ export class FooterComponent implements OnInit {
       lien:'ProgrammeKine',
       url:'/intranet/kine/programme-Kine',
       active: false,
+      activeUrl:'/intranet/kine/programme-Kine'
+
     },
     {
       image:"assets/iconeBottom/exerciceIcon.svg",
@@ -33,7 +36,10 @@ export class FooterComponent implements OnInit {
       lien:'ExerciceKine',
       url:'/intranet/kine/exercice-Kine',
       active: false,
+      activeUrl:'/intranet/kine/exercice-Kine'
+
     },
+    
   ]
 
   constructor(private router: Router) {
@@ -44,6 +50,7 @@ export class FooterComponent implements OnInit {
     const activeUrl = this.router.url;
     this.bottoms.forEach(item => {
         item.active = activeUrl.startsWith(item.url);
+        item.activeUrl = activeUrl;
     });
  
   }
