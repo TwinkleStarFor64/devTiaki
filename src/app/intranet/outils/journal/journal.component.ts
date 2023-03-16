@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+
 import {
   HistoriqueI,
   MedecinI,
@@ -59,7 +58,7 @@ export class JournalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
   ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },
@@ -83,28 +82,38 @@ export class JournalComponent implements OnInit {
 
   onSubmitForm() {
     console.log(this.formJournal.value);
+    this.formJournal.reset();
   }
 
   onCancel() {
-    this.confirmationService.confirm({
-      message: 'Voulez-vous annuler votre enregistrement ?',
-      header: 'Confirmation',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-        this.msgs = [
-          {
-            severity: 'info',
-            summary: 'Confirmation',
-            detail: 'Journal effacé',
-          },
-        ];
-        this.formJournal.reset();
-      },
-      reject: () => {
-        this.msgs = [
-          { severity: 'info', summary: 'Confirmation', detail: 'Annulation' },
-        ];
-      },
-    });
+    this.formJournal.reset();    
   }
+
 }
+
+
+
+
+
+/* onCancel() {
+  this.confirmationService.confirm({
+    message: 'Voulez-vous annuler votre enregistrement ?',
+    header: 'Confirmation',
+    icon: 'pi pi-info-circle',
+    accept: () => {
+      this.msgs = [
+        {
+          severity: 'info',
+          summary: 'Confirmation',
+          detail: 'Journal effacé',
+        },
+      ];
+      this.formJournal.reset();
+    },
+    reject: () => {
+      this.msgs = [
+        { severity: 'info', summary: 'Confirmation', detail: 'Annulation' },
+      ];
+    },
+  });
+} */
