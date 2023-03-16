@@ -302,6 +302,9 @@ p{
   overflow-y:auto;
   justify-content: space-around;
   height:calc(100vh - $head - $foot);
+  overflow-y: auto;
+  scrollbar-color: $card-nutri #d3354f;
+  scrollbar-width: auto;
 }
 #exercices > footer {
   height:$foot;
@@ -359,5 +362,6 @@ p{
 //   margin:0;
 // }
 nav{
-  background-color: #F28705;
+  background-color: $card-kine;
+  ;
 }

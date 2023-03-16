@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRoutingModule } from './nutrition-routing.module';
 import { JournalRepasComponent } from './journal-repas/journal-repas.component';
-import { BottomBarNutriComponent } from 'src/app/intranet/nutrition/bottom-bar-nutri/bottom-bar-nutri.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
@@ -19,7 +18,7 @@ import { FooterModule } from '../footer/footer.module';
 
 @NgModule({
   declarations: [
-    BottomBarNutriComponent,
+
     JournalRepasComponent,
     IngredientsComponent,
     MenusComponent,

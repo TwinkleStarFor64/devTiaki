@@ -1,0 +1,30 @@
+[
+    {
+       "image": "assets/iconeBottom/cheerleader.svg",
+       "titre": "Progression d'Émilie",
+        "info": "Suivez les progréssion d'Émilie",
+        "lien": "ProgressionKine",
+        "url": "/intranet/kine/progression-Kine",
+        "active": false,
+        "activeUrl": "/intranet/kine/progression-Kine"
+  
+      },
+      {
+        "image": "assets/iconeBottom/programme.svg",
+        "titre": "Programmes",
+        "info": "Des programmes de kinésithérapie",
+        "lien": "ProgrammeKine",
+        "url": "/intranet/kine/programme-Kine",
+        "active": false,
+        "activeUrl": "/intranet/kine/programme-Kine"
+      },
+      {
+        "image": "assets/iconeBottom/programme.svg",
+        "titre": "Programmes",
+        "info": "Des exercices de kinésithérapie",
+        "lien": "ExerciceKine",
+        "url": "/intranet/kine/exercice-Kine",
+        "active": false,
+        "activeUrl": "/intranet/kine/exercice-Kine"
+      }
+]
