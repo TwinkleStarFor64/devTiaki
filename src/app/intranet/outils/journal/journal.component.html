@@ -1,32 +1,34 @@
 
-<main>
+<section id="mainJournal">
   <!-- Section avec le logo, les médecins et les réalisations -->
   <section>
     <article>
-      <a routerLink="/">
-        <div></div>
-        <span>Tiaki</span>
-        <div></div>
+      <a routerLink="/">        
+        <span>Tiaki</span>        
       </a>
     </article>
     <article>
-      <h2>Journaux de suivi</h2>
+      <h1>Journaux de suivi</h1>
     </article>
     <article class="medecin">
       <div>
         <img [src]="[medecinImg]" alt="logo medecin" />
-        <h4>Médecins</h4>
+        <h2>Médecins</h2>
       </div>
-      <span *ngFor="let medecin of medecins"> .{{ medecin.nom }} </span>
+      <ul>
+        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+      </ul>
     </article>
     <article class="realisation">
       <div>
         <img [src]="[realisationImg]" alt="logo realisation" />
-        <h4>Réalisations</h4>
+        <h2>Réalisations</h2>
       </div>
-      <span *ngFor="let realisation of realisations">
-        .{{ realisation.nom }}
-      </span>
+      <ul>
+        <li *ngFor="let realisation of realisations">
+          {{ realisation.nom }}
+        </li>
+      </ul>
     </article>
   </section>
   <!-- Section comportant l'historique des journaux -->
@@ -51,61 +53,60 @@
       <h3>Ajouter un journal</h3>
     </article>
     <article>
-      <form [formGroup]="formJournal">
-        <span class="p-float-label">
-          <input type="text" formControlName="objet" pInputText />
-          <label for="float-input">Objet</label>
-        </span>
-        <span class="p-float-label">
-          <textarea
-            id="float-input"
-            rows="5"
-            cols="30"
-            formControlName="note"
-            pInputTextarea
-                      ></textarea>
-          <label for="float-input">Note</label>
-        </span>
-        <span class="p-float-label">
-          <textarea
-            id="float-input"
-            rows="5"
-            cols="30"
-            formControlName="commentaire"
-            pInputTextarea
-          ></textarea>
-          <label for="float-input">Commentaire</label>
-        </span>
-        <span>
-          <p-dropdown class="relier" [options]="reliers" placeholder="Relier un journal précédent" optionLabel="nom" [showClear]="true" formControlName="relier"></p-dropdown>
-        </span>
-        <div>
-          <p-button label="Partager" styleClass="partager" class="partager"  [ngStyle]="{'text-align':'center'}" ></p-button>
-          <!-- Ci-dessous le code primeNg pour un bouton annuler et sa confirmation -https://www.primefaces.org/primeng/confirmdialog -->
-          <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" acceptLabel="oui" rejectLabel="non"></p-confirmDialog>
-          <div>
-            <!-- Le bouton est disabled si les champs avec Validators.required ne sont pas remplis -->
-            <p-button (click)="onCancel()" label="Annuler" class="annuler" styleClass="annuler" ></p-button>
+      <form [formGroup]="formJournal">        
+        <mat-form-field appearance="outline">
+          <mat-label>Objet</mat-label>
+          <input matInput formControlName="objet">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Note</mat-label>
+          <textarea matInput rows="10" formControlName="note"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Commentaire</mat-label>
+          <textarea matInput rows="5" formControlName="commentaire"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Relier un journal précédent</mat-label>
+          <mat-select formControlName="relier">
+            <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
+            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ rel.nom }}</mat-option>           
+          </mat-select>
+        </mat-form-field>
+        
+        <span class="spanBouton">
+          <button mat-raised-button color="warn">Partager</button>
+          <div>            
+            <button mat-raised-button (click)="onCancel()">Annuler</button>
+            <!-- <p-button (click)="onCancel()" label="Annuler" class="annuler" styleClass="annuler" ></p-button> -->
             <!-- <p-messages [value]="msgs"></p-messages> -->
-            <p-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid" label="Enregistrer" class="enregistrer" styleClass="enregistrer"></p-button>
+            <button mat-raised-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid">Enregistrer</button>
+            <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->            
           </div>
-        </div>
+        </span>
       </form>
     </article>
   </section>
   <!-- Section Concerner permettant de choisir les activités éffectué sur l'application -->
   <section class="concerner">
-    <h3>Concerne</h3>
+    <h4>Concerne</h4>
     <h5>Nutrition</h5>
-    <h5>Plats</h5>
+    <p>Plats</p>
     <article class="buttonPlats">
-      <button>Plat truc</button>
-      <button>Plat machin</button>
-      <button>Plat muche</button>
-      <button>Plat truc </button>
+      <button>Salade</button>
+      <button>Thon</button>
+      <button>Kiwi</button>
+      <button>Lasagne</button>
     </article>
-    <h5>Ingrédients</h5>
-    <input type="search" />
+    <p>Ingrédients</p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Rechercher un ingrédient</mat-label>
+      <input type="search" matInput placeholder="Ex. Courgette">
+    </mat-form-field>
+    <!-- <input type="search" /> -->
     <h5>Kiné</h5>
     <article class="buttonKine">
       <button>Exo 1</button>
@@ -122,15 +123,58 @@
     </article>
     <h5>Médecins concernés</h5>
     <article class="buttonMedecin">
-      <button>Doc Truc</button>
-      <button>Lambda</button>
-      <button>Doc Beta</button>
+      <button>Dr Genoise</button>
+      <button>Dr Lagourge</button>
+      <button>Dr Poiton</button>
     </article>
     <h5>Organisme concernés</h5>
     <article class="buttonOrg">
-      <button>Org lambda</button>
-      <button>Org Beta</button>
-      <button>Org Alpha</button>
+      <button>Clinique</button>
+      <button>Association</button>
+      <button>Hôpital</button>
     </article>
   </section>
-</main>
+</section>
+
+
+
+
+
+
+
+<!-- <span class="p-float-label">
+          <input type="text" formControlName="objet" pInputText />
+          <label for="float-input">Objet</label>
+        </span> -->
+
+<!-- <span class="p-float-label">
+          <textarea
+            id="float-input"
+            rows="5"
+            cols="30"
+            formControlName="note"
+            pInputTextarea
+                      ></textarea>
+          <label for="float-input">Note</label>
+        </span> -->
+
+<!-- <span class="p-float-label">
+          <textarea
+            id="float-input"
+            rows="5"
+            cols="30"
+            formControlName="commentaire"
+            pInputTextarea
+          ></textarea>
+          <label for="float-input">Commentaire</label>
+        </span> -->
+
+<!-- <span>
+    <p-dropdown class="relier" [options]="reliers" placeholder="Relier un journal précédent" optionLabel="nom" [showClear]="true" formControlName="relier"></p-dropdown>
+  </span> -->
+
+<!-- <p-button label="Partager" styleClass="partager" class="partager"  [ngStyle]="{'text-align':'center'}" ></p-button> -->
+<!-- Ci-dessous le code primeNg pour un bouton annuler et sa confirmation -https://www.primefaces.org/primeng/confirmdialog -->
+<!-- <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text" acceptLabel="oui" rejectLabel="non"></p-confirmDialog> -->
+
+<!-- <p-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid" label="Enregistrer" class="enregistrer" styleClass="enregistrer"></p-button> -->

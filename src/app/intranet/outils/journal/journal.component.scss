@@ -7,19 +7,14 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 $button-color1:#33BB27;
-$card-opto-hover: #cf7507;
-$aside-color3-hover: #c29d2e;
-$button-color1-hover: #2b9b1c;
 
-main {
+#mainJournal {
     font-family: $font-family;
     height: 100vh;
     display: flex;
-    flex-direction: row;
-    
-    
+    flex-direction: row;        
 
- // Section permettant de voir les medecin
+ // Section permettant de voir les medecins et les réalisations
     section:nth-child(1){
         background-color: $aside-color3;
         width: 13%;
@@ -29,7 +24,7 @@ main {
         color: #ffffff;
         align-items: center;
         gap: 1vw;
-
+        
         article:nth-child(1){
             a{
                 display: flex;
@@ -38,23 +33,30 @@ main {
                 text-decoration: none;
                 width: 100%;
                 color: #ffffff;
-                font-size: 3vw;
+                font-size: 4rem;
                 font-weight: 100;
-                div{
-                    border-bottom: dashed 1px rgb(255, 255, 255);
-                    width: 3vw;
-                    margin-bottom: 10px;
-                }
+
                 span{
                     font-weight: 100;
+                    margin: 0;
+                    padding: 0;
                 }
+            }
+            span:before{
+                content: '........';
+                font-size:50%;
+            }
+            span:after{
+                content: '........';
+                font-size:50%;
             }
         }
         article:nth-child(2){
             border-bottom: 1px white dashed;
-            h2{
+            margin-left: 0.5vw;
+            h1{ // La balise <h1>Journaux de suivi</h1>
                 margin: 0;
-                font-size: 1.4vw;
+                font-size: 1.8rem;
                 font-weight: 700;
                 width: 60%;
             }
@@ -66,25 +68,26 @@ main {
             margin: 0;
             height: 30%;
             width: 100%;
+            margin-left: 1vw;
 
             div{
                 display: flex;
                 align-items: flex-end;
                 gap: 9px;
-                justify-content: flex-start;
-                
+                justify-content: flex-start;                
                 img{
                     width: 3vw;
                 }
-                h4{
+                h2{ // La balise <h2>Médecins</h2>
                     margin: 0;
-                    font-size: 1.2vw;
+                    font-size: 1.4rem;
                 }
             }
-            span{
-                margin: 4px;
-                font-size: 0.8vw;
-                margin-left: 2vw;
+            ul{
+                li{
+                    margin-left: 0.5vw;
+                    margin-bottom: 15px;
+                }
             }
         }
         .realisation{
@@ -94,6 +97,7 @@ main {
             height: 30%;
             justify-content: space-evenly;
             width: 100%;
+            margin-left: 1vw;
 
             div{
                 display: flex;
@@ -103,16 +107,16 @@ main {
                 img{
                     width: 3vw;
                 }
-                h4{
+                h2{ // La balise <h2>Réalisations</h2>
                     margin: 0;
-                    font-size: 1.2vw;
-                    
+                    font-size: 1.4rem;                    
                 }
             }
-            span{
-                margin: 4px;
-                font-size: 0.8vw;
-                margin-left: 2vw;
+            ul{
+                li{
+                    margin-left: 0.5vw;
+                    margin-bottom: 15px;
+                }
             }
         }
     }
@@ -123,8 +127,7 @@ main {
         width: 13%;
         display: flex;
         flex-direction: column;
-        text-align: center;
-        
+        text-align: center;        
             div{
                 display: flex;
                 flex-direction: column;
@@ -132,12 +135,11 @@ main {
                 height: 18%;
                 justify-content: flex-end;
                 gap: 1vw;
-
                 img{
                     height: 4vw;
                 }
                 p{
-                    font-size: 1vw;
+                    font-size: 1.2rem;
                     font-weight: 600;
                     margin: 4px;
                     width: 100%;
@@ -149,26 +151,22 @@ main {
                 justify-content: space-around;
                 align-items: flex-start;
                 height: 30%;
-              
-                
-
                 li{
                     text-align: center;
-                    font-size: 0.8vw;
-                    font-family:'Courier New', Courier, monospace;
+                    font-size: 1rem;                    
                 }
             }
             
         }
     
 // Section qui comporte le formulaire d'enregistrement du journal
-    section:nth-child(3){
-        //background-color: blue;
+    section:nth-child(3){        
         width: 61%;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 4vw;
+        overflow-y: auto;        
 
     // Article du titre avec la ligne de dashed
         article:nth-child(1){
@@ -179,9 +177,10 @@ main {
             flex-direction: column;
             justify-content: flex-end;
 
-            h3{
+            h3{ // La balise <h3>Ajouter un journal</h3>
                 align-self:flex-start ;
-                font-size: 1.5vw;
+                font-size: 1.5rem;
+                font-weight: 600;
             }
         }
     //Article comportant le formulaire
@@ -199,59 +198,42 @@ main {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
-
-                span:nth-child(1){
-                    width: 100%;
-                    height: 2vw ;
-                    
-                    input{
-                        width: 80%;
-                        height: 100%;
-                    }
-                    label{
-                        font-size: 1vw;
-                    }
+                
+                mat-form-field:nth-child(1) { // L'input avec le label "Objet"
+                    width: 80%;                                                        
                 }
-                   
-                span:nth-child(2){
-                    width: 100%;
-                    height: 10vw;
-                    
-                    textarea{
-                        width: 100%;
-                        height: 100%;
-                    }
-                    label{
-                        font-size: 1vw;
-                    }
-                }
-                span:nth-child(3){
-                    height: 20%;
-                    width: 100%;
-
-                    textarea{
-                        height: 100%;
-                        width: 100%;
-                    }
-                    label{
-                        font-size: 1vw;
-                    }
-                }
-                span:nth-child(4){
-                    
-                    width: 80%;
-                    .ui-dropdown {
-                    width: 100%;
-                    }
-                }
-                div{
+                              
+                // Ci-dessous le CSS pour les 3 boutons (Partager Annuler Enregistrer)
+                .spanBouton {
                     display: flex;
                     justify-content: space-between;
-
-                    div:nth-child(3){
+                    //align-content: stretch;
+                    .mat-mdc-raised-button:not(:disabled) { // Le bouton orange Partager
+                        background-color: $card-opto;
+                        color: #ffffff;
+                        width: 7vw;
+                    }
+                    div { // La div qui contient les 2 boutons
                         display: flex;
-                        width: 30%;
-                        height: 10%;
+                        width: fit-content;
+                        gap: 2vw; // L'écart entre les 2 boutons
+                        //height: 10%;
+                        .mat-mdc-raised-button:not(:disabled):nth-child(1) { // Le bouton jaune Annuler
+                            background-color: $aside-color3;
+                            color: #ffffff;
+                            width: 7vw;
+                        }
+                        .mat-mdc-raised-button:disabled:nth-child(2) { // Le bouton vert Enregistrer désactivé
+                            background-color: $button-color1;
+                            color: #ffffff;
+                            opacity: 50%;
+                            width: 7vw;
+                        }
+                        .mat-mdc-raised-button:not(:disabled):nth-child(2) { // Le bouton vert Enregistrer activé
+                            background-color: $button-color1;
+                            color: #ffffff;
+                            width: 7vw;
+                        }
                     }
                 }
             }
@@ -264,16 +246,20 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding-left: 0.5vw;
         
-        h3{
-            font-size: 1.3vw;
-        }
-        article{
-            margin: 1vw;
-        }
+        h4{ // La balise <h4>Concerne</h4>
+            font-size: 1.5rem;
+            font-weight: 600;
+        }        
         h5{
-            font-size: 0.8vw;
+            font-size: 1rem;
+            font-weight: 600;
             margin: 0;
+        }
+        p{
+            font-size: 1rem;
+            margin: 0;            
         }
 
         .buttonPlats{
@@ -294,15 +280,17 @@ main {
 
             }
         }
-
-        input{
+        .mat-mdc-form-field {
+            width: 95%;
+        }
+        /* input{
             background-color: transparent;
             align-self: center;
             width: 70%;
             border-radius: 8px ;
             height: 1vw;
             border-color: #ffffff;
-        }
+        } */
 
         .buttonKine{
             display: grid;
@@ -335,7 +323,6 @@ main {
                 border-radius: 8px;
                 width: 5vw;
                 height: 1.5vw;
-
             }
         }
         .buttonMedecin{
@@ -368,14 +355,26 @@ main {
                 border-radius: 8px;
                 width: 5vw;
                 height: 1.5vw;
-                
-
             }
         }
-
     }
 
- // Button de PrieNg Css personnalisé
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    $card-opto-hover: #cf7507;
+    $aside-color3-hover: #c29d2e;
+    $button-color1-hover: #2b9b1c;
+ 
+    // Button de PrieNg Css personnalisé
  :host::ng-deep { //:host::ngdeep pour préciser les modifications CSS des composants PrimeNg
     .partager { //Le bouton orange Partager et son hover
         background-color: $card-opto;
@@ -436,3 +435,48 @@ main {
         color: #ffffff;
     }
 }
+
+
+/* span:nth-child(1){
+                    width: 100%;
+                    height: 2vw ;
+                    
+                    input{
+                        width: 80%;
+                        height: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                } */
+                /* span:nth-child(2){
+                    width: 100%;
+                    height: 10vw;
+                    
+                    textarea{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                } */
+                /* span:nth-child(3){
+                    height: 20%;
+                    width: 100%;
+
+                    textarea{
+                        height: 100%;
+                        width: 100%;
+                    }
+                    label{
+                        font-size: 1vw;
+                    }
+                } */
+                /* span:nth-child(4){
+                    
+                    width: 80%;
+                    .ui-dropdown {
+                    width: 100%;
+                    }
+                } */

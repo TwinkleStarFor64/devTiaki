@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ConfirmationService } from 'primeng/api';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import {
   HistoriqueI,
   MedecinI,
@@ -13,8 +15,9 @@ import {
   selector: 'app-journal',
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
-  providers: [ConfirmationService], //Important pour pouvoir utiliser la méthode onCancel()
+  providers: [ConfirmationService], //Important pour pouvoir utiliser la méthode onCancel()  
 })
+
 export class JournalComponent implements OnInit {
   // selectedCity1!: CityI;
   // cities: CityI[];
