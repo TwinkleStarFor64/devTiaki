@@ -8,7 +8,7 @@ import { BottomI } from '../modeles/Types';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
+ public module!: string;
   public bottoms: BottomI[] = [
     {
       image:"assets/iconeBottom/cheerleader.svg",
@@ -17,7 +17,8 @@ export class FooterComponent implements OnInit {
       lien:'ProgressionKine',
       url:'/intranet/kine/progression-Kine',
       active: false,
-      activeUrl:'/intranet/kine/progression-Kine'
+      activeUrl:'/intranet/kine/progression-Kine',
+      module : ''
     },
     {
       image:"assets/iconeBottom/programme.svg",
@@ -26,8 +27,8 @@ export class FooterComponent implements OnInit {
       lien:'ProgrammeKine',
       url:'/intranet/kine/programme-Kine',
       active: false,
-      activeUrl:'/intranet/kine/programme-Kine'
-
+      activeUrl:'/intranet/kine/programme-Kine',
+      module : ''
     },
     {
       image:"assets/iconeBottom/exerciceIcon.svg",
@@ -36,14 +37,22 @@ export class FooterComponent implements OnInit {
       lien:'ExerciceKine',
       url:'/intranet/kine/exercice-Kine',
       active: false,
-      activeUrl:'/intranet/kine/exercice-Kine'
-
+      activeUrl:'/intranet/kine/exercice-Kine',
+      module : ''
     },
-    
-  ]
+  ];
+
+ 
 
   constructor(private router: Router) {
-    
+    const route = this.router.url;
+    if (route.includes('kine')) {
+      this.module = 'kine';
+    } else if (route.includes('opto')) {
+      this.module = 'opto';
+    } else if (route.includes('nutrition')) {
+      this.module = 'nutrition';
+    }
   }
   
   ngOnInit(): void {
@@ -52,11 +61,11 @@ export class FooterComponent implements OnInit {
         item.active = activeUrl.startsWith(item.url);
         item.activeUrl = activeUrl;
     });
- 
   }
-  onNavItemClick(bottom:BottomI) {
+
+  onNavItemClick(bottom: BottomI) {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
-}
+  }
 
 }

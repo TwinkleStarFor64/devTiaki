@@ -12,6 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
+import { FooterModule } from '../footer/footer.module';
+
+
 
 
 @NgModule({
@@ -24,14 +27,15 @@ import { PlatsPipe } from '../utils/pipes/plats.pipe';
     RecettesComponent,
     NutritionComponent,
     AlimentsPipe,
-    PlatsPipe
+    PlatsPipe,
   ],
   imports: [
     CommonModule,
     NutritionRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule,
+    FooterModule
   ]
 })
 export class NutritionModule { }

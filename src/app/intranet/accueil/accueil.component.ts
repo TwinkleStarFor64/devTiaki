@@ -13,21 +13,21 @@ export class AccueilComponent implements OnInit {
       text:" Des exercices conseillés, des tutoriels et un suivi quotidien.",
       button:"Accéder à l'espace Optométrie",
       image:"assets/imgAsidebar/acc1.png",
-      url:'opto/progressionOpto'
+      url:'opto'
     },
     {
       title:"Nutrition",
       text:" Suivez les consommations caloriques, élaborez des menus, surveillez les allergies.",
       button:"Accéder à l'espace Nutrition",
       image:"assets/imgAsidebar/acc2.png",
-      url:'nutrition/journalRepas'
+      url:'nutrition'
     },
     {
       title:"Kinésithérapie",
       text:" Motricité, musculature, souplesse, découvrez et suivez des exercices quotidiens.",
       button:"Accéder à l'espace Kinésithérapie",
       image:"assets/imgAsidebar/acc3.png",
-      url:'kine/progressionKine'
+      url:'kine'
     },
 
   ]

@@ -36,10 +36,16 @@ ul li:nth-child(n+3) {
   background-color: #805E96;
   border-bottom: 1px dashed #ffffff;
 }
+ul li:nth-child(5) {
+border-bottom: none;
+}
 ul li:nth-child(n+6) {
   background-color: #F0C02E;
+  border-bottom: 1px dashed #000000;
 }
-
+ul li:nth-child(10) {
+  border-bottom: none;
+  }
 ul a {
   display: flex;
   flex-direction: column;

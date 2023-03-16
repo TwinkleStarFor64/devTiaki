@@ -5,14 +5,13 @@ import { ProgressionKineComponent } from './progression-kine/progression-kine.co
 import { BottomBarKineComponent } from 'src/app/intranet/kine/bottom-bar-kine/bottom-bar-kine.component';
 import { ExerciceKineComponent } from './exercice-kine/exercice-kine.component';
 import { ProgrammeKineComponent } from './programme-kine/programme-kine.component';
-
 import { CarouselComponent } from './carousel/carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
 import { FooterModule } from '../footer/footer.module';
-import { FooterComponent } from '../footer/footer.component';
+
 
 
 
@@ -24,7 +23,6 @@ import { FooterComponent } from '../footer/footer.component';
     BottomBarKineComponent,
     CarouselComponent,
     KineComponent,
-    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -33,8 +31,7 @@ import { FooterComponent } from '../footer/footer.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
-    
-    
+    FooterModule
   ]
 })
 export class KineModule { }
