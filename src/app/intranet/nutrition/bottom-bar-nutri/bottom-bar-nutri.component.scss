@@ -7,7 +7,7 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
 footer {
-  background-color: $card-kine;
+  background-color: $card-nutri;
   display: flex;
   justify-content: space-evenly;
   font-family: $font-family;
@@ -47,7 +47,8 @@ footer {
           font-size: 1.5rem;
         }
         p {
-          font-size: 1rem;         
+          font-size: 1rem;
+          margin-top: 5px;                   
         }
       }
     }

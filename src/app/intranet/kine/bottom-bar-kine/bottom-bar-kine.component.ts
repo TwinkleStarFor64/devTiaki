@@ -2,35 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BottomI } from 'src/app/intranet/modeles/Types.js';
 
+
 @Component({
-  selector: 'app-bottom-bar-opto',
-  templateUrl: './bottom-bar-opto.component.html',
-  styleUrls: ['./bottom-bar-opto.component.scss']
+  selector: 'app-bottom-bar-kine',
+  templateUrl: './bottom-bar-kine.component.html',
+  styleUrls: ['./bottom-bar-kine.component.scss']
 })
-export class BottomBarOptoComponent implements OnInit {
+export class BottomBarKineComponent implements OnInit {
+  
   public bottoms: BottomI[] = [
     {
       image:"assets/iconeBottom/cheerleader.svg",
       titre:"Progression d'Émilie",
       info:"Suivez les progréssion d'Émilie",
-      lien:'ProgressionOpto',
-      url:'/intranet/opto/progression-Opto',
+      lien:'ProgressionKine',
+      url:'/intranet/kine/progression-Kine',
       active: false,
     },
     {
       image:"assets/iconeBottom/programme.svg",
       titre:"Programmes",
-      info:"Des programmes d'optométrie",
-      lien:'ProgrammeOpto',
-      url:'/intranet/opto/programme-Opto',
+      info:"Des programmes de kinésithérapie",
+      lien:'ProgrammeKine',
+      url:'/intranet/kine/programme-Kine',
       active: false,
     },
     {
       image:"assets/iconeBottom/exerciceIcon.svg",
       titre:"Exercices",
       info:"Découvrez les exercices.",
-      lien:'ExerciceOpto',
-      url:'/intranet/opto/exercice-Opto',
+      lien:'ExerciceKine',
+      url:'/intranet/kine/exercice-Kine',
       active: false,
     },
   ]
@@ -50,6 +52,5 @@ export class BottomBarOptoComponent implements OnInit {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
 }
-
 
 }
