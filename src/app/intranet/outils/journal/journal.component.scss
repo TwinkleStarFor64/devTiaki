@@ -8,6 +8,10 @@ $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 $button-color1:#33BB27;
 
+.ng-tns-c97-5{ // Taille de la police dans la balise label pour rechercher un ingrédient
+    font-size: 0.8rem;
+ }
+
 #mainJournal {
     font-family: $font-family;
     height: 100vh;
@@ -155,8 +159,7 @@ $button-color1:#33BB27;
                     text-align: center;
                     font-size: 1rem;                    
                 }
-            }
-            
+            }            
         }
     
 // Section qui comporte le formulaire d'enregistrement du journal
@@ -272,7 +275,7 @@ $button-color1:#33BB27;
                 background-color: $card-nutri;
                 border: 1px solid #999;
                 text-align: center;
-                font-size: 0.6vw;
+                font-size: 0.7rem;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -281,7 +284,7 @@ $button-color1:#33BB27;
             }
         }
         .mat-mdc-form-field {
-            width: 95%;
+            width: 95%;             
         }
         /* input{
             background-color: transparent;
@@ -301,7 +304,7 @@ $button-color1:#33BB27;
             button{
                 background-color: $card-kine;
                 border: 1px solid #999;
-                font-size: 0.6vw;
+                font-size: 0.7rem;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -318,7 +321,7 @@ $button-color1:#33BB27;
                 background-color: $card-opto;
                 border: 1px solid #999;
                 text-align: center;
-                font-size: 0.6vw;
+                font-size: 0.7rem;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -335,10 +338,10 @@ $button-color1:#33BB27;
                 background-color: transparent;
                 border: 1px solid #ffffff;
                 text-align: center;
-                font-size: 0.6vw;
+                font-size: 0.7rem;
                 border-radius: 8px;
                 width: 5vw;
-                height: 1.2vw;
+                height: 1.5vw;
             }
         }
         .buttonOrg{
@@ -351,7 +354,7 @@ $button-color1:#33BB27;
                 background-color: transparent;
                 border: 1px solid #ffffff;
                 text-align: center;
-                font-size: 0.6vw;
+                font-size: 0.7rem;
                 border-radius: 8px;
                 width: 5vw;
                 height: 1.5vw;
