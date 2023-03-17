@@ -13,12 +13,10 @@ import {
   selector: 'app-journal',
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
-  providers: [ConfirmationService], //Important pour pouvoir utiliser la méthode onCancel()  
 })
 
 export class JournalComponent implements OnInit {
-  // selectedCity1!: CityI;
-  // cities: CityI[];
+  
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
   public medecinImg!: string;
   public realisationImg!: string;
@@ -57,7 +55,7 @@ export class JournalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private confirmationService: ConfirmationService,
+    
   ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },
