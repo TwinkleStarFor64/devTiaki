@@ -1,26 +1,8 @@
 <section>
   <header id="head">
     <a routerLink="/">Tiaki</a>
-    <p>......</p>
-    <p>Journal des Repas</p>
-    <p>......</p>
+    <p>Accueil Nutrition</p>
   </header>
-  <article>
-    <img src="assets/Calendar_section.svg" alt="calendrier">
-    <img src="assets/jourRepas.svg" alt="repas">
-  </article>
-  <app-bottom-bar-nutri></app-bottom-bar-nutri>
+  <!-- <app-footer></app-footer> -->
 </section>
-<!-- <footer>
-  <nav *ngFor="let bottom of bottoms">
-    <a [routerLink]="[bottom.url]" (click)="onNavItemClick(bottom)">
-      <section [ngStyle]="{'filter': bottom.active ? 'none' : 'contrast(50%)'}">
-        <img [src]="bottom.image" alt="image d'exercice" />
-        <article>
-          <h4>{{ bottom.titre}}</h4>
-          <p>{{ bottom.info }}</p>
-        </article>
-      </section>
-    </a>
-  </nav>
-</footer> -->
+<app-bottom-bar-nutri></app-bottom-bar-nutri>

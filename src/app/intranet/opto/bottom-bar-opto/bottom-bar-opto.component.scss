@@ -7,7 +7,7 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
 footer {
-  background-color: $card-kine;
+  background-color: $card-opto;
   display: flex;
   justify-content: space-evenly;
   font-family: $font-family;
@@ -22,6 +22,10 @@ footer {
     height: 100%;
     justify-content: space-evenly;
 
+    .active {
+      filter: brightness(50%);
+    }
+
     section:nth-child(1) {
       display: flex;
       flex-wrap: nowrap;
@@ -35,19 +39,23 @@ footer {
         height: 5vh;
         margin-bottom: 15px;
       }
+
       article {
         color: #ffffff;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: column;
-        width: 70%;        
+        width: 70%;
+
 
         h1 {
           margin: 0;
           font-size: 1.5rem;
         }
+
         p {
-          font-size: 1rem;         
+          font-size: 1rem;
+          margin-top: 5px;
         }
       }
     }

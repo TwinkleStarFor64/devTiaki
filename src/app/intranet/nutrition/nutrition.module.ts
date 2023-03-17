@@ -15,6 +15,8 @@ import { FooterModule } from '../footer/footer.module';
 import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 
 
+
+
 @NgModule({
   declarations: [
     JournalRepasComponent,
