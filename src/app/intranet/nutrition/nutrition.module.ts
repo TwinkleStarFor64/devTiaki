@@ -8,12 +8,7 @@ import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
 import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
-import { MessagesModule } from 'primeng/messages';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
@@ -34,11 +29,6 @@ import { PlatsPipe } from '../utils/pipes/plats.pipe';
   imports: [
     CommonModule,
     NutritionRoutingModule,
-    InputTextModule,
-    InputTextareaModule,
-    DropdownModule,
-    MessagesModule,
-    ConfirmDialogModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,    

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ConfirmationService } from 'primeng/api';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
 
 import {
@@ -14,7 +13,6 @@ import {
   selector: 'app-journal',
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
-  providers: [ConfirmationService], //Important pour pouvoir utiliser la méthode onCancel()  
 })
 
 export class JournalComponent implements OnInit {
@@ -57,8 +55,7 @@ export class JournalComponent implements OnInit {
   public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
   constructor(
-    private formBuilder: FormBuilder,
-    private confirmationService: ConfirmationService,
+    private formBuilder: FormBuilder
   ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },
