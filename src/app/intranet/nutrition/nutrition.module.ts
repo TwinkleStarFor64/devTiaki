@@ -14,11 +14,8 @@ import { PlatsPipe } from '../utils/pipes/plats.pipe';
 import { FooterModule } from '../footer/footer.module';
 
 
-
-
 @NgModule({
   declarations: [
-
     JournalRepasComponent,
     IngredientsComponent,
     MenusComponent,

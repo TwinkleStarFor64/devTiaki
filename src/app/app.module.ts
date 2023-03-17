@@ -32,7 +32,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
