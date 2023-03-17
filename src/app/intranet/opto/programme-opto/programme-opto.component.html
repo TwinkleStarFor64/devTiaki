@@ -1,66 +1,50 @@
-  <!-- section contenant la barre de recherche et les checkbox -->
-  <section>
-    <header id="head">
-      <a routerLink="/">Tiaki</a>
-      <p>Optométrie ></p>
-      <p>Le parcours de Cheer Émilie</p>
-    </header>
-    <!-- Article contenant le formulaire permettant de rechercher les programmes -->
+<!-- section contenant la barre de recherche et les checkbox -->
+<section id="programmes">
+  <header id="head">
+    <a routerLink="/">Tiaki</a>
+    <p>Optométrie ></p>
+    <p>Le parcours de Cheer Émilie</p>
+  </header>
+  <!-- Article contenant le formulaire permettant de rechercher les programmes -->
+  <article>
+    <form class="example-form">
+      <input class="example-input" type="text" name="myProg" placeholder="Recherche" [formControl]="control"
+        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" />
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+        <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
+          (mouseover)="hoverSelectedProgramme(programme)">
+          {{ programme.titre }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+    <input type="checkbox" id="allergie" name="allergie" value="allergie" />
+    <label for="allergie">Tenir compte de mes allergies </label>
+    <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
+    <label for="jamaisFait">Jamais faites </label>
+  </article>
+  <article class="dashed"></article>
+</section>
+<!-- section contenant la photo ou image principale et le titre la description le carroussel -->
+<section *ngIf="selectedProgrammeOpto; selectedProgramme">
+  <article>
+    <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
     <article>
-      <form class="example-form">
-        <input
-          class="example-input"
-          type="text"
-          name="myProg"
-          placeholder="Recherche"
-          [formControl]="control"
-          [matAutocomplete]="auto"
-          (keyup)="filtrerProgrammes()"/>
-        <mat-autocomplete
-          #auto="matAutocomplete"
-          (optionSelected)="onOptionSelected($event)">
-          <mat-option
-            *ngFor="let programme of programmesFiltres"
-            [value]="programme"
-            (mouseover)="hoverSelectedProgramme(programme)">
-            {{ programme.titre }}
-          </mat-option>
-        </mat-autocomplete>
-      </form>
-      <input type="checkbox" id="allergie" name="allergie" value="allergie" />
-      <label for="allergie">Tenir compte de mes allergies </label>
-      <input
-        type="checkbox"
-        id="jamaisFait"
-        name="jamaisFait"
-        value="jamaisFait"
-      />
-      <label for="jamaisFait">Jamais faites </label>
-    </article>
-    <article class="dashed"></article>
-  </section>
-  <!-- section contenant la photo ou image principale et le titre la description le carroussel -->
-  <section *ngIf="selectedProgrammeOpto; selectedProgramme">
-    <article>
-      <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
-      <article>
-        <div>
-          <h2>{{ selectedProgrammeOpto.titre }}</h2>
-          <p>{{ selectedProgrammeOpto.description }}</p>
+      <div>
+        <h2>{{ selectedProgrammeOpto.titre }}</h2>
+        <p>{{ selectedProgrammeOpto.description }}</p>
+      </div>
+      <div class="bottomContainer">
+        <div class="horlMatBox">
+          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+          <p>{{ selectedProgrammeOpto.duree }}</p>
         </div>
-        <div class="bottomContainer">
-          <div class="horlMatBox">
-            <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-            <p>{{ selectedProgrammeOpto.duree }}</p>
-          </div>
-          <div class="horlMatBox">
-            <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-            <p>{{ selectedProgrammeOpto.materiel }}</p>
-          </div>
+        <div class="horlMatBox">
+          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+          <p>{{ selectedProgrammeOpto.materiel }}</p>
         </div>
-        <!-- <app-carousel-opto></app-carousel-opto> -->
-      </article>
+      </div>
+      <!-- <app-carousel-opto></app-carousel-opto> -->
     </article>
-  </section>
-
-
+  </article>
+</section>
+<app-footer></app-footer>

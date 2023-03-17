@@ -33,6 +33,7 @@ export interface BottomI {
     lien:string,
     url:string,
     active: boolean,
+    activeUrl?: string;
   }
  //Interface de l'aside-bar servant à naviguer sur l'application
  export interface AsideI {

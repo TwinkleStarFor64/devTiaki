@@ -14,8 +14,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 
 
-
-
 @NgModule({
   declarations: [
     JournalComponent,

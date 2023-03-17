@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomBarNutriComponent } from './bottom-bar-nutri.component';
+import { KineComponent } from './kine.component';
 
-describe('BottomBarNutriComponent', () => {
-  let component: BottomBarNutriComponent;
-  let fixture: ComponentFixture<BottomBarNutriComponent>;
+describe('KineComponent', () => {
+  let component: KineComponent;
+  let fixture: ComponentFixture<KineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BottomBarNutriComponent ]
+      declarations: [ KineComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BottomBarNutriComponent);
+    fixture = TestBed.createComponent(KineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

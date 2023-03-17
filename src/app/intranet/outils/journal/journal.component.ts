@@ -16,8 +16,7 @@ import {
 })
 
 export class JournalComponent implements OnInit {
-  // selectedCity1!: CityI;
-  // cities: CityI[];
+  
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
   public medecinImg!: string;
   public realisationImg!: string;
@@ -55,7 +54,8 @@ export class JournalComponent implements OnInit {
   public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    
   ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },

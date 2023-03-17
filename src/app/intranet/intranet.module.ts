@@ -5,9 +5,6 @@ import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './template/footer/footer.component';
-
-
 
 
 
@@ -16,9 +13,7 @@ import { FooterComponent } from './template/footer/footer.component';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
-    FooterComponent
-    
-    
+  
   ],
   imports: [
     CommonModule,

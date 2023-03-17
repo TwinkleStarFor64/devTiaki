@@ -57,7 +57,7 @@ filtrerProgrammes(): void {
 onSelectProgramme(programme: ProgrammeI): void {
   this.selectedProgrammeKine = programme;
   this.myProg.setValue(programme);
-  console.log('souris : ', programme);
+  // console.log('souris : ', programme);
 }
 
 // Méthode pour la sélection d'un élément avec le clavier

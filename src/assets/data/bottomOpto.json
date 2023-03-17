@@ -1,0 +1,30 @@
+[
+    {
+        "image": "assets/iconeBottom/cheerleader.svg",
+       "titre": "Progression d'Émilie",
+        "info": "Suivez les progréssion d'Émilie",
+        "lien": "ProgressionOpto",
+        "url": "/intranet/opto/progression-opto",
+        "active": false,
+        "activeUrl": "/intranet/opto/progression-opto"
+  
+      },
+      {
+        "image": "assets/iconeBottom/programme.svg",
+        "titre": "Programmes",
+        "info": "Des programmes d'optométrie",
+        "lien": "Programmeopto",
+        "url": "/intranet/opto/programme-opto",
+        "active": false,
+        "activeUrl": "/intranet/opto/programme-opto"
+      },
+      {
+        "image": "assets/iconeBottom/programme.svg",
+        "titre": "Programmes",
+        "info": "Des exercices d'optométrie",
+        "lien": "Exerciceopto",
+        "url": "/intranet/opto/exercice-opto",
+        "active": false,
+        "activeUrl": "/intranet/opto/exercice-opto"
+      }
+]

@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
+import { OptoComponent } from './opto.component';
+import { FooterModule } from '../footer/footer.module';
+
 
 
 
@@ -21,9 +24,9 @@ import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
     BottomBarOptoComponent,
     ProgrammeOptoPipe,
     CarouselOptoComponent,
-
+    OptoComponent,
    
-  
+
   ],
   imports: [
     CommonModule,
@@ -31,9 +34,8 @@ import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatSelectModule
-    
-    
+    MatSelectModule,
+    FooterModule
   ]
 })
 export class OptoModule { }

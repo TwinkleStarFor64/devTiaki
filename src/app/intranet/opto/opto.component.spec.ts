@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomBarKineComponent } from './bottom-bar-kine.component';
+import { OptoComponent } from './opto.component';
 
-describe('BottomBarKineComponent', () => {
-  let component: BottomBarKineComponent;
-  let fixture: ComponentFixture<BottomBarKineComponent>;
+describe('OptoComponent', () => {
+  let component: OptoComponent;
+  let fixture: ComponentFixture<OptoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BottomBarKineComponent ]
+      declarations: [ OptoComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BottomBarKineComponent);
+    fixture = TestBed.createComponent(OptoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
