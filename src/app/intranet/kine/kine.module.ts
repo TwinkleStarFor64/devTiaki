@@ -10,6 +10,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
 import { FooterModule } from '../footer/footer.module';
+import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.component';
 
 
 
@@ -21,6 +22,7 @@ import { FooterModule } from '../footer/footer.module';
     ProgrammeKineComponent,
     CarouselComponent,
     KineComponent,
+    BottomBarKineComponent,
   ],
   imports: [
     CommonModule,

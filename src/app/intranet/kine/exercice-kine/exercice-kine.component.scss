@@ -9,13 +9,13 @@ $aside-color3: #f0c02e;
 #exercices > #head > a ,#exercices > #head > p {
     color: $card-kine;
   }
-
-  // Ci-dessous le CSS de la scrollBar pour chrome et autres navigateurs sauf firefox
-::-webkit-scrollbar {
-  background-color:  #eeaea8;
-  width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  height: 10px;
-  background-color: $card-kine;
-}
+  #exercices{
+    ::-webkit-scrollbar {
+      background-color: #f09c94;
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      height: 200px;
+      background-color: #f22f1d;
+    }
+  }

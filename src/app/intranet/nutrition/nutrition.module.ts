@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
 import { FooterModule } from '../footer/footer.module';
+import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 
 
 
@@ -27,6 +28,7 @@ import { FooterModule } from '../footer/footer.module';
     NutritionComponent,
     AlimentsPipe,
     PlatsPipe,
+    BottomBarNutriComponent,
   ],
   imports: [
     CommonModule,

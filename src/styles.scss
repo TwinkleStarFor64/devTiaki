@@ -11,9 +11,9 @@ $aside-color3: #F0C02E;
 $clair: white;
 $sombre: black;
 
-$head:60px; // Hauteur de l'entête des pages
-$foot:150px; // Hauteur des menus du bas
-$l:65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+$head: 60px; // Hauteur de l'entête des pages
+$foot: 150px; // Hauteur des menus du bas
+$l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
 html {
   height: 100%;
@@ -32,27 +32,34 @@ body {
   height: 100vh;
   border-spacing: 0;
 }
+
 html,
 body {
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
+
 body {
   margin: 0;
   font-family: $font-family;
 }
+
 * {
   box-sizing: border-box;
 }
+
 main,
 section,
-article, header,footer {
+article,
+header,
+footer {
   display: flex;
-  
+
 }
-a{
+
+a {
   text-decoration: none;
-  color:$aside-color1;
+  color: $aside-color1;
 }
 
 
@@ -63,48 +70,56 @@ a{
   flex-direction: column;
   align-items: center;
 }
+
 // Titre et description
-#accueil >article{
+#accueil>article {
   flex-direction: column;
   align-items: center;
   width: 70%;
   color: $aside-color2;
   margin: 50px;
 }
-#accueil >article> div{
+
+#accueil>article>div {
   display: flex;
   align-items: flex-end;
+
   h1 {
     margin: 0;
     color: $card-nutri ;
-    font-size:  3rem;
+    font-size: 3rem;
     font-weight: 100;
-    font-style: normal;            
+    font-style: normal;
   }
 }
-p{
+
+p {
   font-size: 1rem;
 }
-#accueil >article> div::before{
+
+#accueil>article>div::before {
   content: ".........";
 }
-#accueil >article> div::after{
+
+#accueil>article>div::after {
   content: ".........";
 }
 
 // Les 3 Cartes 
-#accueil>section:nth-child(2){
+#accueil>section:nth-child(2) {
   flex-direction: row;
   justify-content: space-around;
   height: 90%;
 }
-#accueil>section:nth-child(2){
+
+#accueil>section:nth-child(2) {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
   height: 90%;
 }
-#accueil>section:nth-child(2)>article{
+
+#accueil>section:nth-child(2)>article {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -114,223 +129,263 @@ p{
   height: 80%;
   width: 22%;
 
-  &:hover{
+  &:hover {
     transform: translateY(-3vw);
   }
-  &:nth-child(1){
-    background-color:$card-opto ;
-    button{
+
+  &:nth-child(1) {
+    background-color: $card-opto ;
+
+    button {
       color: $card-opto;
-      border-color:$card-opto;
+      border-color: $card-opto;
     }
   }
-  &:nth-child(2){
-    background-color:$card-nutri ;
-    button{
+
+  &:nth-child(2) {
+    background-color: $card-nutri ;
+
+    button {
       color: $card-nutri;
-      border-color:$card-nutri;
+      border-color: $card-nutri;
     }
   }
-  &:nth-child(3){
-    background-color:$card-kine ;
-    button{
+
+  &:nth-child(3) {
+    background-color: $card-kine ;
+
+    button {
       color: $card-kine;
-      border-color:$card-kine ;
+      border-color: $card-kine ;
     }
   }
-  h2{
+
+  h2 {
     font-size: 1.8rem;
     font-weight: 500;
   }
-  p{
+
+  p {
     font-size: 1.2rem;
     font-weight: 400;
     margin: 15px;
   }
+
   a {
-   button {
-    background-color: #ffffff;
-    width: 10vw;
-    height: 8vh;
-    margin-bottom: 1vw;
-    font-weight: bolder;
-    font-size: 1vw;
-    cursor: pointer;
+    button {
+      background-color: #ffffff;
+      width: 10vw;
+      height: 8vh;
+      margin-bottom: 1vw;
+      font-weight: bolder;
+      font-size: 1vw;
+      cursor: pointer;
     }
-  &:nth-child(2){
-    color: $card-nutri;
-  }  
+
+    &:nth-child(2) {
+      color: $card-nutri;
+    }
   }
-  img{
+
+  img {
     width: 100%;
   }
-}  
+}
 
 //HEADER 
 
 //HEADER
 #head {
-  flex-flow:row nowrap;
-  height:$head;
-  padding:10px;
-  margin:0;
+  flex-flow: row nowrap;
+  height: $head;
+  padding: 10px;
+  margin: 0;
   align-items: center;
 }
-#head > a:nth-child(1) {
-  font-size:32px;
+
+#head>a:nth-child(1) {
+  font-size: 32px;
   font-weight: 100;
 }
-#head > a:nth-child(1):after {
-  content:'   ......';
-  font-size:50%;
+
+#head>a:nth-child(1):after {
+  content: '   ......';
+  font-size: 50%;
 }
-#head img{
-  width:30px;
+
+#head img {
+  width: 30px;
 }
+
 #head p {
-  font-size: 1.5rem; 
-  font-weight: 500; 
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-#head > *{
-  margin:5px;
-  padding:0;
+
+#head>* {
+  margin: 5px;
+  padding: 0;
 }
 
 // AFFICHAGE PAGES PROGRAMMES
 #programmes {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   color: $sombre;
-  height:calc(100vh - $foot);
+  height: calc(100vh - $foot);
 }
-#programmes > section {
-  width:100%;
+
+#programmes>section {
+  width: 100%;
   flex-direction: column;
-  height:calc(100vh - $head - $foot);
-  overflow-x:hidden;
-  overflow-y:auto;
+  height: calc(100vh - $head - $foot);
+  overflow-x: hidden;
+  overflow-y: auto;
 
 }
+
 // search bar
-#programmes > article:nth-child(2) {
-  width:100%;
+#programmes>article:nth-child(2) {
+  width: 100%;
   gap: 1.5vw;
   justify-content: center;
-  
+
 }
 
 // #programmes > div{
 //   width: 80vw;
 //   border-bottom: dashed 1px black;
 //   align-self: center;
-  
+
 // }
 
 // article avec l'image
-#programmes > article:nth-child(3) {
-  width:100%;
+#programmes>article:nth-child(3) {
+  width: 100%;
   justify-content: space-around;
-  flex-direction: column; 
+  flex-direction: column;
 }
-#programmes > article:nth-child(4){
-  width:100%;
-  height:calc(100vh - $foot );
+
+#programmes>article:nth-child(4) {
+  width: 100%;
+  height: calc(100vh - $foot );
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   justify-self: center;
 
 }
-#programmes article:nth-child(4) img{
-  width:45vw;
+
+#programmes article:nth-child(4) img {
+  width: 45vw;
   height: 45vh;
- 
+
 }
+
 // Article de description
-#programmes article:nth-child(4)>article>div:nth-child(1){
+#programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
-#programmes article:nth-child(4)>article>div:nth-child(1) h1{
+
+#programmes article:nth-child(4)>article>div:nth-child(1) h1 {
   font-size: 1.2rem;
   margin: 0;
 }
-#programmes article:nth-child(4)>article{
- margin: 10px;
+
+#programmes article:nth-child(4)>article {
+  margin: 10px;
 }
 
-#programmes article:nth-child(4)>article> div:nth-child(2){
+#programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
   flex-direction: column;
   width: 20%;
 }
+
 // block horloge et materiels
-#programmes article:nth-child(4)>article> div:nth-child(2) div{
+#programmes article:nth-child(4)>article>div:nth-child(2) div {
   display: flex;
   align-items: center;
   gap: 0.5vw;
   height: 50%;
-  width: 100%; 
+  width: 100%;
 }
-#programmes article:nth-child(4)>article> div:nth-child(2) div img{
+
+#programmes article:nth-child(4)>article>div:nth-child(2) div img {
   height: 2vh;
-  width: 3vw; 
+  width: 3vw;
   color: #F22F1D;
 }
-#programmes article:nth-child(4)>article> div:nth-child(2) div img{
+
+#programmes article:nth-child(4)>article>div:nth-child(2) div img {
   height: 2vh;
-  width: 3vw; 
+  width: 3vw;
   color: #F22F1D;
 }
+
 // AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
 #exercices {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
   color: $sombre;
-  height:calc(100vh - $foot);
+  height: calc(100vh - $foot);
+
+  overflow-y: auto;
+  scrollbar-color: $card-nutri #e7adb7;
+  scrollbar-width: auto;
+
 }
-#exercices > * {
-  width:100%;
+
+#exercices>* {
+  width: 100%;
 }
-#exercices > section {
-  width:100%;
-  flex-flow:row wrap;
-  overflow-x:hidden;
-  overflow-y:auto;
+
+#exercices>section {
+  width: 100%;
+  flex-flow: row wrap;
+  overflow-x: hidden;
+  overflow-y: auto;
   justify-content: space-around;
-  height:calc(100vh - $head - $foot);
+  height: calc(100vh - $head - $foot);
   overflow-y: auto;
   scrollbar-color: $card-nutri #d3354f;
   scrollbar-width: auto;
 }
-#exercices > footer {
-  height:$foot;
-  width:calc(100vw - $l)
+
+#exercices>footer {
+  height: $foot;
+  width: calc(100vw - $l)
 }
+
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
   background: $clair;
   padding: 10px;
-  margin:5px;
+  margin: 5px;
 }
-#exercices article > div {
-  display:flex;
+
+#exercices article>div {
+  display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
 }
-#exercices article > div > *{
-  margin-left:10px;
+
+#exercices article>div>* {
+  margin-left: 10px;
 }
-#exercices article > figure {
+
+#exercices article>figure {
   width: 100%;
   margin: -10px -10px 0;
   background-size: contain;
   background-position: 50%;
 }
+
 // Menu des pages d'exercices
 // #exercices > footer > *{
 //   width:100%;
@@ -361,7 +416,3 @@ p{
 // #exercices > footer nav a article > *{
 //   margin:0;
 // }
-nav{
-  background-color: $card-kine;
-  ;
-}
