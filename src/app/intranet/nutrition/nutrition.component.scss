@@ -5,31 +5,25 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-:host {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+$clair: white;
+$sombre: black;
 
-  section {
-    display: flex;
-    flex-flow: column nowrap;
-    header, a{
-      color: $card-nutri;
-    }
-    article:nth-child(1){
-      height: 8vh;
-    }
-    article:nth-child(2) {
-      display: flex;
-    }
-    img:nth-child(1){
-      width: 80%;
-      height: 65%;
-    }
-    img{
-      width: 40%;
-      height: 65%;
-    }
+$head: 60px; // Hauteur de l'entête des pages
+$foot: 150px; // Hauteur des menus du bas  
+
+section {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+
+  #head > p{
+    color: $card-kine;
+  }
+  #head > p:after {
+    content:'   ......';
+    font-size:50%;
+  }  
+  #head > a:nth-child(1) {
+    color: $card-kine;
   }
 }
+

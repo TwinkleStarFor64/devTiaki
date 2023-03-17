@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
+
 import {
   HistoriqueI,
   MedecinI,
@@ -12,8 +13,9 @@ import {
   selector: 'app-journal',
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
-
+  providers: [ConfirmationService], //Important pour pouvoir utiliser la méthode onCancel()  
 })
+
 export class JournalComponent implements OnInit {
   // selectedCity1!: CityI;
   // cities: CityI[];
@@ -55,6 +57,7 @@ export class JournalComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private confirmationService: ConfirmationService,
   ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },
@@ -78,28 +81,38 @@ export class JournalComponent implements OnInit {
 
   onSubmitForm() {
     console.log(this.formJournal.value);
+    this.formJournal.reset();
   }
 
-  // onCancel() {
-  //   this.confirmationService.confirm({
-  //     message: 'Voulez-vous annuler votre enregistrement ?',
-  //     header: 'Confirmation',
-  //     icon: 'pi pi-info-circle',
-  //     accept: () => {
-  //       this.msgs = [
-  //         {
-  //           severity: 'info',
-  //           summary: 'Confirmation',
-  //           detail: 'Journal effacé',
-  //         },
-  //       ];
-  //       this.formJournal.reset();
-  //     },
-  //     reject: () => {
-  //       this.msgs = [
-  //         { severity: 'info', summary: 'Confirmation', detail: 'Annulation' },
-  //       ];
-  //     },
-  //   });
-  // }
+  onCancel() {
+    this.formJournal.reset();    
+  }
+
 }
+
+
+
+
+
+/* onCancel() {
+  this.confirmationService.confirm({
+    message: 'Voulez-vous annuler votre enregistrement ?',
+    header: 'Confirmation',
+    icon: 'pi pi-info-circle',
+    accept: () => {
+      this.msgs = [
+        {
+          severity: 'info',
+          summary: 'Confirmation',
+          detail: 'Journal effacé',
+        },
+      ];
+      this.formJournal.reset();
+    },
+    reject: () => {
+      this.msgs = [
+        { severity: 'info', summary: 'Confirmation', detail: 'Annulation' },
+      ];
+    },
+  });
+} */

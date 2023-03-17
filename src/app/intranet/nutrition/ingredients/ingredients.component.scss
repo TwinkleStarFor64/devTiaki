@@ -6,7 +6,189 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-main {
+$head:60px; // Hauteur de l'entête des pages
+$foot:150px; // Hauteur des menus du bas
+
+// Ci-dessous le CSS de la scrollBar pour chrome et autres navigateurs sauf firefox
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
+
+#main { // La section principale englobe tout le code HTML
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+  // Ci-dessous le CSS de la scrollBar pour firefox
+  overflow-y: auto;
+  scrollbar-color: $card-nutri #e7adb7;
+  scrollbar-width: auto;
+
+  // Le header avec le logo Tiaki et le nom de la page
+  #head > p{
+    color: $card-kine;
+  }
+  #head > p:after {
+    content:'   ......';
+    font-size:50%;
+  }  
+  #head > a:nth-child(1) {
+    color: $card-kine;
+  }
+
+  // La seconde section contenant le menu de recherche à gauche et la composition des aliments à droite
+  #nutrition {
+    flex-direction: row;
+    width: 100%;
+
+    div:nth-child(1){ //La div contenant le menu de recherche
+      width: 25%;
+      height:calc(100vh - $head - $foot);
+      padding-left: 2%;
+      overflow-y: scroll;                       
+
+      h1{ // La balise <h1>Ingrédients</h1>
+        margin: 0 0 2vh 0;
+        padding: 1vh 1vh 1vh 0;
+        width: 70%;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #f22f1d;
+        border-bottom: dashed 1px #f22f1d;
+      }
+
+      input{ // L'input de recherche des ingrédients
+        width: 80%;
+        height: 3.5vh;
+        font-size: 1rem;
+      } 
+      
+      article{
+        width: 97%;
+        h2{ // Le nom des ingrédients dans la liste de recherche
+          font-size: 1rem;
+          font-weight: normal;
+          margin: 2vh 0 0 0;          
+        }
+      }
+    } // Fin de la div contenant le menu de recherche
+
+    div:nth-child(2){ //La seconde div qui contient la description de l'ingrédient sélectionné
+      width: 75%;      
+      display: flex;
+      justify-content: center;
+      article{
+        margin-top: 5vh;
+        width: 92%;
+        display: flex;
+        flex-direction: column;
+          span:nth-child(1){ //La première balise span contient le nom de l'ingrédient afficher comme un titre et l'input avec la checkbox
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: baseline;
+          border-bottom: dashed 1px #f22f1d;          
+          h3{
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #f22f1d;
+            margin: 0 0 1vh 0;
+          }
+          p{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 0 0 1vh 0;
+            input{ 
+              margin-left: 0.5vw;
+              height: 1.5vw;
+              width: 1.5vw;
+              
+            }
+          }
+        }// <------ Fin de la première balise span
+
+        span:nth-child(2){ //La seconde balise span contient les valeurs et compositions de l'ingrédient
+          margin-left: 4vw;
+          h4{ // La balise <h4>Valeurs et compositions</h4>
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #f22f1d;
+            border-bottom: dashed 1px #f22f1d;
+            padding-bottom: 1vh;
+            width: 40%;
+          }
+          p{
+            margin-left: 1.5vw;
+            img{ // Les petits logos
+              width: 0.8vw;
+              margin-right: 0.8vw;
+            }
+          }
+        }// <------ Fin de la seconde balise span
+
+        span:nth-child(3){ //La 3e balise span contient les plats enregistrés ne s'affiche que si des plats existent (ngIf)
+          margin-left: 4vw;
+          display: flex;
+          flex-direction: column;
+          h5{ // La balise <h5>Plats contenant cet ingrédient</h5>
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #f22f1d;
+            border-bottom: dashed 1px #f22f1d;
+            padding-bottom: 1vh;
+            width: 40%;
+          }
+          .mesPlats{
+            justify-content: flex-start;
+            width: 40%;
+                               
+            p{
+              margin: 0.3vw 0 0 1.5vw;
+              color: #4A4A4A;
+              border: #C4C4C4 solid 2px;
+              border-radius: 5%;
+              padding: 1vh;
+              width: 50%;
+            }
+          }
+          h6{ // La balise <h6>Réactions constatées</h6>
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #f22f1d;
+            border-bottom: dashed 1px #f22f1d;
+            padding-bottom: 1vh;
+            width: 40%;
+          }
+          .mesObservations{
+              display: flex;
+              flex-direction: row;
+              align-items: center;       
+              p{
+                margin-left: 1.5vw;
+                color: #4A4A4A;
+                width: 50%;
+              }
+              img{ // Les petits logos
+                width: 1.2vw;
+                margin-right: 0.8vw;
+              }                     
+          }
+        }// <------ Fin de la 3e balise span        
+      }// <------ Fin de article dans la seconde div
+    }// <------ Fin de la seconde div
+  } // <------ Fin de la seconde section #nutrition
+} // <------ Fin de la section #main
+
+
+
+
+
+
+/* main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -172,4 +354,4 @@ main {
       }// <------ Fin de article dans la seconde div
     }// <------ Fin de la seconde div
   }// <------ Fin de la seconde section
-}// <------- Fin de la balise MAIN
+}// <------- Fin de la balise MAIN */
