@@ -30,8 +30,7 @@ export class IngredientsServiceService {
         next: response => this.plat = response,
         error: er => console.log(er),
         complete: () => console.log(this.plat)
-      }
-      
+      }     
     );
   }
 

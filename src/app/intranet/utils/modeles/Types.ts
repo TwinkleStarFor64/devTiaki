@@ -1,3 +1,4 @@
+// Interface pour la page profil(exemple)
 export interface ProfilI{
     nom:string,
     prenom:string,
@@ -5,7 +6,7 @@ export interface ProfilI{
     email:string,
     adresse:string
 }
-
+// Interface pour la page ingrédient de la table Ciqual
 export interface CiqualI {
     alim_code:number,
     alim_nom_fr:string,
@@ -24,7 +25,7 @@ export interface CiqualI {
     ["Manganèse (mg\/100 g)"]:string,
      
 }
-
+// Interface pour les pages programmes
 export interface ProgrammeI {
     photo?:string,
     video?:string,
@@ -33,11 +34,46 @@ export interface ProgrammeI {
     duree:string,
     materiel:string
 }
-
+// interface pour la page plat
 export interface MesPlatsI {
     id:number,
     nom:string,
     description:string,
     alim_code:number,
     reaction?:string
+}
+// interface permettant d'avoir les information du haut de la page Tableau de bord
+export interface TableauReussiteI {
+    totalExercice:string,
+    exerciceOptoReussi:string,
+    exerciceKineReussi:string,
+    repasNutri:string
+}
+
+export interface TableauEnCoursI{
+    exerciceEnCours:string,
+    progressionOpto:string,
+    progressionNutri:string,
+}
+
+// interface permettant d'avoir les informations de l'historique de la page Tableau de bord
+export interface TableauBordHistoriqueI{
+    histoNutri:string,
+    histoKine:string,
+    histoOpto:string
+}
+
+// interface info tableau de bord Medecins
+export interface TableauBordMedecinI{
+    medecinNutri:string
+    general:string,
+    medecinOpto:string
+}               
+                   
+
+// Interface  des problemes particuliers
+export interface TableauBordProblemeI{
+    problemeNutri:string,
+    problemeKine:string,
+    problemeOpto:string
 }

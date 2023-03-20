@@ -63,7 +63,7 @@ a {
 }
 
 
-// Affichage page d'accueil
+// AFFICHAGE DE LA PAGE D'ACCUEIL
 
 #accueil {
   height: 100vh;
@@ -386,33 +386,11 @@ p {
   background-position: 50%;
 }
 
-// Menu des pages d'exercices
-// #exercices > footer > *{
-//   width:100%;
-//   height:$foot;
-//   margin:0;
-//   padding: 0;
-// }
-// #exercices > footer nav{
-//   display:flex;
-//   flex-flow:row nowrap;
-//   width:100%;
-//   height:100%;
-//   // justify-content: space-around;
-// }
-// #exercices > footer nav a{
-//   display:flex;
-//   color:$clair;
-//   flex-flow: row nowrap;
-//   margin:auto;
-//   max-width:25%;
-//   height:fit-content;
-// }
-// #exercices > footer nav a article{
-//   color:$clair;
-//   background: none;
-//   width:auto;
-// }
-// #exercices > footer nav a article > *{
-//   margin:0;
-// }
+// AFFICHAGE TABLEAU DE BORD
+
+#tableau{
+  height: calc(100vh - $foot);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

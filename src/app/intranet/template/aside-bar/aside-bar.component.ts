@@ -14,12 +14,12 @@ public asides: AsideI[] = [
   {
     nom:'Émilie',
     image:'assets/imgAsidebar/cheerleader1.svg',
-    url:'/'
+    url:'/intranet/tableau'
   },
   {
     nom:'Kalhifa',
     image:'assets/imgAsidebar/skier1.svg',
-    url:'/'
+    url:'/intranet/tableau'
   },
   {
     nom:'',
