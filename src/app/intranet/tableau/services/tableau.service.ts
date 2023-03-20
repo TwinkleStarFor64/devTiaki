@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TableauEnCoursI, TableauBordHistoriqueI, TableauBordMedecinI, TableauBordProblemeI, TableauReussiteI } from '../../utils/modeles/Types';
+import { TableauEnCoursI, TableauBordHistoriqueI, TableauBordMedecinI, TableauBordProblemeI, TableauReussiteI, BottomBarTableau } from '../../utils/modeles/Types';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class TableauService {
   tableauBordHistorique: TableauBordHistoriqueI[] = [];
   tableauBordMedecin: TableauBordMedecinI[] = [];
   tableauBordProbleme: TableauBordProblemeI[] = [];
-
+  bottomBarTableau: BottomBarTableau[] = [];
   constructor(private http: HttpClient) { }
 
   // Recupération des données json des reussites du tableau
@@ -69,6 +69,17 @@ export class TableauService {
       }
     );
     return this.tableauBordMedecin
+  };
+  // Récupération json des information de la bottomBar Tableau de bord
+  getBottomBarTableau(){
+    this.http.get<BottomBarTableau[]>('assets/data/bottomTableau.json').subscribe(
+      {
+        next:r => this.bottomBarTableau = r,
+        error:er => console.log(er),
+        complete: () => console.log(this.bottomBarTableau) 
+      }
+    );
+    return this.bottomBarTableau
   };
 
 }

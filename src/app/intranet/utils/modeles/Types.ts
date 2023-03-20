@@ -77,3 +77,10 @@ export interface TableauBordProblemeI{
     problemeKine:string,
     problemeOpto:string
 }
+
+// Interface bottomBar Tableau de bord
+export interface BottomBarTableau{
+    titre:string,
+    firstInfo:string,
+    secondInfo:string
+}

@@ -30,5 +30,6 @@ export class TableauComponent {
     this.tableaux.getTableauBordProbleme();
     this.tableaux.getTableauEnCours();
     this.tableaux.getTableauReussite();
+    this.tableaux.getBottomBarTableau();
   }
 }

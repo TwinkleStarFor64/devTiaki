@@ -222,7 +222,7 @@ p {
   font-weight: 500;
 }
 
-#head>* {
+#head > * {
   margin: 5px;
   padding: 0;
 }
@@ -333,7 +333,6 @@ p {
   flex-flow: row wrap;
   color: $sombre;
   height: calc(100vh - $foot);
-
   overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;

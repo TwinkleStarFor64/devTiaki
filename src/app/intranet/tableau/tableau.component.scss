@@ -10,29 +10,43 @@ $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas  
+#head{color: $aside-color2;}
+#head>h1{font-weight: 400;}
+
+#head>h1:after {
+    content: '   ......';
+    font-size: 50%;
+}
 
 .reussite {
-    height: 50%;
-
-    #head>h1 {
-        color: $aside-color1;
-        font-weight: 400;
-    }
-
-    #head>h1:after {
-        content: '   ......';
-        font-size: 50%;
-    }
+    height: 40%;
+    align-items: center;
+    scrollbar-color: $aside-color2 $aside-color1;
+    scrollbar-width: auto;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+        background-color: $aside-color2;
+        width: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        height: 200px;
+        background-color: $aside-color2;
+      }
 
     #head>a:nth-child(1) {
         color: $aside-color1;
     }
-
     article {
         flex-direction: column;
+        justify-content: center;
         width: 50%;
+        height: 100%;
         align-items: center;
         border-right: dashed 1px black;
+        
+        div:nth-child(1){
+            margin-right: 30%;
+        }
 
         .encours {
             border-right: none;
@@ -56,4 +70,68 @@ $foot: 150px; // Hauteur des menus du bas
             width: 2vw;
         }
     }
+}
+
+.middleBar{
+   background-color: $aside-color2;
+   color: $clair;
+   height: 10%;
+   
+    h3{
+        width: 33%;
+        height: 100%;
+        font-weight: 400;
+        font-size: 1.6rem;
+        margin-left: 50px;
+    }
+}
+.column{
+    height: 50%;
+
+
+.infoColumn{
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    border-right: dashed 1px black;
+    margin-left: 50px;
+    scrollbar-color: $aside-color2 $aside-color1;
+    scrollbar-width: auto;
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+        background-color: $aside-color2;
+        width: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        height: 200px;
+        background-color: $aside-color2;
+      }
+
+    h4{
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin: 0;
+    }
+    ul{
+        li{
+            font-weight: 400;
+        }
+    }
+ }
+}
+
+footer{
+    justify-content: space-around;
+    background-color: $aside-color1;
+    color: $clair;
+    height: $foot;
+
+    article{
+        flex-direction: column;
+        width: 33%;
+        border-right: dashed 1px $clair;
+        margin-left: 50px;
+    }
+
 }
