@@ -2,26 +2,32 @@
     {
         "id": 1,
         "nom": "Tarte au kiwi",
-        "description": "Une tarte avec des kiwis",
+        "description": "Une tarte avec des kiwis de mon jardin, la pâte à tarte est industrielle de la marque sephorin",
         "alim_code": 13021,
         "reaction": "Réaction limite avec la vitamine B1, mon enfant y réagit mal et elle semble être très présente dans cet aliment."     
     },
     {
         "id": 2,
         "nom": "Soupe de courgette",
-        "description": "Une soupe avec plein de courgettes",
+        "description": "Une soupe avec plein de courgettes, du poivre et du sel",
         "alim_code": 20020
     },
     {
         "id": 3,
         "nom": "Salade de laitue ",
-        "description": "Simple salade de laitue",
+        "description": "Simple salade de laitue à laquelle je rajoute des légumes de saison",
         "alim_code": 20031
     },
     {
         "id": 4,
         "nom": "Jambon sauce kiwi",
-        "description": "Un jamboneau arôme kiwi",
+        "description": "Un jamboneau arômatisé à la confiture de kiwis maison, très sucré",
         "alim_code": 13021               
+    },
+    {
+        "id": 5,
+        "nom": "Spaghetti bolognaise",
+        "description": "Un plat de spaghetti de la marque Panzanni avec une sauce bolognaise de la même marque",
+        "alim_code": 0               
     }
 ]

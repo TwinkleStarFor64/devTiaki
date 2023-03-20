@@ -41,3 +41,11 @@ export interface MesPlatsI {
     alim_code:number,
     reaction?:string
 }
+
+export interface MesMenusI {
+    id:number,
+    nom:string,
+    description:string,
+    alim_code:number,
+    reaction?:string
+}

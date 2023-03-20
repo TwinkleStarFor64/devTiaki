@@ -1,8 +1,78 @@
-<section id="programmes">
+<section id="platMenu">
   <header id="head">
     <a routerLink="/">Tiaki</a>
-    <p>Plats</p>
+    <p>les plats</p>
   </header>
-  <!-- <app-footer></app-footer> -->
+  <section id="sectionPrincipale">
+    <article id="listePlats">
+      <button id="ajoutButton" mat-raised-button color="primary">1 - Ajouter un nouveau plat</button>
+      <!-- <button>1 - Ajouter un nouveau plat</button> -->
+      <h1>Reprendre un repas précédent</h1>
+      <article id="evalBouton">
+        <button mat-raised-button color="primary">Plats évalués et validés</button>
+        <button mat-raised-button color="primary">Plats non évalués</button>
+        <button mat-raised-button color="primary">Plats évalués et problématiques</button>
+      </article>
+      <article id="listing">
+        <div *ngFor="let plat of platService.plat">
+          <h2>{{ plat.nom }}</h2>
+          <p>{{ plat.description }}</p>
+          <div>
+            <button mat-raised-button color="primary">Evalué ce plat</button>
+            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" >
+            <p>Durée</p>
+            <img src="assets/photoNutri/casserole.svg" alt="matériel">
+            <p id="dashed">Matériels</p>
+          </div>
+        </div>
+      </article>
+    </article>
+    <article>
+        <h3>2 - Ajouter un plat</h3>
+      <div id="selectBalise">
+        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout">
+        <mat-form-field appearance="outline">
+          <mat-label>VOS PLATS</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let plat of platService.plat" [value]="plat.nom">
+              {{plat.nom}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>LES PLATS DE LA COMMUNAUTÉ</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>ALLERGIES D'ÉMILIE</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      </div>
+        <h4>Tourte aux champignons</h4>
+        <p>Description</p>
+        <textarea name="" id="" cols="30" rows="5"></textarea>
+      <div>
+        <p>Ingrédients</p>
+        <p>Quantités</p>
+        <p>Valeurs nutrionnelles</p>
+        <p>Allèrgenes</p>
+        <p>Retour de la communauté</p>
+      </div>
+        <p>Beurre</p>
+        <p>Farine</p>
+        <mat-form-field id="ajouter" appearance="outline">
+          <mat-label>AJOUTER</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary">ANNULER</button>
+        <button mat-raised-button color="primary">VALIDER</button>
+      </div>
+    </article>
+    <!-- <app-footer></app-footer> -->
+  </section>
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>

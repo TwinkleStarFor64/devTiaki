@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatsService } from './services/plats.service';
+import { MesPlatsI } from '../../utils/modeles/Types';
 
 @Component({
   selector: 'app-plats',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlatsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public platService:PlatsService) { }
 
   ngOnInit(): void {
+    this.platService.getMesPlats();
   }
 
 }

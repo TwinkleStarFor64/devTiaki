@@ -64,7 +64,6 @@ a {
 
 
 // Affichage page d'accueil
-
 #accueil {
   height: 100vh;
   flex-direction: column;
@@ -191,8 +190,6 @@ p {
     width: 100%;
   }
 }
-
-//HEADER 
 
 //HEADER
 #head {
@@ -385,6 +382,195 @@ p {
   background-size: contain;
   background-position: 50%;
 }
+
+// CSS des pages plats et menus
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
+
+#sectionPrincipale {
+  display: flex;
+  flex-direction: row;
+}
+// La partie gauche avec la liste des plats/menus enregistrés
+#sectionPrincipale > #listePlats {
+  height:calc(100vh - $head - $foot);
+  width: 30%;
+  padding-top: 5vh;
+  margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: auto;
+  //align-items: center;
+
+  #ajoutButton { // Le bouton 1 - Ajouter un nouveau plat
+    background-color: #33BB27;
+    width: 75%;
+    //height: 8vh;
+    padding: 4vh;
+    font-size: 1.2rem;
+    color: black;    
+  }
+  .mat-ripple mat-mdc-button-ripple{
+    height: 10vh;
+  }
+
+  h1 { // La balise <h1>Reprendre un repas précédent</h1>
+    color: $card-nutri;
+    font-weight: 100;
+    font-size: 1.4rem;
+    margin: 5vh 0 2vh 0;    
+  }
+
+  #evalBouton { // Article qui contient les 3 boutons pour évaluer 
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    padding-left: 1vw;
+    margin-bottom: 1vh;
+    width: 80%;
+    button { // Code s'appliquant aux 3 boutons
+      width: 6.5vw;
+      height: 4vh;
+      font-size: 0.6rem;
+      color: white;
+    }
+    button:nth-child(1) { // Le bouton plats non évalués
+      background-color: #33BB27;      
+    }
+    button:nth-child(2) { // Le bouton plats non évalués
+      background-color: #F28705;      
+    }
+    button:nth-child(3) {
+      background-color: #D9042B; // Le bouton Plats évalués et problématiques
+    }
+  }
+  #listing { // Article contenant la liste des plats enregistrés
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-left: 1vw;
+    div { // Div avec le *ngFor
+      display: flex;
+      flex-direction: column;
+      h2 { // Balise <h2>{{ plat.nom }}</h2>
+        margin: 2vh 2vh 0 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+      p {
+        margin: 0.5vh 0 1vh 0;
+      }
+      div { // Contient un bouton, 2 images et 2 balise
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        button { 
+          background-color: #F28705;
+          width: 4vw;
+          height: 3vh;
+          font-size: 0.6rem;
+          color: white;
+          margin-right: 2vw;
+        }
+        img { // Les 2 images ( horloge et casserole )
+          height: 2vh;
+          width: 2vw;
+        }
+        p {
+          padding: 1vh;
+        }
+        #dashed { // Pour souligner la balise <p>Matériels</p>
+          border-bottom: dashed black 1px;
+          
+        }
+      }
+    }
+  }
+}
+
+// La partie droite avec la fonction de création d'un plat
+#sectionPrincipale article:nth-child(2) {
+  height:calc(100vh - $head - $foot);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 4vw 0 4vw;
+  overflow: auto;
+    h3 { // La balise <h3>2 - Ajouter un plat</h3>
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #4A4A4A;
+    }
+    #selectBalise { // La div qui contient les 3 balises select
+      border-bottom: dashed black 1px;
+      display: flex;
+      flex-direction: row;
+      gap: 1vw;
+      align-items: center;
+      img { // L'icône d'ajout 
+        height: 3vh;
+        width: 3vh;
+      }
+      mat-form-field:nth-child(3) { // La balise select "Les plats de la communautés"
+        width: 18vw;
+      }
+      mat-label { // Le labell des balises select
+        font-size: 0.9rem;
+      }
+    }
+    h4 { // La balise <h4>Tourte aux champignons</h4>
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #4A4A4A;
+      margin: 2vh 0 0 0;
+    }
+
+    div:nth-child(6) { // La div sous le textarea
+      margin-top: 2vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      border-top: dashed black 1px;
+      border-bottom: dashed black 1px;
+    }
+
+    #ajouter { // La balise select AJOUTER
+      width: 10vw;
+    }
+
+    div:nth-child(10) { // La div avec les 2 boutons annuler & valider
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 1vw;
+      border-bottom: dashed black 1px;
+      padding: 2vh;
+        button:nth-child(1) {
+          background-color: #F28705;
+        }
+        button:nth-child(2) {
+          background-color: #33BB27;
+        }
+      
+    }
+}
+
+
+
+
+
+
+
+
+
 
 // Menu des pages d'exercices
 // #exercices > footer > *{

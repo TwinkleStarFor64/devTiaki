@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI }  from 'src/app/intranet/modeles/Types';;
+import { BottomI }  from 'src/app/intranet/modeles/Types';
 
 @Component({
   selector: 'app-bottom-bar-nutri',
