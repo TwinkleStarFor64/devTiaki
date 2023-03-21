@@ -1,7 +1,75 @@
-<main>
+<section id="mainJournal">
+  <!-- Section avec le logo, les médecins et les réalisations -->
   <section>
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <a routerLink="/">        
+        <span>Tiaki</span>        
+      </a>
     </article>
- </section>
-</main>
+    <article>
+      <h1>Journaux de suivi</h1>
+    </article>
+    <article class="medecin">
+      <div>
+        <img [src]="[medecinImg]" alt="logo medecin" />
+        <h2>Médecins</h2>
+      </div>
+      <ul>
+        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+      </ul>
+    </article>
+    <article class="realisation">
+      <div>
+        <img [src]="[realisationImg]" alt="logo realisation" />
+        <h2>Réalisations</h2>
+      </div>
+      <ul>
+        <li *ngFor="let realisation of realisations">
+          {{ realisation.nom }}
+        </li>
+      </ul>
+    </article>
+  </section>
+  <!-- Section comportant l'historique des journaux -->
+  <section>
+      <div>
+        <img [src]="[pacman]" alt="" />
+        <p>Historiques des journaux sur ces activités</p>
+      </div>
+      <ul>
+        <li>15-06-22</li>
+        <li>14-06-22</li>
+        <li>14-06-22</li>
+        <li>11-09-22</li>
+        <li>14-06-22</li>
+        <li>14-06-22</li>
+        <li>14-06-22</li>
+      </ul>
+  </section>
+  <!-- Section Ajouter un journal avec le formulaire -->
+  <section>
+    <article>
+      <h3>Journal du 21-03-2023</h3>
+      <button>Modifier</button>
+    </article>
+    <article>
+      <h4>Activité concernée</h4>
+      <p>Exercice Périphérie du centre d'intégration d'optométrie</p>
+      <h4>Objet</h4>
+      <p>La réalisation s’est avérée plus difficile que prévue mais amusante.</p>
+      <h4>Note</h4>
+      <p>Lorsque Emilie a dû loucher, les yeux n’ont pas suivi et une gène puis des douleurs ont commencé à apparaître.
+        Par contre, c’était vraiment rigolo à faire et Emilie en a redemandé dès le lendemain.</p>
+      <h4>Commentaire</h4>
+      <p>Après échange, le 22 03 2023 avec l’optométriste, les effets sont normaux. Elle a trouvé super que Emilie se soit tant amusée.</p>
+    </article>
+  </section>
+  
+</section>
+
+
+
+
+
+
+

@@ -1,15 +1,21 @@
-<!-- 
-<form #f="ngForm">
-  
-  <input name="id" [(ngModel)]="con.connexion.id.value" #ctlId="ngModel" (input)="ditMoiQuoiDansObjetConnection()"
-      [placeholder]="con.connexion.id.placeholder" required>
-      <span *ngIf="ctlId.invalid">Vous devez renseigner votre identifiant ou un email</span>
-  
-      <input name="mdp" [(ngModel)]="con.connexion.mdp.value" #ctlMdp="ngModel" type="password"
-      [placeholder]="con.connexion.mdp.placeholder" required>
-      <span *ngIf="ctlMdp.invalid">Heuu... Garçon... t'as pas un mot de passe ?</span>
-  <div>
-      <input type="reset" value="J'ai changé d'avis">
-      <input type="submit" value="Se connecter" [disabled]="f.invalid">
-  </div>
-</form> -->
+<section id="main">
+  <header id="head">
+    <a routerLink="/">Tiaki</a>
+    <p>Profil d'Émilie</p>    
+  </header>
+  <section>
+    <article>
+      <h1>Profil de l’aidant ou du parent</h1>
+      <span>
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Prénom">
+        <input type="text" placeholder="Age">
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Téléphone">
+      </span>
+    </article>
+    <article>
+      <p>Droite</p>
+    </article>
+  </section>
+</section>

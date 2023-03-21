@@ -5,24 +5,227 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
+$historique: #F8E6AF;
 
-main {
-  min-height: 100vh;
+#mainJournal {
+  font-family: $font-family;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;        
 
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
-
-    article {
+// Section permettant de voir les medecins et les réalisations
+  section:nth-child(1){
+      background-color: $aside-color3;
+      width: 13%;
+      height: 100%;
       display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
-    }
+      flex-direction: column;
+      color: #ffffff;
+      align-items: center;
+      gap: 1vw;
+      
+      article:nth-child(1){
+          a{
+              display: flex;
+              flex-direction: row;
+              align-items: baseline;
+              text-decoration: none;
+              width: 100%;
+              color: #ffffff;
+              font-size: 4rem;
+              font-weight: 100;
+
+              span{ // Le gros logo Tiaki
+                  font-weight: 100;
+                  margin: 0;
+                  padding: 0;
+              }
+          }
+          span:before{
+              content: '........';
+              font-size:50%;
+          }
+          span:after{
+              content: '........';
+              font-size:50%;
+          }
+      }
+      article:nth-child(2){
+          border-bottom: 1px white dashed;
+          margin-left: 0.5vw;
+          h1{ // La balise <h1>Journaux de suivi</h1>
+              margin: 0;
+              font-size: 1.5rem;
+              font-weight: 700;
+              width: 60%;
+              @media only screen and (max-width: 1280px) {
+                  font-size: 1.2rem;
+              }
+          }
+      }
+      .medecin{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          margin: 0;
+          height: 30%;
+          width: 100%;
+          margin-left: 1vw;
+
+          div{
+              display: flex;
+              align-items: flex-end;
+              gap: 9px;
+              justify-content: flex-start;                
+              img{
+                  width: 3vw;
+              }
+              h2{ // La balise <h2>Médecins</h2>
+                  margin: 0;
+                  font-size: 1.2rem;
+                  font-weight: 600;
+                  @media only screen and (max-width: 1280px) {
+                      font-size: 0.8rem;
+                  }
+              }
+          }
+          ul{
+              li{
+                  margin-left: 0.5vw;
+                  margin-bottom: 15px;
+                  @media only screen and (max-width: 1280px) {
+                      font-size: 0.6rem;
+                      margin-left: 0;
+                  }
+              }
+          }
+      }
+      .realisation{
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          height: 30%;
+          justify-content: space-evenly;
+          width: 100%;
+          margin-left: 1vw;
+
+          div{
+              display: flex;
+              align-items: flex-end;
+              gap: 9px;
+              justify-content: flex-start;
+              img{
+                  width: 3vw;
+              }
+              h2{ // La balise <h2>Réalisations</h2>
+                  margin: 0;
+                  font-size: 1.2rem; 
+                  font-weight: 600; 
+                  @media only screen and (max-width: 1280px) {
+                      font-size: 0.8rem;
+                  }                  
+              }
+          }
+          ul{
+              li{
+                  margin-left: 0.5vw;
+                  margin-bottom: 15px;
+                  @media only screen and (max-width: 1280px) {
+                      font-size: 0.6rem;
+                      margin-left: 0;
+                  }
+              }
+          }
+      }
   }
-}
+}    
+
+// Section permettant de voir l'historique des journaux
+  section:nth-child(2){    
+      background-color: $historique;
+      width: 13%;
+      display: flex;
+      flex-direction: column;
+      text-align: center;        
+          div{
+              margin-top: 2vh;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              height: 18%;
+              justify-content: flex-end;
+              gap: 1vw;
+              img{
+                  height: 4vw;
+              }
+              p{ // La balise <p>Historiques des journaux sur ces activités</p>
+                  font-size: 1rem;
+                  font-weight: 600;
+                  margin: 4px;
+                  width: 100%;
+              }
+          }
+          ul{
+              display: flex;
+              flex-direction: column;
+              justify-content: space-around;
+              align-items: flex-start;
+              height: 30%;
+              li{
+                  text-align: center;
+                  font-size: 1rem;
+                  @media only screen and (max-width: 1280px) {
+                      font-size: 0.8rem;
+                  }                    
+              }
+          }            
+      }
+
+    // ------------ La section ou s'affiche le journal choisi -------------------
+      section:nth-child(3) {
+        width: 74%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        
+        // Article du titre avec la ligne de dashed
+        article:nth-child(1) {
+          margin-top: 8vh;
+          width: 80%;
+          height: 10%;
+          border-bottom: 1px dashed black;
+          justify-content: space-between;
+          display: flex;
+          flex-direction: row;
+          align-items: center;          
+
+          h3{ // La balise <h3>Journal du 21-03-2023</h3>              
+              //align-self:flex-start;
+              font-size: 1.5rem;
+              font-weight: 600;
+          }
+          button { // Le bouton orange Modifier
+            width: 7vw;
+            height: 4vh;
+            background-color: #f28705;
+            border-color: #f28705;
+            color: white;
+            
+          }
+        }
+        article:nth-child(2) {
+          width: 70%;
+          margin-top: 4vh;
+          display: flex;
+          flex-direction: column;
+
+          h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }

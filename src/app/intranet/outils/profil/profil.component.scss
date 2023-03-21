@@ -6,23 +6,66 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-main {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+$head:60px; // Hauteur de l'entête des pages
+$foot:150px; // Hauteur des menus du bas
 
+// Ci-dessous le CSS de la scrollBar pour chrome et autres navigateurs sauf firefox
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
+
+// Le header avec le logo Tiaki et le nom de la page
+#head > p{
+  color: $aside-color1;
+}
+#head > p:after {
+  content:'   ......';
+  font-size:50%;
+}  
+#head > a:nth-child(1) {
+  color: $card-kine;
+}
+
+#main {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+  // Ci-dessous le CSS de la scrollBar pour firefox
+  overflow-y: auto;
+  scrollbar-color: $card-nutri #e7adb7;
+  scrollbar-width: auto;
   section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
+    justify-content: center;
+    article:nth-child(1) { // La balise article de toute la partie gauche
+      width: 45%;
+      border-right: dashed black 1px;
+      flex-flow: column nowrap;
 
-    article {
-      display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
+      h1 {
+        font-size: 1.3rem;
+        color: #4A4A4A;
+      }
+      span {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+        margin-left: 4vw;
+
+        input {
+          width: 10vw;
+          height: 4vh;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    article:nth-child(2) { // La balise article de toute la partie droite
+      background-color: yellow;
+      width: 45%;
     }
   }
 }
