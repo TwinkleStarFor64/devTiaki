@@ -1,7 +1,22 @@
-  <section>
-    <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+<section id="exercices">
+  <header id="head">
+    <a routerLink="/">Tiaki</a>
+    <p>Optométrie ></p>
+    <p>Le parcours de Cheer Émilie</p>
+  </header>
+  <section class="exercice">
+    <article *ngFor="let exercice of exercices">
+      <img [src]="exercice.photo" alt="photo-exercice" />
+      <h6>{{ exercice.titre }}</h6>
+      <p>{{ exercice.description }}</p>
+      <div>
+        <img [src]="exercice.horloge" alt="horloge" />
+        <p>Durée</p>
+        <img [src]="exercice.materiel" alt="materiel" />
+        <p>Matériels</p>
+      </div>
     </article>
- </section>
+  </section>
+</section>
  <app-bottom-bar-nutri></app-bottom-bar-nutri>
 

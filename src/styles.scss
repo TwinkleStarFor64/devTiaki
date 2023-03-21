@@ -159,6 +159,15 @@ p {
     }
   }
 
+  &:nth-child(4) {
+    background-color: $aside-color3 ;
+
+    button {
+      color: $aside-color3;
+      border-color: $aside-color3 ;
+    }
+  }
+
   h2 {
     font-size: 1.8rem;
     font-weight: 500;
