@@ -10,6 +10,17 @@ $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas  
+
+// Scrollbar
+::-webkit-scrollbar {
+    background-color: $aside-color2;
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: $aside-color2;
+  }
+
 #head{color: $aside-color2;}
 #head>h1{font-weight: 400;}
 
@@ -17,7 +28,7 @@ $foot: 150px; // Hauteur des menus du bas
     content: '   ......';
     font-size: 50%;
 }
-
+// Section comportant les deux premier articles du haut de la page
 .reussite {
     height: 40%;
     align-items: center;
@@ -71,7 +82,7 @@ $foot: 150px; // Hauteur des menus du bas
         }
     }
 }
-
+// section avec la barre du milieu avec les trois titres 
 .middleBar{
    background-color: $aside-color2;
    color: $clair;
@@ -85,6 +96,8 @@ $foot: 150px; // Hauteur des menus du bas
         margin-left: 50px;
     }
 }
+
+// Section comportant les trois articles et leurs contenus
 .column{
     height: 50%;
 
@@ -99,14 +112,6 @@ $foot: 150px; // Hauteur des menus du bas
     scrollbar-color: $aside-color2 $aside-color1;
     scrollbar-width: auto;
     overflow-y: auto;
-    ::-webkit-scrollbar {
-        background-color: $aside-color2;
-        width: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-        height: 200px;
-        background-color: $aside-color2;
-      }
 
     h4{
     font-weight: 500;
@@ -121,6 +126,7 @@ $foot: 150px; // Hauteur des menus du bas
  }
 }
 
+// footer
 footer{
     justify-content: space-around;
     background-color: $aside-color1;
@@ -132,6 +138,13 @@ footer{
         width: 33%;
         border-right: dashed 1px $clair;
         margin-left: 50px;
+
+        h5{
+            font-weight: 400;
+            font-size: 1rem;
+            margin: 0;
+            margin-top: 20px;
+        }
     }
 
 }

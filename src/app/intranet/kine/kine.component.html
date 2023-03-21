@@ -1,10 +1,18 @@
-<section>
+<section id="accueil">
     <header id="head">
       <a routerLink="/">Tiaki</a>
-      <p>Accueil Kinésithérapie</p>
+      <p>Kinésithérapie</p>
     </header>
-    <!-- <app-footer></app-footer> -->
+    <section>
+      <article *ngFor="let card of cards">
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.text }}</p>
+        <a [routerLink]="[card.url]">
+          <button>{{ card.button }}</button>
+        </a>
+        <img [src]="card.image" alt="photo" />
+      </article>
+    </section>
   </section>
 <app-bottom-bar-kine></app-bottom-bar-kine>
 
-<!-- <app-footer></app-footer> -->

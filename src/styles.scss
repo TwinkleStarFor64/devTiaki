@@ -61,7 +61,34 @@ a {
   text-decoration: none;
   color: $aside-color1;
 }
+// AFFICHAGE PAGE DE CONNEXION
+#actualites{
+  height: 100vh;
+  width: 60vw;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-color: $aside-color3;
+  scrollbar-width: auto;
+  h2{
+    font-size: 2rem;
+    font-weight: 400;
+    color: $aside-color1;
+  }
+}
+#actualites>article{
+  flex-direction: column;
+  h3{
+    color: $aside-color2;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+  p{
 
+  }
+  img{
+    width: 30vw;
+  }
+}
 
 // AFFICHAGE DE LA PAGE D'ACCUEIL
 
