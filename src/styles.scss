@@ -64,29 +64,35 @@ a {
 // AFFICHAGE PAGE DE CONNEXION
 #actualites{
   height: 100vh;
-  width: 60vw;
+  width: 100%;
   flex-direction: column;
-  overflow-y: auto;
-  scrollbar-color: $aside-color3;
-  scrollbar-width: auto;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+ 
+}
+#actualites>article:nth-child(1){
+  width: 100%;
+  justify-content: space-around;
+  img{
+    width: 10vw;
+  }
   h2{
     font-size: 2rem;
     font-weight: 400;
     color: $aside-color1;
   }
 }
-#actualites>article{
+#actualites>article:nth-child(n+2){
   flex-direction: column;
   h3{
     color: $aside-color2;
     font-weight: 400;
     font-size: 1.5rem;
-  }
-  p{
-
+    margin: 0;
   }
   img{
-    width: 30vw;
+    width: 20vw;
   }
 }
 

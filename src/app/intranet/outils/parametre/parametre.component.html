@@ -1,0 +1,43 @@
+<section id="mainJournal">
+    <section>
+        <article>
+          <a routerLink="/">        
+            <span>Tiaki</span>        
+          </a>
+        </article>
+        <article>
+          <h1>Historique des échanges</h1>
+        </article>
+        <article class="medecin">
+          <div>
+            <img [src]="[medecinImg]" alt="logo medecin" />
+            <h2>Médecins</h2>
+          </div>
+          <ul>
+            <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+          </ul>
+        </article>
+        <article class="realisation">
+          <div>
+            <img [src]="[realisationImg]" alt="logo realisation" />
+            <h2>Réalisations</h2>
+          </div>
+          <ul>
+            <li *ngFor="let realisation of realisations">
+              {{ realisation.nom }}
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="exercices">
+      <h1>Historique des échanges</h1>
+        <article *ngFor="let message of echanges.echangeMedecin">
+          <h1>{{message.nom}}</h1>
+          <p>{{message.message}}</p>
+        </article>
+        <!-- <article *ngFor="let message of echanges.echangeOrga">
+          <h1>{{message.nom}}</h1>
+          <p>{{message.message}}</p>
+        </article> -->
+    </section>
+</section>

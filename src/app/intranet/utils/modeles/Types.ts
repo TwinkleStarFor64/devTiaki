@@ -84,3 +84,8 @@ export interface BottomBarTableau{
     firstInfo:string,
     secondInfo:string
 }
+// interface des echanges medecin patient
+export interface EchangeI{
+    nom:string,
+    message:string
+}

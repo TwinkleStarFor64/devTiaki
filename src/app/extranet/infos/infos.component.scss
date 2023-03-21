@@ -1,14 +1,7 @@
 :host{
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    ::-webkit-scrollbar {
-        background-color: #d89402;
-        width: 10px;
-      }
-      ::-webkit-scrollbar-thumb {
-        height: 300px;
-        background-color: #ffd884;
-      }         
+    #actualites>article{
+      align-items: center;
+    }
 }

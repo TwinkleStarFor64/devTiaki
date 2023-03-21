@@ -59,7 +59,7 @@ public asides: AsideI[] = [
   {
     nom:'',
     image:'assets/imgAsidebar/Group6.svg',
-    url:'/intranet/outils/setting'
+    url:'/intranet/outils/parametre'
   }
 ]
 

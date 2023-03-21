@@ -24,28 +24,28 @@ export class JournalComponent implements OnInit {
 
   public medecins: MedecinI[] = [
     {
-      nom: 'Martin Genoise',
+      nom: 'Docteur David Fereirra',
     },
     {
-      nom: 'Roger Lagourge',
+      nom: 'Docteur Sebastian',
     },
     {
-      nom: 'Michel Poiton',
+      nom: 'Docteur Rusco',
     },
   ];
 
   public realisations: RealisationI[] = [
     {
-      nom: 'Exercice Opto 1',
+      nom: 'Occlumotricité',
     },
     {
-      nom: 'Exercice Opto 2',
+      nom: 'Perception Tangram',
     },
     {
-      nom: 'Exercice Kiné 1',
+      nom: 'Planche',
     },
     {
-      nom: "Ajout d'un plat",
+      nom: "Ajout du plat 'Soupe de courgette'",
     },
   ];
 

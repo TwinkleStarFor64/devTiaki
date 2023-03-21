@@ -96,6 +96,24 @@ $foot: 150px; // Hauteur des menus du bas
         margin-left: 50px;
     }
 }
+@media only screen and (max-width: 1189px)  {
+    .middleBar{
+        
+         h3{
+             font-size: 1.2rem;
+             margin-left: 50px;
+         }
+     }
+}
+@media only screen and (max-width: 600px)  {
+    .middleBar{
+        
+         h3{
+             font-size: 1rem;
+             margin-left: 50px;
+         }
+     }
+}
 
 // Section comportant les trois articles et leurs contenus
 .column{

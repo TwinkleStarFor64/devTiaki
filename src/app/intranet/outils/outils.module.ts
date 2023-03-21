@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ParametreComponent } from './parametre/parametre.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     HistoriqueComponent,
     MessagerieComponent,
     ProfilComponent,
+    ParametreComponent,
   ],
   imports: [
     CommonModule,

@@ -15,8 +15,6 @@
         </mat-option>
       </mat-autocomplete>
     </form>
-    <input type="checkbox" id="allergie" name="allergie" value="allergie" />
-    <label for="allergie">Tenir compte de mes allergies </label>
     <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
@@ -30,17 +28,16 @@
       </div>
       <div class="bottomContainer">
         <div class="horlMatBox">
-          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
           <p>{{ selectedProgrammeKine.duree }}</p>
         </div>
         <div class="horlMatBox">
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
           <p>{{ selectedProgrammeKine.materiel }}</p>
         </div>
       </div>
     </article>
   </article>
 </section>
-
 <app-bottom-bar-kine></app-bottom-bar-kine>
 <!-- <app-footer></app-footer> -->
