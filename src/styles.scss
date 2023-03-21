@@ -402,19 +402,18 @@ p {
   height:calc(100vh - $head - $foot);
   width: 30%;
   padding-top: 5vh;
-  margin-left: 3vw;
+  
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: auto;
-  //align-items: center;
+  align-items: center;
 
   #ajoutButton { // Le bouton 1 - Ajouter un nouveau plat
     background-color: #33BB27;
     width: 75%;
-    //height: 8vh;
-    padding: 4vh;
-    font-size: 1.2rem;
+    padding: 4vh 2vw;
+    font-size: 1vw;
     color: black;    
   }
   .mat-ripple mat-mdc-button-ripple{
@@ -438,7 +437,7 @@ p {
     button { // Code s'appliquant aux 3 boutons
       width: 6.5vw;
       height: 4vh;
-      font-size: 0.6rem;
+      font-size: 0.6vw;
       color: white;
     }
     button:nth-child(1) { // Le bouton plats non évalués
@@ -474,9 +473,9 @@ p {
         align-items: center;
         button { 
           background-color: #F28705;
-          width: 4vw;
+          width: 5vw;
           height: 3vh;
-          font-size: 0.6rem;
+          font-size: 0.6vw;
           color: white;
           margin-right: 2vw;
         }
@@ -486,10 +485,10 @@ p {
         }
         p {
           padding: 1vh;
+          font-size: 0.8vw;
         }
         #dashed { // Pour souligner la balise <p>Matériels</p>
-          border-bottom: dashed black 1px;
-          
+          border-bottom: dashed black 1px;          
         }
       }
     }
@@ -531,6 +530,9 @@ p {
       font-weight: 700;
       color: #4A4A4A;
       margin: 2vh 0 0 0;
+    }
+    textarea {
+      height: auto;
     }
 
     div:nth-child(6) { // La div sous le textarea
