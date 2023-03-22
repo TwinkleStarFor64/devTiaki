@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfilService } from './services/profil.service';
 
 @Component({
   selector: 'app-profil',
@@ -7,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor() { }
+  constructor(public profil:ProfilService) { }
 
   ngOnInit(): void {
+    this.profil.getBottomBarTableau();
   }
-  // ditMoiQuoiDansObjetConnection(){
-  //   console.log(this..connexion);
-  // }
+  
 }

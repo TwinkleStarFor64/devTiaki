@@ -49,3 +49,10 @@ export interface MesMenusI {
     alim_code:number,
     reaction?:string
 }
+
+// Interface bottomBar Tableau de bord & Profil
+export interface BottomBarTableau{
+    titre:string,
+    firstInfo:string,
+    secondInfo:string
+}

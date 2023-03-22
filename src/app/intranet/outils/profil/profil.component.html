@@ -4,8 +4,9 @@
     <p>Profil d'Émilie</p>    
   </header>
   <section>
+    <!-- Premiére balise article - Partie gauche -->
     <article>
-      <h1>Profil de l’aidant ou du parent</h1>
+        <h1>Profil de l’aidant ou du parent</h1>
       <span>
         <input type="text" placeholder="Nom">
         <input type="text" placeholder="Prénom">
@@ -13,9 +14,110 @@
         <input type="text" placeholder="Email">
         <input type="text" placeholder="Téléphone">
       </span>
+      <div>
+        <button class="modifier">Modifier</button>
+        <button class="sauvegarder">Sauvegarder</button>
+      </div>
+        <h1>Gestation</h1>
+      <span>
+        <input type="text" placeholder="Age de la maman pendant la gestation">
+        <input type="text" placeholder="Problème pathologique de la maman/gestant">
+        <input type="text" placeholder="Allergies alimentaires de la maman/intolérance">
+        <input type="text" placeholder="Fécondation naturelle ou artificielle">
+        <input type="text" placeholder="Condition de la gestation">
+        <input type="text" placeholder="Alimentation pendant la gestation">
+        <input type="text" placeholder="Examens pendant la gestation">
+      </span>
+        <h1>Accouchement</h1>
+      <span>
+        <input type="text" placeholder="Semaine de gestation">
+        <input type="text" placeholder="Epidural">
+        <input type="text" placeholder="Induit">
+        <input type="text" placeholder="Matériel d’extraction">
+        <input type="text" placeholder="Urgences médicales">
+      </span>
+        <h1>Naissance</h1>
+      <span>
+        <input type="text" placeholder="Poids de l’enfant">
+        <input type="text" placeholder="Taille de l’enfant">
+        <input type="text" placeholder="Périmètre crânien">
+        <input type="text" placeholder="Contact direct avec la maman">
+        <input type="text" placeholder="Assistance respiratoire">
+        <input type="text" placeholder="Couveuse">
+        <input type="text" placeholder="Jaunisse">
+        <input type="text" placeholder="Allaitement">
+      </span>
+        <h1>Premier temps de vie</h1>
+      <span>
+        <input type="text" placeholder="Intolérance au lait">
+        <input type="text" placeholder="Collique ou irritabilité">
+        <input type="text" placeholder="Date de péridode d’intoroduction des aliments">
+      </span>  
+      <div>
+        <button class="modifier">Modifier</button>
+        <button class="sauvegarder">Sauvegarder</button>
+      </div>
     </article>
+    <!-- Seconde balise article - Partie droite -->
     <article>
-      <p>Droite</p>
+        <h1>Profil de la/des personne(s) à charge et questionnaire infantile.</h1>
+      <span>
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Prénom">
+        <input type="text" placeholder="Date de naissance">
+        <input type="text" placeholder="Pathologie">
+        <input type="text" placeholder="Allergie">
+        <input type="text" placeholder="Date apparition première allergie">
+        <input type="text" placeholder="Problèmes respiratoires">
+        <input type="text" placeholder="Problèmes digestifs">
+      </span>
+      <div>
+        <button class="modifier">Modifier</button>
+        <button class="sauvegarder">Sauvegarder</button>
+      </div>
+        <h1>Condition générale</h1>
+      <span>
+        <input type="text" placeholder="Diagnostique de handicap">
+        <input type="text" placeholder="Date diagnostique">
+        <input type="text" placeholder="Age apparition premier symptômes">
+        <input type="text" placeholder="Explication des premiers symptômes">
+        <input type="text" placeholder="Épilepsie">
+      </span>
+        <h1>Suivi médical</h1>
+      <span>
+        <input type="text" placeholder="Fréquence maladie">
+        <input type="text" placeholder="Allergies ou intolérances alimentaires">
+        <input type="text" placeholder="Allergies ou intolérances chimiques">
+        <input type="text" placeholder="Problèmes cardiaques">
+        <input type="text" placeholder="Déglutition">
+        <input type="text" placeholder="Mastication">
+        <input type="text" placeholder="Reflux">
+        <input type="text" placeholder="Bruxisme">
+        <input type="text" placeholder="Bavage">
+        <input type="text" placeholder="Problèmes urogénital">
+        <input type="text" placeholder="Problèmes circulatoire">
+        <input type="text" placeholder="Problèmes d’eczémas">
+        <input type="text" placeholder="Problèmes de vision">
+      </span>
+        <h1>Examens complémentaire/opérations</h1>
+      <span>
+        <input type="text" placeholder="Opérations">
+        <input type="text" placeholder="Radiographie">
+        <input type="text" placeholder="Scanner">
+      </span>
+      <div>
+        <button class="modifier">Modifier</button>
+        <button class="sauvegarder">Sauvegarder</button>
+      </div>
     </article>
-  </section>
+  </section>  
 </section>
+<footer>
+  <article *ngFor="let liste of profil.bottomBarTableau">
+      <h5>{{liste.titre}}</h5>
+      <ul>
+          <li>{{liste.firstInfo}}</li>
+          <li>{{liste.secondInfo}}</li>
+      </ul>
+  </article>
+</footer>
