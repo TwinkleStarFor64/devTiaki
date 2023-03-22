@@ -16,7 +16,7 @@ export class ParametreComponent {
   public pacman!: string;
   public medecins: MedecinI[] = [
     {
-      nom: 'Docteur David Fereirra',
+      nom: 'Docteur David Ferreira',
     },
     {
       nom: 'Docteur Sebastian',

@@ -5,8 +5,8 @@
     <p>Programmes</p>
   </header>
   <article>
-    <form class="example-form">
-      <input class="example-input" type="text" name="myProg" placeholder="Recherche" [formControl]="control"
+    <form class="example-form" >
+      <input class="example-input" type="search" name="myProg" placeholder="Recherche" [formControl]="control" 
         [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
