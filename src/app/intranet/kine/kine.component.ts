@@ -24,7 +24,7 @@ export class KineComponent {
     {
       title:"Exercices",
       text:"Réaliser les exercices en recherche libre ou recommander par vôtre kinésithérapeute.",
-      button:"Accéder à l'espace Kinésithérapie",
+      button:"Accéder à la page d'exercices",
       image:"assets/imgKine/kine3.svg",
       url:'exercice-Kine'
     },
