@@ -39,6 +39,9 @@ $historique: #F8E6AF;
                   font-weight: 100;
                   margin: 0;
                   padding: 0;
+                  @media screen and (max-width: 1200px) { 
+                    font-size: 3rem;                       
+                }
               }
           }
           span:before{
@@ -163,6 +166,9 @@ $historique: #F8E6AF;
                   font-weight: 600;
                   margin: 4px;
                   width: 100%;
+                  @media screen and (max-width: 1200px) { 
+                    font-size: 0.9rem;                       
+                }
               }
           }
           ul{

@@ -541,7 +541,7 @@ p {
       margin: 2vh 0 0 0;
     }
     textarea {
-      height: auto;
+     min-height: 10vh;
     }
 
     div:nth-child(6) { // La div sous le textarea
