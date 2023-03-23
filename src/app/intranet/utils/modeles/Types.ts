@@ -57,3 +57,35 @@ export interface BottomBarTableau{
     firstInfo:string,
     secondInfo:string
 }
+
+export interface EchangeI{
+    nom:string,
+    message:string
+}
+export interface TableauEnCoursI{
+    exerciceEnCours:string,
+    progressionOpto:string,
+    progressionNutri:string
+}
+
+export interface TableauBordHistoriqueI{
+    histoNutri:string,
+    histoKine:string,
+    histoOpto:string
+}
+export interface TableauBordMedecinI{
+    medecinNutri:string,
+    general:string,
+    medecinOpto:string
+}
+export interface TableauBordProblemeI{
+    problemeNutri:string,
+    problemeKine:string,
+    problemeOpto:string
+}
+export interface TableauReussiteI{
+    totalExercice:string,
+    exerciceOptoReussi:string,
+    exerciceKineReussi:string,
+    repasNutri:string
+}
