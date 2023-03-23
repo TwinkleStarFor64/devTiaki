@@ -14,6 +14,7 @@ export class ParametreComponent {
   public medecinImg!: string;
   public realisationImg!: string;
   public pacman!: string;
+  
   public medecins: MedecinI[] = [
     {
       nom: 'Docteur David Ferreira',

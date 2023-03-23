@@ -7,7 +7,7 @@
       </a>
     </article>
     <article>
-      <h1>Journaux de suivi</h1>
+      <h1>Messages</h1>
     </article>
     <article class="medecin">
       <div>
@@ -20,12 +20,12 @@
     </article>
     <article class="realisation">
       <div>
-        <img [src]="[realisationImg]" alt="logo realisation" />
-        <h2>Réalisations</h2>
+        <img src="assets/iconeBottom/echange.svg" alt="logo organisme" />
+        <h2>Organismes</h2>
       </div>
       <ul>
-        <li *ngFor="let realisation of realisations">
-          {{ realisation.nom }}
+        <li *ngFor="let organisme of echanges.nomOrga">
+          {{ organisme.nomOrganisme }}
         </li>
       </ul>
     </article>
@@ -49,11 +49,15 @@
   <section>
     <h3>Envoyer un message</h3>
     <span>
-      <input type="text" placeholder="selectionner un médecin">
+      <input type="text" placeholder="Selectionner un médecin">
       <input type="text" placeholder="Activité concernée">
       <input type="text" placeholder="Objet">
-      <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+      <textarea name="" id="" cols="30" rows="20" placeholder="Message"></textarea>
       <input type="text" placeholder="Copier un message de l’historique">
     </span>
+    <div>
+      <button>Annuler</button>
+      <button>Envoyer</button>
+    </div>
   </section>
 </section>

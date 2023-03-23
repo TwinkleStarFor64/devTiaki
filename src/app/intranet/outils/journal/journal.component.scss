@@ -8,6 +8,16 @@ $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 $button-color1:#33BB27;
 
+// CSS pour la scrollbar
+::-webkit-scrollbar {
+    background-color: #fddd4c;
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f5d20a;
+}
+
 mat-label { // La font-size de tout les input
     font-size: 1vw;
  }
