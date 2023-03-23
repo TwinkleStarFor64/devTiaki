@@ -2,18 +2,20 @@
     <header id="head">
       <a routerLink="/">Tiaki</a>
       <p>Optométrie ></p>
-      <p>Choisir un parcours</p>
+      <p>Choisir un exercice</p>
     </header>
     <section class="exercice">
-      <article *ngFor="let exercice of exercices">
-        <img [src]="exercice.photo" alt="photo-exercice" />
-        <h6>{{ exercice.titre }}</h6>
-        <p>{{ exercice.description }}</p>
+      <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
+          <img [src]="exercice.photo" alt="photo-exercice" />
         <div>
-          <img [src]="exercice.horloge" alt="horloge" />
-          <p>Durée</p>
-          <img [src]="exercice.materiel" alt="materiel" />
-          <p>Matériels</p>
+          <h6>{{ exercice.titre }}</h6>
+          <p>{{ exercice.description }}</p>
+        </div>
+        <div>
+          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+          <!-- <p>{{ exercice.horloge }}</p> -->
+          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel"/>
+          <!-- <p>{{exercice.materiel}}</p> -->
         </div>
       </article>
     </section>

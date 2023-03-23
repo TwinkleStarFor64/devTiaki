@@ -286,14 +286,6 @@ p {
 
 }
 
-// #programmes > div{
-//   width: 80vw;
-//   border-bottom: dashed 1px black;
-//   align-self: center;
-
-// }
-
-// article avec l'image
 #programmes>article:nth-child(3) {
   width: 100%;
   justify-content: space-around;
@@ -310,9 +302,10 @@ p {
 
 }
 
-#programmes article:nth-child(4) img {
+#programmes article:nth-child(4)> img {
   width: 45vw;
   height: 45vh;
+  background-color: white;
 
 }
 
@@ -395,20 +388,31 @@ p {
 
 #exercices article {
   flex-flow: column nowrap;
+  justify-content: space-between;
   width: 20%;
   background: $clair;
   padding: 10px;
   margin: 5px;
 }
+#exercice article > img{
+  max-height: 60%;
+}
 
-#exercices article>div {
+#exercices article>div:nth-child(2){
+ display: flex;
+ flex-direction: column;
+ height: 40%; 
+ h6{
+  font-size: 1rem;
+ }
+}
+#exercices article>div{
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
 }
-
-#exercices article>div>* {
-  margin-left: 10px;
+#exercices article>div:nth-child(3){
+  gap: 1vw;
 }
 
 #exercices article>figure {
