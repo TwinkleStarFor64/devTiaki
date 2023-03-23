@@ -26,7 +26,7 @@ mat-label { // La font-size de tout les input
     flex-direction: row;        
 
  // Section permettant de voir les medecins et les réalisations
-    section:nth-child(1) {
+    #menuJournalMessage {
         background-color: $aside-color3;
         width: 13%;
         height: 100%;

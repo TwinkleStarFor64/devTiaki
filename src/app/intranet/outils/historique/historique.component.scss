@@ -87,18 +87,17 @@ $historique: #F8E6AF;
                   margin: 0;
                   font-size: 1.2rem;
                   font-weight: 600;
-                  @media only screen and (max-width: 1280px) {
+                  @media only screen and (max-width: 1330px) {
                       font-size: 0.8rem;
                   }
               }
           }
           ul{
               li{
-                  margin-left: 0.5vw;
                   margin-bottom: 15px;
-                  @media only screen and (max-width: 1280px) {
+                  font-size: 0.9rem;
+                  @media only screen and (max-width: 1330px) {
                       font-size: 0.6rem;
-                      margin-left: 0;
                   }
               }
           }
@@ -124,19 +123,18 @@ $historique: #F8E6AF;
                   margin: 0;
                   font-size: 1.2rem; 
                   font-weight: 600; 
-                  @media only screen and (max-width: 1280px) {
+                  @media only screen and (max-width: 1330px) {
                       font-size: 0.8rem;
-                  }                  
+                    }                  
               }
           }
           ul{
               li{
-                  margin-left: 0.5vw;
                   margin-bottom: 15px;
-                  @media only screen and (max-width: 1280px) {
+                  font-size: 0.9rem;
+                  @media only screen and (max-width: 1330px) {
                       font-size: 0.6rem;
-                      margin-left: 0;
-                  }
+                    }
               }
           }
       }
