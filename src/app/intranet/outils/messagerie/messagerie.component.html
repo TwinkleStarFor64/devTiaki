@@ -1,7 +1,59 @@
-<main>
-  <section>
+<section id="mainMessagerie">
+  <!-- Section avec le logo, les médecins et les réalisations -->
+  <section id="menuJournalMessage">
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <a routerLink="/">        
+        <span>Tiaki</span>        
+      </a>
     </article>
- </section>
-</main>
+    <article>
+      <h1>Journaux de suivi</h1>
+    </article>
+    <article class="medecin">
+      <div>
+        <img [src]="[medecinImg]" alt="logo medecin" />
+        <h2>Médecins</h2>
+      </div>
+      <ul>
+        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+      </ul>
+    </article>
+    <article class="realisation">
+      <div>
+        <img [src]="[realisationImg]" alt="logo realisation" />
+        <h2>Réalisations</h2>
+      </div>
+      <ul>
+        <li *ngFor="let realisation of realisations">
+          {{ realisation.nom }}
+        </li>
+      </ul>
+    </article>
+  </section>
+  <!-- Section comportant l'historique des messages -->
+  <section>
+    <div>
+      <img [src]="[blackMedecinImg]" alt="" />
+      <p>Historiques des messages avec le Dr Genoise</p>
+    </div>
+    <ul>
+      <li>15-06-22</li>
+      <li>14-06-22</li>
+      <li>14-06-22</li>
+      <li>11-09-22</li>
+      <li>14-06-22</li>
+      <li>14-06-22</li>
+      <li>14-06-22</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Envoyer un message</h3>
+    <span>
+      <input type="text" placeholder="selectionner un médecin">
+      <input type="text" placeholder="Activité concernée">
+      <input type="text" placeholder="Objet">
+      <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+      <input type="text" placeholder="Copier un message de l’historique">
+    </span>
+  </section>
+</section>
