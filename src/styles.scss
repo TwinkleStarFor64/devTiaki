@@ -427,14 +427,7 @@ p {
 }
 
 // CSS des pages plats et menus
-::-webkit-scrollbar {
-  background-color: #e7adb7;
-  width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  height: 200px;
-  background-color: $card-nutri;
-}
+
 
 #sectionPrincipale {
   display: flex;
@@ -762,23 +755,6 @@ p {
 }
 
 
-
-
-
-
-
-
-
-// CSS des pages plats et menus
-::-webkit-scrollbar {
-  background-color: #e7adb7;
-  width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  height: 200px;
-  background-color: $card-nutri;
-}
-
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
@@ -1103,14 +1079,6 @@ p {
       }
   }
 }
-
-
-
-
-
-
-
-
 
 // AFFICHAGE TABLEAU DE BORD
 

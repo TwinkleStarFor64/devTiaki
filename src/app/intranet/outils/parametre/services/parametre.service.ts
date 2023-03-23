@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EchangeI } from 'src/app/intranet/utils/modeles/Types';
+import { EchangeI, OrganismeI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class ParametreService {
 
   echangeMedecin: EchangeI[] = [];
   echangeOrga: EchangeI[] = [];
-
+  nomOrga: OrganismeI[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -32,5 +32,15 @@ export class ParametreService {
       }
     );
     return this.echangeOrga
+  };
+  getNomOrga(){
+    this.http.get<OrganismeI[]>('assets/data/organisme.json').subscribe(
+      {
+        next:r => this.nomOrga = r ,
+        error: er => console.log(er),
+        complete: () => console.log(this.nomOrga) 
+      }
+    );
+    return this.nomOrga
   };
 }

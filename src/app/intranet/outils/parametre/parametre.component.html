@@ -17,12 +17,12 @@
         </article>
         <article class="realisation">
           <div>
-            <img [src]="[realisationImg]" alt="logo realisation" />
-            <h2>Réalisations</h2>
+            <img src="assets/iconeBottom/echange.svg" alt="logo organisme" />
+            <h2>Organismes</h2>
           </div>
           <ul>
-            <li *ngFor="let realisation of realisations">
-              {{ realisation.nom }}
+            <li *ngFor="let organisme of echanges.nomOrga ">
+              {{ organisme.nomOrganisme }}
             </li>
           </ul>
         </article>

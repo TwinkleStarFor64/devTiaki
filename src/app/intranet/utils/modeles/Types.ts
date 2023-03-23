@@ -89,3 +89,6 @@ export interface TableauReussiteI{
     exerciceKineReussi:string,
     repasNutri:string
 }
+export interface OrganismeI{
+    nomOrganisme:string,
+}

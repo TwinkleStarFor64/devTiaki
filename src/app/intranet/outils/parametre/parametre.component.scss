@@ -29,127 +29,6 @@ $button-color1: #33BB27;
     display: flex;
     flex-direction: row;
 
-    // Section permettant de voir les medecins et les réalisations
-    >section:nth-child(1) {
-        background-color: $aside-color3;
-        width: 13%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        color: #ffffff;
-        align-items: center;
-        gap: 1vw;
-
-        >article:nth-child(1) {
-            a {
-                display: flex;
-                flex-direction: row;
-                align-items: baseline;
-                text-decoration: none;
-                width: 100%;
-                color: #ffffff;
-                font-size: 5vw;
-                font-weight: 100;
-
-                span {
-                    font-weight: 100;
-                    margin: 0;
-                    padding: 0;
-                }
-            }
-
-            span:before {
-                content: '........';
-                font-size: 50%;
-            }
-
-            span:after {
-                content: '........';
-                font-size: 50%;
-            }
-        }
-
-        h1 {
-            // La balise <h1>historique des echanges</h1>
-            margin: 0;
-            font-size: 1.8vw;
-            font-weight: 700;
-            width: 100%;
-            border-bottom: 1px white dashed;
-            margin-left: 0.5vw;
-        }
-
-        .medecin {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            margin: 0;
-            height: 30%;
-            width: 100%;
-            margin-left: 1vw;
-
-            div {
-                display: flex;
-                align-items: flex-end;
-                gap: 9px;
-                justify-content: flex-start;
-
-                img {
-                    width: 3vw;
-                }
-
-                h2 {
-                    // La balise <h2>Médecins</h2>
-                    margin: 0;
-                    font-size: 1.4vw;
-                }
-            }
-
-            ul {
-                li {
-                    margin-left: 0.5vw;
-                    margin-bottom: 15px;
-                    font-size: 1vw;
-                }
-            }
-        }
-
-        .realisation {
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            height: 30%;
-            justify-content: space-evenly;
-            width: 100%;
-            margin-left: 1vw;
-
-            div {
-                display: flex;
-                align-items: flex-end;
-                gap: 9px;
-                justify-content: flex-start;
-
-                img {
-                    width: 3vw;
-                }
-
-                h2 {
-                    // La balise <h2>Réalisations</h2>
-                    margin: 0;
-                    font-size: 1.2vw;
-                }
-            }
-
-            ul {
-                li {
-                    font-size: 1vw;
-                    margin-left: 0.5vw;
-                    margin-bottom: 15px;
-                }
-            }
-        }
-    }
-
     .principale {
         flex-direction: column;
         overflow-y: auto;
@@ -166,8 +45,6 @@ $button-color1: #33BB27;
                 content: "  ......";
             }
         }
-
-
 
         .echangeMedecin {
             flex-direction: column;

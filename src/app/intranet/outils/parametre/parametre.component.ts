@@ -46,5 +46,6 @@ ngOnInit(){
   this.medecinImg = 'assets/imageOutils/medecin.svg';
   this.echanges.getEchangeMedecin();
   this.echanges.getEchangeOrga();
+  this.echanges.getNomOrga();
  }
 }
