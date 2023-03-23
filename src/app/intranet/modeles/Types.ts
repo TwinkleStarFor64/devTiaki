@@ -5,12 +5,12 @@ export interface PlatI {
     ingredient: Array<IngredientI>;
   }
 //Interface de la page Menu
-  export interface MenuI {
+  /* export interface MenuI {
     title:string,
     description:string,
     plat:Array<PlatI>,
     ingredient:Array<IngredientI>
-} 
+}  */
 //Interface de la page Ingrédient
 export interface IngredientI {
     nom:string,
@@ -61,11 +61,6 @@ export interface BottomI {
   //Interface de la page journal pour les Medecins
   export interface MedecinI{
      nom:string
-  }
-  //Interface de test pour le formulaire Dropdown
-  export interface  CityI {
-     name: string,
-     code: string
   }
   //Interface de la page journal 
   export interface RelierI{

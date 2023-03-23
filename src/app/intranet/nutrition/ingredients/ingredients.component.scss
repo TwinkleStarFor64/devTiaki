@@ -48,7 +48,8 @@ $foot:150px; // Hauteur des menus du bas
       width: 25%;
       height:calc(100vh - $head - $foot);
       padding-left: 2%;
-      overflow-y: scroll;                       
+      overflow-y: auto;
+      overflow-x: hidden;                       
 
       h1{ // La balise <h1>Ingrédients</h1>
         margin: 0 0 2vh 0;
@@ -153,6 +154,9 @@ $foot:150px; // Hauteur des menus du bas
               border-radius: 5%;
               padding: 1vh;
               width: 50%;
+              @media screen and (max-width: 1330px) {
+                width: 70%;
+              }
             }
           }
           h6{ // La balise <h6>Réactions constatées</h6>

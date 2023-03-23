@@ -42,50 +42,18 @@ export interface MesPlatsI {
     alim_code:number,
     reaction?:string
 }
-// interface permettant d'avoir les information du haut de la page Tableau de bord
-export interface TableauReussiteI {
-    totalExercice:string,
-    exerciceOptoReussi:string,
-    exerciceKineReussi:string,
-    repasNutri:string
+
+export interface MesMenusI {
+    id:number,
+    nom:string,
+    description:string,
+    alim_code:number,
+    reaction?:string
 }
 
-export interface TableauEnCoursI{
-    exerciceEnCours:string,
-    progressionOpto:string,
-    progressionNutri:string,
-}
-
-// interface permettant d'avoir les informations de l'historique de la page Tableau de bord
-export interface TableauBordHistoriqueI{
-    histoNutri:string,
-    histoKine:string,
-    histoOpto:string
-}
-
-// interface info tableau de bord Medecins
-export interface TableauBordMedecinI{
-    medecinNutri:string
-    general:string,
-    medecinOpto:string
-}               
-                   
-
-// Interface  des problemes particuliers
-export interface TableauBordProblemeI{
-    problemeNutri:string,
-    problemeKine:string,
-    problemeOpto:string
-}
-
-// Interface bottomBar Tableau de bord
+// Interface bottomBar Tableau de bord & Profil
 export interface BottomBarTableau{
     titre:string,
     firstInfo:string,
     secondInfo:string
-}
-// interface des echanges medecin patient
-export interface EchangeI{
-    nom:string,
-    message:string
 }

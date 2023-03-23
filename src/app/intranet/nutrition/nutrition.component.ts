@@ -42,7 +42,39 @@ export class NutritionComponent implements OnInit {
       url:'/intranet/nutrition/ingredients',
       active:false
     }
-  ]
+  ];
+
+  public cards:any = [
+    {
+      title:"Journal",
+      text:"Naviguer dans votre historique alimentaire",
+      button:"Accéder à la page Journal",
+      image:"assets/photoNutri/accueilJournal.svg",
+      url:'journal-Repas'
+    },
+    {
+      title:"Menus",
+      text:"Les listes de vos menus et de ceux de la communautés",
+      button:"Accéder à la page des Menus",
+      image:"assets/photoNutri/accueilMenus.svg",
+      url:'menus'
+    },
+    {
+      title:"Plats",
+      text:"Vos plats ou ceux de la communauté",
+      button:"Accéder à la page des Plats",
+      image:"assets/photoNutri/accueilPlats.svg",
+      url:'plats'
+    },
+    {
+      title:"Ingrédients",
+      text:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
+      button:"Accéder à la page Ingrédients",
+      image:"assets/photoNutri/accueilIngredients.svg",
+      url:'ingredients'
+    },
+  ];
+
   constructor( private router:Router) { }
 
   ngOnInit(): void {

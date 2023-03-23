@@ -1,9 +1,79 @@
-<section>
+<section id="platMenu">
   <header id="head">
     <a routerLink="/">Tiaki</a>
-    <p>Menus</p>
+    <p>les menus</p>
   </header>
-  <!-- <app-footer></app-footer> -->
+  <section id="sectionPrincipale">
+    <article id="listePlats">
+      <button id="ajoutButton" mat-raised-button color="primary">1 - Ajouter un nouveau menu</button>
+      <!-- <button>1 - Ajouter un nouveau menu</button> -->
+      <h1>Reprendre un menu précédent</h1>
+      <article id="evalBouton">
+        <button mat-raised-button color="primary">Menus évalués et validés</button>
+        <button mat-raised-button color="primary">Menus non évalués</button>
+        <button mat-raised-button color="primary">Menus évalués et problématiques</button>
+      </article>
+      <article id="listing">
+        <div *ngFor="let menus of menuService.menu">
+          <h2>{{ menus.nom }}</h2>
+          <p>{{ menus.description }}</p>
+          <div>
+            <button mat-raised-button color="primary">Evalué ce menu</button>
+            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" >
+            <p>Durée</p>
+            <img src="assets/photoNutri/casserole.svg" alt="matériel">
+            <p id="dashed">Matériels</p>
+          </div>
+        </div>
+      </article>
+    </article>
+    <article>
+        <h3>2 - Ajouter un menu</h3>
+      <div id="selectBalise">
+        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout">
+        <mat-form-field appearance="outline">
+          <mat-label>VOS MENUS</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let menus of menuService.menu" [value]="menus.nom">
+              {{menus.nom}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>LES MENUS DE LA COMMUNAUTÉ</mat-label> 
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>ALLERGIES D'ÉMILIE</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      </div>
+        <h4>Menu du dimanche</h4>
+        <p>Description</p>
+        <textarea name="" id="" cols="30" rows="5"></textarea>
+      <div>
+        <p>Ingrédients</p>
+        <p>Quantités</p>
+        <p>Valeurs nutrionnelles</p>
+        <p>Allèrgenes</p>
+        <p>Retour de la communauté</p>
+      </div>
+        <p>Beurre</p>
+        <p>Farine</p>
+        <mat-form-field id="ajouter" appearance="outline">
+          <mat-label>AJOUTER</mat-label>
+          <mat-select>
+          </mat-select>
+        </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary">ANNULER</button>
+        <button mat-raised-button color="primary">VALIDER</button>
+      </div>
+    </article>
+    <!-- <app-footer></app-footer> -->
+  </section>
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>
 

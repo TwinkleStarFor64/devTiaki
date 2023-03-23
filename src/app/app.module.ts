@@ -21,7 +21,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     InfosComponent,
     MentionsLegalesComponent,
     RgpdComponent,
-    PagenotfoundComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +32,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

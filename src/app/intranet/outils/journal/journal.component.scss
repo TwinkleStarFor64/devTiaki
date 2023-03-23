@@ -8,126 +8,24 @@ $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 $button-color1:#33BB27;
 
-.ng-tns-c97-5{ // Taille de la police dans la balise label pour rechercher un ingrédient
-    font-size: 0.8rem;
+mat-label { // La font-size de tout les input
+    font-size: 1vw;
+ }
+ /* Ci-dessous CSS pour l'input "Rechercher un ingrédients */
+#mat-input-3 {
+    font-size: 1vw;
+ }
+#inputSearch {
+     font-size: 0.7vw;
  }
 
-#mainJournal {
+ #mainJournal {
     font-family: $font-family;
     height: 100vh;
     display: flex;
-    flex-direction: row;        
-
- // Section permettant de voir les medecins et les réalisations
-    section:nth-child(1){
-        background-color: $aside-color3;
-        width: 13%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        color: #ffffff;
-        align-items: center;
-        gap: 1vw;
-        
-        article:nth-child(1){
-            a{
-                display: flex;
-                flex-direction: row;
-                align-items: baseline;
-                text-decoration: none;
-                width: 100%;
-                color: #ffffff;
-                font-size: 4vw;
-                font-weight: 100;
-
-                span{
-                    font-weight: 100;
-                    margin: 0;
-                    padding: 0;
-                }
-            }
-            span:before{
-                content: '........';
-                font-size:50%;
-            }
-            span:after{
-                content: '........';
-                font-size:50%;
-            }
-        }
-        article:nth-child(2){
-            border-bottom: 1px white dashed;
-            margin-left: 0.5vw;
-            h1{ // La balise <h1>Journaux de suivi</h1>
-                margin: 0;
-                font-size: 1.8vw;
-                font-weight: 700;
-                width: 60%;
-            }
-        }
-        .medecin{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            margin: 0;
-            height: 30%;
-            width: 100%;
-            margin-left: 1vw;
-
-            div{
-                display: flex;
-                align-items: flex-end;
-                gap: 9px;
-                justify-content: flex-start;                
-                img{
-                    width: 3vw;
-                }
-                h2{ // La balise <h2>Médecins</h2>
-                    margin: 0;
-                    font-size: 1.2vw;
-                }
-            }
-            ul{
-                li{
-                    font-size: 1vw;
-                    margin-left: 0.5vw;
-                    margin-bottom: 15px;
-                }
-            }
-        }
-        // partie réalisation de la barre d'info gauche
-        .realisation{
-            display: flex;
-            flex-direction: column;
-            margin: 0;
-            height: 30%;
-            justify-content: space-evenly;
-            width: 100%;
-            margin-left: 1vw;
-
-            div{
-                display: flex;
-                align-items: flex-end;
-                gap: 9px;
-                justify-content: flex-start;
-                img{
-                    width: 3vw;
-                }
-                h2{ // La balise <h2>Réalisations</h2>
-                    margin: 0;
-                    font-size: 1.2vw;                    
-                }
-            }
-            ul{
-                li{
-                    font-size: 1vw;
-                    margin-left: 0.5vw;
-                    margin-bottom: 15px;
-                }
-            }
-        }
-    }
+    flex-direction: row;    
 }    
+
 // Section permettant de voir l'historique des journaux
     section:nth-child(2){
         background-color: $historique;
@@ -136,6 +34,7 @@ $button-color1:#33BB27;
         flex-direction: column;
         text-align: center;        
             div{
+                margin-top: 2vh;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -145,11 +44,14 @@ $button-color1:#33BB27;
                 img{
                     height: 4vw;
                 }
-                p{
-                    font-size: 1.2rem;
+                p{ // La balise <p>Historiques des journaux sur ces activités</p>
+                    font-size: 1rem;
                     font-weight: 600;
                     margin: 4px;
                     width: 100%;
+                    @media screen and (max-width: 1200px) { 
+                        font-size: 0.9rem;                       
+                    }
                 }
             }
             ul{
@@ -160,11 +62,14 @@ $button-color1:#33BB27;
                 height: 30%;
                 li{
                     text-align: center;
-                    font-size: 1rem;                    
+                    font-size: 1rem;
+                    @media only screen and (max-width: 1280px) {
+                        font-size: 0.8rem;
+                    }                    
                 }
             }            
         }
-    
+            
 // Section qui comporte le formulaire d'enregistrement du journal
     section:nth-child(3){        
         width: 61%;
@@ -200,7 +105,7 @@ $button-color1:#33BB27;
 
             form{
                 width: 80%;
-                height: 100%;
+                //height: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
@@ -213,12 +118,16 @@ $button-color1:#33BB27;
                 .spanBouton {
                     display: flex;
                     justify-content: space-between;
+                    button {
+
+                        font-size: 0.8vw;
+                        width: 7vw;
+                    }
                     //align-content: stretch;
                     .mat-mdc-raised-button:not(:disabled) { // Le bouton orange Partager
                         background-color: $card-opto;
                         color: #ffffff;
-                        width: 7vw;
-                    }
+                        }
                     div { // La div qui contient les 2 boutons
                         display: flex;
                         width: fit-content;
@@ -227,18 +136,15 @@ $button-color1:#33BB27;
                         .mat-mdc-raised-button:not(:disabled):nth-child(1) { // Le bouton jaune Annuler
                             background-color: $aside-color3;
                             color: #ffffff;
-                            width: 7vw;
                         }
                         .mat-mdc-raised-button:disabled:nth-child(2) { // Le bouton vert Enregistrer désactivé
                             background-color: $button-color1;
                             color: #ffffff;
                             opacity: 50%;
-                            width: 7vw;
                         }
                         .mat-mdc-raised-button:not(:disabled):nth-child(2) { // Le bouton vert Enregistrer activé
                             background-color: $button-color1;
                             color: #ffffff;
-                            width: 7vw;
                         }
                     }
                 }
@@ -278,7 +184,7 @@ $button-color1:#33BB27;
                 background-color: $card-nutri;
                 border: 1px solid #999;
                 text-align: center;
-                font-size: 0.7rem;
+                font-size: 0.7vw;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -307,7 +213,7 @@ $button-color1:#33BB27;
             button{
                 background-color: $card-kine;
                 border: 1px solid #999;
-                font-size: 0.7rem;
+                font-size: 0.7vw;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -324,7 +230,7 @@ $button-color1:#33BB27;
                 background-color: $card-opto;
                 border: 1px solid #999;
                 text-align: center;
-                font-size: 0.7rem;
+                font-size: 0.7vw;
                 color: #ffffff;
                 border-radius: 8px;
                 width: 5vw;
@@ -341,9 +247,9 @@ $button-color1:#33BB27;
                 background-color: transparent;
                 border: 1px solid #ffffff;
                 text-align: center;
-                font-size: 0.7rem;
+                font-size: 0.7vw;
                 border-radius: 8px;
-                width: 5vw;
+                width: 5.3vw;
                 height: 1.5vw;
             }
         }
@@ -357,9 +263,9 @@ $button-color1:#33BB27;
                 background-color: transparent;
                 border: 1px solid #ffffff;
                 text-align: center;
-                font-size: 0.7rem;
+                font-size: 0.7vw;
                 border-radius: 8px;
-                width: 5vw;
+                width: 5.3vw;
                 height: 1.5vw;
             }
         }
@@ -376,12 +282,12 @@ $button-color1:#33BB27;
  
  
  
-    $card-opto-hover: #cf7507;
+    /* $card-opto-hover: #cf7507;
     $aside-color3-hover: #c29d2e;
     $button-color1-hover: #2b9b1c;
- 
+  */
     // Button de PrieNg Css personnalisé
- :host::ng-deep { //:host::ngdeep pour préciser les modifications CSS des composants PrimeNg
+ /* :host::ng-deep { //:host::ngdeep pour préciser les modifications CSS des composants PrimeNg
     .partager { //Le bouton orange Partager et son hover
         background-color: $card-opto;
         border-color: $card-opto;
@@ -440,7 +346,7 @@ $button-color1:#33BB27;
         border-color: $aside-color3-hover;
         color: #ffffff;
     }
-}
+} */
 
 
 /* span:nth-child(1){

@@ -53,10 +53,7 @@ export class JournalComponent implements OnInit {
   public selectedJournal!: RelierI; //Sur cette variable ne pas oublier le !
   public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
-  constructor(
-    private formBuilder: FormBuilder,
-    
-  ) {
+  constructor( private formBuilder: FormBuilder ) {
     this.reliers = [
       { nom: 'Journal du 5 Janvier 2022' },
       { nom: 'Journal du 10 Janvier 2022' },

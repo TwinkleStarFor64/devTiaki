@@ -13,13 +13,14 @@ import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
 import { FooterModule } from '../footer/footer.module';
 import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
 
 @NgModule({
   declarations: [
-
     JournalRepasComponent,
     IngredientsComponent,
     MenusComponent,
@@ -36,7 +37,9 @@ import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.com
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FooterModule
+    FooterModule,
+    MatButtonModule,
+    MatSelectModule
   ]
 })
 export class NutritionModule { }

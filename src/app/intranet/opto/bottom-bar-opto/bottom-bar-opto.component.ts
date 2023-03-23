@@ -16,7 +16,6 @@ export class BottomBarOptoComponent implements OnInit {
       lien:'ProgressionOpto',
       url:'/intranet/opto/progression-Opto',
       active: false,
-      
     },
     {
       image:"assets/iconeBottom/programme.svg",
