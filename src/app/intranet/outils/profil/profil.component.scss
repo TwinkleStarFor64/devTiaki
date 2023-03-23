@@ -12,12 +12,13 @@ $foot:150px; // Hauteur des menus du bas
 
 // Ci-dessous le CSS de la scrollBar pour chrome et autres navigateurs sauf firefox
 ::-webkit-scrollbar {
-  background-color: #e7adb7;
+  background-color: #fddd4c;
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   height: 200px;
-  background-color: $card-nutri;
+  background-color: #f5d20a;
 }
 
 // Le header avec le logo Tiaki et le nom de la page

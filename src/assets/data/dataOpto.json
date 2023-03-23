@@ -1,82 +1,73 @@
 [
   {
     "id": 1,
-    "photo": "assets/exoOpto/tangramPerception.png",
+    "photo": "assets/exoOpto/tangram.svg",
     "video": "",
     "titre": "Perception Tangram",
-    "description": "Nous allons construire le TANGRAM à l'aide d'un carré de carton ou de carton côté fort de 120 millimètres comme suit :. Nous allons tracer les diagonales du carré. Nous ferons des marques sur deux de ses côtés qui les divisent en 30, 30 et 60 millimètres ",
+    "description": "La Perception Tangram est un exercice qui vise à améliorer la perception visuelle et la coordination œil-main. L'exercice consiste à assembler des pièces géométriques en utilisant un modèle de référence. Ce jeu permet de stimuler la reconnaissance des formes, la perception de l'espace et la coordination visuo-motrice.",
     "duree": "5 min",
     "materiel": "aucun"
   },
   {
     "id": 2,
-    "photo": "assets/exoOpto/occlumotricirte.png",
+    "photo": "assets/exoOpto/occlumotricite.svg",
     "video": "",
     "titre": "Oculomotricité partie 1",
-    "description": "PHASE 1.- Lire en alternant la première et la dernière lettre de chaque ligne en vision de loin alternant avec celles en vision de près. Exemple : 1ère ligne de loin à partir de la première à la dernière lettre / 2ème ligne lettre de près de la première à la dernière lettre  ",
+    "description": "L'Occlumotricité est une technique d'entraînement qui consiste à fermer alternativement un œil pendant une période donnée. Cet exercice est utile pour entraîner les muscles des yeux et améliorer la coordination entre les deux yeux. L'occlumotricité est souvent utilisée pour aider les personnes atteintes de strabisme ou de problèmes de convergence. ",
     "duree": "1 ou 2 minutes pour chaque œil",
     "materiel": "Obturateur Lentilles Métronome"
   },
   {
     "id": 3,
-    "photo": "assets/exoOpto/occlumotricirte.png",
+    "photo": "assets/exoOpto/accomodation.svg",
     "video": "",
-    "titre": "Oculomotricité partie 2 ",
-    "description": "PHASE 2.- Rapprochez les petites lettres du visage du patient et continuez à y apporter des modifications deLoin/Proche",
-    "duree": "1 ou 2 minutes pour chaque œil",
-    "materiel": "Obturateur Lentilles Métronome"
-  },
-  {
-    "id": 4,
-    "photo": "assets/exoOpto/occlumotricirte.png",
-    "video": "",
-    "titre": "Oculomotricité partie 3",
-    "description": "PHASE3.- Lorsque vous faites l’exercice, éloignez facilement les lettres. Recommandable en monoculaire pour assurer que les deux yeux aient la même capacité en vision de près et de loin.",
-    "duree": "1 ou 2 minutes pour chaque œil",
-    "materiel": "Obturateur Lentilles Métronome"
-  },
-  {
-    "id": 5,
-    "photo": "assets/exoOpto/carteMcDonald.png",
-    "video": "",
-    "titre": "Périphérie du centre d'intégration",
-    "description": "• Faites d'abord monoculaire (avec patch) puis binoculaire (avec les deux yeux ouverts) • Accrochez la carte McDonald's au mur et placez-vous à environ 40 cm devant.• Fixer le point central.",
-    "duree": "3 min",
-    "materiel": "Aucun"
-  },
-  {
-    "id": 6,
-    "photo": "assets/exoOpto/hemi2.png",
-    "video": "",
-    "titre": "Exercices hémisphérique II",
-    "description": "1. Placez le papier au niveau des yeux et tenez-vous à environ 60 cm, la distance peut êtremodifiée au fur et à mesure que vous vous entraînez jusqu'à ce que vous soyez à environ 3 mètres. ",
-    "duree": "3 min",
-    "materiel": "Aucun"
-  },
-  {
-    "id": 7,
-    "photo": "assets/exoOpto/hemi1.png",
-    "video": "",
-    "titre": "Suite Exercices hémisphérique II",
-    "description": " 2. Demandez-lui de lever également la jambe homolatérale (main droite-jambe droite) et controlatérale (main droite-jambe gauche).  ",
+    "titre": "L'accomodation",
+    "description": "L'Accommodation est un exercice qui consiste à ajuster la mise au point de l'œil sur des objets à différentes distances. Cela aide à améliorer la capacité de l'œil à se concentrer sur des objets proches et lointains et à améliorer la flexibilité de l'œil.",
     "duree": "5 min",
     "materiel": "Aucun"
   },
   {
-    "id": 8,
+    "id": 4,
+    "photo": "assets/exoOpto/hemi2.svg",
+    "video": "",
+    "titre": "Exercices hémisphérique II",
+    "description": "Les Exercices hélisphériques sont des activités qui aident à entraîner la coordination œil-cerveau en utilisant des mouvements de rotation et de torsion de la tête. Ces exercices sont utiles pour aider les personnes atteintes de vertiges ou de troubles de la coordination.",
+    "duree": "3 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 5,
     "photo": "assets/imageOpto/exerciceOpto1.png",
     "video": "",
     "titre": "Contrôle des yeux de Kraskin",
-    "description": "1. Le patient doit être debout ou assis dans une position confortable.2. Une deuxième personne se place davant le patient et tient l’objet de fixation à une distance entre 2,5 et 5 cm.3. ",
+    "description": "Le Contrôle des yeux de Kraskin est un exercice qui vise à entraîner la coordination entre les yeux et le cerveau. L'exercice consiste à suivre du regard un objet en mouvement tout en gardant la tête immobile. Cela aide à améliorer la perception de la profondeur, la coordination œil-main et la perception de l'espace.",
     "duree": "5 min",
     "materiel": "Petit objet de fixation"
   },
   {
-    "id": 9,
-    "photo": "assets/exoOpto/cercles.png",
+    "id": 6,
+    "photo": "assets/exoOpto/cercles.svg",
     "video": "",
     "titre": "Cercle de couleur",
-    "description": "• Mettre le patch filtre rouge sur l’œil qui (chante fort) (non amblyope).• Avec un crayon orange qui filtre bien (quand on regarde avec l’œil qui a le filtre rouge activé, rien de ce que nousdessinons avec le caryon ne doit se voir orange).",
+    "description": "Le Cercle de couleur est un exercice qui aide à stimuler la perception des couleurs et à améliorer la vision des couleurs. L'exercice consiste à identifier et à nommer les couleurs des cercles présentés dans un ordre aléatoire. Cela aide à développer la reconnaissance des couleurs et la perception de la différence de tonalité.",
+    "duree": "5 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 7,
+    "photo": "assets/exoOpto/carteMcDonald.svg",
+    "video": "",
+    "titre": "Périphérie du centre d'intégration",
+    "description": "La Périphérie du centre d'intégration est un exercice qui aide à développer la vision périphérique. L'exercice consiste à fixer son regard sur un point central tout en identifiant les objets dans le champ visuel périphérique. Cela aide à améliorer la sensibilité visuelle et la perception de l'espace.",
+    "duree": "3 min",
+    "materiel": "Aucun"
+  },
+  {
+    "id": 8,
+    "photo": "assets/exoOpto/un-oeil.jpg",
+    "video": "",
+    "titre": "La Convergence",
+    "description": "La Convergence est un exercice qui aide à entraîner les muscles des yeux responsables de la rotation des yeux vers l'intérieur. L'exercice consiste à fixer son regard sur un objet en se rapprochant progressivement de l'objet jusqu'à ce que les yeux convergent et se croisent. Cela aide à améliorer la coordination entre les deux yeux.",
     "duree": "5 min",
     "materiel": "Aucun"
   }

@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { IntranetComponent } from './intranet.component';
+import { TableauComponent } from './tableau/tableau.component';
 
 
 const routes: Routes = [
     {path:'', component:IntranetComponent, children:[
       {path:'', component: AccueilComponent},
+      {path:'tableau', component: TableauComponent},
       {path:'kine', loadChildren: () =>  import('./kine/kine.module').then( m => m.KineModule)},
       {path:'opto', loadChildren: () =>  import('./opto/opto.module').then( m => m.OptoModule)},
       {path:'nutrition', loadChildren: () =>  import('./nutrition/nutrition.module').then( m => m.NutritionModule)},

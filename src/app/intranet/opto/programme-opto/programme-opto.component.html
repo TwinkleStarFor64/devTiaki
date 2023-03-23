@@ -3,7 +3,7 @@
   <header id="head">
     <a routerLink="/">Tiaki</a>
     <p>Optométrie ></p>
-    <p>Le parcours de Cheer Émilie</p>
+    <p>Les programmes</p>
   </header>
   <!-- Article contenant le formulaire permettant de rechercher les programmes -->
   <article>
@@ -17,20 +17,16 @@
         </mat-option>
       </mat-autocomplete>
     </form>
-    <input type="checkbox" id="allergie" name="allergie" value="allergie" />
-    <label for="allergie">Tenir compte de mes allergies </label>
     <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
   <article class="dashed"></article>
-</section>
-<!-- section contenant la photo ou image principale et le titre la description le carroussel -->
-<section *ngIf="selectedProgrammeOpto; selectedProgramme">
-  <article>
+<!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
+  <article *ngIf="selectedProgrammeOpto; selectedProgramme">
     <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
     <article>
       <div>
-        <h2>{{ selectedProgrammeOpto.titre }}</h2>
+        <h1>{{ selectedProgrammeOpto.titre }}</h1>
         <p>{{ selectedProgrammeOpto.description }}</p>
       </div>
       <div class="bottomContainer">

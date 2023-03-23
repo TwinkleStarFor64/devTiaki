@@ -6,15 +6,17 @@
     <p>Le parcours de Cheer Émilie</p>
   </header>
   <section>
-    <article *ngFor="let exercice of exercices">
+    <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
       <img [src]="exercice.photo" alt="photo-exercice" />
-      <h6>{{ exercice.titre }}</h6>
-      <p>{{ exercice.description }}</p>
       <div>
-        <img [src]="exercice.horloge" alt="horloge" />
-        <p>Durée</p>
-        <img [src]="exercice.materiel" alt="materiel" />
-        <p>Matériels</p>
+        <h6>{{ exercice.titre }}</h6>
+        <p>{{ exercice.description }}</p>
+      </div>
+      <div>
+        <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+        <!-- <p>Durée</p> -->
+        <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel"/>
+        <!-- <p>Matériels</p> -->
       </div>
     </article>
   </section>

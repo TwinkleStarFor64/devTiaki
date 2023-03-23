@@ -5,6 +5,7 @@ import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
+import { TableauComponent } from './tableau/tableau.component';
 
 
 
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
+    TableauComponent,
   
   ],
   imports: [

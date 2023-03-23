@@ -10,7 +10,7 @@ export class ProgrammeKineService {
 
   programme:ProgrammeI[] = [];
 
-  private programmeUrl = 'assets/data/dataOpto.json';
+  private programmeUrl = 'assets/data/dataKine.json';
 
   constructor(private http: HttpClient) { }
 

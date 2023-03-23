@@ -7,6 +7,14 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 $foot:150px;
 
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
 section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);

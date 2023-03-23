@@ -14,12 +14,12 @@ public asides: AsideI[] = [
   {
     nom:'Émilie',
     image:'assets/imgAsidebar/cheerleader1.svg',
-    url:'/'
+    url:'/intranet/tableau'
   },
   {
     nom:'Kalhifa',
     image:'assets/imgAsidebar/skier1.svg',
-    url:'/'
+    url:'/intranet/tableau'
   },
   {
     nom:'',
@@ -59,7 +59,7 @@ public asides: AsideI[] = [
   {
     nom:'',
     image:'assets/imgAsidebar/Group6.svg',
-    url:'/intranet/outils/setting'
+    url:'/intranet/outils/parametre'
   }
 ]
 

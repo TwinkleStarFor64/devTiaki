@@ -1,0 +1,95 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+$historique: #F8E6AF;
+$button-color1: #33BB27;
+
+.ng-tns-c97-5 {
+    // Taille de la police dans la balise label pour rechercher un ingrédient
+    font-size: 0.8rem;
+}
+
+::-webkit-scrollbar {
+    background-color: #fddd4c;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f5d20a;
+}
+
+#mainJournal {
+    font-family: $font-family;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    .principale {
+        flex-direction: column;
+        overflow-y: auto;
+        scrollbar-color: $card-nutri #e7adb7;
+        scrollbar-width: auto;
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: $aside-color3;
+            margin-left: 50px;
+
+            &::after {
+                content: "  ......";
+            }
+        }
+
+        .echangeMedecin {
+            flex-direction: column;
+            align-items: center;
+            border-right: dashed 1px black;
+            width: 50%;
+
+            article {
+                flex-direction: column;
+                width: 50%;
+                line-height: 25px;
+
+                h4 {
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                }
+
+                img {
+                    width: 2vw;
+                    align-self: flex-end;
+                }
+            }
+        }
+
+        .echangeMedecin2 {
+            flex-direction: column;
+
+            align-items: center;
+            width: 50%;
+
+            article {
+                flex-direction: column;
+                width: 50%;
+                line-height: 25px;
+
+                h4 {
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                }
+
+                img {
+                    width: 2vw;
+                    align-self: flex-end;
+                }
+            }
+        }
+    }
+}

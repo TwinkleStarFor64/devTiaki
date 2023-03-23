@@ -1,8 +1,17 @@
-<section>
-    <header id="head">
-      <a routerLink="/">Tiaki</a>
-      <p>Accueil Optométrie</p>
-    </header>
-    <!-- <app-footer></app-footer> -->
+<section id="accueil">
+  <header id="head">
+    <a routerLink="/">Tiaki</a>
+    <p>Optométrie</p>
+  </header>
+  <section>
+    <article *ngFor="let card of cards">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.text }}</p>
+      <a [routerLink]="[card.url]">
+        <button>{{ card.button }}</button>
+      </a>
+      <img [src]="card.image" alt="photo" />
+    </article>
   </section>
+</section>
 <app-bottom-bar-opto></app-bottom-bar-opto>
