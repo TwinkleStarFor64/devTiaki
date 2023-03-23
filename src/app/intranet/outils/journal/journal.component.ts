@@ -50,7 +50,7 @@ export class JournalComponent implements OnInit {
   ];
 
   formJournal!: FormGroup;
-  public selectedJournal!: RelierI; //Sur cette variable ne pas oublier le !
+  //public selectedJournal!: RelierI; //Sur cette variable ne pas oublier le !
   public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
   constructor( private formBuilder: FormBuilder ) {

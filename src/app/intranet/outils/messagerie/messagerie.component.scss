@@ -5,24 +5,76 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
+$historique: #F8E6AF;
 
-main {
-  min-height: 100vh;
+#mainMessagerie {
+  font-family: $font-family;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;    
+}    
+
+// Section permettant de voir l'historique des journaux
+section:nth-child(2){
+  background-color: $historique;
+  width: 13%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;        
+      div{
+          margin-top: 2vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          height: 18%;
+          justify-content: flex-end;
+          gap: 1vw;
+          img{
+              height: 4vw;              
+          }
+          p{ // La balise <p>Historiques des messages</p>
+              font-size: 1rem;
+              font-weight: 600;
+              margin: 4px;
+              width: 100%;
+              @media screen and (max-width: 1200px) { 
+                  font-size: 0.9rem;                       
+              }
+          }
+      }
+      ul{
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: flex-start;
+          height: 30%;
+          li{
+              text-align: center;
+              font-size: 1rem;
+              @media only screen and (max-width: 1280px) {
+                  font-size: 0.8rem;
+              }                    
+          }
+      }            
+  }
 
-  section {
+
+  section:nth-child(3) {
+    width: 74%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
+    align-items: center;
 
-    article {
-      display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
+    h3 {
+        align-self: flex-start;
+    }
+
+    span {
+        margin-top: 15vh;
+        width: 50%;
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
     }
   }
-}
