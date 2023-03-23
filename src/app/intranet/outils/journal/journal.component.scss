@@ -26,7 +26,7 @@ mat-label { // La font-size de tout les input
     flex-direction: row;        
 
  // Section permettant de voir les medecins et les réalisations
-    section:nth-child(1){
+    section:nth-child(1) {
         background-color: $aside-color3;
         width: 13%;
         height: 100%;
@@ -36,7 +36,7 @@ mat-label { // La font-size de tout les input
         align-items: center;
         gap: 1vw;
         
-        article:nth-child(1){
+        article:nth-child(1) {
             a{
                 display: flex;
                 flex-direction: row;
@@ -47,7 +47,7 @@ mat-label { // La font-size de tout les input
                 font-size: 4rem;
                 font-weight: 100;
 
-                span{ // Le gros logo Tiaki
+                span { // Le gros logo Tiaki
                     font-weight: 100;
                     margin: 0;
                     padding: 0;
@@ -99,18 +99,17 @@ mat-label { // La font-size de tout les input
                     margin: 0;
                     font-size: 1.2rem;
                     font-weight: 600;
-                    @media only screen and (max-width: 1280px) {
+                    @media only screen and (max-width: 1330px) {
                         font-size: 0.8rem;
                     }
                 }
             }
             ul{
                 li{
-                    margin-left: 0.5vw;
                     margin-bottom: 15px;
-                    @media only screen and (max-width: 1280px) {
+                    font-size: 0.9rem;
+                    @media only screen and (max-width: 1330px) {
                         font-size: 0.6rem;
-                        margin-left: 0;
                     }
                 }
             }
@@ -136,18 +135,17 @@ mat-label { // La font-size de tout les input
                     margin: 0;
                     font-size: 1.2rem; 
                     font-weight: 600; 
-                    @media only screen and (max-width: 1280px) {
+                    @media only screen and (max-width: 1330px) {
                         font-size: 0.8rem;
                     }                  
                 }
             }
             ul{
                 li{
-                    margin-left: 0.5vw;
                     margin-bottom: 15px;
-                    @media only screen and (max-width: 1280px) {
+                    font-size: 0.9rem;
+                    @media only screen and (max-width: 1330px) {
                         font-size: 0.6rem;
-                        margin-left: 0;
                     }
                 }
             }

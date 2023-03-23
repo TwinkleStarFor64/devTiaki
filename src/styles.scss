@@ -433,18 +433,21 @@ p {
     color: $card-nutri;
     font-weight: 100;
     font-size: 1.4rem;
-    margin: 5vh 0 2vh 0;    
+    margin: 5vh 0 2vh 0; 
+    @media screen and (max-width : 1200px) {
+      font-size: 1.1rem;
+    }   
   }
 
   #evalBouton { // Article qui contient les 3 boutons pour évaluer 
     display: flex;
     flex-direction: row;
     gap: 2vw;
-    padding-left: 1vw;
+    //padding-left: 1vw;
     margin-bottom: 1vh;
-    width: 80%;
+    //width: 80%;
     button { // Code s'appliquant aux 3 boutons
-      width: 6.5vw;
+      width: 7vw;
       height: 4vh;
       font-size: 0.6vw;
       color: white;
@@ -471,9 +474,15 @@ p {
         margin: 2vh 2vh 0 0;
         font-size: 1.4rem;
         font-weight: 500;
+        @media screen and (max-width : 1200px) {
+          font-size: 1.1rem;
+        }
       }
       p {
         margin: 0.5vh 0 1vh 0;
+        @media screen and (max-width : 1200px) {
+          font-size: 0.8rem;
+        }
       }
       div { // Contient un bouton, 2 images et 2 balise
         display: flex;
@@ -510,12 +519,16 @@ p {
   width: 70%;
   display: flex;
   flex-direction: column;
-  margin: 0 4vw 0 4vw;
+  margin-left: 4vw;
+  padding-right: 4vw;
   overflow: auto;
     h3 { // La balise <h3>2 - Ajouter un plat</h3>
       font-size: 1.6rem;
       font-weight: 500;
       color: #4A4A4A;
+      @media screen and (max-width : 1200px) {
+        font-size: 1.3rem;
+      }
     }
     #selectBalise { // La div qui contient les 3 balises select
       border-bottom: dashed black 1px;
@@ -530,15 +543,23 @@ p {
       mat-form-field:nth-child(3) { // La balise select "Les plats de la communautés"
         width: 18vw;
       }
-      mat-label { // Le labell des balises select
-        font-size: 0.9rem;
+    }
+
+    mat-label { // Le labell des balises select
+      font-size: 0.9rem;
+      @media screen and (max-width : 1200px) {
+        font-size: 0.8rem;
       }
     }
+
     h4 { // La balise <h4>Tourte aux champignons</h4>
       font-size: 1.6rem;
       font-weight: 700;
       color: #4A4A4A;
       margin: 2vh 0 0 0;
+      @media screen and (max-width : 1200px) {
+        font-size: 1.3rem;
+      }
     }
     textarea {
      min-height: 10vh;
@@ -555,6 +576,9 @@ p {
 
     #ajouter { // La balise select AJOUTER
       width: 10vw;
+      @media screen and (max-width : 1200px) {
+        width: 12vw;
+      }      
     }
 
     div:nth-child(10) { // La div avec les 2 boutons annuler & valider
@@ -566,6 +590,7 @@ p {
       padding: 2vh;
         button:nth-child(1) {
           background-color: #F28705;
+          //font-size: 0.9vw;
         }
         button:nth-child(2) {
           background-color: #33BB27;
