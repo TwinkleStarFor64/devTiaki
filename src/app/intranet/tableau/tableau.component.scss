@@ -9,7 +9,7 @@ $clair: white;
 $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
-$foot: 150px; // Hauteur des menus du bas  
+$foot: 120px; // Hauteur des menus du bas  
 
 // Scrollbar
 ::-webkit-scrollbar {
@@ -84,7 +84,13 @@ $foot: 150px; // Hauteur des menus du bas
             }
 
             h2 {
+                font-size: 1.3rem;
                 font-weight: 400;
+            }
+            ul{
+                li{
+                    font-size: 0.8rem;
+                }
             }
         }
 
@@ -105,30 +111,30 @@ $foot: 150px; // Hauteur des menus du bas
         width: 33%;
         height: 100%;
         font-weight: 400;
-        font-size: 1.6rem;
+        font-size: 1.6vw;
         margin-left: 50px;
     }
 }
 
-@media only screen and (max-width: 1189px) {
-    .middleBar {
+// @media only screen and (max-width: 1189px) {
+//     .middleBar {
 
-        h3 {
-            font-size: 1.2rem;
-            margin-left: 50px;
-        }
-    }
-}
+//         h3 {
+//             font-size: 1.2rem;
+//             margin-left: 50px;
+//         }
+//     }
+// }
 
-@media only screen and (max-width: 600px) {
-    .middleBar {
+// @media only screen and (max-width: 600px) {
+//     .middleBar {
 
-        h3 {
-            font-size: 1rem;
-            margin-left: 50px;
-        }
-    }
-}
+//         h3 {
+//             font-size: 1rem;
+//             margin-left: 50px;
+//         }
+//     }
+// }
 
 // Section comportant les trois articles et leurs contenus
 .column {
@@ -158,6 +164,7 @@ $foot: 150px; // Hauteur des menus du bas
         ul {
             li {
                 font-weight: 400;
+                font-size:0.7rem ;
             }
         }
     }

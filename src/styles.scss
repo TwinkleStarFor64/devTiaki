@@ -1237,7 +1237,7 @@ p {
 // AFFICHAGE TABLEAU DE BORD
 
 #tableau {
-  height: calc(100vh - $foot);
+  height: calc(100vh - 120px);
   width: 100%;
   display: flex;
   flex-direction: column;
