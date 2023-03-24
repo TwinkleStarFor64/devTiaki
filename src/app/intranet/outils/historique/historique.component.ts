@@ -14,7 +14,7 @@ export class HistoriqueComponent implements OnInit {
 
   public medecins: MedecinI[] = [
     {
-      nom: 'Docteur David Ferreira',
+      nom: 'Docteur Ferreira',
     },
     {
       nom: 'Docteur Sebastian',
@@ -35,7 +35,7 @@ export class HistoriqueComponent implements OnInit {
       nom: 'Planche',
     },
     {
-      nom: "Ajout du plat 'Soupe de courgette'",
+      nom: "Ajout de 'Soupe de courgette'",
     },
   ];
 

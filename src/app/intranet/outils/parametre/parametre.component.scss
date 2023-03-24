@@ -17,6 +17,7 @@ $button-color1: #33BB27;
     background-color: #fddd4c;
     width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
     height: 200px;
     background-color: #f5d20a;
@@ -87,6 +88,8 @@ $button-color1: #33BB27;
                 img {
                     width: 2vw;
                     align-self: flex-end;
+                    margin-bottom: 2vh;
+
                 }
             }
         }

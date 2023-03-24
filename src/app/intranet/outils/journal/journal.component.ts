@@ -24,7 +24,7 @@ export class JournalComponent implements OnInit {
 
   public medecins: MedecinI[] = [
     {
-      nom: 'Docteur David Ferreira',
+      nom: 'Docteur Ferreira',
     },
     {
       nom: 'Docteur Sebastian',

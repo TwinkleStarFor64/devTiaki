@@ -89,7 +89,7 @@ section:nth-child(2){
     }
 
     span { // La balise span contenant les input
-        margin-top: 15vh;
+        margin-top: 5vh;
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -106,7 +106,7 @@ section:nth-child(2){
         textarea {
             font-size: 1vw;
             font-family: $font-family;
-            min-height: 10vh;
+            min-height: 8vh;
         }
     }
     div { // La div contenant les 2 boutons (Annuler & Envoyer) 
@@ -116,6 +116,7 @@ section:nth-child(2){
         justify-content: flex-end;
         gap: 1vw;
         margin-top: 5vh;
+        margin-bottom: 2vh;
 
         button:nth-child(1) { // Le bouton jaune Annuler
             width: 6vw;
