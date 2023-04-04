@@ -281,14 +281,14 @@ p {
   color: $sombre;
   height: calc(100vh - $foot);
 }
-
+// section principale
 #programmes>section {
   width: 100%;
   flex-direction: column;
   height: calc(100vh - $head - $foot);
   overflow-x: hidden;
   overflow-y: auto;
-
+  max-height: 100vh;
 }
 
 // search bar
@@ -298,34 +298,43 @@ p {
   justify-content: center;
 
 }
-
+// article ligne dashed
 #programmes>article:nth-child(3) {
-  width: 100%;
-  justify-content: space-around;
-  flex-direction: column;
+  width: 80%;
+  align-self: center;
+  height: 2vh;
+  border-bottom: dashed 1px black;
 }
 
 #programmes>article:nth-child(4) {
   width: 100%;
   height: calc(100vh - $foot );
-  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   justify-self: center;
-
+  overflow-y: auto;
+  scrollbar-color: $card-opto #be861e;
+  scrollbar-width: auto;
+  padding-top: 30px;
 }
 
 #programmes article:nth-child(4)>img {
-  width: 45vw;
-  height: 45vh;
-
+  width: 65%;
+  height: 70%;
+  align-self: baseline;
+  
 }
 
 // Article de description
+#programmes article:nth-child(4)>article {
+  margin: 10px;
+  align-self: baseline;
+  align-items: center;
+}
 #programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 40%;
 }
 
 #programmes article:nth-child(4)>article>div:nth-child(1) h1 {
@@ -333,10 +342,6 @@ p {
   margin: 0;
 }
 
-#programmes article:nth-child(4)>article {
-  margin: 10px;
-  align-self: baseline;
-}
 
 #programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
@@ -378,11 +383,13 @@ p {
 
 }
 
+//Section principale
 #exercices>* {
   width: 100%;
 }
 
-#exercices>section {
+//section avec la classe exercice
+#exercices>.exercice {
   width: 100%;
   flex-flow: row wrap;
   overflow-x: hidden;
@@ -394,11 +401,7 @@ p {
   scrollbar-width: auto;
 }
 
-#exercices>footer {
-  height: $foot;
-  width: calc(100vw - $l)
-}
-
+// articles générer avec le ngFor avec la photo ou video et le titre la description 
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
@@ -406,53 +409,68 @@ p {
   background: $clair;
   padding: 10px;
   margin: 5px;
+  gap: 0.5vw;
 }
 
-#exercice article>img {
-  max-height: 50%;
-  height: 5vh;
-
+//div des photos ou videos de l'exo
+#exercices .exercice>article>.photo-exo {
+  height: 50%;
+  align-items: center;
 }
 
-#exercices article>div:nth-child(2) {
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: justify;
-
+// video ou photo
+#exercices .exercice>article>.photo-exo>img {
+  height: 100%;
+  width: 100%;
 }
 
 #exercices article>div {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
+  justify-content: center;
   text-align: end;
   gap: 1vw;
 }
 
+// div comportant le titre la description et durée materiels
+#exercices article>div:nth-child(2) {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: justify;
+}
+
+// titre de l'exercice
 #exercices article>div>h6 {
   margin: 0;
   font-size: 1rem;
 }
 
+// description de l'exercice
 #exercices article>div>p {
   margin: 0;
 }
 
-#exercices article>div>div {
+// div de la durée et materiel
+#exercices .exercice article>div:nth-child(2)>div {
   display: flex;
-  align-self: flex-end;
-  gap: 1vw;
+  justify-content: flex-end;
+  gap: 0.3vw;
 }
 
-#exercices article>figure {
-  width: 100%;
-  margin: -10px -10px 0;
-  background-size: contain;
-  background-position: 50%;
+// #exercices article>figure {
+//   width: 100%;
+//   margin: -10px -10px 0;
+//   background-size: contain;
+//   background-position: 50%;
+// }
+
+#exercices>footer {
+  height: $foot;
+  width: calc(100vw - $l)
 }
+
 
 // CSS des pages plats et menus
-
 
 #sectionPrincipale {
   display: flex;
@@ -471,8 +489,8 @@ p {
   overflow-x: auto;
   align-items: center;
 
+  // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
-    // Le bouton 1 - Ajouter un nouveau plat
     background-color: #33BB27;
     width: 75%;
     padding: 4vh 2vw;
@@ -521,9 +539,10 @@ p {
     button:nth-child(2) {
       background-color: #F28705;
     }
+
     // Le bouton Plats évalués et problématiques
     button:nth-child(3) {
-      background-color: #D9042B; 
+      background-color: #D9042B;
     }
   }
 
@@ -793,6 +812,7 @@ p {
       }
     }
 
+    // Liste des medecins
     ul {
       li {
         margin-bottom: 15px;
@@ -805,6 +825,7 @@ p {
     }
   }
 
+  // Realisations et organismes
   .realisation {
     display: flex;
     flex-direction: column;
@@ -836,6 +857,7 @@ p {
       }
     }
 
+    // Listes des réalisations ou organismes
     ul {
       li {
         margin-bottom: 15px;
@@ -849,7 +871,7 @@ p {
   }
 }
 
-
+// Contenant principale
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
@@ -919,8 +941,9 @@ p {
       background-color: #F28705;
     }
 
+    // Le bouton Plats évalués et problématiques
     button:nth-child(3) {
-      background-color: #D9042B; // Le bouton Plats évalués et problématiques
+      background-color: #D9042B;
     }
   }
 
@@ -1032,7 +1055,7 @@ p {
     }
   }
 
-  // Le labell des balises select
+  // Le label des balises select
   mat-label {
     font-size: 0.9rem;
 
@@ -1094,157 +1117,6 @@ p {
       background-color: #33BB27;
     }
 
-  }
-}
-
-/* -----Ci-dessous CSS pour la barre de menu à gauche dans les pages Journal et Messagerie----- */
-// Section permettant de voir les medecins et les réalisations
-#menuJournalMessage {
-  background-color: $aside-color3;
-  width: 13%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #ffffff;
-  align-items: center;
-  gap: 1vw;
-
-  article:nth-child(1) {
-    a {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      text-decoration: none;
-      width: 100%;
-      color: #ffffff;
-      font-size: 4rem;
-      font-weight: 100;
-
-      // Le gros logo Tiaki
-      span {
-        font-weight: 100;
-        margin: 0;
-        padding: 0;
-
-        @media screen and (max-width: 1200px) {
-          font-size: 3rem;
-        }
-      }
-    }
-
-    span:before {
-      content: '........';
-      font-size: 50%;
-    }
-
-    span:after {
-      content: '........';
-      font-size: 50%;
-    }
-  }
-
-  article:nth-child(2) {
-    border-bottom: 1px white dashed;
-    margin-left: 0.5vw;
-    width: 90%;
-
-    // La balise <h1>Journaux de suivi</h1>
-    h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-      width: 60%;
-
-      @media only screen and (max-width: 1280px) {
-        font-size: 1.2rem;
-      }
-    }
-  }
-
-  .medecin {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0;
-    height: 30%;
-    width: 100%;
-    margin-left: 1vw;
-
-    div {
-      display: flex;
-      align-items: flex-end;
-      gap: 9px;
-      justify-content: flex-start;
-
-      img {
-        width: 3vw;
-      }
-
-      // La balise <h2>Médecins</h2>
-      h2 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.8rem;
-        }
-      }
-    }
-
-    ul {
-      li {
-        margin-bottom: 15px;
-        font-size: 0.9rem;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.6rem;
-        }
-      }
-    }
-  }
-
-  .realisation {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    height: 30%;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-left: 1vw;
-
-    div {
-      display: flex;
-      align-items: flex-end;
-      gap: 9px;
-      justify-content: flex-start;
-
-      img {
-        width: 3vw;
-      }
-
-      // La balise <h2>Réalisations</h2>
-      h2 {
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.8rem;
-        }
-      }
-    }
-
-    ul {
-      li {
-        margin-bottom: 15px;
-        font-size: 0.9rem;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.6rem;
-        }
-      }
-    }
   }
 }
 

@@ -41,6 +41,7 @@ export class ParametreComponent {
     },
   ];
   constructor(public echanges: ParametreService){}
+  
 ngOnInit(){
   this.pacman = 'assets/imageOutils/Maskgroup.svg';
   this.realisationImg = 'assets/imageOutils/whitePacman.svg';

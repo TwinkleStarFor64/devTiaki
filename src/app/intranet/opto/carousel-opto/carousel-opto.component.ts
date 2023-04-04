@@ -9,14 +9,20 @@ import { ModalService } from '../../utils/services/modal.service';
 export class CarouselOptoComponent {
   @ViewChild('carouselContainer', {static: true}) carouselContainer: ElementRef;
   mediaList = [
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
+    { type: 'image', url: 'assets/exoOpto/carteMcDonald.svg' },
+    { type: 'image', url: 'assets/exoOpto/un-oeil.jpg' },
     { type: 'video', url: 'video1.mp4' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice3.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice4.png'},
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png'},
+    { type: 'image', url: 'assets/exoOpto/hemi2.svg' },
+    { type: 'image', url: 'assets/exoOpto/occlumotricite.svg'},
+    { type: 'image', url: 'assets/exoOpto/carteMcDonald.svg' },
+    { type: 'image', url: 'assets/exoOpto/un-oeil.jpg' },
+    { type: 'video', url: 'video1.mp4' },
+    { type: 'image', url: 'assets/exoOpto/hemi2.svg' },
+    { type: 'image', url: 'assets/exoOpto/occlumotricite.svg'},{ type: 'image', url: 'assets/exoOpto/carteMcDonald.svg' },
+    { type: 'image', url: 'assets/exoOpto/un-oeil.jpg' },
+    { type: 'video', url: 'video1.mp4' },
+    { type: 'image', url: 'assets/exoOpto/hemi2.svg' },
+    { type: 'image', url: 'assets/exoOpto/occlumotricite.svg'},
   ];
 
   currentSlide = 0;
