@@ -18,7 +18,7 @@
     <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
-  <div class="dashed"></div>
+  <article ></article>
   <article *ngIf="selectedProgrammeKine; selectedProgramme">
     <img src="{{ selectedProgrammeKine.photo }}" alt="imageOpto" />
     <article>
@@ -36,6 +36,7 @@
           <p>{{ selectedProgrammeKine.materiel }}</p>
         </div>
       </div>
+      <app-carousel></app-carousel>
     </article>
   </article>
 </section>

@@ -9,14 +9,20 @@ import { ModalService } from '../../utils/services/modal.service';
 export class CarouselComponent {
   @ViewChild('carouselContainer', {static: true}) carouselContainer: ElementRef;
   mediaList = [
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
+    { type: 'image', url: 'assets/exoKine/4pattes.svg' },
+    { type: 'image', url: 'assets/exoKine/appuis.svg' },
     { type: 'video', url: 'video1.mp4' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice3.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice4.png'},
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png'},
+    { type: 'image', url: 'assets/exoKine/escalier.svg' },
+    { type: 'image', url: 'assets/exoKine/grenouille.svg'},
+    { type: 'image', url: 'assets/exoKine/ours.svg' },
+    { type: 'image', url: 'assets/exoKine/appuis.svg' },
+    { type: 'video', url: 'video1.mp4' },
+    { type: 'image', url: 'assets/exoKine/rampe.svg' },
+    { type: 'image', url: 'assets/exoKine/planche.svg'},
+    { type: 'image', url: 'assets/exoKine/appuis.svg' },
+    { type: 'video', url: 'video1.mp4' },
+    { type: 'image', url: 'assets/exoKine/retournement.svg' },
+    { type: 'image', url: 'assets/exoKine/appuis.svg' },
   ];
 
   currentSlide = 0;
@@ -27,12 +33,12 @@ export class CarouselComponent {
     this.carouselContainer = new ElementRef(null);
   }
   nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.mediaList.length;
+    this.currentSlide = (this.currentSlide + 1) % this.mediaList.length % 4;
     this.updateCarousel();
   }
 
   prevSlide() {
-    this.currentSlide = (this.currentSlide - 1 + this.mediaList.length) % this.mediaList.length;
+    this.currentSlide = (this.currentSlide - 1 + this.mediaList.length) % this.mediaList.length % 4;
     this.updateCarousel();
   }
 

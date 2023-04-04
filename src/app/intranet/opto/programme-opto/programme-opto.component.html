@@ -20,7 +20,7 @@
     <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
-  <article class="dashed"></article>
+  <article></article>
 <!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
   <article *ngIf="selectedProgrammeOpto; selectedProgramme">
     <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
@@ -29,12 +29,12 @@
         <h1>{{ selectedProgrammeOpto.titre }}</h1>
         <p>{{ selectedProgrammeOpto.description }}</p>
       </div>
-      <div class="bottomContainer">
-        <div class="horlMatBox">
+      <div>
+        <div>
           <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
           <p>{{ selectedProgrammeOpto.duree }}</p>
         </div>
-        <div class="horlMatBox">
+        <div>
           <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
           <p>{{ selectedProgrammeOpto.materiel }}</p>
         </div>

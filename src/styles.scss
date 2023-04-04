@@ -281,6 +281,7 @@ p {
   color: $sombre;
   height: calc(100vh - $foot);
 }
+
 // section principale
 #programmes>section {
   width: 100%;
@@ -298,6 +299,7 @@ p {
   justify-content: center;
 
 }
+
 // article ligne dashed
 #programmes>article:nth-child(3) {
   width: 80%;
@@ -306,6 +308,7 @@ p {
   border-bottom: dashed 1px black;
 }
 
+// article qui apparait lors du choix du programme
 #programmes>article:nth-child(4) {
   width: 100%;
   height: calc(100vh - $foot );
@@ -318,11 +321,12 @@ p {
   padding-top: 30px;
 }
 
+// image du programme
 #programmes article:nth-child(4)>img {
   width: 65%;
   height: 70%;
   align-self: baseline;
-  
+
 }
 
 // Article de description
@@ -331,18 +335,20 @@ p {
   align-self: baseline;
   align-items: center;
 }
+
 #programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
   max-width: 40%;
 }
 
+// titre 
 #programmes article:nth-child(4)>article>div:nth-child(1) h1 {
   font-size: 1.2rem;
   margin: 0;
 }
 
-
+// durée materiel
 #programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -358,17 +364,12 @@ p {
   width: 100%;
 }
 
+// img horloge materiel
 #programmes article:nth-child(4)>article>div:nth-child(2) div img {
   height: 2vh;
   width: 3vw;
-  color: #F22F1D;
 }
 
-#programmes article:nth-child(4)>article>div:nth-child(2) div img {
-  height: 2vh;
-  width: 3vw;
-  color: #F22F1D;
-}
 
 // AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
 #exercices {
@@ -817,6 +818,7 @@ p {
       li {
         margin-bottom: 15px;
         font-size: 0.9rem;
+        text-align: start;
 
         @media only screen and (max-width: 1330px) {
           font-size: 0.6rem;
