@@ -1,15 +1,15 @@
 <!-- section contenant la barre de recherche et les checkbox -->
 <section id="programmes">
   <header id="head">
-    <a routerLink="/">Tiaki</a>
+    <a routerLink="/intranet">Tiaki</a>
     <p>Optométrie ></p>
     <p>Les programmes</p>
   </header>
   <!-- Article contenant le formulaire permettant de rechercher les programmes -->
   <article>
     <form class="example-form">
-      <input class="example-input" type="text" name="myProg" placeholder="Recherche" [formControl]="control"
-        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" />
+      <input class="example-input" type="search" name="myProg" placeholder="Recherche" [formControl]="control"
+        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()"/>
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
           (mouseover)="hoverSelectedProgramme(programme)">

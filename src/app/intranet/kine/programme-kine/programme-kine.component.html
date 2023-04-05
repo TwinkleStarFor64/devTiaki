@@ -1,13 +1,13 @@
 <section id="programmes">
   <header id="head">
-    <a routerLink="/">Tiaki</a>
+    <a routerLink="/intranet">Tiaki</a>
     <p>Kinésithérapie ></p>
-    <p>Programmes</p>
+    <p>Les programmes</p>
   </header>
   <article>
     <form class="example-form" >
       <input class="example-input" type="search" name="myProg" placeholder="Recherche" [formControl]="control" 
-        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" />
+        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
           (mouseover)="hoverSelectedProgramme(programme)">
@@ -18,20 +18,20 @@
     <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
-  <article ></article>
+  <article></article>
   <article *ngIf="selectedProgrammeKine; selectedProgramme">
-    <img src="{{ selectedProgrammeKine.photo }}" alt="imageOpto" />
+    <img src="{{ selectedProgrammeKine.photo }}" alt="imageKine" />
     <article>
       <div>
         <h1>{{ selectedProgrammeKine.titre }}</h1>
         <p>{{ selectedProgrammeKine.description }}</p>
       </div>
-      <div class="bottomContainer">
-        <div class="horlMatBox">
+      <div>
+        <div>
           <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
           <p>{{ selectedProgrammeKine.duree }}</p>
         </div>
-        <div class="horlMatBox">
+        <div>
           <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
           <p>{{ selectedProgrammeKine.materiel }}</p>
         </div>

@@ -17,7 +17,7 @@ export class ProgrammeOptoComponent implements OnInit {
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
 
-  constructor(public programmeOpto: ProgrammeOptoService) {}
+  constructor(public programmeOpto: ProgrammeOptoService) { }
 
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {
@@ -41,6 +41,10 @@ export class ProgrammeOptoComponent implements OnInit {
     } else {
       this.programmesFiltres = [];
     }
+  }
+  // Méthode permettant lors du click de l'input de voir tout les programmes
+  allProgrammes() {
+    this.programmesFiltres = [...this.programmeOpto.programme];
   }
 
   // méthode permettant la récupération des données json via l'interface ProgrammeOptoI
