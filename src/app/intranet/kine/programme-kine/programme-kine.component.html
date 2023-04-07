@@ -5,8 +5,8 @@
     <p>Les programmes</p>
   </header>
   <article>
-    <form class="example-form" >
-      <input class="example-input" type="search" name="myProg" placeholder="Recherche" [formControl]="control" 
+    <form  class="example-form" >
+      <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche libre" [formControl]="control" 
         [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
@@ -15,7 +15,10 @@
         </mat-option>
       </mat-autocomplete>
     </form>
-    <input type="checkbox" id="jamaisFait" name="jamaisFait" value="jamaisFait" />
+    <!-- <app-input></app-input> -->
+    <input type="checkbox" id="input-ckeckbox" name="observations" value="observation" />
+    <label for="input-ckeckbox">Tenir comptes de mes observations</label>
+    <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
     <label for="jamaisFait">Jamais faites </label>
   </article>
   <article></article>

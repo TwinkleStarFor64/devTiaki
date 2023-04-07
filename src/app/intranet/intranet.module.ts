@@ -4,8 +4,12 @@ import { IntranetRoutingModule } from './intranet-routing.module';
 import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { FormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableauComponent } from './tableau/tableau.component';
+import { InputComponent } from './template/ui/input/input.component';
+import { ButtonComponent } from './template/ui/button/button.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -15,12 +19,16 @@ import { TableauComponent } from './tableau/tableau.component';
     AsideBarComponent,
     AccueilComponent,
     TableauComponent,
-  
+    ButtonComponent,
   ],
   imports: [
     CommonModule,
     IntranetRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatSelectModule
+
   ]
 })
 export class IntranetModule { }

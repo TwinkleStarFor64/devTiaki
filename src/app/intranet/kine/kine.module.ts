@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
 import { FooterModule } from '../footer/footer.module';
 import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.component';
+import { InputComponent } from '../template/ui/input/input.component';
 
 
 
@@ -23,7 +24,9 @@ import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.compon
     CarouselComponent,
     KineComponent,
     BottomBarKineComponent,
+    InputComponent
   ],
+  
   imports: [
     CommonModule,
     KineRoutingModule,
@@ -31,7 +34,8 @@ import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.compon
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
-    FooterModule
+    FooterModule,
+    
   ]
 })
 export class KineModule { }
