@@ -1,19 +1,24 @@
 <section id="exercices">
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
-    <p>Optométrie ></p>
-    <p>Le parcours de Cheer Émilie</p>
   </header>
   <section class="exercice">
-    <article *ngFor="let exercice of exercices">
-      <img [src]="exercice.photo" alt="photo-exercice" />
-      <h6>{{ exercice.titre }}</h6>
-      <p>{{ exercice.description }}</p>
+    <article *ngFor="let recette of recettes.recettes">
+      <div class="photo-exo">
+        <img [src]="recette.photo" alt="photo-recette">
+      </div>
       <div>
-        <img [src]="exercice.horloge" alt="horloge" />
-        <p>Durée</p>
-        <img [src]="exercice.materiel" alt="materiel" />
-        <p>Matériels</p>
+        <h6>{{ recette.titre }}</h6>
+        <div>
+          <img [src]="recette.preparationFig" alt="homme-casque" />
+          <p>{{ recette.preparationTxt }}</p>
+          <img [src]="recette.ingredientsFig" alt="plus/moins" />
+          <p>{{ recette.ingredientsTxt }}</p>
+          <img [src]="recette.valeurFig" alt="horloge" />
+          <p>{{ recette.valeurTxt }}</p>
+          <img [src]="recette.complexiteFig" alt="complexité" />
+          <p>{{ recette.complexiteTxt }}</p>
+        </div>
       </div>
     </article>
   </section>
