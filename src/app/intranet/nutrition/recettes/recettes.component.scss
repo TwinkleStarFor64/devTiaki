@@ -7,10 +7,10 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
 
-#exercices > #head > a ,#exercices > #head > p {
+#recettes > #head > a ,#recettes > #head > p {
   color: $card-nutri;
 }
-#exercices{
+#recettes{
   ::-webkit-scrollbar {
     background-color: #f09c94;
     width: 10px;

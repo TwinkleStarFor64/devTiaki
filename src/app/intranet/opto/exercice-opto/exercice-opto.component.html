@@ -4,7 +4,7 @@
     <p>Optométrie ></p>
     <p>Choisir un exercice</p>
   </header>
-  <section class="exercice">
+  <section>
     <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
       <div class="photo-exo">
         <img [src]="exercice.photo" alt="photo-exercice">
@@ -14,10 +14,8 @@
         <p>{{ exercice.description }}</p>
         <div>
           <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-          <!-- <p>{{ exercice.horloge }}</p> -->
           <p>Durée</p>
           <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-          <!-- <p>{{exercice.materiel}}</p> -->
           <p>Matériels</p>
         </div>
       </div>

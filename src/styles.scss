@@ -326,13 +326,12 @@ p {
 #programmes article:nth-child(4)>img {
   width: 65%;
   max-height: 90%;
-  align-self: baseline;
-
+  align-self: center;
 }
 
 // Article de description
 #programmes article:nth-child(4)>article {
-  margin: 10px;
+  margin: 100px;
   align-self: baseline;
   align-items: center;
 }
@@ -391,7 +390,7 @@ p {
 }
 
 //section avec la classe exercice
-#exercices>.exercice {
+#exercices>section {
   width: 100%;
   flex-flow: row wrap;
   overflow-x: hidden;
@@ -415,13 +414,13 @@ p {
 }
 
 //div des photos ou videos de l'exo
-#exercices .exercice>article>.photo-exo {
+#exercices section>article>.photo-exo {
   height: 50%;
   align-items: center;
 }
 
 // video ou photo
-#exercices .exercice>article>.photo-exo>img {
+#exercices section>article>.photo-exo>img {
   height: 100%;
   width: 100%;
 }
@@ -453,11 +452,17 @@ p {
 }
 
 // div de la durée et materiel
-#exercices .exercice article>div:nth-child(2)>div {
+#exercices section article>div:nth-child(2)>div {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 0.3vw;
 }
+#exercices section article>div:nth-child(2)>div>img {
+ height: 2vh;
+ width: 1vw;
+}
+
 
 // #exercices article>figure {
 //   width: 100%;
@@ -1141,4 +1146,108 @@ p {
 #input-ckeckbox {
   height: 3vh;
   width: 4vw;
+}
+
+// PAGE RECETTES
+
+#recettes {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  color: $sombre;
+  height: calc(100vh - $foot);
+  scrollbar-color: $card-nutri #d3354f;
+  scrollbar-width: auto;
+  overflow-y: auto; 
+}
+
+#recettes>* {
+  width: 100%;
+}
+
+#recettes>section{
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: calc(100vh - $head - $foot);
+}
+#recettes article {
+  flex-flow: column nowrap;
+  width: 20%;
+  max-height: 100vh;
+  background: $clair;
+  padding: 10px;
+  margin: 5px;
+  gap: 0.5vw;
+}
+#recettes>article:nth-child(2) {
+  display: flex;
+  flex-direction:row ;
+  align-self: center;
+  width: 100%;
+  margin: 0px 50px 0px 50px;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-bottom: dashed 1px black;
+}
+#recettes>article:nth-child(2)>form {
+  display: flex;
+  flex-direction:row ;
+  justify-content: center;
+  align-items: center;
+}
+
+//div des photos de recettes
+#recettes section>article>.photo-recettes {
+  height: 50%;
+  align-items: center;
+}
+
+// video ou photo
+#recettes section>article>.photo-recettes>img {
+  height: 100%;
+  width: 100%;
+}
+
+#recettes article>div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  text-align: end;
+  gap: 1vw;
+}
+
+// div comportant le titre la description et durée materiels
+#recettes article>div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+#recettes article>div:nth-child(2)>div {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+#recettes article>div:nth-child(2)>div>div {
+  display: flex; 
+  text-align: justify;
+  gap: 1vw;
+}
+
+// titre de l'exercice
+#recettes article>div>h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+// description de l'exercice
+#recettes article>div>p {
+  margin: 0;
+}
+
+// div de la durée et materiel
+#recettes section article>div:nth-child(2)>div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3vw;
 }
