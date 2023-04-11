@@ -7,6 +7,17 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 
+// CSS pour la scrollbar
+::-webkit-scrollbar {
+    
+    background-color: #fddd4c;
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f5d20a;
+}
+
 #mainMessagerie {
   font-family: $font-family;
   height: 100vh;
@@ -14,7 +25,7 @@ $historique: #F8E6AF;
   flex-direction: row;    
 }    
 
-// Section permettant de voir l'historique des journaux
+// Section permettant de voir l'historique des messages
 section:nth-child(2){
   background-color: $historique;
   width: 13%;
@@ -29,7 +40,7 @@ section:nth-child(2){
           height: 18%;
           justify-content: flex-end;
           gap: 1vw;
-          img{
+          img{ // L'image de médecin noir
               height: 4vw;              
           }
           p{ // La balise <p>Historiques des messages</p>
@@ -58,23 +69,69 @@ section:nth-child(2){
       }            
   }
 
-
+// Section avec le formulaire d'envoi de message
   section:nth-child(3) {
     width: 74%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
 
-    h3 {
+    h3 { // La balise <h3>Envoyer un message</h3>
         align-self: flex-start;
+        font-size: 2rem;
+        font-weight: 400;
+        color: $aside-color3;
+        margin-left: 50px;
+            &::after {
+                content: "  ......";
+            }
     }
 
-    span {
-        margin-top: 15vh;
+    span { // La balise span contenant les input
+        margin-top: 5vh;
         width: 50%;
-        background-color: yellow;
         display: flex;
         flex-direction: column;
         gap: 2vh;
+
+        input { // CSS pour tout les input
+            height: 4vh;
+            font-size: 1vw;
+            font-family: $font-family;
+        }
+        input:nth-child(1) { // Le premier input "Selectionner un médecin"
+            width: 45%;
+        }
+        textarea {
+            font-size: 1vw;
+            font-family: $font-family;
+            min-height: 8vh;
+        }
+    }
+    div { // La div contenant les 2 boutons (Annuler & Envoyer) 
+        width: 60%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1vw;
+        margin-top: 5vh;
+        margin-bottom: 2vh;
+
+        button:nth-child(1) { // Le bouton jaune Annuler
+            width: 6vw;
+            height: 3.5vh;
+            background-color: #f0c02e;
+            border-color: #f0c02e;
+            color: white;
+        }
+        button:nth-child(2) { // Le bouton vert Envoyer
+            width: 6vw;
+            height: 3.5vh;
+            background-color: #33BB27;
+            border-color: #33BB27;
+            color: white;
+        }
+        
     }
   }

@@ -14,28 +14,28 @@ export class HistoriqueComponent implements OnInit {
 
   public medecins: MedecinI[] = [
     {
-      nom: 'Martin Genoise',
+      nom: 'Docteur Ferreira',
     },
     {
-      nom: 'Roger Lagourge',
+      nom: 'Docteur Sebastian',
     },
     {
-      nom: 'Michel Poiton',
+      nom: 'Docteur Rusco',
     },
   ];
 
   public realisations: RealisationI[] = [
     {
-      nom: 'Exercice Opto 1',
+      nom: 'Occlumotricité',
     },
     {
-      nom: 'Exercice Opto 2',
+      nom: 'Perception Tangram',
     },
     {
-      nom: 'Exercice Kiné 1',
+      nom: 'Planche',
     },
     {
-      nom: "Ajout d'un plat",
+      nom: "Ajout de 'Soupe de courgette'",
     },
   ];
 

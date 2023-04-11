@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI } from '../../modeles/Types';
+import { MessagerieService } from './services/messagerie.service';
 
 @Component({
   selector: 'app-messagerie',
@@ -39,12 +40,13 @@ export class MessagerieComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(public echanges:MessagerieService) { }
 
   ngOnInit(): void {
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
-    this.blackMedecinImg = 'assets/imageOutils/blackMedecin.svg'
+    this.blackMedecinImg = 'assets/imageOutils/blackMedecin.svg';
+    this.echanges.getNomOrga();
   }
 
 }

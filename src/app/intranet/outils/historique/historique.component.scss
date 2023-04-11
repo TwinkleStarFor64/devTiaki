@@ -7,6 +7,16 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 $historique: #F8E6AF;
 
+// CSS pour la scrollbar
+::-webkit-scrollbar {
+  background-color: #fddd4c;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: #f5d20a;
+}
+
 #mainJournal {
   font-family: $font-family;
   height: 100vh;
@@ -87,8 +97,7 @@ $historique: #F8E6AF;
             height: 4vh;
             background-color: #f28705;
             border-color: #f28705;
-            color: white;
-            
+            color: white;            
           }
         }
         article:nth-child(2) {
