@@ -1,23 +1,27 @@
-  <section id="exercices">
-    <header id="head">
-      <a routerLink="/">Tiaki</a>
-      <p>Optométrie ></p>
-      <p>Choisir un exercice</p>
-    </header>
-    <section class="exercice">
-      <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
-          <img [src]="exercice.photo" alt="photo-exercice" />
-        <div>
-          <h6>{{ exercice.titre }}</h6>
-          <p>{{ exercice.description }}</p>
-        </div>
+<section id="exercices">
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>Optométrie ></p>
+    <p>Choisir un exercice</p>
+  </header>
+  <section class="exercice">
+    <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
+      <div class="photo-exo">
+        <img [src]="exercice.photo" alt="photo-exercice">
+      </div>
+      <div>
+        <h6>{{ exercice.titre }}</h6>
+        <p>{{ exercice.description }}</p>
         <div>
           <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
           <!-- <p>{{ exercice.horloge }}</p> -->
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel"/>
+          <p>Durée</p>
+          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
           <!-- <p>{{exercice.materiel}}</p> -->
+          <p>Matériels</p>
         </div>
-      </article>
-    </section>
+      </div>
+    </article>
   </section>
+</section>
 <app-bottom-bar-opto></app-bottom-bar-opto>

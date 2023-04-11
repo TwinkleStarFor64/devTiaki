@@ -37,7 +37,7 @@
   },
   {
     "id": 5,
-    "photo": "assets/imageOpto/exerciceOpto1.png",
+    "photo": "assets/exoOpto/exerciceOpto1.png",
     "video": "",
     "titre": "Contrôle des yeux de Kraskin",
     "description": "Le Contrôle des yeux de Kraskin est un exercice qui vise à entraîner la coordination entre les yeux et le cerveau. L'exercice consiste à suivre du regard un objet en mouvement tout en gardant la tête immobile. Cela aide à améliorer la perception de la profondeur, la coordination œil-main et la perception de l'espace.",
@@ -64,7 +64,7 @@
   },
   {
     "id": 8,
-    "photo": "assets/exoOpto/un-oeil.jpg",
+    "photo": "assets/exoOpto/imageOpto2.jpg",
     "video": "",
     "titre": "La Convergence",
     "description": "La Convergence est un exercice qui aide à entraîner les muscles des yeux responsables de la rotation des yeux vers l'intérieur. L'exercice consiste à fixer son regard sur un objet en se rapprochant progressivement de l'objet jusqu'à ce que les yeux convergent et se croisent. Cela aide à améliorer la coordination entre les deux yeux.",

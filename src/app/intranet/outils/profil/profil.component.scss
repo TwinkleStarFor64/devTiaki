@@ -54,7 +54,7 @@ $foot:150px; // Hauteur des menus du bas
 /* Section Main remplace la balise Main - Ci-dessous CSS de toute la page */
 #main {
   flex-flow: column nowrap;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 150px);
   // Ci-dessous le CSS de la scrollBar pour firefox
   overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
@@ -164,7 +164,7 @@ footer{
   justify-content: space-around;
   background-color: #F0C02E;
   color: $clair;
-  height: 120px;
+  height: 150px;
 
   article{
       flex-direction: column;
@@ -180,7 +180,7 @@ footer{
       }
       ul {
         li {
-          font-size: 1.2vw;
+          font-size: 1vw;
         }
       }
   }

@@ -9,7 +9,7 @@ $clair: white;
 $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
-$foot: 120px; // Hauteur des menus du bas  
+$foot: 150px; // Hauteur des menus du bas  
 
 // Scrollbar
 ::-webkit-scrollbar {
@@ -87,8 +87,9 @@ $foot: 120px; // Hauteur des menus du bas
                 font-size: 1.3rem;
                 font-weight: 400;
             }
-            ul{
-                li{
+
+            ul {
+                li {
                     font-size: 0.8rem;
                 }
             }
@@ -140,7 +141,7 @@ $foot: 120px; // Hauteur des menus du bas
 .column {
     height: 50%;
 
-    article:nth-child(3){
+    article:nth-child(3) {
         border-right: none;
     }
 
@@ -164,7 +165,7 @@ $foot: 120px; // Hauteur des menus du bas
         ul {
             li {
                 font-weight: 400;
-                font-size:0.7rem ;
+                font-size: 0.7rem;
             }
         }
     }
@@ -180,6 +181,7 @@ footer {
     article:nth-child(3) {
         border-right: none;
     }
+
     article {
         flex-direction: column;
         width: 33%;
@@ -192,10 +194,11 @@ footer {
             margin: 0;
             margin-top: 20px;
         }
+
         ul {
             li {
-              font-size: 1.2vw;
+                font-size: 1vw;
             }
-          }
+        }
     }
 }

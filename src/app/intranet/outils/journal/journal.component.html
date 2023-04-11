@@ -1,10 +1,9 @@
-
 <section id="mainJournal">
   <!-- Section avec le logo, les médecins et les réalisations -->
   <section id="menuJournalMessage">
     <article>
-      <a routerLink="/">        
-        <span>Tiaki</span>        
+      <a routerLink="/intranet">        
+        <span>Tiaki</span>
       </a>
     </article>
     <article>
@@ -33,19 +32,19 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-      <div>
-        <img [src]="[pacman]" alt="" />
-        <p>Historiques des journaux sur ces activités</p>
-      </div>
-      <ul>
-        <li>15-06-22</li>
-        <li>14-06-22</li>
-        <li>14-06-22</li>
-        <li>11-09-22</li>
-        <li>14-06-22</li>
-        <li>14-06-22</li>
-        <li>14-06-22</li>
-      </ul>
+    <div>
+      <img [src]="[pacman]" alt="pacman" />
+      <p>Historiques des journaux sur ces activités</p>
+    </div>
+    <ul>
+      <li>Journal du 25-06-22</li>
+      <li>Journal du 16-06-22</li>
+      <li>Journal du 14-06-22</li>
+      <li>Journal du 11-09-22</li>
+      <li>Journal du 09-06-22</li>
+      <li>Journal du 06-06-22</li>
+      <li>Journal du 02-06-22</li>
+    </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
   <section>
@@ -53,39 +52,35 @@
       <h3>Ajouter un journal</h3>
     </article>
     <article>
-      <form [formGroup]="formJournal">        
+      <form [formGroup]="formJournal">
         <mat-form-field appearance="outline">
           <mat-label>Objet</mat-label>
           <input matInput formControlName="objet">
         </mat-form-field>
-
         <mat-form-field appearance="outline">
           <mat-label>Note</mat-label>
           <textarea matInput rows="8" formControlName="note"></textarea>
         </mat-form-field>
-        
         <mat-form-field appearance="outline">
           <mat-label>Commentaire</mat-label>
           <textarea matInput rows="4" formControlName="commentaire"></textarea>
         </mat-form-field>
-        
         <mat-form-field appearance="outline">
           <mat-label>Relier un journal précédent</mat-label>
           <mat-select formControlName="relier">
             <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
-            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ rel.nom }}</mat-option>           
+            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ rel.nom }}</mat-option>
           </mat-select>
         </mat-form-field>
-        
         <span class="spanBouton">
           <button mat-raised-button color="warn">Partager</button>
-          <div>            
+          <div>
             <button mat-raised-button (click)="onCancel()">Annuler</button>
-            
             <!-- <p-button (click)="onCancel()" label="Annuler" class="annuler" styleClass="annuler" ></p-button> -->
             <!-- <p-messages [value]="msgs"></p-messages> -->
-            <button mat-raised-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid">Enregistrer</button>
-            <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->            
+            <button mat-raised-button type="submit" (click)="onSubmitForm()"
+              [disabled]="formJournal.invalid">Enregistrer</button>
+            <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->
           </div>
         </span>
       </form>
@@ -104,10 +99,10 @@
     </article>
     <p>Ingrédients</p>
     <mat-form-field class="example-full-width">
-      <mat-label id="inputSearch" >Rechercher un ingrédient</mat-label>
+      <mat-label id="inputSearch">Rechercher un ingrédient</mat-label>
       <input type="search" matInput placeholder="Ex. Courgette">
     </mat-form-field>
-      <h5>Kiné</h5>
+    <h5>Kiné</h5>
     <article class="buttonKine">
       <button>Exo 1</button>
       <button>Exo 2</button>

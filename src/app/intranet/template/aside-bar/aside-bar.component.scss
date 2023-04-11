@@ -1,62 +1,69 @@
 $font-family: 'Raleway', sans-serif;
-$card-nutri:#D9042B;
+$card-nutri: #D9042B;
 $card-kine: #F22F1D;
 $card-opto: #F28705;
-$aside-color1:#270140;
-$aside-color2:#805E96;
-$aside-color3:#F0C02E;
+$aside-color1: #270140;
+$aside-color2: #805E96;
+$aside-color3: #F0C02E;
 
-$l:65px;
+$l: 65px;
 
 nav {
   height: 100vh;
-  width:$l;
-  display:flex;
+  width: $l;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 ul {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   background-color: #270140;
 }
-li{
+
+li {
   list-style: none;
-  padding:0;
-  margin:0;
+  padding: 0;
+  margin: 0;
   flex-grow: 1;
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
 }
+
 ul li:nth-child(n+3) {
   background-color: #805E96;
   border-bottom: 1px dashed #ffffff;
 }
+
 ul li:nth-child(5) {
-border-bottom: none;
+  border-bottom: none;
 }
+
 ul li:nth-child(n+6) {
   background-color: #F0C02E;
   border-bottom: 1px dashed #000000;
 }
+
 ul li:nth-child(10) {
   border-bottom: none;
-  }
+}
+
 ul a {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   color: #ffffff;
-  margin:auto;
+  margin: auto;
 }
-ul a img {
-}
+
 ul a p {
   font-size: 0.8vw;
 }
+
 //# sourceMappingURL=aside-bar.component.css.map/

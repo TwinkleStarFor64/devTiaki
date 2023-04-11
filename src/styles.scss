@@ -282,13 +282,14 @@ p {
   height: calc(100vh - $foot);
 }
 
+// section principale
 #programmes>section {
   width: 100%;
   flex-direction: column;
   height: calc(100vh - $head - $foot);
   overflow-x: hidden;
   overflow-y: auto;
-
+  max-height: 100vh;
 }
 
 // search bar
@@ -296,47 +297,59 @@ p {
   width: 100%;
   gap: 1.5vw;
   justify-content: center;
+  align-items: center;
 
 }
 
+// article ligne dashed
 #programmes>article:nth-child(3) {
-  width: 100%;
-  justify-content: space-around;
-  flex-direction: column;
+  width: 80%;
+  align-self: center;
+  height: 2vh;
+  border-bottom: dashed 1px black;
 }
 
+// article qui apparait lors du choix du programme
 #programmes>article:nth-child(4) {
   width: 100%;
   height: calc(100vh - $foot );
-  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   justify-self: center;
-
+  overflow-y: auto;
+  scrollbar-color: $card-opto #be861e;
+  scrollbar-width: auto;
+  padding-top: 30px;
 }
 
+// image du programme
 #programmes article:nth-child(4)>img {
-  width: 45vw;
-  height: 45vh;
+  width: 65%;
+  max-height: 90%;
+  align-self: baseline;
 
 }
 
 // Article de description
+#programmes article:nth-child(4)>article {
+  margin: 10px;
+  align-self: baseline;
+  align-items: center;
+}
+
 #programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  max-width: 40%;
 }
 
+// titre 
 #programmes article:nth-child(4)>article>div:nth-child(1) h1 {
   font-size: 1.2rem;
   margin: 0;
 }
 
-#programmes article:nth-child(4)>article {
-  margin: 10px;
-}
-
+// durée materiel
 #programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -347,22 +360,17 @@ p {
 #programmes article:nth-child(4)>article>div:nth-child(2) div {
   display: flex;
   align-items: center;
-  gap: 0.5vw;
-  height: 50%;
+  gap: 0.2vw;
+  height: 40%;
   width: 100%;
 }
 
+// img horloge materiel
 #programmes article:nth-child(4)>article>div:nth-child(2) div img {
   height: 2vh;
   width: 3vw;
-  color: #F22F1D;
 }
 
-#programmes article:nth-child(4)>article>div:nth-child(2) div img {
-  height: 2vh;
-  width: 3vw;
-  color: #F22F1D;
-}
 
 // AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
 #exercices {
@@ -377,11 +385,13 @@ p {
 
 }
 
+//Section principale
 #exercices>* {
   width: 100%;
 }
 
-#exercices>section {
+//section avec la classe exercice
+#exercices>.exercice {
   width: 100%;
   flex-flow: row wrap;
   overflow-x: hidden;
@@ -393,51 +403,77 @@ p {
   scrollbar-width: auto;
 }
 
-#exercices>footer {
-  height: $foot;
-  width: calc(100vw - $l)
-}
-
+// articles générer avec le ngFor avec la photo ou video et le titre la description 
 #exercices article {
   flex-flow: column nowrap;
-  justify-content: space-between;
   width: 20%;
+  max-height: 100vh;
   background: $clair;
   padding: 10px;
   margin: 5px;
+  gap: 0.5vw;
 }
 
-#exercice article>img {
-  max-height: 60%;
+//div des photos ou videos de l'exo
+#exercices .exercice>article>.photo-exo {
+  height: 50%;
+  align-items: center;
 }
 
-#exercices article>div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  height: 40%;
-
+// video ou photo
+#exercices .exercice>article>.photo-exo>img {
+  height: 100%;
+  width: 100%;
 }
 
 #exercices article>div {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
-}
-
-#exercices article>div:nth-child(3) {
+  justify-content: center;
+  text-align: end;
   gap: 1vw;
 }
 
-#exercices article>figure {
-  width: 100%;
-  margin: -10px -10px 0;
-  background-size: contain;
-  background-position: 50%;
+// div comportant le titre la description et durée materiels
+#exercices article>div:nth-child(2) {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: justify;
 }
+
+// titre de l'exercice
+#exercices article>div>h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+// description de l'exercice
+#exercices article>div>p {
+  margin: 0;
+}
+
+// div de la durée et materiel
+#exercices .exercice article>div:nth-child(2)>div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3vw;
+}
+
+// #exercices article>figure {
+//   width: 100%;
+//   margin: -10px -10px 0;
+//   background-size: contain;
+//   background-position: 50%;
+// }
+
+#exercices>footer {
+  height: $foot;
+  width: calc(100vw - $l)
+}
+
 
 // CSS des pages plats et menus
 
-
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
@@ -455,8 +491,8 @@ p {
   overflow-x: auto;
   align-items: center;
 
+  // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
-    // Le bouton 1 - Ajouter un nouveau plat
     background-color: #33BB27;
     width: 75%;
     padding: 4vh 2vw;
@@ -468,8 +504,8 @@ p {
     height: 10vh;
   }
 
+  // La balise <h1>Reprendre un repas précédent</h1>
   h1 {
-    // La balise <h1>Reprendre un repas précédent</h1>
     color: $card-nutri;
     font-weight: 100;
     font-size: 1.4rem;
@@ -480,52 +516,52 @@ p {
     }
   }
 
+  // Article qui contient les 3 boutons pour évaluer 
   #evalBouton {
-    // Article qui contient les 3 boutons pour évaluer 
     display: flex;
     flex-direction: row;
     gap: 2vw;
     //padding-left: 1vw;
     margin-bottom: 1vh;
 
-    //width: 80%;
+    // Code s'appliquant aux 3 boutons
     button {
-      // Code s'appliquant aux 3 boutons
       width: 7vw;
       height: 4vh;
       font-size: 0.6vw;
       color: white;
     }
 
+    // Le bouton plats non évalués
     button:nth-child(1) {
-      // Le bouton plats non évalués
       background-color: #33BB27;
     }
 
+    // Le bouton plats non évalués
     button:nth-child(2) {
-      // Le bouton plats non évalués
       background-color: #F28705;
     }
 
+    // Le bouton Plats évalués et problématiques
     button:nth-child(3) {
-      background-color: #D9042B; // Le bouton Plats évalués et problématiques
+      background-color: #D9042B;
     }
   }
 
+  // Article contenant la liste des plats enregistrés
   #listing {
-    // Article contenant la liste des plats enregistrés
     display: flex;
     flex-direction: column;
     width: 80%;
     padding-left: 1vw;
 
+    // Div avec le *ngFor
     div {
-      // Div avec le *ngFor
       display: flex;
       flex-direction: column;
 
+      // Balise <h2>{{ plat.nom }}</h2>
       h2 {
-        // Balise <h2>{{ plat.nom }}</h2>
         margin: 2vh 2vh 0 0;
         font-size: 1.4rem;
         font-weight: 500;
@@ -543,8 +579,8 @@ p {
         }
       }
 
+      // Contient un bouton, 2 images et 2 balise
       div {
-        // Contient un bouton, 2 images et 2 balise
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -559,8 +595,8 @@ p {
           margin-right: 2vw;
         }
 
+        // Les 2 images ( horloge et casserole )
         img {
-          // Les 2 images ( horloge et casserole )
           height: 2vh;
           width: 2vw;
         }
@@ -570,8 +606,8 @@ p {
           font-size: 0.8vw;
         }
 
+        // Pour souligner la balise <p>Matériels</p>
         #dashed {
-          // Pour souligner la balise <p>Matériels</p>
           border-bottom: dashed black 1px;
         }
       }
@@ -589,8 +625,8 @@ p {
   padding-right: 4vw;
   overflow: auto;
 
+  // La balise <h3>2 - Ajouter un plat</h3>
   h3 {
-    // La balise <h3>2 - Ajouter un plat</h3>
     font-size: 1.6rem;
     font-weight: 500;
     color: #4A4A4A;
@@ -600,28 +636,28 @@ p {
     }
   }
 
+  // La div qui contient les 3 balises select
   #selectBalise {
-    // La div qui contient les 3 balises select
     border-bottom: dashed black 1px;
     display: flex;
     flex-direction: row;
     gap: 1vw;
     align-items: center;
 
+    // L'icône d'ajout 
     img {
-      // L'icône d'ajout 
       height: 3vh;
       width: 3vh;
     }
 
+    // La balise select "Les plats de la communautés"
     mat-form-field:nth-child(3) {
-      // La balise select "Les plats de la communautés"
       width: 18vw;
     }
   }
 
+  // Le label des balises select
   mat-label {
-    // Le labell des balises select
     font-size: 0.9rem;
 
     @media screen and (max-width : 1200px) {
@@ -629,8 +665,8 @@ p {
     }
   }
 
+  // La balise <h4>Tourte aux champignons</h4>
   h4 {
-    // La balise <h4>Tourte aux champignons</h4>
     font-size: 1.6rem;
     font-weight: 700;
     color: #4A4A4A;
@@ -645,8 +681,8 @@ p {
     min-height: 10vh;
   }
 
+  // La div sous le textarea
   div:nth-child(6) {
-    // La div sous le textarea
     margin-top: 2vh;
     display: flex;
     flex-direction: row;
@@ -655,8 +691,8 @@ p {
     border-bottom: dashed black 1px;
   }
 
+  // La balise select AJOUTER
   #ajouter {
-    // La balise select AJOUTER
     width: 10vw;
 
     @media screen and (max-width : 1200px) {
@@ -664,8 +700,8 @@ p {
     }
   }
 
+  // La div avec les 2 boutons annuler & valider
   div:nth-child(10) {
-    // La div avec les 2 boutons annuler & valider
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -675,7 +711,6 @@ p {
 
     button:nth-child(1) {
       background-color: #F28705;
-      //font-size: 0.9vw;
     }
 
     button:nth-child(2) {
@@ -708,8 +743,8 @@ p {
       font-size: 4rem;
       font-weight: 100;
 
+      // Le gros logo Tiaki
       span {
-        // Le gros logo Tiaki
         font-weight: 100;
         margin: 0;
         padding: 0;
@@ -735,8 +770,8 @@ p {
     border-bottom: 1px white dashed;
     margin-left: 0.5vw;
 
+    // La balise <h1>Journaux de suivi</h1>
     h1 {
-      // La balise <h1>Journaux de suivi</h1>
       margin: 0;
       font-size: 1.5rem;
       font-weight: 700;
@@ -767,8 +802,8 @@ p {
         width: 3vw;
       }
 
+      // La balise <h2>Médecins</h2>
       h2 {
-        // La balise <h2>Médecins</h2>
         margin: 0;
         font-size: 1.2rem;
         font-weight: 600;
@@ -779,10 +814,12 @@ p {
       }
     }
 
+    // Liste des medecins
     ul {
       li {
         margin-bottom: 15px;
         font-size: 0.9rem;
+        text-align: start;
 
         @media only screen and (max-width: 1330px) {
           font-size: 0.6rem;
@@ -791,6 +828,7 @@ p {
     }
   }
 
+  // Realisations et organismes
   .realisation {
     display: flex;
     flex-direction: column;
@@ -810,8 +848,8 @@ p {
         width: 3vw;
       }
 
+      // La balise <h2>Réalisations</h2>
       h2 {
-        // La balise <h2>Réalisations</h2>
         margin: 0;
         font-size: 1.2rem;
         font-weight: 600;
@@ -822,6 +860,7 @@ p {
       }
     }
 
+    // Listes des réalisations ou organismes
     ul {
       li {
         margin-bottom: 15px;
@@ -835,7 +874,7 @@ p {
   }
 }
 
-
+// Contenant principale
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
@@ -853,8 +892,8 @@ p {
   overflow-x: auto;
   align-items: center;
 
+  // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
-    // Le bouton 1 - Ajouter un nouveau plat
     background-color: #33BB27;
     width: 75%;
     padding: 4vh 2vw;
@@ -866,8 +905,8 @@ p {
     height: 10vh;
   }
 
+  // La balise <h1>Reprendre un repas précédent</h1>
   h1 {
-    // La balise <h1>Reprendre un repas précédent</h1>
     color: $card-nutri;
     font-weight: 100;
     font-size: 1.4rem;
@@ -878,8 +917,8 @@ p {
     }
   }
 
+  // Article qui contient les 3 boutons pour évaluer 
   #evalBouton {
-    // Article qui contient les 3 boutons pour évaluer 
     display: flex;
     flex-direction: row;
     gap: 2vw;
@@ -887,43 +926,44 @@ p {
     margin-bottom: 1vh;
 
     //width: 80%;
+    // Code s'appliquant aux 3 boutons
     button {
-      // Code s'appliquant aux 3 boutons
       width: 7vw;
       height: 4vh;
       font-size: 0.6vw;
       color: white;
     }
 
+    // Le bouton plats non évalués
     button:nth-child(1) {
-      // Le bouton plats non évalués
       background-color: #33BB27;
     }
 
+    // Le bouton plats non évalués
     button:nth-child(2) {
-      // Le bouton plats non évalués
       background-color: #F28705;
     }
 
+    // Le bouton Plats évalués et problématiques
     button:nth-child(3) {
-      background-color: #D9042B; // Le bouton Plats évalués et problématiques
+      background-color: #D9042B;
     }
   }
 
+  // Article contenant la liste des plats enregistrés
   #listing {
-    // Article contenant la liste des plats enregistrés
     display: flex;
     flex-direction: column;
     width: 80%;
     padding-left: 1vw;
 
+    // Div avec le *ngFor
     div {
-      // Div avec le *ngFor
       display: flex;
       flex-direction: column;
 
+      // Balise <h2>{{ plat.nom }}</h2>
       h2 {
-        // Balise <h2>{{ plat.nom }}</h2>
         margin: 2vh 2vh 0 0;
         font-size: 1.4rem;
         font-weight: 500;
@@ -941,8 +981,8 @@ p {
         }
       }
 
+      // Contient un bouton, 2 images et 2 balise
       div {
-        // Contient un bouton, 2 images et 2 balise
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -957,8 +997,8 @@ p {
           margin-right: 2vw;
         }
 
+        // Les 2 images ( horloge et casserole )
         img {
-          // Les 2 images ( horloge et casserole )
           height: 2vh;
           width: 2vw;
         }
@@ -968,8 +1008,8 @@ p {
           font-size: 0.8vw;
         }
 
+        // Pour souligner la balise <p>Matériels</p>
         #dashed {
-          // Pour souligner la balise <p>Matériels</p>
           border-bottom: dashed black 1px;
         }
       }
@@ -987,8 +1027,8 @@ p {
   padding-right: 4vw;
   overflow: auto;
 
+  // La balise <h3>2 - Ajouter un plat</h3>
   h3 {
-    // La balise <h3>2 - Ajouter un plat</h3>
     font-size: 1.6rem;
     font-weight: 500;
     color: #4A4A4A;
@@ -998,28 +1038,28 @@ p {
     }
   }
 
+  // La div qui contient les 3 balises select
   #selectBalise {
-    // La div qui contient les 3 balises select
     border-bottom: dashed black 1px;
     display: flex;
     flex-direction: row;
     gap: 1vw;
     align-items: center;
 
+    // L'icône d'ajout 
     img {
-      // L'icône d'ajout 
       height: 3vh;
       width: 3vh;
     }
 
+    // La balise select "Les plats de la communautés"
     mat-form-field:nth-child(3) {
-      // La balise select "Les plats de la communautés"
       width: 18vw;
     }
   }
 
+  // Le label des balises select
   mat-label {
-    // Le labell des balises select
     font-size: 0.9rem;
 
     @media screen and (max-width : 1200px) {
@@ -1027,8 +1067,8 @@ p {
     }
   }
 
+  // La balise <h4>Tourte aux champignons</h4>
   h4 {
-    // La balise <h4>Tourte aux champignons</h4>
     font-size: 1.6rem;
     font-weight: 700;
     color: #4A4A4A;
@@ -1043,8 +1083,8 @@ p {
     min-height: 10vh;
   }
 
+  // La div sous le textarea
   div:nth-child(6) {
-    // La div sous le textarea
     margin-top: 2vh;
     display: flex;
     flex-direction: row;
@@ -1053,8 +1093,8 @@ p {
     border-bottom: dashed black 1px;
   }
 
+  // La balise select AJOUTER
   #ajouter {
-    // La balise select AJOUTER
     width: 10vw;
 
     @media screen and (max-width : 1200px) {
@@ -1062,8 +1102,8 @@ p {
     }
   }
 
+  // La div avec les 2 boutons annuler & valider
   div:nth-child(10) {
-    // La div avec les 2 boutons annuler & valider
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -1080,157 +1120,6 @@ p {
       background-color: #33BB27;
     }
 
-  }
-}
-
-/* -----Ci-dessous CSS pour la barre de menu à gauche dans les pages Journal et Messagerie----- */
-// Section permettant de voir les medecins et les réalisations
-#menuJournalMessage {
-  background-color: $aside-color3;
-  width: 13%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: #ffffff;
-  align-items: center;
-  gap: 1vw;
-
-  article:nth-child(1) {
-    a {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      text-decoration: none;
-      width: 100%;
-      color: #ffffff;
-      font-size: 4rem;
-      font-weight: 100;
-
-      span {
-        // Le gros logo Tiaki
-        font-weight: 100;
-        margin: 0;
-        padding: 0;
-
-        @media screen and (max-width: 1200px) {
-          font-size: 3rem;
-        }
-      }
-    }
-
-    span:before {
-      content: '........';
-      font-size: 50%;
-    }
-
-    span:after {
-      content: '........';
-      font-size: 50%;
-    }
-  }
-
-  article:nth-child(2) {
-    border-bottom: 1px white dashed;
-    margin-left: 0.5vw;
-    width: 90%;
-
-    h1 {
-      // La balise <h1>Journaux de suivi</h1>
-      margin: 0;
-      font-size: 1.5rem;
-      font-weight: 700;
-      width: 60%;
-
-      @media only screen and (max-width: 1280px) {
-        font-size: 1.2rem;
-      }
-    }
-  }
-
-  .medecin {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: 0;
-    height: 30%;
-    width: 100%;
-    margin-left: 1vw;
-
-    div {
-      display: flex;
-      align-items: flex-end;
-      gap: 9px;
-      justify-content: flex-start;
-
-      img {
-        width: 3vw;
-      }
-
-      h2 {
-        // La balise <h2>Médecins</h2>
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.8rem;
-        }
-      }
-    }
-
-    ul {
-      li {
-        margin-bottom: 15px;
-        font-size: 0.9rem;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.6rem;
-        }
-      }
-    }
-  }
-
-  .realisation {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    height: 30%;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-left: 1vw;
-
-    div {
-      display: flex;
-      align-items: flex-end;
-      gap: 9px;
-      justify-content: flex-start;
-
-      img {
-        width: 3vw;
-      }
-
-      h2 {
-        // La balise <h2>Réalisations</h2>
-        margin: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.8rem;
-        }
-      }
-    }
-
-    ul {
-      li {
-        margin-bottom: 15px;
-        font-size: 0.9rem;
-
-        @media only screen and (max-width: 1330px) {
-          font-size: 0.6rem;
-        }
-      }
-    }
   }
 }
 
@@ -1241,4 +1130,14 @@ p {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+// design input des pages programmes
+#input-programmes{
+  height: 3vh;
+  width: 15vw;
+}
+#input-ckeckbox{
+  height: 3vh;
+  width: 4vw;
 }

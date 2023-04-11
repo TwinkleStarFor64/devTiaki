@@ -1,22 +1,26 @@
 <section id="exercices">
   <header id="head">
-    <a routerLink="/">Tiaki</a>
+    <a routerLink="/intranet">Tiaki</a>
     <p>Optométrie ></p>
     <img [src]="avatar" />
     <p>Le parcours de Cheer Émilie</p>
   </header>
-  <section>
+  <section class="exercice">
     <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
-      <img [src]="exercice.photo" alt="photo-exercice" />
+      <div class="photo-exo">
+        <img [src]="exercice.photo" alt="photo-exercice">
+      </div>
       <div>
         <h6>{{ exercice.titre }}</h6>
         <p>{{ exercice.description }}</p>
-      </div>
-      <div>
-        <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-        <!-- <p>Durée</p> -->
-        <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel"/>
-        <!-- <p>Matériels</p> -->
+        <div>
+          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+          <!-- <p>{{ exercice.horloge }}</p> -->
+          <p>Durée</p>
+          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+          <!-- <p>{{exercice.materiel}}</p> -->
+          <p>Matériels</p>
+        </div>
       </div>
     </article>
   </section>
