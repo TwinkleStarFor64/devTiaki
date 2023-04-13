@@ -47,16 +47,16 @@
       </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
-  <section>
+  <section  *ngFor="let historique of historiques">
     <article>
-      <h3>Journal du 21-03-2023</h3>
+      <h3>{{ historique.date }}</h3>
       <button>Modifier</button>
     </article>
     <article>
       <h4>Activité concernée</h4>
       <p>Exercice Périphérie du centre d'intégration d'optométrie</p>
       <h4>Objet</h4>
-      <p>La réalisation s’est avérée plus difficile que prévue mais amusante.</p>
+      <p>{{ historique.objet }}</p>
       <h4>Note</h4>
       <p>Lorsque Emilie a dû loucher, les yeux n’ont pas suivi et une gène puis des douleurs ont commencé à apparaître.
         Par contre, c’était vraiment rigolo à faire et Emilie en a redemandé dès le lendemain.</p>
