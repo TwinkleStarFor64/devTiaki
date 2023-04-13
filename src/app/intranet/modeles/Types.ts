@@ -42,17 +42,17 @@ export interface AsideI {
     url: string
 }
 //Interface de la page Journal 
-export interface JournalI {
-    date: Date,
-    objet: string,
-    note: string,
-    commentaire: string,
-    journalPrecedent: Array<HistoriqueI>
-
+export interface HistoriqueJournalI {
+    id?: number,
+    date:Date,
+    objet:string,
+    description:string,
+    commentaire:string,
+    //journalPrecedent:Array<HistoriqueI>
 }
 //Interface de la page historique des journaux
 export interface HistoriqueI {
-    journal: Array<JournalI>
+    // journal: Array<JournalI>
 }
 // Interface de la page journal pour les réalisations
 export interface RealisationI {

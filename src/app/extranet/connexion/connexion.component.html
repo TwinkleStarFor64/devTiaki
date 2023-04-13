@@ -1,6 +1,6 @@
     <app-infos></app-infos>
     <form #f="ngForm">
-        <input name="id" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel" (input)="dataObject()" [placeholder]="conn.connexion.id.placeholder" required>
+        <input name="id" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel"  [placeholder]="conn.connexion.id.placeholder" required>
         <span *ngIf="ctlId.invalid"> Vous devez renseigner vôtre identifiant ou un mail </span>
         <input name="mdp"  [(ngModel)]="conn.connexion.mdp.value" #ctlMdp="ngModel" type="password" [placeholder]="conn.connexion.mdp.placeholder">
         <span *ngIf="ctlMdp.invalid"> Mot de passe? </span>
