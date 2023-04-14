@@ -44,7 +44,7 @@ export interface BottomI {
  //Interface de la page Journal 
  export interface HistoriqueJournalI {
      id?: number,
-     date:Date,
+     date:string,
      objet:string,
      description:string,
      commentaire:string,

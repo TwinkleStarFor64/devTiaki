@@ -13,6 +13,8 @@ export class HistoriqueComponent implements OnInit {
   public realisationImg!: string;
   public pacman!: string;
 
+  selectedHistorique?: HistoriqueJournalI;
+
   public medecins: MedecinI[] = [
     {
       nom: 'Docteur Ferreira',
@@ -42,34 +44,46 @@ export class HistoriqueComponent implements OnInit {
 
   public historiques: HistoriqueJournalI[] = [];
 
-  public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
+  constructor(public supa: SupabaseService) { }
 
-  constructor(public supa: SupabaseService) {
-    this.reliers = [
-      { nom: 'Journal du 5 Janvier 2022' },
-      { nom: 'Journal du 10 Janvier 2022' },
-      { nom: 'Journal du 15 Janvier 2022' },
-      { nom: 'Journal du 20 Janvier 2022' },
-    ];
-  }
-
+  //ngOnInit asynchrone qui renvoie une Promesse
   async ngOnInit(): Promise<void> {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
 
-    /* this.supa.getHistoriqueJournal().then((response:any) => {
-      this.historiques = response.data
-      console.log(this.historiques)
-    }); */
-
+    // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
     const { data, error } = await this.supa.getHistoriqueJournal();
     if (data) {
-      this.historiques = data;
+      //Data contient tout les journaux dans la table journalEvenement en BDD
+      this.historiques = data; //La variable historique contient la variable data donc tout les journaux de la table journalEvenement en BDD
       console.log(this.historiques);
     }
     if (error) {
+      //Si une erreur
       console.log(error);
     }
   }
+
+  onSelect(journalHisto: HistoriqueJournalI) {
+    this.selectedHistorique = journalHisto;
+    console.log('Voici le journal : ' + this.selectedHistorique.objet);
+  }
 }
+
+//Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)
+//console.log(typeof this.historiques[0].date);
+
+//public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
+
+/* this.reliers = [
+      { nom: 'Journal du 5 Janvier 2022' },
+      { nom: 'Journal du 10 Janvier 2022' },
+      { nom: 'Journal du 15 Janvier 2022' },
+      { nom: 'Journal du 20 Janvier 2022' },
+    ]; */
+
+/* this.supa.getHistoriqueJournal().then((response:any) => {
+      this.historiques = response.data
+      console.log(this.historiques)
+    }); */
