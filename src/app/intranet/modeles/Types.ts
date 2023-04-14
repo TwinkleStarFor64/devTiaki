@@ -47,7 +47,10 @@ export interface BottomI {
      date:string,
      objet:string,
      description:string,
-     commentaire:string,
+     commentaire:string,     
+     groupeEvenement: {
+        id: number
+     }
      //journalPrecedent:Array<HistoriqueI>     
  }
  //Interface de la page historique des journaux

@@ -42,7 +42,8 @@ export class HistoriqueComponent implements OnInit {
     },
   ];
 
-  public historiques: HistoriqueJournalI[] = [];
+  //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
+  public historiques: any[] = [];
 
   constructor(public supa: SupabaseService) { }
 
@@ -73,6 +74,13 @@ export class HistoriqueComponent implements OnInit {
 
 //Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)
 //console.log(typeof this.historiques[0].date);
+
+
+
+
+
+
+
 
 //public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 

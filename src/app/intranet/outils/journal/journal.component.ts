@@ -53,7 +53,8 @@ export class JournalComponent implements OnInit {
 
   formJournal!: FormGroup;
   
-  public reliers: HistoriqueJournalI[] = []; //je remplis le tableau de RelierI dans le constructor en dessous
+  //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
+  public reliers: any[] = []; //je remplis le tableau de RelierI dans le constructor en dessous
 
   constructor( private formBuilder: FormBuilder, public supa: SupabaseService ) { }
 
@@ -86,10 +87,11 @@ export class JournalComponent implements OnInit {
     const newEntry = {
       objet: this.formJournal.value.objet,
       description: this.formJournal.value.description,
-      commentaire: this.formJournal.value.commentaire
+      commentaire: this.formJournal.value.commentaire,      
     }
+    const idRelier = this.formJournal.value.relier;
     //J'utilise la méthode createJournal avec comme paramétre newEntry
-    await this.supa.createJournal(newEntry); 
+    await this.supa.createJournal(newEntry, idRelier); 
     this.formJournal.reset();
   }
 
