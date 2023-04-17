@@ -14,6 +14,7 @@ export class HistoriqueComponent implements OnInit {
   public pacman!: string;
 
   selectedHistorique?: HistoriqueJournalI;
+  selectedId!: number;
 
   public medecins: MedecinI[] = [
     {
@@ -45,6 +46,8 @@ export class HistoriqueComponent implements OnInit {
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
   public historiques: any[] = [];
 
+  public groupeEvenementId!: number;
+
   constructor(public supa: SupabaseService) { }
 
   //ngOnInit asynchrone qui renvoie une Promesse
@@ -53,12 +56,14 @@ export class HistoriqueComponent implements OnInit {
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
 
+    
+
     // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
     const { data, error } = await this.supa.getHistoriqueJournal();
     if (data) {
       //Data contient tout les journaux dans la table journalEvenement en BDD
       this.historiques = data; //La variable historique contient la variable data donc tout les journaux de la table journalEvenement en BDD
-      console.log(this.historiques);
+      console.log(this.historiques);      
     }
     if (error) {
       //Si une erreur
@@ -68,8 +73,23 @@ export class HistoriqueComponent implements OnInit {
 
   onSelect(journalHisto: HistoriqueJournalI) {
     this.selectedHistorique = journalHisto;
-    console.log('Voici le journal : ' + this.selectedHistorique.objet);
+    console.log('Voici le journal : ' + this.selectedHistorique.objet + "Avec l'id de groupe " + this.selectedHistorique.groupeEvenement.id);
+    this.selectedId = journalHisto.groupeEvenement.id;
+    console.log(this.selectedId);    
   }
+
+  deleteJournal(id:number) {
+    this.supa.deleteJournal(id)    
+    .then(() => {
+      this.supa.getHistoriqueJournal()
+      console.log("j'ai cliqué");
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+  
+
 }
 
 //Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)

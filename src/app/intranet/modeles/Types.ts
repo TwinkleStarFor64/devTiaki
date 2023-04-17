@@ -43,16 +43,16 @@ export interface BottomI {
  } 
  //Interface de la page Journal 
  export interface HistoriqueJournalI {
-     id?: number,
+     id: number,
      date:string,
      objet:string,
      description:string,
      commentaire:string,     
      groupeEvenement: {
-        id: number
-     }
-     //journalPrecedent:Array<HistoriqueI>     
+        id: number 
+     }    
  }
+ 
  //Interface de la page historique des journaux
  export interface HistoriqueI {
      //journal:Array<JournalI>

@@ -57,10 +57,11 @@ $historique: #F8E6AF;
               flex-direction: column;
               justify-content: space-around;
               align-items: flex-start;
-              height: 30%;
+              //height: 30%;              
               li{
                   text-align: center;
                   font-size: 1rem;
+                  margin-top: 2vh;
                   @media only screen and (max-width: 1280px) {
                       font-size: 0.8rem;
                   }                    

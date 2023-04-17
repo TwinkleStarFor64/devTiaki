@@ -40,25 +40,38 @@ export class SupabaseService {
     let month = parseInt(dateParts[1]);
     let day = parseInt(dateParts[2]);
     //Ci-dessous j'attribue à la variable newDate une new Date sur chacun des items au dessus
-    let newDate = new Date(year, month, day); //year, month, day ont désormais la date du jour
+    let newDate = new Date(year, month - 1, day); //year, month, day ont désormais la date du jour
     return newDate.toLocaleDateString('fr'); //Cette méthode formate la date au format Fr
   }
 
   //Je récupére les données de la BDD supaBase
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
+  }  
+
+ // DELETE
+ async deleteJournal(id: number): Promise<void> {
+  const { error } = await this.supabase
+    .from('journalEvenement')
+    .delete()
+    .eq('id', id);
+  if (error) {
+    console.log(error);    
   }
+}
 
   //Je récupére les données de la BDD supaBase
   async getHistoriqueJournal() {
-    const historiqueJournal = await this.supabase
+    const journalHistorique = await this.supabase
       .from('journalEvenement') //La table journalEvenement
-      .select('id, date, objet, description, commentaire, groupeEvenement (id)'); //Les données que je select sur cette table
-    return historiqueJournal;
+      .select('id, date, objet, description, commentaire, groupeEvenement (id)') //Les données que je select sur cette table
+      //.eq('groupeEvenement (id)', 23)
+      return journalHistorique;
   }
 
-  //J'enregistre des données dans la BDD
-  //Dans le paramètre newEntry j'indique tout les champs de la table que je veux manipuler
+  //J'enregistre des données dans la BDD avec la méthode createJournal qui est asynchrone et prend 2 arguments (newEntry & relier)
+  //newEntry est un objet contenant les propriétés objet, description, commentaire et date
+  //relier peut être soit un objet qui contient des informations pour relier le journal à un autre, soit null.
   async createJournal(
     newEntry: {
       objet: string;
@@ -68,17 +81,17 @@ export class SupabaseService {
     },
     relier: HistoriqueJournalI | null
   ) {
-    newEntry.date = new Date(); //Le champ date aura la date de création
+    newEntry.date = new Date(); //Le champ date aura la date actuelle
 
     // Cas n°1: le journal est relié à un autre
     if (relier) {
       //Ci-dessous j'attribue comme valeur à la variable newJournalEvenenement la variable newEntry + l'id de la table groupeEvenement
       const newJournalEvenement = {
-        ...newEntry,
-        groupeEvenement: relier['groupeEvenement']['id'],
+        ...newEntry, //Les trois points "..." sont l'opérateur de spread en JavaScript
+        groupeEvenement: relier['groupeEvenement']['id'], //Correspond à l'interface HistoriqueJournalI - groupeEvenement: {id: number}
       };
 
-      this.insertJournal(newJournalEvenement);
+      this.insertJournal(newJournalEvenement); //J'appelle la méthode insertJournal pour enregistrer dans la table journalEvenement
 
       // Cas n°2: le journal n'est pas relié
     } else {
@@ -103,11 +116,13 @@ export class SupabaseService {
           groupeEvenement: groupData['id'],
         };
 
-        this.insertJournal(newJournalEvenement);
+        this.insertJournal(newJournalEvenement); //J'appelle la méthode insertJournal pour enregistrer dans la table journalEvenement
       }
     }
   }
 
+  //Méthode pour enregistrer un journal en BDD
+  //newEntry contient tout les champs de la table journalEvenenement
   async insertJournal(newEntry: {
     objet: string;
     description: string;
@@ -117,8 +132,8 @@ export class SupabaseService {
   }) {
     //On créer le journal evenement dans la base de données
     const { error: journalError } = await this.supabase
-      .from('journalEvenement')
-      .insert(newEntry);
+      .from('journalEvenement') //je choisi la table journalEvenement
+      .insert(newEntry); //J'insére la variable newEntry
 
     //En cas d'erreur
     if (journalError) {
@@ -126,6 +141,8 @@ export class SupabaseService {
     }
   }
 }
+
+
 
 /* async createJournal(newEntry:{objet:string, description:string, commentaire:string, date?:Date}) {
   newEntry.date = new Date();
@@ -138,4 +155,26 @@ export class SupabaseService {
     if (errorGroup) {
       console.log(errorGroup);        
     }   
+  } */
+
+
+
+/* async getHistoriqueJournalByGroupeEvenementId(evenementId:number) {
+    // Récupère l'id du groupe d'événements à partir de la table groupeEvenement
+    const { data: groupeEvenement, error } = await this.supabase
+      .from('groupeEvenement')
+      .select('id')
+      .eq('id', evenementId)
+      .single();
+      console.log(evenementId);
+      
+    
+    if (error) {
+      console.error(error);
+      return;
+    }
+     
+    // Appelle la fonction getHistoriqueJournal() avec l'id récupéré
+    const journalHistorique = await this.getHistoriqueJournal(groupeEvenement.id);
+    return journalHistorique;
   } */

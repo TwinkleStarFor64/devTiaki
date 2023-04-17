@@ -54,7 +54,7 @@ export class JournalComponent implements OnInit {
   formJournal!: FormGroup;
   
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
-  public reliers: any[] = []; //je remplis le tableau de RelierI dans le constructor en dessous
+  public reliers: any[] = []; //
 
   constructor( private formBuilder: FormBuilder, public supa: SupabaseService ) { }
 
@@ -68,6 +68,7 @@ export class JournalComponent implements OnInit {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
+
 
     //Ici je me récupére les données de la table journalEvenement via la méthode getHistoriqueJournal()
     const { data, error } = await this.supa.getHistoriqueJournal();
