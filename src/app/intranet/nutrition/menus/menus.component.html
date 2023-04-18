@@ -14,7 +14,7 @@
         <button mat-raised-button color="primary">Menus évalués et problématiques</button>
       </article>
       <article id="listing">
-        <div *ngFor="let menus of menuService.menu">
+        <div *ngFor="let menus of repas">
           <h2>{{ menus.nom }}</h2>
           <p>{{ menus.description }}</p>
           <div>
@@ -34,8 +34,8 @@
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
-            <mat-option *ngFor="let menus of menuService.menu" [value]="menus.nom">
-              {{menus.nom}}
+            <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
+              {{ menus.nom }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -50,9 +50,10 @@
           </mat-select>
         </mat-form-field>
       </div>
-        <h4>Menu du dimanche</h4>
+      <span *ngIf="selectedRepas">
+        <h4>{{ selectedRepas.nom }}</h4>
         <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5"></textarea>
+        <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
       <div>
         <p>Ingrédients</p>
         <p>Quantités</p>
@@ -60,17 +61,19 @@
         <p>Allèrgenes</p>
         <p>Retour de la communauté</p>
       </div>
-        <p>Beurre</p>
-        <p>Farine</p>
+      <span *ngFor="let ingredients of aliment | ingredients:alimCodeFiltre">
+        <p>{{ ingredients.alim_nom_fr}}</p>        
+      </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
           <mat-select>
           </mat-select>
         </mat-form-field>
-      <div>
+      <div id="boutonPageMenus">
         <button mat-raised-button color="primary">ANNULER</button>
         <button mat-raised-button color="primary">VALIDER</button>
       </div>
+      </span>
     </article>
     <!-- <app-footer></app-footer> -->
   </section>

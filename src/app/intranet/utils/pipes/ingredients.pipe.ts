@@ -11,6 +11,8 @@ export class IngredientsPipe implements PipeTransform {
     if (!items || codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
       return items;
   }   
+  
+
     //Ci-dessous je filtre CiqualI - je récupére alim_code sur CiqualI et je le compare au filtre codeAlim  
     return items.filter( item => item.alim_code === codeAlim);
   }

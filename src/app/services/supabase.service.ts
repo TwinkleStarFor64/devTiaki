@@ -49,16 +49,16 @@ export class SupabaseService {
     return await this.supabase.from('aidant').select('id, nom');
   }  
 
- // DELETE
+// DELETE
  async deleteJournal(id: number): Promise<void> {
   const { error } = await this.supabase
     .from('journalEvenement')
     .delete()
-    .eq('id', id);
+    .eq('id', id);    
   if (error) {
     console.log(error);    
   }
-}
+} 
 
   //Je récupére les données de la BDD supaBase
   async getHistoriqueJournal() {

@@ -1131,6 +1131,24 @@ p {
     }
 
   }
+  // Code identique que ci-dessus mais pour la page menu avec un ID sur la Div contenant les 2 boutons
+  #boutonPageMenus{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1vw;
+    border-bottom: dashed black 1px;
+    padding: 2vh;
+    
+    button:nth-child(1) {
+      background-color: #F28705;
+    }
+
+    button:nth-child(2) {
+      background-color: #33BB27;
+    }
+  }
+
 }
 
 // AFFICHAGE TABLEAU DE BORD
