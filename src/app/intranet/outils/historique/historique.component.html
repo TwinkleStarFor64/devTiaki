@@ -45,7 +45,8 @@
       <article>
         <h3>{{ supa.formatDate(selectedHistorique.date)}}</h3> <!-- J'utilise la méthode formatDate pour formater la date en Fr -->
         <div>
-          <button mat-raised-button (click)="deleteJournal(selectedHistorique.id)">Supprimer</button>
+          <!-- (click)="deleteJournal(selectedHistorique.id)" -->
+          <button mat-raised-button (click)="deleteJournal(selectedHistorique.id)" >Supprimer</button>
           <button mat-raised-button>Modifier</button>
         </div>
       </article>

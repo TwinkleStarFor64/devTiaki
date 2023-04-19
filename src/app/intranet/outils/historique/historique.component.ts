@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI, RelierI } from '../../modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
 import { HistoriqueJournalI } from '../../modeles/Types';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DeleteComponent } from '../dialog/delete/delete.component';
 
 @Component({
   selector: 'app-historique',
@@ -48,7 +50,7 @@ export class HistoriqueComponent implements OnInit {
 
   public groupeEvenementId!: number;
 
-  constructor(public supa: SupabaseService) {}
+  constructor(public supa: SupabaseService, private dialog:MatDialog) {}
 
   //ngOnInit asynchrone qui renvoie une Promesse
   async ngOnInit(): Promise<void> {
@@ -83,8 +85,21 @@ export class HistoriqueComponent implements OnInit {
     console.log(this.selectedId);
   }
 
-  deleteJournal(id: number) {
-    this.supa
+  openDialog() {
+    return this.dialog.open(DeleteComponent, {
+      disableClose:true,
+      autoFocus:true,
+      height:'200px',
+      width:'400px',
+      data:"Êtes vous sur de vouloir supprimer ce journal ?",
+    });
+}
+
+  deleteJournal( id: number ) {
+    this.openDialog()
+    .afterClosed().subscribe(res => {
+      if(res) {
+        this.supa
       .deleteJournal(id)
       .then(() => {
         window.location.reload();
@@ -94,9 +109,30 @@ export class HistoriqueComponent implements OnInit {
       .catch((error) => {
         console.log(error);
       });
+      }
+      
+    })
+
+    /* this.supa
+      .deleteJournal(id)
+      .then(() => {
+        window.location.reload();
+        this.supa.getHistoriqueJournal();
+        console.log("j'ai cliqué sur l'id " + id);
+      })
+      .catch((error) => {
+        console.log(error);
+      }); */
   }
+
+  
+
 }
 
+//const dialogConfig = new MatDialogConfig();
+
+    //dialogConfig.disableClose = true;
+    //dialogConfig.autoFocus = true; 
 
 
 
