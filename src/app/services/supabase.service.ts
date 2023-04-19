@@ -49,16 +49,46 @@ export class SupabaseService {
     return await this.supabase.from('aidant').select('id, nom');
   }  
 
-// DELETE
- async deleteJournal(id: number): Promise<void> {
-  const { error } = await this.supabase
+// DELETE un journal et son groupe sur la table groupeEvenement
+async deleteJournal(id: number): Promise<void> {
+  const { data: journalData, error: journalError } = await this.supabase
+    .from('journalEvenement') // La table journalEvenement
+    .select('groupeEvenement') // Je select la colone groupeEvenement
+    .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
+    .single(); // La méthode "single" est utilisée pour s'assurer que la requête retourne une seule ligne
+
+  if (journalError) {
+    console.log(journalError);
+    return;
+  }
+
+  const { error: groupError } = await this.supabase
+    .from('groupeEvenement') // La table groupeEvenement
+    .delete() // Je delete
+    .eq('id', journalData.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
+
+  if (groupError) {
+    console.log(groupError);
+    return;
+  }
+
+  const { error: journalDeleteError } = await this.supabase
     .from('journalEvenement')
     .delete()
-    .eq('id', id);    
-  if (error) {
-    console.log(error);    
+    .eq('id', id);
+
+  if (journalDeleteError) {
+    console.log(journalDeleteError);
+    return;
   }
-} 
+}
+
+
+
+
+
+
+
 
   //Je récupére les données de la BDD supaBase
   async getHistoriqueJournal() {
@@ -178,3 +208,17 @@ export class SupabaseService {
     const journalHistorique = await this.getHistoriqueJournal(groupeEvenement.id);
     return journalHistorique;
   } */
+
+
+
+
+//Ancienne méthode delete
+   /* async deleteJournal(id: number): Promise<void> {
+  const { error } = await this.supabase
+    .from('journalEvenement')
+    .delete()
+    .eq('id', id);    
+  if (error) {
+    console.log(error);    
+  }
+}  */

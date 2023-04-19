@@ -1098,8 +1098,18 @@ p {
     border-bottom: dashed black 1px;
   }
 
+  span:nth-child(3) > span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   span:nth-child(3) > span > p {
     width: 18%;
+  }
+
+  span:nth-child(3) > span > p:nth-child(2) {
+    width: 75%;
   }
 
   // La balise select AJOUTER

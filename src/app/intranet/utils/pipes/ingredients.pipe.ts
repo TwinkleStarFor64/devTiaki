@@ -12,8 +12,7 @@ export class IngredientsPipe implements PipeTransform {
       return items;
   }   
   
-
-    //Ci-dessous je filtre CiqualI - je récupére alim_code sur CiqualI et je le compare au filtre codeAlim  
+  //Ci-dessous je filtre CiqualI - je récupére alim_code sur CiqualI et je le compare au filtre codeAlim  
     return items.filter( item => item.alim_code === codeAlim);
   }
 }

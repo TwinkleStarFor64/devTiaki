@@ -62,7 +62,13 @@
         <p>Retour de la communauté</p>
       </div>
       <span *ngFor="let ingredients of aliment | ingredients:alimCodeFiltre">
-        <p>{{ ingredients.alim_nom_fr}}</p>        
+        <p>{{ ingredients.alim_nom_fr}}</p>  
+        <p> <img src="assets/photoNutri/compl.svg" alt="icône composition">
+          Composition : Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+          Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
+          Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
+          Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
+        </p>      
       </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>

@@ -78,12 +78,7 @@ export class HistoriqueComponent implements OnInit {
 
   onSelect(journalHisto: HistoriqueJournalI) {
     this.selectedHistorique = journalHisto;
-    console.log(
-      'Voici le journal : ' +
-        this.selectedHistorique.objet +
-        "Avec l'id de groupe " +
-        this.selectedHistorique.groupeEvenement.id
-    );
+    console.log('Voici le journal : ' + this.selectedHistorique.objet + "Avec l'id de groupe " + this.selectedHistorique.groupeEvenement.id);
     this.selectedId = journalHisto.groupeEvenement.id;
     console.log(this.selectedId);
   }
@@ -102,8 +97,15 @@ export class HistoriqueComponent implements OnInit {
   }
 }
 
+
+
+
+
+
 //Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)
 //console.log(typeof this.historiques[0].date);
+
+
 
 //public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
@@ -113,6 +115,8 @@ export class HistoriqueComponent implements OnInit {
       { nom: 'Journal du 15 Janvier 2022' },
       { nom: 'Journal du 20 Janvier 2022' },
     ]; */
+
+
 
 /* this.supa.getHistoriqueJournal().then((response:any) => {
       this.historiques = response.data

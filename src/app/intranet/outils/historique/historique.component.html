@@ -58,6 +58,8 @@
         <p>{{ selectedHistorique.description }}</p>
         <h4>Commentaire</h4>
         <p>{{ selectedHistorique.commentaire }}</p>
+        <h4>Journal en rapport</h4>
+        <p>{{ selectedHistorique.groupeEvenement.id }}</p>
       </article>
   </section>
   <section id="default" *ngIf="!selectedHistorique">
