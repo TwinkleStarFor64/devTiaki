@@ -37,7 +37,7 @@
         <p>Historiques des journaux sur ces activités</p>
       </div>
       <ul>
-        <li *ngFor="let historique of historiques" (click)="onSelect(historique)">Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}</li>      
+        <li *ngFor="let historique of historiques" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}</li>      
       </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
@@ -59,7 +59,13 @@
         <h4>Commentaire</h4>
         <p>{{ selectedHistorique.commentaire }}</p>
         <h4>Journal en rapport</h4>
-        <p>{{ selectedHistorique.groupeEvenement.id }}</p>
+        <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
+          <li>
+            <span (click)="changeSelectedJournal(linkedJournal.id)">
+              {{supa.formatDate(selectedHistorique.date) + " - " + linkedJournal.objet}}
+            </span>
+          </li>
+        </ul>
       </article>
   </section>
   <section id="default" *ngIf="!selectedHistorique">

@@ -69,7 +69,10 @@ export class JournalComponent implements OnInit {
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
 
+    this.fetchJournals();    
+  }
 
+  async fetchJournals() {
     //Ici je me récupére les données de la table journalEvenement via la méthode getHistoriqueJournal()
     const { data, error } = await this.supa.getHistoriqueJournal();
     if (data) {
@@ -99,9 +102,10 @@ export class JournalComponent implements OnInit {
     }
     const idRelier = this.formJournal.value.relier;
     //J'utilise la méthode createJournal avec comme paramétre newEntry
-    await this.supa.createJournal(newEntry, idRelier); 
-    this.formJournal.reset();
-    window.location.reload();
+    await this.supa.createJournal(newEntry, idRelier).then(() => {
+      this.fetchJournals()
+    }); 
+    this.formJournal.reset()  
   }
 
   onCancel() {

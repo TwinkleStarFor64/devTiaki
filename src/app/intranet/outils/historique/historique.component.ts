@@ -50,7 +50,7 @@ export class HistoriqueComponent implements OnInit {
 
   public groupeEvenementId!: number;
 
-  constructor(public supa: SupabaseService, private dialog:MatDialog) {}
+  constructor(public supa: SupabaseService, private dialog: MatDialog) {}
 
   //ngOnInit asynchrone qui renvoie une Promesse
   async ngOnInit(): Promise<void> {
@@ -58,6 +58,22 @@ export class HistoriqueComponent implements OnInit {
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
 
+    this.fetchJournals();
+  }
+
+  onSelect(journalHisto: HistoriqueJournalI) {
+    this.selectedHistorique = journalHisto;
+    console.log(
+      'Voici le journal : ' +
+        this.selectedHistorique.objet +
+        "Avec l'id de groupe " +
+        this.selectedHistorique.groupeEvenement.id
+    );
+    this.selectedId = journalHisto.groupeEvenement.id;
+    console.log(this.selectedId);
+  }
+
+  async fetchJournals() {
     // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
     const { data, error } = await this.supa.getHistoriqueJournal();
     if (data) {
@@ -68,9 +84,29 @@ export class HistoriqueComponent implements OnInit {
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
       }
-      //Data contient tout les journaux dans la table journalEvenement en BDD
-      this.historiques = data; //La variable historique contient la variable data donc tout les journaux de la table journalEvenement en BDD
-      console.log(this.historiques);
+
+      data.forEach(async (journal: any) => {
+        const { data: linkedData, error: linkedError } =
+          await this.supa.getHistoriqueLinkedJournal(
+            journal.groupeEvenement.id,
+            journal.id
+          );
+
+        if (linkedError) console.log(linkedError);
+
+        if (linkedData) {
+          // On affiche l'objet "journal" qui est ajouté au tableau "historiques"
+          console.log({
+            ...journal,
+            linkedJournals: linkedData,
+          })
+
+          this.historiques.push({
+            ...journal,
+            linkedJournals: linkedData,
+          });
+        }
+      });
     }
     if (error) {
       //Si une erreur
@@ -78,69 +114,48 @@ export class HistoriqueComponent implements OnInit {
     }
   }
 
-  onSelect(journalHisto: HistoriqueJournalI) {
-    this.selectedHistorique = journalHisto;
-    console.log('Voici le journal : ' + this.selectedHistorique.objet + "Avec l'id de groupe " + this.selectedHistorique.groupeEvenement.id);
-    this.selectedId = journalHisto.groupeEvenement.id;
-    console.log(this.selectedId);
+  changeSelectedJournal(id: number) {
+    // On modifie le "this.selectedHistorique" par le journal dont l'id est égal à "id"
+    this.selectedHistorique = this.historiques.find(
+      (journal) => journal.id === id
+    );
   }
 
   openDialog() {
     return this.dialog.open(DeleteComponent, {
-      disableClose:true,
-      autoFocus:true,
-      height:'200px',
-      width:'400px',
-      data:"Êtes vous sur de vouloir supprimer ce journal ?",
+      disableClose: true,
+      autoFocus: true,
+      height: '200px',
+      width: '400px',
+      data: 'Êtes vous sur de vouloir supprimer ce journal ?',
     });
-}
-
-  deleteJournal( id: number ) {
-    this.openDialog()
-    .afterClosed().subscribe(res => {
-      if(res) {
-        this.supa
-      .deleteJournal(id)
-      .then(() => {
-        window.location.reload();
-        this.supa.getHistoriqueJournal();
-        console.log("j'ai cliqué sur l'id " + id);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      }      
-    })
-
-    /* this.supa
-      .deleteJournal(id)
-      .then(() => {
-        window.location.reload();
-        this.supa.getHistoriqueJournal();
-        console.log("j'ai cliqué sur l'id " + id);
-      })
-      .catch((error) => {
-        console.log(error);
-      }); */
   }
 
-  
-
+  deleteJournal(id: number) {
+    this.openDialog()
+      .afterClosed()
+      .subscribe((res) => {
+        if (res) {
+          this.supa
+            .deleteJournal(id)
+            .then(() => {
+              this.fetchJournals();
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      });
+  }
 }
 
 //const dialogConfig = new MatDialogConfig();
 
-    //dialogConfig.disableClose = true;
-    //dialogConfig.autoFocus = true; 
-
-
-
-
+//dialogConfig.disableClose = true;
+//dialogConfig.autoFocus = true;
 
 //Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)
 //console.log(typeof this.historiques[0].date);
-
-
 
 //public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
 
@@ -150,8 +165,6 @@ export class HistoriqueComponent implements OnInit {
       { nom: 'Journal du 15 Janvier 2022' },
       { nom: 'Journal du 20 Janvier 2022' },
     ]; */
-
-
 
 /* this.supa.getHistoriqueJournal().then((response:any) => {
       this.historiques = response.data

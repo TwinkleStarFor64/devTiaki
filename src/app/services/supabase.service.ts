@@ -3,6 +3,7 @@ import {
   AuthChangeEvent,
   AuthSession,
   createClient,
+  PostgrestSingleResponse,
   Session,
   SupabaseClient,
   User,
@@ -47,56 +48,65 @@ export class SupabaseService {
   //Je récupére les données de la BDD supaBase
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
-  }  
-
-// DELETE un journal et son groupe sur la table groupeEvenement
-async deleteJournal(id: number): Promise<void> {
-  const { data: journalData, error: journalError } = await this.supabase
-    .from('journalEvenement') // La table journalEvenement
-    .select('groupeEvenement') // Je select la colone groupeEvenement
-    .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
-    .single(); // La méthode "single" est utilisée pour s'assurer que la requête retourne une seule ligne
-
-  if (journalError) {
-    console.log(journalError);
-    return;
   }
 
-  const { error: groupError } = await this.supabase
-    .from('groupeEvenement') // La table groupeEvenement
-    .delete() // Je delete
-    .eq('id', journalData.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
+  // DELETE un journal et son groupe sur la table groupeEvenement
+  async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
+      const { data: journalData, error: journalError } = await this.supabase
+        .from('journalEvenement') // La table journalEvenement
+        .select('groupeEvenement') // Je select la colone groupeEvenement
+        .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
+        .single(); // La méthode "single" est utilisée pour s'assurer que la requête retourne une seule ligne
 
-  if (groupError) {
-    console.log(groupError);
-    return;
+      if (journalError) {
+        console.log(journalError);
+      }
+
+      // Je recupere tous les journaux qui sont liés à l'ID journalData.groupeEvenement
+      const { data: linkedJournalsData, error: linkedJournalsError } =
+        await this.supabase
+          .from('journalEvenement') // La table journalEvenement
+          .select('id') // Je select la colone id
+          .eq('groupeEvenement', journalData?.groupeEvenement);
+
+      // Si le journal est le seul lié à ce groupe, on supprime le groupe
+      if (linkedJournalsData && linkedJournalsData.length === 1) {
+        const { error: groupError } = await this.supabase
+          .from('groupeEvenement') // La table groupeEvenement
+          .delete() // Je delete
+          .eq('id', journalData?.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
+
+        if (groupError) {
+          console.log(groupError);
+        }
+      }
+
+      return await this.supabase
+        .from('journalEvenement')
+        .delete()
+        .eq('id', id);
   }
-
-  const { error: journalDeleteError } = await this.supabase
-    .from('journalEvenement')
-    .delete()
-    .eq('id', id);
-
-  if (journalDeleteError) {
-    console.log(journalDeleteError);
-    return;
-  }
-}
-
-
-
-
-
-
-
 
   //Je récupére les données de la BDD supaBase
   async getHistoriqueJournal() {
-    const journalHistorique = await this.supabase
+    return await this.supabase
       .from('journalEvenement') //La table journalEvenement
-      .select('id, date, objet, description, commentaire, groupeEvenement (id)') //Les données que je select sur cette table
-      //.eq('groupeEvenement (id)', 23)
-      return journalHistorique;
+      .select(
+        'id, date, objet, description, commentaire, groupeEvenement (id)'
+      ); //Les données que je select sur cette table
+    //.eq('groupeEvenement (id)', 23)
+  }
+
+  //Je récupére les données de la BDD supaBase
+  async getHistoriqueLinkedJournal(groupeEvenementId: number, journalEvenementId: number) {
+    // Renvoi tous les journaux qui sont liés au groupe sauf celui "jounalEvenementId"
+    return await this.supabase
+      .from('journalEvenement') //La table journalEvenement
+      .select(
+        'id, date, objet, description, commentaire, groupeEvenement (id)'
+      )
+      .eq('groupeEvenement (id)', groupeEvenementId)
+      .neq('id', journalEvenementId);
   }
 
   //J'enregistre des données dans la BDD avec la méthode createJournal qui est asynchrone et prend 2 arguments (newEntry & relier)
@@ -153,7 +163,7 @@ async deleteJournal(id: number): Promise<void> {
 
   //Méthode pour enregistrer un journal en BDD
   //newEntry contient tout les champs de la table journalEvenenement
-  async insertJournal(newEntry: {
+  private async insertJournal(newEntry: {
     objet: string;
     description: string;
     commentaire: string;
@@ -171,54 +181,3 @@ async deleteJournal(id: number): Promise<void> {
     }
   }
 }
-
-
-
-/* async createJournal(newEntry:{objet:string, description:string, commentaire:string, date?:Date}) {
-  newEntry.date = new Date();
-  const {data, error} = await this.supabase.from("journalEvenement").insert(newEntry).select().single();
-  if (error) {
-    console.log(error);            
-  }
-  if (data) {
-    const {error:errorGroup} = await this.supabase.from("groupeEvenement").insert({journalEvenement:data['id']})   
-    if (errorGroup) {
-      console.log(errorGroup);        
-    }   
-  } */
-
-
-
-/* async getHistoriqueJournalByGroupeEvenementId(evenementId:number) {
-    // Récupère l'id du groupe d'événements à partir de la table groupeEvenement
-    const { data: groupeEvenement, error } = await this.supabase
-      .from('groupeEvenement')
-      .select('id')
-      .eq('id', evenementId)
-      .single();
-      console.log(evenementId);
-      
-    
-    if (error) {
-      console.error(error);
-      return;
-    }
-     
-    // Appelle la fonction getHistoriqueJournal() avec l'id récupéré
-    const journalHistorique = await this.getHistoriqueJournal(groupeEvenement.id);
-    return journalHistorique;
-  } */
-
-
-
-
-//Ancienne méthode delete
-   /* async deleteJournal(id: number): Promise<void> {
-  const { error } = await this.supabase
-    .from('journalEvenement')
-    .delete()
-    .eq('id', id);    
-  if (error) {
-    console.log(error);    
-  }
-}  */

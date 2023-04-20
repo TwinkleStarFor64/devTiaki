@@ -50,7 +50,8 @@ export interface BottomI {
      commentaire:string,     
      groupeEvenement: {
         id: number 
-     }    
+     },
+     linkedJournals?: HistoriqueJournalI[],
  }
  
  //Interface de la page historique des journaux
