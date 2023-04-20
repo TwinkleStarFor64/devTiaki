@@ -109,8 +109,7 @@ export class HistoriqueComponent implements OnInit {
       .catch((error) => {
         console.log(error);
       });
-      }
-      
+      }      
     })
 
     /* this.supa

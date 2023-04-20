@@ -73,6 +73,13 @@ export class JournalComponent implements OnInit {
     //Ici je me récupére les données de la table journalEvenement via la méthode getHistoriqueJournal()
     const { data, error } = await this.supa.getHistoriqueJournal();
     if (data) {
+      // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
+      if (data[0].date) {
+        // Tri des objets data par date décroissante
+        data.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+      }
       this.reliers = data; //La variable reliers de type HistoriqueJournalI contient les données de data
       console.log(this.reliers);//Dans ce log je dois voir tout les journaux de la table journalEvenement      
     }

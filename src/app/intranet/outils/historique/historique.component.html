@@ -45,14 +45,13 @@
       <article>
         <h3>{{ supa.formatDate(selectedHistorique.date)}}</h3> <!-- J'utilise la méthode formatDate pour formater la date en Fr -->
         <div>
-          <!-- (click)="deleteJournal(selectedHistorique.id)" -->
           <button mat-raised-button (click)="deleteJournal(selectedHistorique.id)" >Supprimer</button>
           <button mat-raised-button>Modifier</button>
         </div>
       </article>
       <article>
-        <!-- <h4>Activité concernée</h4>
-        <p>{{ selectedHistorique.objet }}</p> -->
+        <h4>Activité concernée</h4>
+        <p>Mentionner l'interface concernée, peut-être avec un icone ?</p>
         <h4>Objet</h4>
         <p>{{ selectedHistorique.objet }}</p>
         <h4>Note</h4>
