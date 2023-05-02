@@ -1,39 +1,86 @@
     :host{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         height: 100%;
-    
-        app-infos{
-            width: 70vw;
-            height: 50%;
-        }
-        form{
-            width: 30vw;
+        width: 100%;
+        
+
+        section{
+            background: url('../../../assets/connexion.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
             height: 100%;
-            display: flex;
-            flex-flow: column;
-            justify-content: center;
-            align-items: center;
-    
-            *{
-                margin: 5px 10px;
+            width:100%;
+            flex-direction: column;
+
+            img{
+                width: 8%;
             }
-    
-            div{
-                display: flex;
-                flex-flow: row nowrap;
-    
-                input{
-                    width: fit-content;
-                    border: none;
-                    padding: 8px 16px;
+
+            article:nth-child(1){
+                justify-content: space-between;
+                flex-direction: column;
+            }
+            article:nth-child(2){
+                justify-content: center;
+                align-items: center;
+                height: 50%;
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                    gap:1vw;
+                    h2{
+                        font-size: 2vw;
+                        color: #4a0c74;
+                    }
+                    img{
+                        align-self: center;
+                        width:30%;
+                        height:30%;
+                    }
+                    p{
+                        font-size: 1.5vw;
+                        color: #4a0c74;
+                    }
+                    button{
+                        align-self: center;
+                        width: 14vw;
+                        height: 7vh;
+                        font-size: 1vw ;
+                        color: #4a0c74;;
+                        background-color: #fff;
+                        border-color: #000000;
+                        font-weight: 700;
+                    }
                 }
-    
             }
-            a{
-                text-align: center;
-            }
+
         }
+
+        // form{
+        //     width: 30vw;
+        //     height: 100%;
+        //     display: flex;
+        //     flex-flow: column;
+        //     justify-content: center;
+        //     align-items: center;
+    
+        //     *{
+        //         margin: 5px 10px;
+        //     }
+    
+        //     div{
+        //         display: flex;
+        //         flex-flow: row nowrap;
+    
+        //         input{
+        //             width: fit-content;
+        //             border: none;
+        //             padding: 8px 16px;
+        //         }
+    
+        //     }
+        //     a{
+        //         text-align: center;
+        //     }
+        // }
     }

@@ -68,7 +68,6 @@ export class JournalComponent implements OnInit {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
-
     this.fetchJournals();    
   }
 

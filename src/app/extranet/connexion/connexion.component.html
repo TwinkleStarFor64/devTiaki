@@ -1,5 +1,5 @@
-    <app-infos></app-infos>
-    <form #f="ngForm">
+    <!-- <app-infos></app-infos> -->
+    <!-- <form #f="ngForm">
         <input name="id" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel"  [placeholder]="conn.connexion.id.placeholder" required>
         <span *ngIf="ctlId.invalid"> Vous devez renseigner vôtre identifiant ou un mail </span>
         <input name="mdp"  [(ngModel)]="conn.connexion.mdp.value" #ctlMdp="ngModel" type="password" [placeholder]="conn.connexion.mdp.placeholder">
@@ -9,4 +9,23 @@
             <input type="submit" value="Se connecter" [disabled]="f.invalid">
         </div>
         <a routerLink='intranet'>Cliquer ici pour accéder à l'application en cours de développement </a>
-    </form>
+    </form> -->
+<section>
+  <article>
+      <img src="assets/imgConnexion/twinkle.svg" alt="logoTwinkle">
+  </article>  
+  <article>
+    <div>   
+      <h2> Bienvenue sur l'application 
+    </h2>
+    <img src="assets/imgConnexion/tiaki.svg" alt="logoTiaki">
+      <p>Application actuellement en cours de développement</p>
+      <button routerLink="/intranet" >Accéder à l'application</button> 
+    </div>
+</article>
+  <!-- <article *ngFor="let actu of actus.actualites" >
+      <h3>{{actu.titre}}</h3>
+      <p>{{actu.description}}</p>
+      <img [src]="actu.image.url" [alt]="actu.image.alt">
+  </article> -->
+</section>  
