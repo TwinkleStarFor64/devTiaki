@@ -61,53 +61,45 @@ export class HistoriqueComponent implements OnInit {
     this.fetchJournals();
   }
 
-  onSelect(journalHisto: HistoriqueJournalI) {
-    this.selectedHistorique = journalHisto;
-    console.log(
-      'Voici le journal : ' +
-        this.selectedHistorique.objet +
-        "Avec l'id de groupe " +
-        this.selectedHistorique.groupeEvenement.id
-    );
-    this.selectedId = journalHisto.groupeEvenement.id;
-    console.log(this.selectedId);
-  }
-
   async fetchJournals() {
     // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
     const { data, error } = await this.supa.getHistoriqueJournal();
-    if (data) {
-      // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
-      if (data[0].date) {
-        // Tri des objets data par date décroissante
-        data.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-      }
-      
+
+    if (data) {               
       data.forEach(async (journal: any) => {
+
         const { data: linkedData, error: linkedError } =
-          await this.supa.getHistoriqueLinkedJournal(
+          await this.supa.getHistoriqueLinkedJournal( // La méthode dans supabase.service qui filtre les journaux avec l'id de groupeEvenement
+                                                      // Cette méthode récupére tout les journaux
+            // Ci-dessous les ID à utiliser pour filtrer
             journal.groupeEvenement.id,
-            journal.id
+            journal.id,            
           );
 
         if (linkedError) console.log(linkedError);
 
         if (linkedData) {
+          // Tri des linked journals par date décroissante
+          linkedData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
           // On affiche l'objet "journal" qui est ajouté au tableau "historiques"
           console.log({
             ...journal,
             linkedJournals: linkedData,
-          })
+          });
 
           this.historiques.push({
             ...journal,
             linkedJournals: linkedData,
+            // linkedJournals contient les journaux avec le même ID dans groupeEvenement
+            
           });
-        }
+          // Tri des objets historiques par date décroissante
+          this.historiques.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        }        
       });
     }
+
     if (error) {
       //Si une erreur
       console.log(error);
@@ -121,7 +113,7 @@ export class HistoriqueComponent implements OnInit {
     );
   }
 
-  openDialog() {
+  openDialog() { // Modal Material Angular
     return this.dialog.open(DeleteComponent, {
       disableClose: true,
       autoFocus: true,
@@ -132,7 +124,7 @@ export class HistoriqueComponent implements OnInit {
   }
 
   deleteJournal(id: number) {
-    this.openDialog()
+    this.openDialog() // La méthode au dessus pour la modal
       .afterClosed()
       .subscribe((res) => {
         if (res) {
@@ -148,6 +140,29 @@ export class HistoriqueComponent implements OnInit {
       });
   }
 }
+
+
+
+
+
+
+
+
+
+/* onSelect(journalHisto: HistoriqueJournalI) {
+    this.selectedHistorique = journalHisto;
+    console.log(
+      'Voici le journal : ' +
+        this.selectedHistorique.objet +
+        "Avec l'id de groupe " +
+        this.selectedHistorique.groupeEvenement.id
+    );
+    this.selectedId = journalHisto.groupeEvenement.id;
+    console.log(this.selectedId);
+  } */
+
+
+
 
 //const dialogConfig = new MatDialogConfig();
 
