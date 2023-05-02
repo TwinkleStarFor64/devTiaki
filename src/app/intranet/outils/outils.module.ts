@@ -8,11 +8,13 @@ import { ProfilComponent } from './profil/profil.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { ParametreComponent } from './parametre/parametre.component';
+import { DeleteComponent } from './dialog/delete/delete.component';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { ParametreComponent } from './parametre/parametre.component';
     MessagerieComponent,
     ProfilComponent,
     ParametreComponent,
+    DeleteComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,12 @@ import { ParametreComponent } from './parametre/parametre.component';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
+  ],
+  entryComponents: [
+    DeleteComponent
   ]
+  
 })
 export class OutilsModule { }

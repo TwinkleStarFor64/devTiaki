@@ -14,6 +14,7 @@ import { PlatsPipe } from '../utils/pipes/plats.pipe';
 import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
 
 
 
@@ -27,6 +28,7 @@ import {MatSelectModule} from '@angular/material/select';
     NutritionComponent,
     AlimentsPipe,
     PlatsPipe,
+    IngredientsPipe,
     BottomBarNutriComponent,
   ],
   imports: [

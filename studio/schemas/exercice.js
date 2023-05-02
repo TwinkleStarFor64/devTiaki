@@ -1,7 +1,7 @@
 export default {
     name: 'exercice',
     type: 'document',
-    title: 'Exercices',
+      title: 'Exercices',
     fields: [
       {
         name: 'title',
@@ -22,7 +22,7 @@ export default {
       },
       {
         name: 'description',
-        type: 'text',
+        type: 'string',
         title: 'Description'
       },
       {
@@ -35,5 +35,6 @@ export default {
         type: 'string',
         title: 'Materiel'
       },
+            
     ]
   }

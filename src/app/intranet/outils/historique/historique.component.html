@@ -37,34 +37,40 @@
         <p>Historiques des journaux sur ces activités</p>
       </div>
       <ul>
-        <li>Journal du 25-06-22</li>
-        <li>Journal du 16-06-22</li>
-        <li>Journal du 14-06-22</li>
-        <li>Journal du 11-09-22</li>
-        <li>Journal du 09-06-22</li>
-        <li>Journal du 06-06-22</li>
-        <li>Journal du 02-06-22</li>
+        <li *ngFor="let historique of historiques" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}</li>      
       </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
-  <section>
-    <article>
-      <h3>Journal du 21-03-2023</h3>
-      <button>Modifier</button>
-    </article>
-    <article>
-      <h4>Activité concernée</h4>
-      <p>Exercice Périphérie du centre d'intégration d'optométrie</p>
-      <h4>Objet</h4>
-      <p>La réalisation s’est avérée plus difficile que prévue mais amusante.</p>
-      <h4>Note</h4>
-      <p>Lorsque Emilie a dû loucher, les yeux n’ont pas suivi et une gène puis des douleurs ont commencé à apparaître.
-        Par contre, c’était vraiment rigolo à faire et Emilie en a redemandé dès le lendemain.</p>
-      <h4>Commentaire</h4>
-      <p>Après échange, le 22 03 2023 avec l’optométriste, les effets sont normaux. Elle a trouvé super que Emilie se soit tant amusée.</p>
-    </article>
+  <section *ngIf="selectedHistorique">   
+      <article>
+        <h3>{{ supa.formatDate(selectedHistorique.date)}}</h3> <!-- J'utilise la méthode formatDate pour formater la date en Fr -->
+        <div>
+          <button mat-raised-button (click)="deleteJournal(selectedHistorique.id)" >Supprimer</button>
+          <button mat-raised-button>Modifier</button>
+        </div>
+      </article>
+      <article>
+        <h4>Activité concernée</h4>
+        <p>Mentionner l'interface concernée, peut-être avec un icone ?</p>
+        <h4>Objet</h4>
+        <p>{{ selectedHistorique.objet }}</p>
+        <h4>Note</h4>
+        <p>{{ selectedHistorique.description }}</p>
+        <h4>Commentaire</h4>
+        <p>{{ selectedHistorique.commentaire }}</p>
+        <h4>Journal en rapport</h4>
+        <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
+          <li>
+            <span (click)="changeSelectedJournal(linkedJournal.id)">
+              {{supa.formatDate(selectedHistorique.date) + " - " + linkedJournal.objet}}
+            </span>
+          </li>
+        </ul>
+      </article>
   </section>
-  
+  <section id="default" *ngIf="!selectedHistorique">
+    <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>
+  </section>
 </section>
 
 
@@ -73,3 +79,9 @@
 
 
 
+<!-- <li>Journal du 16-06-22</li>
+        <li>Journal du 14-06-22</li>
+        <li>Journal du 11-09-22</li>
+        <li>Journal du 09-06-22</li>
+        <li>Journal du 06-06-22</li>
+        <li>Journal du 02-06-22</li> -->

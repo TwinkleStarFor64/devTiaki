@@ -34,8 +34,8 @@
         <mat-form-field appearance="outline">
           <mat-label>VOS PLATS</mat-label>
           <mat-select>
-            <mat-option *ngFor="let plat of platService.plat" [value]="plat.nom">
-              {{plat.nom}}
+            <mat-option *ngFor="let plat of platService.plat" [value]="plat.nom" (onSelectionChange)="onSelect($event, plat)">
+              {{ plat.nom }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -50,9 +50,10 @@
           </mat-select>
         </mat-form-field>
       </div>
-        <h4>Tourte aux champignons</h4>
+      <span *ngIf="selectedPlats">
+        <h4>{{ selectedPlats.nom }}</h4>
         <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5"></textarea>
+        <textarea name="" id="" cols="30" rows="5">{{ selectedPlats.description }}</textarea>    
       <div>
         <p>Ingrédients</p>
         <p>Quantités</p>
@@ -60,8 +61,9 @@
         <p>Allèrgenes</p>
         <p>Retour de la communauté</p>
       </div>
-        <p>Beurre</p>
-        <p>Farine</p>
+      <span *ngFor="let ingredients of platService.ciqual | ingredients:alimCodeFiltre">
+        <p>{{ ingredients.alim_nom_fr }}</p>
+      </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
           <mat-select>
@@ -71,6 +73,7 @@
         <button mat-raised-button color="primary">ANNULER</button>
         <button mat-raised-button color="primary">VALIDER</button>
       </div>
+      </span>
     </article>
     <!-- <app-footer></app-footer> -->
   </section>

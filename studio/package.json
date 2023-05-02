@@ -15,9 +15,7 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/client": "^5.4.2",
     "@sanity/icons": "^2.1.0",
-    "@sanity/image-url": "^1.0.2",
     "@sanity/ui": "^1.2.0",
     "@sanity/vision": "^3.0.0",
     "react": "^18.2.0",
@@ -27,7 +25,6 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.18.6",
     "@sanity/eslint-config-studio": "^2.0.1",
     "@types/react": "^18.0.25",
     "@types/styled-components": "^5.1.26",

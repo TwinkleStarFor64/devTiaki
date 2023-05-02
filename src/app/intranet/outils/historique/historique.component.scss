@@ -57,10 +57,11 @@ $historique: #F8E6AF;
               flex-direction: column;
               justify-content: space-around;
               align-items: flex-start;
-              height: 30%;
+              //height: 30%;              
               li{
                   text-align: center;
                   font-size: 1rem;
+                  margin-top: 2vh;
                   @media only screen and (max-width: 1280px) {
                       font-size: 0.8rem;
                   }                    
@@ -92,12 +93,20 @@ $historique: #F8E6AF;
               font-size: 1.5rem;
               font-weight: 600;
           }
-          button { // Le bouton orange Modifier
-            width: 7vw;
-            height: 4vh;
-            background-color: #f28705;
-            border-color: #f28705;
-            color: white;            
+          div{
+            display: flex;
+            gap: 1vw;
+            button { // Le bouton orange Modifier
+              width: 7vw;
+              font-size: 0.8vw;
+              background-color: #f28705;
+              border-color: #f28705;
+              color: white;            
+            }
+            button:nth-child(2) {
+              background-color: $aside-color3;
+            }
+
           }
         }
         article:nth-child(2) {
@@ -113,5 +122,12 @@ $historique: #F8E6AF;
           p {
             margin: 0;
           }
+        }
+      }
+
+      #default {
+        justify-content: center;
+        p {
+          font-size: 1.5rem;
         }
       }

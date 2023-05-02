@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^15.1.4",
     "@angular/platform-browser-dynamic": "^15.1.4",
     "@angular/router": "^15.1.4",
+    "@sanity/client": "^5.4.2",
+    "@sanity/image-url": "^1.0.2",
     "@supabase/supabase-js": "^2.20.0",
     "ng-image-slider": "^7.0.0",
     "rxjs": "~7.5.0",

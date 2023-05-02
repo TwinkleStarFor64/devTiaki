@@ -1,0 +1,24 @@
+article {
+    background-color: #f1e9d0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    mat-icon {
+        cursor: pointer;
+        float: right;
+    }
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1vw;
+        button{
+            width: 7vw;
+            font-size: 0.8vw;
+        }
+        button:nth-child(2) {
+            background-color: #33BB27;
+        }
+    }
+}
