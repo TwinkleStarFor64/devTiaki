@@ -14,7 +14,6 @@ import { environment } from 'src/environments/environment'
 //   nom: string
 // }
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -39,3 +38,4 @@ export class SupabaseService {
     return historiqueJournal;
   }
 }
+
