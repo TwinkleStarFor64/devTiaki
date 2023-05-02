@@ -62,7 +62,7 @@
         <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
           <li>
             <span (click)="changeSelectedJournal(linkedJournal.id)">
-              {{supa.formatDate(selectedHistorique.date) + " - " + linkedJournal.objet}}
+              {{supa.formatDate(linkedJournal.date) + " - " + linkedJournal.objet}}
             </span>
           </li>
         </ul>

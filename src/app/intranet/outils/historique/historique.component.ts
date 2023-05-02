@@ -84,7 +84,7 @@ export class HistoriqueComponent implements OnInit {
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
       }
-
+      
       data.forEach(async (journal: any) => {
         const { data: linkedData, error: linkedError } =
           await this.supa.getHistoriqueLinkedJournal(
