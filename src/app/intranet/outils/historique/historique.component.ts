@@ -126,18 +126,20 @@ export class HistoriqueComponent implements OnInit {
   deleteJournal(id: number) {
     this.openDialog() // La méthode au dessus pour la modal
       .afterClosed()
+      
       .subscribe((res) => {
         if (res) {
           this.supa
-            .deleteJournal(id)
+            .deleteJournal(id)            
             .then(() => {
-              this.fetchJournals();
+              this.fetchJournals(); 
+              window.location.reload();   // Bonne solution ??           
             })
             .catch((error) => {
               console.log(error);
             });
-        }
-      });
+          }
+        });        
   }
 }
 
