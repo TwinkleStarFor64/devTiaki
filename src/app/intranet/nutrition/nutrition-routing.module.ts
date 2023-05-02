@@ -12,7 +12,8 @@ const routes: Routes = [
     {path:'journal-Repas', component:JournalRepasComponent},
     {path:'ingredients' , component:IngredientsComponent},
     {path:'menus', component: MenusComponent},
-    {path:'plats' , component:PlatsComponent}
+    {path:'plats' , component:PlatsComponent},
+    {path:'recettes' , component:RecettesComponent},
   ];
 
 

@@ -1,22 +1,46 @@
-<section id="exercices">
+<section id="recettes">
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
-    <p>Optométrie ></p>
-    <p>Le parcours de Cheer Émilie</p>
+    <p>Les recettes</p>
   </header>
-  <section class="exercice">
-    <article *ngFor="let exercice of exercices">
-      <img [src]="exercice.photo" alt="photo-exercice" />
-      <h6>{{ exercice.titre }}</h6>
-      <p>{{ exercice.description }}</p>
+  <article>
+    <form  class="example-form" >
+      <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche libre" [formControl]="control" />
+        <mat-option></mat-option>
+    </form>
+    <!-- <app-input></app-input> -->
+    <input type="checkbox" id="input-ckeckbox" name="observations" value="observation" />
+    <label for="input-ckeckbox">Tenir comptes de mes observations</label>
+    <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
+    <label for="jamaisFait">Jamais faites </label>
+  </article>
+  <section>
+    <article *ngFor="let recette of recettes.recettes">
+      <div class="photo-recettes">
+        <img [src]="recette.photo" alt="photo-recette">
+      </div>
       <div>
-        <img [src]="exercice.horloge" alt="horloge" />
-        <p>Durée</p>
-        <img [src]="exercice.materiel" alt="materiel" />
-        <p>Matériels</p>
+        <h6>{{ recette.titre }}</h6>
+        <div>
+          <div>
+            <img [src]="recette.preparationFig" alt="homme-casque" />
+            <p>{{ recette.preparationTxt }}</p>
+          </div>
+          <div>
+            <img [src]="recette.ingredientsFig" alt="plus/moins" />
+            <p>{{ recette.ingredientsTxt }}</p>
+          </div>
+          <div>
+            <img [src]="recette.valeurFig" alt="horloge" />
+            <p>{{ recette.valeurTxt }}</p>
+          </div>
+          <div>
+            <img [src]="recette.complexiteFig" alt="complexité" />
+            <p>{{ recette.complexiteTxt }}</p>
+          </div>
+        </div>
       </div>
     </article>
   </section>
 </section>
- <app-bottom-bar-nutri></app-bottom-bar-nutri>
-
+<app-bottom-bar-nutri></app-bottom-bar-nutri>

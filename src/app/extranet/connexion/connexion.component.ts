@@ -22,5 +22,6 @@ export class ConnexionComponent implements OnInit {
    // Méthode pour afficher l'états des données
   dataObject(){
     console.log(this.conn.connexion);
-  }   
+  }
+ 
 }

@@ -1,27 +1,27 @@
-  <section id="exercices">
-    <header id="head">
-      <a routerLink="/intranet">Tiaki</a>
-      <p>Kinésithérapie ></p>
-      <img [src]="avatar" />
-      <p>Le parcours de Cheer Émilie</p>
-    </header>
-    <section class="exercice">
-      <article *ngFor="let exercice of exercices">
-        <div class="photo-exo">
-          <img [src]="exercice.photo" alt="photo-exercice">
-        </div>
+<section id="exercices">
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>Kinésithérapie ></p>
+    <img [src]="avatar" />
+    <p>Le parcours de Cheer Émilie</p>
+  </header>
+  <section>
+    <article *ngFor="let exercice of exerciceKine.exerciceKine">
+      <div class="photo-exo">
+        <img [src]="exercice.photo" alt="photo-exercice">
+      </div>
+      <div>
+        <h6>{{ exercice.titre }}</h6>
+        <p>{{ exercice.description }}</p>
         <div>
-          <h6>{{ exercice.titre }}</h6>
-          <p>{{ exercice.description }}</p>
-          <div>
-            <img [src]="exercice.horloge" alt="horloge" />
-            <p>Durée</p>
-            <img [src]="exercice.materiel" alt="materiel" />
-            <p>Matériels</p>
-          </div>
+          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+          <p>Durée</p>
+          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+          <p>Matériels</p>
         </div>
-      </article>
-    </section>
+      </div>
+    </article>
   </section>
+</section>
 <app-bottom-bar-kine></app-bottom-bar-kine>
 <!-- <app-footer></app-footer> -->

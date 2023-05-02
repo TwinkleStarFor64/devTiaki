@@ -1,0 +1,99 @@
+[
+    {
+        "photo":"assets/imgRecettes/plat1.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+        
+    },
+    {
+        "photo":"assets/imgRecettes/plat2.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat3.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat4.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat5.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat6.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat7.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    },
+    {
+        "photo":"assets/imgRecettes/plat8.svg",
+        "titre":"Un truc avec des légumes",
+        "preparationFig":"assets/imgRecettes/man.svg",
+        "preparationTxt":"Temps de préparation",
+        "ingredientsFig":"assets/imgRecettes/plus.svg",
+        "ingredientsTxt":"Ingrédients",
+        "valeurFig":"assets/imgRecettes/horloge.svg",
+        "valeurTxt":"Valeur nutritionelle",
+        "complexiteFig":"assets/imgRecettes/complex.svg",
+        "complexiteTxt":"Compléxité"
+    }
+]
