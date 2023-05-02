@@ -70,21 +70,11 @@ export interface BottomI {
   export interface RelierI{
      nom:string
   }
-}
 //Interface de l'aside-bar servant à naviguer sur l'application
 export interface AsideI {
     nom?: string,
     image: string,
     url: string
-}
-//Interface de la page Journal 
-export interface HistoriqueJournalI {
-    id?: number,
-    date:Date,
-    objet:string,
-    description:string,
-    commentaire:string,
-    //journalPrecedent:Array<HistoriqueI>
 }
 //Interface de la page historique des journaux
 export interface HistoriqueI {
