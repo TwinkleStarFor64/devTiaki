@@ -94,7 +94,6 @@ export class SupabaseService {
       .select(
         'id, date, objet, description, commentaire, groupeEvenement (id)'
       ); //Les données que je select sur cette table
-    //.eq('groupeEvenement (id)', 23)
   }
 
   //Je récupére les données de la BDD supaBase
@@ -105,7 +104,9 @@ export class SupabaseService {
       .select(
         'id, date, objet, description, commentaire, groupeEvenement (id)'
       )
+      // L'id de la colone groupeEvenement correspond à l'id groupeEvenement du journal afficher - filtrer avec .eq
       .eq('groupeEvenement (id)', groupeEvenementId)
+      // L'id du journal afficher est filter avec .neq pour ne pas l'afficher dans le html
       .neq('id', journalEvenementId);
   }
 
