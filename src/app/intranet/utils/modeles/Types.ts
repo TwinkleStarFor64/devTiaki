@@ -22,8 +22,7 @@ export interface CiqualI {
     ["Magnésium (mg\/100 g)"]:string,
     ["Potassium (mg\/100 g)"]:string,
     ["Cuivre (mg\/100 g)"]:string,
-    ["Manganèse (mg\/100 g)"]:string,
-     
+    ["Manganèse (mg\/100 g)"]:string,   
 }
 // Interface pour les pages programmes
 export interface ProgrammeI {
@@ -42,7 +41,7 @@ export interface MesPlatsI {
     alim_code:number,
     reaction?:string
 }
-
+// interface pour 
 export interface MesMenusI {
     id:number,
     nom:string,

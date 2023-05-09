@@ -100,4 +100,7 @@ export class ProgrammeKineComponent implements OnInit {
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
   }
+  onCarouselItemClick(programme: ProgrammeI) {
+    this.selectedProgrammeKine = programme;
+  }
 }

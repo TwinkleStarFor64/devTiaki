@@ -39,7 +39,7 @@
           <p>{{ selectedProgrammeKine.materiel }}</p>
         </div>
       </div>
-      <app-carousel></app-carousel>
+      <app-carousel [items]="programmesFiltres" (onSelect)="onSelectProgramme($event)"(carouselItemClick)="onCarouselItemClick($event)" ></app-carousel>
     </article>
   </article>
 </section>
