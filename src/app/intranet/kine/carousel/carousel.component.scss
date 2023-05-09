@@ -10,123 +10,142 @@ $clair: white;
 $sombre: black;
 
 
-:host{
+:host {
+  height: 100%;
+  width: 70%;
+}
+
+// .carousel {
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100%;
+//     width: 100%;
+//     overflow: hidden;
+
+//     .carousel-container {
+//       display: flex;
+//       transition: transform 0.3s ease-in-out;
+//       height: 100%;
+//       width: 100%;
+//     }
+
+//     .carousel-slide {
+//       min-width: 25%;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       margin: 0;
+
+//          img{
+//           max-height: 100%;
+//           max-width: 80%;
+//           display: block;
+//           margin: 0 auto;
+//         }
+//     }
+
+//     .carousel-prev,
+//     .carousel-next {
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       cursor: pointer;
+//       z-index: 10;
+//       padding: 16px;
+//       color: white;
+//       font-size: 32px;
+//       user-select: none;
+//       transition: opacity 0.3s ease-in-out;
+
+//       &:hover {
+//         opacity: 0.8;
+//       }
+//     }
+
+//     .carousel-prev {
+//       left: 0;
+
+//       &::before {
+//         content: "<";
+//         color: $card-kine;
+//       }
+//     }
+
+//     .carousel-next {
+//       right: 0;
+
+//       &::before {
+//         content: ">";
+//         color: $card-kine;
+//       }
+//     }
+// }
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  .carousel-container {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
     height: 100%;
-    width: 70%;
+    width: 100%;
   }
-  .carousel {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    
-      .carousel-container {
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-        height: 100%;
-        width: 100%;
-      }
-    
-      .carousel-slide {
-        min-width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0;
-      
-           img{
-            max-height: 100%;
-            max-width: 80%;
-            display: block;
-            margin: 0 auto;
-          }
-      }
-    
-      .carousel-prev,
-      .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        z-index: 10;
-        padding: 16px;
-        color: white;
-        font-size: 32px;
-        user-select: none;
-        transition: opacity 0.3s ease-in-out;
-    
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-    
-      .carousel-prev {
-        left: 0;
-    
-        &::before {
-          content: "<";
-          color: $card-kine;
-        }
-      }
-    
-      .carousel-next {
-        right: 0;
-    
-        &::before {
-          content: ">";
-          color: $card-kine;
-        }
-      }
+
+  .carousel-slide {
+    flex-shrink: 0;
+    flex-basis: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 100%;
+      max-width: 80%;
+      display: block;
+      margin: 0 auto;
     }
-  
-  // .modal {
-  //   display: none;
-  //   position: fixed;
-  //   z-index: 9999;
-  //   left: 0;
-  //   top: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   overflow: auto;
-  //   background-color: rgba(0, 0, 0, 0.9);
-  
-  //   .modal-content {
-  //     display: flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //     height: 100%;
-  //     width: 100%;
-  
-  //     article {
-  //       max-height: 90%;
-  //       max-width: 90%;
-  
-  //       img,
-  //       video {
-  //         max-height: 100%;
-  //         max-width: 100%;
-  //         display: block;
-  //         margin: 0 auto;
-  //       }
-  //     }
-  //   }
-  
-  //   .close {
-  //     position: absolute;
-  //     top: 10px;
-  //     right: 25px;
-  //     font-size: 35px;
-  //     font-weight: bold;
-  //     color: #f1f1f1;
-  //     cursor: pointer;
-  //     transition: opacity 0.3s ease-in-out;
-  
-  //     &:hover {
-  //       opacity: 0.8;
-  //     }
-  //   }
-  // }
-  
+  }
+
+  .carousel-prev,
+  .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    padding: 16px;
+    color: white;
+    font-size: 32px;
+    user-select: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .carousel-prev {
+    left: 0;
+
+    &::before {
+      content: "<";
+      color: $card-kine;
+    }
+  }
+
+  .carousel-next {
+    right: 0;
+
+    &::before {
+      content: ">";
+      color: $card-kine;
+    }
+  }
+}

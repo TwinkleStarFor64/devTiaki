@@ -7,7 +7,7 @@
   <article>
     <form  class="example-form" >
       <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche libre" [formControl]="control" 
-        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()" />
+        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()" [value]="selectedImageTitle" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
           (mouseover)="hoverSelectedProgramme(programme)">

@@ -21,6 +21,8 @@ export class ProgrammeKineComponent implements OnInit {
   selectedProgrammeKine?: ProgrammeI;
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
+  selectedImageTitle: string = '';
+
 
   constructor(public sanitizer: DomSanitizer, public modalService: ModalService, public programmeKine: ProgrammeKineService) { }
 
@@ -102,5 +104,6 @@ export class ProgrammeKineComponent implements OnInit {
   }
   onCarouselItemClick(programme: ProgrammeI) {
     this.selectedProgrammeKine = programme;
+    this.selectedImageTitle = programme.titre;
   }
 }
