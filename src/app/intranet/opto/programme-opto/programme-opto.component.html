@@ -8,22 +8,48 @@
   <!-- Article contenant le formulaire permettant de rechercher les programmes -->
   <article>
     <form class="example-form">
-      <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche" [formControl]="control"
-        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()"[value]="selectedImageTitle"/>
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
-          (mouseover)="hoverSelectedProgramme(programme)">
+      <input
+        id="input-programmes"
+        class="example-input"
+        type="search"
+        name="myProg"
+        placeholder="Recherche"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerProgrammes()"
+        (click)="allProgrammes()"
+        [value]="selectedImageTitle"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
+          *ngFor="let programme of programmesFiltres"
+          [value]="programme"
+          (mouseover)="hoverSelectedProgramme(programme)"
+        >
           {{ programme.titre }}
         </mat-option>
       </mat-autocomplete>
     </form>
-    <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="jamaisFait"
+      value="jamaisFait"
+    />
     <label for="jamaisFait">Tenir comptes de mes observations </label>
-    <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="jamaisFait"
+      value="jamaisFait"
+    />
     <label for="jamaisFait">Jamais faites </label>
   </article>
   <article></article>
-<!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
+  <!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
   <article *ngIf="selectedProgrammeOpto; selectedProgramme">
     <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
     <article>
@@ -41,7 +67,11 @@
           <p>{{ selectedProgrammeOpto.materiel }}</p>
         </div>
       </div>
-      <app-carousel-opto  [items]="programmesFiltres" (onSelect)="onSelectProgramme($event)"(carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+      <app-carousel-opto
+        [items]="programmesFiltres"
+        (onSelect)="onSelectProgramme($event)"
+        (carouselItemClick)="onCarouselItemClick($event)"
+      ></app-carousel-opto>
     </article>
   </article>
 </section>

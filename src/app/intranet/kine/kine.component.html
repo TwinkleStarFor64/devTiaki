@@ -1,18 +1,17 @@
 <section id="accueil">
-    <header id="head">
-      <a routerLink="/intranet">Tiaki</a>
-      <p>Kinésithérapie</p>
-    </header>
-    <section>
-      <article *ngFor="let card of cards">
-        <h2>{{ card.title }}</h2>
-        <p>{{ card.text }}</p>
-        <a [routerLink]="[card.url]">
-          <button>{{ card.button }}</button>
-        </a>
-        <img [src]="card.image" alt="photo" />
-      </article>
-    </section>
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>Kinésithérapie</p>
+  </header>
+  <section>
+    <article *ngFor="let card of cards">
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.text }}</p>
+      <a [routerLink]="[card.url]">
+        <button>{{ card.button }}</button>
+      </a>
+      <img [src]="card.image" alt="photo" />
+    </article>
   </section>
+</section>
 <app-bottom-bar-kine></app-bottom-bar-kine>
-

@@ -9,12 +9,12 @@ import { MatSelect } from '@angular/material/select';
 @Component({
   selector: 'app-programme-kine',
   templateUrl: './programme-kine.component.html',
-  styleUrls: ['./programme-kine.component.scss']
+  styleUrls: ['./programme-kine.component.scss'],
 })
 export class ProgrammeKineComponent implements OnInit {
   avatar!: string;
-  selectedMedia: { type: string, url: string } | null = null;
-  mediaList: { type: string, url: string }[] = [];
+  selectedMedia: { type: string; url: string } | null = null;
+  mediaList: { type: string; url: string }[] = [];
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
@@ -23,8 +23,11 @@ export class ProgrammeKineComponent implements OnInit {
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-
-  constructor(public sanitizer: DomSanitizer, public modalService: ModalService, public programmeKine: ProgrammeKineService) { }
+  constructor(
+    public sanitizer: DomSanitizer,
+    public modalService: ModalService,
+    public programmeKine: ProgrammeKineService
+  ) {}
 
   showMedia(i: number) {
     this.selectedMedia = this.mediaList[i];
@@ -37,7 +40,6 @@ export class ProgrammeKineComponent implements OnInit {
       this.programmeKine.programme = programmes;
       this.control = new FormControl('');
     });
-
   }
   //  méthode permettant de filtrer les programmes lorsqu'on utilise l'input
   filtrerProgrammes(): void {
@@ -102,6 +104,7 @@ export class ProgrammeKineComponent implements OnInit {
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
   }
+  // methode permettent de récupérer les programmes et les titre des programmes
   onCarouselItemClick(programme: ProgrammeI) {
     this.selectedProgrammeKine = programme;
     this.selectedImageTitle = programme.titre;

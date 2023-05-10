@@ -7,17 +7,19 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
 
-#recettes > #head > a ,#recettes > #head > p {
+#recettes>#head>a,
+#recettes>#head>p {
   color: $card-nutri;
 }
-#recettes{
+
+#recettes {
   ::-webkit-scrollbar {
     background-color: #f09c94;
     width: 10px;
   }
+
   ::-webkit-scrollbar-thumb {
     height: 200px;
     background-color: #f22f1d;
   }
 }
-

@@ -13,7 +13,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +20,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     InfosComponent,
     MentionsLegalesComponent,
     RgpdComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +33,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

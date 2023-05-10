@@ -10,12 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
-
 
 @NgModule({
   declarations: [
@@ -36,11 +35,8 @@ import { DeleteComponent } from './dialog/delete/delete.component';
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
   ],
-  entryComponents: [
-    DeleteComponent
-  ]
-  
+  entryComponents: [DeleteComponent],
 })
-export class OutilsModule { }
+export class OutilsModule {}

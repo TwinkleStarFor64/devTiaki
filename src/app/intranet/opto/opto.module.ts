@@ -7,12 +7,10 @@ import { ProgressionOptoComponent } from './progression-opto/progression-opto.co
 import { BottomBarOptoComponent } from './bottom-bar-opto/bottom-bar-opto.component';
 import { ProgrammeOptoPipe } from '../utils/pipes/programme-opto.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 import { OptoComponent } from './opto.component';
-
-
 
 @NgModule({
   declarations: [
@@ -31,7 +29,6 @@ import { OptoComponent } from './opto.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
-
-  ]
+  ],
 })
-export class OptoModule { }
+export class OptoModule {}

@@ -20,16 +20,16 @@ import { InputComponent } from '../template/ui/input/input.component';
     CarouselComponent,
     KineComponent,
     BottomBarKineComponent,
-    InputComponent
+    InputComponent,
   ],
-  
+
   imports: [
     CommonModule,
     KineRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatSelectModule,   
-  ]
+    MatSelectModule,
+  ],
 })
-export class KineModule { }
+export class KineModule {}

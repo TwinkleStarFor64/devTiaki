@@ -5,14 +5,12 @@ import { ExerciceOptoService } from '../exercice-opto/services/exercice-opto.ser
 @Component({
   selector: 'app-progression-opto',
   templateUrl: './progression-opto.component.html',
-  styleUrls: ['./progression-opto.component.scss']
+  styleUrls: ['./progression-opto.component.scss'],
 })
 export class ProgressionOptoComponent implements OnInit {
+  avatar!: string;
 
-  avatar!:string;
-  
-
-  constructor(public exerciceOpto:ExerciceOptoService) { }
+  constructor(public exerciceOpto: ExerciceOptoService) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';

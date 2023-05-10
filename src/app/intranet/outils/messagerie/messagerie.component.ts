@@ -5,14 +5,13 @@ import { MessagerieService } from './services/messagerie.service';
 @Component({
   selector: 'app-messagerie',
   templateUrl: './messagerie.component.html',
-  styleUrls: ['./messagerie.component.scss']
+  styleUrls: ['./messagerie.component.scss'],
 })
 export class MessagerieComponent implements OnInit {
-
   public medecinImg!: string;
   public blackMedecinImg!: string;
   public realisationImg!: string;
-  
+
   public medecins: MedecinI[] = [
     {
       nom: 'Martin Genoise',
@@ -40,7 +39,7 @@ export class MessagerieComponent implements OnInit {
     },
   ];
 
-  constructor(public echanges:MessagerieService) { }
+  constructor(public echanges: MessagerieService) {}
 
   ngOnInit(): void {
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
@@ -48,5 +47,4 @@ export class MessagerieComponent implements OnInit {
     this.blackMedecinImg = 'assets/imageOutils/blackMedecin.svg';
     this.echanges.getNomOrga();
   }
-
 }

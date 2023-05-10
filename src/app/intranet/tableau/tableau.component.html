@@ -1,100 +1,109 @@
 <section id="tableau">
-    <header id="head">
-        <a routerLink="/intranet">Tiaki</a>
-        <h1>Tableau de bord d'Émilie</h1>
-    </header>
-   <section class="reussite">
-       <article >
-           <div>
-               <img src="assets/imageTableau/fete.svg" alt="fete">
-               <h2>Génial c'est réussi !</h2>
-           </div>
-           <div>
-               <img src="assets/imageTableau/medaille.svg" alt="medaille">
-               <ul *ngFor="let reussite of tableaux.tableauReussite ">
-                   <li>{{reussite.totalExercice}}</li>
-                   <li>{{reussite.exerciceOptoReussi}}</li>
-                   <li>{{reussite.exerciceKineReussi}}</li>
-                   <li>{{reussite.repasNutri}}</li>
-               </ul>
-           </div>
-       </article>  
-       <article class="encours">
-           <div>
-               <img src="assets/imageTableau/courreur.svg" alt="courreur">
-               <h2>Le travail est en cours</h2>
-           </div>
-           <div>
-               <ul *ngFor="let enCours of tableaux.tableauEnCours ">
-                   <li>{{enCours.exerciceEnCours}}</li>
-                   <li>{{enCours.progressionOpto}}</li>
-                   <li>{{enCours.progressionNutri}}</li>
-               </ul>
-           </div>
-       </article>
-   </section> 
-    <article class="middleBar">
-        <h3>Historique des événements</h3>
-        <h3>Médecins</h3>
-        <h3>Problèmes particuliers</h3>
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <h1>Tableau de bord d'Émilie</h1>
+  </header>
+  <section class="reussite">
+    <article>
+      <div>
+        <img src="assets/imageTableau/fete.svg" alt="fete" />
+        <h2>Génial c'est réussi !</h2>
+      </div>
+      <div>
+        <img src="assets/imageTableau/medaille.svg" alt="medaille" />
+        <ul *ngFor="let reussite of tableaux.tableauReussite">
+          <li>{{ reussite.totalExercice }}</li>
+          <li>{{ reussite.exerciceOptoReussi }}</li>
+          <li>{{ reussite.exerciceKineReussi }}</li>
+          <li>{{ reussite.repasNutri }}</li>
+        </ul>
+      </div>
     </article>
-<section class="column">
-    <article class="infoColumn" *ngFor="let liste of tableaux.tableauBordHistorique ">
-        <h4>Pour la nutrition</h4>
-        <ul>
-            <li>{{liste.histoNutri}}</li>
+    <article class="encours">
+      <div>
+        <img src="assets/imageTableau/courreur.svg" alt="courreur" />
+        <h2>Le travail est en cours</h2>
+      </div>
+      <div>
+        <ul *ngFor="let enCours of tableaux.tableauEnCours">
+          <li>{{ enCours.exerciceEnCours }}</li>
+          <li>{{ enCours.progressionOpto }}</li>
+          <li>{{ enCours.progressionNutri }}</li>
         </ul>
-        <h4>Sur la kiné</h4>
-        <ul>
-            <li>{{liste.histoKine}}</li>
-            <li>Planche bien soutenue</li>
-        </ul>
-        <h4>La vision et l'optométrie</h4>
-        <ul>
-            <li>{{liste.histoOpto}}</li>
-            <li>Planche bien soutenue</li>
-        </ul>
+      </div>
     </article>
-    <article class="infoColumn" *ngFor="let liste of tableaux.tableauBordMedecin">
-        <h4>Pour la nutrition</h4>
-        <ul>
-            <li>{{liste.medecinNutri}}</li>
-        </ul>
-        <h4>Sur la kiné</h4>
-        <ul>
-            <li>{{liste.general}}</li>
-            <li>Docteur Sebastian</li>
-        </ul>
-        <h4>La vision et l'optométrie</h4>
-        <ul>
-            <li>{{liste.medecinOpto}}</li>
-            <li>Docteur CHAN</li>
-        </ul>
+  </section>
+  <article class="middleBar">
+    <h3>Historique des événements</h3>
+    <h3>Médecins</h3>
+    <h3>Problèmes particuliers</h3>
+  </article>
+  <section class="column">
+    <article
+      class="infoColumn"
+      *ngFor="let liste of tableaux.tableauBordHistorique"
+    >
+      <h4>Pour la nutrition</h4>
+      <ul>
+        <li>{{ liste.histoNutri }}</li>
+      </ul>
+      <h4>Sur la kiné</h4>
+      <ul>
+        <li>{{ liste.histoKine }}</li>
+        <li>Planche bien soutenue</li>
+      </ul>
+      <h4>La vision et l'optométrie</h4>
+      <ul>
+        <li>{{ liste.histoOpto }}</li>
+        <li>Planche bien soutenue</li>
+      </ul>
     </article>
-    <article class="infoColumn" *ngFor="let liste of tableaux.tableauBordProbleme">
-        <h4>Pour la nutrition</h4>
-        <ul>
-            <li>{{liste.problemeNutri}}</li>
-        </ul>
-        <h4>Sur la kiné</h4>
-        <ul>
-            <li>{{liste.problemeKine}}</li>
-            <li>Docteur Sebastian</li>
-        </ul>
-        <h4>La vision et l'optométrie</h4>
-        <ul>
-            <li>{{liste.problemeOpto}}</li>
-            <li>Docteur CHAN</li>
-        </ul>
+    <article
+      class="infoColumn"
+      *ngFor="let liste of tableaux.tableauBordMedecin"
+    >
+      <h4>Pour la nutrition</h4>
+      <ul>
+        <li>{{ liste.medecinNutri }}</li>
+      </ul>
+      <h4>Sur la kiné</h4>
+      <ul>
+        <li>{{ liste.general }}</li>
+        <li>Docteur Sebastian</li>
+      </ul>
+      <h4>La vision et l'optométrie</h4>
+      <ul>
+        <li>{{ liste.medecinOpto }}</li>
+        <li>Docteur CHAN</li>
+      </ul>
     </article>
-</section>    
+    <article
+      class="infoColumn"
+      *ngFor="let liste of tableaux.tableauBordProbleme"
+    >
+      <h4>Pour la nutrition</h4>
+      <ul>
+        <li>{{ liste.problemeNutri }}</li>
+      </ul>
+      <h4>Sur la kiné</h4>
+      <ul>
+        <li>{{ liste.problemeKine }}</li>
+        <li>Docteur Sebastian</li>
+      </ul>
+      <h4>La vision et l'optométrie</h4>
+      <ul>
+        <li>{{ liste.problemeOpto }}</li>
+        <li>Docteur CHAN</li>
+      </ul>
+    </article>
+  </section>
 </section>
 <footer>
-    <article *ngFor="let liste of tableaux.bottomBarTableau">
-        <h5>{{liste.titre}}</h5>
-        <ul>
-            <li>{{liste.firstInfo}}</li>
-            <li>{{liste.secondInfo}}</li>
-        </ul>
-    </article>
+  <article *ngFor="let liste of tableaux.bottomBarTableau">
+    <h5>{{ liste.titre }}</h5>
+    <ul>
+      <li>{{ liste.firstInfo }}</li>
+      <li>{{ liste.secondInfo }}</li>
+    </ul>
+  </article>
 </footer>

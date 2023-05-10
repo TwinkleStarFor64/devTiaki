@@ -5,13 +5,21 @@
   </header>
   <section id="sectionPrincipale">
     <article id="listePlats">
-      <button id="ajoutButton" mat-raised-button color="primary">1 - Ajouter un nouveau menu</button>
+      <button id="ajoutButton" mat-raised-button color="primary">
+        1 - Ajouter un nouveau menu
+      </button>
       <!-- <button>1 - Ajouter un nouveau menu</button> -->
-      <a routerLink="/intranet/nutrition/recettes"><h1>Reprendre un repas précédent</h1></a>
+      <a routerLink="/intranet/nutrition/recettes"
+        ><h1>Reprendre un repas précédent</h1></a
+      >
       <article id="evalBouton">
-        <button mat-raised-button color="primary">Menus évalués et validés</button>
+        <button mat-raised-button color="primary">
+          Menus évalués et validés
+        </button>
         <button mat-raised-button color="primary">Menus non évalués</button>
-        <button mat-raised-button color="primary">Menus évalués et problématiques</button>
+        <button mat-raised-button color="primary">
+          Menus évalués et problématiques
+        </button>
       </article>
       <article id="listing">
         <div *ngFor="let menus of repas">
@@ -19,70 +27,76 @@
           <p>{{ menus.description }}</p>
           <div>
             <button mat-raised-button color="primary">Evaluer ce menu</button>
-            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" >
+            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
             <p>Durée</p>
-            <img src="assets/photoNutri/casserole.svg" alt="matériel">
+            <img src="assets/photoNutri/casserole.svg" alt="matériel" />
             <p id="dashed">Matériels</p>
           </div>
         </div>
       </article>
     </article>
     <article>
-        <h3>2 - Ajouter un menu</h3>
+      <h3>2 - Ajouter un menu</h3>
       <div id="selectBalise">
-        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout">
+        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout" />
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
-            <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
+            <mat-option
+              *ngFor="let menus of repas"
+              [value]="menus.nom"
+              (onSelectionChange)="onSelect($event, menus)"
+            >
               {{ menus.nom }}
             </mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
-          <mat-label>LES MENUS DE LA COMMUNAUTÉ</mat-label> 
-          <mat-select>
-          </mat-select>
+          <mat-label>LES MENUS DE LA COMMUNAUTÉ</mat-label>
+          <mat-select> </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>ALLERGIES D'ÉMILIE</mat-label>
-          <mat-select>
-          </mat-select>
+          <mat-select> </mat-select>
         </mat-form-field>
       </div>
       <span *ngIf="selectedRepas">
         <h4>{{ selectedRepas.nom }}</h4>
         <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
-      <div>
-        <p>Ingrédients</p>
-        <p>Quantités</p>
-        <p>Valeurs nutrionnelles</p>
-        <p>Allèrgenes</p>
-        <p>Retour de la communauté</p>
-      </div>
-      <span *ngFor="let ingredients of aliment | ingredients:alimCodeFiltre">
-        <p>{{ ingredients.alim_nom_fr}}</p>  
-        <p> <img src="assets/photoNutri/compl.svg" alt="icône composition">
-          Composition : Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
-          Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
-          Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
-          Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
-        </p>      
-      </span>
+        <textarea name="" id="" cols="30" rows="5">{{
+          selectedRepas.description
+        }}</textarea>
+        <div>
+          <p>Ingrédients</p>
+          <p>Quantités</p>
+          <p>Valeurs nutrionnelles</p>
+          <p>Allèrgenes</p>
+          <p>Retour de la communauté</p>
+        </div>
+        <span
+          *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre"
+        >
+          <p>{{ ingredients.alim_nom_fr }}</p>
+          <p>
+            <img src="assets/photoNutri/compl.svg" alt="icône composition" />
+            Composition : Protéines :
+            {{ ingredients["Protéines, N x 6.25 (g\/100 g)"] }} Gr - Glucides :
+            {{ ingredients["Glucides (g\/100 g)"] }} Gr - Lipide :
+            {{ ingredients["Lipides (g\/100 g)"] }} Gr - Sucre :
+            {{ ingredients["Sucres (g/100 g)"] }} Gr
+          </p>
+        </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
-          <mat-select>
-          </mat-select>
+          <mat-select> </mat-select>
         </mat-form-field>
-      <div id="boutonPageMenus">
-        <button mat-raised-button color="primary">ANNULER</button>
-        <button mat-raised-button color="primary">VALIDER</button>
-      </div>
+        <div id="boutonPageMenus">
+          <button mat-raised-button color="primary">ANNULER</button>
+          <button mat-raised-button color="primary">VALIDER</button>
+        </div>
       </span>
     </article>
     <!-- <app-footer></app-footer> -->
   </section>
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>
-

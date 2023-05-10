@@ -4,22 +4,39 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { IntranetComponent } from './intranet.component';
 import { TableauComponent } from './tableau/tableau.component';
 
-
 const routes: Routes = [
-    {path:'', component:IntranetComponent, children:[
-      {path:'', component: AccueilComponent},
-      {path:'tableau', component: TableauComponent},
-      {path:'kine', loadChildren: () =>  import('./kine/kine.module').then( m => m.KineModule)},
-      {path:'opto', loadChildren: () =>  import('./opto/opto.module').then( m => m.OptoModule)},
-      {path:'nutrition', loadChildren: () =>  import('./nutrition/nutrition.module').then( m => m.NutritionModule)},
-      {path:'outils', loadChildren: () =>  import('./outils/outils.module').then( m => m.OutilsModule)}
-    ] },
-
-]
-
+  {
+    path: '',
+    component: IntranetComponent,
+    children: [
+      { path: '', component: AccueilComponent },
+      { path: 'tableau', component: TableauComponent },
+      {
+        path: 'kine',
+        loadChildren: () =>
+          import('./kine/kine.module').then((m) => m.KineModule),
+      },
+      {
+        path: 'opto',
+        loadChildren: () =>
+          import('./opto/opto.module').then((m) => m.OptoModule),
+      },
+      {
+        path: 'nutrition',
+        loadChildren: () =>
+          import('./nutrition/nutrition.module').then((m) => m.NutritionModule),
+      },
+      {
+        path: 'outils',
+        loadChildren: () =>
+          import('./outils/outils.module').then((m) => m.OutilsModule),
+      },
+    ],
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class IntranetRoutingModule { }
+export class IntranetRoutingModule {}

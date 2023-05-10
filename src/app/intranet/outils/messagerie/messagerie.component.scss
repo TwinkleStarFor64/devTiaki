@@ -9,107 +9,126 @@ $historique: #F8E6AF;
 
 // CSS pour la scrollbar
 ::-webkit-scrollbar {
-    
+
     background-color: #fddd4c;
     width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
     height: 200px;
     background-color: #f5d20a;
 }
 
 #mainMessagerie {
-  font-family: $font-family;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;    
-}    
+    font-family: $font-family;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
 
 // Section permettant de voir l'historique des messages
-section:nth-child(2){
-  background-color: $historique;
-  width: 13%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;        
-      div{
-          margin-top: 2vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          height: 18%;
-          justify-content: flex-end;
-          gap: 1vw;
-          img{ // L'image de médecin noir
-              height: 4vw;              
-          }
-          p{ // La balise <p>Historiques des messages</p>
-              font-size: 1rem;
-              font-weight: 600;
-              margin: 4px;
-              width: 100%;
-              @media screen and (max-width: 1200px) { 
-                  font-size: 0.9rem;                       
-              }
-          }
-      }
-      ul{
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: flex-start;
-          height: 30%;
-          li{
-              text-align: center;
-              font-size: 1rem;
-              @media only screen and (max-width: 1280px) {
-                  font-size: 0.8rem;
-              }                    
-          }
-      }            
-  }
+section:nth-child(2) {
+    background-color: $historique;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    div {
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 18%;
+        justify-content: flex-end;
+        gap: 1vw;
+
+        img {
+            // L'image de médecin noir
+            height: 4vw;
+        }
+
+        p {
+            // La balise <p>Historiques des messages</p>
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 4px;
+            width: 100%;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        height: 30%;
+
+        li {
+            text-align: center;
+            font-size: 1rem;
+
+            @media only screen and (max-width: 1280px) {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
 
 // Section avec le formulaire d'envoi de message
-  section:nth-child(3) {
+section:nth-child(3) {
     width: 74%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
 
-    h3 { // La balise <h3>Envoyer un message</h3>
+    h3 {
+        // La balise <h3>Envoyer un message</h3>
         align-self: flex-start;
         font-size: 2rem;
         font-weight: 400;
         color: $aside-color3;
         margin-left: 50px;
-            &::after {
-                content: "  ......";
-            }
+
+        &::after {
+            content: "  ......";
+        }
     }
 
-    span { // La balise span contenant les input
+    span {
+        // La balise span contenant les input
         margin-top: 5vh;
         width: 50%;
         display: flex;
         flex-direction: column;
         gap: 2vh;
 
-        input { // CSS pour tout les input
+        input {
+            // CSS pour tout les input
             height: 4vh;
             font-size: 1vw;
             font-family: $font-family;
         }
-        input:nth-child(1) { // Le premier input "Selectionner un médecin"
+
+        input:nth-child(1) {
+            // Le premier input "Selectionner un médecin"
             width: 45%;
         }
+
         textarea {
             font-size: 1vw;
             font-family: $font-family;
             min-height: 8vh;
         }
     }
-    div { // La div contenant les 2 boutons (Annuler & Envoyer) 
+
+    div {
+        // La div contenant les 2 boutons (Annuler & Envoyer) 
         width: 60%;
         display: flex;
         flex-direction: row;
@@ -118,20 +137,23 @@ section:nth-child(2){
         margin-top: 5vh;
         margin-bottom: 2vh;
 
-        button:nth-child(1) { // Le bouton jaune Annuler
+        button:nth-child(1) {
+            // Le bouton jaune Annuler
             width: 6vw;
             height: 3.5vh;
             background-color: #f0c02e;
             border-color: #f0c02e;
             color: white;
         }
-        button:nth-child(2) { // Le bouton vert Envoyer
+
+        button:nth-child(2) {
+            // Le bouton vert Envoyer
             width: 6vw;
             height: 3.5vh;
             background-color: #33BB27;
             border-color: #33BB27;
             color: white;
         }
-        
+
     }
-  }
+}

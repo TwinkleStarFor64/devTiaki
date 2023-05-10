@@ -4,15 +4,14 @@ import { Observable } from 'rxjs';
 import { ProgrammeI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProgrammeOptoService {
-
-  programme:ProgrammeI[] = [];
+  programme: ProgrammeI[] = [];
 
   private programmeUrl = 'assets/data/dataOpto.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProgrammeOpto(): Observable<ProgrammeI[]> {
     return this.http.get<ProgrammeI[]>(this.programmeUrl);

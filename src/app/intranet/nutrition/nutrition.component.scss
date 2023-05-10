@@ -16,26 +16,28 @@ section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
 
-  #head{
+  #head {
     flex-flow: column nowrap;
   }
 
-  #head > p{
+  #head>p {
     color: $card-kine;
     font-size: 3rem;
     font-weight: 300;
   }
 
-  #head > a:nth-child(1) {
+  #head>a:nth-child(1) {
     color: $card-kine;
   }
 }
-#accueil > section:nth-child(2) {
+
+#accueil>section:nth-child(2) {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
   height: 100%;
 }
+
 #accueil>section:nth-child(2)>article {
   flex-direction: column;
   justify-content: space-between;
@@ -50,8 +52,9 @@ section {
   &:hover {
     transform: translateY(-3vw);
   }
-    button {
-      color: $card-nutri;
-      border-color: $card-nutri;
-    }
+
+  button {
+    color: $card-nutri;
+    border-color: $card-nutri;
+  }
 }

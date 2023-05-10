@@ -3,23 +3,19 @@ import { Injectable } from '@angular/core';
 import { BottomI } from '../../modeles/Types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KineService {
+  bottomKine: BottomI[] = [];
 
-  bottomKine: BottomI[] =[];
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getBottomKine(){
-    this.http.get<BottomI[]>('assets/data/bottomKine.json').subscribe(
-      {
-        next:r => this.bottomKine =r,
-        error:er => console.log(er),
-        complete: () => console.log(this.bottomKine) 
-      }
-    );
-    return this.bottomKine
+  getBottomKine() {
+    this.http.get<BottomI[]>('assets/data/bottomKine.json').subscribe({
+      next: (r) => (this.bottomKine = r),
+      error: (er) => console.log(er),
+      complete: () => console.log(this.bottomKine),
+    });
+    return this.bottomKine;
   }
-
 }

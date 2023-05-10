@@ -5,12 +5,13 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
-$foot:150px;
+$foot: 150px;
 
 ::-webkit-scrollbar {
   background-color: #e7adb7;
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   height: 200px;
   background-color: $card-nutri;
@@ -20,14 +21,16 @@ section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
 
-  #head > p{
+  #head>p {
     color: $card-nutri;
   }
-  #head > p:after {
-    content:'   ......';
-    font-size:50%;
-  }  
-  #head > a:nth-child(1) {
+
+  #head>p:after {
+    content: '   ......';
+    font-size: 50%;
+  }
+
+  #head>a:nth-child(1) {
     color: $card-nutri;
   }
 }

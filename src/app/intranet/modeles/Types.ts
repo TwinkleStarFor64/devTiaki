@@ -1,8 +1,8 @@
-//Interface de la page plat 
+//Interface de la page plat
 export interface PlatI {
-    nom: string;
-    description: string;
-    ingredient: Array<IngredientI>;
+  nom: string;
+  description: string;
+  ingredient: Array<IngredientI>;
 }
 //Interface de la page Menu
 /* export interface MenuI {
@@ -13,95 +13,94 @@ export interface PlatI {
 }  */
 //Interface de la page Ingrédient
 export interface IngredientI {
-    nom: string,
-
+  nom: string;
 }
 
 //Interface des exercices servant à l'optométrie et kinésithérapie
 export interface ExerciceI {
-    photo: string,
-    titre: string,
-    description: string,
-    horloge: string,
-    materiel: string
+  photo: string;
+  titre: string;
+  description: string;
+  horloge: string;
+  materiel: string;
 }
 //Interface de la bottom bar servant à naviguer sur les pages de chaque application
 export interface BottomI {
-    image: string,
-    titre: string,
-    info: string,
-    lien: string,
-    url: string,
-    active: boolean,
-    activeUrl?: string;
-  }
- //Interface de l'aside-bar servant à naviguer sur l'application
- export interface AsideI {
-    nom?:string,
-    image:string,
-    url:string
- } 
- //Interface de la page Journal 
- export interface HistoriqueJournalI {
-     id: number,
-     date:string,
-     objet:string,
-     description:string,
-     commentaire:string,     
-     groupeEvenement: {
-        id: number 
-     },
-     linkedJournals?: HistoriqueJournalI[],
- }
- 
- //Interface de la page historique des journaux
- export interface HistoriqueI {
-     //journal:Array<JournalI>
- }
- // Interface de la page journal pour les réalisations
- export interface RealisationI{
-     nom:string
-  }
-  //Interface de la page journal pour les Medecins
-  export interface MedecinI{
-     nom:string
-  }
-  //Interface de la page journal 
-  export interface RelierI{
-     nom:string
-  }
+  image: string;
+  titre: string;
+  info: string;
+  lien: string;
+  url: string;
+  active: boolean;
+  activeUrl?: string;
+}
 //Interface de l'aside-bar servant à naviguer sur l'application
 export interface AsideI {
-    nom?: string,
-    image: string,
-    url: string
+  nom?: string;
+  image: string;
+  url: string;
 }
+//Interface de la page Journal
+export interface HistoriqueJournalI {
+  id: number;
+  date: string;
+  objet: string;
+  description: string;
+  commentaire: string;
+  groupeEvenement: {
+    id: number;
+  };
+  linkedJournals?: HistoriqueJournalI[];
+}
+
 //Interface de la page historique des journaux
 export interface HistoriqueI {
-    // journal: Array<JournalI>
+  //journal:Array<JournalI>
 }
 // Interface de la page journal pour les réalisations
 export interface RealisationI {
-    nom: string
+  nom: string;
 }
 //Interface de la page journal pour les Medecins
 export interface MedecinI {
-    nom: string
+  nom: string;
 }
-//Interface de la page journal 
+//Interface de la page journal
 export interface RelierI {
-    nom: string
+  nom: string;
 }
-//Interface des Recettes 
+//Interface de l'aside-bar servant à naviguer sur l'application
+export interface AsideI {
+  nom?: string;
+  image: string;
+  url: string;
+}
+//Interface de la page historique des journaux
+export interface HistoriqueI {
+  // journal: Array<JournalI>
+}
+// Interface de la page journal pour les réalisations
+export interface RealisationI {
+  nom: string;
+}
+//Interface de la page journal pour les Medecins
+export interface MedecinI {
+  nom: string;
+}
+//Interface de la page journal
+export interface RelierI {
+  nom: string;
+}
+//Interface des Recettes
 export interface RecetteI {
-    photo:string,
-    titre:string,
-    preparationFig:string,
-    preparationTxt:string
-    ingredientsFig:string
-    ingredientsTxt:string
-    valeurFig:string
-    valeurTxt:string
-    complexiteFig:string
-    complexiteTxt:string
+  photo: string;
+  titre: string;
+  preparationFig: string;
+  preparationTxt: string;
+  ingredientsFig: string;
+  ingredientsTxt: string;
+  valeurFig: string;
+  valeurTxt: string;
+  complexiteFig: string;
+  complexiteTxt: string;
 }

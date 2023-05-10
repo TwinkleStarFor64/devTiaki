@@ -52,39 +52,36 @@ export class SupabaseService {
 
   // DELETE un journal et son groupe sur la table groupeEvenement
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
-      const { data: journalData, error: journalError } = await this.supabase
+    const { data: journalData, error: journalError } = await this.supabase
+      .from('journalEvenement') // La table journalEvenement
+      .select('groupeEvenement') // Je select la colone groupeEvenement
+      .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
+      .single(); // La méthode "single" est utilisée pour s'assurer que la requête retourne une seule ligne
+
+    if (journalError) {
+      console.log(journalError);
+    }
+
+    // Je recupere tous les journaux qui sont liés à l'ID journalData.groupeEvenement
+    const { data: linkedJournalsData, error: linkedJournalsError } =
+      await this.supabase
         .from('journalEvenement') // La table journalEvenement
-        .select('groupeEvenement') // Je select la colone groupeEvenement
-        .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
-        .single(); // La méthode "single" est utilisée pour s'assurer que la requête retourne une seule ligne
+        .select('id') // Je select la colone id
+        .eq('groupeEvenement', journalData?.groupeEvenement);
 
-      if (journalError) {
-        console.log(journalError);
+    // Si le journal est le seul lié à ce groupe, on supprime le groupe
+    if (linkedJournalsData && linkedJournalsData.length === 1) {
+      const { error: groupError } = await this.supabase
+        .from('groupeEvenement') // La table groupeEvenement
+        .delete() // Je delete
+        .eq('id', journalData?.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
+
+      if (groupError) {
+        console.log(groupError);
       }
+    }
 
-      // Je recupere tous les journaux qui sont liés à l'ID journalData.groupeEvenement
-      const { data: linkedJournalsData, error: linkedJournalsError } =
-        await this.supabase
-          .from('journalEvenement') // La table journalEvenement
-          .select('id') // Je select la colone id
-          .eq('groupeEvenement', journalData?.groupeEvenement);
-
-      // Si le journal est le seul lié à ce groupe, on supprime le groupe
-      if (linkedJournalsData && linkedJournalsData.length === 1) {
-        const { error: groupError } = await this.supabase
-          .from('groupeEvenement') // La table groupeEvenement
-          .delete() // Je delete
-          .eq('id', journalData?.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
-
-        if (groupError) {
-          console.log(groupError);
-        }
-      }
-
-      return await this.supabase
-        .from('journalEvenement')
-        .delete()
-        .eq('id', id);
+    return await this.supabase.from('journalEvenement').delete().eq('id', id);
   }
 
   //Je récupére les données de la BDD supaBase
@@ -97,13 +94,14 @@ export class SupabaseService {
   }
 
   //Je récupére les données de la BDD supaBase
-  async getHistoriqueLinkedJournal(groupeEvenementId: number, journalEvenementId: number) {
+  async getHistoriqueLinkedJournal(
+    groupeEvenementId: number,
+    journalEvenementId: number
+  ) {
     // Renvoi tous les journaux qui sont liés au groupe sauf celui "jounalEvenementId"
     return await this.supabase
       .from('journalEvenement') //La table journalEvenement
-      .select(
-        'id, date, objet, description, commentaire, groupeEvenement (id)'
-      )
+      .select('id, date, objet, description, commentaire, groupeEvenement (id)')
       // L'id de la colone groupeEvenement correspond à l'id groupeEvenement du journal afficher - filtrer avec .eq
       .eq('groupeEvenement (id)', groupeEvenementId)
       // L'id du journal afficher est filter avec .neq pour ne pas l'afficher dans le html

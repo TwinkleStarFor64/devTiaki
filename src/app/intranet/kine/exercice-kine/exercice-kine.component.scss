@@ -6,16 +6,19 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-#exercices > #head > a ,#exercices > #head > p {
-    color: $card-kine;
+#exercices>#head>a,
+#exercices>#head>p {
+  color: $card-kine;
+}
+
+#exercices {
+  ::-webkit-scrollbar {
+    background-color: #f09c94;
+    width: 10px;
   }
-  #exercices{
-    ::-webkit-scrollbar {
-      background-color: #f09c94;
-      width: 10px;
-    }
-    ::-webkit-scrollbar-thumb {
-      height: 200px;
-      background-color: #f22f1d;
-    }
+
+  ::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f22f1d;
   }
+}

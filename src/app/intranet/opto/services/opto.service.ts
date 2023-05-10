@@ -3,22 +3,19 @@ import { BottomI } from '../../modeles/Types';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OptoService {
-  bottomOpto: BottomI[] =[];
+  bottomOpto: BottomI[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getBottomOpto(){
-    this.http.get<BottomI[]>('assets/data/bottomOpto.json').subscribe(
-      {
-        next:r => this.bottomOpto =r,
-        error:er => console.log(er),
-        complete: () => console.log(this.bottomOpto) 
-      }
-    );
-    return this.bottomOpto
+  getBottomOpto() {
+    this.http.get<BottomI[]>('assets/data/bottomOpto.json').subscribe({
+      next: (r) => (this.bottomOpto = r),
+      error: (er) => console.log(er),
+      complete: () => console.log(this.bottomOpto),
+    });
+    return this.bottomOpto;
   }
-
 }

@@ -16,9 +16,7 @@ import { SupabaseService } from 'src/app/services/supabase.service';
   templateUrl: './journal.component.html',
   styleUrls: ['./journal.component.scss'],
 })
-
 export class JournalComponent implements OnInit {
-  
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
   public medecinImg!: string;
   public realisationImg!: string;
@@ -52,13 +50,13 @@ export class JournalComponent implements OnInit {
   ];
 
   formJournal!: FormGroup;
-  
+
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
   public reliers: any[] = []; //
 
-  constructor( private formBuilder: FormBuilder, public supa: SupabaseService ) { }
+  constructor(private formBuilder: FormBuilder, public supa: SupabaseService) {}
 
-  async ngOnInit(): Promise <void> {
+  async ngOnInit(): Promise<void> {
     this.formJournal = this.formBuilder.group({
       objet: [null, [Validators.required]],
       description: [null, [Validators.required]],
@@ -68,7 +66,7 @@ export class JournalComponent implements OnInit {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
-    this.fetchJournals();    
+    this.fetchJournals();
   }
 
   async fetchJournals() {
@@ -83,7 +81,7 @@ export class JournalComponent implements OnInit {
         );
       }
       this.reliers = data; //La variable reliers de type HistoriqueJournalI contient les données de data
-      console.log(this.reliers);//Dans ce log je dois voir tout les journaux de la table journalEvenement      
+      console.log(this.reliers); //Dans ce log je dois voir tout les journaux de la table journalEvenement
     }
     if (error) {
       console.log(error);
@@ -92,31 +90,25 @@ export class JournalComponent implements OnInit {
 
   //Méthode pour enregistrer un journal via le formulaire
   async onSubmitForm() {
-    console.log(this.formJournal.value);  
+    console.log(this.formJournal.value);
     //Ci-dessous j'attribue les valeurs
     const newEntry = {
       objet: this.formJournal.value.objet,
       description: this.formJournal.value.description,
-      commentaire: this.formJournal.value.commentaire,      
-    }
+      commentaire: this.formJournal.value.commentaire,
+    };
     const idRelier = this.formJournal.value.relier;
     //J'utilise la méthode createJournal avec comme paramétre newEntry
     await this.supa.createJournal(newEntry, idRelier).then(() => {
-      this.fetchJournals()
-    }); 
-    this.formJournal.reset()  
+      this.fetchJournals();
+    });
+    this.formJournal.reset();
   }
 
   onCancel() {
-    this.formJournal.reset();    
+    this.formJournal.reset();
   }
-
 }
-
-
-
-
-
 
 //public selectedJournal!: RelierI; //Sur cette variable ne pas oublier le !
 
@@ -126,8 +118,6 @@ export class JournalComponent implements OnInit {
       { nom: 'Journal du 15 Janvier 2022' },
       { nom: 'Journal du 20 Janvier 2022' },
     ]; */
-
-
 
 /* onCancel() {
   this.confirmationService.confirm({

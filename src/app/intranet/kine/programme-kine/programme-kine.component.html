@@ -5,20 +5,46 @@
     <p>Les programmes</p>
   </header>
   <article>
-    <form  class="example-form" >
-      <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche libre" [formControl]="control" 
-        [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()" [value]="selectedImageTitle" />
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
-          (mouseover)="hoverSelectedProgramme(programme)">
+    <form class="example-form">
+      <input
+        id="input-programmes"
+        class="example-input"
+        type="search"
+        name="myProg"
+        placeholder="Recherche libre"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerProgrammes()"
+        (click)="allProgrammes()"
+        [value]="selectedImageTitle"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
+          *ngFor="let programme of programmesFiltres"
+          [value]="programme"
+          (mouseover)="hoverSelectedProgramme(programme)"
+        >
           {{ programme.titre }}
         </mat-option>
       </mat-autocomplete>
     </form>
     <!-- <app-input></app-input> -->
-    <input type="checkbox" id="input-ckeckbox" name="observations" value="observation" />
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="observations"
+      value="observation"
+    />
     <label for="input-ckeckbox">Tenir comptes de mes observations</label>
-    <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="jamaisFait"
+      value="jamaisFait"
+    />
     <label for="jamaisFait">Jamais faites </label>
   </article>
   <article></article>
@@ -39,7 +65,11 @@
           <p>{{ selectedProgrammeKine.materiel }}</p>
         </div>
       </div>
-      <app-carousel [items]="programmesFiltres" (onSelect)="onSelectProgramme($event)"(carouselItemClick)="onCarouselItemClick($event)" ></app-carousel>
+      <app-carousel
+        [items]="programmesFiltres"
+        (onSelect)="onSelectProgramme($event)"
+        (carouselItemClick)="onCarouselItemClick($event)"
+      ></app-carousel>
     </article>
   </article>
 </section>

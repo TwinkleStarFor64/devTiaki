@@ -64,22 +64,24 @@ export class HistoriqueComponent implements OnInit {
     // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
     const { data, error } = await this.supa.getHistoriqueJournal();
 
-    if (data) {               
+    if (data) {
       data.forEach(async (journal: any) => {
-
         const { data: linkedData, error: linkedError } =
-          await this.supa.getHistoriqueLinkedJournal( // La méthode dans supabase.service qui filtre les journaux avec l'id de groupeEvenement
-                                                      // Cette méthode récupére tout les journaux
+          await this.supa.getHistoriqueLinkedJournal(
+            // La méthode dans supabase.service qui filtre les journaux avec l'id de groupeEvenement
+            // Cette méthode récupére tout les journaux
             // Ci-dessous les ID à utiliser pour filtrer
             journal.groupeEvenement.id,
-            journal.id,            
+            journal.id
           );
 
         if (linkedError) console.log(linkedError);
 
         if (linkedData) {
           // Tri des linked journals par date décroissante
-          linkedData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+          linkedData.sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          );
 
           // On affiche l'objet "journal" qui est ajouté au tableau "historiques"
           console.log({
@@ -91,11 +93,12 @@ export class HistoriqueComponent implements OnInit {
             ...journal,
             linkedJournals: linkedData,
             // linkedJournals contient les journaux avec le même ID dans groupeEvenement
-            
           });
           // Tri des objets historiques par date décroissante
-          this.historiques.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        }        
+          this.historiques.sort(
+            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          );
+        }
       });
     }
 
@@ -112,7 +115,8 @@ export class HistoriqueComponent implements OnInit {
     );
   }
 
-  openDialog() { // Modal Material Angular
+  openDialog() {
+    // Modal Material Angular
     return this.dialog.open(DeleteComponent, {
       disableClose: true,
       autoFocus: true,
@@ -125,30 +129,22 @@ export class HistoriqueComponent implements OnInit {
   deleteJournal(id: number) {
     this.openDialog() // La méthode au dessus pour la modal
       .afterClosed()
-      
+
       .subscribe((res) => {
         if (res) {
           this.supa
-            .deleteJournal(id)            
+            .deleteJournal(id)
             .then(() => {
-              this.fetchJournals(); 
-              window.location.reload();   // Bonne solution ??           
+              this.fetchJournals();
+              window.location.reload(); // Bonne solution ??
             })
             .catch((error) => {
               console.log(error);
             });
-          }
-        });        
+        }
+      });
   }
 }
-
-
-
-
-
-
-
-
 
 /* onSelect(journalHisto: HistoriqueJournalI) {
     this.selectedHistorique = journalHisto;
@@ -161,9 +157,6 @@ export class HistoriqueComponent implements OnInit {
     this.selectedId = journalHisto.groupeEvenement.id;
     console.log(this.selectedId);
   } */
-
-
-
 
 //const dialogConfig = new MatDialogConfig();
 

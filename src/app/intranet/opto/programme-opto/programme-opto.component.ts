@@ -18,7 +18,7 @@ export class ProgrammeOptoComponent implements OnInit {
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-  constructor(public programmeOpto: ProgrammeOptoService) { }
+  constructor(public programmeOpto: ProgrammeOptoService) {}
 
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {

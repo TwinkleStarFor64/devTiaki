@@ -15,26 +15,30 @@ section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
 
-  #head > p{
+  #head>p {
     color: $card-nutri;
   }
-  #head > p:after {
-    content:'   ......';
-    font-size:50%;
-  }  
-  #head > a:nth-child(1) {
+
+  #head>p:after {
+    content: '   ......';
+    font-size: 50%;
+  }
+
+  #head>a:nth-child(1) {
     color: $card-nutri;
   }
-  article{
+
+  article {
     width: 100%;
     height: 100%;
     display: flex;
 
-    img:nth-child(1){
-      width:75%;
+    img:nth-child(1) {
+      width: 75%;
       height: 80%;
     }
-    img:nth-child(2){
+
+    img:nth-child(2) {
       width: 40%;
       height: 80%;
       margin-top: 40px;
@@ -42,4 +46,3 @@ section {
 
   }
 }
-

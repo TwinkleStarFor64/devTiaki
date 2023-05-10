@@ -12,48 +12,42 @@ import {
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenusService {
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
 
   menu: MesMenusI[] = [];
-  ciqual : CiqualI[] = [];
+  ciqual: CiqualI[] = [];
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
     this.supabase = createClient(
-    environment.supabaseUrl,
-    environment.supabaseKey
-  );
-}
+      environment.supabaseUrl,
+      environment.supabaseKey
+    );
+  }
 
   getMesMenus() {
-    this.http.get<MesMenusI[]>('assets/data/menus.json').subscribe(
-      {
-        next: response => this.menu = response,
-        error: er => console.log(er),
-        complete: () => console.log(this.menu)
-      }
-      
-    );
+    this.http.get<MesMenusI[]>('assets/data/menus.json').subscribe({
+      next: (response) => (this.menu = response),
+      error: (er) => console.log(er),
+      complete: () => console.log(this.menu),
+    });
     return this.menu;
-  };
+  }
 
-   //Je récupére les données de la BDD supaBase
-   async getRepas() {
+  //Je récupére les données de la BDD supaBase
+  async getRepas() {
     const repas = await this.supabase
       .from('repas') //La table repas
-      .select('*') //Je select toutes les données avec *
-      console.log(repas);
-      return repas;      
+      .select('*'); //Je select toutes les données avec *
+    console.log(repas);
+    return repas;
   }
 
   async getCiqual() {
-    const ciqual = await this.supabase
-    .from('ciqual')
-    .select('*')
+    const ciqual = await this.supabase.from('ciqual').select('*');
     return ciqual;
   }
-
 }

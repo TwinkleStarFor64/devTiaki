@@ -6,14 +6,14 @@ import { ProgrammeOptoComponent } from './programme-opto/programme-opto.componen
 import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
 
 const routes: Routes = [
-  {path:'' , component: OptoComponent},
-  {path:'progression-Opto', component:ProgressionOptoComponent},
-  {path:'exercice-Opto' , component:ExerciceOptoComponent},
-  {path:'programme-Opto' , component:ProgrammeOptoComponent}
+  { path: '', component: OptoComponent },
+  { path: 'progression-Opto', component: ProgressionOptoComponent },
+  { path: 'exercice-Opto', component: ExerciceOptoComponent },
+  { path: 'programme-Opto', component: ProgrammeOptoComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class OptoRoutingModule { }
+export class OptoRoutingModule {}

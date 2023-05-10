@@ -5,16 +5,15 @@ import { ExerciceKineService } from './services/exercice-kine.service';
 @Component({
   selector: 'app-exercice-kine',
   templateUrl: './exercice-kine.component.html',
-  styleUrls: ['./exercice-kine.component.scss']
+  styleUrls: ['./exercice-kine.component.scss'],
 })
 export class ExerciceKineComponent implements OnInit {
-  avatar!:string;
+  avatar!: string;
 
-  constructor(public exerciceKine:ExerciceKineService) { }
+  constructor(public exerciceKine: ExerciceKineService) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
     this.exerciceKine.getExerciceKine();
   }
-
 }

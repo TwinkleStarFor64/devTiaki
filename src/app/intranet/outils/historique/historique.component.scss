@@ -12,6 +12,7 @@ $historique: #F8E6AF;
   background-color: #fddd4c;
   width: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   height: 200px;
   background-color: #f5d20a;
@@ -22,113 +23,129 @@ $historique: #F8E6AF;
   height: 100vh;
   display: flex;
   flex-direction: row;
-}    
+}
 
 // Section permettant de voir l'historique des journaux
-  section:nth-child(2){    
-      background-color: $historique;
-      width: 13%;
+section:nth-child(2) {
+  background-color: $historique;
+  width: 13%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  div {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 18%;
+    justify-content: flex-end;
+    gap: 1vw;
+
+    img {
+      height: 4vw;
+    }
+
+    p {
+      // La balise <p>Historiques des journaux sur ces activités</p>
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 4px;
+      width: 100%;
+
+      @media screen and (max-width: 1200px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    //height: 30%;              
+    li {
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 2vh;
+
+      @media only screen and (max-width: 1280px) {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+// ------------ La section ou s'affiche le journal choisi -------------------
+section:nth-child(3) {
+  width: 74%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+
+  // Article du titre avec la ligne de dashed
+  article:nth-child(1) {
+    margin-top: 8vh;
+    width: 80%;
+    height: 10%;
+    border-bottom: 1px dashed black;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h3 {
+      // La balise <h3>Journal du 21-03-2023</h3>              
+      //align-self:flex-start;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    div {
       display: flex;
-      flex-direction: column;
-      text-align: center;        
-          div{
-              margin-top: 2vh;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              height: 18%;
-              justify-content: flex-end;
-              gap: 1vw;
-              img{
-                  height: 4vw;
-              }
-              p{ // La balise <p>Historiques des journaux sur ces activités</p>
-                  font-size: 1rem;
-                  font-weight: 600;
-                  margin: 4px;
-                  width: 100%;
-                  @media screen and (max-width: 1200px) { 
-                    font-size: 0.9rem;                       
-                }
-              }
-          }
-          ul{
-              display: flex;
-              flex-direction: column;
-              justify-content: space-around;
-              align-items: flex-start;
-              //height: 30%;              
-              li{
-                  cursor: pointer;
-                  text-align: center;
-                  font-size: 1rem;
-                  margin-top: 2vh;
-                  @media only screen and (max-width: 1280px) {
-                      font-size: 0.8rem;
-                  }                    
-              }
-          }            
+      gap: 1vw;
+
+      button {
+        // Le bouton orange Modifier
+        width: 7vw;
+        font-size: 0.8vw;
+        background-color: #f28705;
+        border-color: #f28705;
+        color: white;
       }
 
-    // ------------ La section ou s'affiche le journal choisi -------------------
-      section:nth-child(3) {
-        width: 74%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        
-        // Article du titre avec la ligne de dashed
-        article:nth-child(1) {
-          margin-top: 8vh;
-          width: 80%;
-          height: 10%;
-          border-bottom: 1px dashed black;
-          justify-content: space-between;
-          display: flex;
-          flex-direction: row;
-          align-items: center;          
-
-          h3{ // La balise <h3>Journal du 21-03-2023</h3>              
-              //align-self:flex-start;
-              font-size: 1.5rem;
-              font-weight: 600;
-          }
-          div{
-            display: flex;
-            gap: 1vw;
-            button { // Le bouton orange Modifier
-              width: 7vw;
-              font-size: 0.8vw;
-              background-color: #f28705;
-              border-color: #f28705;
-              color: white;            
-            }
-            button:nth-child(2) {
-              background-color: $aside-color3;
-            }
-
-          }
-        }
-        article:nth-child(2) {
-          width: 70%;
-          margin-top: 4vh;
-          display: flex;
-          flex-direction: column;
-
-          h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-          }
-          p {
-            margin: 0;
-          }
-        }
+      button:nth-child(2) {
+        background-color: $aside-color3;
       }
 
-      #default {
-        justify-content: center;
-        p {
-          font-size: 1.5rem;
-        }
-      }
+    }
+  }
+
+  article:nth-child(2) {
+    width: 70%;
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+#default {
+  justify-content: center;
+
+  p {
+    font-size: 1.5rem;
+  }
+}

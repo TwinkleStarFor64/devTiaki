@@ -2,8 +2,8 @@
   <!-- Section avec le logo, les médecins et les réalisations -->
   <section id="menuJournalMessage">
     <article>
-      <a routerLink="/intranet">        
-        <span>Tiaki</span>        
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
       </a>
     </article>
     <article>
@@ -15,7 +15,7 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
@@ -32,52 +32,59 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-      <div>
-        <img [src]="[pacman]" alt="" />
-        <p>Historiques des journaux sur ces activités</p>
-      </div>
-      <ul>
-        <li *ngFor="let historique of historiques" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}</li>      
-      </ul>
+    <div>
+      <img [src]="[pacman]" alt="" />
+      <p>Historiques des journaux sur ces activités</p>
+    </div>
+    <ul>
+      <li
+        *ngFor="let historique of historiques"
+        (click)="changeSelectedJournal(historique.id)"
+      >
+        Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}
+      </li>
+    </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
-  <section *ngIf="selectedHistorique">   
-      <article>
-        <h3>{{ supa.formatDate(selectedHistorique.date)}}</h3> <!-- J'utilise la méthode formatDate pour formater la date en Fr -->
-        <div>
-          <button mat-raised-button (click)="deleteJournal(selectedHistorique.id)" >Supprimer</button>
-          <button mat-raised-button>Modifier</button>
-        </div>
-      </article>
-      <article>
-        <h4>Activité concernée</h4>
-        <p>Mentionner l'interface concernée, peut-être avec un icone ?</p>
-        <h4>Objet</h4>
-        <p>{{ selectedHistorique.objet }}</p>
-        <h4>Note</h4>
-        <p>{{ selectedHistorique.description }}</p>
-        <h4>Commentaire</h4>
-        <p>{{ selectedHistorique.commentaire }}</p>
-        <h4>Journal en rapport</h4>
-        <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
-          <li>
-            <span (click)="changeSelectedJournal(linkedJournal.id)">
-              {{supa.formatDate(linkedJournal.date) + " - " + linkedJournal.objet}}
-            </span>
-          </li>
-        </ul>
-      </article>
+  <section *ngIf="selectedHistorique">
+    <article>
+      <h3>{{ supa.formatDate(selectedHistorique.date) }}</h3>
+      <!-- J'utilise la méthode formatDate pour formater la date en Fr -->
+      <div>
+        <button
+          mat-raised-button
+          (click)="deleteJournal(selectedHistorique.id)"
+        >
+          Supprimer
+        </button>
+        <button mat-raised-button>Modifier</button>
+      </div>
+    </article>
+    <article>
+      <h4>Activité concernée</h4>
+      <p>Mentionner l'interface concernée, peut-être avec un icone ?</p>
+      <h4>Objet</h4>
+      <p>{{ selectedHistorique.objet }}</p>
+      <h4>Note</h4>
+      <p>{{ selectedHistorique.description }}</p>
+      <h4>Commentaire</h4>
+      <p>{{ selectedHistorique.commentaire }}</p>
+      <h4>Journal en rapport</h4>
+      <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
+        <li>
+          <span (click)="changeSelectedJournal(linkedJournal.id)">
+            {{
+              supa.formatDate(linkedJournal.date) + " - " + linkedJournal.objet
+            }}
+          </span>
+        </li>
+      </ul>
+    </article>
   </section>
   <section id="default" *ngIf="!selectedHistorique">
     <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>
   </section>
 </section>
-
-
-
-
-
-
 
 <!-- <li>Journal du 16-06-22</li>
         <li>Journal du 14-06-22</li>

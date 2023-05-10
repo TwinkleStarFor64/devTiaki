@@ -8,17 +8,21 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 // Toutes les routes permettant de naviguer sur l'application.
 const routes: Routes = [
-  {path:'', component:ConnexionComponent},
-  {path:'rgpd', component:RgpdComponent},
-  {path:'mentions-legales', component:MentionsLegalesComponent},
-  {path:'infos', component:InfosComponent},
-  {path:'intranet', loadChildren: () =>  import('./intranet/intranet.module').then( m => m.IntranetModule)},
-  { path: '**', component: PagenotfoundComponent},
+  { path: '', component: ConnexionComponent },
+  { path: 'rgpd', component: RgpdComponent },
+  { path: 'mentions-legales', component: MentionsLegalesComponent },
+  { path: 'infos', component: InfosComponent },
+  {
+    path: 'intranet',
+    loadChildren: () =>
+      import('./intranet/intranet.module').then((m) => m.IntranetModule),
+  },
+  { path: '**', component: PagenotfoundComponent },
   // { path: '**', redirectTo: '/pageNotFound' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

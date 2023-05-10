@@ -1,27 +1,30 @@
-$l:65px;
-$foot:150px;
-$foot-color:#f22f1d;
+$l: 65px;
+$foot: 150px;
+$foot-color: #f22f1d;
 
-:host{
-  height:100vh;
-  width:100vw;
-  display:flex;
-  flex-flow:row nowrap;
-  overflow:hidden;
+:host {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
 }
-aside{
-  width:$l;
-  height:100vh;
+
+aside {
+  width: $l;
+  height: 100vh;
 }
-main{
-  width:calc(100vw - $l);
-  height:calc(100vh - $foot);
+
+main {
+  width: calc(100vw - $l);
+  height: calc(100vh - $foot);
   flex-direction: column;
 }
-main > * {
-  width:calc(100vw - $l);
-}
-main > footer  {
-  background-color:$foot-color;
+
+main>* {
+  width: calc(100vw - $l);
 }
 
+main>footer {
+  background-color: $foot-color;
+}

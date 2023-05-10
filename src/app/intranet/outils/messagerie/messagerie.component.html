@@ -2,8 +2,8 @@
   <!-- Section avec le logo, les médecins et les réalisations -->
   <section id="menuJournalMessage">
     <article>
-      <a routerLink="/intranet">        
-        <span>Tiaki</span>        
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
       </a>
     </article>
     <article>
@@ -15,7 +15,7 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
@@ -49,11 +49,17 @@
   <section>
     <h3>Envoyer un message</h3>
     <span>
-      <input type="text" placeholder="Selectionner un médecin">
-      <input type="text" placeholder="Activité concernée">
-      <input type="text" placeholder="Objet">
-      <textarea name="" id="" cols="30" rows="20" placeholder="Message"></textarea>
-      <input type="text" placeholder="Copier un message de l’historique">
+      <input type="text" placeholder="Selectionner un médecin" />
+      <input type="text" placeholder="Activité concernée" />
+      <input type="text" placeholder="Objet" />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="20"
+        placeholder="Message"
+      ></textarea>
+      <input type="text" placeholder="Copier un message de l’historique" />
     </span>
     <div>
       <button>Annuler</button>

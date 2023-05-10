@@ -2,7 +2,7 @@
   <!-- Section avec le logo, les médecins et les réalisations -->
   <section id="menuJournalMessage">
     <article>
-      <a routerLink="/intranet">        
+      <a routerLink="/intranet">
         <span>Tiaki</span>
       </a>
     </article>
@@ -15,7 +15,7 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins"> {{ medecin.nom }} </li>
+        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
@@ -37,7 +37,9 @@
       <p>Historiques des journaux sur ces activités</p>
     </div>
     <ul>
-      <li *ngFor="let relier of reliers">Journal du {{ supa.formatDate(relier.date) }} {{relier.objet}}</li>      
+      <li *ngFor="let relier of reliers">
+        Journal du {{ supa.formatDate(relier.date) }} {{ relier.objet }}
+      </li>
     </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
@@ -49,7 +51,7 @@
       <form [formGroup]="formJournal">
         <mat-form-field appearance="outline">
           <mat-label>Objet</mat-label>
-          <input matInput formControlName="objet">
+          <input matInput formControlName="objet" />
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Description</mat-label>
@@ -62,15 +64,24 @@
         <mat-form-field appearance="outline">
           <mat-label>Relier un journal précédent</mat-label>
           <mat-select formControlName="relier">
-             <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
-            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ supa.formatDate(rel.date) + " - " + rel.objet }}</mat-option>
+            <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
+            <mat-option *ngFor="let rel of reliers" [value]="rel">{{
+              supa.formatDate(rel.date) + " - " + rel.objet
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
         <span class="spanBouton">
           <button mat-raised-button color="warn">Partager</button>
           <div>
             <button mat-raised-button (click)="onCancel()">Annuler</button>
-            <button mat-raised-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid">Enregistrer</button>
+            <button
+              mat-raised-button
+              type="submit"
+              (click)="onSubmitForm()"
+              [disabled]="formJournal.invalid"
+            >
+              Enregistrer
+            </button>
             <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->
           </div>
         </span>
@@ -91,7 +102,7 @@
     <p>Ingrédients</p>
     <mat-form-field class="example-full-width">
       <mat-label id="inputSearch">Rechercher un ingrédient</mat-label>
-      <input type="search" matInput placeholder="Ex. Courgette">
+      <input type="search" matInput placeholder="Ex. Courgette" />
     </mat-form-field>
     <h5>Kiné</h5>
     <article class="buttonKine">
@@ -121,12 +132,6 @@
     </article>
   </section>
 </section>
-
-
-
-
-
-
 
 <!-- <span class="p-float-label">
           <input type="text" formControlName="objet" pInputText />

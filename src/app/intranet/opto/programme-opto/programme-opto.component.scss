@@ -6,20 +6,23 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-#programmes > article:nth-child(4) >  {
+#programmes>article:nth-child(4)> {
   ::-webkit-scrollbar {
     background-color: #ffb341;
     width: 10px;
   }
+
   ::-webkit-scrollbar-thumb {
     height: 200px;
     background-color: $card-opto;
   }
 }
 
-#programmes > #head > a ,#programmes > #head > p {
+#programmes>#head>a,
+#programmes>#head>p {
   color: $card-opto;
 }
+
 #programmes article:nth-child(4)>img {
-background-color: #ffffff;
+  background-color: #ffffff;
 }

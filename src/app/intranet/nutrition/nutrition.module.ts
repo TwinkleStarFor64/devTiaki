@@ -12,11 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
 import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
-
-
 
 @NgModule({
   declarations: [
@@ -38,7 +36,7 @@ import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+  ],
 })
-export class NutritionModule { }
+export class NutritionModule {}
