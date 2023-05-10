@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
+import { EditJournalComponent } from './edit-journal/edit-journal.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DeleteComponent } from './dialog/delete/delete.component';
     ProfilComponent,
     ParametreComponent,
     DeleteComponent,
+    EditJournalComponent,
   ],
   imports: [
     CommonModule,

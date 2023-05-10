@@ -11,6 +11,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { HistoriqueJournalI } from '../intranet/modeles/Types';
 
+
 export interface AidantI {
   id: number;
   nom: string;
@@ -24,7 +25,7 @@ export class SupabaseService {
   _session: AuthSession | null = null;
 
   historiqueJournal: HistoriqueJournalI[] = [];
-
+  
   constructor() {
     this.supabase = createClient(
       environment.supabaseUrl,
@@ -181,4 +182,44 @@ export class SupabaseService {
       console.log(journalError);
     }
   }
+
+  // UPDATE un journal
+  async updateJournal (journalId: number, newEntry: {
+    objet: string;
+    description: string;
+    commentaire: string;
+    date?: Date;
+    groupeEvenement?: number;
+  }) {
+    newEntry.date = new Date(); //Le champ date aura la date actuelle
+
+    const { error: updateError } = await this.supabase
+      .from('journalEvenement')
+      .update(newEntry) // Update avec les valeurs de newEntry - déclaré au dessus
+      .eq('id', journalId) // Filtre avec l'id du journal choisi
+
+      if (updateError) {
+        console.log(updateError);
+      }
+  }
+
+  async getCurrentJournal (id: number) { // l'ID va être dynamique quand j'appelle ma méthode dans le component
+    const { data: currentData, error: currentError } = await this.supabase
+    .from('journalEvenement')
+    .select(
+      'id, date, objet, description, commentaire, groupeEvenement (id)'
+    )
+    .eq('id', id)
+
+    if (currentData) {
+      currentData.forEach((journal) => { // forEach car je reçois un tableau
+          console.log("journal.objet - supabase.service :", journal.objet);          
+      });
+      return currentData; 
+    } 
+    throw new Error('Les données n\'ont pas été trouvées pour cet ID.');
 }
+
+
+}
+
