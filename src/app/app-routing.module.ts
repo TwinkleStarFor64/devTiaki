@@ -9,7 +9,6 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 // Toutes les routes permettant de naviguer sur l'application.
 const routes: Routes = [
   {path:'', component:ConnexionComponent},
-
   {path:'rgpd', component:RgpdComponent},
   {path:'mentions-legales', component:MentionsLegalesComponent},
   {path:'infos', component:InfosComponent},

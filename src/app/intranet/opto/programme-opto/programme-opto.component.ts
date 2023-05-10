@@ -16,6 +16,7 @@ export class ProgrammeOptoComponent implements OnInit {
   selectedProgrammeOpto?: ProgrammeI;
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
+  selectedImageTitle: string = '';
 
   constructor(public programmeOpto: ProgrammeOptoService) { }
 
@@ -88,5 +89,9 @@ export class ProgrammeOptoComponent implements OnInit {
   //methode permettant de voir le titre dans l'input en survolant les titres des programme du menu déroulant
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
+  }
+  onCarouselItemClick(programme: ProgrammeI) {
+    this.selectedProgrammeOpto = programme;
+    this.selectedImageTitle = programme.titre;
   }
 }

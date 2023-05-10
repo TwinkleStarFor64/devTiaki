@@ -12,9 +12,6 @@ import { KineComponent } from './kine.component';
 import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.component';
 import { InputComponent } from '../template/ui/input/input.component';
 
-
-
-
 @NgModule({
   declarations: [
     ProgressionKineComponent,

@@ -15,79 +15,72 @@ $sombre: black;
     width: 100%;
   }
   .carousel {
-      position: relative;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  
+    .carousel-container {
+      display: flex;
+      transition: transform 0.3s ease-in-out;
+      height: 100%;
+      width: 100%;
+    }
+  
+    .carousel-slide {
+      flex-shrink: 0;
+      flex-basis: 25%;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-    
-      .carousel-container {
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-        height: 100%;
-      }
-    
-      .carousel-slide {
-        min-width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    
-        article {
-          width: 60%;
-          height: 60%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-    
-          img,
-          video {
-            max-height: 100%;
-            max-width: 100%;
-            display: block;
-            margin: 0 auto;
-          }
-        }
-      }
-    
-      .carousel-prev,
-      .carousel-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        z-index: 10;
-        padding: 16px;
-        color: white;
-        font-size: 32px;
-        user-select: none;
-        transition: opacity 0.3s ease-in-out;
-    
-        &:hover {
-          opacity: 0.8;
-        }
-      }
-    
-      .carousel-prev {
-        left: 0;
-    
-        &::before {
-          content: "<";
-          color: $card-opto;
-        }
-      }
-    
-      .carousel-next {
-        right: 0;
-    
-        &::before {
-          content: ">";
-          color: $card-opto;
-        }
+  
+      img {
+        max-height: 100%;
+        max-width: 80%;
+        display: block;
+        margin: 0 auto;
       }
     }
+  
+    .carousel-prev,
+    .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      z-index: 10;
+      padding: 16px;
+      color: white;
+      font-size: 32px;
+      user-select: none;
+      transition: opacity 0.3s ease-in-out;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  
+    .carousel-prev {
+      left: 0;
+  
+      &::before {
+        content: "<";
+        color: $card-kine;
+      }
+    }
+  
+    .carousel-next {
+      right: 0;
+  
+      &::before {
+        content: ">";
+        color: $card-kine;
+      }
+    }
+  }
     
     // .modal {
     //   display: none;
