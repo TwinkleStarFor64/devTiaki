@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { SupabaseService } from 'src/app/services/supabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedecinI, RealisationI } from '../../modeles/Types';
@@ -77,17 +82,27 @@ export class EditJournalComponent {
       this.router.snapshot.params['id']
     );
 
-    result.forEach((journal) => {
+    result.forEach(async (journal) => {
       // forEach sur result - j'attribue le résultat à la variable journal
-      console.log('journal.groupeEvenement', journal.id);
+      console.log('journal.groupeEvenement',(journal.groupeEvenement as { id: any })?.id);
+
+      const { data: linkedJournals } =
+        await this.supa.getHistoriqueLinkedJournal(
+          (journal.groupeEvenement as { id: any })?.id,
+          journal.id
+        );
+
+      console.log('linkedJournals', linkedJournals);
 
       // J'attribue en value au formulaire les données de la variable journal
-      this.formJournal = this.formBuilder.group({
-        objet: [journal.objet, [Validators.required]],
-        description: [journal.description, [Validators.required]],
-        commentaire: [journal.commentaire],
-        relier: [journal.groupeEvenement],
+      this.formJournal = new FormGroup({
+        objet: new FormControl(journal.objet, [Validators.required]),
+        description: new FormControl(journal.description, [Validators.required]),
+        commentaire: new FormControl(journal.commentaire),
+        relier: new FormControl(linkedJournals && linkedJournals.length > 0 ? linkedJournals[0] : null),
       });
+
+      console.log('formJournal', this.formJournal);
     });
   }
 
@@ -136,16 +151,19 @@ export class EditJournalComponent {
     this.openDialog() // La méthode au dessus pour la modal
       .afterClosed()
       .subscribe((res) => {
-        if(res) {
+        if (res) {
           //J'utilise la méthode updateJournal avec comme paramétre l'id obtenue avec snapshot et la variable newEntry
-          this.supa.updateJournal(id, newEntry).then(() => {
-          this.route.navigateByUrl('/intranet/outils/historique'); // Je retourne sur la page historique
-          })
-          .catch((error) => { // En cas d'erreur
-            console.log(error);            
-          });
+          this.supa
+            .updateJournal(id, newEntry)
+            .then(() => {
+              this.route.navigateByUrl('/intranet/outils/historique'); // Je retourne sur la page historique
+            })
+            .catch((error) => {
+              // En cas d'erreur
+              console.log(error);
+            });
         }
-      })
+      });
   }
 
   onCancel() {

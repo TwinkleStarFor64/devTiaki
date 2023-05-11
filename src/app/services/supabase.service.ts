@@ -205,7 +205,7 @@ export class SupabaseService {
     const { data: currentData, error: currentError } = await this.supabase
     .from('journalEvenement')
     .select(
-      'id, date, objet, description, commentaire, groupeEvenement (id)'
+      'id, date, objet, description, commentaire, groupeEvenement (*)'
     )
     .eq('id', id)
 
