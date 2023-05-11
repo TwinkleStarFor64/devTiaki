@@ -1,7 +1,7 @@
 export default {
     name: 'exercice',
     type: 'document',
-      title: 'Exercices',
+    title: 'Exercices',
     fields: [
       {
         name: 'title',

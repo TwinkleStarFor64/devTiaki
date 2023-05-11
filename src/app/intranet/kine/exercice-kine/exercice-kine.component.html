@@ -6,10 +6,11 @@
     <p>Le parcours de Cheer Émilie</p>
   </header>
   <section>
-    <article *ngFor="let exercice of exerciceKine.exerciceKine">
+    <article *ngFor="let exercice of exercicesKine">
       <div class="photo-exo">
-        <img [src]="exercice.photo" alt="photo-exercice" />
-      </div>
+        <!-- <img [src]="exercice.photo" alt="photo-exercice" /> -->
+          <img src={{sanity.urlFor(exercice.photo).url()}} alt="photo-exercice" />
+        </div>
       <div>
         <h6>{{ exercice.titre }}</h6>
         <p>{{ exercice.description }}</p>
