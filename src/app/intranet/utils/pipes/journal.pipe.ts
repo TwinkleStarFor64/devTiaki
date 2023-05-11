@@ -14,7 +14,7 @@ export class JournalPipe implements PipeTransform {
         return values.filter(
           journal => {
             if(journal.objet.toLowerCase().indexOf(filtre.toLowerCase()) !=-1) return journal;
-    //Ci-dessus 
+    //Ci-dessus
           }
         )
       }
