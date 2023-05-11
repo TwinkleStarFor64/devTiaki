@@ -5,6 +5,7 @@ import { JournalComponent } from './journal/journal.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ParametreComponent } from './parametre/parametre.component';
+import { EditJournalComponent } from './edit-journal/edit-journal.component';
 
 
 const routes: Routes = [

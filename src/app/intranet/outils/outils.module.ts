@@ -15,6 +15,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
+import { JournalPipe } from '../utils/pipes/journal.pipe';
+import { EditJournalComponent } from './edit-journal/edit-journal.component';
+
 
 
 @NgModule({
