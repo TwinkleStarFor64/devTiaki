@@ -18,6 +18,7 @@ import { DeleteComponent } from './dialog/delete/delete.component';
 import { EditJournalComponent } from './edit-journal/edit-journal.component';
 
 
+
 @NgModule({
   declarations: [
     JournalComponent,
@@ -26,7 +27,7 @@ import { EditJournalComponent } from './edit-journal/edit-journal.component';
     ProfilComponent,
     ParametreComponent,
     DeleteComponent,
-    EditJournalComponent,
+    EditJournalComponent,    
   ],
   imports: [
     CommonModule,

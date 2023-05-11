@@ -141,10 +141,6 @@ export class HistoriqueComponent implements OnInit {
         });        
   }
 
-  /* updateJournal(id:number) {
-    this.supa.updateJournal(id);
-    
-  } */
 }
 
 
