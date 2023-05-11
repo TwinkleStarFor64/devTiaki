@@ -9,9 +9,6 @@ import { TableauComponent } from './tableau/tableau.component';
 import { ButtonComponent } from './template/ui/button/button.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
-import { IngredientsPipe } from './utils/pipes/ingredients.pipe';
-
-
 
 
 @NgModule({
@@ -20,7 +17,8 @@ import { IngredientsPipe } from './utils/pipes/ingredients.pipe';
     AsideBarComponent,
     AccueilComponent,
     TableauComponent,
-    ButtonComponent
+    ButtonComponent,
+    
   ],
   imports: [
     CommonModule,

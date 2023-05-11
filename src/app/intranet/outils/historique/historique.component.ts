@@ -18,6 +18,8 @@ export class HistoriqueComponent implements OnInit {
   selectedHistorique?: HistoriqueJournalI;
   selectedId!: number;
 
+  filtre:string = '';
+
   public medecins: MedecinI[] = [
     {
       nom: 'Docteur Ferreira',

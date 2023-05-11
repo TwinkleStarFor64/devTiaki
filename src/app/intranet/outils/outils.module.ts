@@ -5,7 +5,7 @@ import { JournalComponent } from './journal/journal.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfilComponent } from './profil/profil.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -16,7 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
 import { EditJournalComponent } from './edit-journal/edit-journal.component';
-
+import { JournalPipe } from '../utils/pipes/journal.pipe';
 
 
 @NgModule({
@@ -27,7 +27,9 @@ import { EditJournalComponent } from './edit-journal/edit-journal.component';
     ProfilComponent,
     ParametreComponent,
     DeleteComponent,
-    EditJournalComponent,    
+    EditJournalComponent, 
+    JournalPipe    
+        
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,9 @@ import { EditJournalComponent } from './edit-journal/edit-journal.component';
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule
+    
   ],
   entryComponents: [
     DeleteComponent

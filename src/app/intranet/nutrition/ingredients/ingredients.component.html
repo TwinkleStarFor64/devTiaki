@@ -7,6 +7,7 @@
   <div>
     <h1>Ingrédients</h1>
     <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
+    <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
     <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
     <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
     <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->

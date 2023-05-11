@@ -17,7 +17,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
 
 
-
 @NgModule({
   declarations: [
     JournalRepasComponent,
@@ -39,6 +38,6 @@ import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule
-  ]
+  ]  
 })
 export class NutritionModule { }
