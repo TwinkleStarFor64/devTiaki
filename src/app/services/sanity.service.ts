@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
 import imageUrlBuilder from "@sanity/image-url";
-import { ExerciceI } from '../intranet/modeles/Types';
+import { ExerciceI, NutritionI } from '../intranet/modeles/Types';
 
 
 @Injectable({
@@ -33,4 +33,19 @@ export class SanityService {
       }`
     );
   }
+
+  async getAccueilNutrition(): Promise<NutritionI[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "nutrition"]{
+        id,
+        title,
+        text,
+        button,
+        image,
+        url        
+      }`
+    );
+  }
+
+
 }

@@ -2,11 +2,11 @@
   <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
   <p>{{ data }}</p>
   <div>
-    <button mat-raised-button color="warn" [mat-dialog-close]="true">
-      Confirmer
-    </button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="false">
+    <button mat-raised-button color="warn" [mat-dialog-close]="false">
       Annuler
+    </button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true">
+      Confirmer
     </button>
   </div>
 </article>
