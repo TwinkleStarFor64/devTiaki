@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MatInputModule } from '@angular/material/input';
     IngredientsPipe,
     BottomBarNutriComponent,
     SaveDataComponent,
+    DeleteDataComponent,
   ],
   imports: [
     CommonModule,

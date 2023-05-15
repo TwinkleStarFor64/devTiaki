@@ -4,6 +4,7 @@ import { CiqualI, MesMenusI } from '../../utils/modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
+import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 
 @Component({
   selector: 'app-menus',
@@ -16,6 +17,7 @@ export class MenusComponent implements OnInit {
   selectedRepas?: MesMenusI;
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
+  selectedId: number = 0;
 
   constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
@@ -82,6 +84,9 @@ export class MenusComponent implements OnInit {
       );
       this.alimCodeFiltre = menus.alim_code;
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
+      this.selectedId = menus.id;
+      console.log("l'id est : " + this.selectedId);
+      
     }
   }
 
@@ -93,6 +98,34 @@ export class MenusComponent implements OnInit {
       height: '800px',
       width: '1000px',
       data: 'Ajouter un menu',
+    });
+  }
+
+  deleteDialog() {
+    // Modal Material Angular
+    return this.dialog.open(DeleteDataComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '200px',
+      width: '400px',
+      data: 'Êtes vous sur de vouloir supprimer ce menu ?',
+    });
+  }
+
+  async deleteMenu(id: number) {
+    this.deleteDialog()
+    .afterClosed()
+    // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
+    .subscribe((res) => {
+      if (res) {
+        this.supa.deleteMenu(id) // La méthode deleteMenu de supabase.service.ts
+          .then(() => {
+            window.location.reload(); // Bonne solution ??
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     });
   }
 

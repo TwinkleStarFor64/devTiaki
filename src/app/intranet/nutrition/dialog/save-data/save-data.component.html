@@ -1,22 +1,26 @@
-<article>
-  <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
-  <p>{{ data }}</p>
-  <form [formGroup]="formData">
-    <mat-form-field appearance="outline">
-      <mat-label>Nom</mat-label>
-      <input matInput formControlName="nom" />
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Description</mat-label>
-      <textarea matInput rows="8" formControlName="description"></textarea>
-    </mat-form-field>
-  </form>
-  <div>
+<section>
+    <article>
+        <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+        <p>{{ data }}</p> <!-- Le contenu de la balise <p> viens de menus.component.ts -->
+    </article>
+    <article>
+        <form [formGroup]="formData">
+          <mat-form-field appearance="outline" id="input">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="nom" />
+          </mat-form-field>
+          <mat-form-field appearance="outline" id="input">
+            <mat-label>Description</mat-label>
+            <textarea matInput rows="8" formControlName="description"></textarea>
+          </mat-form-field>
+        </form>
+    </article>
+  <article>
     <button mat-raised-button color="warn" [mat-dialog-close]="false">
       Annuler
     </button>
-    <button mat-raised-button color="primary" [mat-dialog-close]="true" type="submit" (click)="onSubmitForm()">
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" type="submit" (click)="onSubmitForm()" [disabled]="formData.invalid">
       Confirmer
     </button>
-  </div>
-</article>
+  </article>
+</section>

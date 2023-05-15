@@ -241,6 +241,19 @@ export class SupabaseService {
   }
 
 
+  async deleteMenu(id: number) {
+  const { error: deleteError} = await this.supabase
+    .from('repas')
+    .delete()
+    .eq('id', id)
+
+    if(deleteError) {
+      console.log(deleteError);
+      
+    }
+  }
+
+
 
 
 

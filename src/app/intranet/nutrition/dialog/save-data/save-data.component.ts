@@ -16,8 +16,8 @@ export class SaveDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.formData = new FormGroup ({
-      nom: new FormControl(''),
-      description: new FormControl('')
+      nom: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required])
     })
   }
 
