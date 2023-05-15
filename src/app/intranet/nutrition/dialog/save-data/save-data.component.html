@@ -1,0 +1,22 @@
+<article>
+  <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+  <p>{{ data }}</p>
+  <form [formGroup]="formData">
+    <mat-form-field appearance="outline">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="nom" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput rows="8" formControlName="description"></textarea>
+    </mat-form-field>
+  </form>
+  <div>
+    <button mat-raised-button color="warn" [mat-dialog-close]="false">
+      Annuler
+    </button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" type="submit" (click)="onSubmitForm()">
+      Confirmer
+    </button>
+  </div>
+</article>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
 import { CiqualI, MesMenusI } from '../../utils/modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 
 @Component({
   selector: 'app-menus',
@@ -15,10 +17,10 @@ export class MenusComponent implements OnInit {
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 
-  constructor(public menuService: MenusService, public supa: SupabaseService) {}
+  constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
   async ngOnInit(): Promise<void> {
-    this.menuService.getMesMenus();
+    //this.menuService.getMesMenus();
 
     const { data, error } = await this.menuService.getRepas();
     if (data) {
@@ -82,4 +84,16 @@ export class MenusComponent implements OnInit {
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
     }
   }
+
+  openDialog() {
+    // Modal Material Angular
+    return this.dialog.open(SaveDataComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '800px',
+      width: '1000px',
+      data: 'Ajouter un menu',
+    });
+  }
+
 }
