@@ -48,6 +48,7 @@ export interface MesMenusI {
   description: string;
   alim_code: number;
   reaction?: string;
+  aliment: number;
 }
 
 // Interface bottomBar Tableau de bord & Profil

@@ -17,14 +17,16 @@ export class MenusComponent implements OnInit {
   selectedRepas?: MesMenusI;
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-  selectedId: number = 0;
+  alimentId: number = 0;
 
   constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
   async ngOnInit(): Promise<void> {
     //this.menuService.getMesMenus();
+    this.fetchMenus();
 
-    const { data, error } = await this.menuService.getRepas();
+    //------------------ Ci-dessous code si j'utilise pas la méthode fetchMenus() ----------------
+    /* const { data, error } = await this.menuService.getRepas();
     if (data) {
       //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
       //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
@@ -39,7 +41,7 @@ export class MenusComponent implements OnInit {
     if (error) {
       //Si une erreur
       console.log(error);
-    }
+    } */
 
     const { data: groupData, error: groupError } =
       await this.menuService.getCiqual();
@@ -84,14 +86,15 @@ export class MenusComponent implements OnInit {
       );
       this.alimCodeFiltre = menus.alim_code;
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
-      this.selectedId = menus.id;
-      console.log("l'id est : " + this.selectedId);
+      this.alimentId = menus.aliment;
+      console.log('Id sur aliment : ' + this.alimentId);
       
+            
     }
   }
 
   openDialog() {
-    // Modal Material Angular
+    // Modal Material Angular contenant le formulaire pour ajouter un nouveau menu
     return this.dialog.open(SaveDataComponent, {
       disableClose: true,
       autoFocus: true,
@@ -102,7 +105,7 @@ export class MenusComponent implements OnInit {
   }
 
   deleteDialog() {
-    // Modal Material Angular
+    // Modal Material Angular pour confirmer la suppression d'un menu
     return this.dialog.open(DeleteDataComponent, {
       disableClose: true,
       autoFocus: true,
@@ -111,7 +114,7 @@ export class MenusComponent implements OnInit {
       data: 'Êtes vous sur de vouloir supprimer ce menu ?',
     });
   }
-
+// Méthode pour delete un menu
   async deleteMenu(id: number) {
     this.deleteDialog()
     .afterClosed()
@@ -120,6 +123,7 @@ export class MenusComponent implements OnInit {
       if (res) {
         this.supa.deleteMenu(id) // La méthode deleteMenu de supabase.service.ts
           .then(() => {
+            this.fetchMenus();
             window.location.reload(); // Bonne solution ??
           })
           .catch((error) => {
@@ -128,5 +132,26 @@ export class MenusComponent implements OnInit {
       }
     });
   }
+
+  async fetchMenus() {
+    const { data, error } = await this.menuService.getRepas();
+    if (data) {
+      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
+      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
+      this.repas = data.map((item: { [x: string]: any }) => ({
+        id: item['id'],
+        nom: item['nom'],
+        description: item['description'],
+        alim_code: item['alim_code'],
+        aliment: item['aliment']
+      }));
+      console.log(this.repas);
+    }
+    if (error) {
+      //Si une erreur
+      console.log(error);
+    }
+  }
+  
 
 }

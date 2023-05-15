@@ -232,25 +232,24 @@ export class SupabaseService {
     const { error: menuError } = await this.supabase
       .from('repas')
       .insert(newEntry)
-      /* .select()
-      .single(); */
+      .select()
+      .single();
 
       if(menuError) {
         console.log(menuError);
-      }
+      } 
   }
 
 
   async deleteMenu(id: number) {
-  const { error: deleteError} = await this.supabase
+  const { error: deleteError } = await this.supabase
     .from('repas')
     .delete()
     .eq('id', id)
 
     if(deleteError) {
-      console.log(deleteError);
-      
-    }
+      console.log(deleteError);      
+    } 
   }
 
 

@@ -46,8 +46,18 @@ export class MenusService {
     return repas;
   }
 
+  async getAliment() {
+    const aliment = await this.supabase
+    .from('aliment')
+    .select('*')
+    return aliment;
+  }
+
   async getCiqual() {
-    const ciqual = await this.supabase.from('ciqual').select('*');
+    const ciqual = await this.supabase
+      .from('ciqual')
+      .select('*');
+    console.log(ciqual);    
     return ciqual;
   }
 }
