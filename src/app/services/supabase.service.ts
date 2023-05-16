@@ -240,7 +240,7 @@ export class SupabaseService {
       } 
   }
 
-
+  // Méthode pour supprimer un menu
   async deleteMenu(id: number) {
   const { error: deleteError } = await this.supabase
     .from('repas')

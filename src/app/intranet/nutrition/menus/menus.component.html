@@ -24,7 +24,7 @@
       <article id="listing">
         <div *ngFor="let menus of repas">
           <h2>{{ menus.nom }}</h2>
-          <p>{{ menus.description }}</p>
+          <p>{{ menus.description }}</p>          
           <div>
             <button mat-raised-button color="primary">Evaluer ce menu</button>
             <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
@@ -42,11 +42,7 @@
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
-            <mat-option
-              *ngFor="let menus of repas"
-              [value]="menus.nom"
-              (onSelectionChange)="onSelect($event, menus)"
-            >
+            <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
               {{ menus.nom }}
             </mat-option>
           </mat-select>
@@ -63,9 +59,7 @@
       <span *ngIf="selectedRepas">
         <h4>{{ selectedRepas.nom }}</h4>
         <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5">{{
-          selectedRepas.description
-        }}</textarea>
+        <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
         <div>
           <p>Ingrédients</p>
           <p>Quantités</p>
@@ -73,9 +67,7 @@
           <p>Allèrgenes</p>
           <p>Retour de la communauté</p>
         </div>
-        <span
-          *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre"
-        >
+        <span *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
           <p>
             <img src="assets/photoNutri/compl.svg" alt="icône composition" />

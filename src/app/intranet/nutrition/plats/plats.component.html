@@ -9,9 +9,7 @@
         1 - Ajouter un nouveau plat
       </button>
       <!-- <button>1 - Ajouter un nouveau plat</button> -->
-      <a routerLink="/intranet/nutrition/recettes"
-        ><h1>Reprendre un repas précédent</h1></a
-      >
+      <a routerLink="/intranet/nutrition/recettes"><h1>Reprendre un repas précédent</h1></a>
       <article id="evalBouton">
         <button mat-raised-button color="primary">
           Plats évalués et validés
@@ -42,11 +40,7 @@
         <mat-form-field appearance="outline">
           <mat-label>VOS PLATS</mat-label>
           <mat-select>
-            <mat-option
-              *ngFor="let plat of platService.plat"
-              [value]="plat.nom"
-              (onSelectionChange)="onSelect($event, plat)"
-            >
+            <mat-option *ngFor="let plat of platService.plat" [value]="plat.nom" (onSelectionChange)="onSelect($event, plat)">
               {{ plat.nom }}
             </mat-option>
           </mat-select>
@@ -63,9 +57,7 @@
       <span *ngIf="selectedPlats">
         <h4>{{ selectedPlats.nom }}</h4>
         <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5">{{
-          selectedPlats.description
-        }}</textarea>
+        <textarea name="" id="" cols="30" rows="5">{{ selectedPlats.description }}</textarea>
         <div>
           <p>Ingrédients</p>
           <p>Quantités</p>
@@ -73,12 +65,22 @@
           <p>Allèrgenes</p>
           <p>Retour de la communauté</p>
         </div>
-        <span
-          *ngFor="
-            let ingredients of platService.ciqual | ingredients : alimCodeFiltre
-          "
-        >
+        <span *ngFor="let ingredients of platService.ciqual | ingredients:alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
+          <p><img src="assets/photoNutri/compl.svg" alt="icône composition">
+             Composition - Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+             Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
+             Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
+             Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
+          </p>
+          <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+             Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
+             B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+             B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+             B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+             B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+          </p>
+          
         </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
