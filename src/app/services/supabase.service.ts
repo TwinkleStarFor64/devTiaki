@@ -10,6 +10,7 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { HistoriqueJournalI } from '../intranet/modeles/Types';
+import { CiqualI } from '../intranet/utils/modeles/Types';
 
 export interface AidantI {
   id: number;
@@ -220,41 +221,74 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
 
+  // Méthode pour supprimer un menu
+  async deleteMenu(id: number) {
+    const { error: deleteError } = await this.supabase
+      .from('repas')
+      .delete()
+      .eq('id', id)
+  
+      if(deleteError) {
+        console.log(deleteError);      
+      } 
+    }
+
+  async getCurrentIngredient(id: number) {
+    const { data: currentData } = await this.supabase
+      .from('ciqual')
+      .select('id, alim_code')
+      .eq('id', id);
+
+      if (currentData && currentData.length > 0) {
+        console.log("ID de l'ingrédient :", currentData[0].id);
+        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
+        return {
+          id: currentData[0].id,
+          alim_code: currentData[0].alim_code
+        }         
+      }
+    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+  }
+
   // Méthode pour enregistrer un menu
-  async createMenu(newEntry: { 
+  async createMenu(
+    newEntry: { 
     nom: string;
     description: string;
     date?: Date;
-    alim_code?: string;
-    aliment?: number;
-  }) {
+    alim_code?: number;
+    ciqual?: number;
+    }) {
     newEntry.date = new Date(); //Le champ date aura la date actuelle
-    const { error: menuError } = await this.supabase
+    
+    const { data: menuData, error: menuError } = await this.supabase
       .from('repas')
       .insert(newEntry)
       .select()
-      .single();
+      .single();      
 
       if(menuError) {
         console.log(menuError);
       } 
   }
-
-  // Méthode pour supprimer un menu
-  async deleteMenu(id: number) {
-  const { error: deleteError } = await this.supabase
-    .from('repas')
-    .delete()
-    .eq('id', id)
-
-    if(deleteError) {
-      console.log(deleteError);      
-    } 
+  
+  
+// Méthode pour récupérer la table ciqual provisoire
+  async getCiqual() {
+    const ciqual = await this.supabase
+      .from('ciqual')
+      .select('*');
+    console.log(ciqual);    
+    return ciqual;
   }
 
-
-
-
+  async getCiqualBis() {
+    const ciqual = await this.supabase
+      .from('ciqualAnses')
+      .select('*');
+    console.log(ciqual);
+    return ciqual;    
+  }
 
 
 

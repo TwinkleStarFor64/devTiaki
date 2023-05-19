@@ -8,6 +8,7 @@ export interface ProfilI {
 }
 // Interface pour la page ingrédient de la table Ciqual
 export interface CiqualI {
+  id?:number,
   alim_code: number;
   alim_nom_fr: string;
   ['Protéines, N x 6.25 (g/100 g)']: string;
@@ -48,7 +49,7 @@ export interface MesMenusI {
   description: string;
   alim_code: number;
   reaction?: string;
-  ciqual: number;
+  ciqual: number;  
 }
 
 // Interface bottomBar Tableau de bord & Profil
