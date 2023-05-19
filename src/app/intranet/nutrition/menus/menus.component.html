@@ -69,6 +69,7 @@
         </div>
         <span *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
+          <p>{{ ingredients.alim_code }}</p>
           <p>
             <img src="assets/photoNutri/compl.svg" alt="icône composition" />
             Composition : Protéines :

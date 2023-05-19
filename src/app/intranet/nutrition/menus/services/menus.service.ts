@@ -48,4 +48,12 @@ export class MenusService {
     console.log(ciqual);    
     return ciqual;
   }
+
+  async getCiqualBis() {
+    const ciqual = await this.supabase
+      .from('ciqualAnses')
+      .select('*');    
+    return ciqual;    
+  }
+
 }

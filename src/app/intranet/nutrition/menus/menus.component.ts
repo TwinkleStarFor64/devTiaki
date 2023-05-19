@@ -16,15 +16,14 @@ export class MenusComponent implements OnInit {
   repas: MesMenusI[] = [];
   selectedRepas?: MesMenusI;
 
-  alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
+  alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 
   constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
   async ngOnInit(): Promise<void> {
     //this.menuService.getMesMenus();
     this.fetchMenus(); 
-    this.fetchCiqual();
-    
+    this.fetchCiqual();    
   } // <----- Fin du ngOnInit()
 
   async fetchMenus() {
@@ -36,8 +35,7 @@ export class MenusComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'],
-        //alim_code: Array.isArray(item['alim_code']) ? item['alim_code'].join(", ") : item['alim_code'],
+        alim_code: item['alim_code'],        
         ciqual: item['ciqual']
       }));     
     }
@@ -49,7 +47,7 @@ export class MenusComponent implements OnInit {
 
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
-      await this.menuService.getCiqual();
+      await this.menuService.getCiqualBis();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],        
@@ -83,7 +81,7 @@ export class MenusComponent implements OnInit {
       this.selectedRepas = menus;
       console.log("J'ai cliqué sur : " + this.selectedRepas.nom + ' ' + event.isUserInput);
       this.alimCodeFiltre = menus.alim_code;
-      //console.log('Je veux ce code : ' + this.alimCodeFiltre);            
+      console.log('Je veux ce code : ' + this.alimCodeFiltre);           
     }
   }
 

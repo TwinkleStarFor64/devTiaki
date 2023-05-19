@@ -290,6 +290,20 @@ export class SupabaseService {
     return ciqual;    
   }
 
+  async getCurrentIngredientBis(alim_code: number) {
+    const { data: currentData } = await this.supabase
+      .from('ciqualAnses')
+      .select('alim_code')
+      .eq('alim_code', alim_code);
+
+      if (currentData && currentData.length > 0) {
+          console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
+        return {
+          alim_code: currentData[0].alim_code
+        }         
+      }
+    throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
+  }
 
 
 }
