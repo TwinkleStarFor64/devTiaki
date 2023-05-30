@@ -47,7 +47,7 @@ export class MenusComponent implements OnInit {
 
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
-      await this.menuService.getCiqualBis();
+      await this.menuService.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],        

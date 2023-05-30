@@ -231,24 +231,7 @@ export class SupabaseService {
       if(deleteError) {
         console.log(deleteError);      
       } 
-    }
-
-  async getCurrentIngredient(id: number) {
-    const { data: currentData } = await this.supabase
-      .from('ciqual')
-      .select('id, alim_code')
-      .eq('id', id);
-
-      if (currentData && currentData.length > 0) {
-        console.log("ID de l'ingrédient :", currentData[0].id);
-        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
-        return {
-          id: currentData[0].id,
-          alim_code: currentData[0].alim_code
-        }         
-      }
-    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-  }
+    }  
 
   // Méthode pour enregistrer un menu
   async createMenu(
@@ -270,27 +253,19 @@ export class SupabaseService {
       if(menuError) {
         console.log(menuError);
       } 
-  }
-  
-  
-// Méthode pour récupérer la table ciqual provisoire
+  }  
+ 
+// Méthode pour récupérer la table Ciqual
   async getCiqual() {
-    const ciqual = await this.supabase
-      .from('ciqual')
-      .select('*');
-    console.log(ciqual);    
-    return ciqual;
-  }
-
-  async getCiqualBis() {
     const ciqual = await this.supabase
       .from('ciqualAnses')
       .select('*');
     console.log(ciqual);
     return ciqual;    
   }
-
-  async getCurrentIngredientBis(alim_code: number) {
+  
+// Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID
+  async getCurrentIngredient(alim_code: number) {
     const { data: currentData } = await this.supabase
       .from('ciqualAnses')
       .select('alim_code')
@@ -309,3 +284,26 @@ export class SupabaseService {
 }
 
 
+
+
+
+
+
+
+
+/* async getCurrentIngredient(id: number) {
+    const { data: currentData } = await this.supabase
+      .from('ciqual')
+      .select('id, alim_code')
+      .eq('id', id);
+
+      if (currentData && currentData.length > 0) {
+        console.log("ID de l'ingrédient :", currentData[0].id);
+        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
+        return {
+          id: currentData[0].id,
+          alim_code: currentData[0].alim_code
+        }         
+      }
+    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+  } */

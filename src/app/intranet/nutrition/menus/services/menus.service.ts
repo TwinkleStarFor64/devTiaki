@@ -43,14 +43,6 @@ export class MenusService {
 
   async getCiqual() {
     const ciqual = await this.supabase
-      .from('ciqual')
-      .select('*');
-    console.log(ciqual);    
-    return ciqual;
-  }
-
-  async getCiqualBis() {
-    const ciqual = await this.supabase
       .from('ciqualAnses')
       .select('*');    
     return ciqual;    

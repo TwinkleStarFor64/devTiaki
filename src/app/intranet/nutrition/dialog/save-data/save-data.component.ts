@@ -13,9 +13,7 @@ export class SaveDataComponent implements OnInit {
   
   formData!: FormGroup;
   public repas: any[] = [];
-  result: any;
-  
-  //result!: { id: number, alim_code: number };
+  result: any;  
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>,
                private formBuilder: FormBuilder, public supa: SupabaseService ) {}
@@ -26,30 +24,16 @@ export class SaveDataComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       ingredient: new FormControl('')
     });
-    //this.fetchCiqual();
-    this.fetchCiqualBis();
-    
-    /* const ingredientControl = this.formData.get('ingredient') as FormControl;
-    ingredientControl.valueChanges.subscribe( async (selectedIngredient) => {
-      if (selectedIngredient) {
-        const ingredientId = selectedIngredient.id; 
-        const ingredientAlimCode = await this.supa.getCurrentIngredient(ingredientId);       
-        //this.result = await this.supa.getCurrentIngredient(ingredientId);
-        this.result = {
-          id: selectedIngredient.id,
-          alim_code: ingredientAlimCode.alim_code
-        };
-        console.log(this.result);
-      }
-    }); */
+    this.fetchCiqual();   
 
 // Ci-dessous je récupére la valeur du champ ingrédient du formulaire
-// Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredientBis()    
+// Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredient()    
     const ingredientControl = this.formData.get('ingredient') as FormControl;
     ingredientControl.valueChanges.subscribe( async (selectedIngredient) => {
       if (selectedIngredient) {
-        const ingredientAlimCode = selectedIngredient.alim_code;              
-        this.result = await this.supa.getCurrentIngredientBis(ingredientAlimCode);        
+        const ingredientAlimCode = selectedIngredient.alim_code;
+        console.log(ingredientAlimCode);                      
+        this.result = await this.supa.getCurrentIngredient(ingredientAlimCode);        
         console.log(this.result);
       }
     });
@@ -63,27 +47,17 @@ export class SaveDataComponent implements OnInit {
     console.log(this.formData.value);
     const newEntry = {
       nom: this.formData.value.nom,
-      description: this.formData.value.description, 
-      //ciqual: this.result.id,  
+      description: this.formData.value.description,       
       alim_code: this.result.alim_code   
     };
-    await this.supa.createMenu(newEntry).then(() => {      
-     window.location.reload(); // Bonne solution ??
+    await this.supa.createMenu(newEntry).then(() => { 
+      this.fetchCiqual();     
+      window.location.reload(); // Bonne solution ??
     });    
   }
 
-  /* async fetchCiqual() {    
-    const { data, error }  = await this.supa.getCiqual();
-    if (data) {
-      this.repas = data;
-    }
-    if (error) {
-      console.log(error);
-    }
-  }   */
-
-  async fetchCiqualBis() {
-    const { data, error } = await this.supa.getCiqualBis();
+  async fetchCiqual() {
+    const { data, error } = await this.supa.getCiqual();
     if (data) {
       this.repas = data;
     }
