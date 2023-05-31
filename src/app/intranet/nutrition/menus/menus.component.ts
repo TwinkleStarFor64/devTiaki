@@ -18,6 +18,10 @@ export class MenusComponent implements OnInit {
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 
+  buttonColor: string = 'primary'; // Couleur par défaut du bouton
+  colors: string[] = ['primary', 'accent', 'warn']; // Tableau de couleurs disponibles
+  currentIndex: number = 0; // Indice de la couleur actuelle
+
   constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
   async ngOnInit(): Promise<void> {
@@ -36,7 +40,7 @@ export class MenusComponent implements OnInit {
         nom: item['nom'],
         description: item['description'],
         alim_code: item['alim_code'],        
-        ciqual: item['ciqual']
+        //ciqual: item['ciqual']
       }));     
     }
     if (error) {
@@ -66,7 +70,7 @@ export class MenusComponent implements OnInit {
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
         ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
       }));
-      console.log(this.aliment.map((item) => item['alim_code']).join(', '));           
+      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));           
     }
     if (groupError) {
       console.log(groupError);
@@ -126,7 +130,11 @@ export class MenusComponent implements OnInit {
     });
   }
 
-  
+  changeColor(): void {
+    
+    this.currentIndex = (this.currentIndex + 1) % this.colors.length; // Calcul de l'indice de la prochaine couleur
+    this.buttonColor = this.colors[this.currentIndex]; // Sélection de la prochaine couleur
+  }
   
 
 }

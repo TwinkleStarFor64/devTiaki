@@ -21,6 +21,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
 
 
 @NgModule({
@@ -49,7 +52,9 @@ import { DeleteDataComponent } from './dialog/delete-data/delete-data.component'
     MatDialogModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule,
+    NgxMatSelectSearchModule    
   ]  
 })
 export class NutritionModule {}

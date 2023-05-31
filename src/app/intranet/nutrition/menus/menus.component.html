@@ -26,7 +26,7 @@
           <h2>{{ menus.nom }}</h2>
           <p>{{ menus.description }}</p>          
           <div>
-            <button mat-raised-button color="primary">Evaluer ce menu</button>
+            <button mat-raised-button [color]="buttonColor" (click)="changeColor()">Evaluer ce menu</button>
             <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
             <p>Durée</p>
             <img src="assets/photoNutri/casserole.svg" alt="matériel" />

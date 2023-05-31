@@ -1,26 +1,30 @@
 <section>
-    <article>
-        <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
-        <p>{{ data }}</p> <!-- Le contenu de la balise <p> viens de menus.component.ts -->
-    </article>
-    <article>
-        <form [formGroup]="formData">
-          <mat-form-field appearance="outline" id="input">
-            <mat-label>Nom</mat-label>
-            <input matInput formControlName="nom" />
-          </mat-form-field>
-          <mat-form-field appearance="outline" id="input">
-            <mat-label>Description</mat-label>
-            <textarea matInput rows="8" formControlName="description"></textarea>
-          </mat-form-field>
-          <mat-form-field appearance="outline" id="input">
-            <mat-label>Ajouter un ingrédient</mat-label>
-            <mat-select formControlName="ingredient">
-              <mat-option *ngFor="let ingredient of repas" [value]="ingredient">{{ ingredient.alim_nom_fr }}</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </form>
-    </article>
+  <article>
+    <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+    <p>{{ data }}</p>
+    <!-- Le contenu de la balise <p> viens de menus.component.ts -->
+  </article>
+  <article>
+    <form [formGroup]="formData">
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="nom" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="8" formControlName="description"></textarea>
+      </mat-form-field>      
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Ajouter un ingrédient</mat-label>
+        <mat-select formControlName="ingredient">
+          <mat-option>
+            <ngx-mat-select-search [(ngModel)]="filtre" [formControl]="searchControl" placeholderLabel="Ajouter un ingrédient" noEntriesFoundLabel="Aucun ingrédient correspondant"></ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let ingredient of repas | aliments:filtre" [value]="ingredient">{{ ingredient.alim_nom_fr }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </article>
   <article>
     <button mat-raised-button color="warn" [mat-dialog-close]="false">
       Annuler
@@ -30,3 +34,10 @@
     </button>
   </article>
 </section>
+
+
+
+
+
+
+

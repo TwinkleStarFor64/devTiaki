@@ -11,6 +11,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { HistoriqueJournalI } from '../intranet/modeles/Types';
 import { CiqualI } from '../intranet/utils/modeles/Types';
+import { Observable } from 'rxjs';
 
 export interface AidantI {
   id: number;
