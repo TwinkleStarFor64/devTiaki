@@ -22,13 +22,13 @@ export class ExerciceKineComponent implements OnInit {
     this.sanity.getExercices().then((data) => this.exercicesKine = data)
 
   }
-  openDialog() {
+  openDialog(exercice: ExerciceI) {
     return this.dialog.open(ModalExKineComponent, {
       disableClose: true,
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: 'Description des exercices',
+      data: exercice,
     });
     
   }

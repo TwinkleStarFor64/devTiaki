@@ -6,7 +6,7 @@
     <p>Le parcours de Cheer Émilie</p>
   </header>
   <section>
-    <article *ngFor="let exercice of exercicesKine" (click)="openDialog()" >
+    <article *ngFor="let exercice of exercicesKine" (click)="openDialog(exercice)" >
       <div class="photo-exo" >
         <!-- <img [src]="exercice.photo" alt="photo-exercice" /> -->
           <img src={{sanity.urlFor(exercice.photo).url()}} alt="photo-exercice" />

@@ -8,7 +8,7 @@ $aside-color3: #f0c02e;
 
 #exercices>#head>a,
 #exercices>#head>p {
-  color: $card-kine;
+  color: #805e96;
 }
 
 #exercices {
@@ -21,4 +21,9 @@ $aside-color3: #f0c02e;
     height: 200px;
     background-color: $aside-color2;
   }
+}
+
+#exercices section article>div:nth-child(2)>div>img {
+  height: 2vh;
+  width: 1vw;
 }

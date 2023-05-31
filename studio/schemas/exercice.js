@@ -4,7 +4,7 @@ export default {
     title: 'Exercices',
     fields: [
       {
-        name: 'title',
+        name: 'titre',
         type: 'string',
         title: 'titre',
         validation: (Rule) => Rule.required(),
