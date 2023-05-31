@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
-import { ExerciceKineService } from './services/exercice-kine.service';
 import { SanityService } from 'src/app/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
-
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'app-exercice-kine',
@@ -13,15 +13,21 @@ import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
 })
 export class ExerciceKineComponent implements OnInit {
   avatar!: string;
-  exercicesKine!: ExerciceI[]
+  exercicesKine!: ExerciceI[];
+  control = new FormControl('');
+  exercicesFiltres: ExerciceI[] = [];
+  selectedImageTitle: string = '';
+  selectedExerciceKine?: ExerciceI;
+  myEx = new FormControl<any | ExerciceI>('');
 
-  constructor(public exerciceKine: ExerciceKineService, public sanity: SanityService, private dialog:MatDialog) { }
+  constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
-    this.sanity.getExercices().then((data) => this.exercicesKine = data)
-
+    this.sanity.getExercices().then((data) => (this.exercicesKine = data));
+    this.control = new FormControl('');
   }
+  // Ouverture de la modal exercice au click
   openDialog(exercice: ExerciceI) {
     return this.dialog.open(ModalExKineComponent, {
       disableClose: true,
@@ -30,8 +36,34 @@ export class ExerciceKineComponent implements OnInit {
       width: '1000px',
       data: exercice,
     });
-    
   }
-  
-  
+  // Filtrer les exercices dans la barre de recherche
+  filtrerExercices(): void {
+    const controlValue = this.control.value;
+    const filtre =
+      typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
+
+    if (filtre) {
+      this.exercicesFiltres = this.exercicesKine.filter((exercice: ExerciceI) =>
+        exercice.titre.toLowerCase().includes(filtre)
+      );
+    } else this.exercicesFiltres = [];
+  }
+  // Afficher tous les exercices
+  allExercices() {
+    this.exercicesFiltres = [...this.exercicesKine];
+  }
+
+  // Méthode pour la sélection d'un élément avec le clavier
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const exercice = event.option.value;
+    this.selectedExerciceKine = exercice;
+    this.control.setValue(exercice.titre);
+    // this.control.markAsDirty();
+  }
+
+  //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
+  hoverSelectedExercice(exercice: any) {
+    this.control.setValue(exercice ? exercice.titre : '');
+  }
 }

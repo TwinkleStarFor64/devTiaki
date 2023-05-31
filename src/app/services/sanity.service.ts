@@ -23,8 +23,7 @@ export class SanityService {
   async getExercices(): Promise<ExerciceI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "exercice"]{
-        id,
-        titre,
+        title,
         photo,
         video,
         description,

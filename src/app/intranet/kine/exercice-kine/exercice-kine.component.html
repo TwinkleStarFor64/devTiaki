@@ -5,12 +5,46 @@
     <img [src]="avatar" />
     <p>Le parcours de Cheer Émilie</p>
   </header>
+  <article>
+    <form class="example-form">
+      <input
+        id="input-programmes"
+        class="example-input"
+        type="search"
+        name="myEx"
+        placeholder="Recherche libre"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerExercices()"
+        (click)="allExercices()"
+        [value]="selectedImageTitle"
+      />
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
+          *ngFor="let exercice of exercicesFiltres"
+          [value]="exercicesKine"
+          (mouseover)="hoverSelectedExercice(exercice)"
+        >
+          {{ exercice.titre }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+  </article>
   <section>
-    <article *ngFor="let exercice of exercicesKine" (click)="openDialog(exercice)" >
-      <div class="photo-exo" >
+    <article
+      *ngFor="let exercice of exercicesKine"
+      (click)="openDialog(exercice)"
+    >
+      <div class="photo-exo">
         <!-- <img [src]="exercice.photo" alt="photo-exercice" /> -->
-          <img src={{sanity.urlFor(exercice.photo).url()}} alt="photo-exercice" />
-        </div>
+        <img
+          src="{{ sanity.urlFor(exercice.photo).url() }}"
+          alt="photo-exercice"
+        />
+      </div>
       <div>
         <h6>{{ exercice.titre }}</h6>
         <p>{{ exercice.description }}</p>
