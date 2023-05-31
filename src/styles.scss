@@ -458,9 +458,10 @@ p {
   align-items: center;
   gap: 0.3vw;
 }
+
 #exercices section article>div:nth-child(2)>div>img {
- height: 2vh;
- width: 1vw;
+  height: 2vh;
+  width: 1vw;
 }
 
 
@@ -1077,6 +1078,7 @@ p {
     display: flex;
     flex-direction: column;
   }
+
   // La balise <h4>Tourte aux champignons</h4>
   h4 {
     font-size: 1.6rem;
@@ -1103,17 +1105,17 @@ p {
     border-bottom: dashed black 1px;
   }
 
-  span:nth-child(3) > span {
+  span:nth-child(3)>span {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
 
-  span:nth-child(3) > span > p {
+  span:nth-child(3)>span>p {
     width: 18%;
   }
 
-  span:nth-child(3) > span > p:nth-child(2) {
+  span:nth-child(3)>span>p:nth-child(2) {
     width: 75%;
   }
 
@@ -1128,14 +1130,14 @@ p {
   }
 
   // La div avec les 2 boutons annuler & valider
-  span:nth-child(3) > div:nth-child(7) {
+  span:nth-child(3)>div:nth-child(7) {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 1vw;
     border-bottom: dashed black 1px;
     padding: 2vh;
-    
+
     button:nth-child(1) {
       background-color: #F28705;
       //font-size: 0.9vw;
@@ -1146,15 +1148,16 @@ p {
     }
 
   }
+
   // Code identique que ci-dessus mais pour la page menu avec un ID sur la Div contenant les 2 boutons
-  #boutonPageMenus{
+  #boutonPageMenus {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 1vw;
     border-bottom: dashed black 1px;
     padding: 2vh;
-    
+
     button:nth-child(1) {
       background-color: #F28705;
     }
@@ -1196,18 +1199,19 @@ p {
   height: calc(100vh - $foot);
   scrollbar-color: $card-nutri #d3354f;
   scrollbar-width: auto;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 #recettes>* {
   width: 100%;
 }
 
-#recettes>section{
+#recettes>section {
   flex-flow: row wrap;
   justify-content: space-around;
   height: calc(100vh - $head - $foot);
 }
+
 #recettes article {
   flex-flow: column nowrap;
   width: 20%;
@@ -1217,9 +1221,10 @@ p {
   margin: 5px;
   gap: 0.5vw;
 }
+
 #recettes>article:nth-child(2) {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   align-self: center;
   width: 100%;
   margin: 0px 50px 0px 50px;
@@ -1228,9 +1233,10 @@ p {
   background: none;
   border-bottom: dashed 1px black;
 }
+
 #recettes>article:nth-child(2)>form {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -1261,13 +1267,15 @@ p {
   flex-direction: column;
   text-align: justify;
 }
+
 #recettes article>div:nth-child(2)>div {
   display: flex;
   flex-direction: column;
   text-align: justify;
 }
+
 #recettes article>div:nth-child(2)>div>div {
-  display: flex; 
+  display: flex;
   text-align: justify;
   gap: 1vw;
 }
