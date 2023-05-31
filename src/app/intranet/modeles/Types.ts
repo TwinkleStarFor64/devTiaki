@@ -18,8 +18,8 @@ export interface IngredientI {
 
 //Interface des exercices servant à l'optométrie et kinésithérapie
 export interface ExerciceI {
-  photo: string;
   titre: string;
+  photo: string;
   description: string;
   horloge: string;
   materiel: string;
@@ -104,3 +104,14 @@ export interface RecetteI {
   complexiteFig: string;
   complexiteTxt: string;
 }
+
+//Interface de la page d'accueil Nutrition
+export interface NutritionI {
+  id:number;
+  title: string;
+  text: string;
+  button: string;
+  image: string;
+  url: string;
+}
+

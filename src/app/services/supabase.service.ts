@@ -10,6 +10,7 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { HistoriqueJournalI } from '../intranet/modeles/Types';
+import { CiqualI } from '../intranet/utils/modeles/Types';
 
 export interface AidantI {
   id: number;
@@ -179,4 +180,132 @@ export class SupabaseService {
       console.log(journalError);
     }
   }
+
+  // UPDATE un journal
+  async updateJournal(
+    journalId: number,
+    newEntry: {
+      objet: string;
+      description: string;
+      commentaire: string;
+      date?: Date;
+      groupeEvenement?: number;
+    }
+  ) {
+    newEntry.date = new Date(); //Le champ date aura la date actuelle
+
+    const { error: updateError } = await this.supabase
+      .from('journalEvenement')
+      .update(newEntry) // Update avec les valeurs de newEntry - déclaré au dessus
+      .eq('id', journalId); // Filtre avec l'id du journal choisi
+
+    if (updateError) {
+      console.log(updateError);
+    }
+  }
+
+  async getCurrentJournal(id: number) {
+    // l'ID va être dynamique quand j'appelle ma méthode dans le component
+    const { data: currentData, error: currentError } = await this.supabase
+      .from('journalEvenement')
+      .select('id, date, objet, description, commentaire, groupeEvenement (*)')
+      .eq('id', id);
+
+    if (currentData) {
+      currentData.forEach((journal) => {
+        // forEach car je reçois un tableau
+        console.log('journal.objet - supabase.service :', journal.objet);
+      });
+      return currentData;
+    }
+    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+  }
+
+  // Méthode pour supprimer un menu
+  async deleteMenu(id: number) {
+    const { error: deleteError } = await this.supabase
+      .from('repas')
+      .delete()
+      .eq('id', id)
+  
+      if(deleteError) {
+        console.log(deleteError);      
+      } 
+    }
+
+  async getCurrentIngredient(id: number) {
+    const { data: currentData } = await this.supabase
+      .from('ciqual')
+      .select('id, alim_code')
+      .eq('id', id);
+
+      if (currentData && currentData.length > 0) {
+        console.log("ID de l'ingrédient :", currentData[0].id);
+        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
+        return {
+          id: currentData[0].id,
+          alim_code: currentData[0].alim_code
+        }         
+      }
+    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+  }
+
+  // Méthode pour enregistrer un menu
+  async createMenu(
+    newEntry: { 
+    nom: string;
+    description: string;
+    date?: Date;
+    alim_code?: number;
+    ciqual?: number;
+    }) {
+    newEntry.date = new Date(); //Le champ date aura la date actuelle
+    
+    const { data: menuData, error: menuError } = await this.supabase
+      .from('repas')
+      .insert(newEntry)
+      .select()
+      .single();      
+
+      if(menuError) {
+        console.log(menuError);
+      } 
+  }
+  
+  
+// Méthode pour récupérer la table ciqual provisoire
+  async getCiqual() {
+    const ciqual = await this.supabase
+      .from('ciqual')
+      .select('*');
+    console.log(ciqual);    
+    return ciqual;
+  }
+
+  async getCiqualBis() {
+    const ciqual = await this.supabase
+      .from('ciqualAnses')
+      .select('*');
+    console.log(ciqual);
+    return ciqual;    
+  }
+
+  async getCurrentIngredientBis(alim_code: number) {
+    const { data: currentData } = await this.supabase
+      .from('ciqualAnses')
+      .select('alim_code')
+      .eq('alim_code', alim_code);
+
+      if (currentData && currentData.length > 0) {
+          console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
+        return {
+          alim_code: currentData[0].alim_code
+        }         
+      }
+    throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
+  }
+
+
 }
+
+

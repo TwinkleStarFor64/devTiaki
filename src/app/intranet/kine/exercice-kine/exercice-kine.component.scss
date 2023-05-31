@@ -13,12 +13,12 @@ $aside-color3: #f0c02e;
 
 #exercices {
   ::-webkit-scrollbar {
-    background-color: #f09c94;
+    background-color: #af6ee4;
     width: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
     height: 200px;
-    background-color: #f22f1d;
+    background-color: $aside-color2;
   }
 }

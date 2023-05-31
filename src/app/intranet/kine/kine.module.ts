@@ -11,6 +11,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
 import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.component';
 import { InputComponent } from '../template/ui/input/input.component';
+import { ModalExKineComponent } from './exercice-kine/modal-ex-kine/modal-ex-kine.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,7 @@ import { InputComponent } from '../template/ui/input/input.component';
     KineComponent,
     BottomBarKineComponent,
     InputComponent,
+    ModalExKineComponent,
   ],
 
   imports: [
@@ -30,6 +35,11 @@ import { InputComponent } from '../template/ui/input/input.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatIconModule,
+    MatDialogModule
   ],
 })
 export class KineModule {}

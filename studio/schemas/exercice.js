@@ -1,39 +1,39 @@
 export default {
     name: 'exercice',
     type: 'document',
-      title: 'Exercices',
+    title: 'Exercices',
     fields: [
       {
         name: 'title',
         type: 'string',
-        title: 'Titre',
+        title: 'titre',
         validation: (Rule) => Rule.required(),
       },
       {
         name: 'photo',
         type: 'image',
-        title: 'Photo',
+        title: 'photo',
         validation: (Rule) => Rule.required(),
       },
       {
         name: 'video',
         type: 'string',
-        title: 'Vidéo'
+        title: 'vidéo'
       },
       {
         name: 'description',
         type: 'string',
-        title: 'Description'
+        title: 'description'
       },
       {
         name: 'duree',
         type: 'number',
-        title: 'Durée (en minutes)'
+        title: 'durée (en minutes)'
       },
       {
         name: 'materiel',
         type: 'string',
-        title: 'Materiel'
+        title: 'materiel'
       },
             
     ]

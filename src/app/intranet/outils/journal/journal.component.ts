@@ -101,6 +101,7 @@ export class JournalComponent implements OnInit {
     //J'utilise la méthode createJournal avec comme paramétre newEntry
     await this.supa.createJournal(newEntry, idRelier).then(() => {
       this.fetchJournals();
+      window.location.reload(); // Bonne solution ??
     });
     this.formJournal.reset();
   }

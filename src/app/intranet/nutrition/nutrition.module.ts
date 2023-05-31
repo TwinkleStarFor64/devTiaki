@@ -15,6 +15,13 @@ import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.com
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
+import { SaveDataComponent } from './dialog/save-data/save-data.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +35,8 @@ import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
     PlatsPipe,
     IngredientsPipe,
     BottomBarNutriComponent,
+    SaveDataComponent,
+    DeleteDataComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +46,10 @@ import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
-  ],
+    MatDialogModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule
+  ]  
 })
 export class NutritionModule {}

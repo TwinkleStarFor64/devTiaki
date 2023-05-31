@@ -4,13 +4,14 @@
     <p>Accueil Nutrition</p>
   </header>
   <section>
-    <article *ngFor="let card of cards">
+    <article *ngFor="let card of accueilNutrition">
       <h2>{{ card.title }}</h2>
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">
         <button>{{ card.button }}</button>
       </a>
-      <img [src]="card.image" alt="photo" />
+      <!-- L'image viens de Sanity -->
+      <img src={{sanity.urlFor(card.image).url()}} alt="photo" />
     </article>
   </section>
   <!-- <app-footer></app-footer> -->

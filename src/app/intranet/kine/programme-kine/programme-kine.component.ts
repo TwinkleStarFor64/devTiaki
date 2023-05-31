@@ -62,7 +62,7 @@ export class ProgrammeKineComponent implements OnInit {
     this.programmesFiltres = [...this.programmeKine.programme];
   }
 
-  // méthode permettant la récupération des données json via l'interface ProgrammeOptoI
+  // méthode permettant la récupération des données json via l'interface ProgrammeI
   onSelectProgramme(programme: ProgrammeI): void {
     this.selectedProgrammeKine = programme;
     this.myProg.setValue(programme);

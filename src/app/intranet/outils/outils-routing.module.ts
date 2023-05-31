@@ -5,13 +5,16 @@ import { JournalComponent } from './journal/journal.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfilComponent } from './profil/profil.component';
 import { ParametreComponent } from './parametre/parametre.component';
+import { EditJournalComponent } from './edit-journal/edit-journal.component';
+
 
 const routes: Routes = [
-  { path: 'journal', component: JournalComponent },
-  { path: 'historique', component: HistoriqueComponent },
-  { path: 'messagerie', component: MessagerieComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'parametre', component: ParametreComponent },
+  {path:'journal', component:JournalComponent},
+  {path:'historique', component:HistoriqueComponent},
+  {path:'messagerie', component:MessagerieComponent},
+  {path:'profil', component:ProfilComponent},
+  {path:'parametre', component:ParametreComponent},
+  {path:'modifier/:id', component:EditJournalComponent}
 ];
 
 @NgModule({

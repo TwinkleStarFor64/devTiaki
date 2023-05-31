@@ -21,12 +21,7 @@ export class MenusService {
   menu: MesMenusI[] = [];
   ciqual: CiqualI[] = [];
 
-  constructor(private http: HttpClient) {
-    this.supabase = createClient(
-      environment.supabaseUrl,
-      environment.supabaseKey
-    );
-  }
+  constructor(private http: HttpClient) {this.supabase = createClient(environment.supabaseUrl,environment.supabaseKey);}
 
   getMesMenus() {
     this.http.get<MesMenusI[]>('assets/data/menus.json').subscribe({
@@ -42,12 +37,23 @@ export class MenusService {
     const repas = await this.supabase
       .from('repas') //La table repas
       .select('*'); //Je select toutes les données avec *
-    console.log(repas);
+    console.log( repas);
     return repas;
-  }
+  }  
 
   async getCiqual() {
-    const ciqual = await this.supabase.from('ciqual').select('*');
+    const ciqual = await this.supabase
+      .from('ciqual')
+      .select('*');
+    console.log(ciqual);    
     return ciqual;
   }
+
+  async getCiqualBis() {
+    const ciqual = await this.supabase
+      .from('ciqualAnses')
+      .select('*');    
+    return ciqual;    
+  }
+
 }
