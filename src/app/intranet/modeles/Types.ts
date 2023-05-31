@@ -18,7 +18,7 @@ export interface IngredientI {
 
 //Interface des exercices servant à l'optométrie et kinésithérapie
 export interface ExerciceI {
-  titre: string;
+  title: string;
   photo: string;
   description: string;
   duree: string;

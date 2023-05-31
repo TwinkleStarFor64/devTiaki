@@ -45,7 +45,7 @@ export class ExerciceKineComponent implements OnInit {
 
     if (filtre) {
       this.exercicesFiltres = this.exercicesKine.filter((exercice: ExerciceI) =>
-        exercice.titre.toLowerCase().includes(filtre)
+        exercice.title.toLowerCase().includes(filtre)
       );
     } else this.exercicesFiltres = [];
   }
@@ -58,12 +58,12 @@ export class ExerciceKineComponent implements OnInit {
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const exercice = event.option.value;
     this.selectedExerciceKine = exercice;
-    this.control.setValue(exercice.titre);
+    this.control.setValue(exercice.title);
     // this.control.markAsDirty();
   }
 
   //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
   hoverSelectedExercice(exercice: any) {
-    this.control.setValue(exercice ? exercice.titre : '');
+    this.control.setValue(exercice ? exercice.title : '');
   }
 }
