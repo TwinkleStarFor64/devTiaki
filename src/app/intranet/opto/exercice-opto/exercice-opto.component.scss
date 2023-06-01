@@ -19,3 +19,13 @@ main>footer {
     background-color: #f28705;
   }
 }
+#exercices header article {
+  background: none;
+  width: 60vw;
+  align-items: end;
+  
+}
+#exercices section article>div:nth-child(2)>div>img {
+  height: 2vh;
+  width: 1vw;
+}

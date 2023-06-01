@@ -33,6 +33,19 @@ export class SanityService {
     );
   }
 
+  async getExercicesOpto(): Promise<ExerciceI[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "exerciceOpto"]{
+        title,
+        photo,
+        video,
+        description,
+        duree,
+        materiel
+      }`
+    );
+  }
+
   async getAccueilNutrition(): Promise<NutritionI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "nutrition"]{

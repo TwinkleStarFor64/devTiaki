@@ -406,7 +406,7 @@ p {
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 100vh;
+  max-height: 66vh;
   background: $clair;
   padding: 10px;
   margin: 5px;
@@ -441,20 +441,28 @@ p {
   text-align: justify;
 }
 
-// titre de l'exercice
-#exercices article>div>h6 {
-  margin: 0;
-  font-size: 1rem;
-}
-
 // description de l'exercice
 #exercices article>div>p {
   margin: 0;
 }
+// div contenant le h6 duréé et materiel
+#exercices section article>div:nth-child(2)>div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// titre de l'exercice
+#exercices article>div:nth-child(2)>div>h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
 
 // div de la durée et materiel
-#exercices section article>div:nth-child(2)>div {
+#exercices section article>div:nth-child(2)>div>div {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 0.3vw;

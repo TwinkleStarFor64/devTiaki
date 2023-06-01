@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
-import { ExerciceOptoService } from './services/exercice-opto.service';
+import { FormControl } from '@angular/forms';
+import { SanityService } from 'src/app/services/sanity.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';
 
 @Component({
   selector: 'app-exercice-otpo',
@@ -9,10 +13,50 @@ import { ExerciceOptoService } from './services/exercice-opto.service';
 })
 export class ExerciceOptoComponent implements OnInit {
   avatar!: string;
-  constructor(public exerciceOpto: ExerciceOptoService) {}
+  exercicesOpto!: ExerciceI[];
+  control = new FormControl('');
+  exercicesFiltres: ExerciceI[] = [];
+  selectedImageTitle: string = '';
+  selectedExerciceOpto?: ExerciceI;
+  filtrerExercice: string = '';
+  constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
-    this.exerciceOpto.getExerciceOpto();
+    this.sanity.getExercicesOpto().then((data) => {
+      this.exercicesOpto = data;
+      this.exercicesFiltres = [...this.exercicesOpto]; // Afficher tous les exercices
+    });
+  }
+
+  // Ouverture de la modal exercice au click
+  openDialog(exercice: ExerciceI) {
+    return this.dialog.open(ModalExOptoComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '800px',
+      width: '1000px',
+      data: exercice,
+    });
+  }
+
+  filtrerExercices(): void {
+    const controlValue = this.control.value;
+    const filtre =
+      typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
+
+    if (filtre) {
+      this.exercicesFiltres = this.exercicesOpto.filter((exercice: ExerciceI) =>
+        exercice.title.toLowerCase().includes(filtre)
+      );
+    } else {
+      this.exercicesFiltres = [...this.exercicesOpto];
+    }
+  }
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const exercice = event.option.value;
+    this.selectedExerciceOpto = exercice;
+    this.control.setValue(exercice.title);
+    this.exercicesFiltres = [exercice];
   }
 }

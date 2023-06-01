@@ -1,0 +1,23 @@
+<section *ngIf="exerciceModal">
+    <article (click)="openModal(exerciceModal)">
+      <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+    </article>
+    <article>
+      <div class="photo-exo">
+        <img
+          src="{{ sanity.urlFor(exerciceModal.photo).url() }}"
+          alt="photo-exercice"
+        />
+      </div>
+      <div>
+        <h1>{{ exerciceModal.title }}</h1>
+        <p>{{ exerciceModal.description }}</p>
+        <div>
+          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+          <p>{{exerciceModal.duree}}</p>
+          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+          <p>{{exerciceModal.materiel}}</p>
+        </div>
+      </div>
+    </article>
+  </section>

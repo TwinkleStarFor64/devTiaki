@@ -11,6 +11,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 import { OptoComponent } from './opto.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalExOptoComponent } from './exercice-opto/modal-ex-opto/modal-ex-opto.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { OptoComponent } from './opto.component';
     ProgrammeOptoPipe,
     CarouselOptoComponent,
     OptoComponent,
+    ModalExOptoComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +33,8 @@ import { OptoComponent } from './opto.component';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatIconModule,
+    MatDialogModule
   ],
 })
 export class OptoModule {}

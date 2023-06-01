@@ -3,21 +3,34 @@
     <a routerLink="/intranet">Tiaki</a>
     <p>Optométrie ></p>
     <p>Choisir un exercice</p>
+    <article>
+      <form class="example-form">
+        <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
+          [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+          <mat-option *ngFor="let exercice of exercicesFiltres" [value]="exercice">
+            {{ exercice.title }}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+    </article>
   </header>
   <section>
-    <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
-      <div class="photo-exo">
-        <img [src]="exercice.photo" alt="photo-exercice" />
+    <article *ngFor="let exercice of exercicesFiltres">
+      <div class="photo-exo" (click)="openDialog(exercice)">
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
-        <h6>{{ exercice.title }}</h6>
-        <p>{{ exercice.description }}</p>
         <div>
-          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-          <p>Durée</p>
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-          <p>Matériels</p>
+          <h6>{{ exercice.title }}</h6>
+          <div>
+            <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+            <p>Durée</p>
+            <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+            <p>Matériels</p>
+          </div>
         </div>
+        <p>{{ exercice.description }}</p>
       </div>
     </article>
   </section>

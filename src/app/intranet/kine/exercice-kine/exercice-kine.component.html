@@ -4,56 +4,34 @@
     <p>Kinésithérapie ></p>
     <img [src]="avatar" />
     <p>Le parcours de Cheer Émilie</p>
+    <article>
+      <form class="example-form">
+        <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
+          [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+          <mat-option *ngFor="let exercice of exercicesFiltres" [value]="exercice">
+            {{ exercice.title }}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+    </article>
   </header>
-  <article>
-    <form class="example-form">
-      <input
-        id="input-programmes"
-        class="example-input"
-        type="search"
-        name="myEx"
-        placeholder="Recherche libre"
-        [formControl]="control"
-        [matAutocomplete]="auto"
-        (keyup)="filtrerExercices()"
-        (click)="allExercices()"
-        [value]="selectedImageTitle"
-      />
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        (optionSelected)="onOptionSelected($event)"
-      >
-        <mat-option
-          *ngFor="let exercice of exercicesFiltres"
-          [value]="exercicesKine"
-          (mouseover)="hoverSelectedExercice(exercice)"
-        >
-          {{ exercice.title }}
-        </mat-option>
-      </mat-autocomplete>
-    </form>
-  </article>
   <section>
-    <article
-      *ngFor="let exercice of exercicesKine"
-      (click)="openDialog(exercice)"
-    >
-      <div class="photo-exo">
-        <!-- <img [src]="exercice.photo" alt="photo-exercice" /> -->
-        <img
-          src="{{ sanity.urlFor(exercice.photo).url() }}"
-          alt="photo-exercice"
-        />
+    <article *ngFor="let exercice of exercicesFiltres">
+      <div class="photo-exo" (click)="openDialog(exercice)">
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
-        <h6>{{ exercice.title }}</h6>
-        <p>{{ exercice.description }}</p>
         <div>
-          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
-          <p>Durée</p>
-          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-          <p>Matériels</p>
+          <h6>{{ exercice.title }}</h6>
+         <div>
+           <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+           <p>Durée</p>
+           <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+           <p>Matériels</p>
+         </div> 
         </div>
+        <p>{{ exercice.description }}</p>
       </div>
     </article>
   </section>

@@ -15,6 +15,7 @@ import { ModalExKineComponent } from './exercice-kine/modal-ex-kine/modal-ex-kin
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { FilterPipe } from '../utils/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     BottomBarKineComponent,
     InputComponent,
     ModalExKineComponent,
+    FilterPipe
   ],
 
   imports: [

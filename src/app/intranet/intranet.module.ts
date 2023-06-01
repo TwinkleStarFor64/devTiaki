@@ -11,6 +11,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 
 
+
 @NgModule({
   declarations: [
     IntranetComponent,
@@ -18,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select';
     AccueilComponent,
     TableauComponent,
     ButtonComponent,
+
     
   ],
   imports: [

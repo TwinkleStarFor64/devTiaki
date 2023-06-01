@@ -1,0 +1,47 @@
+section {
+    background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    article:nth-child(1) {
+        display: flex;
+        justify-content: end;
+    }
+
+    article:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .photo-exo {
+
+            img {
+                height: 400px;
+                width: 400px;
+            }
+        }
+
+        div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                margin: 25px;
+                text-align: justify;
+            }
+
+            div {
+                display: flex;
+
+            }
+        }
+    }
+
+}

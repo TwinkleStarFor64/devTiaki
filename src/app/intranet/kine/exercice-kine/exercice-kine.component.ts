@@ -18,15 +18,20 @@ export class ExerciceKineComponent implements OnInit {
   exercicesFiltres: ExerciceI[] = [];
   selectedImageTitle: string = '';
   selectedExerciceKine?: ExerciceI;
-  myEx = new FormControl<any | ExerciceI>('');
+  filtrerExercice: string = '';
 
-  constructor(public sanity: SanityService, private dialog: MatDialog) {}
+  constructor(public sanity: SanityService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
-    this.sanity.getExercices().then((data) => (this.exercicesKine = data));
+    // Récupérer la méthode de sanity service pour avoir les photos et descriptions
+    this.sanity.getExercices().then((data) => {
+      this.exercicesKine = data;
+      this.exercicesFiltres = [...this.exercicesKine]; // Afficher tous les exercices
+    });
     this.control = new FormControl('');
   }
+
   // Ouverture de la modal exercice au click
   openDialog(exercice: ExerciceI) {
     return this.dialog.open(ModalExKineComponent, {
@@ -37,6 +42,7 @@ export class ExerciceKineComponent implements OnInit {
       data: exercice,
     });
   }
+
   // Filtrer les exercices dans la barre de recherche
   filtrerExercices(): void {
     const controlValue = this.control.value;
@@ -47,19 +53,22 @@ export class ExerciceKineComponent implements OnInit {
       this.exercicesFiltres = this.exercicesKine.filter((exercice: ExerciceI) =>
         exercice.title.toLowerCase().includes(filtre)
       );
-    } else this.exercicesFiltres = [];
+    } else {
+      this.exercicesFiltres = [...this.exercicesKine];
+    }
   }
-  // Afficher tous les exercices
-  allExercices() {
-    this.exercicesFiltres = [...this.exercicesKine];
-  }
+
+  //Afficher tous les exercices
+  // allExercices() {
+  //   this.exercicesFiltres = [...this.exercicesKine];
+  // }
 
   // Méthode pour la sélection d'un élément avec le clavier
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const exercice = event.option.value;
     this.selectedExerciceKine = exercice;
     this.control.setValue(exercice.title);
-    // this.control.markAsDirty();
+    this.exercicesFiltres = [exercice];
   }
 
   //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
