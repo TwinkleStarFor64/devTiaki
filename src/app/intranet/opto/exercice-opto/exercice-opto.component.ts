@@ -39,7 +39,7 @@ export class ExerciceOptoComponent implements OnInit {
       data: exercice,
     });
   }
-
+// filtrer les exercices
   filtrerExercices(): void {
     const controlValue = this.control.value;
     const filtre =
@@ -53,6 +53,7 @@ export class ExerciceOptoComponent implements OnInit {
       this.exercicesFiltres = [...this.exercicesOpto];
     }
   }
+  // 
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const exercice = event.option.value;
     this.selectedExerciceOpto = exercice;
