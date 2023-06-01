@@ -85,7 +85,7 @@ export class MenusComponent implements OnInit {
       this.selectedRepas = menus;
       console.log("J'ai cliqué sur : " + this.selectedRepas.nom + ' ' + event.isUserInput);
       this.alimCodeFiltre = menus.alim_code;
-      console.log('Je veux ce code : ' + this.alimCodeFiltre);           
+      console.log('Je veux ce code : ' + this.alimCodeFiltre);                
     }
   }
 

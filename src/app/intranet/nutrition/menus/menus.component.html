@@ -69,15 +69,21 @@
         </div>
         <span *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
-          <p>{{ ingredients.alim_code }}</p>
           <p>
             <img src="assets/photoNutri/compl.svg" alt="icône composition" />
             Composition : Protéines :
             {{ ingredients["Protéines, N x 6.25 (g\/100 g)"] }} Gr - Glucides :
             {{ ingredients["Glucides (g\/100 g)"] }} Gr - Lipide :
             {{ ingredients["Lipides (g\/100 g)"] }} Gr - Sucre :
-            {{ ingredients["Sucres (g/100 g)"] }} Gr
+            {{ ingredients["Sucres (g/100 g)"] }} Gr            
           </p>
+          <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+            Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
+            B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+            B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+            B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+            B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+         </p>
         </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>

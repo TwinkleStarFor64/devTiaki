@@ -41,7 +41,6 @@ export class SaveDataComponent implements OnInit {
         console.log(this.result);
       }
     });
-
     
 
 } // <------- Fin du ngOnInit()
