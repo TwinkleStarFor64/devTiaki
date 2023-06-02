@@ -19,6 +19,11 @@ export class ExerciceOptoComponent implements OnInit {
   selectedImageTitle: string = '';
   selectedExerciceOpto?: ExerciceI;
   filtrerExercice: string = '';
+  exerciceDureeSurvole: ExerciceI | null = null;
+  exerciceMaterielSurvole: ExerciceI | null = null;
+
+
+
   constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -60,4 +65,5 @@ export class ExerciceOptoComponent implements OnInit {
     this.control.setValue(exercice.title);
     this.exercicesFiltres = [exercice];
   }
+
 }

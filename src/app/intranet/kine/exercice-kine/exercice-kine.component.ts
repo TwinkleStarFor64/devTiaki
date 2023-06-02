@@ -19,6 +19,8 @@ export class ExerciceKineComponent implements OnInit {
   selectedImageTitle: string = '';
   selectedExerciceKine?: ExerciceI;
   filtrerExercice: string = '';
+  exerciceSurvole: ExerciceI | null = null;
+
 
   constructor(public sanity: SanityService, private dialog: MatDialog) { }
 

@@ -406,7 +406,7 @@ p {
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 66vh;
+  max-height: 80vh;
   background: $clair;
   padding: 10px;
   margin: 5px;
@@ -448,6 +448,7 @@ p {
 // div contenant le h6 duréé et materiel
 #exercices section article>div:nth-child(2)>div{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
