@@ -24,9 +24,10 @@
       <article id="listing">
         <div *ngFor="let menus of repas">
           <h2>{{ menus.nom }}</h2>
-          <p>{{ menus.description }}</p>          
+          <p>{{ menus.description }}</p>
+          <p>{{ menus.statut }}</p>            
           <div>
-            <button mat-raised-button [color]="buttonColor" (click)="changeColor()">Evaluer ce menu</button>
+            <button mat-raised-button [color]="buttonColor">{{ menus.statut }}</button>
             <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
             <p>Durée</p>
             <img src="assets/photoNutri/casserole.svg" alt="matériel" />
@@ -43,7 +44,7 @@
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
             <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
-              {{ menus.nom }}
+              {{ menus.nom }}              
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -90,6 +91,19 @@
           <mat-select> </mat-select>
         </mat-form-field>
         <div id="boutonPageMenus">
+          <mat-form-field id="ajouter" appearance="outline">
+            <mat-label>Evaluer ce plat</mat-label>
+            <mat-select [(ngModel)]="selectedEvaluation">
+              <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
+                {{ eval.statut }}                
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <label for="evaluation">Evaluer ce plat</label>
+          <select id="evaluation" [(ngModel)]="selectedEvaluation">
+            <option *ngFor="let eval of evaluation" [value]="eval.id">{{ eval.statut }}</option>
+          </select> -->
+          <button mat-raised-button color="primary" (click)="getMenusId()">EVALUER</button>
           <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
           <button mat-raised-button color="primary">VALIDER</button>
         </div>

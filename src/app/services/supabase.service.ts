@@ -281,8 +281,49 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
 
+  async getEvaluation() {
+    const evaluation  = await this.supabase
+      .from('evaluation')
+      .select('*')
+    //console.log(evaluation);
+    return evaluation;  
+  }
+
+  async updateEvaluation(selectedEvaluation: number, selectedStatut: string) {
+    const { data, error } = await this.supabase
+      .from('repas')
+      .update({ statut: selectedStatut})
+      .eq('id', selectedEvaluation)
+      
+    if (error) {
+      console.log(error);
+      throw error;
+    }    
+    return data;
+  }
+
+  async getEvaluationById(id: number) {
+    const { data, error } = await this.supabase
+      .from('evaluation')
+      .select('id')
+      .eq('id', id)
+      .single();
+      console.log(data);
+      
+    if (error) {
+      console.log(error);
+      throw error;
+    }        
+    return data;    
+  }
+
+
+ 
 
 }
+
+
+
 
 
 

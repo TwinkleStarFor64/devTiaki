@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
-import { CiqualI, MesMenusI } from '../../utils/modeles/Types';
+import { CiqualI, EvaluationI, MesMenusI } from '../../utils/modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { EvaluationComponent } from '../dialog/evaluation/evaluation.component';
 
 @Component({
   selector: 'app-menus',
@@ -14,7 +15,13 @@ import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   repas: MesMenusI[] = [];
+  evaluation: EvaluationI[] = [];
   selectedRepas?: MesMenusI;
+  selectedEvaluation!: EvaluationI;
+  selectedMenusId!: number;
+  evaluationId!: number;
+  evaluationStatut!: string;
+  
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 
@@ -27,7 +34,8 @@ export class MenusComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     //this.menuService.getMesMenus();
     this.fetchMenus(); 
-    this.fetchCiqual();    
+    this.fetchCiqual();
+    this.fetchEvaluation();    
   } // <----- Fin du ngOnInit()
 
   async fetchMenus() {
@@ -39,9 +47,11 @@ export class MenusComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'],        
-        //ciqual: item['ciqual']
-      }));     
+        alim_code: item['alim_code'], 
+        statut: item['statut']       
+      }));
+      console.log(this.repas.map((item) => item['id']));
+           
     }
     if (error) {
       //Si une erreur
@@ -77,6 +87,20 @@ export class MenusComponent implements OnInit {
     }
   }
 
+  async fetchEvaluation() {
+    const { data, error } = await this.supa.getEvaluation();
+    if (data) {
+      this.evaluation = data.map((item: { [x: string]: any }) => ({
+        id: item['id'],
+        statut: item['statut']
+      }));    
+      console.log(this.evaluation.map((item) => item['statut']).join(', '));      
+    }
+    if (error) {
+      console.log(error);      
+    }
+  }
+
   onSelect(event: any, menus: MesMenusI): void {
     // La ligne de code "if (event.isUserInput)" permet de vérifier que l'utilisateur a bien sélectionné une option
     // Cela permet d'ignorer l'événement déclenché lors de la désélection de l'option précédemment sélectionnée.
@@ -85,7 +109,17 @@ export class MenusComponent implements OnInit {
       this.selectedRepas = menus;
       console.log("J'ai cliqué sur : " + this.selectedRepas.nom + ' ' + event.isUserInput);
       this.alimCodeFiltre = menus.alim_code;
-      console.log('Je veux ce code : ' + this.alimCodeFiltre);                
+      console.log('Je veux ce code : ' + this.alimCodeFiltre); 
+      this.selectedMenusId = menus.id
+      console.log("Voici l'id du menu : " + this.selectedMenusId);                     
+    }
+  }
+
+  onSelectEval(event: any, evaluation: EvaluationI): void {
+    if (event.isUserInput) {
+      this.evaluationId = evaluation.id;
+      console.log("Voici l'id de l'eval : " + this.evaluationId); 
+      this.evaluationStatut = evaluation.statut;     
     }
   }
 
@@ -130,11 +164,50 @@ export class MenusComponent implements OnInit {
     });
   }
 
-  changeColor(): void {
-    
-    this.currentIndex = (this.currentIndex + 1) % this.colors.length; // Calcul de l'indice de la prochaine couleur
-    this.buttonColor = this.colors[this.currentIndex]; // Sélection de la prochaine couleur
+   /* async evaluer(): Promise<any> {
+      if (this.selectedEvaluation) {
+        console.log(this.selectedEvaluation);
+        await this.fetchMenus()
+        console.log(this.repas.map((item) => item['id']));
+        const toto = this.repas.map((item) => item['id'])
+        console.log(toto);        
+      }
+  } */
+
+    async getMenusId(): Promise<any> {
+      if (this.selectedMenusId !== null ) {
+        console.log("coucou :" + this.selectedMenusId );
+        await this.supa.getEvaluationById(this.evaluationId)
+        console.log("encore un log : " + this.evaluationId);
+        
+        await this.supa.updateEvaluation(this.selectedMenusId, this.evaluationStatut)
+        
+      } else {
+        throw new Error
+      }
   }
+
+  onSelectValue(value: any) {
+    console.log(value);
+  }
+  
+
+
+
+
+
+  evaluationDialog() {
+    return this.dialog.open(EvaluationComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '200px',
+      width: '400px',
+      data: 'Êtes vous sur de vouloir supprimer ce menu ?',
+    })
+  }
+
+  
+  
   
 
 }

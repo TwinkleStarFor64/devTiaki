@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { EvaluationComponent } from './dialog/evaluation/evaluation.component';
 
 
 
@@ -40,6 +41,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     BottomBarNutriComponent,
     SaveDataComponent,
     DeleteDataComponent,
+    EvaluationComponent,
   ],
   imports: [
     CommonModule,

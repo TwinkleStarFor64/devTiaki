@@ -48,8 +48,13 @@ export interface MesMenusI {
   nom: string;
   description: string;
   alim_code: number;
-  //ciqual: number;  
-  reaction?: string;
+  statut: string;
+  //ciqual: number;   
+}
+
+export interface EvaluationI {
+  id: number;
+  statut: string;
 }
 
 // Interface bottomBar Tableau de bord & Profil
