@@ -60,11 +60,6 @@ export class ExerciceKineComponent implements OnInit {
     }
   }
 
-  //Afficher tous les exercices
-  // allExercices() {
-  //   this.exercicesFiltres = [...this.exercicesKine];
-  // }
-
   // Méthode pour la sélection d'un élément avec le clavier
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const exercice = event.option.value;

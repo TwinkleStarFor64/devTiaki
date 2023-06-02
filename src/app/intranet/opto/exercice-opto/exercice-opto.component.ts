@@ -22,8 +22,6 @@ export class ExerciceOptoComponent implements OnInit {
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
 
-
-
   constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -44,7 +42,7 @@ export class ExerciceOptoComponent implements OnInit {
       data: exercice,
     });
   }
-// filtrer les exercices
+  // filtrer les exercices
   filtrerExercices(): void {
     const controlValue = this.control.value;
     const filtre =
@@ -58,12 +56,11 @@ export class ExerciceOptoComponent implements OnInit {
       this.exercicesFiltres = [...this.exercicesOpto];
     }
   }
-  // 
+  // methode de selection d'un élément
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const exercice = event.option.value;
     this.selectedExerciceOpto = exercice;
     this.control.setValue(exercice.title);
     this.exercicesFiltres = [exercice];
   }
-
 }

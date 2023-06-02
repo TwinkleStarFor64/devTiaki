@@ -6,10 +6,25 @@
     <p>Le parcours de Cheer Émilie</p>
     <article>
       <form class="example-form">
-        <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
-          [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-          <mat-option *ngFor="let exercice of exercicesFiltres" [value]="exercice">
+        <input
+          id="input-programmes"
+          class="example-input"
+          type="search"
+          name="myEx"
+          placeholder="Recherche libre"
+          [formControl]="control"
+          [matAutocomplete]="auto"
+          (keyup)="filtrerExercices()"
+          [value]="selectedImageTitle"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option
+            *ngFor="let exercice of exercicesFiltres"
+            [value]="exercice"
+          >
             {{ exercice.title }}
           </mat-option>
         </mat-autocomplete>
@@ -24,12 +39,12 @@
       <div>
         <div>
           <h6>{{ exercice.title }}</h6>
-         <div>
-           <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
-           <p>Durée</p>
-           <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-           <p>Matériels</p>
-         </div> 
+          <div>
+            <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+            <p>Durée</p>
+            <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+            <p>Matériels</p>
+          </div>
         </div>
         <p>{{ exercice.description }}</p>
       </div>
