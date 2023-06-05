@@ -91,21 +91,21 @@
           <mat-select> </mat-select>
         </mat-form-field>
         <div id="boutonPageMenus">
-          <mat-form-field id="ajouter" appearance="outline">
-            <mat-label>Evaluer ce plat</mat-label>
-            <mat-select [(ngModel)]="selectedEvaluation">
-              <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
-                {{ eval.statut }}                
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <!-- <label for="evaluation">Evaluer ce plat</label>
-          <select id="evaluation" [(ngModel)]="selectedEvaluation">
-            <option *ngFor="let eval of evaluation" [value]="eval.id">{{ eval.statut }}</option>
-          </select> -->
-          <button mat-raised-button color="primary" (click)="getMenusId()">ÉVALUER</button>
-          <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
-          <button mat-raised-button color="primary">VALIDER</button>
+          <span>
+            <mat-form-field appearance="outline">
+              <mat-label>ÉVALUER CE PLAT</mat-label>
+              <mat-select [(ngModel)]="selectedEvaluation">
+                <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
+                  {{ eval.statut }}                
+                </mat-option>
+              </mat-select>
+            </mat-form-field>          
+            <button mat-raised-button color="primary" (click)="getMenusId()">ÉVALUER</button>
+          </span>
+          <span>
+            <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
+            <button mat-raised-button color="primary">VALIDER</button>
+          </span>
         </div>
       </span>
     </article>

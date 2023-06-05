@@ -5,7 +5,6 @@ import { SupabaseService } from 'src/app/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { EvaluationComponent } from '../dialog/evaluation/evaluation.component';
 
 @Component({
   selector: 'app-menus',
@@ -180,26 +179,7 @@ export class MenusComponent implements OnInit {
     } else {
       throw new Error
     }
-  }
-
-  
-  
-
-
-
-
-
-  evaluationDialog() {
-    return this.dialog.open(EvaluationComponent, {
-      disableClose: true,
-      autoFocus: true,
-      height: '200px',
-      width: '400px',
-      data: 'Êtes vous sur de vouloir supprimer ce menu ?',
-    })
-  }
-
-  
+  }  
   
   
 

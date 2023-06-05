@@ -1152,17 +1152,37 @@ p {
   #boutonPageMenus{
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    gap: 1vw;
+    justify-content: space-between;    
     border-bottom: dashed black 1px;
-    padding: 2vh;
-    
-    button:nth-child(1) {
-      background-color: #F28705;
+    padding: 2vh 0 0 0;
+    vertical-align: baseline;
+    align-items: center;
+    span:nth-child(1) { // La balise span avec le mat-form-field et le bouton évaluer
+      display: flex;   
+      flex-direction: row;
+      justify-content: center;   
+      align-items: center;
+      gap: 1vw;
+      mat-label {
+        font-size: 0.9rem;
+      }  
+      mat-form-field {
+        width: 16vw;
+      }    
+      
+      button {
+        background-color: #f0c02e;
+      }
     }
-
-    button:nth-child(2) {
-      background-color: #33BB27;
+    span:nth-child(2) { // La balise span avec les boutons supprimer et valider
+      display: flex;      
+      gap: 1vw;
+      button:nth-child(1) {
+        background-color: #F28705;
+      }  
+      button:nth-child(2) {
+        background-color: #33BB27;
+      }
     }
   }
 
