@@ -9,25 +9,22 @@
         1 - Ajouter un nouveau menu
       </button>
       <!-- <button>1 - Ajouter un nouveau menu</button> -->
-      <a routerLink="/intranet/nutrition/recettes"
-        ><h1>Reprendre un repas précédent</h1></a
-      >
+      <a routerLink="/intranet/nutrition/recettes"><h1>Reprendre un repas précédent</h1></a>
       <article id="evalBouton">
-        <button mat-raised-button color="primary">
-          Menus évalués et validés
-        </button>
+        <button mat-raised-button color="primary">Menus évalués et validés</button>
         <button mat-raised-button color="primary">Menus non évalués</button>
-        <button mat-raised-button color="primary">
-          Menus évalués et problématiques
-        </button>
+        <button mat-raised-button color="primary">Menus évalués et problématiques</button>
       </article>
       <article id="listing">
         <div *ngFor="let menus of repas">
           <h2>{{ menus.nom }}</h2>
-          <p>{{ menus.description }}</p>
-          <p>{{ menus.statut }}</p>            
+          <p>{{ menus.description }}</p>                     
           <div>
-            <button mat-raised-button [color]="buttonColor">{{ menus.statut }}</button>
+            <button mat-raised-button             
+            [ngClass]="{ 'Eval': menus.statut === 'Evaluer ce menu', 'EvalYes': menus.statut === 'Menus évalués et validés', 'EvalNo': menus.statut === 'Menus évalués et problématiques' }">
+            <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
+            {{ menus.statut }}
+            </button>
             <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
             <p>Durée</p>
             <img src="assets/photoNutri/casserole.svg" alt="matériel" />

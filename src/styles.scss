@@ -994,15 +994,22 @@ p {
         justify-content: flex-end;
         align-items: center;
 
-        button {
-          //background-color: #F28705;
-          width: 5vw;
-          height: 3vh;
+        button { // Les 3 boutons dans la liste à gauche
+          width: 7vw;
+          height: 4vh;
           font-size: 0.6vw;
           color: white;
           margin-right: 2vw;
         }
-
+        .Eval { // Le bouton Evaluer ce menu
+          background-color: #F28705;          
+        }
+        .EvalYes { // Le bouton Menus évalués et validés
+          background-color: #33BB27;
+        }
+        .EvalNo { // Le bouton Menus évalués et problématiques
+          background-color: #D9042B;
+        }
         // Les 2 images ( horloge et casserole )
         img {
           height: 2vh;
