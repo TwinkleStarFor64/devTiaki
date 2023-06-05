@@ -16,11 +16,12 @@ export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   repas: MesMenusI[] = [];
   evaluation: EvaluationI[] = [];
-  selectedRepas?: MesMenusI;
-  selectedEvaluation!: EvaluationI;
-  selectedMenusId!: number;
-  evaluationId!: number;
-  evaluationStatut!: string;
+  selectedRepas?: MesMenusI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
+  selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
+
+  selectedMenusId!: number; // Pour la méthode onSelect()
+  evaluationId!: number; // Pour la méthode onSelectEval()
+  evaluationStatut!: string; // Pour la méthode onSelectEval()
   
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
@@ -101,6 +102,7 @@ export class MenusComponent implements OnInit {
     }
   }
 
+// Méthode pour le mat-select des menus  
   onSelect(event: any, menus: MesMenusI): void {
     // La ligne de code "if (event.isUserInput)" permet de vérifier que l'utilisateur a bien sélectionné une option
     // Cela permet d'ignorer l'événement déclenché lors de la désélection de l'option précédemment sélectionnée.
@@ -114,7 +116,7 @@ export class MenusComponent implements OnInit {
       console.log("Voici l'id du menu : " + this.selectedMenusId);                     
     }
   }
-
+// Méthode pour le mat-select des evaluations
   onSelectEval(event: any, evaluation: EvaluationI): void {
     if (event.isUserInput) {
       this.evaluationId = evaluation.id;
@@ -164,32 +166,23 @@ export class MenusComponent implements OnInit {
     });
   }
 
-   /* async evaluer(): Promise<any> {
-      if (this.selectedEvaluation) {
-        console.log(this.selectedEvaluation);
-        await this.fetchMenus()
-        console.log(this.repas.map((item) => item['id']));
-        const toto = this.repas.map((item) => item['id'])
-        console.log(toto);        
-      }
-  } */
-
-    async getMenusId(): Promise<any> {
-      if (this.selectedMenusId !== null ) {
-        console.log("coucou :" + this.selectedMenusId );
-        await this.supa.getEvaluationById(this.evaluationId)
-        console.log("encore un log : " + this.evaluationId);
-        
-        await this.supa.updateEvaluation(this.selectedMenusId, this.evaluationStatut)
-        
-      } else {
-        throw new Error
-      }
+  async getMenusId(): Promise<any> { // Méthode sur le bouton Évaluer
+    if (this.selectedMenusId ) {
+      console.log("Voici l'id du menu choisi :" + this.selectedMenusId );
+      await this.supa.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
+      console.log("L'id de l'évaluation que je donne au menu : " + this.evaluationId);        
+      await this.supa.updateEvaluation(this.selectedMenusId, this.evaluationStatut)
+      // Id dynamique pour le EQ de la méthode supabase
+      // Statut dynamique pour le UPDATE de la méthode supabase
+      .then(() => {
+        this.fetchMenus();        
+      })        
+    } else {
+      throw new Error
+    }
   }
 
-  onSelectValue(value: any) {
-    console.log(value);
-  }
+  
   
 
 

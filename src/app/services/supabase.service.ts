@@ -281,6 +281,7 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
 
+// Méthode pour récupérer la table Evaluation
   async getEvaluation() {
     const evaluation  = await this.supabase
       .from('evaluation')
@@ -289,6 +290,7 @@ export class SupabaseService {
     return evaluation;  
   }
 
+// Méthode pour update une évaluation sur la table Repas
   async updateEvaluation(selectedEvaluation: number, selectedStatut: string) {
     const { data, error } = await this.supabase
       .from('repas')
@@ -302,6 +304,7 @@ export class SupabaseService {
     return data;
   }
 
+// Méthode pour récupérer l'id d'une évaluation
   async getEvaluationById(id: number) {
     const { data, error } = await this.supabase
       .from('evaluation')

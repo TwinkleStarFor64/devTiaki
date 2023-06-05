@@ -103,7 +103,7 @@
           <select id="evaluation" [(ngModel)]="selectedEvaluation">
             <option *ngFor="let eval of evaluation" [value]="eval.id">{{ eval.statut }}</option>
           </select> -->
-          <button mat-raised-button color="primary" (click)="getMenusId()">EVALUER</button>
+          <button mat-raised-button color="primary" (click)="getMenusId()">ÉVALUER</button>
           <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
           <button mat-raised-button color="primary">VALIDER</button>
         </div>
