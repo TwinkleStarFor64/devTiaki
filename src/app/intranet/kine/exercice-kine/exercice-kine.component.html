@@ -2,8 +2,7 @@
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
     <p>Kinésithérapie ></p>
-    <img [src]="avatar" />
-    <p>Le parcours de Cheer Émilie</p>
+    <p>Choisir un exercice</p>
     <article>
       <form class="example-form">
         <input
@@ -40,10 +39,36 @@
         <div>
           <h6>{{ exercice.title }}</h6>
           <div>
-            <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
-            <p>Durée</p>
-            <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-            <p>Matériels</p>
+            <img
+              src="assets/iconeKineOpto/horloge.svg"
+              alt="horloge"
+              (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null"
+            />
+            <p
+              (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null"
+            >
+              Durée:
+            </p>
+            <p *ngIf="exercice === exerciceDureeSurvole">
+              {{ exercice.duree }}
+            </p>
+            <img
+              src="assets/iconeKineOpto/materiel.svg"
+              alt="materiel"
+              (mouseenter)="exerciceMaterielSurvole = exercice"
+              (mouseleave)="exerciceMaterielSurvole = null"
+            />
+            <p
+              (mouseenter)="exerciceMaterielSurvole = exercice"
+              (mouseleave)="exerciceMaterielSurvole = null"
+            >
+              Matériels:
+            </p>
+            <p *ngIf="exercice === exerciceMaterielSurvole">
+              {{ exercice.materiel }}
+            </p>
           </div>
         </div>
         <p>{{ exercice.description }}</p>

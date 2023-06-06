@@ -19,7 +19,8 @@ export class ExerciceKineComponent implements OnInit {
   selectedImageTitle: string = '';
   selectedExerciceKine?: ExerciceI;
   filtrerExercice: string = '';
-  exerciceSurvole: ExerciceI | null = null;
+  exerciceDureeSurvole: ExerciceI | null = null;
+  exerciceMaterielSurvole: ExerciceI | null = null;
 
 
   constructor(public sanity: SanityService, private dialog: MatDialog) { }
@@ -39,8 +40,8 @@ export class ExerciceKineComponent implements OnInit {
     return this.dialog.open(ModalExKineComponent, {
       disableClose: true,
       autoFocus: true,
-      height: '800px',
-      width: '1000px',
+      height: '850px',
+      width: '1500px',
       data: exercice,
     });
   }

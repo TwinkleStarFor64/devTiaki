@@ -14,56 +14,54 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-ul {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  background-color: #270140;
-}
+  ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #270140;
 
-li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1;
-  display: flex;
-  width: 100%;
-}
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-grow: 1;
+      display: flex;
+      width: 100%;
 
-ul li:nth-child(n+3) {
-  background-color: #805E96;
-  border-bottom: 1px dashed #ffffff;
-}
+      &:nth-child(n+3) {
+        background-color: #805E96;
+        border-bottom: 1px dashed #ffffff;
+      }
 
-ul li:nth-child(5) {
-  border-bottom: none;
-}
+      &:nth-child(5) {
+        border-bottom: none;
+      }
 
-ul li:nth-child(n+6) {
-  background-color: #F0C02E;
-  border-bottom: 1px dashed #000000;
-}
+      &:nth-child(n+6) {
+        background-color: #F0C02E;
+        border-bottom: 1px dashed #000000;
+      }
 
-ul li:nth-child(10) {
-  border-bottom: none;
-}
+      &:nth-child(10) {
+        border-bottom: none;
+      }
 
-ul a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #ffffff;
-  margin: auto;
-}
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        margin: auto;
 
-ul a p {
-  font-size: 0.8vw;
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
 }
-
-//# sourceMappingURL=aside-bar.component.css.map/

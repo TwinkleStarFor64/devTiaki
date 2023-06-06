@@ -22,47 +22,47 @@ export class AsideBarComponent implements OnInit {
       url: '/intranet/tableau',
     },
     {
-      nom: '',
+      nom: 'Nutrition',
       image: 'assets/imgAsidebar/Vector.svg',
       url: '/intranet/nutrition',
     },
     {
-      nom: '',
+      nom: 'Kiné',
       image: 'assets/imgAsidebar/Vector1.svg',
       url: '/intranet/kine',
     },
     {
-      nom: '',
+      nom: 'Opto',
       image: 'assets/imgAsidebar/Group1.svg',
       url: '/intranet/opto',
     },
     {
-      nom: '',
+      nom: 'Journal',
       image: 'assets/imgAsidebar/Group2.svg',
       url: '/intranet/outils/journal',
     },
     {
-      nom: '',
+      nom: 'Historique',
       image: 'assets/imgAsidebar/Group3.svg',
       url: '/intranet/outils/historique',
     },
     {
-      nom: '',
+      nom: 'Messagerie',
       image: 'assets/imgAsidebar/Group4.svg',
       url: '/intranet/outils/messagerie',
     },
     {
-      nom: '',
+      nom: 'Profil',
       image: 'assets/imgAsidebar/Group5.svg',
       url: '/intranet/outils/profil',
     },
     {
-      nom: '',
+      nom: 'Paramètre',
       image: 'assets/imgAsidebar/Group6.svg',
       url: '/intranet/outils/parametre',
     },
   ];
-
+  public hoveredIndex: number | null = null;
   constructor() {}
 
   ngOnInit(): void {}
