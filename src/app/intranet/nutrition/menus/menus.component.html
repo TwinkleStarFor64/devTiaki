@@ -21,7 +21,7 @@
           <p>{{ menus.description }}</p>                     
           <div>
             <button mat-raised-button             
-            [ngClass]="{ 'Eval': menus.statut === 'Evaluer ce menu', 'EvalYes': menus.statut === 'Menus évalués et validés', 'EvalNo': menus.statut === 'Menus évalués et problématiques' }">
+            [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
             {{ menus.statut }}
             </button>
@@ -90,7 +90,7 @@
         <div id="boutonPageMenus">
           <span>
             <mat-form-field appearance="outline">
-              <mat-label>ÉVALUER CE PLAT</mat-label>
+              <mat-label>ÉVALUER CE MENU</mat-label>
               <mat-select [(ngModel)]="selectedEvaluation">
                 <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
                   {{ eval.statut }}                

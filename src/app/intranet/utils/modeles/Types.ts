@@ -40,6 +40,7 @@ export interface MesPlatsI {
   nom: string;
   description: string;
   alim_code: number;
+  statut: string;
   reaction?: string;
 }
 // interface pour

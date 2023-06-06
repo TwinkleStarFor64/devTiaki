@@ -222,7 +222,7 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
 
-  // Méthode pour supprimer un menu
+// Méthode pour supprimer un menu
   async deleteMenu(id: number) {
     const { error: deleteError } = await this.supabase
       .from('repas')
@@ -234,7 +234,19 @@ export class SupabaseService {
       } 
     }  
 
-  // Méthode pour enregistrer un menu
+// Méthode pour supprimer un plat
+    async deletePlat(id:number) {
+      const { error: deleteError } = await this.supabase
+      .from('plats')
+      .delete()
+      .eq('id', id)
+
+      if(deleteError) {
+        console.log(deleteError);        
+      }
+    }
+
+// Méthode pour enregistrer un menu
   async createMenu(
     newEntry: { 
     nom: string;
@@ -243,8 +255,7 @@ export class SupabaseService {
     alim_code?: number;
     ciqual?: number;
     }) {
-    newEntry.date = new Date(); //Le champ date aura la date actuelle
-    
+    newEntry.date = new Date(); //Le champ date aura la date actuelle    
     const { data: menuData, error: menuError } = await this.supabase
       .from('repas')
       .insert(newEntry)
@@ -256,6 +267,27 @@ export class SupabaseService {
       } 
   }  
  
+// Méthode pour enregistrer un plat 
+  async createPlat(
+    newEntry: {
+    nom: string;
+    description: string;
+    date?: Date;
+    alim_code?: number;
+    }) {
+      newEntry.date = new Date();
+      const { error: platError } = await this.supabase
+      .from('plats')
+      .insert(newEntry)
+      .select()
+      .single();
+
+      if(platError) {
+        console.log(platError);
+        
+      }
+    }
+
 // Méthode pour récupérer la table Ciqual
   async getCiqual() {
     const ciqual = await this.supabase
@@ -291,18 +323,33 @@ export class SupabaseService {
   }
 
 // Méthode pour update une évaluation sur la table Repas
-  async updateEvaluation(selectedEvaluation: number, selectedStatut: string) {
-    const { data, error } = await this.supabase
+  async updateEvalMenu(selectedEvaluation: number, selectedStatut: string) {
+    const { data: evalData, error: evalError } = await this.supabase
       .from('repas')
-      .update({ statut: selectedStatut})
+      .update({ statut: selectedStatut })
       .eq('id', selectedEvaluation)
       
-    if (error) {
-      console.log(error);
-      throw error;
+    if (evalError) {
+      console.log(evalError);
+      throw evalError;
     }    
-    return data;
+    return evalData;
   }
+
+// Méthode pour update une évaluation sur la table Plats
+  async updateEvalPlat(selectedEvaluation: number, selectedStatut: string) {
+    const { data: evalData, error: evalError } = await this.supabase
+    .from('plats')
+    .update({ statut: selectedStatut })
+    .eq('id', selectedEvaluation)
+
+    if (evalError) {
+      console.log(evalError);
+      throw evalError;      
+    }
+    return evalData;
+  }
+
 
 // Méthode pour récupérer l'id d'une évaluation
   async getEvaluationById(id: number) {

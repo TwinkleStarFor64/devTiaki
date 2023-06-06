@@ -41,11 +41,11 @@ export class MenusService {
     return repas;
   }  
 
-  async getCiqual() {
+  /* async getCiqual() {
     const ciqual = await this.supabase
       .from('ciqualAnses')
       .select('*');    
     return ciqual;    
-  }
+  } */
 
 }

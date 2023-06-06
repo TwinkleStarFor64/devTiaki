@@ -15,19 +15,15 @@ export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   repas: MesMenusI[] = [];
   evaluation: EvaluationI[] = [];
+  
   selectedRepas?: MesMenusI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
   selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
 
   selectedMenusId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
-  evaluationStatut!: string; // Pour la méthode onSelectEval()
-  
+  evaluationStatut!: string; // Pour la méthode onSelectEval()  
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-
-  buttonColor: string = 'primary'; // Couleur par défaut du bouton
-  colors: string[] = ['primary', 'accent', 'warn']; // Tableau de couleurs disponibles
-  currentIndex: number = 0; // Indice de la couleur actuelle
 
   constructor(public menuService: MenusService, public supa: SupabaseService, private dialog:MatDialog) {}
 
@@ -61,7 +57,7 @@ export class MenusComponent implements OnInit {
 
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
-      await this.menuService.getCiqual();
+      await this.supa.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],        
@@ -87,6 +83,7 @@ export class MenusComponent implements OnInit {
     }
   }
 
+// Méthode pour récupérer la table Evaluation
   async fetchEvaluation() {
     const { data, error } = await this.supa.getEvaluation();
     if (data) {
@@ -148,7 +145,7 @@ export class MenusComponent implements OnInit {
 
 // Méthode pour delete un menu
   async deleteMenu(id: number) {
-    this.deleteDialog()
+    this.deleteDialog() // J'appelle la modal deleteDialog
     .afterClosed()
     // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
     .subscribe((res) => {
@@ -170,7 +167,7 @@ export class MenusComponent implements OnInit {
       console.log("Voici l'id du menu choisi :" + this.selectedMenusId );
       await this.supa.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
       console.log("L'id de l'évaluation que je donne au menu : " + this.evaluationId);        
-      await this.supa.updateEvaluation(this.selectedMenusId, this.evaluationStatut)
+      await this.supa.updateEvalMenu(this.selectedMenusId, this.evaluationStatut)
       // Id dynamique pour le EQ de la méthode supabase
       // Statut dynamique pour le UPDATE de la méthode supabase
       .then(() => {
