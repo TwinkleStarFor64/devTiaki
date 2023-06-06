@@ -25,6 +25,8 @@ export class PlatsComponent implements OnInit {
   evaluationStatut!: string; // Pour la méthode onSelectEval() 
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
+  triActif: boolean = true; // Pour la méthode triParTexte
+  dernierTri: string = ''; // Pour la méthode triParTexte
 
   constructor(public platService: PlatsService, public supa: SupabaseService, private dialog:MatDialog) {}
 
@@ -179,4 +181,38 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
     }
   }  
 
+// Méthode utilisé sur les 3 boutons d'évaluation des plats lorsque je clique dessus
+// J'utilse le texte contenu dans les boutons afin des les trier
+triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le code html
+  // Si triActif et false que dernierTri contient le texte du bouton la fonction s'arrête
+  if (!this.triActif && this.dernierTri === texte) {
+    return; // Quitte la fonction si le même bouton est cliqué à nouveau
+  }
+
+  this.dernierTri = texte; // La variable dernierTri prends la valeur du bouton sur lequel j'ai cliquer
+  this.triActif = false; // triActif est true par défaut et deviens false après le clic
+  // Ci-dessous j'utilise sort() sur l'interface mesPlatsI
+  this.plats.sort((a, b) => {
+    if (a.statut === texte) { // Si mesPlatsI.statut et = au texte du bouton
+      return -1; // Je renvoie -1 pour le placer en premier
+    } else {
+      return 0; // Sinon je renvoie 0 pour conserver l'ordre actuel des éléments
+    }
+  });
 }
+  
+
+
+
+}
+
+
+/* triParTexte(texte: string) {
+    this.plats.sort((a, b) => {
+      if (a.statut === texte) {
+        return -1; // Place le plat avec le texte recherché en premier
+      } else {
+        return 0; // Garde l'ordre actuel
+      }
+    });
+  } */
