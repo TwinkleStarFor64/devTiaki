@@ -15,11 +15,14 @@
         <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Plats non évalués</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Plats évalués et problématiques</button>
       </article>
+      <article id="filter" *ngIf="affichageDefaut !== 'allPlats'">          
+        <button mat-raised-button (click)="triParTexte('allPlats')">Effacer les filtres</button>
+      </article>
       <article id="listing">
         <div *ngFor="let plat of plats">
-          <h2>{{ plat.nom }}</h2>
-          <p>{{ plat.description }}</p>
-          <div>
+          <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.nom }}</h2>
+          <p *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.description }}</p>
+          <div *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">
             <button mat-raised-button             
             [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->

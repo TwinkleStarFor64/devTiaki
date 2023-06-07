@@ -25,8 +25,7 @@ export class PlatsComponent implements OnInit {
   evaluationStatut!: string; // Pour la méthode onSelectEval() 
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-  triActif: boolean = true; // Pour la méthode triParTexte
-  dernierTri: string = ''; // Pour la méthode triParTexte
+  affichageDefaut: string = 'allPlats';
 
   constructor(public platService: PlatsService, public supa: SupabaseService, private dialog:MatDialog) {}
 
@@ -181,9 +180,28 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
     }
   }  
 
+// Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)  
+  triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
+    this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
+  }
+  
+
+
+
+}
+
+
+
+
+
+
+/* ----------------- Ancienne méthode de trie suivant les évaluations ------------------------ */
+//triActif: boolean = true; // Pour la méthode triParTexte
+//dernierTri: string = ''; // Pour la méthode triParTexte
+
 // Méthode utilisé sur les 3 boutons d'évaluation des plats lorsque je clique dessus
 // J'utilse le texte contenu dans les boutons afin des les trier
-triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le code html
+/* triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le code html
   // Si triActif et false que dernierTri contient le texte du bouton la fonction s'arrête
   if (!this.triActif && this.dernierTri === texte) {
     return; // Quitte la fonction si le même bouton est cliqué à nouveau
@@ -199,20 +217,4 @@ triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le cod
       return 0; // Sinon je renvoie 0 pour conserver l'ordre actuel des éléments
     }
   });
-}
-  
-
-
-
-}
-
-
-/* triParTexte(texte: string) {
-    this.plats.sort((a, b) => {
-      if (a.statut === texte) {
-        return -1; // Place le plat avec le texte recherché en premier
-      } else {
-        return 0; // Garde l'ordre actuel
-      }
-    });
-  } */
+} */

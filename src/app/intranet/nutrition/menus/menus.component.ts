@@ -195,6 +195,7 @@ export class MenusComponent implements OnInit {
     }
   }
 
+// Méthode pour trier les plats suivant leur evaluation
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }

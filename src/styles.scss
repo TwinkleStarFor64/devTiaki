@@ -955,13 +955,26 @@ p {
       background-color: #D9042B;
     }
   }
+// Article qui contient le bouton Effacer les filtres - Dans un *ngIf visible suivant les cas
+  #filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    button {
+      background-color: #bdb087;
+      width: 10vw;
+      height: 4vh;
+      font-size: 0.6vw;
+      color: white;
+    }
+  }
 
   // Article contenant la liste des plats enregistrés
   #listing {
     display: flex;
     flex-direction: column;
     width: 80%;
-    padding-left: 1vw;
+    padding-left: 1vw;    
 
     // Div avec le *ngFor
     div {
