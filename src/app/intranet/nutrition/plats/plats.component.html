@@ -20,7 +20,7 @@
       </article>
       <article id="listing">
         <div *ngFor="let plat of plats">
-          <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.nom }}</h2>
+          <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut" (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
           <p *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.description }}</p>
           <div *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">
             <button mat-raised-button             
