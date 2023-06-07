@@ -474,7 +474,12 @@ p {
   width: 1vw;
 }
 
-
+#exercices>article:nth-child(3) {
+  width: 80%;
+  align-self: center;
+  height: 2vh;
+  border-bottom: dashed 1px black;
+}
 // #exercices article>figure {
 //   width: 100%;
 //   margin: -10px -10px 0;

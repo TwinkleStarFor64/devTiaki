@@ -63,4 +63,8 @@ export class ExerciceOptoComponent implements OnInit {
     this.control.setValue(exercice.title);
     this.exercicesFiltres = [exercice];
   }
+    //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
+    hoverSelectedExercice(exercice: any) {
+      this.control.setValue(exercice ? exercice.title : '');
+    }
 }

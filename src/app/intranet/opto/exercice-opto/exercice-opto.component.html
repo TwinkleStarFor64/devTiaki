@@ -23,6 +23,8 @@
           <mat-option
             *ngFor="let exercice of exercicesFiltres"
             [value]="exercice"
+            (mouseover)="hoverSelectedExercice(exercice)"
+
           >
             {{ exercice.title }}
           </mat-option>

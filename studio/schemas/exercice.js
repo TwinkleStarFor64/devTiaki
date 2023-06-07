@@ -14,6 +14,16 @@ export default {
         type: 'image',
         title: 'photo',
         validation: (Rule) => Rule.required(),
+        options: {
+          metadata: ['location', 'palette'], // Autres métadonnées disponibles : 'size', 'dimensions', 'lqip', 'hasAlpha', 'duration'
+          hotspot: true, // Permet de définir un point chaud (hotspot) sur l'image
+          storeOriginalFilename: false, // Ne pas stocker le nom de fichier d'origine
+          imageConstraints: {
+            // Contraintes de taille des images
+            maxWidth: 600,
+            maxHeight: 400,
+          },
+        }
       },
       {
         name: 'video',
