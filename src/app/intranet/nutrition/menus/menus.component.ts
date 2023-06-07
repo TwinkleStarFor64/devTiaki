@@ -24,8 +24,9 @@ export class MenusComponent implements OnInit {
   evaluationStatut!: string; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-  triActif: boolean = true; // Pour la méthode triParTexte
-  dernierTri: string = ''; // Pour la méthode triParTexte
+// Ci-dessous affichageDefaut est utilisé dans le ngIf est dans la méthode triParTexte()
+// Sa valeur par défaut 'allMenus' permet d'afficher tout les menus - Dans la méthode triParTexte je change sa valeur
+  affichageDefaut: string = 'allMenus';
 
   constructor(
     public menuService: MenusService,
@@ -37,7 +38,7 @@ export class MenusComponent implements OnInit {
     //this.menuService.getMesMenus();
     this.fetchMenus();
     this.fetchCiqual();
-    this.fetchEvaluation();
+    this.fetchEvaluation();    
   } // <----- Fin du ngOnInit()
 
   async fetchMenus() {
@@ -194,23 +195,13 @@ export class MenusComponent implements OnInit {
     }
   }
 
-// Méthode utilisé sur les 3 boutons d'évaluation des menus lorsque je clique dessus - Tuto sur plats.component
-  triParTexte(texte: string) {
-    if (!this.triActif && this.dernierTri === texte) {
-      return; 
-    }
-    this.dernierTri = texte; 
-    this.triActif = false; 
-    
-    this.repas.sort((a, b) => {
-      if (a.statut === texte) {        
-        return -1; 
-      } else {
-        return 0; 
-      }
-    });
+  triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
+    this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
+
+  
 }
+
 
 //------------------ Ci-dessous code si j'utilise pas la méthode fetchMenus() ----------------
 /* const { data, error } = await this.menuService.getRepas();

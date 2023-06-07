@@ -11,15 +11,17 @@
       <!-- <button>1 - Ajouter un nouveau menu</button> -->
       <a routerLink="/intranet/nutrition/recettes"><h1>Reprendre un repas précédent</h1></a>
       <article id="evalBouton">
+      <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Menus évalués et validés</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Menus non évalués</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Menus évalués et problématiques</button>
       </article>
       <article id="listing">
         <div *ngFor="let menus of repas">
-          <h2>{{ menus.nom }}</h2>
-          <p>{{ menus.description }}</p>                     
-          <div>
+      <!-- ngIf qui affiche tout les menus au départ (Valeur 'allMenus') OU le menu.statut qui change quand je clique sur les boutons au dessus  -->    
+          <h2 style="cursor: pointer" *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">{{ menus.nom }}</h2>
+          <p style="cursor: pointer" *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">{{ menus.description }}</p>                     
+          <div *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">
             <button mat-raised-button             
             [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
