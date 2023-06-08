@@ -24,7 +24,6 @@
             *ngFor="let exercice of exercicesFiltres"
             [value]="exercice"
             (mouseover)="hoverSelectedExercice(exercice)"
-
           >
             {{ exercice.title }}
           </mat-option>
@@ -34,12 +33,12 @@
   </header>
   <section>
     <article *ngFor="let exercice of exercicesFiltres">
-      <div class="photo-exo" (click)="openDialog(exercice)">
+      <div class="photo-exo" >
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
+        <h6>{{ exercice.title }}</h6>
         <div>
-          <h6>{{ exercice.title }}</h6>
           <div>
             <img
               src="assets/iconeKineOpto/horlogeOpto.svg"
@@ -73,8 +72,13 @@
             </p>
           </div>
         </div>
-        <p>{{ exercice.description }}</p>
+        <div class="exercice-texte">
+          <p>{{ exercice.description }}</p>
+          <span (click)="openDialog(exercice)">Voir l'exercice -></span>
+        </div>
       </div>
+
+
     </article>
   </section>
 </section>
