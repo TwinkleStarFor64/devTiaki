@@ -37,14 +37,6 @@ export class PlatsComponent implements OnInit {
     this.fetchEvaluation();   
   }
 
-  onSelectPlat(plats: MesPlatsI): void {
-    this.selectedPlats = plats;
-    this.alimCodeFiltre = plats.alim_code;
-      console.log('Je veux ce code : ' + this.alimCodeFiltre);
-      this.selectedPlatsId = plats.id;
-      console.log("Voici l'id du plat : " + this.selectedPlatsId);
-  }
-
   async fetchPlats() {
     const { data, error } = await this.platService.getPlats();
     if (data) {
@@ -129,6 +121,14 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
     console.log("Voici l'id de l'eval : " + this.evaluationId); 
     this.evaluationStatut = evaluation.statut;     
   }
+}
+
+onSelectPlat(plats: MesPlatsI): void {
+  this.selectedPlats = plats;
+  this.alimCodeFiltre = plats.alim_code;
+    console.log('Je veux ce code : ' + this.alimCodeFiltre);
+    this.selectedPlatsId = plats.id;
+    console.log("Voici l'id du plat : " + this.selectedPlatsId);
 }
 
   // Modal Material Angular contenant le formulaire pour ajouter un nouveau plat

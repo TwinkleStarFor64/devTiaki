@@ -133,6 +133,14 @@ export class MenusComponent implements OnInit {
     }
   }
 
+  onSelectMenu(menus: MesMenusI): void {
+    this.selectedRepas = menus;
+    this.alimCodeFiltre = menus.alim_code;
+      console.log('Je veux ce code : ' + this.alimCodeFiltre);
+      this.selectedMenusId = menus.id;
+      console.log("Voici l'id du plat : " + this.selectedMenusId);
+  }
+
   // Modal Material Angular contenant le formulaire pour ajouter un nouveau menu
   openDialog() {
     return this.dialog.open(SaveDataComponent, {

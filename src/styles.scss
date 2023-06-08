@@ -991,23 +991,34 @@ p {
           font-size: 1.1rem;
         }
       }
+      h2:hover {
+        //font-size: 1.6rem;
+        font-weight: 700;
+      }
 
-      p {
+      p { // Balise <p> {{ plat.description }}
         margin: 0.5vh 0 1vh 0;
-
+        
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
-      }
+      }      
 
-      // Contient un bouton, 2 images et 2 balise
+      // Contient un bouton (ou une pastille), 2 images et 2 balise
       div {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
 
-        button { // Les 3 boutons dans la liste à gauche
+        #pastilleEval { // Balise <span> servant de pastille coloré - Si j'utilise pas de bouton
+          width: 30px;
+          height: 30px;
+          margin-right: 2vw;
+          border-radius: 50%;
+        }
+
+        button { // Les 3 boutons dans la liste à gauche - Si j'utilise un bouton
           width: 7vw;
           height: 4vh;
           font-size: 0.6vw;
