@@ -1,0 +1,77 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+
+section {
+    background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    article:nth-child(1) {
+        display: flex;
+        justify-content: end;
+    }
+
+    article:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .photo-exo {
+
+            img {
+                height: 500px;
+                width: 600px;
+            }
+        }
+
+        div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                font-size: 1.3rem;
+            }
+
+            p {
+                margin: 25px;
+                text-align: justify;
+                font-size: 20px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                img {
+                    height: 30px;
+                }
+
+                p {
+                    font-size: 20px;
+                }
+            }
+
+            button {
+                width: 7vw;
+                height: 4vh;
+                font-size: 0.6vw;
+                color: white;
+                background-color: $aside-color2;
+            }
+        }
+    }
+
+}

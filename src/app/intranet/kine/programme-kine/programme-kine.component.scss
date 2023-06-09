@@ -7,8 +7,23 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
 #programmes > #head > a ,#programmes > #head > p {
-  color: $aside-color2;
+  color: #af6ee4;
 }
 
+#programmes {
+  ::-webkit-scrollbar {
+    background-color: #af6ee4;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: $aside-color2;
+  }
+  article:nth-child(4){
+  scrollbar-color: $card-opto #e7adb7;
+
+  }
+}
 
 

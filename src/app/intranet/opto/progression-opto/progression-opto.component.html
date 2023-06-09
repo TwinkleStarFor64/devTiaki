@@ -6,20 +6,22 @@
     <p>Le parcours de Cheer Émilie</p>
   </header>
   <section class="exercice">
-    <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
+    <article *ngFor="let exercice of exercicesFiltres">
       <div class="photo-exo">
-        <img [src]="exercice.photo" alt="photo-exercice" />
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
-        <h6>{{ exercice.titre }}</h6>
-        <p>{{ exercice.description }}</p>
         <div>
-          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-          <!-- <p>{{ exercice.horloge }}</p> -->
-          <p>Durée</p>
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-          <!-- <p>{{exercice.materiel}}</p> -->
-          <p>Matériels</p>
+          <h6>{{ exercice.title }}</h6>
+          <div>
+            <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
+            <!-- <p>{{ exercice.horloge }}</p> -->
+            <p>Durée</p>
+            <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
+            <!-- <p>{{exercice.materiel}}</p> -->
+            <p>Matériels</p>
+          </div>
+          <p>{{ exercice.description }}</p>
         </div>
       </div>
     </article>

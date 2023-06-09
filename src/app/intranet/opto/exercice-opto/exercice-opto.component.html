@@ -3,22 +3,82 @@
     <a routerLink="/intranet">Tiaki</a>
     <p>Optométrie ></p>
     <p>Choisir un exercice</p>
+    <article>
+      <form class="example-form">
+        <input
+          id="input-programmes"
+          class="example-input"
+          type="search"
+          name="myEx"
+          placeholder="Recherche libre"
+          [formControl]="control"
+          [matAutocomplete]="auto"
+          (keyup)="filtrerExercices()"
+          [value]="selectedImageTitle"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option
+            *ngFor="let exercice of exercicesFiltres"
+            [value]="exercice"
+            (mouseover)="hoverSelectedExercice(exercice)"
+          >
+            {{ exercice.title }}
+          </mat-option>
+        </mat-autocomplete>
+      </form>
+    </article>
   </header>
   <section>
-    <article *ngFor="let exercice of exerciceOpto.exerciceOpto">
-      <div class="photo-exo">
-        <img [src]="exercice.photo" alt="photo-exercice" />
+    <article *ngFor="let exercice of exercicesFiltres">
+      <div class="photo-exo" >
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
-        <h6>{{ exercice.titre }}</h6>
-        <p>{{ exercice.description }}</p>
+        <h6>{{ exercice.title }}</h6>
         <div>
-          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-          <p>Durée</p>
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-          <p>Matériels</p>
+          <div>
+            <img
+              src="assets/iconeKineOpto/horlogeOpto.svg"
+              alt="horloge"
+              (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null"
+            />
+            <p
+              (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null"
+            >
+              Durée:
+            </p>
+            <p *ngIf="exercice === exerciceDureeSurvole">
+              {{ exercice.duree }}
+            </p>
+            <img
+              src="assets/iconeKineOpto/materielOpto.svg"
+              alt="materiel"
+              (mouseenter)="exerciceMaterielSurvole = exercice"
+              (mouseleave)="exerciceMaterielSurvole = null"
+            />
+            <p
+              (mouseenter)="exerciceMaterielSurvole = exercice"
+              (mouseleave)="exerciceMaterielSurvole = null"
+            >
+              Matériels:
+            </p>
+            <p *ngIf="exercice === exerciceMaterielSurvole">
+              {{ exercice.materiel }}
+            </p>
+          </div>
+        </div>
+        <div class="exercice-texte">
+          <p>{{ exercice.description }}</p>
+          <span (click)="openDialog(exercice)">Voir l'exercice -></span>
         </div>
       </div>
+
+
     </article>
   </section>
 </section>

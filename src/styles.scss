@@ -2,7 +2,7 @@
 
 $font-family: 'Raleway', sans-serif;
 $card-nutri: #D9042B;
-$card-kine: #F22F1D;
+$card-kine: #805e96;
 $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
@@ -264,7 +264,7 @@ p {
 }
 
 #head p {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 
@@ -406,11 +406,12 @@ p {
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 100vh;
+  max-height: 80vh;
   background: $clair;
   padding: 10px;
   margin: 5px;
   gap: 0.5vw;
+  justify-content: space-between;
 }
 
 //div des photos ou videos de l'exo
@@ -421,7 +422,7 @@ p {
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  height: 100%;
+  height: 80%;
   width: 100%;
 }
 
@@ -438,12 +439,7 @@ p {
   display: flex;
   flex-flow: column nowrap;
   text-align: justify;
-}
 
-// titre de l'exercice
-#exercices article>div>h6 {
-  margin: 0;
-  font-size: 1rem;
 }
 
 // description de l'exercice
@@ -451,18 +447,57 @@ p {
   margin: 0;
 }
 
-// div de la durée et materiel
+// titre de l'exercice
+#exercices article>div:nth-child(2)>h6 {
+  margin: 0;
+  font-size: 1rem;
+  align-self: center;
+}
+
+// div contenant duréé et materiel
 #exercices section article>div:nth-child(2)>div {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+// div de la durée et materiel
+#exercices section article>div:nth-child(2)>div>div {
+  display: flex;
+  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 0.3vw;
 }
-#exercices section article>div:nth-child(2)>div>img {
- height: 2vh;
- width: 1vw;
+// balise img de durée et materiel
+#exercices section article>div:nth-child(2)>div>div>img {
+  height: 2vh;
+  width: 1vw;
+}
+// balise p durée et materiel
+#exercices section article>div:nth-child(2)>div>div>p {
+font-size: 0.9rem;
+}
+// conteneur de description et du lien vers la modal
+#exercices article>div:nth-child(2)>.exercice-texte {
+  display: flex;
+  flex-direction: column;
+  min-height: 20vh;
+  justify-content: space-between;
 }
 
+#exercices article>div:nth-child(2)>.exercice-texte>p {
+ font-size: 1rem;
+}
+
+// lien vers la modal
+#exercices article>div:nth-child(2)>.exercice-texte>span {
+  align-self: flex-end;
+  font-weight: 700;
+  cursor: pointer;
+}
 
 // #exercices article>figure {
 //   width: 100%;
@@ -475,6 +510,79 @@ p {
   height: $foot;
   width: calc(100vw - $l)
 }
+// Partie responsive essai
+/* Styles pour les écrans de taille supérieure à 768px */
+@media (max-width: 1154px) {
+  #exercices section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #exercices article {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+
+  #exercices article > div:nth-child(2) > .exercice-texte >  {
+    font-size: 1vw;
+  }
+}
+
+/* Styles pour < 768px */
+@media (max-width: 767px) {
+  #exercices section {
+    display: block;
+  }
+
+  #exercices article {
+    align-items: center;
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  #exercices article {
+    background: #f2f2f2;
+    padding: 10px;
+  }
+  
+  #exercices article .photo-exo {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #exercices article .photo-exo img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  
+  #exercices article h6 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  #exercices article p {
+    margin: 0;
+    font-size: 0.9vw;
+  }
+  
+  #exercices article .exercice-texte {
+    margin-top: 10px;
+  }
+  
+  #exercices article .exercice-texte p {
+    font-size: 0.9vw;
+    line-height: 1.4;
+  }
+  
+  #exercices article .exercice-texte span {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
 
 
 // CSS des pages plats et menus
@@ -1108,6 +1216,7 @@ p {
     display: flex;
     flex-direction: column;
   }
+
   // La balise <h4>Tourte aux champignons</h4>
   h4 {
     font-size: 1.6rem;
@@ -1134,19 +1243,18 @@ p {
     border-bottom: dashed black 1px;
   }
 
-  span:nth-child(3) > span {
+  span:nth-child(3)>span {
     display: flex;
-    flex-direction: column
-   // align-items: center;
+    flex-direction: column // align-items: center;
   }
 
-  span:nth-child(3) > span > p:nth-child(1) {
+  span:nth-child(3)>span>p:nth-child(1) {
     //width: 18%;
     width: 75%;
-    font-weight: 700;    
+    font-weight: 700;
   }
 
-  span:nth-child(3) > span > p:nth-child(2) {
+  span:nth-child(3)>span>p:nth-child(2) {
     width: 75%;
   }
 
@@ -1161,14 +1269,14 @@ p {
   }
 
   // La div avec les 2 boutons annuler & valider
-  span:nth-child(3) > div:nth-child(7) {
+  span:nth-child(3)>div:nth-child(7) {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     gap: 1vw;
     border-bottom: dashed black 1px;
     padding: 2vh;
-    
+
     button:nth-child(1) {
       background-color: #F28705;
       //font-size: 0.9vw;
@@ -1179,8 +1287,9 @@ p {
     }
 
   }
+
   // Code identique que ci-dessus mais pour la page menu avec un ID sur la Div contenant les 2 boutons
-  #boutonPageMenus{
+  #boutonPageMenus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;    
@@ -1249,18 +1358,19 @@ p {
   height: calc(100vh - $foot);
   scrollbar-color: $card-nutri #d3354f;
   scrollbar-width: auto;
-  overflow-y: auto; 
+  overflow-y: auto;
 }
 
 #recettes>* {
   width: 100%;
 }
 
-#recettes>section{
+#recettes>section {
   flex-flow: row wrap;
   justify-content: space-around;
   height: calc(100vh - $head - $foot);
 }
+
 #recettes article {
   flex-flow: column nowrap;
   width: 20%;
@@ -1270,9 +1380,10 @@ p {
   margin: 5px;
   gap: 0.5vw;
 }
+
 #recettes>article:nth-child(2) {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   align-self: center;
   width: 100%;
   margin: 0px 50px 0px 50px;
@@ -1281,9 +1392,10 @@ p {
   background: none;
   border-bottom: dashed 1px black;
 }
+
 #recettes>article:nth-child(2)>form {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -1314,13 +1426,15 @@ p {
   flex-direction: column;
   text-align: justify;
 }
+
 #recettes article>div:nth-child(2)>div {
   display: flex;
   flex-direction: column;
   text-align: justify;
 }
+
 #recettes article>div:nth-child(2)>div>div {
-  display: flex; 
+  display: flex;
   text-align: justify;
   gap: 1vw;
 }
