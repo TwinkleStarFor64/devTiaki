@@ -31,7 +31,7 @@ section {
     color: $card-nutri;
   }
 
-  article {
+  article:nth-child(2) { // La balise article version Desktop
     width: 100%;
     height: 100%;
     display: flex;
@@ -63,6 +63,63 @@ section {
         height: 70%;
       }
     }
+    @media only screen and (max-width: 425px) {
+      display: none;
+    }
+  }
 
+  article:nth-child(3) { // La balise article version Mobile
+    display: none;
+    @media only screen and (max-width: 425px) {
+      display: flex;
+      flex-direction: column;      
+      div:nth-child(1) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 80%;
+          height: 90%;
+        }
+      }
+      div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5vw;
+        span {
+          display: flex;
+          flex-direction: row;
+          gap: 1vw;
+        }
+        span:nth-child(1) {          
+          p:nth-child(1) {
+            height: 15px;
+            width: 15px;
+            background-color: #805E96;
+          }
+        }
+        span:nth-child(2) {
+          p:nth-child(1) {
+            height: 15px;
+            width: 15px;
+            background-color: #F0C02E;
+          }
+        }
+        span:nth-child(3) {
+          p:nth-child(1) {
+            height: 15px;
+            width: 15px;
+            background-color: #D9042B;
+          }
+        }
+        span:nth-child(4) {
+          p:nth-child(1) {
+            height: 15px;
+            width: 15px;
+            background-color: #D1D1D1;
+          }
+        }
+      }
+    }
   }
 }

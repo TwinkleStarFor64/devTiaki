@@ -26,8 +26,6 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
 
 
-
-
 @NgModule({
   declarations: [
     JournalRepasComponent,
@@ -58,7 +56,7 @@ import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    NgxMatSelectSearchModule    
+    NgxMatSelectSearchModule  
   ]  
 })
 export class NutritionModule {}

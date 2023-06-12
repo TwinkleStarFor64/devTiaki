@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-journal-repas',
   templateUrl: './journal-repas.component.html',
@@ -8,5 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class JournalRepasComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
+  
 }
