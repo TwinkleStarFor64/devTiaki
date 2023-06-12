@@ -7,9 +7,11 @@ $aside-color2: #805E96;
 $aside-color3: #F0C02E;
 
 $l: 65px;
-.burger-icon{
+
+.burger-icon {
   display: none;
 }
+
 nav {
   height: 100vh;
   width: $l;
@@ -67,24 +69,30 @@ nav {
     }
   }
 }
+
 @media screen and (max-width: 768px) {
 
   nav {
     width: 80%;
-    float:right;
+    // float: right;
   }
 }
+
 @media screen and (max-width: 480px) {
   .burger-icon {
     display: block;
     position: fixed;
+    color: $card-nutri;
+    border: none;
+    background: none;
     top: 20px;
     right: 20px;
     z-index: 999;
   }
+
   nav {
     display: none;
-  
+
     &.active {
       display: flex;
       flex-direction: column;
@@ -93,10 +101,12 @@ nav {
       top: 0;
       bottom: 0;
       right: 0;
-      width: 100px;
+      width: 20%;
       padding-top: 25px;
       z-index: 998;
-  
+      color: #ffffff;
+      
+
       ul {
         display: flex;
         flex-direction: column;
@@ -104,7 +114,7 @@ nav {
         width: 100%;
         padding: 0;
         margin: 0;
-  
+
         li {
           list-style: none;
           padding: 0;
@@ -112,25 +122,25 @@ nav {
           flex-grow: 1;
           display: flex;
           width: 100%;
-    
+
           &:nth-child(n+3) {
             background-color: #805E96;
             border-bottom: 1px dashed #ffffff;
           }
-    
+
           &:nth-child(5) {
             border-bottom: none;
           }
-    
+
           &:nth-child(n+6) {
             background-color: #F0C02E;
             border-bottom: 1px dashed #000000;
           }
-    
+
           &:nth-child(10) {
             border-bottom: none;
           }
-    
+
           a {
             display: flex;
             flex-direction: column;
@@ -138,14 +148,14 @@ nav {
             text-decoration: none;
             color: #ffffff;
             margin: auto;
-    
+
             p {
               font-size: 0.8rem;
             }
           }
         }
-        }
       }
     }
+  }
 
 }

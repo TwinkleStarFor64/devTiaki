@@ -45,36 +45,36 @@ export class NutritionComponent implements OnInit {
     }
   ];
 
-  public cards:any = [
-    {
-      title:"Journal",
-      text:"Naviguer dans votre historique alimentaire",
-      button:"Accéder à la page Journal",
-      image:"assets/photoNutri/accueilJournal.svg",
-      url:'journal-Repas'
-    },
-    {
-      title:"Menus",
-      text:"Les listes de vos menus et de ceux de la communautés",
-      button:"Accéder à la page des Menus",
-      image:"assets/photoNutri/accueilMenus.svg",
-      url:'menus'
-    },
-    {
-      title:"Plats",
-      text:"Vos plats ou ceux de la communauté",
-      button:"Accéder à la page des Plats",
-      image:"assets/photoNutri/accueilPlats.svg",
-      url:'plats'
-    },
-    {
-      title:"Ingrédients",
-      text:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-      button:"Accéder à la page Ingrédients",
-      image:"assets/photoNutri/accueilIngredients.svg",
-      url:'ingredients'
-    },
-  ];
+  // public cards:any = [
+  //   {
+  //     title:"Journal",
+  //     text:"Naviguer dans votre historique alimentaire",
+  //     button:"Accéder à la page Journal",
+  //     image:"assets/photoNutri/accueilJournal.svg",
+  //     url:'journal-Repas'
+  //   },
+  //   {
+  //     title:"Menus",
+  //     text:"Les listes de vos menus et de ceux de la communautés",
+  //     button:"Accéder à la page des Menus",
+  //     image:"assets/photoNutri/accueilMenus.svg",
+  //     url:'menus'
+  //   },
+  //   {
+  //     title:"Plats",
+  //     text:"Vos plats ou ceux de la communauté",
+  //     button:"Accéder à la page des Plats",
+  //     image:"assets/photoNutri/accueilPlats.svg",
+  //     url:'plats'
+  //   },
+  //   {
+  //     title:"Ingrédients",
+  //     text:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
+  //     button:"Accéder à la page Ingrédients",
+  //     image:"assets/photoNutri/accueilIngredients.svg",
+  //     url:'ingredients'
+  //   },
+  // ];
 
   accueilNutrition!: NutritionI[];
   
@@ -87,7 +87,7 @@ export class NutritionComponent implements OnInit {
         item.active = activeUrl.startsWith(item.url);
     });
     // Pour voir le résultat dans la console
-    this.sanity.getAccueilNutrition().then((data) => console.log(this.accueilNutrition = data));  
+    // this.sanity.getAccueilNutrition().then((data) => console.log(this.accueilNutrition = data));  
     // Pour exécuter la méthode - J'utilise sort() pour les trier suivant leur ID afin de gérer l'ordre d'affichage   
     this.sanity.getAccueilNutrition().then((data) => {
       this.accueilNutrition = data.sort((a, b) => a.id - b.id);
@@ -99,5 +99,4 @@ export class NutritionComponent implements OnInit {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
   }
-
 }

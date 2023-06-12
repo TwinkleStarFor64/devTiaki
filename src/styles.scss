@@ -221,6 +221,11 @@ p {
   }
 
   a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     button {
       background-color: #ffffff;
       width: 10vw;
@@ -230,15 +235,15 @@ p {
       font-size: 1vw;
       cursor: pointer;
     }
-
+    img {
+      width: 100%;
+    }
+    
     &:nth-child(2) {
       color: $card-nutri;
     }
   }
 
-  img {
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -247,6 +252,8 @@ p {
   }
 
   #accueil>section:nth-child(2)>article {
+    height: 75%;
+    justify-content: space-between;
     h2 {
       font-size: 1.2rem;
       font-weight: 500;
@@ -257,13 +264,31 @@ p {
       font-weight: 400;
       margin: 15px;
     }
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 
 // Media query pour les écrans de taille moyenne
 @media screen and (max-width: 768px) {
-  #accueil>article>p {
+  #accueil {
+    justify-content: space-between;
+  }
+
+  #accueil>article {
+    height:30%;
+    align-items: center;
+    justify-content: center;
+  }
+  #accueil>article>div>h1 {
     font-size: 1.8rem;
+  }
+  #accueil>article>p {
+    font-size: 1.6rem;
   }
 
   #accueil>section:nth-child(2) {
@@ -352,14 +377,19 @@ p {
 // Media query pour les écrans plus petits
 @media screen and (max-width: 480px) {
   #accueil {
+    flex-direction: column;
     align-items: center;
-    height: 100%;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: auto;
     margin-left: 80px;
-    overflow-y: 100vh;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    
   }
+
+  #accueil>article{
+    margin: 25px;
+    height: 20%;
+  }
+
   #accueil>article>div>h1{
     font-size: 2rem;
   }
@@ -369,13 +399,14 @@ p {
 
   #accueil>section:nth-child(2) {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 400px;
+    height: 100vh;
+    width: 100%; 
     overflow-y: auto;
     scrollbar-color: $card-opto #be861e;
     scrollbar-width: auto;
-
+    gap: 10vw;
   }
 
   #accueil>section:nth-child(2)>article {
@@ -384,74 +415,30 @@ p {
     align-items: center;
     text-align: center;
     color: #ffffff;
-    height: 100%;
+    height: 35vh;
     width: 100%;
+    gap: 2vw;
     cursor: pointer;
-
-    &:nth-child(1) {
-      background-color: $card-opto ;
-
-      button {
-        color: $card-opto;
-        border-color: $card-opto;
-      }
-    }
-
-    &:nth-child(2) {
-      background-color: $card-nutri ;
-
-      button {
-        color: $card-nutri;
-        border-color: $card-nutri;
-      }
-    }
-
-    &:nth-child(3) {
-      background-color: $card-kine ;
-
-      button {
-        color: $card-kine;
-        border-color: $card-kine ;
-      }
-    }
-
-    &:nth-child(4) {
-      background-color: $aside-color3 ;
-
-      button {
-        color: $aside-color3;
-        border-color: $aside-color3 ;
-      }
-    }
-
+ 
     h2 {
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 500;
     }
 
     p {
-      font-size: 2.2vh;
+      font-size: 1rem;
       font-weight: 400;
       margin: 15px;
     }
 
     a {
       button {
-        background-color: #ffffff;
-        width: 20vw;
-        height: 8vh;
-        margin-bottom: 1vw;
-        font-weight: bolder;
-        font-size: 0.6rem;
+        display:none
       }
-
-      &:nth-child(2) {
-        color: $card-nutri;
+      img {
+        height: 80%;
+        width: 90%;
       }
-    }
-
-    img {
-      height: 100%;
     }
   }
 }

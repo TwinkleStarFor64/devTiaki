@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import sanityClient from '@sanity/client';
-import imageUrlBuilder from "@sanity/image-url";
-import { ExerciceI, NutritionI } from '../intranet/modeles/Types';
-
+import imageUrlBuilder from '@sanity/image-url';
+import { AccueilI, ExerciceI, NutritionI } from '../intranet/modeles/Types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SanityService {
-  constructor() { }
+  constructor() {}
 
   sanityClientCredentials = {
     option: sanityClient({
-      projectId: "hrks9ngu",
-      dataset: "production"
-    })
-  }
+      projectId: 'hrks9ngu',
+      dataset: 'production',
+    }),
+  };
 
   urlFor = (source: any) =>
     imageUrlBuilder(this.sanityClientCredentials.option).image(source);
@@ -45,6 +44,18 @@ export class SanityService {
       }`
     );
   }
+  async getAccueil(): Promise<AccueilI[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "accueil"]{
+        id,
+        title,
+        text,
+        button,
+        image,
+        url        
+      }`
+    );
+  }
 
   async getAccueilNutrition(): Promise<NutritionI[]> {
     return await this.sanityClientCredentials.option.fetch(
@@ -58,6 +69,4 @@ export class SanityService {
       }`
     );
   }
-
-
 }

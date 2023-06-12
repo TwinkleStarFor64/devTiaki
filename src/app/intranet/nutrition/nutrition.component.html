@@ -9,9 +9,9 @@
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">
         <button>{{ card.button }}</button>
+        <img src={{sanity.urlFor(card.image).url()}} alt="photo" />
       </a>
       <!-- L'image viens de Sanity -->
-      <img src={{sanity.urlFor(card.image).url()}} alt="photo" />
     </article>
   </section>
   <!-- <app-footer></app-footer> -->
