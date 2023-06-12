@@ -15,6 +15,12 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
+.mat-mdc-option { // Pour les options de choix dans tout les menus déroulants
+  @media screen and (max-width : 768px) {
+    font-size: 0.6rem;
+  }
+} 
+
 html {
   height: 100%;
 }
@@ -992,6 +998,7 @@ font-size: 0.9rem;
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
+  
 }
 
 // La partie gauche avec la liste des plats/menus enregistrés
@@ -999,12 +1006,15 @@ font-size: 0.9rem;
   height: calc(100vh - $head - $foot);
   width: 30%;
   padding-top: 5vh;
-
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: auto;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - $head - 100px);
+    width: 35%;
+  }  
 
   // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
@@ -1013,6 +1023,9 @@ font-size: 0.9rem;
     padding: 4vh 2vw;
     font-size: 1vw;
     color: black;
+    @media screen and (max-width: 768px) {
+      padding: 3vh 1.5vw;
+    }
   }
 
   .mat-ripple mat-mdc-button-ripple {
@@ -1029,6 +1042,9 @@ font-size: 0.9rem;
     @media screen and (max-width : 1200px) {
       font-size: 1.1rem;
     }
+    @media screen and (max-width: 768px) {
+      font-size: 0.8rem;
+    }
   }
 
   // Article qui contient les 3 boutons pour évaluer 
@@ -1036,16 +1052,23 @@ font-size: 0.9rem;
     display: flex;
     flex-direction: row;
     gap: 2vw;
-    //padding-left: 1vw;
     margin-bottom: 1vh;
-
+    //padding-left: 1vw;
     //width: 80%;
+    @media screen and (max-width: 768px) {
+      gap: 1vw;
+    }
+
     // Code s'appliquant aux 3 boutons
     button {
       width: 7vw;
       height: 4vh;
       font-size: 0.6vw;
       color: white;
+      @media screen and (max-width: 768px) {
+        width: 4vw;
+        height: 3vh;
+      }
     }
 
     // Le bouton plats non évalués
@@ -1074,6 +1097,10 @@ font-size: 0.9rem;
       height: 4vh;
       font-size: 0.6vw;
       color: white;
+      @media screen and (max-width: 768px) {
+        width: 8vw;
+        height: 3vh;
+      }
     }
   }
 
@@ -1094,21 +1121,24 @@ font-size: 0.9rem;
         margin: 2vh 2vh 0 0;
         font-size: 1.4rem;
         font-weight: 500;
-
         @media screen and (max-width : 1200px) {
           font-size: 1.1rem;
         }
+        @media screen and (max-width: 768px) {
+          font-size: 0.8rem;
+        }
       }
-      h2:hover {
-        //font-size: 1.6rem;
+      h2:hover {        
         font-weight: 700;
       }
 
       p { // Balise <p> {{ plat.description }}
-        margin: 0.5vh 0 1vh 0;
-        
+        margin: 0.5vh 0 1vh 0;        
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
+        }
+        @media screen and (max-width: 768px) {
+          font-size: 0.6rem;
         }
       }      
 
@@ -1124,6 +1154,14 @@ font-size: 0.9rem;
           height: 30px;
           margin-right: 2vw;
           border-radius: 50%;
+          @media screen and (max-width: 1024px) {
+            width: 20px;
+            height: 20px;
+          }
+          @media screen and (max-width: 768px) {
+            width: 15px;
+            height: 15px;
+          }
         }
 
         button { // Les 3 boutons dans la liste à gauche - Si j'utilise un bouton
@@ -1171,15 +1209,21 @@ font-size: 0.9rem;
   margin-left: 4vw;
   padding-right: 4vw;
   overflow: auto;
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - $head - 100px);  
+    width: 65%;
+  }
 
   // La balise <h3>2 - Ajouter un plat</h3>
   h3 {
     font-size: 1.6rem;
     font-weight: 500;
     color: #4A4A4A;
-
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
+    }
+    @media screen and (max-width : 768px) {
+      font-size: 1.1rem;
     }
   }
 
@@ -1195,26 +1239,57 @@ font-size: 0.9rem;
     img {
       height: 3vh;
       width: 3vh;
+      @media screen and (max-width : 768px) {
+        height: 2vh;
+        width: 2vh;
+      }
+    }
+
+    mat-form-field {
+      @media screen and (max-width : 768px) {
+        width: 15vw;       
+      }
     }
 
     // La balise select "Les plats de la communautés"
     mat-form-field:nth-child(3) {
-      width: 18vw;
+      width: 18vw;      
     }
   }
 
   // Le label des balises select
   mat-label {
     font-size: 0.9rem;
-
     @media screen and (max-width : 1200px) {
       font-size: 0.8rem;
     }
+    @media screen and (max-width : 768px) {
+      font-size: 0.6rem;  
+    }
   }
+
+  // Le nom des menus dans le select
+  mat-select {
+    @media screen and (max-width : 768px) {
+      font-size: 0.6rem;        
+    }
+  }
+
+  /* .mat-mdc-text-field-wrapper {
+    @media screen and (max-width : 768px) {
+      height: 6vh;
+
+    }
+  } */
 
   span:nth-child(3) {
     display: flex;
     flex-direction: column;
+    @media screen and (max-width : 768px) {
+      p {
+        font-size: 0.8rem;
+      }      
+    }
   }
 
   // La balise <h4>Tourte aux champignons</h4>
@@ -1227,10 +1302,17 @@ font-size: 0.9rem;
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
     }
+    @media screen and (max-width : 768px) {
+      font-size: 1rem;
+    }
   }
 
   textarea {
     min-height: 10vh;
+    @media screen and (max-width : 768px) {
+      font-size: 0.8rem;
+    }
+    
   }
 
   // La div sous le textarea
@@ -1241,6 +1323,8 @@ font-size: 0.9rem;
     justify-content: space-between;
     border-top: dashed black 1px;
     border-bottom: dashed black 1px;
+    text-align: center;
+    gap: 1vw;
   }
 
   span:nth-child(3)>span {
@@ -1255,7 +1339,7 @@ font-size: 0.9rem;
   }
 
   span:nth-child(3)>span>p:nth-child(2) {
-    width: 75%;
+    //width: 75%;    
   }
 
   // La balise select AJOUTER
@@ -1265,6 +1349,10 @@ font-size: 0.9rem;
 
     @media screen and (max-width : 1200px) {
       width: 12vw;
+    }
+    @media screen and (max-width : 768px) {
+      font-size: 0.8rem;
+      width: 15vw;      
     }
   }
 
@@ -1277,13 +1365,22 @@ font-size: 0.9rem;
     border-bottom: dashed black 1px;
     padding: 2vh;
 
-    button:nth-child(1) {
+    button:nth-child(1) { // Le bouton supprimer
       background-color: #F28705;
-      //font-size: 0.9vw;
+      font-size: 0.8vw;
+      @media screen and (max-width : 768px) {
+        width: 4vw;
+        height: 3vh;
+      }
     }
 
-    button:nth-child(2) {
+    button:nth-child(2) { // Le bouton valider
       background-color: #33BB27;
+      font-size: 0.8vw;
+      @media screen and (max-width : 768px) {
+        width: 4vw;
+        height: 3vh;
+      }
     }
 
   }
@@ -1305,10 +1402,25 @@ font-size: 0.9rem;
       gap: 1vw;
       mat-label {
         font-size: 0.9rem;
+        @media screen and (max-width : 1200px) {
+          font-size: 0.8rem;
+        }
+        @media screen and (max-width : 768px) {
+          font-size: 0.6rem;
+        }
       }  
       mat-form-field {
         width: 16vw;
-      }    
+        @media screen and (max-width : 1200px) {
+          
+          width: 22vw;
+        }
+        @media screen and (max-width : 768px) {
+          font-size: 0.6rem;
+          width: 22vw;
+        }
+      }   
+      
       
       button {
         background-color: #f0c02e;

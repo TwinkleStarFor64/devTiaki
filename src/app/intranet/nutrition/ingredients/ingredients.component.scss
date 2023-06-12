@@ -28,6 +28,9 @@ $foot: 150px; // Hauteur des menus du bas
   overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
+  @media screen and (max-width: 768px) {
+    height: calc(100vh - 100px);
+  }
 
   // Le header avec le logo Tiaki et le nom de la page
   #head>p {
@@ -55,6 +58,9 @@ $foot: 150px; // Hauteur des menus du bas
       padding-left: 2%;
       overflow-y: auto;
       overflow-x: hidden;
+      @media screen and (max-width: 768px) {
+        height: calc(100vh - $head - 100px);
+      }
 
       h1 {
         // La balise <h1>Ingrédients</h1>
@@ -65,6 +71,9 @@ $foot: 150px; // Hauteur des menus du bas
         font-weight: 500;
         color: #f22f1d;
         border-bottom: dashed 1px #f22f1d;
+        @media screen and (max-width: 768px) {
+          font-size: 1.2rem;
+        }
       }
 
       input {
@@ -72,16 +81,22 @@ $foot: 150px; // Hauteur des menus du bas
         width: 80%;
         height: 3.5vh;
         font-size: 1rem;
+        @media screen and (max-width: 768px) {
+          height: 3vh;
+          font-size: 0.8rem;
+        }
       }
 
       article {
         width: 97%;
-
         h2 {
           // Le nom des ingrédients dans la liste de recherche
           font-size: 1rem;
           font-weight: normal;
           margin: 2vh 0 0 0;
+          @media screen and (max-width: 768px) {
+            font-size: 0.7rem;
+          }
         }
       }
     }
@@ -113,6 +128,9 @@ $foot: 150px; // Hauteur des menus du bas
             font-weight: 500;
             color: #f22f1d;
             margin: 0 0 1vh 0;
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
           }
 
           p {
@@ -120,6 +138,9 @@ $foot: 150px; // Hauteur des menus du bas
             flex-direction: row;
             align-items: center;
             margin: 0 0 1vh 0;
+            @media screen and (max-width: 768px) {
+              font-size: 0.8rem;
+            }
 
             input {
               margin-left: 0.5vw;
@@ -144,10 +165,16 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
           }
 
           p {
             margin-left: 1.5vw;
+            @media screen and (max-width: 768px) {
+              font-size: 0.8rem;
+            }
 
             img {
               // Les petits logos
@@ -173,6 +200,9 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
           }
 
           .mesPlats {
@@ -190,6 +220,10 @@ $foot: 150px; // Hauteur des menus du bas
               @media screen and (max-width: 1330px) {
                 width: 70%;
               }
+              @media screen and (max-width: 768px) {
+                font-size: 0.8rem;
+                width: 90%;
+              }
             }
           }
 
@@ -201,6 +235,9 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
           }
 
           .mesObservations {
@@ -212,6 +249,10 @@ $foot: 150px; // Hauteur des menus du bas
               margin-left: 1.5vw;
               color: #4A4A4A;
               width: 50%;
+              @media screen and (max-width: 768px) {
+                font-size: 0.8rem;
+                width: 80%;
+              }
             }
 
             img {
