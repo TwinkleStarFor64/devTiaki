@@ -1,12 +1,10 @@
 <section id="accueil">
-  <article>
-    <div>
-      <h1>Tiaki</h1>
-    </div>
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
     <p>
      Application numérique pour les aidants familiaux
     </p>
-  </article>
+  </header>
   <section>
     <article *ngFor="let card of imageAccueil">
       <h2>{{ card.title }}</h2>

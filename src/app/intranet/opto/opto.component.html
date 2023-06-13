@@ -4,7 +4,7 @@
     <p>Optométrie</p>
   </header>
   <section>
-    <article *ngFor="let card of acceuilOpto">
+    <article *ngFor="let card of accueilOpto">
       <h2>{{ card.title }}</h2>
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">

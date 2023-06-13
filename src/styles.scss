@@ -103,6 +103,7 @@ a {
   }
 }
 
+// ------------------------------------------------------
 // Affichage page d'accueil
 #accueil {
   height: 100vh;
@@ -111,7 +112,7 @@ a {
 }
 
 // Titre et description
-#accueil>article {
+#accueil>#head {
   flex-direction: column;
   align-items: center;
   width: 70%;
@@ -119,23 +120,23 @@ a {
   margin: 50px;
 }
 
-#accueil>article>div {
+#accueil>#head>div {
   display: flex;
   align-items: flex-end;
 
-  h1 {
+  a {
     margin: 0;
     color: $card-nutri ;
     font-size: 3rem;
     font-weight: 100;
     font-style: normal;
   }
+
   p {
     font-size: 1rem;
     text-align: center;
   }
 }
-
 
 #accueil>article>div::before {
   content: ".........";
@@ -151,7 +152,6 @@ a {
 
 // Les 3 Cartes 
 
-
 #accueil>section:nth-child(2) {
   flex-direction: row;
   justify-content: space-around;
@@ -166,7 +166,7 @@ a {
   text-align: center;
   color: #ffffff;
   transition: transform 250ms;
-  height: 90%;
+  height: 75%;
   width: 22%;
 
   &:hover {
@@ -226,6 +226,7 @@ a {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
     button {
       background-color: #ffffff;
       width: 10vw;
@@ -235,10 +236,11 @@ a {
       font-size: 1vw;
       cursor: pointer;
     }
+
     img {
       width: 100%;
     }
-    
+
     &:nth-child(2) {
       color: $card-nutri;
     }
@@ -247,24 +249,25 @@ a {
 }
 
 @media screen and (max-width: 1024px) {
-  #accueil>article>p {
+  #accueil>#head>p {
     font-size: 1.9rem;
+    text-align: center;
   }
 
   #accueil>section:nth-child(2)>article {
-    height: 75%;
+    height: 70%;
     justify-content: space-between;
+
     h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.5rem;
     }
 
     p {
-      font-size: 0.8rem;
-      font-weight: 400;
+      font-size: 1rem;
       margin: 15px;
     }
-    a{
+
+    a {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -274,105 +277,115 @@ a {
 }
 
 // Media query pour les écrans de taille moyenne
-@media screen and (max-width: 768px) {
-  #accueil {
-    justify-content: space-between;
-  }
-
-  #accueil>article {
-    height:30%;
+@media screen and (max-width: 912px) and (min-height:928px) {
+  #accueil>#head {
+    height: 30%;
     align-items: center;
     justify-content: center;
   }
-  #accueil>article>div>h1 {
-    font-size: 1.8rem;
-  }
-  #accueil>article>p {
-    font-size: 1.6rem;
-  }
 
   #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
   }
 
   #accueil>section:nth-child(2)>article {
-    transition: transform 250ms;
-    height: 80%;
-    width: 25%;
-
-    &:hover {
-      transform: translateY(-3vw);
-    }
-
-    &:nth-child(1) {
-      background-color: $card-opto ;
-
-      button {
-        color: $card-opto;
-        border-color: $card-opto;
-      }
-    }
-
-    &:nth-child(2) {
-      background-color: $card-nutri ;
-
-      button {
-        color: $card-nutri;
-        border-color: $card-nutri;
-      }
-    }
-
-    &:nth-child(3) {
-      background-color: $card-kine ;
-
-      button {
-        color: $card-kine;
-        border-color: $card-kine ;
-      }
-    }
-
-    &:nth-child(4) {
-      background-color: $aside-color3 ;
-
-      button {
-        color: $aside-color3;
-        border-color: $aside-color3 ;
-      }
-    }
+    height: 95%;
+    width: 70%;
+    cursor: pointer;
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: 500;
     }
 
     p {
-      font-size: 0.6rem;
+      font-size: 1.1rem;
       font-weight: 400;
       margin: 15px;
     }
 
     a {
       button {
-        background-color: #ffffff;
-        width: 10vw;
-        height: 6vh;
-        margin-bottom: 1vw;
-        font-weight: bolder;
-        font-size: 0.9vw;
-        cursor: pointer;
+        display: none
       }
 
-      &:nth-child(2) {
-        color: $card-nutri;
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
       }
-    }
-
-    img {
-      width: 100%;
     }
   }
-
 }
+
+@media screen and (max-width: 912px) {
+  #accueil>section:nth-child(2)>article {
+    height: 60%;
+  }
+}
+
+@media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
+  #accueil>#head {
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    height: 95%;
+    width: 70%;
+    cursor: pointer;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        display: none
+      }
+
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
+      }
+    }
+  }
+}
+
 
 // Media query pour les écrans plus petits
 @media screen and (max-width: 480px) {
@@ -385,15 +398,17 @@ a {
     margin-left: 80px;
   }
 
-  #accueil>article{
+  #accueil>#head {
     margin: 25px;
     height: 20%;
+    text-align: center;
   }
 
-  #accueil>article>div>h1{
+  #accueil>#head>a {
     font-size: 2rem;
   }
-  #accueil>article>p {
+
+  #accueil>#head>p {
     font-size: 1rem;
   }
 
@@ -402,7 +417,7 @@ a {
     justify-content: space-between;
     align-items: center;
     height: 100vh;
-    width: 100%; 
+    width: 100%;
     overflow-y: auto;
     scrollbar-color: $card-opto #be861e;
     scrollbar-width: auto;
@@ -417,9 +432,8 @@ a {
     color: #ffffff;
     height: 35vh;
     width: 100%;
-    gap: 2vw;
     cursor: pointer;
- 
+
     h2 {
       font-size: 1.2rem;
       font-weight: 500;
@@ -433,16 +447,53 @@ a {
 
     a {
       button {
-        display:none
+        display: none
       }
+
       img {
-        height: 80%;
-        width: 90%;
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
       }
     }
   }
 }
 
+@media screen and (max-width: 384px) and (max-height:640px) {
+
+
+  #accueil>section:nth-child(2)>article {
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 0.7rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        display: none
+      }
+
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(5%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #accueil>#head>p {
+    font-size: 0.7rem;
+  }
+}
 
 //HEADER
 #head {
@@ -453,8 +504,8 @@ a {
   align-items: center;
 }
 
-#head>a:nth-child(1) {
-  font-size: 32px;
+#head>a {
+  font-size: 3rem;
   font-weight: 100;
 }
 
@@ -468,7 +519,7 @@ a {
 }
 
 #head p {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -1696,5 +1747,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

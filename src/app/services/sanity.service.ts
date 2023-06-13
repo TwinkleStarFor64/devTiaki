@@ -69,9 +69,10 @@ export class SanityService {
       }`
     );
   }
+
   async getAccueilOpto(): Promise<AccueilI[]> {
     return await this.sanityClientCredentials.option.fetch(
-      `*[_type == "accueil"]{
+      `*[_type == "opto"]{
         id,
         title,
         text,
@@ -83,7 +84,7 @@ export class SanityService {
   }
   async getAccueilKine(): Promise<AccueilI[]> {
     return await this.sanityClientCredentials.option.fetch(
-      `*[_type == "accueil"]{
+      `*[_type == "kine"]{
         id,
         title,
         text,
@@ -93,4 +94,5 @@ export class SanityService {
       }`
     );
   }
+  
 }

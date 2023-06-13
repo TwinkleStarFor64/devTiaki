@@ -11,47 +11,20 @@ $sombre: black;
 $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas  
 
-
-section {
-  flex-flow: column nowrap;
-  height: calc(100vh - $foot);
-
-  #head{
-    flex-flow: column nowrap;
-  }
-
-  #head > p{
-    color: $card-opto;
-    font-size: 3rem;
-    font-weight: 300;
-  }
-
-  #head > a:nth-child(1) {
-    color: $card-opto;
-  }
+#accueil>#head>a{
+  color: $card-opto;
 }
-#accueil > section:nth-child(2) {
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 100%;
-}
-#accueil>section:nth-child(2)>article {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  transition: transform 250ms;
-  height: 70%;
-  width: 22%;
-  background-color: $card-opto ;
 
-  &:hover {
-    transform: translateY(-3vw);
-  }
+#accueil>#head>p{
+  color: $card-opto;
+}
+
+#accueil>section:nth-child(2)>article{
+  background-color: $card-opto;
+
     button {
       color: $card-opto;
       border-color: $card-opto;
     }
 }
+
