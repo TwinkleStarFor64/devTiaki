@@ -1,4 +1,8 @@
-<nav>
+<button mat-icon-button class="burger-icon" (click)="toggleNavbar()">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<nav [class.active]="navbarVisible">
   <ul>
     <li *ngFor="let aside of asides; let i = index" (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null">
       <a [routerLink]="[aside.url]" [title]="">

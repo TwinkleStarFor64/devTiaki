@@ -9,6 +9,7 @@ import { TableauComponent } from './tableau/tableau.component';
 import { ButtonComponent } from './template/ui/button/button.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -29,6 +30,7 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatIconModule
   ],
 })
 export class IntranetModule {}

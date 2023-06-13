@@ -8,6 +8,7 @@ import { AsideI } from 'src/app/intranet/modeles/Types.js';
 })
 export class AsideBarComponent implements OnInit {
   value: number = 7;
+  navbarVisible: boolean = false;
 
   // Insertion de l'interface Aside permettant de changer les image et les urls
   public asides: AsideI[] = [
@@ -66,4 +67,7 @@ export class AsideBarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+  toggleNavbar() {
+    this.navbarVisible = !this.navbarVisible;
+  }
 }

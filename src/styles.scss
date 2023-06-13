@@ -140,6 +140,7 @@ a {
 
 p {
   font-size: 1rem;
+  text-align: center;
 }
 
 #accueil>article>div::before {
@@ -150,12 +151,12 @@ p {
   content: ".........";
 }
 
-// Les 3 Cartes 
-#accueil>section:nth-child(2) {
-  flex-direction: row;
-  justify-content: space-around;
-  height: 90%;
+#accueil>article>p {
+  font-size: 2.2rem;
 }
+
+// Les 3 Cartes 
+
 
 #accueil>section:nth-child(2) {
   flex-direction: row;
@@ -220,12 +221,17 @@ p {
   }
 
   p {
-    font-size: 1.2rem;
+    font-size: 2.2vh;
     font-weight: 400;
     margin: 15px;
   }
 
   a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     button {
       background-color: #ffffff;
       width: 10vw;
@@ -235,16 +241,214 @@ p {
       font-size: 1vw;
       cursor: pointer;
     }
-
+    img {
+      width: 100%;
+    }
+    
     &:nth-child(2) {
       color: $card-nutri;
     }
   }
 
-  img {
-    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  #accueil>article>p {
+    font-size: 1.9rem;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    height: 75%;
+    justify-content: space-between;
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 0.8rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+    a{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
+
+// Media query pour les écrans de taille moyenne
+@media screen and (max-width: 768px) {
+  #accueil {
+    justify-content: space-between;
+  }
+
+  #accueil>article {
+    height:30%;
+    align-items: center;
+    justify-content: center;
+  }
+  #accueil>article>div>h1 {
+    font-size: 1.8rem;
+  }
+  #accueil>article>p {
+    font-size: 1.6rem;
+  }
+
+  #accueil>section:nth-child(2) {
+    height: 70%;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    transition: transform 250ms;
+    height: 80%;
+    width: 25%;
+
+    &:hover {
+      transform: translateY(-3vw);
+    }
+
+    &:nth-child(1) {
+      background-color: $card-opto ;
+
+      button {
+        color: $card-opto;
+        border-color: $card-opto;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: $card-nutri ;
+
+      button {
+        color: $card-nutri;
+        border-color: $card-nutri;
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: $card-kine ;
+
+      button {
+        color: $card-kine;
+        border-color: $card-kine ;
+      }
+    }
+
+    &:nth-child(4) {
+      background-color: $aside-color3 ;
+
+      button {
+        color: $aside-color3;
+        border-color: $aside-color3 ;
+      }
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 0.6rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        background-color: #ffffff;
+        width: 10vw;
+        height: 6vh;
+        margin-bottom: 1vw;
+        font-weight: bolder;
+        font-size: 0.9vw;
+        cursor: pointer;
+      }
+
+      &:nth-child(2) {
+        color: $card-nutri;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+}
+
+// Media query pour les écrans plus petits
+@media screen and (max-width: 480px) {
+  #accueil {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    overflow: auto;
+    margin-left: 80px;
+  }
+
+  #accueil>article{
+    margin: 25px;
+    height: 20%;
+  }
+
+  #accueil>article>div>h1{
+    font-size: 2rem;
+  }
+  #accueil>article>p {
+    font-size: 1rem;
+  }
+
+  #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    width: 100%; 
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    height: 35vh;
+    width: 100%;
+    gap: 2vw;
+    cursor: pointer;
+ 
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        display:none
+      }
+      img {
+        height: 80%;
+        width: 90%;
+      }
+    }
+  }
+}
+
 
 //HEADER
 #head {
@@ -477,15 +681,18 @@ p {
   align-items: center;
   gap: 0.3vw;
 }
+
 // balise img de durée et materiel
 #exercices section article>div:nth-child(2)>div>div>img {
   height: 2vh;
   width: 1vw;
 }
+
 // balise p durée et materiel
 #exercices section article>div:nth-child(2)>div>div>p {
-font-size: 0.9rem;
+  font-size: 0.9rem;
 }
+
 // conteneur de description et du lien vers la modal
 #exercices article>div:nth-child(2)>.exercice-texte {
   display: flex;
@@ -495,7 +702,7 @@ font-size: 0.9rem;
 }
 
 #exercices article>div:nth-child(2)>.exercice-texte>p {
- font-size: 1rem;
+  font-size: 1rem;
 }
 
 // lien vers la modal
@@ -516,6 +723,7 @@ font-size: 0.9rem;
   height: $foot;
   width: calc(100vw - $l)
 }
+
 // Partie responsive essai
 /* Styles pour les écrans de taille supérieure à 768px */
 @media (max-width: 1154px) {
@@ -530,7 +738,7 @@ font-size: 0.9rem;
     margin-bottom: 20px;
   }
 
-  #exercices article > div:nth-child(2) > .exercice-texte >  {
+  #exercices article>div:nth-child(2)>.exercice-texte> {
     font-size: 1vw;
   }
 }
@@ -543,46 +751,47 @@ font-size: 0.9rem;
 
   #exercices article {
     align-items: center;
-    width: 90%;
+    width: 100%;
     margin-bottom: 20px;
   }
+
   #exercices article {
     background: #f2f2f2;
     padding: 10px;
   }
-  
+
   #exercices article .photo-exo {
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
   #exercices article .photo-exo img {
     max-height: 100%;
     max-width: 100%;
   }
-  
+
   #exercices article h6 {
     font-size: 1.2rem;
     margin-top: 10px;
     margin-bottom: 5px;
   }
-  
+
   #exercices article p {
     margin: 0;
     font-size: 0.9vw;
   }
-  
+
   #exercices article .exercice-texte {
     margin-top: 10px;
   }
-  
+
   #exercices article .exercice-texte p {
     font-size: 0.9vw;
     line-height: 1.4;
   }
-  
+
   #exercices article .exercice-texte span {
     font-weight: bold;
     cursor: pointer;
@@ -1086,11 +1295,13 @@ font-size: 0.9rem;
       background-color: #D9042B;
     }
   }
-// Article qui contient le bouton Effacer les filtres - Dans un *ngIf visible suivant les cas
+
+  // Article qui contient le bouton Effacer les filtres - Dans un *ngIf visible suivant les cas
   #filter {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
     button {
       background-color: #bdb087;
       width: 10vw;
@@ -1109,7 +1320,7 @@ font-size: 0.9rem;
     display: flex;
     flex-direction: column;
     width: 80%;
-    padding-left: 1vw;    
+    padding-left: 1vw;
 
     // Div avec le *ngFor
     div {
@@ -1128,12 +1339,16 @@ font-size: 0.9rem;
           font-size: 0.8rem;
         }
       }
-      h2:hover {        
+
+      h2:hover {
+        //font-size: 1.6rem;
         font-weight: 700;
       }
 
-      p { // Balise <p> {{ plat.description }}
-        margin: 0.5vh 0 1vh 0;        
+      p {
+        // Balise <p> {{ plat.description }}
+        margin: 0.5vh 0 1vh 0;
+
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
@@ -1149,7 +1364,8 @@ font-size: 0.9rem;
         justify-content: flex-end;
         align-items: center;
 
-        #pastilleEval { // Balise <span> servant de pastille coloré - Si j'utilise pas de bouton
+        #pastilleEval {
+          // Balise <span> servant de pastille coloré - Si j'utilise pas de bouton
           width: 30px;
           height: 30px;
           margin-right: 2vw;
@@ -1164,22 +1380,30 @@ font-size: 0.9rem;
           }
         }
 
-        button { // Les 3 boutons dans la liste à gauche - Si j'utilise un bouton
+        button {
+          // Les 3 boutons dans la liste à gauche - Si j'utilise un bouton
           width: 7vw;
           height: 4vh;
           font-size: 0.6vw;
           color: white;
           margin-right: 2vw;
         }
-        .Eval { // Le bouton Evaluer ce menu
-          background-color: #F28705;          
+
+        .Eval {
+          // Le bouton Evaluer ce menu
+          background-color: #F28705;
         }
-        .EvalYes { // Le bouton Menus évalués et validés
+
+        .EvalYes {
+          // Le bouton Menus évalués et validés
           background-color: #33BB27;
         }
-        .EvalNo { // Le bouton Menus évalués et problématiques
+
+        .EvalNo {
+          // Le bouton Menus évalués et problématiques
           background-color: #D9042B;
         }
+
         // Les 2 images ( horloge et casserole )
         img {
           height: 2vh;
@@ -1389,17 +1613,20 @@ font-size: 0.9rem;
   #boutonPageMenus {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;    
+    justify-content: space-between;
     border-bottom: dashed black 1px;
     padding: 2vh 0 0 0;
     vertical-align: baseline;
     align-items: center;
-    span:nth-child(1) { // La balise span avec le mat-form-field et le bouton évaluer
-      display: flex;   
+
+    span:nth-child(1) {
+      // La balise span avec le mat-form-field et le bouton évaluer
+      display: flex;
       flex-direction: row;
-      justify-content: center;   
+      justify-content: center;
       align-items: center;
       gap: 1vw;
+
       mat-label {
         font-size: 0.9rem;
         @media screen and (max-width : 1200px) {
@@ -1426,12 +1653,16 @@ font-size: 0.9rem;
         background-color: #f0c02e;
       }
     }
-    span:nth-child(2) { // La balise span avec les boutons supprimer et valider
-      display: flex;      
+
+    span:nth-child(2) {
+      // La balise span avec les boutons supprimer et valider
+      display: flex;
       gap: 1vw;
+
       button:nth-child(1) {
         background-color: #F28705;
-      }  
+      }
+
       button:nth-child(2) {
         background-color: #33BB27;
       }
@@ -1568,3 +1799,15 @@ font-size: 0.9rem;
   justify-content: flex-end;
   gap: 0.3vw;
 }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

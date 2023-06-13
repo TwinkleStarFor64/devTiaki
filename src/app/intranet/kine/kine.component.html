@@ -9,8 +9,8 @@
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">
         <button>{{ card.button }}</button>
+        <img [src]="card.image" alt="photo" />
       </a>
-      <img [src]="card.image" alt="photo" />
     </article>
   </section>
 </section>
