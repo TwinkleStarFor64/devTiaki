@@ -21,6 +21,13 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
   }
 } 
 
+// Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie)
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  @media screen and (max-width: 480px) {
+   top: 50%; // Pour positionner le label au milieu du select    
+  }
+}
+
 html {
   height: 100%;
 }
@@ -136,12 +143,12 @@ a {
     font-weight: 100;
     font-style: normal;
   }
+  p {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 
-p {
-  font-size: 1rem;
-  text-align: center;
-}
 
 #accueil>article>div::before {
   content: ".........";
@@ -801,10 +808,23 @@ p {
 
 
 // CSS des pages plats et menus
+#platMenu {
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 68px); // Pour l'aside Bar    
+    align-items: flex-start;    
+    overflow: auto;
+  }
+}
 
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 480px) {
+    //display: none;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
 }
 
 // La partie gauche avec la liste des plats/menus enregistrés
@@ -812,12 +832,14 @@ p {
   height: calc(100vh - $head - $foot);
   width: 30%;
   padding-top: 5vh;
-
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: auto;
   align-items: center;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 
   // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
@@ -826,6 +848,7 @@ p {
     padding: 4vh 2vw;
     font-size: 1vw;
     color: black;
+    
   }
 
   .mat-ripple mat-mdc-button-ripple {
@@ -1204,11 +1227,11 @@ p {
 
 /* ---------------- CSS de la Page Plats -------------------- */
 // Contenant principale
-#sectionPrincipale {
+/* #sectionPrincipale {
   display: flex;
   flex-direction: row;
   
-}
+} */
 
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
@@ -1224,6 +1247,13 @@ p {
     height: calc(100vh - $head - 100px);
     width: 35%;
   }  
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    //height: 60%;
+    align-items: flex-start;
+    border-bottom: dashed #270140 1px;
+    padding-top: 0;
+  }
 
   // Le bouton 1 - Ajouter un nouveau plat
   #ajoutButton {
@@ -1231,9 +1261,17 @@ p {
     width: 75%;
     padding: 4vh 2vw;
     font-size: 1vw;
-    color: black;
+    color: black;    
     @media screen and (max-width: 768px) {
       padding: 3vh 1.5vw;
+    }
+    @media screen and (max-width: 480px) {
+      display: none;
+      width: 25vw;
+      height: 3vh;
+      font-size: 1.5vw;
+      align-self: flex-end;
+      margin-right: 2vw;
     }
   }
 
@@ -1254,6 +1292,9 @@ p {
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
     }
+    @media screen and (max-width: 480px) {
+      margin-top: 0;
+    }
   }
 
   // Article qui contient les 3 boutons pour évaluer 
@@ -1267,6 +1308,11 @@ p {
     @media screen and (max-width: 768px) {
       gap: 1vw;
     }
+    @media screen and (max-width: 480px) {
+      gap: 2vw;
+      justify-content: center;
+      width: 100%;
+    }
 
     // Code s'appliquant aux 3 boutons
     button {
@@ -1277,6 +1323,11 @@ p {
       @media screen and (max-width: 768px) {
         width: 4vw;
         height: 3vh;
+      }
+      @media screen and (max-width: 480px) {
+        width: 20vw;
+        height: 3vh;
+        font-size: 1.4vw;
       }
     }
 
@@ -1294,13 +1345,22 @@ p {
     button:nth-child(3) {
       background-color: #D9042B;
     }
+
+    button:nth-child(4) { // Le bouton ajouter un menu - visible seulement en mobile
+      display: none;
+      @media screen and (max-width: 480px) {
+        display: block;
+        background-color: #805E96;
+      }
+    }
   }
 
   // Article qui contient le bouton Effacer les filtres - Dans un *ngIf visible suivant les cas
   #filter {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center;    
+    width: 100%;
 
     button {
       background-color: #bdb087;
@@ -1311,6 +1371,11 @@ p {
       @media screen and (max-width: 768px) {
         width: 8vw;
         height: 3vh;
+      }
+      @media screen and (max-width: 480px) {
+        width: 20vw;
+        height: 3vh;
+        font-size: 1.4vw;
       }
     }
   }
@@ -1337,7 +1402,7 @@ p {
         }
         @media screen and (max-width: 768px) {
           font-size: 0.8rem;
-        }
+        }        
       }
 
       h2:hover {
@@ -1354,7 +1419,7 @@ p {
         }
         @media screen and (max-width: 768px) {
           font-size: 0.6rem;
-        }
+        }        
       }      
 
       // Contient un bouton (ou une pastille), 2 images et 2 balise
@@ -1408,11 +1473,18 @@ p {
         img {
           height: 2vh;
           width: 2vw;
+          @media screen and (max-width: 480px) {
+            height: 15px;
+            width: 15px;
+          }
         }
 
         p {
           padding: 1vh;
           font-size: 0.8vw;
+          @media screen and (max-width: 480px) {
+            font-size: 0.6rem;
+          }
         }
 
         // Pour souligner la balise <p>Matériels</p>
@@ -1437,6 +1509,12 @@ p {
     height: calc(100vh - $head - 100px);  
     width: 65%;
   }
+  @media screen and (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 
   // La balise <h3>2 - Ajouter un plat</h3>
   h3 {
@@ -1449,6 +1527,9 @@ p {
     @media screen and (max-width : 768px) {
       font-size: 1.1rem;
     }
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
   }
 
   // La div qui contient les 3 balises select
@@ -1458,6 +1539,9 @@ p {
     flex-direction: row;
     gap: 1vw;
     align-items: center;
+    @media screen and (max-width: 480px) {
+      margin-top: 2vh;
+    }
 
     // L'icône d'ajout 
     img {
@@ -1473,11 +1557,17 @@ p {
       @media screen and (max-width : 768px) {
         width: 15vw;       
       }
+      @media screen and (max-width: 480px) {
+        width: 25vw;        
+      }
     }
 
     // La balise select "Les plats de la communautés"
     mat-form-field:nth-child(3) {
-      width: 18vw;      
+      width: 18vw;  
+      @media screen and (max-width: 480px) {
+        width: 25vw;        
+      }    
     }
   }
 
@@ -1499,12 +1589,14 @@ p {
     }
   }
 
-  /* .mat-mdc-text-field-wrapper {
-    @media screen and (max-width : 768px) {
+    .mat-mdc-text-field-wrapper {
+    @media screen and (max-width : 480px) {
       height: 6vh;
-
+      align-items: center;
+      text-align: center;
+      justify-content: center;
     }
-  } */
+  }
 
   span:nth-child(3) {
     display: flex;
@@ -1553,7 +1645,8 @@ p {
 
   span:nth-child(3)>span {
     display: flex;
-    flex-direction: column // align-items: center;
+    flex-direction: column 
+    // align-items: center;
   }
 
   span:nth-child(3)>span>p:nth-child(1) {

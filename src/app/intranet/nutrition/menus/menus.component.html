@@ -4,17 +4,18 @@
     <p>les menus</p>
   </header>
   <section id="sectionPrincipale">
-    <article id="listePlats">
+    <article id="listePlats">      
       <button id="ajoutButton" mat-raised-button color="primary" (click)="openDialog()">
         1 - Ajouter un nouveau menu
       </button>
       <!-- <button>1 - Ajouter un nouveau menu</button> -->
-      <a routerLink="/intranet/nutrition/recettes"><h1>Reprendre un repas précédent</h1></a>
+      <h1>Reprendre un repas précédent</h1>
       <article id="evalBouton">
-      <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->
+      <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->      
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Menus évalués et validés</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Menus non évalués</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Menus évalués et problématiques</button>
+        <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau menu</button>
       </article>
       <!-- Ci-dessous Article pour revenir à l'affichage initial -->
       <article id="filter" *ngIf="affichageDefaut !== 'allMenus'">          

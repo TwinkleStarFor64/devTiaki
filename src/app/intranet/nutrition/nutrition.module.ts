@@ -24,8 +24,7 @@ import { DeleteDataComponent } from './dialog/delete-data/delete-data.component'
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
-
-
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({

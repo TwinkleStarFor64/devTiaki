@@ -17,6 +17,11 @@ section {
   @media screen and (max-width: 768px) {
     height: calc(100vh - 100px);
   }
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 68px); // Pour l'aside Bar
+    align-items: center;    
+    overflow: auto;
+  }
 
   #head>p {
     color: $card-nutri;
@@ -63,14 +68,14 @@ section {
         height: 70%;
       }
     }
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 480px) {
       display: none;
     }
   }
 
   article:nth-child(3) { // La balise article version Mobile
     display: none;
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 480px) {
       display: flex;
       flex-direction: column;      
       div:nth-child(1) {
@@ -118,6 +123,15 @@ section {
             width: 15px;
             background-color: #D1D1D1;
           }
+        }
+      }
+      div:nth-child(3) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 80%;
+          height: 90%;
         }
       }
     }
