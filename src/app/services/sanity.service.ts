@@ -69,4 +69,28 @@ export class SanityService {
       }`
     );
   }
+  async getAccueilOpto(): Promise<AccueilI[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "accueil"]{
+        id,
+        title,
+        text,
+        button,
+        image,
+        url        
+      }`
+    );
+  }
+  async getAccueilKine(): Promise<AccueilI[]> {
+    return await this.sanityClientCredentials.option.fetch(
+      `*[_type == "accueil"]{
+        id,
+        title,
+        text,
+        button,
+        image,
+        url        
+      }`
+    );
+  }
 }

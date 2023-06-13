@@ -4,12 +4,12 @@
     <p>Optométrie</p>
   </header>
   <section>
-    <article *ngFor="let card of cards">
+    <article *ngFor="let card of acceuilOpto">
       <h2>{{ card.title }}</h2>
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">
         <button>{{ card.button }}</button>
-        <img [src]="card.image" alt="photo" />
+        <img src={{sanity.urlFor(card.image).url()}} alt="photo" />
       </a>
     </article>
   </section>
