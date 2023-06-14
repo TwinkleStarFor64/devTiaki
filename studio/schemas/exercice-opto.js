@@ -26,9 +26,19 @@ export default {
         title: 'Description'
       },
       {
+        name: 'dureeIcon',
+        type: 'image',
+        title: 'Icone de durée'
+      },
+      {
         name: 'duree',
         type: 'number',
         title: 'Durée (en minutes)'
+      },
+      {
+        name: 'materielIcon',
+        type: 'image',
+        title: 'Icone de materiel'
       },
       {
         name: 'materiel',

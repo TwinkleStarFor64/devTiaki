@@ -27,4 +27,9 @@ $foot: 150px; // Hauteur des menus du bas
       border-color: $card-opto;
     }
 }
+@media screen and (max-width: 480px){
+  #burger-icon {
+    color: $card-opto;
+  }
+}
 

@@ -8,7 +8,7 @@ $aside-color3: #F0C02E;
 
 $l: 65px;
 
-.burger-icon {
+#burger-icon {
   display: none;
 }
 
@@ -79,14 +79,14 @@ nav {
 }
 
 @media screen and (max-width: 480px) {
-  .burger-icon {
+  #burger-icon {
     display: block;
     position: fixed;
-    color: $card-nutri;
     border: none;
     background: none;
-    top: 20px;
-    right: 20px;
+    color: $aside-color2;
+    top: 22px;
+    right: 10px;
     z-index: 999;
   }
 
@@ -101,7 +101,7 @@ nav {
       top: 0;
       bottom: 0;
       right: 0;
-      width: 20%;
+      width: 15%;
       padding-top: 25px;
       z-index: 998;
       color: #ffffff;

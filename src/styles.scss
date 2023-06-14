@@ -307,7 +307,7 @@ a {
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 400;
       margin: 15px;
     }
@@ -390,109 +390,103 @@ a {
 // Media query pour les écrans plus petits
 @media screen and (max-width: 480px) {
   #accueil {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    overflow: auto;
-    margin-left: 80px;
-  }
+    margin-left: 10%;
+    justify-content: center;
 
-  #accueil>#head {
-    margin: 25px;
-    height: 20%;
-    text-align: center;
-  }
-
-  #accueil>#head>a {
-    font-size: 2rem;
-  }
-
-  #accueil>#head>p {
-    font-size: 1rem;
-  }
-
-  #accueil>section:nth-child(2) {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    gap: 10vw;
-  }
-
-  #accueil>section:nth-child(2)>article {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    height: 35vh;
-    width: 100%;
-    cursor: pointer;
-
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
+    >#head {
+      height: 20%;
+      a {
+        font-size: 1.8rem;
+        width: 100%;
+        text-align: center;
       }
 
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(10%);
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    >section:nth-child(2)>article {
+      margin-left: 20px;
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
       }
     }
   }
 }
 
 @media screen and (max-width: 384px) and (max-height:640px) {
+  #accueil {
 
-
-  #accueil>section:nth-child(2)>article {
-
-    h2 {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 0.7rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
+    >#head {
+      >a {
+        font-size: 1.8rem;
       }
 
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(5%);
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    #accueil>section:nth-child(2)>article {
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
       }
     }
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 376px) {
   #accueil>#head>p {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
+
+  #accueil>section:nth-child(2)>article>p {
+    font-size: 0.8rem;
+  }
+}
+
+// Navbar icone burger
+#burger-icon {
+  color: $aside-color1;
 }
 
 //HEADER
@@ -505,8 +499,25 @@ a {
 }
 
 #head>a {
-  font-size: 3rem;
+  font-size: 2.8rem;
   font-weight: 100;
+  width: 15%;
+
+  @media (max-width: 954px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 596px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
 }
 
 #head>a:nth-child(1):after {
@@ -519,8 +530,33 @@ a {
 }
 
 #head p {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 1020px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 0.6rem;
+  }
+}
+
+#head>article {
+  align-items: start;
 }
 
 #head>* {
@@ -535,6 +571,9 @@ a {
   flex-direction: column;
   color: $sombre;
   height: calc(100vh - $foot);
+  @media (max-width: 768px) {
+    height: calc(100vh - 100px);
+  }
 }
 
 // section principale
@@ -633,10 +672,15 @@ a {
   flex-flow: row wrap;
   color: $sombre;
   height: calc(100vh - $foot);
-  overflow-y: auto;
+  // overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
-
+  @media screen and (max-width:768px) {
+    height: calc(100vh - 100px);
+  }
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 65px); // 65px pour l'aside bar
+  }
 }
 
 //Section principale
@@ -644,17 +688,36 @@ a {
   width: 100%;
 }
 
+// barre de recherche exercices
+#exercices #head article {
+  background: none;
+  width: 40vw;
+  align-items: end;
+
+  @media (max-width: 706px) {
+    width: 30vw;
+    align-items: center;
+  }
+
+  @media (max-width: 490px) {
+    align-items: center;
+    width: 30vw;
+  }
+}
+
 //section avec la classe exercice
 #exercices>section {
   width: 100%;
   flex-flow: row wrap;
   overflow-x: hidden;
-  overflow-y: auto;
   justify-content: space-around;
   height: calc(100vh - $head - $foot);
   overflow-y: auto;
-  scrollbar-color: $card-nutri #d3354f;
-  scrollbar-width: auto;
+
+  @media (max-width: 768px) {
+    height: calc(100vh - $head - 100px);
+  }
+
 }
 
 // articles générer avec le ngFor avec la photo ou video et le titre la description 
@@ -673,19 +736,21 @@ a {
 #exercices section>article>.photo-exo {
   height: 50%;
   align-items: center;
+  justify-content: center;
 }
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  height: 80%;
-  width: 100%;
+  max-height: 20vh;
+  min-height: 15vh;
+  max-width: 100%;
 }
 
-#exercices article>div {
+#exercices section>article>div {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   text-align: end;
+  height: 100%;
   gap: 1vw;
 }
 
@@ -693,20 +758,30 @@ a {
 #exercices article>div:nth-child(2) {
   display: flex;
   flex-flow: column nowrap;
-  text-align: justify;
-
-}
-
-// description de l'exercice
-#exercices article>div>p {
-  margin: 0;
+  justify-content: space-between;
 }
 
 // titre de l'exercice
 #exercices article>div:nth-child(2)>h6 {
   margin: 0;
-  font-size: 1rem;
+  justify-self: center;
+  font-size: 1.2rem;
+  font-weight: 500;
   align-self: center;
+  text-align: center;
+  color: $aside-color1;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.8rem;
+  }
 }
 
 // div contenant duréé et materiel
@@ -716,7 +791,6 @@ a {
   align-items: center;
   justify-content: space-between;
 }
-
 
 // div de la durée et materiel
 #exercices section article>div:nth-child(2)>div>div {
@@ -735,19 +809,47 @@ a {
 
 // balise p durée et materiel
 #exercices section article>div:nth-child(2)>div>div>p {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  margin: 0;
+
+  @media (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.7rem;
+  }
 }
 
 // conteneur de description et du lien vers la modal
 #exercices article>div:nth-child(2)>.exercice-texte {
   display: flex;
   flex-direction: column;
-  min-height: 20vh;
+  max-height: 30vh;
   justify-content: space-between;
 }
 
+// description
 #exercices article>div:nth-child(2)>.exercice-texte>p {
   font-size: 1rem;
+  text-align: justify;
+  word-spacing: -2px;
+
+  @media (max-width: 1024px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.7rem;
+  }
 }
 
 // lien vers la modal
@@ -755,6 +857,19 @@ a {
   align-self: flex-end;
   font-weight: 700;
   cursor: pointer;
+  color: $aside-color1;
+
+  @media (max-width: 1020px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.8rem;
+  }
 }
 
 // #exercices article>figure {
@@ -782,22 +897,32 @@ a {
     width: 30%;
     margin-bottom: 20px;
   }
+}
 
-  #exercices article>div:nth-child(2)>.exercice-texte> {
-    font-size: 1vw;
+@media (max-width: 906px) {
+  #exercices section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #exercices article {
+    width: 40%;
+    margin-bottom: 20px;
   }
 }
 
-/* Styles pour < 768px */
-@media (max-width: 767px) {
+/* Styles pour < 560px */
+@media (max-width: 560px) {
   #exercices section {
     display: block;
+    align-items: center;
   }
 
   #exercices article {
     align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 50px;
   }
 
   #exercices article {
@@ -805,22 +930,9 @@ a {
     padding: 10px;
   }
 
-  #exercices article .photo-exo {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   #exercices article .photo-exo img {
     max-height: 100%;
     max-width: 100%;
-  }
-
-  #exercices article h6 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
   }
 
   #exercices article p {
@@ -829,20 +941,9 @@ a {
   }
 
   #exercices article .exercice-texte {
-    margin-top: 10px;
-  }
-
-  #exercices article .exercice-texte p {
-    font-size: 0.9vw;
-    line-height: 1.4;
-  }
-
-  #exercices article .exercice-texte span {
-    font-weight: bold;
-    cursor: pointer;
+    margin: 10px;
   }
 }
-
 
 
 // CSS des pages plats et menus

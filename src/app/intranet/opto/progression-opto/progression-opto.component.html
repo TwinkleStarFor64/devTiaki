@@ -1,9 +1,7 @@
 <section id="exercices">
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
-    <p>Optométrie ></p>
-    <img [src]="avatar" />
-    <p>Le parcours de Cheer Émilie</p>
+    <p>Optométrie > <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
   </header>
   <section class="exercice">
     <article *ngFor="let exercice of exercicesFiltres">
@@ -14,11 +12,15 @@
         <div>
           <h6>{{ exercice.title }}</h6>
           <div>
-            <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-            <!-- <p>{{ exercice.horloge }}</p> -->
+            <img
+              [src]="sanity.urlFor(exercice.dureeIcon).url()"
+              alt="horloge"
+            />
             <p>Durée</p>
-            <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-            <!-- <p>{{exercice.materiel}}</p> -->
+            <img
+              [src]="sanity.urlFor(exercice.materielIcon).url()"
+              alt="materiel"
+            />
             <p>Matériels</p>
           </div>
           <p>{{ exercice.description }}</p>

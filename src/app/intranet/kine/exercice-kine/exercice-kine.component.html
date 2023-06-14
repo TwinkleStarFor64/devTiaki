@@ -1,8 +1,7 @@
 <section id="exercices">
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
-    <p>Kinésithérapie ></p>
-    <p>Choisir un exercice</p>
+    <p>Kinésithérapie > Choisir un exercice</p>
     <article>
       <form class="example-form">
         <input
@@ -23,7 +22,7 @@
           <mat-option
             *ngFor="let exercice of exercicesFiltres"
             [value]="exercice"
-          (mouseover)="hoverSelectedExercice(exercice)"
+            (mouseover)="hoverSelectedExercice(exercice)"
           >
             {{ exercice.title }}
           </mat-option>
@@ -33,7 +32,7 @@
   </header>
   <section>
     <article *ngFor="let exercice of exercicesFiltres">
-      <div class="photo-exo" >
+      <div class="photo-exo">
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
@@ -41,7 +40,7 @@
         <div>
           <div>
             <img
-              src="assets/iconeKineOpto/horloge.svg"
+              [src]="sanity.urlFor(exercice.dureeIcon).url()"
               alt="horloge"
               (mouseenter)="exerciceDureeSurvole = exercice"
               (mouseleave)="exerciceDureeSurvole = null"
@@ -56,7 +55,7 @@
               {{ exercice.duree }}
             </p>
             <img
-              src="assets/iconeKineOpto/materiel.svg"
+              [src]="sanity.urlFor(exercice.materielIcon).url()"
               alt="materiel"
               (mouseenter)="exerciceMaterielSurvole = exercice"
               (mouseleave)="exerciceMaterielSurvole = null"

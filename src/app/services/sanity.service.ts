@@ -18,7 +18,7 @@ export class SanityService {
 
   urlFor = (source: any) =>
     imageUrlBuilder(this.sanityClientCredentials.option).image(source);
-
+// photos ou videos des exercices Kine
   async getExercices(): Promise<ExerciceI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "exercice"]{
@@ -26,12 +26,14 @@ export class SanityService {
         photo,
         video,
         description,
+        dureeIcon,
         duree,
+        materielIcon,
         materiel
       }`
     );
   }
-
+// photos ou videos des exercices opto
   async getExercicesOpto(): Promise<ExerciceI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "exerciceOpto"]{
@@ -39,11 +41,14 @@ export class SanityService {
         photo,
         video,
         description,
+        dureeIcon,
         duree,
+        materielIcon,
         materiel
       }`
     );
   }
+  // photos page d'accueil principale
   async getAccueil(): Promise<AccueilI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "accueil"]{
@@ -56,7 +61,7 @@ export class SanityService {
       }`
     );
   }
-
+// photos page d'accueil nutrition
   async getAccueilNutrition(): Promise<NutritionI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "nutrition"]{
@@ -69,7 +74,7 @@ export class SanityService {
       }`
     );
   }
-
+// photos page d'accueil opto
   async getAccueilOpto(): Promise<AccueilI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "opto"]{
@@ -82,6 +87,7 @@ export class SanityService {
       }`
     );
   }
+  // photos page d'accueil kine
   async getAccueilKine(): Promise<AccueilI[]> {
     return await this.sanityClientCredentials.option.fetch(
       `*[_type == "kine"]{
@@ -94,5 +100,6 @@ export class SanityService {
       }`
     );
   }
+
   
 }
