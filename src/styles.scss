@@ -21,7 +21,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
   }
 } 
 
-// Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie)
+// Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie et toutes les balises mat-select suivantes)
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
   @media screen and (max-width: 480px) {
    top: 50%; // Pour positionner le label au milieu du select    
@@ -1513,7 +1513,8 @@ a {
     font-size: 1rem;
   }
   @media screen and (max-width: 480px) {
-    width: 100%;
+    width: auto;
+    margin-top: 2vh;
   }
 
   // La balise <h3>2 - Ajouter un plat</h3>
@@ -1589,12 +1590,10 @@ a {
     }
   }
 
-    .mat-mdc-text-field-wrapper {
+    .mat-mdc-text-field-wrapper { // La taille du label et la fléche dans les balises select
     @media screen and (max-width : 480px) {
       height: 6vh;
-      align-items: center;
-      text-align: center;
-      justify-content: center;
+      align-items: center;      
     }
   }
 
@@ -1604,7 +1603,16 @@ a {
     @media screen and (max-width : 768px) {
       p {
         font-size: 0.8rem;
-      }      
+      }  
+    @media screen and (max-width : 768px) {
+      p {
+        font-size: 0.8rem;
+      }           
+    }
+    @media screen and (max-width : 480px) {
+      p {
+        font-size: 0.6rem;
+      }           
     }
   }
 
@@ -1621,6 +1629,9 @@ a {
     @media screen and (max-width : 768px) {
       font-size: 1rem;
     }
+    @media screen and (max-width : 480px) {      
+      font-size: 0.8rem;              
+    }
   }
 
   textarea {
@@ -1628,7 +1639,9 @@ a {
     @media screen and (max-width : 768px) {
       font-size: 0.8rem;
     }
-    
+    @media screen and (max-width : 480px) {
+      font-size: 0.6rem;
+    }    
   }
 
   // La div sous le textarea
@@ -1641,6 +1654,9 @@ a {
     border-bottom: dashed black 1px;
     text-align: center;
     gap: 1vw;
+    @media screen and (max-width : 480px) {
+      gap: 1.5vw;
+    }
   }
 
   span:nth-child(3)>span {
@@ -1655,21 +1671,23 @@ a {
     font-weight: 700;
   }
 
-  span:nth-child(3)>span>p:nth-child(2) {
-    //width: 75%;    
-  }
+  /* span:nth-child(3)>span>p:nth-child(2) {
+    width: 75%;    
+  } */
 
   // La balise select AJOUTER
   #ajouter {
     width: 10vw;
     margin-top: 2vh;
-
     @media screen and (max-width : 1200px) {
       width: 12vw;
     }
     @media screen and (max-width : 768px) {
       font-size: 0.8rem;
       width: 15vw;      
+    }
+    @media screen and (max-width : 480px) {
+      width: 25vw;      
     }
   }
 
@@ -1688,7 +1706,7 @@ a {
       @media screen and (max-width : 768px) {
         width: 4vw;
         height: 3vh;
-      }
+      }      
     }
 
     button:nth-child(2) { // Le bouton valider
@@ -1716,10 +1734,12 @@ a {
       // La balise span avec le mat-form-field et le bouton évaluer
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      //justify-content: center;
       align-items: center;
       gap: 1vw;
-
+      @media screen and (max-width: 480px) {
+        margin-right: 1vw;
+      }
       mat-label {
         font-size: 0.9rem;
         @media screen and (max-width : 1200px) {
@@ -1731,19 +1751,29 @@ a {
       }  
       mat-form-field {
         width: 16vw;
-        @media screen and (max-width : 1200px) {
-          
+        @media screen and (max-width : 1200px) {          
           width: 22vw;
         }
         @media screen and (max-width : 768px) {
           font-size: 0.6rem;
           width: 22vw;
         }
-      }   
-      
-      
+        @media screen and (max-width : 480px) {
+          width: 30vw;      
+        }
+      }      
       button {
         background-color: #f0c02e;
+        @media screen and (max-width : 768px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
       }
     }
 
@@ -1754,10 +1784,30 @@ a {
 
       button:nth-child(1) {
         background-color: #F28705;
+        @media screen and (max-width : 768px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
       }
 
       button:nth-child(2) {
         background-color: #33BB27;
+        @media screen and (max-width : 768px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
       }
     }
   }
@@ -1904,3 +1954,5 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+}
