@@ -17,6 +17,9 @@ section {
     text-align: center;
     p { // Le contenu de la balise <p> viens de menus.component.ts
       font-size: 1.5vw;
+      @media screen and (max-width : 834px) {
+        font-size: 1rem;
+      }
     }
   }
   article:nth-child(2) {
@@ -42,6 +45,10 @@ section {
     button {
       width: 7vw;
       font-size: 0.8vw;
+      @media screen and (max-width : 834px) {
+        width: 15vw;
+        font-size: 0.8rem;
+      }
     }
     button:nth-child(2) { // Le bouton confirmer
       background-color: #33bb27;

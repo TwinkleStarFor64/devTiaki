@@ -16,7 +16,7 @@ $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
 .mat-mdc-option { // Pour les options de choix dans tout les menus déroulants
-  @media screen and (max-width : 768px) {
+  @media screen and (max-width : 834px) {
     font-size: 0.6rem;
   }
 } 
@@ -25,6 +25,14 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
   @media screen and (max-width: 480px) {
    top: 50%; // Pour positionner le label au milieu du select    
+  }
+}
+// Pour le label dans le textarea de la modal save-data dans la page plats (Lors d'un ajout de plat)
+#textarea {
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+    @media screen and (max-width: 480px) {
+     top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)  
+    }
   }
 }
 

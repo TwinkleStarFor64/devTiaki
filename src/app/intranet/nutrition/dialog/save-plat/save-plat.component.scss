@@ -1,3 +1,9 @@
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  
+   top: 28px; // Pour positionner le label au milieu du select    
+  
+}
+
 section {
     background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
     background-repeat: no-repeat;
@@ -17,6 +23,9 @@ section {
       text-align: center;
       p { // Le contenu de la balise <p> viens de menus.component.ts
         font-size: 1.5vw;
+        @media screen and (max-width : 834px) {
+          font-size: 1rem;
+        }
       }
     }
     article:nth-child(2) {
@@ -32,6 +41,9 @@ section {
         #input { // L'id de tout les inputs
           width: 100%;
         }
+        #textarea { // L'i du textarea
+          width: 100%;
+        }
       }
     }
     article:nth-child(3) { // Article contenant les 2 boutons
@@ -42,10 +54,18 @@ section {
       button {
         width: 7vw;
         font-size: 0.8vw;
+        @media screen and (max-width : 834px) {
+          width: 15vw;
+          font-size: 0.8rem;
+        }
+        @media screen and (max-width: 480px) {
+          width: 25vw;    
+         }
       }
       button:nth-child(2) { // Le bouton confirmer
         background-color: #33bb27;
       }
     }
   }
+  
   
