@@ -20,7 +20,7 @@ $foot: 150px;
 section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     height: calc(100vh - 100px);
   }
 

@@ -41,6 +41,11 @@ section {
     height: 100%;
     display: flex;
     justify-content: space-around;
+    @media (max-width: 834px) and (min-height: 1024px) { // Max et Min pour cohabiter
+      flex-direction: column;
+      align-items: center;
+    }
+    
 
     img:nth-child(1) {
       width: 75%;
@@ -66,6 +71,9 @@ section {
       @media only screen and (max-width: 768px) { // Responsive Tablette
         width: 25%;
         height: 70%;
+      }
+      @media (max-width: 834px) and (min-height: 1024px) { // Max et Min pour cohabiter
+        margin-top: 0;
       }
     }
     @media only screen and (max-width: 480px) {

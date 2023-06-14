@@ -1243,7 +1243,7 @@ a {
   overflow-y: scroll;
   overflow-x: auto;
   align-items: center;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     height: calc(100vh - $head - 100px);
     width: 35%;
   }  
@@ -1262,8 +1262,8 @@ a {
     padding: 4vh 2vw;
     font-size: 1vw;
     color: black;    
-    @media screen and (max-width: 768px) {
-      padding: 3vh 1.5vw;
+    @media screen and (max-width: 834px) {
+      padding: 2vh 1.5vw;      
     }
     @media screen and (max-width: 480px) {
       display: none;
@@ -1289,8 +1289,9 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 1.1rem;
     }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 834px) {
       font-size: 0.8rem;
+      margin: 2vh 0 2vh 0;
     }
     @media screen and (max-width: 480px) {
       margin-top: 0;
@@ -1305,7 +1306,7 @@ a {
     margin-bottom: 1vh;
     //padding-left: 1vw;
     //width: 80%;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 834px) {
       gap: 1vw;
     }
     @media screen and (max-width: 480px) {
@@ -1320,7 +1321,7 @@ a {
       height: 4vh;
       font-size: 0.6vw;
       color: white;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 834px) {
         width: 4vw;
         height: 3vh;
       }
@@ -1368,7 +1369,7 @@ a {
       height: 4vh;
       font-size: 0.6vw;
       color: white;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 834px) {
         width: 8vw;
         height: 3vh;
       }
@@ -1400,7 +1401,7 @@ a {
         @media screen and (max-width : 1200px) {
           font-size: 1.1rem;
         }
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 834px) {
           font-size: 0.8rem;
         }        
       }
@@ -1417,7 +1418,7 @@ a {
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 834px) {
           font-size: 0.6rem;
         }        
       }      
@@ -1439,7 +1440,7 @@ a {
             width: 20px;
             height: 20px;
           }
-          @media screen and (max-width: 768px) {
+          @media screen and (max-width: 834px) {
             width: 15px;
             height: 15px;
           }
@@ -1505,11 +1506,11 @@ a {
   margin-left: 4vw;
   padding-right: 4vw;
   overflow: auto;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     height: calc(100vh - $head - 100px);  
     width: 65%;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     font-size: 1rem;
   }
   @media screen and (max-width: 480px) {
@@ -1525,7 +1526,7 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
     }
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 1.1rem;
     }
     @media screen and (max-width: 480px) {
@@ -1548,14 +1549,14 @@ a {
     img {
       height: 3vh;
       width: 3vh;
-      @media screen and (max-width : 768px) {
+      @media screen and (max-width : 834px) {
         height: 2vh;
         width: 2vh;
       }
     }
 
     mat-form-field {
-      @media screen and (max-width : 768px) {
+      @media screen and (max-width : 834px) {
         width: 15vw;       
       }
       @media screen and (max-width: 480px) {
@@ -1578,14 +1579,14 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 0.8rem;
     }
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 0.6rem;  
     }
   }
 
   // Le nom des menus dans le select
   mat-select {
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 0.6rem;        
     }
   }
@@ -1600,11 +1601,7 @@ a {
   span:nth-child(3) {
     display: flex;
     flex-direction: column;
-    @media screen and (max-width : 768px) {
-      p {
-        font-size: 0.8rem;
-      }  
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       p {
         font-size: 0.8rem;
       }           
@@ -1626,7 +1623,7 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
     }
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 1rem;
     }
     @media screen and (max-width : 480px) {      
@@ -1636,7 +1633,7 @@ a {
 
   textarea {
     min-height: 10vh;
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 0.8rem;
     }
     @media screen and (max-width : 480px) {
@@ -1682,7 +1679,7 @@ a {
     @media screen and (max-width : 1200px) {
       width: 12vw;
     }
-    @media screen and (max-width : 768px) {
+    @media screen and (max-width : 834px) {
       font-size: 0.8rem;
       width: 15vw;      
     }
@@ -1703,7 +1700,7 @@ a {
     button:nth-child(1) { // Le bouton supprimer
       background-color: #F28705;
       font-size: 0.8vw;
-      @media screen and (max-width : 768px) {
+      @media screen and (max-width : 834px) {
         width: 4vw;
         height: 3vh;
       }      
@@ -1712,7 +1709,7 @@ a {
     button:nth-child(2) { // Le bouton valider
       background-color: #33BB27;
       font-size: 0.8vw;
-      @media screen and (max-width : 768px) {
+      @media screen and (max-width : 834px) {
         width: 4vw;
         height: 3vh;
       }
@@ -1745,7 +1742,7 @@ a {
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
-        @media screen and (max-width : 768px) {
+        @media screen and (max-width : 834px) {
           font-size: 0.6rem;
         }
       }  
@@ -1754,7 +1751,7 @@ a {
         @media screen and (max-width : 1200px) {          
           width: 22vw;
         }
-        @media screen and (max-width : 768px) {
+        @media screen and (max-width : 834px) {
           font-size: 0.6rem;
           width: 22vw;
         }
@@ -1764,7 +1761,7 @@ a {
       }      
       button {
         background-color: #f0c02e;
-        @media screen and (max-width : 768px) {
+        @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
@@ -1784,7 +1781,7 @@ a {
 
       button:nth-child(1) {
         background-color: #F28705;
-        @media screen and (max-width : 768px) {
+        @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
@@ -1798,7 +1795,7 @@ a {
 
       button:nth-child(2) {
         background-color: #33BB27;
-        @media screen and (max-width : 768px) {
+        @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
@@ -1955,4 +1952,3 @@ body {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-}
