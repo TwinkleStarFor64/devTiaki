@@ -28,13 +28,19 @@ $foot: 150px; // Hauteur des menus du bas
   overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     height: calc(100vh - 100px);
+  }
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 68px); // Pour l'aside Bar 
   }
 
   // Le header avec le logo Tiaki et le nom de la page
   #head>p {
     color: $card-kine;
+    @media screen and (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   #head>p:after {
@@ -50,6 +56,9 @@ $foot: 150px; // Hauteur des menus du bas
   #nutrition {
     flex-direction: row;
     width: 100%;
+    @media screen and (max-width: 480px) {
+      flex-direction: column;      
+    }
 
     div:nth-child(1) {
       //La div contenant le menu de recherche
@@ -58,8 +67,16 @@ $foot: 150px; // Hauteur des menus du bas
       padding-left: 2%;
       overflow-y: auto;
       overflow-x: hidden;
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1024px) {
         height: calc(100vh - $head - 100px);
+      }
+      @media screen and (max-width: 834px) {
+        height: calc(100vh - $head - 100px);
+      }
+      @media screen and (max-width: 480px) {
+        width: 100%;
+        height: 40vh;
+        //border-bottom: dashed 1px #f22f1d;
       }
 
       h1 {
@@ -71,7 +88,7 @@ $foot: 150px; // Hauteur des menus du bas
         font-weight: 500;
         color: #f22f1d;
         border-bottom: dashed 1px #f22f1d;
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 834px) {
           font-size: 1.2rem;
         }
       }
@@ -81,10 +98,11 @@ $foot: 150px; // Hauteur des menus du bas
         width: 80%;
         height: 3.5vh;
         font-size: 1rem;
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 834px) {
           height: 3vh;
           font-size: 0.8rem;
         }
+        
       }
 
       article {
@@ -94,20 +112,23 @@ $foot: 150px; // Hauteur des menus du bas
           font-size: 1rem;
           font-weight: normal;
           margin: 2vh 0 0 0;
-          @media screen and (max-width: 768px) {
+          @media screen and (max-width: 834px) {
             font-size: 0.7rem;
           }
         }
       }
-    }
+    }// <--------- Fin de la div contenant le menu de recherche
 
-    // Fin de la div contenant le menu de recherche
+    
 
     div:nth-child(2) {
       //La seconde div qui contient la description de l'ingrédient sélectionné
       width: 75%;
       display: flex;
       justify-content: center;
+      @media screen and (max-width: 480px) {
+        width: 100%;       
+      }      
 
       article {
         margin-top: 5vh;
@@ -128,7 +149,7 @@ $foot: 150px; // Hauteur des menus du bas
             font-weight: 500;
             color: #f22f1d;
             margin: 0 0 1vh 0;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 1rem;
             }
           }
@@ -138,20 +159,27 @@ $foot: 150px; // Hauteur des menus du bas
             flex-direction: row;
             align-items: center;
             margin: 0 0 1vh 0;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 0.8rem;
+            }
+            @media screen and (max-width: 480px) {
+              font-size: 0.7rem;
             }
 
             input {
               margin-left: 0.5vw;
               height: 1.5vw;
               width: 1.5vw;
+              @media screen and (max-width: 480px) {
+                width: 10px;
+                height: 10px;
+              }
 
             }
           }
-        }
+        }// <------ Fin de la première balise span
 
-        // <------ Fin de la première balise span
+        
 
         span:nth-child(2) {
           //La seconde balise span contient les valeurs et compositions de l'ingrédient
@@ -165,26 +193,36 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 1rem;
+            }
+            @media screen and (max-width: 480px) {
+              width: 90%;              
             }
           }
 
           p {
             margin-left: 1.5vw;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 0.8rem;
+            }
+            @media screen and (max-width: 480px) {
+              font-size: 0.7rem;
             }
 
             img {
               // Les petits logos
               width: 0.8vw;
               margin-right: 0.8vw;
+              @media screen and (max-width: 480px) {
+                width: 10px;
+                height: 10px;
+              }
             }
           }
-        }
+        }// <------ Fin de la seconde balise span
 
-        // <------ Fin de la seconde balise span
+        
 
         span:nth-child(3) {
           //La 3e balise span contient les plats enregistrés ne s'affiche que si des plats existent (ngIf)
@@ -200,9 +238,12 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 1rem;
             }
+            @media screen and (max-width: 480px) {
+              width: 90%;              
+            }            
           }
 
           .mesPlats {
@@ -220,7 +261,7 @@ $foot: 150px; // Hauteur des menus du bas
               @media screen and (max-width: 1330px) {
                 width: 70%;
               }
-              @media screen and (max-width: 768px) {
+              @media screen and (max-width: 834px) {
                 font-size: 0.8rem;
                 width: 90%;
               }
@@ -235,8 +276,12 @@ $foot: 150px; // Hauteur des menus du bas
             border-bottom: dashed 1px #f22f1d;
             padding-bottom: 1vh;
             width: 40%;
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 834px) {
               font-size: 1rem;
+            }
+            @media screen and (max-width: 480px) {
+              width: 90%; 
+              margin-bottom: 1vh;            
             }
           }
 
@@ -244,12 +289,16 @@ $foot: 150px; // Hauteur des menus du bas
             display: flex;
             flex-direction: row;
             align-items: center;
+            gap: 1vw;
+            @media screen and (max-width: 480px) {
+              gap: 4vw;
+            }
 
             p {
               margin-left: 1.5vw;
               color: #4A4A4A;
               width: 50%;
-              @media screen and (max-width: 768px) {
+              @media screen and (max-width: 834px) {
                 font-size: 0.8rem;
                 width: 80%;
               }
@@ -259,6 +308,10 @@ $foot: 150px; // Hauteur des menus du bas
               // Les petits logos
               width: 1.2vw;
               margin-right: 0.8vw;
+              @media screen and (max-width: 480px) {
+                width: 10px;
+                height: 10px;
+              }
             }
           }
         }

@@ -57,6 +57,9 @@ footer {
         flex-wrap: nowrap;
         flex-direction: column;
         width: 70%;
+        @media screen and (max-width: 480px) {
+          width: 100%;  
+        }
 
         h1 {
           margin: 0;

@@ -491,6 +491,9 @@ a {
 #head p {
   font-size: 1.4rem;
   font-weight: 500;
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 }
 
 #head>* {

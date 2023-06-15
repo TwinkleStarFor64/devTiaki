@@ -19,7 +19,6 @@ section {
   }
   @media screen and (max-width: 480px) {
     width: calc(100% + 68px); // Pour l'aside Bar
-    align-items: center;    
     overflow: auto;
   }
 
@@ -44,8 +43,7 @@ section {
     @media (max-width: 834px) and (min-height: 1024px) { // Max et Min pour cohabiter
       flex-direction: column;
       align-items: center;
-    }
-    
+    }    
 
     img:nth-child(1) {
       width: 75%;
