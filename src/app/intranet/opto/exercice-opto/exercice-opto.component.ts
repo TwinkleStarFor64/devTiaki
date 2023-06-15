@@ -37,8 +37,7 @@ export class ExerciceOptoComponent implements OnInit {
     return this.dialog.open(ModalExOptoComponent, {
       disableClose: true,
       autoFocus: true,
-      height: '850px',
-      width: '1500px',
+      panelClass:'modalExercices',
       data: exercice,
     });
   }

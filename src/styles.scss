@@ -112,7 +112,7 @@ a {
 }
 
 // Titre et description
-#accueil>#head {
+#accueil>#head-accueil {
   flex-direction: column;
   align-items: center;
   width: 70%;
@@ -120,7 +120,7 @@ a {
   margin: 50px;
 }
 
-#accueil>#head>div {
+#accueil>#head-accueil>div {
   display: flex;
   align-items: flex-end;
 
@@ -248,37 +248,42 @@ a {
 
 }
 
-@media screen and (max-width: 1024px) {
-  #accueil>#head>p {
-    font-size: 1.9rem;
-    text-align: center;
+
+#accueil>section:nth-child(2)>article {
+  justify-content: space-between;
+  
+  h2 {
+    font-size: 2rem;
   }
-
-  #accueil>section:nth-child(2)>article {
-    height: 70%;
+  
+  p {
+    font-size: 1.6rem;
+    margin: 15px;
+  }
+  
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+  }
+}
 
-    h2 {
+@media screen and (max-width: 1200px) {
+  #accueil>section:nth-child(2)>article {
+    height: 60%;
+    h2{
       font-size: 1.5rem;
     }
-
     p {
       font-size: 1rem;
-      margin: 15px;
-    }
-
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
     }
   }
 }
 
 // Media query pour les écrans de taille moyenne
 @media screen and (max-width: 912px) and (min-height:928px) {
-  #accueil>#head {
+  #accueil>#head-accueil {
     height: 30%;
     align-items: center;
     justify-content: center;
@@ -326,14 +331,10 @@ a {
   }
 }
 
-@media screen and (max-width: 912px) {
-  #accueil>section:nth-child(2)>article {
-    height: 60%;
-  }
-}
+
 
 @media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
-  #accueil>#head {
+  #accueil>#head-accueil{
     height: 30%;
     align-items: center;
     justify-content: center;
@@ -393,8 +394,9 @@ a {
     margin-left: 10%;
     justify-content: center;
 
-    >#head {
+    >#head-accueil {
       height: 20%;
+
       a {
         font-size: 1.8rem;
         width: 100%;
@@ -436,7 +438,7 @@ a {
 @media screen and (max-width: 384px) and (max-height:640px) {
   #accueil {
 
-    >#head {
+    >#head-accueil{
       >a {
         font-size: 1.8rem;
       }
@@ -475,7 +477,7 @@ a {
 }
 
 @media screen and (max-width: 376px) {
-  #accueil>#head>p {
+  #accueil>#head-accueil>p {
     font-size: 0.9rem;
   }
 
@@ -489,6 +491,81 @@ a {
   color: $aside-color1;
 }
 
+//HEADER PAGES D'ACCUEIL DES INTERFACES
+#head-accueil {
+  flex-flow: row nowrap;
+  height: $head;
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+}
+
+#head-accueil>a {
+  font-size: 2.8rem;
+  font-weight: 100;
+  width: 40%;
+  text-align: center;
+  margin-top: 6vh;
+
+  @media (max-width: 954px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>a:nth-child(1):after {
+  content: '   ......';
+  font-size: 50%;
+}
+
+#head-accueil img {
+  width: 30px;
+}
+
+#head-accueil>p {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 1020px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>article {
+  align-items: start;
+}
+
+#head-accueil>* {
+  margin: 5px;
+  padding: 0;
+}
+// -------------------------------------------------
+// HEADER DES PAGES AUTRES QU'ACCUEIL
+
 //HEADER
 #head {
   flex-flow: row nowrap;
@@ -498,26 +575,9 @@ a {
   align-items: center;
 }
 
-#head>a {
-  font-size: 2.8rem;
+#head>a:nth-child(1) {
+  font-size: 32px;
   font-weight: 100;
-  width: 15%;
-
-  @media (max-width: 954px) {
-    font-size: 2rem;
-  }
-
-  @media (max-width: 706px) {
-    font-size: 1.6rem;
-  }
-
-  @media (max-width: 596px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 490px) {
-    font-size: 1rem;
-  }
 }
 
 #head>a:nth-child(1):after {
@@ -532,31 +592,9 @@ a {
 #head p {
   font-size: 1.4rem;
   font-weight: 500;
-  text-align: center;
-
-  @media (max-width: 1020px) {
+  @media screen and (max-width: 480px) {
     font-size: 1.2rem;
   }
-
-  @media (max-width: 906px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 706px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 490px) {
-    font-size: 0.6rem;
-  }
-}
-
-#head>article {
-  align-items: start;
 }
 
 #head>* {
@@ -564,6 +602,7 @@ a {
   padding: 0;
 }
 
+// -----------------------------------------------
 // AFFICHAGE PAGES PROGRAMMES
 #programmes {
   width: 100%;
@@ -571,6 +610,7 @@ a {
   flex-direction: column;
   color: $sombre;
   height: calc(100vh - $foot);
+
   @media (max-width: 768px) {
     height: calc(100vh - 100px);
   }
@@ -634,6 +674,7 @@ a {
   display: flex;
   flex-direction: column;
   max-width: 20%;
+  text-align: justify;
 }
 
 // titre 
@@ -675,9 +716,11 @@ a {
   // overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
+
   @media screen and (max-width:768px) {
     height: calc(100vh - 100px);
   }
+
   @media screen and (max-width: 480px) {
     width: calc(100% + 65px); // 65px pour l'aside bar
   }
@@ -726,8 +769,7 @@ a {
   width: 20%;
   max-height: 80vh;
   background: $clair;
-  padding: 10px;
-  margin: 5px;
+  margin: 10px;
   gap: 0.5vw;
   justify-content: space-between;
 }
@@ -741,15 +783,15 @@ a {
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  max-height: 20vh;
-  min-height: 15vh;
+  max-height: 17vh;
   max-width: 100%;
 }
 
 #exercices section>article>div {
   display: flex;
   flex-flow: row nowrap;
-  text-align: end;
+  text-align: justify;
+  margin: 5px;
   height: 100%;
   gap: 1vw;
 }
@@ -775,12 +817,9 @@ a {
     font-size: 1.1rem;
   }
 
-  @media (max-width: 906px) {
-    font-size: 1rem;
-  }
-
   @media (max-width: 793px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    margin-top: 10px;
   }
 }
 
@@ -798,7 +837,6 @@ a {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.3vw;
 }
 
 // balise img de durée et materiel
@@ -810,18 +848,10 @@ a {
 // balise p durée et materiel
 #exercices section article>div:nth-child(2)>div>div>p {
   font-size: 1rem;
-  margin: 0;
-
-  @media (max-width: 1024px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 906px) {
-    font-size: 0.8rem;
-  }
+  margin: 10px;
 
   @media (max-width: 793px) {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -831,6 +861,8 @@ a {
   flex-direction: column;
   max-height: 30vh;
   justify-content: space-between;
+  gap: 1vw;
+  margin: 15px;
 }
 
 // description
@@ -840,15 +872,11 @@ a {
   word-spacing: -2px;
 
   @media (max-width: 1024px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 906px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 793px) {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -884,8 +912,11 @@ a {
   width: calc(100vw - $l)
 }
 
+// Modal
+
+
 // Partie responsive essai
-/* Styles pour les écrans de taille supérieure à 768px */
+/* Styles pour les écrans de taille supérieure à 1154px */
 @media (max-width: 1154px) {
   #exercices section {
     display: flex;
@@ -915,19 +946,17 @@ a {
 /* Styles pour < 560px */
 @media (max-width: 560px) {
   #exercices section {
-    display: block;
+    display: flex;
     align-items: center;
   }
 
   #exercices article {
     align-items: center;
     width: 80%;
-    margin-left: 50px;
   }
 
   #exercices article {
     background: #f2f2f2;
-    padding: 10px;
   }
 
   #exercices article .photo-exo img {
@@ -936,8 +965,7 @@ a {
   }
 
   #exercices article p {
-    margin: 0;
-    font-size: 0.9vw;
+    margin: 5px;
   }
 
   #exercices article .exercice-texte {
@@ -945,7 +973,111 @@ a {
   }
 }
 
+// Modal exercices Kine et Opto
 
+#modalExercices {
+  background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  article:nth-child(1) {
+    display: flex;
+    justify-content: end;
+  }
+
+  article:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .photo-exo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40vh;
+      width: 60vw;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        margin: 25px;
+        text-align: justify;
+        font-size: 1rem;
+        @media screen and (max-width:480px) {
+          font-size:0.9rem ;
+      }
+    }
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+          height: 30px;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+        }
+      }
+
+      button {
+        width: 15vw;
+        height: 4vh;
+        font-size: 1rem;
+        color: white;
+        background-color: $aside-color2;
+        @media screen and (max-width:880px) {
+          font-size:0.9rem ;
+          width: 170px;
+      }
+        @media screen and (max-width:480px) {
+            font-size:0.9rem ;
+            width: 220px;
+        }
+      }
+    }
+  }
+
+
+
+// Responsive Modal
+// .modalExercies{
+//   mat-dialog-container {
+//   //   @media screen and (max-width: 1024px) and (max-height: 855px) {
+//   //     max-height: 80vh ;
+//   //     max-width: 90vw ;
+//   //   }
+
+//   //   @media screen and (max-width: 768px) and (max-height:860) {
+//   //     max-height: 40vh;
+//   //     max-width: 50vw;
+//   //   }
+//   // }
+// }
+
+
+
+// -----------------------------------------------------------------
 // CSS des pages plats et menus
 
 #sectionPrincipale {

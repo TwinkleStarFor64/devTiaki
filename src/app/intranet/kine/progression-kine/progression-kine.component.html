@@ -9,17 +9,19 @@
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
       </div>
       <div>
-        <div>
           <h6>{{ exercice.title }}</h6>
           <div>
-            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
-            <p>Durée</p>
-            <img [src]="sanity.urlFor(exercice.materielIcon).url()" alt="materiel" />
-            <p>Matériels</p>
+            <div>
+              <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+              <p>Durée</p>
+              <img [src]="sanity.urlFor(exercice.materielIcon).url()" alt="materiel" />
+              <p>Matériels</p>
+            </div>
+            <div class="exercice-texte">
+              <p>{{ exercice.description }}</p>
+            </div>
           </div>
-          <p>{{ exercice.description }}</p>
         </div>
-      </div>
     </article>
   </section>
 </section>
