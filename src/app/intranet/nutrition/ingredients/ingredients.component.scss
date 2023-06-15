@@ -63,20 +63,14 @@ $foot: 150px; // Hauteur des menus du bas
     div:nth-child(1) {
       //La div contenant le menu de recherche
       width: 25%;
-      height: calc(100vh - $head - $foot);
+      //height: calc(100vh - $head - $foot);
+      height: 100vh;
       padding-left: 2%;
       overflow-y: auto;
-      overflow-x: hidden;
-      @media screen and (max-width: 1024px) {
-        height: calc(100vh - $head - 100px);
-      }
-      @media screen and (max-width: 834px) {
-        height: calc(100vh - $head - 100px);
-      }
+      overflow-x: hidden;     
       @media screen and (max-width: 480px) {
         width: 100%;
-        height: 40vh;
-        //border-bottom: dashed 1px #f22f1d;
+        height: 40vh;        
       }
 
       h1 {
@@ -314,21 +308,17 @@ $foot: 150px; // Hauteur des menus du bas
               }
             }
           }
-        }
+        }// <------ Fin de la 3e balise span 
+              
+      }// <------ Fin de article dans la seconde div 
+      
+    }// <------ Fin de la seconde div
+    
+  }// <------ Fin de la seconde section #nutrition
+  
+}// <------ Fin de la section #main
 
-        // <------ Fin de la 3e balise span        
-      }
 
-      // <------ Fin de article dans la seconde div
-    }
-
-    // <------ Fin de la seconde div
-  }
-
-  // <------ Fin de la seconde section #nutrition
-}
-
-// <------ Fin de la section #main
 
 
 
@@ -502,3 +492,8 @@ $foot: 150px; // Hauteur des menus du bas
     }// <------ Fin de la seconde div
   }// <------ Fin de la seconde section
 }// <------- Fin de la balise MAIN */
+
+
+
+
+  
