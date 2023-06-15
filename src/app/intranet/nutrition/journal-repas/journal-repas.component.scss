@@ -14,7 +14,7 @@ $foot: 150px; // Hauteur des menus du bas
 section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 834px) {
     height: calc(100vh - 100px);
   }
   @media screen and (max-width: 480px) {
@@ -54,7 +54,7 @@ section {
         width: 70%;
         height: 75%;
       }
-      @media only screen and (max-width: 768px) { // Responsive Tablette
+      @media only screen and (max-width: 834px) { // Responsive Tablette
         width: 65%;
         height: 70%;
       }
@@ -68,8 +68,8 @@ section {
         width: 30%;
         height: 70%;
       }
-      @media only screen and (max-width: 768px) { // Responsive Tablette
-        width: 25%;
+      @media only screen and (max-width: 834px) { // Responsive Tablette
+        width: 30%;
         height: 70%;
       }
       @media (max-width: 834px) and (min-height: 1024px) { // Max et Min pour cohabiter

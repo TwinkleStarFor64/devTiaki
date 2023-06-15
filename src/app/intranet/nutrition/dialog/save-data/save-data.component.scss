@@ -35,6 +35,9 @@ section {
       #input { // L'id de tout les inputs
         width: 100%;
       }
+      #textarea { // L'i du textarea
+        width: 100%;
+      }
     }
   }
   article:nth-child(3) { // Article contenant les 2 boutons
@@ -48,6 +51,9 @@ section {
       @media screen and (max-width : 834px) {
         width: 15vw;
         font-size: 0.8rem;
+      }
+      @media screen and (max-width: 480px) {
+        width: 25vw;    
       }
     }
     button:nth-child(2) { // Le bouton confirmer

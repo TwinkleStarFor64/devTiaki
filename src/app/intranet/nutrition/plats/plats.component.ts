@@ -149,7 +149,7 @@ onSelectPlat(plats: MesPlatsI): void {
       autoFocus: true,
       height: '200px',
       width: '400px',
-      data: 'Êtes vous sur de vouloir supprimer ce menu ?',
+      data: 'Êtes vous sur de vouloir supprimer ce plat ?',
     });
   }
 
