@@ -41,9 +41,12 @@ mat-label {
     height: 100vh;
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 480px) {
+        width: calc(100% + 68px); // Pour l'aside bar
+    }
 }
 
-// Section permettant de voir l'historique des journaux
+// Section permettant de voir l'historique des journaux - Invisible en Mobile
 section:nth-child(2) {
     background-color: $historique;
     width: 13%;
@@ -55,6 +58,9 @@ section:nth-child(2) {
     }
     @media screen and (max-width: 834px) {
         width: 25%;
+    }
+    @media screen and (max-width: 480px) {
+        display: none;
     }
 
     #Responsive { // Div visible en Tablette & Mobile
@@ -103,7 +109,7 @@ section:nth-child(2) {
         }
         @media screen and (max-width: 834px) {
             height: auto;
-        }
+        }        
 
         img {
             height: 4vw;
@@ -175,9 +181,40 @@ section:nth-child(3) {
     @media screen and (max-width: 834px) {
         width: 75%;
     }
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
+
+    article:nth-child(1) {
+        a {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: #F0C02E;
+            font-size: 2rem;             
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+    }
 
     // Article du titre avec la ligne de dashed
-    article:nth-child(1) {
+    article:nth-child(2) {
         width: 80%;
         height: 10%;
         border-bottom: 1px dashed black;
@@ -194,7 +231,7 @@ section:nth-child(3) {
     }
 
     //Article comportant le formulaire
-    article:nth-child(2) {
+    article:nth-child(3) {
         width: 100%;
         height: 70%;
         display: flex;
@@ -225,6 +262,10 @@ section:nth-child(3) {
                     @media screen and (max-width: 834px) {
                         width: 11vw;
                         font-size: 0.7rem;
+                    }
+                    @media screen and (max-width: 480px) {
+                        width: 20vw;
+                        font-size: 0.6rem;
                     }
                 }
 

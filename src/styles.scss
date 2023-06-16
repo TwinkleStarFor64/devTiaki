@@ -27,7 +27,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
    top: 50%; // Pour positionner le label au milieu du select    
   }
 }
-// Pour le label dans le textarea de la modal save-data dans la page plats (Lors d'un ajout de plat)
+// Pour le label dans le textarea de la modal save-data dans la page plats (Lors d'un ajout de plat) - Aussi pour les textarea de Journal
 #textarea {
   .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
     @media screen and (max-width: 480px) {

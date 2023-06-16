@@ -50,6 +50,11 @@
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
   <section>
+    <article id="Responsive"> <!-- Div pour le responsive Tablette & Mobile -->
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
+    </article>
     <article>
       <h3>Ajouter un journal</h3>
     </article>
@@ -59,13 +64,13 @@
           <mat-label>Objet</mat-label>
           <input matInput formControlName="objet" />
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" id="textarea">
           <mat-label>Description</mat-label>
-          <textarea matInput rows="8" formControlName="description"></textarea>
+          <textarea matInput rows="8" formControlName="description" ></textarea>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" id="textarea">
           <mat-label>Commentaire</mat-label>
-          <textarea matInput rows="4" formControlName="commentaire"></textarea>
+          <textarea matInput rows="4" formControlName="commentaire" ></textarea>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Relier un journal précédent</mat-label>
