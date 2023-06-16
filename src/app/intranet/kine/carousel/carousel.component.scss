@@ -12,7 +12,12 @@ $sombre: black;
 
 :host {
   height: 100%;
-  width: 70%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  @media screen and (max-width:1024px) {
+    align-self: flex-end;
+  }
 }
 
 .carousel {
@@ -23,12 +28,18 @@ $sombre: black;
   height: 100%;
   width: 100%;
   overflow: hidden;
+  @media screen and (max-width:1440px) {
+    align-self: flex-end;
+  }
+
 
   .carousel-container {
     display: flex;
     transition: transform 0.3s ease-in-out;
     height: 100%;
     width: 100%;
+    
+  
   }
 
   .carousel-slide {
@@ -39,10 +50,16 @@ $sombre: black;
     align-items: center;
 
     img {
-      max-height: 90%;
+      max-height: 80%;
       max-width: 70%;
       display: block;
       margin: 0 auto;
+      @media screen and (max-width:1440px) {
+       max-width: 55%;
+      }
+      @media screen and (max-width:1024px) {
+        max-width: 55%;
+       }
     }
   }
 
@@ -53,7 +70,6 @@ $sombre: black;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
-    padding: 16px;
     color: white;
     font-size: 32px;
     user-select: none;
@@ -82,3 +98,51 @@ $sombre: black;
     }
   }
 }
+
+// .modal {
+//   display: none;
+//   position: fixed;
+//   z-index: 9999;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   overflow: auto;
+//   background-color: rgba(0, 0, 0, 0.9);
+
+//   .modal-content {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100%;
+//     width: 100%;
+
+//     article {
+//       max-height: 90%;
+//       max-width: 90%;
+
+//       img,
+//       video {
+//         max-height: 100%;
+//         max-width: 100%;
+//         display: block;
+//         margin: 0 auto;
+//       }
+//     }
+//   }
+
+//   .close {
+//     position: absolute;
+//     top: 10px;
+//     right: 25px;
+//     font-size: 35px;
+//     font-weight: bold;
+//     color: #f1f1f1;
+//     cursor: pointer;
+//     transition: opacity 0.3s ease-in-out;
+
+//     &:hover {
+//       opacity: 0.8;
+//     }
+//   }
+// }

@@ -573,11 +573,30 @@ a {
   padding: 10px;
   margin: 0;
   align-items: center;
+  @media screen and (max-width:502px) {
+    font-size: 1rem;
+  }
 }
 
 #head>a:nth-child(1) {
-  font-size: 32px;
+  font-size: 1.8rem;
   font-weight: 100;
+  width: 15%;
+  @media screen and (max-width:804px) {
+    font-size: 1.6rem;
+  }
+  @media screen and (max-width: 633px) {
+    font-size: 1.4rem;
+  } 
+  @media screen and (max-width:502px) {
+    font-size: 1.2rem;
+  }
+  @media screen and (max-width: 425px) {
+    font-size: 1.1rem;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 1rem;
+  }
 }
 
 #head>a:nth-child(1):after {
@@ -592,8 +611,27 @@ a {
 #head p {
   font-size: 1.4rem;
   font-weight: 500;
-  @media screen and (max-width: 480px) {
+  width: 50%;
+  @media screen and (max-width: 910px) {
     font-size: 1.2rem;
+  } 
+  @media screen and (max-width: 800px) {
+    font-size: 1.1rem;
+  } 
+  @media screen and (max-width: 686px) {
+    font-size: 1rem;
+  } 
+  @media screen and (max-width: 633px) {
+    font-size: 0.9rem;
+  } 
+  @media screen and (max-width: 584px) {
+    font-size: 0.8rem;
+  } 
+  @media screen and (max-width: 420px) {
+    font-size: 0.7rem;
+  }
+  @media screen and (max-width: 360px) {
+    font-size: 0.6rem;
   }
 }
 
@@ -614,6 +652,9 @@ a {
   @media (max-width: 768px) {
     height: calc(100vh - 100px);
   }
+  @media screen and (max-width:480px) {
+    width: calc(100% + 65px); 
+  }
 }
 
 // section principale
@@ -624,6 +665,7 @@ a {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 100vh;
+
 }
 
 // search bar
@@ -632,7 +674,12 @@ a {
   gap: 1.5vw;
   justify-content: center;
   align-items: center;
-
+  @media screen and (max-width:502px) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: 480px) {
+  margin-left: 20px;
+  }
 }
 
 // article ligne dashed
@@ -654,6 +701,10 @@ a {
   scrollbar-color: $card-opto #be861e;
   scrollbar-width: auto;
   padding-top: 30px;
+  @media screen and (max-width:768px){
+    max-width: 100%;
+  }
+ 
 }
 
 // image du programme
@@ -661,20 +712,48 @@ a {
   width: 65%;
   max-height: 90%;
   align-self: center;
+  @media screen and (max-width:1440px) {
+    width: 50%;
+    max-height: 70%;
+  }
 }
 
 // Article de description
 #programmes article:nth-child(4)>article {
-  margin: 100px;
+  margin: 50px;
   align-self: baseline;
   align-items: center;
+  justify-content: space-evenly;
+  gap:4vw;
+  @media screen and (max-width:1440px){
+    font-size: 0.9rem;
+    gap: 5vw;
+  }
+  @media screen and (max-width:1024px){
+    gap: 5vw;   
+  }
+  @media screen and (max-width:768px){
+    flex-direction: column-reverse;
+    width: 100%;
+    margin:0;
+    margin-top: 20px;
+    gap: 1vw;
+  }
 }
 
 #programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
-  max-width: 20%;
+  max-width: 30%;
   text-align: justify;
+  @media screen and (max-width:1024px){
+    font-size: 0.8rem;
+    max-width: 30%;
+  } 
+   @media screen and (max-width:768px){
+    font-size: 1.1rem;
+    max-width: 70%;
+  }
 }
 
 // titre 
@@ -687,14 +766,22 @@ a {
 #programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 12%;
+  @media screen and (max-width:1024px){
+    font-size: 0.8rem;
+  }
+   @media screen and (max-width:768px){
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+  }
 }
 
 // block horloge et materiels
 #programmes article:nth-child(4)>article>div:nth-child(2) div {
   display: flex;
   align-items: center;
-  gap: 0.2vw;
+  gap: 0.5vw;
   height: 40%;
   width: 100%;
 }
@@ -983,7 +1070,7 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
+
 
   article:nth-child(1) {
     display: flex;
@@ -995,6 +1082,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 
     .photo-exo {
       display: flex;
@@ -1012,6 +1100,7 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center;
+      height: 60vh;
 
       h1 {
         font-size: 1.3rem;
@@ -1855,6 +1944,12 @@ a {
 #input-programmes {
   height: 3vh;
   width: 15vw;
+  @media screen and (max-width:938px) {
+    width:20vh;
+  }
+  @media screen and (max-width:596px) {
+    width:15vh;
+  }
 }
 
 #input-ckeckbox {
