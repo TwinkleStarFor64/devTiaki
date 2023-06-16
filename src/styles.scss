@@ -1056,7 +1056,6 @@ a {
   // La balise select AJOUTER
   #ajouter {
     width: 10vw;
-
     @media screen and (max-width : 1200px) {
       width: 12vw;
     }
@@ -1093,6 +1092,9 @@ a {
   color: #ffffff;
   align-items: center;
   gap: 1vw;
+  @media screen and (max-width: 1280px) {
+    display: none; // Invisible en Tablette & Mobile
+  }
 
   article:nth-child(1) {
     a {

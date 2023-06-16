@@ -1,5 +1,5 @@
 <section id="mainJournal">
-  <!-- Section avec le logo, les médecins et les réalisations -->
+  <!-- Section avec le logo, les médecins et les réalisations - Visible en Desktop -->
   <section id="menuJournalMessage">
     <article>
       <a routerLink="/intranet">
@@ -32,13 +32,19 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-    <div>
-      <img [src]="[pacman]" alt="pacman" />
+    <div id="Responsive"> <!-- Div pour le responsive Tablette & Mobile -->
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
+    </div>
+    <div id="listeJournaux">
+      <img [src]="[pacman]" alt="pacman" /> <!-- Visible en Desktop -->
+      <h1>Journaux de suivi</h1> <!-- Visible en Tablette & Mobile -->
       <p>Historiques des journaux sur ces activités</p>
     </div>
     <ul>
       <li *ngFor="let relier of reliers">
-        Journal du {{ supa.formatDate(relier.date) }} {{ relier.objet }}
+        Journal du {{ supa.formatDate(relier.date) }} <br> {{ relier.objet }}
       </li>
     </ul>
   </section>
@@ -79,7 +85,7 @@
       </form>
     </article>
   </section>
-  <!-- Section Concerner permettant de choisir les activités éffectué sur l'application -->
+  <!-- Section Concerner permettant de choisir les activités éffectué sur l'application - Visible en Desktop -->
   <section class="concerner">
     <h4>Concerne</h4>
     <h5>Nutrition</h5>
@@ -121,6 +127,9 @@
       <button>Association</button>
       <button>Hôpital</button>
     </article>
+  </section>
+  <section id="blocResponsive">
+    <!-- Section visible en Tablette - Décoration pour le moment -->
   </section>
 </section>
 

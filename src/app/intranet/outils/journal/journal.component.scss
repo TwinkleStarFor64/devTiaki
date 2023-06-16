@@ -47,8 +47,43 @@ section:nth-child(2) {
     display: flex;
     flex-direction: column;
     text-align: center;
+    @media screen and (max-width: 1280px) {
+        width: 20%;
+      }
 
-    div {
+    #Responsive { // Div visible en Tablette & Mobile
+        display: none;
+        @media screen and (max-width: 1280px) {
+            display: flex;
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                text-decoration: none;
+                width: 100%;
+                color: black;
+                font-size: 3rem;             
+
+                // Le gros logo Tiaki
+                span {
+                  font-weight: 100;
+                  margin: 0;
+                  padding: 0; 
+                  width: 100%;                 
+                }
+              }
+              span:before {
+                content: '........';
+                font-size: 50%;
+              }          
+              span:after {
+                content: '........';
+                font-size: 50%;
+              }
+        }
+    }
+
+    #listeJournaux { // Div contenant la liste de journaux existant
         margin-top: 2vh;
         display: flex;
         flex-direction: column;
@@ -56,9 +91,30 @@ section:nth-child(2) {
         height: 18%;
         justify-content: flex-end;
         gap: 1vw;
+        @media screen and (max-width: 1280px) {
+            align-items: flex-start;
+            //margin-left: 1vw;
+            //margin-right: 1vw;
+            margin: 2vh 1vw 0 1vw;
+        }
 
         img {
             height: 4vw;
+            @media screen and (max-width: 1280px) {
+                display: none;
+            }
+        }
+
+        h1 {
+            display: none;
+            @media screen and (max-width: 1280px) {
+                display: flex;
+                font-size: 1.3rem;
+                font-weight: 600;
+                border-bottom: dashed 1px black;
+                width: 100%;
+                padding-bottom: 1vh;
+            }
         }
 
         p {
@@ -67,6 +123,9 @@ section:nth-child(2) {
             font-weight: 600;
             margin: 4px;
             width: 100%;
+            @media screen and (max-width: 1280px) {                
+                text-align: start;
+              }
 
             @media screen and (max-width: 1200px) {
                 font-size: 0.9rem;
@@ -79,13 +138,11 @@ section:nth-child(2) {
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
-
         //height: 30%;
         li {
-            text-align: center;
+            text-align: start;
             font-size: 1rem;
             margin-top: 2vh;
-
             @media only screen and (max-width: 1280px) {
                 font-size: 0.8rem;
             }
@@ -189,7 +246,7 @@ section:nth-child(3) {
     }
 }
 
-//Section Concerner permettant de choisir les activités éffectué sur l'application 
+//Section Concerner permettant de choisir les activités éffectué sur l'application - Visible en Desktop
 .concerner {
     background-color: $historique;
     width: 13%;
@@ -197,6 +254,9 @@ section:nth-child(3) {
     flex-direction: column;
     justify-content: space-evenly;
     padding-left: 0.5vw;
+    @media screen and (max-width: 1280px) {
+        display: none;
+      }
 
     h4 {
         // La balise <h4>Concerne</h4>
@@ -317,6 +377,14 @@ section:nth-child(3) {
     }
 }
 
+#blocResponsive { // Section visible en Tablette - Décoration pour le moment
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        background-color: $historique;
+        width: 19%;
+    }
+}
 
 
 
