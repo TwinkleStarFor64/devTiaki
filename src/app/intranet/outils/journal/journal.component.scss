@@ -22,6 +22,9 @@ $button-color1: #33BB27;
 mat-label {
     // La font-size de tout les input
     font-size: 1vw;
+    @media screen and (max-width: 834px) {
+        font-size: 0.8rem;
+    }
 }
 
 /* Ci-dessous CSS pour l'input "Rechercher un ingrédients */
@@ -49,7 +52,10 @@ section:nth-child(2) {
     text-align: center;
     @media screen and (max-width: 1280px) {
         width: 20%;
-      }
+    }
+    @media screen and (max-width: 834px) {
+        width: 25%;
+    }
 
     #Responsive { // Div visible en Tablette & Mobile
         display: none;
@@ -93,9 +99,10 @@ section:nth-child(2) {
         gap: 1vw;
         @media screen and (max-width: 1280px) {
             align-items: flex-start;
-            //margin-left: 1vw;
-            //margin-right: 1vw;
             margin: 2vh 1vw 0 1vw;
+        }
+        @media screen and (max-width: 834px) {
+            height: auto;
         }
 
         img {
@@ -105,7 +112,7 @@ section:nth-child(2) {
             }
         }
 
-        h1 {
+        h1 { // La balise <h1>Journaux de suivi</h1> - Visible en Tablette & Mobile
             display: none;
             @media screen and (max-width: 1280px) {
                 display: flex;
@@ -115,20 +122,24 @@ section:nth-child(2) {
                 width: 100%;
                 padding-bottom: 1vh;
             }
+            @media screen and (max-width: 834px) {
+                font-size: 1rem;
+            }
         }
 
-        p {
-            // La balise <p>Historiques des journaux sur ces activités</p>
+        p { // La balise <p>Historiques des journaux sur ces activités</p>
             font-size: 1rem;
             font-weight: 600;
             margin: 4px;
             width: 100%;
             @media screen and (max-width: 1280px) {                
                 text-align: start;
-              }
-
+            }
             @media screen and (max-width: 1200px) {
                 font-size: 0.9rem;
+            }
+            @media screen and (max-width: 834px) {
+                font-size: 0.8rem;
             }
         }
     }
@@ -146,6 +157,9 @@ section:nth-child(2) {
             @media only screen and (max-width: 1280px) {
                 font-size: 0.8rem;
             }
+            @media screen and (max-width: 834px) {
+                font-size: 0.7rem;
+            }
         }
     }
 }
@@ -158,6 +172,9 @@ section:nth-child(3) {
     align-items: center;
     gap: 4vw;
     overflow-y: auto;
+    @media screen and (max-width: 834px) {
+        width: 75%;
+    }
 
     // Article du titre avec la ligne de dashed
     article:nth-child(1) {
@@ -203,9 +220,12 @@ section:nth-child(3) {
                 justify-content: space-between;
 
                 button {
-
                     font-size: 0.8vw;
                     width: 7vw;
+                    @media screen and (max-width: 834px) {
+                        width: 11vw;
+                        font-size: 0.7rem;
+                    }
                 }
 
                 //align-content: stretch;
@@ -383,6 +403,9 @@ section:nth-child(3) {
         display: flex;
         background-color: $historique;
         width: 19%;
+    }
+    @media screen and (max-width: 834px) {
+        display: none;
     }
 }
 
