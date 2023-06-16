@@ -13,9 +13,13 @@ article {
         flex-direction: row;
         justify-content: center;
         gap: 1vw;
-        button{
+        button {
             width: 7vw;
             font-size: 0.8vw;
+            @media screen and (max-width: 834px) {
+                width: 11vw;
+                font-size: 0.7rem;
+            }
         }
         button:nth-child(2) {
             background-color: #33BB27;

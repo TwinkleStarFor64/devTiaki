@@ -1,6 +1,6 @@
 <section id="mainJournal">
   <!-- Section avec le logo, les médecins et les réalisations -->
-  <section id="menuJournalMessage">
+  <section id="menuJournalMessage"> <!-- Visible en Desktop -->
     <article>
       <a routerLink="/intranet">
         <span>Tiaki</span>
@@ -32,14 +32,19 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-      <div>
+    <div id="Responsive"> <!-- Div pour le responsive Tablette & Mobile -->
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
+    </div>
+      <div>        
         <img [src]="[pacman]" alt="" />
         <p>Historiques des journaux sur ces activités</p>
         <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
         <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
       </div>
       <ul>
-        <li *ngFor="let historique of historiques | journal:filtre" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} {{ historique.objet }}</li>      
+        <li *ngFor="let historique of historiques | journal:filtre" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} <br> {{ historique.objet }}</li>      
       </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->

@@ -32,8 +32,43 @@ section:nth-child(2) {
   display: flex;
   flex-direction: column;
   text-align: center;
+  @media screen and (max-width: 1280px) {
+    width: 25%;    
+  }
 
-  div {
+  div:nth-child(1) {// Div visible en Tablette & Mobile
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        a { // La balise avec le router
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: black;
+            font-size: 3rem;             
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+      }
+  }
+
+  div:nth-child(2) { // Div avec le logo - la balise <p> et un input
     margin-top: 2vh;
     display: flex;
     flex-direction: column;
@@ -41,8 +76,13 @@ section:nth-child(2) {
     height: 18%;
     justify-content: flex-end;
     gap: 1vw;
+    @media screen and (max-width: 1280px) {
+      margin: 2vh 1vw 0 1vw;
+      height: auto;
+      align-items: normal;
+    }
 
-    img {
+    img { // Le logo Pacman
       height: 4vw;
     }
 
@@ -52,7 +92,9 @@ section:nth-child(2) {
       font-weight: 600;
       margin: 4px;
       width: 100%;
-
+      @media screen and (max-width: 1280px) {                
+        text-align: start;
+      }
       @media screen and (max-width: 1200px) {
         font-size: 0.9rem;
       }
@@ -68,16 +110,20 @@ section:nth-child(2) {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start;
-
     //height: 30%;              
     li {
       cursor: pointer;
-      text-align: center;
+      text-align: start;
       font-size: 1rem;
       margin-top: 2vh;
-
       @media only screen and (max-width: 1280px) {
         font-size: 0.8rem;
+      }
+      @media only screen and (max-width: 1280px) {
+        font-size: 0.8rem;
+      }
+      @media screen and (max-width: 834px) {
+        font-size: 0.7rem;
       }
     }
   }
@@ -90,6 +136,9 @@ section:nth-child(3) {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  @media screen and (max-width: 1280px) {
+    width: 75%;
+  }
 
   // Article du titre avec la ligne de dashed
   article:nth-child(1) {
@@ -107,22 +156,28 @@ section:nth-child(3) {
       //align-self:flex-start;
       font-size: 1.5rem;
       font-weight: 600;
+      @media screen and (max-width: 834px) {
+        font-size: 1.1rem;
+      }
     }
 
     div {
       display: flex;
       gap: 1vw;
 
-      button {
-        // Le bouton orange Modifier
+      button {// Le bouton orange Supprimer
         width: 7vw;
         font-size: 0.8vw;
         background-color: #f28705;
         border-color: #f28705;
         color: white;
+        @media screen and (max-width: 834px) {
+          width: 11vw;
+          font-size: 0.7rem;
+        }        
       }
 
-      button:nth-child(2) {
+      button:nth-child(2) { // le bouton jaune Modifier
         background-color: $aside-color3;
       }
 
@@ -138,18 +193,30 @@ section:nth-child(3) {
     h4 {
       font-size: 1.2rem;
       font-weight: 600;
+      @media screen and (max-width: 834px) {
+        font-size: 1rem;
+      }
     }
 
     p {
       margin: 0;
+      @media screen and (max-width: 834px) {
+        font-size: 0.9rem;
+      }
     }
   }
 }
 
-#default {
+#default { // La section affiché par défaut si aucun journal choisi
   justify-content: center;
-
-  p {
+  overflow-y: auto;
+  @media screen and (max-width: 1280px) {
+    width: 75%;
+  }
+  p { // La balise <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>
     font-size: 1.5rem;
+    @media screen and (max-width: 834px) {
+      font-size: 1.1rem;
+    }
   }
 }
