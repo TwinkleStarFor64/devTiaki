@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import {
   TableauEnCoursI,
   TableauBordHistoriqueI,
@@ -7,18 +7,25 @@ import {
   TableauReussiteI,
 } from '../utils/modeles/Types';
 import { TableauService } from './services/tableau.service';
+import {CdkAccordionModule} from '@angular/cdk/accordion';
 
 @Component({
   selector: 'app-tableau',
   templateUrl: './tableau.component.html',
   styleUrls: ['./tableau.component.scss'],
+
 })
 export class TableauComponent {
+
   enCours?: TableauEnCoursI;
   reussite?: TableauReussiteI;
   historique?: TableauBordHistoriqueI;
   probleme?: TableauBordProblemeI;
   medecin?: TableauBordMedecinI;
+  expandedIndex = 0;
+
+  public  items = ['Historiques des évenements', 'Médecins', 'Problèmes particuliers', 'Médical', 'Animations/Rencontres', 'La communauté'];
+
   public titre: [{}] = [
     {
       nutrition: 'Pour la nutrition',
@@ -28,7 +35,9 @@ export class TableauComponent {
     },
   ];
 
-  constructor(public tableaux: TableauService) {}
+  constructor(
+    public tableaux: TableauService,
+  ) {}
 
   ngOnInit() {
     this.tableaux.getTableauBordHistorique();

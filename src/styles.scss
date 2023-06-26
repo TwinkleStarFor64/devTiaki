@@ -854,7 +854,7 @@ a {
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 80vh;
+  max-height: 100vh;
   background: $clair;
   margin: 10px;
   gap: 0.5vw;
@@ -863,38 +863,33 @@ a {
 
 //div des photos ou videos de l'exo
 #exercices section>article>.photo-exo {
-  height: 50%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  height: 100%;
+  text-align: justify;
+
 }
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  max-height: 17vh;
+  max-height: 18vh;
   max-width: 100%;
 }
 
-#exercices section>article>div {
-  display: flex;
-  flex-flow: row nowrap;
-  text-align: justify;
-  margin: 5px;
-  height: 100%;
-  gap: 1vw;
-}
-
 // div comportant le titre la description et durée materiels
-#exercices article>div:nth-child(2) {
+#exercices article>div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
+
 }
 
 // titre de l'exercice
-#exercices article>div:nth-child(2)>h6 {
-  margin: 0;
+#exercices article>div>h6 {
+  margin: 10px;
   justify-self: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   align-self: center;
   text-align: center;
@@ -911,19 +906,12 @@ a {
 }
 
 // div contenant duréé et materiel
-#exercices section article>div:nth-child(2)>div {
+#exercices section article>div>div {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 1vw;
+  min-height: 4vh;
   justify-content: space-between;
-}
-
-// div de la durée et materiel
-#exercices section article>div:nth-child(2)>div>div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
 }
 
 // balise img de durée et materiel
@@ -933,9 +921,9 @@ a {
 }
 
 // balise p durée et materiel
-#exercices section article>div:nth-child(2)>div>div>p {
+#exercices section article>div>p {
   font-size: 1rem;
-  margin: 10px;
+  margin: 5px;
 
   @media (max-width: 793px) {
     font-size: 0.9rem;
@@ -943,17 +931,17 @@ a {
 }
 
 // conteneur de description et du lien vers la modal
-#exercices article>div:nth-child(2)>.exercice-texte {
+#exercices article>div>.exercice-texte {
   display: flex;
   flex-direction: column;
-  max-height: 30vh;
+  max-height: 50vh;
   justify-content: space-between;
   gap: 1vw;
-  margin: 15px;
+  margin: 10px;
 }
 
 // description
-#exercices article>div:nth-child(2)>.exercice-texte>p {
+#exercices article>div>.exercice-texte>p {
   font-size: 1rem;
   text-align: justify;
   word-spacing: -2px;
@@ -968,7 +956,7 @@ a {
 }
 
 // lien vers la modal
-#exercices article>div:nth-child(2)>.exercice-texte>span {
+#exercices article>div>.exercice-texte>span {
   align-self: flex-end;
   font-weight: 700;
   cursor: pointer;
@@ -1070,6 +1058,7 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 5vw;
 
 
   article:nth-child(1) {
@@ -1082,7 +1071,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+   
 
     .photo-exo {
       display: flex;
@@ -1100,7 +1089,6 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 60vh;
 
       h1 {
         font-size: 1.3rem;
@@ -1938,6 +1926,10 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width:481px) {
+    align-items: center;
+    width: calc(100% + $l);
+  }
 }
 
 // design input des pages programmes

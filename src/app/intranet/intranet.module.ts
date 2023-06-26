@@ -10,6 +10,7 @@ import { ButtonComponent } from './template/ui/button/button.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 
 
 
@@ -30,7 +31,8 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    CdkAccordionModule
   ],
 })
 export class IntranetModule {}

@@ -33,26 +33,28 @@
       </div>
     </article>
   </section>
-  <article class="middleBar">
-    <h3>Historique des événements</h3>
-    <h3>Médecins</h3>
-    <h3>Problèmes particuliers</h3>
-  </article>
   <section class="column">
     <article
       class="infoColumn"
-      *ngFor="let liste of tableaux.tableauBordHistorique"
+      *ngFor="let liste of tableaux.tableauBordHistorique; let index = index"
     >
-      <h4>Pour la nutrition</h4>
+      <h3>Historique des événements</h3>
+      <h4>
+        Pour la nutrition
+      </h4>
       <ul>
         <li>{{ liste.histoNutri }}</li>
       </ul>
-      <h4>Sur la kiné</h4>
-      <ul>
+      <h4>
+        Sur la kiné
+      </h4>
+      <ul [class.active]>
         <li>{{ liste.histoKine }}</li>
         <li>Planche bien soutenue</li>
       </ul>
-      <h4>La vision et l'optométrie</h4>
+      <h4>
+        La vision et l'optométrie
+      </h4>
       <ul>
         <li>{{ liste.histoOpto }}</li>
         <li>Planche bien soutenue</li>
@@ -60,18 +62,25 @@
     </article>
     <article
       class="infoColumn"
-      *ngFor="let liste of tableaux.tableauBordMedecin"
+      *ngFor="let liste of tableaux.tableauBordMedecin; let index = index"
     >
-      <h4>Pour la nutrition</h4>
+      <h3>Médecins</h3>
+      <h4>
+        Pour la nutrition
+      </h4>
       <ul>
         <li>{{ liste.medecinNutri }}</li>
       </ul>
-      <h4>Sur la kiné</h4>
+      <h4>
+        Sur la kiné
+      </h4>
       <ul>
         <li>{{ liste.general }}</li>
         <li>Docteur Sebastian</li>
       </ul>
-      <h4>La vision et l'optométrie</h4>
+      <h4>
+        La vision et l'optométrie
+      </h4>
       <ul>
         <li>{{ liste.medecinOpto }}</li>
         <li>Docteur CHAN</li>
@@ -79,22 +88,56 @@
     </article>
     <article
       class="infoColumn"
-      *ngFor="let liste of tableaux.tableauBordProbleme"
+      *ngFor="let liste of tableaux.tableauBordProbleme; let index = index"
     >
-      <h4>Pour la nutrition</h4>
+      <h3>Problèmes particuliers</h3>
+      <h4 >
+        Pour la nutrition
+      </h4>
       <ul>
         <li>{{ liste.problemeNutri }}</li>
       </ul>
-      <h4>Sur la kiné</h4>
-      <ul>
+      <h4 >
+        Sur la kiné
+      </h4>
+      <ul >
         <li>{{ liste.problemeKine }}</li>
         <li>Docteur Sebastian</li>
       </ul>
-      <h4>La vision et l'optométrie</h4>
+      <h4>
+        La vision et l'optométrie
+      </h4>
       <ul>
         <li>{{ liste.problemeOpto }}</li>
         <li>Docteur CHAN</li>
       </ul>
+    </article>
+    <article class="accordion">
+      <cdk-accordion class="example-accordion">
+        <cdk-accordion-item
+          *ngFor="let item of items; let index = index;"
+          #accordionItem="cdkAccordionItem"
+          class="example-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-' + index"
+          [attr.aria-expanded]="accordionItem.expanded"
+          [attr.aria-controls]="'accordion-body-' + index">
+          <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+            {{ item }}
+            <span class="example-accordion-item-description">
+               {{ accordionItem.expanded ? 'close' : 'open' }}
+            </span>
+          </div>
+          <div
+            class="example-accordion-item-body"
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index">
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
     </article>
   </section>
 </section>

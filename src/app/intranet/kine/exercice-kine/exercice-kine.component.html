@@ -34,10 +34,8 @@
     <article *ngFor="let exercice of exercicesFiltres">
       <div class="photo-exo">
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-      </div>
-      <div>
         <h6>{{ exercice.title }}</h6>
-        <div>
+
           <div>
             <img
               [src]="sanity.urlFor(exercice.dureeIcon).url()"
@@ -70,7 +68,6 @@
               {{ exercice.materiel }}
             </p>
           </div>
-        </div>
         <div class="exercice-texte">
           <p>{{ exercice.description }}</p>
           <span (click)="openDialog(exercice)">Voir l'exercice -></span>
