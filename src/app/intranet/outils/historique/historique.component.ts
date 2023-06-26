@@ -4,6 +4,7 @@ import { SupabaseService } from 'src/app/services/supabase.service';
 import { HistoriqueJournalI } from '../../modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-historique',
@@ -51,6 +52,9 @@ export class HistoriqueComponent implements OnInit {
   public historiques: any[] = [];
 
   public groupeEvenementId!: number;
+
+  public historiqueSelect: FormControl = new FormControl();
+  filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(public supa: SupabaseService, private dialog: MatDialog) {}
 

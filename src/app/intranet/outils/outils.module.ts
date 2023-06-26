@@ -17,6 +17,8 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
 import { JournalPipe } from '../utils/pipes/journal.pipe';
 import { EditJournalComponent } from './edit-journal/edit-journal.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatOptionModule } from '@angular/material/core';
 
 
 
@@ -43,7 +45,9 @@ import { EditJournalComponent } from './edit-journal/edit-journal.component';
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    NgxMatSelectSearchModule,
+    MatOptionModule
     
   ],
   entryComponents: [DeleteComponent],

@@ -30,7 +30,7 @@
       </ul>
     </article>
   </section>
-  <!-- Section comportant l'historique des journaux -->
+  <!-- Section comportant l'historique des journaux - Non visible en Mobile-->
   <section>
     <div id="Responsive"> <!-- Div pour le responsive Tablette -->
       <a routerLink="/intranet">
@@ -41,13 +41,33 @@
         <img [src]="[pacman]" alt="" />
         <p>Historiques des journaux sur ces activités</p>
         <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
-        <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
+        <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">       
       </div>
       <div>
         <ul>
           <li *ngFor="let historique of historiques | journal:filtre" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} <br> {{ historique.objet }}</li>      
         </ul>
       </div>
+  </section>
+  <!-- Section Visible seulement en Mobile -->
+  <section>
+    <div>
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
+    </div>
+    <div>
+      <p>Historiques des journaux sur ces activités</p>
+      <mat-form-field>
+        <mat-label>Historique</mat-label>
+        <mat-select formControlName="historiqueSelect">
+          <mat-option>
+            <ngx-mat-select-search [formControl]="filtreControl" placeholderLabel="Choisir un journal" noEntriesFoundLabel="Aucun journal correspondant"></ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let historique of historiques | journal:filtreControl.value" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} <br> {{ historique.objet }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>        
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
   <section *ngIf="selectedHistorique">   
@@ -78,7 +98,7 @@
       </article>
   </section>
   <section id="default" *ngIf="!selectedHistorique">
-    <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>
+    <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>      
   </section>
 </section>
 

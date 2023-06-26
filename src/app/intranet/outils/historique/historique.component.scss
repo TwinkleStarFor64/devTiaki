@@ -34,7 +34,7 @@ $historique: #F8E6AF;
   }
 }
 
-// Section permettant de voir l'historique des journaux
+// Section permettant de voir l'historique des journaux - Non visible en Mobile
 section:nth-child(2) {
   background-color: $historique;
   width: 13%;
@@ -50,6 +50,7 @@ section:nth-child(2) {
   @media screen and (max-width: 480px) {
     height: 40vh;
     width: calc(100% + 65px);
+    display: none;
   }
 
   div:nth-child(1) {// Div visible en Tablette & Mobile
@@ -134,8 +135,7 @@ section:nth-child(2) {
       }
       @media screen and (max-width: 480px) {
         margin: 0;
-      }
-      
+      }      
     }
 
     input {
@@ -187,23 +187,70 @@ section:nth-child(2) {
   }
 }
 
-// ------------ La section ou s'affiche le journal choisi -------------------
+// Section avec le ngx-mat-select-search - Visible seulement en mobile
 section:nth-child(3) {
+  width: calc(100% + 65px);
+  display: none;  
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    div:nth-child(1) {
+      display: flex;
+      text-align: center;
+        a { // La balise avec le router
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: black;
+            font-size: 3rem; 
+            text-align: center;            
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;
+              @media screen and (max-width: 480px) {
+                color: #F0C02E;
+              }                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+    }
+    div:nth-child(2) {
+      text-align: center;
+      p {
+        font-size: 0.9rem;
+      }
+    }    
+  }
+}
+
+
+// ------------ La section ou s'affiche le journal choisi -------------------
+section:nth-child(4) {
   width: 74%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
+  //overflow-y: auto;
   @media screen and (max-width: 1280px) {
     width: 75%;
-  }
-  @media screen and (max-width: 834px) {
-    //width: calc(100% + 65px);
-  }
-  @media screen and (max-width: 480px) {
-    height: 60vh;
+  }  
+  @media screen and (max-width: 480px) {    
     width: calc(100% + 65px);
-    //text-align: center;
+    height: 75vh;       
   }
 
   // Article du titre avec la ligne de dashed
@@ -253,7 +300,6 @@ section:nth-child(3) {
       button:nth-child(2) { // le bouton jaune Modifier
         background-color: $aside-color3;
       }
-
     }
   }
 
@@ -262,7 +308,7 @@ section:nth-child(3) {
     margin-top: 4vh;
     display: flex;
     flex-direction: column;
-
+    overflow-y: auto;
     h4 {
       font-size: 1.2rem;
       font-weight: 600;
@@ -273,14 +319,13 @@ section:nth-child(3) {
         font-size: 0.9rem;
       }
     }
-
     p {
       margin: 0;
       @media screen and (max-width: 834px) {
         font-size: 0.9rem;
       }
       @media screen and (max-width: 480px) {
-        font-size: 0.8rem;
+        font-size: 0.8rem;        
       }
     }
     ul {
@@ -292,7 +337,7 @@ section:nth-child(3) {
           font-size: 0.8rem;
         }
       }
-    }
+    }    
   }
 }
 
