@@ -32,7 +32,7 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-    <div id="Responsive"> <!-- Div pour le responsive Tablette & Mobile -->
+    <div id="Responsive"> <!-- Div pour le responsive Tablette -->
       <a routerLink="/intranet">
         <span>Tiaki</span>
       </a>
@@ -43,9 +43,11 @@
         <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
         <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
       </div>
-      <ul>
-        <li *ngFor="let historique of historiques | journal:filtre" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} <br> {{ historique.objet }}</li>      
-      </ul>
+      <div>
+        <ul>
+          <li *ngFor="let historique of historiques | journal:filtre" (click)="changeSelectedJournal(historique.id)">Journal du {{ supa.formatDate(historique.date) }} <br> {{ historique.objet }}</li>      
+        </ul>
+      </div>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
   <section *ngIf="selectedHistorique">   
@@ -65,14 +67,14 @@
         <p>{{ selectedHistorique.description }}</p>
         <h4>Commentaire</h4>
         <p>{{ selectedHistorique.commentaire }}</p>
-        <h4>Journal en rapport</h4>
-        <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
-          <li>
-            <span (click)="changeSelectedJournal(linkedJournal.id)">
-              {{supa.formatDate(linkedJournal.date) + " - " + linkedJournal.objet}}
-            </span>
-          </li>
-        </ul>
+        <h4>Journal en rapport</h4>        
+          <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
+            <li>
+              <span (click)="changeSelectedJournal(linkedJournal.id)">
+                {{supa.formatDate(linkedJournal.date) + " - " + linkedJournal.objet}}
+              </span>
+            </li>
+          </ul>        
       </article>
   </section>
   <section id="default" *ngIf="!selectedHistorique">

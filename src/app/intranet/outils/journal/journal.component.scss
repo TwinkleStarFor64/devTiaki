@@ -63,7 +63,7 @@ section:nth-child(2) {
         display: none;
     }
 
-    #Responsive { // Div visible en Tablette & Mobile
+    #ResponsiveJournal { // Div visible en Tablette & Mobile
         display: none;
         @media screen and (max-width: 1280px) {
             display: flex;
