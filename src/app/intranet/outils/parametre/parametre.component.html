@@ -30,7 +30,17 @@
     </article>
   </section>
   <section class="principale">
-    <h3>Historique des échanges</h3>
+    <article> <!-- Article pour le Responsive - invisible en Desktop -->
+      <div>
+        <a routerLink="/intranet">
+          <span>Tiaki</span>
+        </a>
+      </div>
+      <div>
+        <h3>Historique des échanges</h3>
+      </div>
+    </article>
+    <!-- <h3>Historique des échanges</h3> -->
     <section class="contenuEchange">
       <section class="echangeMedecin">
         <article *ngFor="let message of echanges.echangeMedecin">
