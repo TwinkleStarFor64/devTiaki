@@ -124,9 +124,9 @@
           [attr.aria-expanded]="accordionItem.expanded"
           [attr.aria-controls]="'accordion-body-' + index">
           <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-            {{ item }}
+            {{ item.header }}
             <span class="example-accordion-item-description">
-               {{ accordionItem.expanded ? 'close' : 'open' }}
+              Click to {{ accordionItem.expanded ? 'close' : 'open' }}
             </span>
           </div>
           <div
@@ -134,10 +134,12 @@
             role="region"
             [style.display]="accordionItem.expanded ? '' : 'none'"
             [attr.id]="'accordion-body-' + index"
-            [attr.aria-labelledby]="'accordion-header-' + index">
+            [attr.aria-labelledby]="'accordion-header-' + index"
+            [innerHTML]="sanitizeHTML(item.content)">
           </div>
         </cdk-accordion-item>
       </cdk-accordion>
+      
     </article>
   </section>
 </section>
