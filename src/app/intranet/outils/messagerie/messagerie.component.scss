@@ -205,12 +205,12 @@ section:nth-child(3) {
             align-items: baseline;
             text-decoration: none;
             width: 100%;
-            color: #F0C02E;
+            color: #a78112;
             font-size: 2rem;             
 
             // Le gros logo Tiaki
             span {
-              font-weight: 100;
+              //font-weight: 100;
               margin: 0;
               padding: 0; 
               width: 100%;                 
@@ -231,7 +231,8 @@ section:nth-child(3) {
         align-self: flex-start;
         font-size: 2rem;
         font-weight: 400;
-        color: $aside-color3;
+        //color: $aside-color3;
+        color: #a78112;
         margin-left: 50px;
 
         &::after {
