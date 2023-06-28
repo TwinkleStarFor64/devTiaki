@@ -13,7 +13,9 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
-
+:host{
+    height: 100vh;
+}
 // Scrollbar
 ::-webkit-scrollbar {
     background-color: $aside-color2;
@@ -252,67 +254,77 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 }
 
 // Accordion exemple
-.accordion {
-    display: none;
-    height: calc(100% + $foot);
+// .accordion {
+//     display: none;
 
-    @media screen and (max-width:715px) {
-        display: flex;
-        justify-content: center;
-        width: calc(100vw - $l);
-        height: calc(100% + $foot);
+//     @media screen and (max-width:715px) {
+//         display: flex;
+//         justify-content: center;
+//         width: calc(100vw - $l);
+//         height:70vh ;
 
-        align-items: center;
-        overflow-y: auto;
+//         align-items: center;
+//         overflow-y: auto;
 
-        .example-accordion {
-            display: block;
-            width: 80%;
-        }
+//         .example-accordion {
+//             display: block;
+//             width: 80%;
+//         }
         
-        .example-accordion-item {
-            display: block;
-            background-color: $aside-color2;
-            border: solid 1px #ccc;
-            color: $clair;
-        }
+//         .example-accordion-item {
+//             display: block;
+//             background-color: $aside-color2;
+//             border: solid 1px #ccc;
+//             color: $clair;
+//         }
         
-        .example-accordion-item+.example-accordion-item {
-            border-top: none;
-        }
+//         .example-accordion-item+.example-accordion-item {
+//             border-top: none;
+//         }
         
-        .example-accordion-item-header {
-            display: flex;
-            align-content: center;
-            justify-content: space-between;
-        }
+//         .example-accordion-item-header {
+//             display: flex;
+//             align-content: center;
+//             justify-content: space-between;
+//             @media screen and (max-width:458px) {
+//                 font-size: 0.8rem;
+//               }
+            
+//         }
         
-        .example-accordion-item-description {
-            font-size: 0.85em;
-            color: #c7c7c7;
-        }
+//         .example-accordion-item-description {
+//             font-size: 0.85em;
+//             color: #c7c7c7;
+//         }
         
-        .example-accordion-item-header,
-        .example-accordion-item-body {
-            padding: 16px;
-        }
+//         .example-accordion-item-header,
+//         .example-accordion-item-body {
+//             padding: 16px;
+//             margin: 0;
+//         }
+
+//         .example-accordion-item-body{
+//             h4{
+//                 font-size: 0.5rem;
+//             }
+//         }
         
-        .example-accordion-item-header:hover {
-            cursor: pointer;
-            background-color: $aside-color2;
-        }
+//         .example-accordion-item-header:hover {
+//             cursor: pointer;
+//             background-color: $aside-color2;
+//         }
         
-        .example-accordion-item:first-child {
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-        }
+//         .example-accordion-item:first-child {
+//             border-top-left-radius: 4px;
+//             border-top-right-radius: 4px;
+//         }
         
-        .example-accordion-item:last-child {
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-        }
-    }
-}
+//         .example-accordion-item:last-child {
+//             border-bottom-left-radius: 4px;
+//             border-bottom-right-radius: 4px;
+//         }
+//     }
+// }
 
 
 // footer

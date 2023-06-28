@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MentionsLegalesComponent,
     RgpdComponent,
     PagenotfoundComponent,
+    
   ],
   imports: [
     BrowserModule,

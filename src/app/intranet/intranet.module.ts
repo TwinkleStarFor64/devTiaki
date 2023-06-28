@@ -11,6 +11,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
 
 
 
@@ -21,6 +22,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
     AccueilComponent,
     TableauComponent,
     ButtonComponent,
+    CustomAccordionComponent,
 
     
   ],

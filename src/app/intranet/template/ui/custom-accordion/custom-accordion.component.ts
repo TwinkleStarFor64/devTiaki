@@ -1,31 +1,16 @@
-import { Component, ElementRef } from '@angular/core';
-import {
-  TableauEnCoursI,
-  TableauBordHistoriqueI,
-  TableauBordMedecinI,
-  TableauBordProblemeI,
-  TableauReussiteI,
-} from '../utils/modeles/Types';
-import { TableauService } from './services/tableau.service';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-tableau',
-  templateUrl: './tableau.component.html',
-  styleUrls: ['./tableau.component.scss'],
+  selector: 'app-custom-accordion',
+  templateUrl: './custom-accordion.component.html',
+  styleUrls: ['./custom-accordion.component.scss'],
 })
-export class TableauComponent {
-  enCours?: TableauEnCoursI;
-  reussite?: TableauReussiteI;
-  historique?: TableauBordHistoriqueI;
-  probleme?: TableauBordProblemeI;
-  medecin?: TableauBordMedecinI;
+export class CustomAccordionComponent {
+  @Input() items: any[];
   expandedIndex = 0;
-  listeGenerale: string = '';
 
-  public items = [
-    {
+  constructor() {
+    this.items = [ {
       header: 'Historiques des évenements',
       content: `
         <h4>
@@ -103,31 +88,13 @@ export class TableauComponent {
     { header: 'Animations/Rencontres', content: '' },
     { header: 'La communauté', content: '' },
   ];
-
-  // public titre: [{}] = [
-  //   {
-  //     nutrition: 'Pour la nutrition',
-  //     kine: 'Pour la kiné',
-  //     opto: "Pour la vison et l'optométrie",
-  //     general: 'Pour le suivi général',
-  //   },
-  // ];
-
-  constructor(
-    public tableaux: TableauService,
-    private sanitizer: DomSanitizer
-  ) {}
-
-  sanitizeHTML(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 
-  ngOnInit() {
-    this.tableaux.getTableauBordHistorique();
-    this.tableaux.getTableauBordMedecin();
-    this.tableaux.getTableauBordProbleme();
-    this.tableaux.getTableauEnCours();
-    this.tableaux.getTableauReussite();
-    this.tableaux.getBottomBarTableau();
+  toggleAccordion(index: number) {
+    if (this.expandedIndex === index) {
+      this.expandedIndex = -1; // Ferme l'élément actuellement ouvert
+    } else {
+      this.expandedIndex = index;
+    }
   }
 }
