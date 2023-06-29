@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-custom-accordion',
@@ -9,7 +10,7 @@ export class CustomAccordionComponent {
   @Input() items: any[];
   expandedIndex = 0;
 
-  constructor() {
+  constructor( private sanitizer: DomSanitizer) {
     this.items = [ {
       header: 'Historiques des évenements',
       content: `
@@ -89,6 +90,11 @@ export class CustomAccordionComponent {
     { header: 'La communauté', content: '' },
   ];
   }
+
+  sanitizeHTML(html: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
+
 
   toggleAccordion(index: number) {
     if (this.expandedIndex === index) {

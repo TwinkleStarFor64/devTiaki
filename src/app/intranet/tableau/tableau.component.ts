@@ -32,20 +32,20 @@ export class TableauComponent {
           Pour la nutrition
         </h4>
         <ul>
-          <li>{{ liste.histoNutri }}</li>
+          <li>Repas végétarien le 12/03/23</li>
         </ul>
         <h4>
           Sur la kiné
         </h4>
         <ul [class.active]>
-          <li>{{ liste.histoKine }}</li>
+          <li>Grenouille réalisé avec succès!</li>
           <li>Planche bien soutenue</li>
         </ul>
         <h4>
           La vision et l'optométrie
         </h4>
         <ul>
-          <li>{{ liste.histoOpto }}</li>
+          <li>Perception Tangram superbement réalisée</li>
           <li>Planche bien soutenue</li>
         </ul>
       `,
@@ -57,20 +57,20 @@ export class TableauComponent {
           Pour la nutrition
         </h4>
         <ul>
-          <li>{{ liste.medecinNutri }}</li>
+          <li>Docteur Risco</li>
         </ul>
         <h4>
           Sur la kiné
         </h4>
         <ul>
-          <li>{{ liste.general }}</li>
+          <li>Docteur Ferreira</li>
           <li>Docteur Sebastian</li>
         </ul>
         <h4>
           La vision et l'optométrie
         </h4>
         <ul>
-          <li>{{ liste.medecinOpto }}</li>
+          <li>Docteur Leugbig</li>
           <li>Docteur CHAN</li>
         </ul>
       `,
@@ -82,26 +82,39 @@ export class TableauComponent {
           Pour la nutrition
         </h4>
         <ul>
-          <li>{{ liste.problemeNutri }}</li>
+          <li>Allergie aux fruits à cocque</li>
         </ul>
         <h4>
           Sur la kiné
         </h4>
         <ul>
-          <li>{{ liste.problemeKine }}</li>
+          <li>Problème d'équilibre</li>
           <li>Docteur Sebastian</li>
         </ul>
         <h4>
           La vision et l'optométrie
         </h4>
         <ul>
-          <li>{{ liste.problemeOpto }}</li>
+          <li>Soucis au niveau de l'occulomotricité</li>
           <li>Docteur CHAN</li>
         </ul>    `,
     },
-    { header: 'Médical', content: '' },
-    { header: 'Animations/Rencontres', content: '' },
-    { header: 'La communauté', content: '' },
+    { header: 'Médical', content: '<ul><li>Docteur Ferreira</li></ul>' },
+    {
+      header: 'Animations/Rencontres',
+      content:
+        `<ul>
+        <li>15-02-23 : Justine vient à la maison</li>
+        <li>16-05-23 : Visite des grands parents</li>
+        </ul>`,
+    },
+    { header: 'La communauté',
+     content:  `<ul>
+     <li>14-02-23 : Cinéma </li>
+     <li>24-11-23 : Café Le Méliange</li>
+     </ul>`,
+    }
+
   ];
 
   // public titre: [{}] = [

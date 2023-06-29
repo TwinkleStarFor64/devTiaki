@@ -7,8 +7,9 @@
         </span>
       </div>
       <div class="custom-accordion-item-body" [hidden]="expandedIndex !== index">
-        <div [innerHTML]="item.content"></div>
+        <div  [innerHTML]="sanitizeHTML(item.content)">
+          {{ item.content }}
+        </div>
       </div>
     </div>
   </div>
-  
