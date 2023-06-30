@@ -2,7 +2,7 @@
 
 $font-family: 'Raleway', sans-serif;
 $card-nutri: #D9042B;
-$card-kine: #805e96;
+$card-kine: #F22F1D;
 $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
@@ -490,7 +490,7 @@ a {
 
 // Navbar icone burger
 #burger-icon {
-  color: $aside-color1;
+  color: $card-kine;
 }
 
 //HEADER PAGES D'ACCUEIL DES INTERFACES
@@ -917,11 +917,11 @@ a {
 #exercices article>div>h6 {
   margin: 10px;
   justify-self: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 500;
   align-self: center;
   text-align: center;
-  color: $aside-color1;
+  color: $sombre;;
 
   @media (max-width: 1024px) {
     font-size: 1.1rem;
@@ -1105,7 +1105,7 @@ a {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 40vh;
+      height: 35vh;
       width: 60vw;
 
       img {
@@ -1118,6 +1118,7 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center;
+      height: 40%;
 
       h1 {
         font-size: 1.3rem;

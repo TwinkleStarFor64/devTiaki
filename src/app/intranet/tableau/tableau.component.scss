@@ -33,6 +33,10 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 
 #head>h1 {
     font-weight: 400;
+    @media screen and (max-width: 715px) {
+        font-size: 1.1rem;
+    }
+
 }
 
 #head>h1:after {
@@ -49,7 +53,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 
     @media screen and (max-width: 715px) {
         flex-direction: column;
-        height: 45%;
+        height: 50vh;
         scrollbar-color: $aside-color2 $aside-color1;
         scrollbar-width: auto;
         overflow-y: auto;
@@ -261,7 +265,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
         display: flex;
         justify-content: center;
         width: calc(100vw - $l);
-        height:70vh ;
+        height:90vh ;
 
         align-items: center;
         overflow-y: auto;

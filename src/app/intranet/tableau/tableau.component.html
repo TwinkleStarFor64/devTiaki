@@ -125,9 +125,9 @@
           [attr.aria-controls]="'accordion-body-' + index">
           <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
             {{ item.header }}
-            <!-- <span class="example-accordion-item-description">
+            <span class="example-accordion-item-description">
               Click to {{ accordionItem.expanded ? 'close' : 'open' }}
-            </span> -->
+            </span>
           </div>
           <div
             class="example-accordion-item-body"
