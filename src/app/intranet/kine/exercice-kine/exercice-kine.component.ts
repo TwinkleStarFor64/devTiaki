@@ -22,8 +22,7 @@ export class ExerciceKineComponent implements OnInit {
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
 
-
-  constructor(public sanity: SanityService, private dialog: MatDialog) { }
+  constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';

@@ -1,27 +1,23 @@
 <section id="exercices">
   <header id="head">
     <a routerLink="/intranet"><span>Tiaki</span></a>
-    <p>Kinésithérapie ></p>
-    <img [src]="avatar" />
-    <p>Le parcours de Cheer Émilie</p>
+    <p>Kinésithérapie > <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
   </header>
   <section class="exercice">
     <article *ngFor="let exercice of exercicesFiltres">
       <div class="photo-exo">
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-      </div>
-      <div>
-        <div>
           <h6>{{ exercice.title }}</h6>
-          <div>
-            <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
-            <p>Durée</p>
-            <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-            <p>Matériels</p>
-          </div>
-          <p>{{ exercice.description }}</p>
+            <div>
+              <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+              <p>Durée</p>
+              <img [src]="sanity.urlFor(exercice.materielIcon).url()" alt="materiel" />
+              <p>Matériels</p>
+            </div>
+            <div class="exercice-texte">
+              <p>{{ exercice.description }}</p>
+            </div>
         </div>
-      </div>
     </article>
   </section>
 </section>

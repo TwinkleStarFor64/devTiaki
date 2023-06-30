@@ -2,7 +2,7 @@
 
 $font-family: 'Raleway', sans-serif;
 $card-nutri: #D9042B;
-$card-kine: #805e96;
+$card-kine: #F22F1D;
 $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
@@ -124,6 +124,7 @@ a {
   }
 }
 
+// ------------------------------------------------------
 // Affichage page d'accueil
 #accueil {
   height: 100vh;
@@ -132,7 +133,7 @@ a {
 }
 
 // Titre et description
-#accueil>article {
+#accueil>#head-accueil {
   flex-direction: column;
   align-items: center;
   width: 70%;
@@ -140,23 +141,23 @@ a {
   margin: 50px;
 }
 
-#accueil>article>div {
+#accueil>#head-accueil>div {
   display: flex;
   align-items: flex-end;
 
-  h1 {
+  a {
     margin: 0;
     color: $card-nutri ;
     font-size: 3rem;
     font-weight: 100;
     font-style: normal;
   }
+
   p {
     font-size: 1rem;
     text-align: center;
   }
 }
-
 
 #accueil>article>div::before {
   content: ".........";
@@ -172,7 +173,6 @@ a {
 
 // Les 3 Cartes 
 
-
 #accueil>section:nth-child(2) {
   flex-direction: row;
   justify-content: space-around;
@@ -187,7 +187,7 @@ a {
   text-align: center;
   color: #ffffff;
   transition: transform 250ms;
-  height: 90%;
+  height: 75%;
   width: 22%;
 
   &:hover {
@@ -247,6 +247,7 @@ a {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+
     button {
       background-color: #ffffff;
       width: 10vw;
@@ -256,10 +257,11 @@ a {
       font-size: 1vw;
       cursor: pointer;
     }
+
     img {
       width: 100%;
     }
-    
+
     &:nth-child(2) {
       color: $card-nutri;
     }
@@ -267,163 +269,106 @@ a {
 
 }
 
-@media screen and (max-width: 1024px) {
-  #accueil>article>p {
-    font-size: 1.9rem;
+
+#accueil>section:nth-child(2)>article {
+  justify-content: space-between;
+
+  h2 {
+    font-size: 2rem;
   }
 
-  #accueil>section:nth-child(2)>article {
-    height: 75%;
+  p {
+    font-size: 1.6rem;
+    margin: 15px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #accueil>section:nth-child(2)>article {
+    height: 60%;
+
     h2 {
-      font-size: 1.2rem;
-      font-weight: 500;
+      font-size: 1.5rem;
     }
 
     p {
-      font-size: 0.8rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-    a{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+      font-size: 1rem;
     }
   }
 }
 
 // Media query pour les écrans de taille moyenne
-@media screen and (max-width: 768px) {
-  #accueil {
-    justify-content: space-between;
-  }
-
-  #accueil>article {
-    height:30%;
+@media screen and (max-width: 912px) and (min-height:928px) {
+  #accueil>#head-accueil {
+    height: 30%;
     align-items: center;
     justify-content: center;
   }
-  #accueil>article>div>h1 {
-    font-size: 1.8rem;
-  }
-  #accueil>article>p {
-    font-size: 1.6rem;
-  }
 
   #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
   }
 
   #accueil>section:nth-child(2)>article {
-    transition: transform 250ms;
-    height: 80%;
-    width: 25%;
-
-    &:hover {
-      transform: translateY(-3vw);
-    }
-
-    &:nth-child(1) {
-      background-color: $card-opto ;
-
-      button {
-        color: $card-opto;
-        border-color: $card-opto;
-      }
-    }
-
-    &:nth-child(2) {
-      background-color: $card-nutri ;
-
-      button {
-        color: $card-nutri;
-        border-color: $card-nutri;
-      }
-    }
-
-    &:nth-child(3) {
-      background-color: $card-kine ;
-
-      button {
-        color: $card-kine;
-        border-color: $card-kine ;
-      }
-    }
-
-    &:nth-child(4) {
-      background-color: $aside-color3 ;
-
-      button {
-        color: $aside-color3;
-        border-color: $aside-color3 ;
-      }
-    }
+    height: 95%;
+    width: 70%;
+    cursor: pointer;
 
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: 500;
     }
 
     p {
-      font-size: 0.6rem;
+      font-size: 1.2rem;
       font-weight: 400;
       margin: 15px;
     }
 
     a {
       button {
-        background-color: #ffffff;
-        width: 10vw;
-        height: 6vh;
-        margin-bottom: 1vw;
-        font-weight: bolder;
-        font-size: 0.9vw;
-        cursor: pointer;
+        display: none
       }
 
-      &:nth-child(2) {
-        color: $card-nutri;
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
       }
-    }
-
-    img {
-      width: 100%;
     }
   }
-
 }
 
-// Media query pour les écrans plus petits
-@media screen and (max-width: 480px) {
-  #accueil {
-    flex-direction: column;
+
+
+@media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
+  #accueil>#head-accueil {
+    height: 30%;
     align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    overflow: auto;
-    margin-left: 80px;
-  }
-
-  #accueil>article{
-    margin: 25px;
-    height: 20%;
-  }
-
-  #accueil>article>div>h1{
-    font-size: 2rem;
-  }
-  #accueil>article>p {
-    font-size: 1rem;
+    justify-content: center;
   }
 
   #accueil>section:nth-child(2) {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    width: 100%; 
+    height: 70%;
+    width: 100%;
     overflow-y: auto;
     scrollbar-color: $card-opto #be861e;
     scrollbar-width: auto;
@@ -436,13 +381,12 @@ a {
     align-items: center;
     text-align: center;
     color: #ffffff;
-    height: 35vh;
-    width: 100%;
-    gap: 2vw;
+    height: 95%;
+    width: 70%;
     cursor: pointer;
- 
+
     h2 {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: 500;
     }
 
@@ -454,16 +398,197 @@ a {
 
     a {
       button {
-        display:none
+        display: none
       }
+
       img {
-        height: 80%;
-        width: 90%;
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
       }
     }
   }
 }
 
+
+// Media query pour les écrans plus petits
+@media screen and (max-width: 480px) {
+  #accueil {
+    margin-left: 10%;
+    justify-content: center;
+
+    >#head-accueil {
+      height: 20%;
+
+      a {
+        font-size: 1.8rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    >section:nth-child(2)>article {
+      margin-left: 20px;
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 384px) and (max-height:640px) {
+  #accueil {
+
+    >#head-accueil {
+      >a {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    #accueil>section:nth-child(2)>article {
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #accueil>#head-accueil>p {
+    font-size: 0.9rem;
+  }
+
+  #accueil>section:nth-child(2)>article>p {
+    font-size: 0.8rem;
+  }
+}
+
+// Navbar icone burger
+#burger-icon {
+  color: $card-kine;
+}
+
+//HEADER PAGES D'ACCUEIL DES INTERFACES
+#head-accueil {
+  flex-flow: row nowrap;
+  height: $head;
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+}
+
+#head-accueil>a {
+  font-size: 2.8rem;
+  font-weight: 100;
+  width: 40%;
+  text-align: center;
+  margin-top: 6vh;
+
+  @media (max-width: 954px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>a:nth-child(1):after {
+  content: '   ......';
+  font-size: 50%;
+}
+
+#head-accueil img {
+  width: 30px;
+}
+
+#head-accueil>p {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 1020px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>article {
+  align-items: start;
+}
+
+#head-accueil>* {
+  margin: 5px;
+  padding: 0;
+}
+
+// -------------------------------------------------
+// HEADER DES PAGES AUTRES QU'ACCUEIL
 
 //HEADER
 #head {
@@ -472,11 +597,36 @@ a {
   padding: 10px;
   margin: 0;
   align-items: center;
+
+  @media screen and (max-width:502px) {
+    font-size: 1rem;
+  }
 }
 
 #head>a:nth-child(1) {
-  font-size: 32px;
+  font-size: 1.8rem;
   font-weight: 100;
+  width: 15%;
+
+  @media screen and (max-width:804px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 633px) {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (max-width:502px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 425px) {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 1rem;
+  }
 }
 
 #head>a:nth-child(1):after {
@@ -491,8 +641,34 @@ a {
 #head p {
   font-size: 1.4rem;
   font-weight: 500;
-  @media screen and (max-width: 480px) {
+  width: 50%;
+
+  @media screen and (max-width: 910px) {
     font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 686px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 633px) {
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 584px) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 0.6rem;
   }
 }
 
@@ -501,6 +677,7 @@ a {
   padding: 0;
 }
 
+// -----------------------------------------------
 // AFFICHAGE PAGES PROGRAMMES
 #programmes {
   width: 100%;
@@ -508,6 +685,14 @@ a {
   flex-direction: column;
   color: $sombre;
   height: calc(100vh - $foot);
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 100px);
+  }
+
+  @media screen and (max-width:480px) {
+    width: calc(100% + 65px);
+  }
 }
 
 // section principale
@@ -518,6 +703,7 @@ a {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 100vh;
+
 }
 
 // search bar
@@ -527,6 +713,13 @@ a {
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width:502px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
 }
 
 // article ligne dashed
@@ -548,6 +741,11 @@ a {
   scrollbar-color: $card-opto #be861e;
   scrollbar-width: auto;
   padding-top: 30px;
+
+  @media screen and (max-width:768px) {
+    max-width: 100%;
+  }
+
 }
 
 // image du programme
@@ -555,19 +753,54 @@ a {
   width: 65%;
   max-height: 90%;
   align-self: center;
+
+  @media screen and (max-width:1440px) {
+    width: 50%;
+    max-height: 70%;
+  }
 }
 
 // Article de description
 #programmes article:nth-child(4)>article {
-  margin: 100px;
+  margin: 50px;
   align-self: baseline;
   align-items: center;
+  justify-content: space-evenly;
+  gap: 4vw;
+
+  @media screen and (max-width:1440px) {
+    font-size: 0.9rem;
+    gap: 5vw;
+  }
+
+  @media screen and (max-width:1024px) {
+    gap: 5vw;
+  }
+
+  @media screen and (max-width:768px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    gap: 1vw;
+  }
 }
 
 #programmes article:nth-child(4)>article>div:nth-child(1) {
   display: flex;
   flex-direction: column;
-  max-width: 20%;
+  max-width: 30%;
+  text-align: justify;
+
+  @media screen and (max-width:1024px) {
+    font-size: 0.8rem;
+    max-width: 30%;
+  }
+
+  @media screen and (max-width:768px) {
+    font-size: 1.1rem;
+    max-width: 70%;
+  }
 }
 
 // titre 
@@ -580,14 +813,24 @@ a {
 #programmes article:nth-child(4)>article>div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  width: 10%;
+  width: 12%;
+
+  @media screen and (max-width:1024px) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width:768px) {
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+  }
 }
 
 // block horloge et materiels
 #programmes article:nth-child(4)>article>div:nth-child(2) div {
   display: flex;
   align-items: center;
-  gap: 0.2vw;
+  gap: 0.5vw;
   height: 40%;
   width: 100%;
 }
@@ -606,10 +849,17 @@ a {
   flex-flow: row wrap;
   color: $sombre;
   height: calc(100vh - $foot);
-  overflow-y: auto;
+  // overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
 
+  @media screen and (max-width:768px) {
+    height: calc(100vh - 100px);
+  }
+
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 65px); // 65px pour l'aside bar
+  }
 }
 
 //Section principale
@@ -617,87 +867,100 @@ a {
   width: 100%;
 }
 
+// barre de recherche exercices
+#exercices #head article {
+  background: none;
+  width: 40vw;
+  align-items: end;
+
+  @media (max-width: 706px) {
+    width: 30vw;
+    align-items: center;
+  }
+
+  @media (max-width: 490px) {
+    align-items: center;
+    width: 30vw;
+  }
+}
+
 //section avec la classe exercice
 #exercices>section {
   width: 100%;
   flex-flow: row wrap;
   overflow-x: hidden;
-  overflow-y: auto;
   justify-content: space-around;
   height: calc(100vh - $head - $foot);
   overflow-y: auto;
-  scrollbar-color: $card-nutri #d3354f;
-  scrollbar-width: auto;
+
+  @media (max-width: 768px) {
+    height: calc(100vh - $head - 100px);
+  }
+
 }
 
 // articles générer avec le ngFor avec la photo ou video et le titre la description 
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 80vh;
+  max-height: 100vh;
   background: $clair;
-  padding: 10px;
-  margin: 5px;
+  margin: 10px;
   gap: 0.5vw;
   justify-content: space-between;
 }
 
 //div des photos ou videos de l'exo
 #exercices section>article>.photo-exo {
-  height: 50%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-}
-
-// video ou photo
-#exercices section>article>.photo-exo>img {
-  height: 80%;
-  width: 100%;
-}
-
-#exercices article>div {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  text-align: end;
-  gap: 1vw;
-}
-
-// div comportant le titre la description et durée materiels
-#exercices article>div:nth-child(2) {
-  display: flex;
-  flex-flow: column nowrap;
+  height: 100%;
   text-align: justify;
 
 }
 
-// description de l'exercice
-#exercices article>div>p {
-  margin: 0;
+// video ou photo
+#exercices section>article>.photo-exo>img {
+  max-height: 18vh;
+  max-width: 100%;
+}
+
+// div comportant le titre la description et durée materiels
+#exercices article>div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+
 }
 
 // titre de l'exercice
-#exercices article>div:nth-child(2)>h6 {
-  margin: 0;
-  font-size: 1rem;
+#exercices article>div>h6 {
+  margin: 10px;
+  justify-self: center;
+  font-size: 1.1rem;
+  font-weight: 500;
   align-self: center;
+  text-align: center;
+  color: $sombre;;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
 }
 
 // div contenant duréé et materiel
-#exercices section article>div:nth-child(2)>div {
+#exercices section article>div>div {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 1vw;
+  min-height: 4vh;
   justify-content: space-between;
-}
-
-
-// div de la durée et materiel
-#exercices section article>div:nth-child(2)>div>div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 0.3vw;
 }
 
 // balise img de durée et materiel
@@ -707,27 +970,58 @@ a {
 }
 
 // balise p durée et materiel
-#exercices section article>div:nth-child(2)>div>div>p {
-  font-size: 0.9rem;
+#exercices section article>div>p {
+  font-size: 1rem;
+  margin: 5px;
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+  }
 }
 
 // conteneur de description et du lien vers la modal
-#exercices article>div:nth-child(2)>.exercice-texte {
+#exercices article>div>.exercice-texte {
   display: flex;
   flex-direction: column;
-  min-height: 20vh;
+  max-height: 50vh;
   justify-content: space-between;
+  gap: 1vw;
+  margin: 10px;
 }
 
-#exercices article>div:nth-child(2)>.exercice-texte>p {
+// description
+#exercices article>div>.exercice-texte>p {
   font-size: 1rem;
+  text-align: justify;
+  word-spacing: -2px;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+  }
 }
 
 // lien vers la modal
-#exercices article>div:nth-child(2)>.exercice-texte>span {
+#exercices article>div>.exercice-texte>span {
   align-self: flex-end;
   font-weight: 700;
   cursor: pointer;
+  color: $aside-color1;
+
+  @media (max-width: 1020px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.8rem;
+  }
 }
 
 // #exercices article>figure {
@@ -742,8 +1036,11 @@ a {
   width: calc(100vw - $l)
 }
 
+// Modal
+
+
 // Partie responsive essai
-/* Styles pour les écrans de taille supérieure à 768px */
+/* Styles pour les écrans de taille supérieure à 1154px */
 @media (max-width: 1154px) {
   #exercices section {
     display: flex;
@@ -755,34 +1052,35 @@ a {
     width: 30%;
     margin-bottom: 20px;
   }
+}
 
-  #exercices article>div:nth-child(2)>.exercice-texte> {
-    font-size: 1vw;
+@media (max-width: 906px) {
+  #exercices section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #exercices article {
+    width: 40%;
+    margin-bottom: 20px;
   }
 }
 
-/* Styles pour < 768px */
-@media (max-width: 767px) {
+/* Styles pour < 560px */
+@media (max-width: 560px) {
   #exercices section {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   #exercices article {
     align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
+    width: 80%;
   }
 
   #exercices article {
     background: #f2f2f2;
-    padding: 10px;
-  }
-
-  #exercices article .photo-exo {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   #exercices article .photo-exo img {
@@ -790,34 +1088,128 @@ a {
     max-width: 100%;
   }
 
-  #exercices article h6 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
-  }
-
   #exercices article p {
-    margin: 0;
-    font-size: 0.9vw;
+    margin: 5px;
   }
 
   #exercices article .exercice-texte {
-    margin-top: 10px;
+    margin: 10px;
+  }
+}
+
+// Modal exercices Kine et Opto
+
+#modalExercices {
+  background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5vw;
+
+
+  article:nth-child(1) {
+    display: flex;
+    justify-content: end;
   }
 
-  #exercices article .exercice-texte p {
-    font-size: 0.9vw;
-    line-height: 1.4;
-  }
+  article:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  #exercices article .exercice-texte span {
-    font-weight: bold;
-    cursor: pointer;
+
+    .photo-exo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 35vh;
+      width: 60vw;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 40%;
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        margin: 25px;
+        text-align: justify;
+        font-size: 1rem;
+
+        @media screen and (max-width:480px) {
+          font-size: 0.9rem;
+        }
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+          height: 30px;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    button {
+      width: 15vw;
+      height: 4vh;
+      font-size: 1rem;
+      color: white;
+      background-color: $aside-color2;
+
+      @media screen and (max-width:880px) {
+        font-size: 0.9rem;
+        width: 170px;
+      }
+
+      @media screen and (max-width:480px) {
+        font-size: 0.9rem;
+        width: 220px;
+      }
+    }
   }
 }
 
 
 
+// Responsive Modal
+// .modalExercies{
+//   mat-dialog-container {
+//   //   @media screen and (max-width: 1024px) and (max-height: 855px) {
+//   //     max-height: 80vh ;
+//   //     max-width: 90vw ;
+//   //   }
+
+//   //   @media screen and (max-width: 768px) and (max-height:860) {
+//   //     max-height: 40vh;
+//   //     max-width: 50vw;
+//   //   }
+//   // }
+// }
+
+
+
+// -----------------------------------------------------------------
 // CSS des pages plats et menus
 #platMenu {
   @media screen and (max-width: 480px) {
@@ -1832,12 +2224,29 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width:715px) {
+    height: 100vh;
+  }
+
+  @media screen and (max-width:481px) {
+    align-items: center;
+    width: calc(100% + $l);
+  }
 }
 
 // design input des pages programmes
 #input-programmes {
   height: 3vh;
   width: 15vw;
+
+  @media screen and (max-width:938px) {
+    width: 20vh;
+  }
+
+  @media screen and (max-width:596px) {
+    width: 15vh;
+  }
 }
 
 #input-ckeckbox {
@@ -1963,6 +2372,13 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

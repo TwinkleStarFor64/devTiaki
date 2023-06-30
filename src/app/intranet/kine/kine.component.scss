@@ -1,5 +1,5 @@
 $card-nutri: #d9042b;
-$card-kine: #805e96;
+$card-kine: #F22F1D;
 $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
@@ -10,51 +10,19 @@ $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas  
-
-
-section {
-  flex-flow: column nowrap;
-  height: calc(100vh - $foot);
-
-  #head {
-    flex-flow: column nowrap;
-  }
-
-  #head>p {
-    color: $card-kine;
-    font-size: 3rem;
-    font-weight: 300;
-  }
-
-  #head>a:nth-child(1) {
-    color: $card-kine;
-  }
+#accueil>#head>a{
+  color: $card-kine;
 }
 
-#accueil>section:nth-child(2) {
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 100%;
+#accueil>#head>p{
+  color: $card-kine;
 }
 
-#accueil>section:nth-child(2)>article {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  transition: transform 250ms;
-  height: 70%;
-  width: 22%;
-  background-color: $card-kine ;
+#accueil>section:nth-child(2)>article{
+  background-color: $card-kine;
 
-  &:hover {
-    transform: translateY(-3vw);
-  }
-
-  button {
-    color: $card-kine;
-    border-color: $card-kine;
-  }
+    button {
+      color: $card-kine;
+      border-color: $card-kine;
+    }
 }

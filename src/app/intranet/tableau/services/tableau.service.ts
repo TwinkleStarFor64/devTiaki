@@ -43,6 +43,7 @@ export class TableauService {
       });
     return this.tableauEnCours;
   }
+
   // Récupération des données json du bas du tableau de bord historique
   getTableauBordHistorique() {
     this.http
@@ -54,6 +55,7 @@ export class TableauService {
       });
     return this.tableauBordHistorique;
   }
+
   // Recuperation json du tableau de bord "problemes rencontrés"
   getTableauBordProbleme() {
     this.http

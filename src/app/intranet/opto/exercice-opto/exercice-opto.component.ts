@@ -37,8 +37,7 @@ export class ExerciceOptoComponent implements OnInit {
     return this.dialog.open(ModalExOptoComponent, {
       disableClose: true,
       autoFocus: true,
-      height: '850px',
-      width: '1500px',
+      panelClass:'modalExercices',
       data: exercice,
     });
   }
@@ -63,8 +62,8 @@ export class ExerciceOptoComponent implements OnInit {
     this.control.setValue(exercice.title);
     this.exercicesFiltres = [exercice];
   }
-    //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
-    hoverSelectedExercice(exercice: any) {
-      this.control.setValue(exercice ? exercice.title : '');
-    }
+  //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
+  hoverSelectedExercice(exercice: any) {
+    this.control.setValue(exercice ? exercice.title : '');
+  }
 }

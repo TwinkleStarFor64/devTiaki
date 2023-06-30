@@ -1,0 +1,15 @@
+<div class="custom-accordion">
+    <div *ngFor="let item of items; let index = index" class="custom-accordion-item">
+      <div class="custom-accordion-item-header" (click)="toggleAccordion(index)">
+        {{ item.header }}
+        <span class="custom-accordion-item-description">
+          Click to {{ expandedIndex === index ? 'close' : 'open' }}
+        </span>
+      </div>
+      <div class="custom-accordion-item-body" [hidden]="expandedIndex !== index">
+        <div  [innerHTML]="sanitizeHTML(item.content)">
+          {{ item.content }}
+        </div>
+      </div>
+    </div>
+  </div>

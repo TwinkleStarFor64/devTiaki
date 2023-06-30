@@ -79,16 +79,19 @@ export interface TableauBordHistoriqueI {
   histoNutri: string;
   histoKine: string;
   histoOpto: string;
+  active: boolean;
 }
 export interface TableauBordMedecinI {
   medecinNutri: string;
   general: string;
   medecinOpto: string;
+  active: boolean;
 }
 export interface TableauBordProblemeI {
   problemeNutri: string;
   problemeKine: string;
   problemeOpto: string;
+  active: boolean;
 }
 export interface TableauReussiteI {
   totalExercice: string;

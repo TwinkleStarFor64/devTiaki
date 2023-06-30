@@ -7,17 +7,17 @@ $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 #exercices>header,
 #exercices>header a {
-  color: #af6ee4;
+  color: $card-kine;
 }
 
 #exercices {
   ::-webkit-scrollbar {
-    background-color: #af6ee4;
+    background-color: $card-kine;
     width: 10px;
   }
 
   ::-webkit-scrollbar-thumb {
     height: 200px;
-    background-color: $aside-color2;
+    background-color: $card-kine;
   }
 }

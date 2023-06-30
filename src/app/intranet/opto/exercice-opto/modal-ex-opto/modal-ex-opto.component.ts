@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ExerciceI } from 'src/app/intranet/modeles/Types';
 import { SanityService } from 'src/app/services/sanity.service';
@@ -6,7 +6,7 @@ import { SanityService } from 'src/app/services/sanity.service';
 @Component({
   selector: 'app-modal-ex-opto',
   templateUrl: './modal-ex-opto.component.html',
-  styleUrls: ['./modal-ex-opto.component.scss']
+  styleUrls: ['./modal-ex-opto.component.scss'],
 })
 export class ModalExOptoComponent {
   exercicesOpto!: ExerciceI[];

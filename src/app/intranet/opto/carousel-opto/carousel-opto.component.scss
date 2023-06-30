@@ -13,6 +13,9 @@ $sombre: black;
 :host {
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
 }
 
 .carousel {
@@ -23,12 +26,25 @@ $sombre: black;
   height: 100%;
   width: 100%;
   overflow: hidden;
+  @media screen and (max-width:1440px) {
+    align-self: flex-end;
+  }
+  @media screen and (max-width:1024px) {
+    align-self: center;
+    
+  }
+  @media screen and (max-width:768px) {
+    align-self: center;
+  }
+
 
   .carousel-container {
     display: flex;
     transition: transform 0.3s ease-in-out;
     height: 100%;
     width: 100%;
+    
+  
   }
 
   .carousel-slide {
@@ -39,10 +55,16 @@ $sombre: black;
     align-items: center;
 
     img {
-      max-height: 90%;
+      max-height: 70%;
       max-width: 70%;
       display: block;
       margin: 0 auto;
+      @media screen and (max-width:1440px) {
+       max-width: 65%;
+      }
+      @media screen and (max-width:1024px) {
+        max-width: 45%;
+       }
     }
   }
 

@@ -21,7 +21,9 @@ export interface ExerciceI {
   title: string;
   photo: string;
   description: string;
+  dureeIcon: string;
   duree: string;
+  materielIcon: string;
   materiel: string;
 }
 //Interface de la bottom bar servant à naviguer sur les pages de chaque application
