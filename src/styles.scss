@@ -42,7 +42,6 @@ html {
 
 body {
   border-spacing: 0;
-  height: 100vh;
   margin: 0;
   padding: 0;
   background: url('./assets/imgAsidebar/BgVector2.svg'), rgba(242, 183, 5, 0.1);
@@ -50,7 +49,7 @@ body {
   background-size: cover;
   background-position: center;
   transform: matrix(1, 0, 0, 1, 0, 0);
-  height: 100vh;
+  min-height: 100vh;
   border-spacing: 0;
 }
 
@@ -138,7 +137,7 @@ a {
   align-items: center;
   width: 70%;
   color: $aside-color2;
-  margin: 50px;
+  // margin: 50px;
 }
 
 #accueil>#head-accueil>div {
@@ -177,7 +176,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
-  height: 90%;
+  height: 100%;
 }
 
 #accueil>section:nth-child(2)>article {
