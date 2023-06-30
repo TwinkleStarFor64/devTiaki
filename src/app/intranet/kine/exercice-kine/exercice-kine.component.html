@@ -40,13 +40,14 @@
             <img
               [src]="sanity.urlFor(exercice.dureeIcon).url()"
               alt="horloge"
-              (mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null"
             />
+             <!-- mouseenter)="exerciceDureeSurvole = exercice"
+            (mouseleave)="exerciceDureeSurvole = null" -->
             <p
-              (mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null"
-            >
+             
+            > 
+            <!-- (mouseenter)="exerciceDureeSurvole = exercice"
+            (mouseleave)="exerciceDureeSurvole = null" -->
               Durée:
             </p>
             <p *ngIf="exercice === exerciceDureeSurvole">
