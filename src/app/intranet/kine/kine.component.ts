@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SanityService } from 'src/app/services/sanity.service';
+import { AccueilI } from '../modeles/Types';
 
 @Component({
   selector: 'app-kine',
   templateUrl: './kine.component.html',
   styleUrls: ['./kine.component.scss'],
 })
-export class KineComponent {
+export class KineComponent implements OnInit {
   public cards: any = [
     {
       title: 'Progression',
@@ -29,4 +31,13 @@ export class KineComponent {
       url: 'exercice-Kine',
     },
   ];
+  accueilKine!: AccueilI[];
+  constructor(public sanity:SanityService){}
+
+  ngOnInit(): void {
+    this.sanity.getAccueilNutrition().then((data) => {
+      this.accueilKine = data.sort((a, b) => a.id - b.id);
+    });
+  }
+
 }
