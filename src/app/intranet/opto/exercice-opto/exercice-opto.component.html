@@ -32,44 +32,26 @@
   </header>
   <section>
     <article *ngFor="let exercice of exercicesFiltres">
-      <div class="photo-exo">
+      <div (click)="openDialog(exercice)"  class="photo-exo">
         <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
         <h6>{{ exercice.title }}</h6>
-        <div>
-          <img
-            [src]="sanity.urlFor(exercice.dureeIcon).url()"
-            alt="horloge"
-            (mouseenter)="exerciceDureeSurvole = exercice"
-            (mouseleave)="exerciceDureeSurvole = null"
-          />
-          <p
-            (mouseenter)="exerciceDureeSurvole = exercice"
-            (mouseleave)="exerciceDureeSurvole = null"
-          >
-            Durée:
-          </p>
-          <p *ngIf="exercice === exerciceDureeSurvole">
-            {{ exercice.duree }}
-          </p>
-          <img
-            [src]="sanity.urlFor(exercice.materielIcon).url()"
-            alt="materiel"
-            (mouseenter)="exerciceMaterielSurvole = exercice"
-            (mouseleave)="exerciceMaterielSurvole = null"
-          />
-          <p
-            (mouseenter)="exerciceMaterielSurvole = exercice"
-            (mouseleave)="exerciceMaterielSurvole = null"
-          >
-            Matériels:
-          </p>
-          <p *ngIf="exercice === exerciceMaterielSurvole">
-            {{ exercice.materiel }}
-          </p>
-        </div>
-        <div class="exercice-texte">
+        <div (click)="openDialog(exercice)" class="exercice-texte">
           <p>{{ exercice.description }}</p>
-          <span (click)="openDialog(exercice)">Voir l'exercice -></span>
+          <div>
+            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+            <!-- mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null" -->
+            <p>
+              <!-- (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null" -->
+              Durée:
+            </p>
+            <img
+              [src]="sanity.urlFor(exercice.materielIcon).url()"
+              alt="materiel"
+            />
+            <p>Matériels:</p>
+          </div>
         </div>
       </div>
     </article>

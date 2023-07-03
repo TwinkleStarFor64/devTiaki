@@ -921,8 +921,7 @@ a {
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  max-height: 18vh;
-  max-width: 100%;
+  width: 100%;
 }
 
 // div comportant le titre la description et durée materiels
@@ -935,12 +934,11 @@ a {
 
 // titre de l'exercice
 #exercices article>div>h6 {
-  margin: 10px;
+  margin: 10px 0 0 0;
   justify-self: center;
   font-size: 1.1rem;
   font-weight: 500;
-  align-self: center;
-  text-align: center;
+  align-self: flex-start;
   color: $sombre;;
 
   @media (max-width: 1024px) {
@@ -953,14 +951,6 @@ a {
   }
 }
 
-// div contenant duréé et materiel
-#exercices section article>div>div {
-  display: flex;
-  align-items: center;
-  gap: 1vw;
-  min-height: 4vh;
-  justify-content: space-between;
-}
 
 // balise img de durée et materiel
 #exercices section article>div:nth-child(2)>div>div>img {
@@ -985,7 +975,14 @@ a {
   max-height: 50vh;
   justify-content: space-between;
   gap: 1vw;
-  margin: 10px;
+}
+// div durée et materiel
+#exercices article>div>.exercice-texte>div{
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  min-height: 4vh;
+  justify-content: flex-end;
 }
 
 // description
