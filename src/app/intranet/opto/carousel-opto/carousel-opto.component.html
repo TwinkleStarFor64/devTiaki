@@ -1,3 +1,4 @@
+<a class="carousel-prev" (click)="prevSlide()"></a>
 <div class="carousel">
   <div class="carousel-container" #carouselContainer>
     <div
@@ -9,6 +10,7 @@
       <img [src]="item.photo" alt="Image" />
     </div>
   </div>
-  <a class="carousel-prev" (click)="prevSlide()"></a>
-  <a class="carousel-next" (click)="nextSlide()"></a>
+  <!-- <a class="carousel-prev" (click)="prevSlide()"></a>
+  <a class="carousel-next" (click)="nextSlide()"></a> -->
 </div>
+<a class="carousel-next" (click)="nextSlide()"></a>

@@ -42,9 +42,7 @@ $sombre: black;
     display: flex;
     transition: transform 0.3s ease-in-out;
     height: 100%;
-    width: 100%;
-    
-  
+    width: 100%;     
   }
 
   .carousel-slide {
@@ -56,11 +54,12 @@ $sombre: black;
 
     img {
       max-height: 70%;
-      max-width: 70%;
+      //max-width: 70%;
+      width: 100%;
       display: block;
       margin: 0 auto;
       @media screen and (max-width:1440px) {
-       max-width: 65%;
+       //max-width: 65%;
       }
       @media screen and (max-width:1024px) {
         max-width: 45%;
@@ -70,8 +69,8 @@ $sombre: black;
 
   .carousel-prev,
   .carousel-next {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 75%;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
@@ -104,6 +103,42 @@ $sombre: black;
     }
   }
 }
+
+.carousel-prev,
+  .carousel-next {
+    position: relative;
+    top: 75%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    padding: 16px;
+    color: white;
+    font-size: 32px;
+    user-select: none;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .carousel-prev {
+    left: 0;
+
+    &::before {
+      content: "<";
+      color: $card-opto;
+    }
+  }
+
+  .carousel-next {
+    right: 0;
+
+    &::before {
+      content: ">";
+      color: $card-opto;
+    }
+  }
 
 // .modal {
 //   display: none;

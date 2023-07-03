@@ -710,7 +710,12 @@ a {
   width: 100%;
   //gap: 1.5vw;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  img {
+    // L'icône de loupe
+    margin-left: 25vw;
+    
+  }
 
   @media screen and (max-width:502px) {
     font-size: 0.8rem;
@@ -749,7 +754,7 @@ a {
 
 // image du programme
 #programmes article:nth-child(4)>img {
-  width: 65%;
+  width: 75%;
   max-height: 90%;
   align-self: center;
 
@@ -762,10 +767,12 @@ a {
 // Article de description
 #programmes article:nth-child(4)>article {
   margin: 50px;
+  margin-left: 11vw;
   align-self: baseline;
   align-items: center;
   justify-content: space-evenly;
   gap: 4vw;
+  width: 78%;
 
   @media screen and (max-width:1440px) {
     font-size: 0.9rem;
@@ -782,6 +789,22 @@ a {
     margin: 0;
     margin-top: 20px;
     gap: 1vw;
+  }
+}
+
+// Article avec l'image de pouce et le select "Avis et commentaire de la communauté"
+#programmes article:nth-child(4)>article:nth-child(3) {
+  //background-color: #33BB27;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5vw; 
+
+  select {
+    width: 75vw;
+    height: 5vh;
+    background: none;
+    font-size: 1.2rem;
+    color: #3D3D3D;
   }
 }
 
@@ -2257,7 +2280,7 @@ a {
 }
 
 #input-ckeckbox {
-  height: 3vh;
+  height: 2.5vh;
   width: 2vw;
   margin-left: 3vw;
 }
