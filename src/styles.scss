@@ -639,7 +639,7 @@ a {
 }
 
 #head p {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   width: 50%;
 
@@ -709,7 +709,7 @@ a {
 // search bar
 #programmes>article:nth-child(2) {
   width: 100%;
-  gap: 1.5vw;
+  //gap: 1.5vw;
   justify-content: center;
   align-items: center;
 
@@ -2250,7 +2250,7 @@ a {
 #input-programmes {
   height: 3vh;
   width: 15vw;
-
+  
   @media screen and (max-width:938px) {
     width: 20vh;
   }
@@ -2262,7 +2262,8 @@ a {
 
 #input-ckeckbox {
   height: 3vh;
-  width: 4vw;
+  width: 2vw;
+  margin-left: 3vw;
 }
 
 // PAGE RECETTES
