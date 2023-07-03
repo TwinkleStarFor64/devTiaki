@@ -178,40 +178,45 @@ section:nth-child(3) {
     align-items: center;
     gap: 4vw;
     overflow-y: auto;
+
+    a{
+        display: none;
+    }
+
     @media screen and (max-width: 834px) {
         width: 75%;
     }
     @media screen and (max-width: 480px) {
         width: 100%;
+        article:nth-child(1) {
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                text-decoration: none;
+                width: 100%;
+                color: #a78112;
+                font-size: 2rem;             
+    
+                // Le gros logo Tiaki
+                span {
+                  //font-weight: 100;
+                  margin: 0;
+                  padding: 0; 
+                  width: 100%;                 
+                }
+              }
+              span:before {
+                content: '........';
+                font-size: 50%;
+              }          
+              span:after {
+                content: '........';
+                font-size: 50%;
+              }
+        }
     }
 
-    article:nth-child(1) {
-        a {
-            display: flex;
-            flex-direction: row;
-            align-items: baseline;
-            text-decoration: none;
-            width: 100%;
-            color: #a78112;
-            font-size: 2rem;             
-
-            // Le gros logo Tiaki
-            span {
-              //font-weight: 100;
-              margin: 0;
-              padding: 0; 
-              width: 100%;                 
-            }
-          }
-          span:before {
-            content: '........';
-            font-size: 50%;
-          }          
-          span:after {
-            content: '........';
-            font-size: 50%;
-          }
-    }
 
     // Article du titre avec la ligne de dashed
     article:nth-child(2) {
