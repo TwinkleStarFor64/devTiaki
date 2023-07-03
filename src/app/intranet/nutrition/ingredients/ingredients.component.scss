@@ -89,7 +89,7 @@ $foot: 150px; // Hauteur des menus du bas
 
       input {
         // L'input de recherche des ingrédients
-        width: 80%;
+        width: 95%;
         height: 3.5vh;
         font-size: 1rem;
         @media screen and (max-width: 834px) {
@@ -106,6 +106,10 @@ $foot: 150px; // Hauteur des menus du bas
           font-size: 1rem;
           font-weight: normal;
           margin: 2vh 0 0 0;
+          border: #C4C4C4 solid 2px;
+          border-radius: 5%;
+          padding: 1vh;
+          width: 90%;
           @media screen and (max-width: 834px) {
             font-size: 0.7rem;
           }
