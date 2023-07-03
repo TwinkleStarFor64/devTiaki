@@ -42,7 +42,6 @@ html {
 
 body {
   border-spacing: 0;
-  height: 100vh;
   margin: 0;
   padding: 0;
   background: url('./assets/imgAsidebar/BgVector2.svg'), rgba(242, 183, 5, 0.1);
@@ -50,7 +49,7 @@ body {
   background-size: cover;
   background-position: center;
   transform: matrix(1, 0, 0, 1, 0, 0);
-  height: 100vh;
+  min-height: 100vh;
   border-spacing: 0;
 }
 
@@ -138,7 +137,7 @@ a {
   align-items: center;
   width: 70%;
   color: $aside-color2;
-  margin: 50px;
+  // margin: 50px;
 }
 
 #accueil>#head-accueil>div {
@@ -177,7 +176,7 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-end;
-  height: 90%;
+  height: 100%;
 }
 
 #accueil>section:nth-child(2)>article {
@@ -415,7 +414,7 @@ a {
 @media screen and (max-width: 480px) {
   #accueil {
     margin-left: 10%;
-    justify-content: center;
+    // justify-content: center;
 
     >#head-accueil {
       height: 20%;
@@ -922,8 +921,7 @@ a {
 
 // video ou photo
 #exercices section>article>.photo-exo>img {
-  max-height: 18vh;
-  max-width: 100%;
+  width: 100%;
 }
 
 // div comportant le titre la description et durée materiels
@@ -936,12 +934,11 @@ a {
 
 // titre de l'exercice
 #exercices article>div>h6 {
-  margin: 10px;
+  margin: 10px 0 0 0;
   justify-self: center;
   font-size: 1.1rem;
   font-weight: 500;
-  align-self: center;
-  text-align: center;
+  align-self: flex-start;
   color: $sombre;;
 
   @media (max-width: 1024px) {
@@ -954,14 +951,6 @@ a {
   }
 }
 
-// div contenant duréé et materiel
-#exercices section article>div>div {
-  display: flex;
-  align-items: center;
-  gap: 1vw;
-  min-height: 4vh;
-  justify-content: space-between;
-}
 
 // balise img de durée et materiel
 #exercices section article>div:nth-child(2)>div>div>img {
@@ -986,7 +975,14 @@ a {
   max-height: 50vh;
   justify-content: space-between;
   gap: 1vw;
-  margin: 10px;
+}
+// div durée et materiel
+#exercices article>div>.exercice-texte>div{
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  min-height: 4vh;
+  justify-content: flex-end;
 }
 
 // description
