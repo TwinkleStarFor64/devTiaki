@@ -17,16 +17,19 @@
             <p>
               <!-- (mouseenter)="exerciceDureeSurvole = exercice"
               (mouseleave)="exerciceDureeSurvole = null" -->
-              Durée:
+              Durée
             </p>
             <img
               [src]="sanity.urlFor(exercice.materielIcon).url()"
               alt="materiel"
             />
-            <p>Matériels:</p>
+            <p>Matériels</p>
           </div>
         </div>
       </div>
+      <div class="progress-bar-opto">
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </div>
     </article>
   </section>
 </section>

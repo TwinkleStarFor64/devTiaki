@@ -28,3 +28,22 @@ main>footer {
   height: 2vh;
   width: 1vw;
 }
+// .progress-bar-opto > .mat-progress-bar  {
+//  height: 3vh;
+//  width: 80%;
+// }
+.progress-bar-opto{
+  height: 3vh;
+}
+.progress-bar-opto .mat-mdc-progress-bar{
+  align-self: center;
+  height: 100%;
+  width: 80%;
+  border:1px solid black;
+  border-radius: 3px;
+  --mdc-linear-progress-active-indicator-color: #f28705;
+
+  span{
+    height: 100%;
+  }
+}

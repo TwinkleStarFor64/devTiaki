@@ -14,6 +14,7 @@ import { OptoComponent } from './opto.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalExOptoComponent } from './exercice-opto/modal-ex-opto/modal-ex-opto.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatAutocompleteModule,
     MatSelectModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
 })
 export class OptoModule {}

@@ -16,6 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterPipe } from '../utils/pipes/filter.pipe';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FilterPipe } from '../utils/pipes/filter.pipe';
     MatSelectModule,
     MatDialogModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressBarModule
   ],
 })
 export class KineModule {}
