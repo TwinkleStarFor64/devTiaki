@@ -123,6 +123,7 @@ section:nth-child(2) {
         height: 18vh;
         justify-content: flex-end;
         gap: 1vw;
+        text-align: start;
         @media screen and (max-width: 1280px) {
             height: 15vh;               
         }
@@ -140,7 +141,7 @@ section:nth-child(2) {
             font-size: 1rem;
             font-weight: 600;
             margin: 4px;
-            width: 100%;
+            width: 90%;
             @media screen and (max-width: 1280px) {
                 font-size: 0.9rem;                
             }

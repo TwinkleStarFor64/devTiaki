@@ -646,7 +646,7 @@ a {
 }
 
 #head p {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
   // width: 50%;
 
@@ -717,9 +717,14 @@ a {
 // search bar
 #programmes>article:nth-child(2) {
   width: 100%;
-  gap: 1.5vw;
+  //gap: 1.5vw;
   justify-content: center;
-  align-items: center;
+  align-items: center;  
+  img {
+    // L'icône de loupe
+    margin-left: 25vw;
+    
+  }
 
   @media screen and (max-width:502px) {
     font-size: 0.8rem;
@@ -758,7 +763,7 @@ a {
 
 // image du programme
 #programmes article:nth-child(4)>img {
-  width: 65%;
+  width: 75%;
   max-height: 90%;
   align-self: center;
 
@@ -771,10 +776,12 @@ a {
 // Article de description
 #programmes article:nth-child(4)>article {
   margin: 50px;
+  margin-left: 11vw;
   align-self: baseline;
   align-items: center;
   justify-content: space-evenly;
   gap: 4vw;
+  width: 78%;
 
   @media screen and (max-width:1440px) {
     font-size: 0.9rem;
@@ -791,6 +798,22 @@ a {
     margin: 0;
     margin-top: 20px;
     gap: 1vw;
+  }
+}
+
+// Article avec l'image de pouce et le select "Avis et commentaire de la communauté"
+#programmes article:nth-child(4)>article:nth-child(3) {
+  //background-color: #33BB27;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5vw; 
+
+  select {
+    width: 75vw;
+    height: 5vh;
+    background: none;
+    font-size: 1.2rem;
+    color: #3D3D3D;
   }
 }
 
@@ -1599,14 +1622,25 @@ a {
     border-bottom: 1px white dashed;
     margin-left: 1vw;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 
-    // La balise <h1>Journaux de suivi</h1>
-    h1 {
+    // La balise <h1>Journal</h1>
+    h1:nth-child(1) {
+      margin: 0 0 1vh 0;
+      font-size: 2rem;
+      font-weight: 700;
+      width: 60%;
+      @media only screen and (max-width: 1280px) {
+        font-size: 1.7rem;
+      }
+    }
+    // La balise <h1>de suivi</h1>
+    h1:nth-child(2) {
       margin: 0 0 1vh 0;
       font-size: 1.5rem;
       font-weight: 700;
       width: 60%;
-
       @media only screen and (max-width: 1280px) {
         font-size: 1.2rem;
       }
@@ -2376,7 +2410,7 @@ a {
 // design input des pages programmes
 #input-programmes {
   height: 3vh;
-  width: 12vw;
+  width: 15vw;
 
   @media screen and (max-width:938px) {
     width: 20vh;
@@ -2390,7 +2424,7 @@ a {
 
 #input-ckeckbox {
   height: 3vh;
-  width: 2vw;
+  width: 4vw;
 }
 
 // PAGE RECETTES

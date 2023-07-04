@@ -14,7 +14,8 @@
     <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
       <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
       <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
-      <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ (debut + i) + ' - ' + ingredient.alim_nom_fr | uppercase }}</h2>
+      <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
+      <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
     </article>
   </div>
   <div>

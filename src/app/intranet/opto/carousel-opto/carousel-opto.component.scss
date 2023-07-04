@@ -42,36 +42,42 @@ $sombre: black;
     display: flex;
     transition: transform 0.3s ease-in-out;
     height: 100%;
-    width: 100%;
-    
-  
+    width: 100%;     
   }
 
   .carousel-slide {
     flex-shrink: 0;
     flex-basis: 25%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     img {
-      max-height: 70%;
-      max-width: 70%;
+      //max-height: 70%;
+      height: auto;
+      //max-width: 70%;
+      width: 100%;
       display: block;
       margin: 0 auto;
       @media screen and (max-width:1440px) {
-       max-width: 65%;
+       //max-width: 65%;
       }
       @media screen and (max-width:1024px) {
-        max-width: 45%;
+        //max-width: 45%;
+       }
+    }
+    p {
+      @media screen and (max-width:1024px) {
+        font-size: 0.8rem;
        }
     }
   }
 
   .carousel-prev,
   .carousel-next {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 75%;
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 10;
@@ -80,6 +86,9 @@ $sombre: black;
     font-size: 32px;
     user-select: none;
     transition: opacity 0.3s ease-in-out;
+    @media screen and (max-width:1024px) {
+      top: 80%;
+     }
 
     &:hover {
       opacity: 0.8;
@@ -104,6 +113,49 @@ $sombre: black;
     }
   }
 }
+
+
+
+// CSS Pour la version des fléches hors du Carroussel
+.carousel-prev,
+  .carousel-next {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+    padding: 16px;
+    color: white;
+    font-size: 80px;
+    user-select: none;
+    transition: opacity 0.3s ease-in-out;
+    @media screen and (max-width:1024px) {
+      top: 65%;
+      font-size: 45px;
+     }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .carousel-prev {
+    left: 0;
+
+    &::before {
+      content: "<";
+      color: $card-opto;
+    }
+  }
+
+  .carousel-next {
+    right: 0;
+
+    &::before {
+      content: ">";
+      color: $card-opto;
+    }
+  }
 
 // .modal {
 //   display: none;
