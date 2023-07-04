@@ -5,9 +5,10 @@
   </header>
   <section class="reussite">
     <article>
+      <h2>Historique des événements</h2>
       <div>
         <img src="assets/imageTableau/fete.svg" alt="fete" />
-        <h2>Génial c'est réussi !</h2>
+        <h3>Génial c'est réussi !</h3>
       </div>
       <div>
         <img src="assets/imageTableau/medaille.svg" alt="medaille" />
@@ -18,19 +19,34 @@
           <li>{{ reussite.repasNutri }}</li>
         </ul>
       </div>
+      <article class="encours">
+        <div>
+          <img src="assets/imageTableau/courreur.svg" alt="courreur" />
+          <h2>Le travail est en cours</h2>
+        </div>
+          <div>
+          <ul *ngFor="let enCours of tableaux.tableauEnCours">
+            <li>{{ enCours.exerciceEnCours }}</li>
+            <li>{{ enCours.progressionOpto }}</li>
+            <li>{{ enCours.progressionNutri }}</li>
+          </ul>
+        </div>
+      </article> 
     </article>
-    <article class="encours">
-      <div>
-        <img src="assets/imageTableau/courreur.svg" alt="courreur" />
-        <h2>Le travail est en cours</h2>
-      </div>
-      <div>
-        <ul *ngFor="let enCours of tableaux.tableauEnCours">
-          <li>{{ enCours.exerciceEnCours }}</li>
-          <li>{{ enCours.progressionOpto }}</li>
-          <li>{{ enCours.progressionNutri }}</li>
-        </ul>
-      </div>
+    <article >
+      <h2>Information de santé</h2>
+     <div *ngFor="">
+       <div>
+         <img src="" alt="">
+         <p></p>
+       </div>
+     </div> 
+     <h3>Profil de santé</h3>
+     <ul>
+      <li>14 exercices réussis</li>
+      <li>3 progressions remarquées en optométrie</li>
+      <li>5 progressions sur la souplesse</li>
+     </ul>
     </article>
   </section>
   <section class="column">
@@ -38,7 +54,7 @@
       class="infoColumn"
       *ngFor="let liste of tableaux.tableauBordHistorique; let index = index"
     >
-      <h3>Historique des événements</h3>
+      <h3>Synthèse des problèmes identifiés</h3>
       <h4>
         Pour la nutrition
       </h4>
@@ -64,52 +80,25 @@
       class="infoColumn"
       *ngFor="let liste of tableaux.tableauBordMedecin; let index = index"
     >
-      <h3>Médecins</h3>
+      <h3>Ecosystème de santé</h3>
       <h4>
-        Pour la nutrition
+        Médecins traitants
       </h4>
+      <img src="" alt="">
       <ul>
         <li>{{ liste.medecinNutri }}</li>
-      </ul>
-      <h4>
-        Sur la kiné
-      </h4>
-      <ul>
-        <li>{{ liste.general }}</li>
-        <li>Docteur Sebastian</li>
-      </ul>
-      <h4>
-        La vision et l'optométrie
-      </h4>
-      <ul>
-        <li>{{ liste.medecinOpto }}</li>
-        <li>Docteur CHAN</li>
       </ul>
     </article>
     <article
       class="infoColumn"
       *ngFor="let liste of tableaux.tableauBordProbleme; let index = index"
     >
-      <h3>Problèmes particuliers</h3>
+      <h3></h3>
       <h4 >
-        Pour la nutrition
+       Suivi quotidien
       </h4>
       <ul>
         <li>{{ liste.problemeNutri }}</li>
-      </ul>
-      <h4 >
-        Sur la kiné
-      </h4>
-      <ul >
-        <li>{{ liste.problemeKine }}</li>
-        <li>Docteur Sebastian</li>
-      </ul>
-      <h4>
-        La vision et l'optométrie
-      </h4>
-      <ul>
-        <li>{{ liste.problemeOpto }}</li>
-        <li>Docteur CHAN</li>
       </ul>
     </article>
     <article class="accordion">
