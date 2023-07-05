@@ -21,3 +21,6 @@ $aside-color3: #f0c02e;
     background-color: $card-kine;
   }
 }
+.progress-bar .mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color:#f22f1d;
+}

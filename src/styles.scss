@@ -1015,12 +1015,23 @@ a {
   width: 100%;
 }
 
-// div comportant le titre la description et durée materiels
-#exercices article>div {
+//div pour progress bar
+#exercices article>.progress-bar {
   display: flex;
-  flex-flow: column nowrap;
   justify-content: space-between;
-
+  height: 3vh;
+}
+#exercices article>.progress-bar a{
+  color: #bfbfbf;
+}
+.progress-bar .mat-mdc-progress-bar {
+  align-self: center;
+  height: 100%;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 3px;
+  --mdc-linear-progress-active-indicator-color: #f28705;
+  --mdc-linear-progress-track-height: 200px;
 }
 
 // titre de l'exercice
@@ -2394,6 +2405,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 
   @media screen and (max-width:715px) {
     height: 100vh;

@@ -1,13 +1,13 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   TableauEnCoursI,
   TableauBordHistoriqueI,
   TableauBordMedecinI,
   TableauBordProblemeI,
   TableauReussiteI,
+  SanteI,
 } from '../utils/modeles/Types';
 import { TableauService } from './services/tableau.service';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -57,6 +57,8 @@ export class TableauComponent {
           Pour la nutrition
         </h4>
         <ul>
+          <li>Docteur Risco</li>
+          <li>Docteur Risco</li>
           <li>Docteur Risco</li>
         </ul>
         <h4>
@@ -117,14 +119,36 @@ export class TableauComponent {
 
   ];
 
-  // public titre: [{}] = [
-  //   {
-  //     nutrition: 'Pour la nutrition',
-  //     kine: 'Pour la kiné',
-  //     opto: "Pour la vison et l'optométrie",
-  //     general: 'Pour le suivi général',
-  //   },
-  // ];
+public sante: SanteI[] = [
+  {
+    img:'assets/iconeTableau/profil.png',
+    nom:'Profil de santé'
+  },
+  {
+    img:'assets/iconeTableau/condition.png',
+    nom:'Condition générale'
+  },
+  {
+    img:'assets/iconeTableau/premierTemps.png',
+    nom:'Premier temps'
+  },
+  {
+    img:'assets/iconeTableau/gestation.png',
+    nom:'Gestation'
+  },
+  {
+    img:'assets/iconeTableau/accouchement.png',
+    nom:'Accouchement'
+  },
+  {
+    img:'assets/iconeTableau/suivi.png',
+    nom:'Suivi médical'
+  },
+  {
+    img:'assets/iconeTableau/examen.png',
+    nom:'Examens complémentaires'
+  }
+]
 
   constructor(
     public tableaux: TableauService,
@@ -134,7 +158,7 @@ export class TableauComponent {
   sanitizeHTML(html: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
-
+  
   ngOnInit() {
     this.tableaux.getTableauBordHistorique();
     this.tableaux.getTableauBordMedecin();
@@ -142,5 +166,6 @@ export class TableauComponent {
     this.tableaux.getTableauEnCours();
     this.tableaux.getTableauReussite();
     this.tableaux.getBottomBarTableau();
+    console.log(this.sante)
   }
 }

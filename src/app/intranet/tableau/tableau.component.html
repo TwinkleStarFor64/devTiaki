@@ -4,25 +4,27 @@
     <h1>Tableau de bord d'Émilie</h1>
   </header>
   <section class="reussite">
-    <article>
-      <h2>Historique des événements</h2>
-      <div>
-        <img src="assets/imageTableau/fete.svg" alt="fete" />
-        <h3>Génial c'est réussi !</h3>
-      </div>
-      <div>
-        <img src="assets/imageTableau/medaille.svg" alt="medaille" />
-        <ul *ngFor="let reussite of tableaux.tableauReussite">
-          <li>{{ reussite.totalExercice }}</li>
-          <li>{{ reussite.exerciceOptoReussi }}</li>
-          <li>{{ reussite.exerciceKineReussi }}</li>
-          <li>{{ reussite.repasNutri }}</li>
-        </ul>
-      </div>
+    <article class="tableau-gauche" >
+     <article class="historique">
+       <h2>Historique des événements</h2>
+       <div class="genial">
+         <img src="assets/imageTableau/fete.svg" alt="fete" />
+         <h3>Génial c'est réussi !</h3>
+       </div>
+       <div>
+         <img src="assets/imageTableau/medaille.svg" alt="medaille" />
+         <ul *ngFor="let reussite of tableaux.tableauReussite">
+           <li>{{ reussite.totalExercice }}</li>
+           <li>{{ reussite.exerciceOptoReussi }}</li>
+           <li>{{ reussite.exerciceKineReussi }}</li>
+           <li>{{ reussite.repasNutri }}</li>
+         </ul>
+       </div>
+     </article> 
       <article class="encours">
-        <div>
+        <div class="travail">
           <img src="assets/imageTableau/courreur.svg" alt="courreur" />
-          <h2>Le travail est en cours</h2>
+          <h3>Le travail est en cours</h3>
         </div>
           <div>
           <ul *ngFor="let enCours of tableaux.tableauEnCours">
@@ -33,14 +35,14 @@
         </div>
       </article> 
     </article>
-    <article >
+    <article class="tableau-droite" >
       <h2>Information de santé</h2>
-     <div *ngFor="">
-       <div>
-         <img src="" alt="">
-         <p></p>
-       </div>
-     </div> 
+      <div class="sante-container">
+        <div  *ngFor="let profil of sante">
+          <img [src]=' profil.img' alt="icone-tableau">
+          <p> {{ profil.nom }} </p>
+        </div>
+      </div>
      <h3>Profil de santé</h3>
      <ul>
       <li>14 exercices réussis</li>
@@ -56,13 +58,13 @@
     >
       <h3>Synthèse des problèmes identifiés</h3>
       <h4>
-        Pour la nutrition
+        De nutrition
       </h4>
       <ul>
         <li>{{ liste.histoNutri }}</li>
       </ul>
       <h4>
-        Sur la kiné
+        la motricité et le corps
       </h4>
       <ul [class.active]>
         <li>{{ liste.histoKine }}</li>
@@ -85,20 +87,19 @@
         Médecins traitants
       </h4>
       <img src="" alt="">
-      <ul>
-        <li>{{ liste.medecinNutri }}</li>
+      <ul> 
+        <li> Orthophoniiste: {{ liste.medecinNutri }}</li>
+        <li>Kinésithérapeute: Docteur Francois</li>
+        <li>Généraliste: Docteur Ponsan</li>
       </ul>
     </article>
-    <article
-      class="infoColumn"
-      *ngFor="let liste of tableaux.tableauBordProbleme; let index = index"
-    >
+    <article class="infoColumn">
       <h3></h3>
       <h4 >
        Suivi quotidien
       </h4>
       <ul>
-        <li>{{ liste.problemeNutri }}</li>
+        <li> Infirmière: Mme Alonzo</li>
       </ul>
     </article>
     <article class="accordion">
