@@ -13,9 +13,10 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
-:host{
+:host {
     height: 100vh;
 }
+
 // Scrollbar
 ::-webkit-scrollbar {
     background-color: $aside-color2;
@@ -33,6 +34,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 
 #head>h1 {
     font-weight: 400;
+
     @media screen and (max-width: 715px) {
         font-size: 1.1rem;
     }
@@ -44,19 +46,18 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
     font-size: 50%;
 }
 
-// Section comportant les deux premier articles du haut de la page
+// Section comportant les articles du haut de la page
 .reussite {
     height: 50%;
     scrollbar-color: $aside-color2 $aside-color1;
     scrollbar-width: auto;
-    overflow-y: auto;
+
 
     @media screen and (max-width: 715px) {
         flex-direction: column;
-        height: 50vh;
+        height: 100vh;
         scrollbar-color: $aside-color2 $aside-color1;
         scrollbar-width: auto;
-        overflow-y: auto;
     }
 
     ::-webkit-scrollbar {
@@ -81,65 +82,166 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
         }
     }
 
-    article {
+    // Article de la partie gauche de la premiere section
+    .tableau-gauche {
         flex-direction: column;
-        justify-content: center;
         width: 50%;
         height: 100%;
         align-items: center;
         border-right: dashed 1px black;
+        overflow-y: auto;
 
-        @media screen and (max-width: 715px) {
-            border-bottom: dashed 1px black;
-            border-right: none;
+        .historique {
+            flex-direction: column;
             width: 100%;
-        }
-
-        div:nth-child(1) {
-            margin-right: 30%;
-        }
-
-        div {
-            display: flex;
-
-            img {
-                width: 5vw;
-                height: 5vh;
-            }
+            align-items: center;
 
             h2 {
-                font-size: 1.3rem;
-                font-weight: 400;
+                background-color: $aside-color2;
+                width: 100%;
+                color: $clair;
+                font-weight: 300;
+                margin-top: 0;
+                padding: 10px;
+                padding-left: 30px;
 
-                @media screen and (max-width: 777px) {
-                    font-size: 1.1rem;
-                }
             }
 
-            ul {
-                li {
-                    font-size: 0.9rem;
+            @media screen and (max-width: 715px) {
+                border-bottom: dashed 1px black;
+                border-right: none;
+                width: 100%;
+            }
+
+            .genial {
+                margin-right: 200px;
+
+                h3 {
+                    font-size: 1.3em;
+                    font-weight: 300;
+                }
+
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+
+                >h3 {
+                    font-size: 1.3rem;
+                    font-weight: 300;
+                    margin-top: 0;
+
 
                     @media screen and (max-width: 777px) {
-                        font-size: 0.8rem;
+                        font-size: 1.1rem;
+                    }
+                }
+
+                ul {
+                    li {
+                        font-size: 0.9rem;
+
+                        @media screen and (max-width: 777px) {
+                            font-size: 0.8rem;
+                        }
                     }
                 }
             }
+
+            img {
+                height: 5vh;
+                width: 5vw;
+            }
+        }
+    }
+
+    // Partie "Travail en cours"
+    article>.encours {
+        flex-direction: column;
+
+        border-right: none;
+        align-items: center;
+    }
+
+    .travail {
+        display: flex;
+    }
+
+    article:nth-child(2) {
+        height: 100%;
+        width: 50%;
+
+        h3 {
+            min-height: 4vh;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-left: 30px;
+
+        }
+    }
+
+    // Partie droite de la premiere section comportant les différents informations de santées
+    .tableau-droite {
+        flex-direction: column;
+        overflow-x: auto;
+
+        h2 {
+            background-color: $aside-color2;
+            width: 100%;
+            color: $clair;
+            font-weight: 300;
+            margin-top: 0;
+            padding: 10px;
+            padding-left: 30px;
+
         }
 
-        img {
-            height: 2vh;
-            width: 2vw;
+        .sante-container {
+            display: flex;
+            width: 100%;
+            gap: 0.5vw;
+            padding: 10px;
+
+            >div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                border: 1px solid $sombre;
+                color: $clair;
+                background-color: #F0C02E;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    height: 3.8vh;
+                    width: 2vw;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                }
+
+            }
+        }
+
+        h3 {
+            margin-left: 50px;
+        }
+
+        ul {
+            margin-left: 50px;
         }
     }
 }
-
-// section avec la barre du milieu avec les trois titres 
 
 // Section comportant les trois articles et leurs contenus
 .column {
     height: 50%;
     justify-content: space-between;
+    overflow-y: auto;
 
 
     @media screen and (max-width: 715px) {
@@ -151,8 +253,8 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
     }
 
     h3 {
-        min-height: 8vh;
-        font-weight: 400;
+        min-height: 4vh;
+        font-weight: 300;
         font-size: 1.3rem;
         background-color: $aside-color2;
         color: $clair;
@@ -171,19 +273,28 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
         @media screen and (max-width:715px) {}
     }
 
+    article:nth-child(1) {
+        width: 50%;
+    }
+
+    article:nth-child(2) {
+        width: 25%;
+    }
+
     article:nth-child(3) {
         border-right: none;
+        width: 25%;
     }
 
     .infoColumn {
         flex-direction: column;
         width: 50%;
         height: 100%;
-        border-right: dashed 1px black;
+        border-right: dashed 1px $sombre;
         overflow-y: auto;
 
         @media screen and (max-width: 715px) {
-           display: none;
+            display: none;
             width: 100%;
             border-right: none;
             height: 33%;
@@ -194,10 +305,12 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
         }
 
         h4 {
-            font-weight: 500;
-            font-size: 1.2rem;
-            margin: 0;
+            font-weight: 300;
+            font-size: 1.4rem;
             padding-left: 15px;
+            margin-bottom: 0;
+            margin-top: 5px;
+
 
             @media screen and (max-width: 999px) {
                 font-size: 1rem;
@@ -251,9 +364,10 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
                 }
             }
         }
+
         @media screen and (max-width:481px) {
             width: calc(100% + $l);
-          }
+        }
     }
 }
 
@@ -265,7 +379,7 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
         display: flex;
         justify-content: center;
         width: calc(100vw - $l);
-        height:90vh ;
+        height: 90vh;
 
         align-items: center;
         overflow-y: auto;
@@ -274,62 +388,65 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
             display: block;
             width: 80%;
         }
-        
+
         .example-accordion-item {
             display: block;
             background-color: $aside-color2;
             border: solid 1px #ccc;
             color: $clair;
         }
-        
+
         .example-accordion-item+.example-accordion-item {
             border-top: none;
         }
-        
+
         .example-accordion-item-header {
             display: flex;
             align-content: center;
             justify-content: space-between;
+
             @media screen and (max-width:458px) {
                 font-size: 0.8rem;
-              }
-            
+            }
+
         }
-        
+
         .example-accordion-item-description {
             font-size: 0.85em;
             color: #c7c7c7;
         }
-        
+
         .example-accordion-item-header,
         .example-accordion-item-body {
             padding: 16px;
             margin: 0;
         }
 
-        .example-accordion-item-body{
-            h4{
-            font-size: 0.5rem;
-            margin: 0;
-            }
-            ul{
+        .example-accordion-item-body {
+            h4 {
+                font-size: 0.5rem;
                 margin: 0;
-                li{
+            }
+
+            ul {
+                margin: 0;
+
+                li {
                     margin: 0;
                 }
             }
         }
-        
+
         .example-accordion-item-header:hover {
             cursor: pointer;
             background-color: $aside-color2;
         }
-        
+
         .example-accordion-item:first-child {
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
         }
-        
+
         .example-accordion-item:last-child {
             border-bottom-left-radius: 4px;
             border-bottom-right-radius: 4px;

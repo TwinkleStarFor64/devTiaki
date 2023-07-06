@@ -15,23 +15,26 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
-.mat-mdc-option { // Pour les options de choix dans tout les menus déroulants
+.mat-mdc-option {
+
+  // Pour les options de choix dans tout les menus déroulants
   @media screen and (max-width : 834px) {
     font-size: 0.6rem;
   }
-} 
+}
 
 // Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie et toutes les balises mat-select suivantes)
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
   @media screen and (max-width: 480px) {
-   top: 50%; // Pour positionner le label au milieu du select    
+    top: 50%; // Pour positionner le label au milieu du select    
   }
 }
+
 // Pour le label dans le textarea de la modal save-data dans la page plats (Lors d'un ajout de plat) - Aussi pour les textarea de Journal
 #textarea {
   .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
     @media screen and (max-width: 480px) {
-     top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)  
+      top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)  
     }
   }
 }
@@ -603,29 +606,34 @@ a {
 }
 
 #head>a:nth-child(1) {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 100;
-  //width: 15%;
+  width: 10%;
+
+  @media screen and (max-width:906px) {
+    width: 14%;
+  }
 
   @media screen and (max-width:804px) {
     font-size: 1.6rem;
   }
 
-  @media screen and (max-width: 633px) {
+  @media screen and (max-width: 664px) {
     font-size: 1.4rem;
   }
 
-  @media screen and (max-width:502px) {
+  @media screen and (max-width:586px) {
     font-size: 1.2rem;
   }
 
-  @media screen and (max-width: 425px) {
+  @media screen and (max-width: 525px) {
     font-size: 1.1rem;
   }
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 484px) {
     font-size: 1rem;
   }
+
 }
 
 #head>a:nth-child(1):after {
@@ -640,7 +648,7 @@ a {
 #head p {
   font-size: 1.6rem;
   font-weight: 500;
-  width: 50%;
+  // width: 50%;
 
   @media screen and (max-width: 910px) {
     font-size: 1.2rem;
@@ -662,7 +670,7 @@ a {
     font-size: 0.8rem;
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 498px) {
     font-size: 0.7rem;
   }
 
@@ -684,6 +692,7 @@ a {
   flex-direction: column;
   color: $sombre;
   height: calc(100vh - $foot);
+
 
   @media (max-width: 768px) {
     height: calc(100vh - 100px);
@@ -871,9 +880,10 @@ a {
   flex-flow: row wrap;
   color: $sombre;
   height: calc(100vh - $foot);
-  // overflow-y: auto;
+  overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
+  justify-content: center;
 
   @media screen and (max-width:768px) {
     height: calc(100vh - 100px);
@@ -893,7 +903,7 @@ a {
 #exercices #head article {
   background: none;
   width: 40vw;
-  align-items: end;
+  // align-items: end;
 
   @media (max-width: 706px) {
     width: 30vw;
@@ -906,19 +916,77 @@ a {
   }
 }
 
-//section avec la classe exercice
+// Loupe de recherche à gauche de la search  bar
+#exercices #head article form {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+
+  .searchMobile {
+    width: auto;
+    height: 3vh;
+
+    @media screen and (max-width: 597px) {
+      margin-top: 20px;
+    }
+  }
+}
+
+//section exercice
 #exercices>section {
   width: 100%;
   flex-flow: row wrap;
-  overflow-x: hidden;
   justify-content: space-around;
   height: calc(100vh - $head - $foot);
-  overflow-y: auto;
 
   @media (max-width: 768px) {
     height: calc(100vh - $head - 100px);
   }
+}
 
+// search bar
+#exercices>article:nth-child(2) {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  flex-direction: row;
+
+  @media screen and (max-width:502px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
+}
+
+#exercices>article:nth-child(2)>form {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+#exercices>article:nth-child(2)>div {
+  width: 10%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+// #exercices>article:nth-child(2)>div>img {
+//   width: 1.5vw;
+//   height: 3vh;
+// }
+
+// article ligne dashed
+#exercices>article:nth-child(3) {
+  width: 80%;
+  align-self: center;
+  height: 1vh;
+  background: none;
+  border-bottom: dashed 1px black;
 }
 
 // articles générer avec le ngFor avec la photo ou video et le titre la description 
@@ -930,6 +998,7 @@ a {
   margin: 10px;
   gap: 0.5vw;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 //div des photos ou videos de l'exo
@@ -937,7 +1006,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   text-align: justify;
 
 }
@@ -947,12 +1015,23 @@ a {
   width: 100%;
 }
 
-// div comportant le titre la description et durée materiels
-#exercices article>div {
+//div pour progress bar
+#exercices article>.progress-bar {
   display: flex;
-  flex-flow: column nowrap;
   justify-content: space-between;
-
+  height: 3vh;
+}
+#exercices article>.progress-bar a{
+  color: #bfbfbf;
+}
+.progress-bar .mat-mdc-progress-bar {
+  align-self: center;
+  height: 100%;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 3px;
+  --mdc-linear-progress-active-indicator-color: #f28705;
+  --mdc-linear-progress-track-height: 200px;
 }
 
 // titre de l'exercice
@@ -962,7 +1041,8 @@ a {
   font-size: 1.1rem;
   font-weight: 500;
   align-self: flex-start;
-  color: $sombre;;
+  color: $sombre;
+  ;
 
   @media (max-width: 1024px) {
     font-size: 1.1rem;
@@ -999,8 +1079,9 @@ a {
   justify-content: space-between;
   gap: 1vw;
 }
+
 // div durée et materiel
-#exercices article>div>.exercice-texte>div{
+#exercices article>div>.exercice-texte>div {
   display: flex;
   align-items: center;
   gap: 0.5vw;
@@ -1126,12 +1207,11 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5vw;
-
 
   article:nth-child(1) {
     display: flex;
     justify-content: end;
+    height: 2%;
   }
 
   article:nth-child(2) {
@@ -1139,18 +1219,17 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    height: 98%;
 
     .photo-exo {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 35vh;
-      width: 60vw;
+      width: 50vw;
 
       img {
-        height: 100%;
-        width: 100%;
+        width: 50%;
       }
     }
 
@@ -1158,10 +1237,9 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 40%;
 
       h1 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
       }
 
       p {
@@ -1190,11 +1268,12 @@ a {
     }
 
     button {
-      width: 15vw;
+      width: 12vw;
       height: 4vh;
       font-size: 1rem;
       color: white;
       background-color: $aside-color2;
+      margin-bottom: 50px;
 
       @media screen and (max-width:880px) {
         font-size: 0.9rem;
@@ -1233,7 +1312,7 @@ a {
 #platMenu {
   @media screen and (max-width: 480px) {
     width: calc(100% + 68px); // Pour l'aside Bar    
-    align-items: flex-start;    
+    align-items: flex-start;
     overflow: auto;
   }
 }
@@ -1241,6 +1320,7 @@ a {
 #sectionPrincipale {
   display: flex;
   flex-direction: row;
+
   @media screen and (max-width: 480px) {
     //display: none;
     flex-direction: column;
@@ -1259,6 +1339,7 @@ a {
   overflow-y: scroll;
   overflow-x: auto;
   align-items: center;
+
   @media screen and (max-width: 480px) {
     width: 100%;
   }
@@ -1270,7 +1351,7 @@ a {
     padding: 4vh 2vw;
     font-size: 1vw;
     color: black;
-    
+
   }
 
   .mat-ripple mat-mdc-button-ripple {
@@ -1467,6 +1548,7 @@ a {
   // La balise select AJOUTER
   #ajouter {
     width: 10vw;
+
     @media screen and (max-width : 1200px) {
       width: 12vw;
     }
@@ -1503,6 +1585,7 @@ a {
   color: #ffffff;
   align-items: center;
   gap: 1vw;
+
   @media screen and (max-width: 1280px) {
     display: none; // Invisible en Tablette & Mobile
   }
@@ -1679,10 +1762,12 @@ a {
   overflow-y: scroll;
   overflow-x: auto;
   align-items: center;
+
   @media screen and (max-width: 834px) {
     height: calc(100vh - $head - 100px);
     width: 35%;
-  }  
+  }
+
   @media screen and (max-width: 480px) {
     width: 100%;
     //height: 60%;
@@ -1697,10 +1782,12 @@ a {
     width: 75%;
     padding: 4vh 2vw;
     font-size: 1vw;
-    color: black;    
+    color: black;
+
     @media screen and (max-width: 834px) {
-      padding: 2vh 1.5vw;      
+      padding: 2vh 1.5vw;
     }
+
     @media screen and (max-width: 480px) {
       display: none;
       width: 25vw;
@@ -1725,10 +1812,12 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 1.1rem;
     }
+
     @media screen and (max-width: 834px) {
       font-size: 0.8rem;
       margin: 2vh 0 2vh 0;
     }
+
     @media screen and (max-width: 480px) {
       margin-top: 0;
     }
@@ -1740,11 +1829,13 @@ a {
     flex-direction: row;
     gap: 2vw;
     margin-bottom: 1vh;
+
     //padding-left: 1vw;
     //width: 80%;
     @media screen and (max-width: 834px) {
       gap: 1vw;
     }
+
     @media screen and (max-width: 480px) {
       gap: 2vw;
       justify-content: center;
@@ -1757,10 +1848,12 @@ a {
       height: 4vh;
       font-size: 0.6vw;
       color: white;
+
       @media screen and (max-width: 834px) {
         width: 4vw;
         height: 3vh;
       }
+
       @media screen and (max-width: 480px) {
         width: 20vw;
         height: 3vh;
@@ -1783,8 +1876,10 @@ a {
       background-color: #D9042B;
     }
 
-    button:nth-child(4) { // Le bouton ajouter un menu - visible seulement en mobile
+    button:nth-child(4) {
+      // Le bouton ajouter un menu - visible seulement en mobile
       display: none;
+
       @media screen and (max-width: 480px) {
         display: block;
         background-color: #805E96;
@@ -1796,7 +1891,7 @@ a {
   #filter {
     display: flex;
     flex-direction: row;
-    justify-content: center;    
+    justify-content: center;
     width: 100%;
 
     button {
@@ -1805,10 +1900,12 @@ a {
       height: 4vh;
       font-size: 0.6vw;
       color: white;
+
       @media screen and (max-width: 834px) {
         width: 8vw;
         height: 3vh;
       }
+
       @media screen and (max-width: 480px) {
         width: 20vw;
         height: 3vh;
@@ -1834,12 +1931,14 @@ a {
         margin: 2vh 2vh 0 0;
         font-size: 1.4rem;
         font-weight: 500;
+
         @media screen and (max-width : 1200px) {
           font-size: 1.1rem;
         }
+
         @media screen and (max-width: 834px) {
           font-size: 0.8rem;
-        }        
+        }
       }
 
       h2:hover {
@@ -1854,10 +1953,11 @@ a {
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
+
         @media screen and (max-width: 834px) {
           font-size: 0.6rem;
-        }        
-      }      
+        }
+      }
 
       // Contient un bouton (ou une pastille), 2 images et 2 balise
       div {
@@ -1872,10 +1972,12 @@ a {
           height: 30px;
           margin-right: 2vw;
           border-radius: 50%;
+
           @media screen and (max-width: 1024px) {
             width: 20px;
             height: 20px;
           }
+
           @media screen and (max-width: 834px) {
             width: 15px;
             height: 15px;
@@ -1910,6 +2012,7 @@ a {
         img {
           height: 2vh;
           width: 2vw;
+
           @media screen and (max-width: 480px) {
             height: 15px;
             width: 15px;
@@ -1919,6 +2022,7 @@ a {
         p {
           padding: 1vh;
           font-size: 0.8vw;
+
           @media screen and (max-width: 480px) {
             font-size: 0.6rem;
           }
@@ -1942,13 +2046,16 @@ a {
   margin-left: 4vw;
   padding-right: 4vw;
   overflow: auto;
+
   @media screen and (max-width: 834px) {
-    height: calc(100vh - $head - 100px);  
+    height: calc(100vh - $head - 100px);
     width: 65%;
   }
+
   @media screen and (max-width: 834px) {
     font-size: 1rem;
   }
+
   @media screen and (max-width: 480px) {
     width: auto;
     margin-top: 2vh;
@@ -1959,12 +2066,15 @@ a {
     font-size: 1.6rem;
     font-weight: 500;
     color: #4A4A4A;
+
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
     }
+
     @media screen and (max-width : 834px) {
       font-size: 1.1rem;
     }
+
     @media screen and (max-width: 480px) {
       display: none;
     }
@@ -1977,6 +2087,7 @@ a {
     flex-direction: row;
     gap: 1vw;
     align-items: center;
+
     @media screen and (max-width: 480px) {
       margin-top: 2vh;
     }
@@ -1985,6 +2096,7 @@ a {
     img {
       height: 3vh;
       width: 3vh;
+
       @media screen and (max-width : 834px) {
         height: 2vh;
         width: 2vh;
@@ -1993,59 +2105,67 @@ a {
 
     mat-form-field {
       @media screen and (max-width : 834px) {
-        width: 15vw;       
+        width: 15vw;
       }
+
       @media screen and (max-width: 480px) {
-        width: 25vw;        
+        width: 25vw;
       }
     }
 
     // La balise select "Les plats de la communautés"
     mat-form-field:nth-child(3) {
-      width: 18vw;  
+      width: 18vw;
+
       @media screen and (max-width: 480px) {
-        width: 25vw;        
-      }    
+        width: 25vw;
+      }
     }
   }
 
   // Le label des balises select
   mat-label {
     font-size: 0.9rem;
+
     @media screen and (max-width : 1200px) {
       font-size: 0.8rem;
     }
+
     @media screen and (max-width : 834px) {
-      font-size: 0.6rem;  
+      font-size: 0.6rem;
     }
   }
 
   // Le nom des menus dans le select
   mat-select {
     @media screen and (max-width : 834px) {
-      font-size: 0.6rem;        
+      font-size: 0.6rem;
     }
   }
 
-    .mat-mdc-text-field-wrapper { // La taille du label et la fléche dans les balises select
+  .mat-mdc-text-field-wrapper {
+
+    // La taille du label et la fléche dans les balises select
     @media screen and (max-width : 480px) {
       height: 6vh;
-      align-items: center;      
+      align-items: center;
     }
   }
 
   span:nth-child(3) {
     display: flex;
     flex-direction: column;
+
     @media screen and (max-width : 834px) {
       p {
         font-size: 0.8rem;
-      }           
+      }
     }
+
     @media screen and (max-width : 480px) {
       p {
         font-size: 0.6rem;
-      }           
+      }
     }
   }
 
@@ -2059,22 +2179,26 @@ a {
     @media screen and (max-width : 1200px) {
       font-size: 1.3rem;
     }
+
     @media screen and (max-width : 834px) {
       font-size: 1rem;
     }
-    @media screen and (max-width : 480px) {      
-      font-size: 0.8rem;              
+
+    @media screen and (max-width : 480px) {
+      font-size: 0.8rem;
     }
   }
 
   textarea {
     min-height: 10vh;
+
     @media screen and (max-width : 834px) {
       font-size: 0.8rem;
     }
+
     @media screen and (max-width : 480px) {
       font-size: 0.6rem;
-    }    
+    }
   }
 
   // La div sous le textarea
@@ -2087,6 +2211,7 @@ a {
     border-bottom: dashed black 1px;
     text-align: center;
     gap: 1vw;
+
     @media screen and (max-width : 480px) {
       gap: 1.5vw;
     }
@@ -2094,8 +2219,7 @@ a {
 
   span:nth-child(3)>span {
     display: flex;
-    flex-direction: column 
-    // align-items: center;
+    flex-direction: column // align-items: center;
   }
 
   span:nth-child(3)>span>p:nth-child(1) {
@@ -2112,15 +2236,18 @@ a {
   #ajouter {
     width: 10vw;
     margin-top: 2vh;
+
     @media screen and (max-width : 1200px) {
       width: 12vw;
     }
+
     @media screen and (max-width : 834px) {
       font-size: 0.8rem;
-      width: 15vw;      
+      width: 15vw;
     }
+
     @media screen and (max-width : 480px) {
-      width: 25vw;      
+      width: 25vw;
     }
   }
 
@@ -2133,18 +2260,22 @@ a {
     border-bottom: dashed black 1px;
     padding: 2vh;
 
-    button:nth-child(1) { // Le bouton supprimer
+    button:nth-child(1) {
+      // Le bouton supprimer
       background-color: #F28705;
       font-size: 0.8vw;
+
       @media screen and (max-width : 834px) {
         width: 4vw;
         height: 3vh;
-      }      
+      }
     }
 
-    button:nth-child(2) { // Le bouton valider
+    button:nth-child(2) {
+      // Le bouton valider
       background-color: #33BB27;
       font-size: 0.8vw;
+
       @media screen and (max-width : 834px) {
         width: 4vw;
         height: 3vh;
@@ -2170,38 +2301,49 @@ a {
       //justify-content: center;
       align-items: center;
       gap: 1vw;
+
       @media screen and (max-width: 480px) {
         margin-right: 1vw;
       }
+
       mat-label {
         font-size: 0.9rem;
+
         @media screen and (max-width : 1200px) {
           font-size: 0.8rem;
         }
+
         @media screen and (max-width : 834px) {
           font-size: 0.6rem;
         }
-      }  
+      }
+
       mat-form-field {
         width: 16vw;
-        @media screen and (max-width : 1200px) {          
+
+        @media screen and (max-width : 1200px) {
           width: 22vw;
         }
+
         @media screen and (max-width : 834px) {
           font-size: 0.6rem;
           width: 22vw;
         }
+
         @media screen and (max-width : 480px) {
-          width: 30vw;      
+          width: 30vw;
         }
-      }      
+      }
+
       button {
         background-color: #f0c02e;
+
         @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
         }
+
         @media screen and (max-width : 480px) {
           font-size: 1.4vw;
           width: 15vw;
@@ -2217,11 +2359,13 @@ a {
 
       button:nth-child(1) {
         background-color: #F28705;
+
         @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
         }
+
         @media screen and (max-width : 480px) {
           font-size: 1.4vw;
           width: 15vw;
@@ -2231,11 +2375,13 @@ a {
 
       button:nth-child(2) {
         background-color: #33BB27;
+
         @media screen and (max-width : 834px) {
           font-size: 1vw;
           width: 5vw;
           height: 3vh;
         }
+
         @media screen and (max-width : 480px) {
           font-size: 1.4vw;
           width: 15vw;
@@ -2254,6 +2400,7 @@ a {
   width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 
   @media screen and (max-width:715px) {
     height: 100vh;
@@ -2265,25 +2412,26 @@ a {
   }
 }
 
+
+
 // design input des pages programmes
 #input-programmes {
   height: 3vh;
   width: 15vw;
-  margin-left: 5vw;
-  
+
   @media screen and (max-width:938px) {
     width: 20vh;
   }
 
   @media screen and (max-width:596px) {
     width: 15vh;
+    display: none;
   }
 }
 
 #input-ckeckbox {
-  height: 2.5vh;
-  width: 2vw;
-  margin-left: 3vw;
+  height: 3vh;
+  width: 4vw;
 }
 
 // PAGE RECETTES

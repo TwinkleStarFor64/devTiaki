@@ -102,3 +102,8 @@ export interface TableauReussiteI {
 export interface OrganismeI {
   nomOrganisme: string;
 }
+
+export interface SanteI {
+  img: string;
+  nom: string;
+}

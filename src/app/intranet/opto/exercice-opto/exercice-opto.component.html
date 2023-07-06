@@ -2,6 +2,8 @@
   <header id="head">
     <a routerLink="/intranet">Tiaki</a>
     <p>Optométrie > Choisir un exercice</p>
+  </header>
+  <!-- Article contenant le formulaire permettant de rechercher les exercices -->
     <article>
       <form class="example-form">
         <input
@@ -27,9 +29,22 @@
             {{ exercice.title }}
           </mat-option>
         </mat-autocomplete>
+        <input  type="checkbox"
+        id="input-ckeckbox"
+        name="jamaisFait"
+        value="jamaisFait">
+        <span>Tenir compte de mes allergies</span>
+        <input  type="checkbox"
+        id="input-ckeckbox"
+        name="jamaisFait"
+        value="jamaisFait">
+        <span>Jamais faites</span>
       </form>
+     <div>
+       <img class="searchMobile" src="assets/iconeKineOpto/loupe.png">
+     </div> 
     </article>
-  </header>
+  <article></article>
   <section>
     <article *ngFor="let exercice of exercicesFiltres">
       <div (click)="openDialog(exercice)"  class="photo-exo">
@@ -44,13 +59,13 @@
             <p>
               <!-- (mouseenter)="exerciceDureeSurvole = exercice"
               (mouseleave)="exerciceDureeSurvole = null" -->
-              Durée:
+              Durée
             </p>
             <img
               [src]="sanity.urlFor(exercice.materielIcon).url()"
               alt="materiel"
             />
-            <p>Matériels:</p>
+            <p>Matériels</p>
           </div>
         </div>
       </div>

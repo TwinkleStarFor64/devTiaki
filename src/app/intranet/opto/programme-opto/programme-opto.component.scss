@@ -10,17 +10,15 @@ $aside-color3: #f0c02e;
   color: $card-opto;
 }
 
-#programmes{
-  ::-webkit-scrollbar {
-    background-color: #ffb341;
-    width: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    height: 200px;
-    background-color: $card-opto;
-  }
+::-webkit-scrollbar {
+  background-color: #f7b757;
+  width: 10px;
 }
 
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: #f28705;
+}
 #programmes>#head>a,
 #programmes>#head>p {
   color: $card-opto;
