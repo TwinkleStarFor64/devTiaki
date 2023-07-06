@@ -998,6 +998,7 @@ a {
   margin: 10px;
   gap: 0.5vw;
   justify-content: space-between;
+  cursor: pointer;
 }
 
 //div des photos ou videos de l'exo
@@ -1005,7 +1006,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   text-align: justify;
 
 }
@@ -1207,12 +1207,11 @@ a {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5vw;
-
 
   article:nth-child(1) {
     display: flex;
     justify-content: end;
+    height: 2%;
   }
 
   article:nth-child(2) {
@@ -1220,18 +1219,17 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    height: 98%;
 
     .photo-exo {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 35vh;
-      width: 60vw;
+      width: 50vw;
 
       img {
-        height: 60%;
-        width: 100%;
+        width: 50%;
       }
     }
 
@@ -1239,8 +1237,6 @@ a {
       display: flex;
       flex-direction: column;
       align-items: center;
-      height: 40%;
-      gap: 3vw;
 
       h1 {
         font-size: 1.1rem;
@@ -1260,7 +1256,6 @@ a {
         display: flex;
         flex-direction: row;
         align-items: center;
-        height: 5vh;
 
         img {
           height: 30px;
@@ -1273,7 +1268,7 @@ a {
     }
 
     button {
-      width: 15vw;
+      width: 12vw;
       height: 4vh;
       font-size: 1rem;
       color: white;
