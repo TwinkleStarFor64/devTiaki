@@ -23,7 +23,7 @@ $foot: 150px; // Hauteur des menus du bas
 #main {
   // La section principale englobe tout le code HTML
   flex-flow: column nowrap;
-  height: calc(100vh - $foot);
+  height: calc(100vh - $foot);  
   // Ci-dessous le CSS de la scrollBar pour firefox
   overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
@@ -66,52 +66,61 @@ $foot: 150px; // Hauteur des menus du bas
       //height: calc(100vh - $head - $foot);
       height: 100vh;
       padding-left: 2%;
-      overflow-y: auto;
+      overflow-y: hidden;
       overflow-x: hidden;     
       @media screen and (max-width: 480px) {
         width: 100%;
         height: 40vh;        
-      }
+      }      
 
-      h1 {
-        // La balise <h1>Ingrédients</h1>
-        margin: 0 0 2vh 0;
-        padding: 1vh 1vh 1vh 0;
-        width: 70%;
-        font-size: 1.5rem;
-        font-weight: 500;
-        color: #f22f1d;
-        border-bottom: dashed 1px #f22f1d;
-        @media screen and (max-width: 834px) {
-          font-size: 1.2rem;
-        }
-      }
-
-      input {
-        // L'input de recherche des ingrédients
-        width: 95%;
-        height: 3.5vh;
-        font-size: 1rem;
-        @media screen and (max-width: 834px) {
-          height: 3vh;
-          font-size: 0.8rem;
-        }
-        
-      }
-
-      article {
-        width: 97%;
-        h2 {
-          // Le nom des ingrédients dans la liste de recherche
-          font-size: 1rem;
-          font-weight: normal;
-          margin: 2vh 0 0 0;
-          border: #C4C4C4 solid 2px;
-          border-radius: 5%;
-          padding: 1vh;
-          width: 90%;
+      span:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        height: 12vh;        
+        h1 {
+          // La balise <h1>Ingrédients</h1>
+          margin: 0 0 2vh 0;
+          padding: 1vh 1vh 1vh 0;
+          width: 70%;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #f22f1d;
+          border-bottom: dashed 1px #f22f1d;
           @media screen and (max-width: 834px) {
-            font-size: 0.7rem;
+            font-size: 1.2rem;
+          }
+        }
+        input {
+          // L'input de recherche des ingrédients
+          width: 95%;
+          height: 3.5vh;
+          font-size: 1rem;
+          @media screen and (max-width: 834px) {
+            height: 3vh;
+            font-size: 0.8rem;
+          }        
+        }
+      }
+
+      span:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        height: 100vh;      
+        article {
+          width: 97%;
+          h2 {
+            // Le nom des ingrédients dans la liste de recherche
+            font-size: 1rem;
+            font-weight: normal;
+            margin: 2vh 0 0 0;
+            border: #C4C4C4 solid 2px;
+            border-radius: 5%;
+            padding: 1vh;
+            width: 90%;
+            @media screen and (max-width: 834px) {
+              font-size: 0.7rem;
+            }
           }
         }
       }
@@ -123,7 +132,7 @@ $foot: 150px; // Hauteur des menus du bas
       //La seconde div qui contient la description de l'ingrédient sélectionné
       width: 75%;
       display: flex;
-      justify-content: center;
+      justify-content: center;      
       @media screen and (max-width: 480px) {
         width: 100%;       
       }      
@@ -133,6 +142,8 @@ $foot: 150px; // Hauteur des menus du bas
         width: 92%;
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
+        height: 100vh;
 
         span:nth-child(1) {
           //La première balise span contient le nom de l'ingrédient afficher comme un titre et l'input avec la checkbox

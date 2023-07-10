@@ -5,18 +5,22 @@
   </header>
 <section id="nutrition">
   <div>
-    <h1>Ingrédients</h1>
-    <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
-    <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
-    <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
-    <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
-    <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
-    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
-      <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
-      <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
-      <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
-      <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
-    </article>
+    <span>
+      <h1>Ingrédients</h1>
+      <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
+      <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->    
+      <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
+    </span>
+    <span>
+      <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
+      <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
+      <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
+        <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
+        <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
+        <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
+        <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
+      </article>
+    </span>
   </div>
   <div>
     <!-- *ngIf selectedIngredient appeler avec la méthode onSelect - declaré ligne 17 dans ingredients.component.ts -->
