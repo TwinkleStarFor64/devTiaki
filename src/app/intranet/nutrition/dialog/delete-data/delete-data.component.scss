@@ -6,7 +6,13 @@ article {
     text-align: center;
     mat-icon {
         cursor: pointer;
-        float: right;
+        font-size: 32px;
+        height: auto;
+        width: auto;
+        margin: 5px 5px 0 0px;
+    }
+    div:nth-child(1) { // La div qui contient l'icône de croix
+        justify-content: flex-end;
     }
     div {
         display: flex;

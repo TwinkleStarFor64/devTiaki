@@ -8,13 +8,19 @@ section {
   flex-direction: column;
   mat-icon {
     cursor: pointer;
-    float: right;
+    font-size: 32px;
+    height: auto;
+    width: auto;
+    margin: 5px 5px 0 0px;
   }
   article:nth-child(1) {
     // La balise article avec l'icône de fermeture de la modal et la balise <p>
     display: flex;
     flex-direction: column;
     text-align: center;
+    div { // La div avec l'icône de femerture
+      text-align: end;
+    }
     p { // Le contenu de la balise <p> viens de menus.component.ts
       font-size: 1.5vw;
       @media screen and (max-width : 834px) {
