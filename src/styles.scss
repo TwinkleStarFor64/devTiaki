@@ -1211,7 +1211,15 @@ a {
   article:nth-child(1) {
     display: flex;
     justify-content: end;
-    height: 2%;
+
+
+    .mat-icon {
+      cursor: pointer;
+      font-size: 32px;
+      height: auto;
+      width: auto;
+      margin: 5px 5px 0 0px;
+    }
   }
 
   article:nth-child(2) {
