@@ -14,12 +14,23 @@
     <span>
       <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
       <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
-      <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
+      <article *ngFor="let ingredient of composition.ciqual.slice(currentPage * 20, (currentPage + 1) * 20) | aliments:filtre let i=index">
         <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
         <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
         <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
         <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
-      </article>
+      </article>      
+    </span>
+    <span>
+      <!-- [pageSizeOptions]="[10, 25, 100]" -->
+      <mat-paginator 
+        [length]="composition.ciqual.length"
+        [pageSize]="20"        
+        aria-label="Pagination"
+        [showFirstLastButtons]="true"
+        (page)="currentPage = $event.pageIndex">
+        
+      </mat-paginator>
     </span>
   </div>
   <div>

@@ -25,6 +25,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
 import { MatOptionModule } from '@angular/material/core';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
-    MatOptionModule    
+    MatOptionModule,
+    MatPaginatorModule      
   ]  
 })
 export class NutritionModule {}
