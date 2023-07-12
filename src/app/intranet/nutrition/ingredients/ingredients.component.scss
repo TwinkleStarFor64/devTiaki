@@ -95,6 +95,7 @@ $foot: 150px; // Hauteur des menus du bas
           width: 95%;
           height: 3.5vh;
           font-size: 1rem;
+          font-family: $font-family;
           @media screen and (max-width: 834px) {
             height: 3vh;
             font-size: 0.8rem;
@@ -111,6 +112,7 @@ $foot: 150px; // Hauteur des menus du bas
           width: 97%;
           h2 {
             // Le nom des ingrédients dans la liste de recherche
+            //font-family: $font-family;
             font-size: 1rem;
             font-weight: normal;
             margin: 2vh 0 0 0;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
-import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
 class MyPaginatorIntl extends MatPaginatorIntl {
@@ -38,15 +38,16 @@ export class IngredientsComponent implements OnInit {
   selectedPlat?: MesPlatsI;
 
   currentPage = 0; // Page actuelle pour MatPaginator 
-  itemsPerPage = 20;
-
+  itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
+  
+  
   constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
     this.composition.getCiqual();
-    this.composition.getMesPlats();
+    this.composition.getMesPlats();    
 
     // Ci-dessous je modifie les labels de MatPaginator en initialisant une nouvelle instance de la classe
     const myPaginatorIntl = new MyPaginatorIntl();
@@ -75,7 +76,18 @@ export class IngredientsComponent implements OnInit {
 
   onMesPlats(plat: MesPlatsI): void {
     this.selectedPlat = plat;
+  } 
+ 
+  onFilterChange() {
+    if (this.filtre === '') {
+      this.currentPage = 0; 
+      
+    }
   }
-  
-  
+
+  handlePageEvent(event: PageEvent) {
+    console.log(event.pageIndex);
+    this.currentPage = event.pageIndex;
+  }
+
 }

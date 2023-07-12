@@ -21,11 +21,16 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
     display: none!important;  
 }
 // Le label 'x sur x' de mat-paginator
-.mat-mdc-paginator-range-label{
+.mat-mdc-paginator-range-label {
   margin: 0!important;
+  font-family: $font-family;
   @media screen and (max-width: 1310px) {
     display: none;
   }
+}
+// La couleurs des fléches dans la pagination
+.mat-mdc-paginator-icon {
+  fill: red;
 }
 
 .mat-mdc-option {
@@ -2560,7 +2565,7 @@ body {
   height: 100%;
 }
 
-body {
+/*  body { // Pourquoi c'est ici ça ??!!
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+}  */
