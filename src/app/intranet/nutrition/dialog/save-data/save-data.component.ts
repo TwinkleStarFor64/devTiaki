@@ -16,7 +16,7 @@ export class SaveDataComponent implements OnInit {
   
   filtre: string = ''; // Utiliser comme filtre dans ngModel et le pipe aliments
   //public searchControl : FormControl = new FormControl(); // Pour ngx-mat-select-search 
-  filtreControl = new FormControl(); // Pour ngx-mat-select-search 
+  filtreControl = new FormControl(); // Pour ngx-mat-select-search   
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>,
                private formBuilder: FormBuilder, public supa: SupabaseService, public menuService: MenusService ) {}

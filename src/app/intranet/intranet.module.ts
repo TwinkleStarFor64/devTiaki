@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { PaginationPipe } from './utils/pipes/pagination.pipe';
 
 
 
@@ -24,6 +25,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     TableauComponent,
     ButtonComponent,
     CustomAccordionComponent,
+    PaginationPipe,
 
     
   ],

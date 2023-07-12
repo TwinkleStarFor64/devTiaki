@@ -25,7 +25,7 @@ $foot: 150px; // Hauteur des menus du bas
   flex-flow: column nowrap;
   height: calc(100vh - $foot);  
   // Ci-dessous le CSS de la scrollBar pour firefox
-  overflow-y: auto;
+  //overflow-y: auto;
   scrollbar-color: $card-nutri #e7adb7;
   scrollbar-width: auto;
   @media screen and (max-width: 834px) {
@@ -137,16 +137,16 @@ $foot: 150px; // Hauteur des menus du bas
           justify-content: center; 
           width: 95%;       
         }
-        
-
       }
     }// <--------- Fin de la div contenant le menu de recherche    
 
-    div:nth-child(2) {
+    #selectedIngredient {
       //La seconde div qui contient la description de l'ingrédient sélectionné
       width: 75%;
       display: flex;
-      justify-content: center;      
+      justify-content: center;  
+      overflow-y: auto;  
+      height: calc(100vh - $foot - $head);  
       @media screen and (max-width: 480px) {
         width: 100%;       
       }      
@@ -156,8 +156,6 @@ $foot: 150px; // Hauteur des menus du bas
         width: 92%;
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
-        height: 100vh;
 
         span:nth-child(1) {
           //La première balise span contient le nom de l'ingrédient afficher comme un titre et l'input avec la checkbox

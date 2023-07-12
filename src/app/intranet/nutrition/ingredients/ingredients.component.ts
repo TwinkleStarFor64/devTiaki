@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
-import { PageEvent } from '@angular/material/paginator';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
@@ -39,8 +38,7 @@ export class IngredientsComponent implements OnInit {
   selectedPlat?: MesPlatsI;
 
   currentPage = 0; // Page actuelle pour MatPaginator 
-  showItemsPerPageLabel = true;
-  showRangeLabel = true; 
+  itemsPerPage = 20;
 
   constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
@@ -57,13 +55,7 @@ export class IngredientsComponent implements OnInit {
     this.paginatorIntl.previousPageLabel = myPaginatorIntl.previousPageLabel;
     this.paginatorIntl.firstPageLabel = myPaginatorIntl.firstPageLabel;
     this.paginatorIntl.lastPageLabel = myPaginatorIntl.lastPageLabel;
-    this.paginatorIntl.getRangeLabel = myPaginatorIntl.getRangeLabel;
-
-    const screenWidth = window.innerWidth;
-    if (screenWidth < 600) {
-    this.showItemsPerPageLabel = false;
-    this.showRangeLabel = false;
-    }
+    this.paginatorIntl.getRangeLabel = myPaginatorIntl.getRangeLabel;    
   }
 
   //Méthode onSelect pour afficher les informations de l'aliment sur lequel j'ai cliqué - le paramétre aliment et de type CiqualI (interface)

@@ -15,19 +15,22 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
+
+// Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {  
     display: none!important;  
-  //background-color: #d9042b;
 }
-
+// Le label 'x sur x' de mat-paginator
 .mat-mdc-paginator-range-label{
-  //display: none;
   margin: 0!important;
+  @media screen and (max-width: 1310px) {
+    display: none;
+  }
 }
 
 .mat-mdc-option {
   // Pour les options de choix dans tout les menus déroulants
-  @media screen and (max-width : 834px) {
+  @media screen and (max-width: 834px) {
     font-size: 0.6rem;
   }
 }
