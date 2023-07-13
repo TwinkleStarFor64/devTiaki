@@ -37,7 +37,8 @@
         [pageSize]="itemsPerPage"      
         aria-label="Pagination"
         [showFirstLastButtons]="true"
-        (page)="currentPage = $event.pageIndex">        
+        (page)="currentPage = $event.pageIndex"
+        [pageIndex]="currentPage">        
       </mat-paginator>
     </span>
   </ng-container>

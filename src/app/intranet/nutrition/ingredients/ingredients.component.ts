@@ -10,6 +10,7 @@ class MyPaginatorIntl extends MatPaginatorIntl {
   override previousPageLabel = 'Page précédente';
   override firstPageLabel = 'Première page';
   override lastPageLabel = 'Dernière page';
+
   // Ci-dessous je modifie juste le label 'of' par 'sur' la méthode de calcul est celle par défaut
   // Plus d'infos ici : https://stackoverflow.com/questions/54057030/how-to-change-itemsperpagelabel-in-mat-paginator-in-angular-6
   override getRangeLabel = (page: number, pageSize: number, length: number) => {
@@ -39,7 +40,7 @@ export class IngredientsComponent implements OnInit {
 
   currentPage = 0; // Page actuelle pour MatPaginator 
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
-  
+  filteredIngredients: any[] = [];
   
   constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
@@ -79,7 +80,7 @@ export class IngredientsComponent implements OnInit {
   } 
  
   onFilterChange() {
-    if (this.filtre === '') {
+    if (this.filtre === '' || this.filtre != '') {
       this.currentPage = 0; 
       
     }
