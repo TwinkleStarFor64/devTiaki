@@ -3,7 +3,7 @@
     <a routerLink="/intranet">Tiaki</a>
     <p>Journal des Repas</p>
   </header>
-  <article>
+<!--   <article>
     <img src="assets/Calendar_section.svg" alt="calendrier" />
     <img src="assets/jourRepas.svg" alt="repas" />
   </article>
@@ -32,7 +32,63 @@
     <div>
       <img src="assets/jourRepas.svg" alt="">
     </div>
+  </article> -->
+
+<!-- Tuto Angular Calendar - Partie 1 : https://www.youtube.com/watch?v=jebIV9lgS64 -->
+<!-- Tuto Angular Calendar - Partie 2 : https://www.youtube.com/watch?v=BtgJXnppJw8 -->
+<div id="divMain">
+  <article id="calendrier">
+    <div>
+      <span>
+        <button mat-raised-button mwlCalendarPreviousView [(viewDate)]="viewDate" [view]="view"><</button>
+        <button mat-raised-button mwlCalendarToday [(viewDate)]="viewDate">Aujourd'hui</button>
+        <button mat-raised-button mwlCalendarNextView [(viewDate)]="viewDate" [view]="view">></button>
+      </span>
+      <p>{{ viewDate | calendarDate:(view + "ViewTitle") : 'fr' }}</p>
+      <span>
+        <button mat-raised-button (click)="setView(CalendarView.Month)" (click)="selectedButton = 0" [class.selected]="selectedButton === 0" >Mois</button>
+        <button mat-raised-button (click)="setView(CalendarView.Week)" (click)="selectedButton = 1" [class.selected]="selectedButton === 1" >Semaine</button>
+        <button mat-raised-button (click)="setView(CalendarView.Day)" (click)="selectedButton = 2" [class.selected]="selectedButton === 2" >Jour</button>
+      </span>
+    </div>
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view 
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate" 
+      [events]="events" 
+      [activeDayIsOpen]="activeDayIsOpen" 
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-month-view>
+      <mwl-calendar-week-view 
+      *ngSwitchCase="CalendarView.Week" 
+      [viewDate]="viewDate" 
+      [events]="events"
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)" 
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-week-view>
+      <mwl-calendar-day-view 
+      *ngSwitchCase="CalendarView.Day" 
+      [viewDate]="viewDate" 
+      [events]="events" 
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-day-view>
+    </div>
   </article>
+  <article id="interface">
+    <p>Interface d'ajout de plat</p>
+  </article>
+</div>
+
+  
   <!-- <app-footer></app-footer> -->
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>

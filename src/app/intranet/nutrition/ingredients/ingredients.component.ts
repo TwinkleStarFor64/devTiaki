@@ -40,8 +40,7 @@ export class IngredientsComponent implements OnInit {
 
   currentPage = 0; // Page actuelle pour MatPaginator 
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
-  filteredIngredients: any[] = [];
-  
+    
   constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
   ngOnInit(): any {
@@ -79,16 +78,18 @@ export class IngredientsComponent implements OnInit {
     this.selectedPlat = plat;
   } 
  
+// Méthode utilisé dans l'input afin de réinitialiser [pageIndex] de paginator
+// Si l'input et vide ou pas vide l'index est défini à 0 afin de retrouver l'affichage initial
   onFilterChange() {
-    if (this.filtre === '' || this.filtre != '') {
-      this.currentPage = 0; 
-      
+    if (this.filtre === '' || this.filtre != '') { // Variable filtre utilisé dans ngModel de l'input
+      this.currentPage = 0;       
     }
   }
 
+// Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)" 
   handlePageEvent(event: PageEvent) {
     console.log(event.pageIndex);
-    this.currentPage = event.pageIndex;
+    //this.currentPage = event.pageIndex;
   }
 
 }

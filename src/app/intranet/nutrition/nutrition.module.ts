@@ -25,7 +25,26 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
 import { MatOptionModule } from '@angular/material/core';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CalendarDateFormatter, CalendarModule, CalendarNativeDateFormatter, DateAdapter, DateFormatterParams } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
+
+// Pour Angular Calendar - Modification du format date et heure en Français
+class CustomDateFormatter extends CalendarNativeDateFormatter {
+
+  public override dayViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+
+  public override weekViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+}
+
 
 
 @NgModule({
@@ -42,8 +61,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BottomBarNutriComponent,
     SaveDataComponent,
     DeleteDataComponent,
-    SavePlatComponent,
-    
+    SavePlatComponent,    
   ],
   imports: [
     CommonModule,
@@ -60,7 +78,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
     MatOptionModule,
-    MatPaginatorModule      
+    MatPaginatorModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar        
+  ],
+  providers: [
+    {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus
   ]  
 })
 export class NutritionModule {}

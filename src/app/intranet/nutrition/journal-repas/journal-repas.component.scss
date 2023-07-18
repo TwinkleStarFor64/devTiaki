@@ -4,6 +4,7 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
+$font-family: "Raleway", sans-serif;
 
 $clair: white;
 $sombre: black;
@@ -11,7 +12,7 @@ $sombre: black;
 $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas  
 
-section {
+/* section {
   flex-flow: column nowrap;
   height: calc(100vh - $foot);
   @media screen and (max-width: 834px) {
@@ -142,4 +143,98 @@ section {
       }
     }
   }
+} */
+
+
+// CSS pour tout les boutons
+button {
+  font-family: $font-family;
+    font-size: 0.8vw;
+    width: 7vw;
+    @media screen and (max-width: 834px) {
+        width: 11vw;
+        font-size: 0.7rem;
+    }
+    @media screen and (max-width: 480px) {
+        width: 20vw;
+        font-size: 0.6rem;
+    }
+  }
+// CSS pour les boutons cliqués - J'utilise [class.selected] dans le Html
+  .selected {
+    background-color: #805E96!important;
+    color: white!important;
+  }
+
+section {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+  @media screen and (max-width: 834px) {
+    height: calc(100vh - 100px);
+  }
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 68px); // Pour l'aside Bar
+    overflow: auto;
+  }
+
+  #head>p {
+    color: $card-nutri;
+  }
+
+  #head>p:after {
+    content: '   ......';
+    font-size: 50%;
+  }
+
+  #head>a:nth-child(1) {
+    color: $card-nutri;
+  }
+
+// La div principale qui englobe les 2 articles
+  #divMain {
+    //height: calc(100vh - $foot);
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    #calendrier { // L'article contenant le calendrier et ces boutons
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - $foot); 
+      width: 60vw;      
+      div:nth-child(1) { // La div avec tout les boutons et la date dans une balise <p>
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+        span:nth-child(1) {
+          button {
+            
+          }
+        }
+        p { // La date en texte
+          font-size: 1.5rem;
+        }
+        span:nth-child(2) {
+          button {
+            
+          }
+        }
+      }  
+  
+      div:nth-child(2) { // La div contenant le calendrier
+        overflow-y: auto; 
+        height: 60vh;      
+      }      
+    } //<------- Fin du premier article
+
+    #interface { // L'article contenant l'interface d'ajout
+      background-color: #805E96;
+      height: 70vh;
+      width: 30vw;
+      
+    }
+
+  }
+
 }
