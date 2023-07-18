@@ -16,6 +16,9 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
+.cal-event-title { // Le texte dans le calendrier
+  color: #ffffff;
+}
 
 // Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {  

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRoutingModule } from './nutrition-routing.module';
 import { JournalRepasComponent } from './journal-repas/journal-repas.component';
@@ -33,6 +33,7 @@ import localeFr from '@angular/common/locales/fr';
 
 registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
 
+@Injectable() // Pour l'erreur de dépréciation
 // Pour Angular Calendar - Modification du format date et heure en Français
 class CustomDateFormatter extends CalendarNativeDateFormatter {
 
