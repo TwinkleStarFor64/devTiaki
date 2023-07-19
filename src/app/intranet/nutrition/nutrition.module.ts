@@ -30,7 +30,8 @@ import { CalendarDateFormatter, CalendarModule, CalendarNativeDateFormatter, Dat
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
 
@@ -82,7 +83,8 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     MatOptionModule,
     MatPaginatorModule,
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar 
-    MatCheckboxModule       
+    MatCheckboxModule,
+    MatRadioModule       
   ],
   providers: [
     {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus

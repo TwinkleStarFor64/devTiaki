@@ -145,6 +145,16 @@ $foot: 150px; // Hauteur des menus du bas
   }
 } */
 
+// Ci-dessous le CSS de la scrollBar pour chrome et autres navigateurs sauf firefox
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
 
 // CSS pour tout les boutons
 button {
@@ -223,19 +233,79 @@ section {
       }  
   
       div:nth-child(2) { // La div contenant le calendrier
-        overflow-y: auto; 
-        height: 60vh;      
-      }      
+        overflow-y: auto;
+        scrollbar-color: red;
+        height: 60vh; 
+        margin-left: 1vw;     
+      }   
+      
+      div:nth-child(3) { // La div avec le lexique des couleurs
+        display: flex;
+        flex-direction: row;
+        margin-left: 1vw; 
+        gap: 0.5vw;
+        justify-content: center;
+        #blocPositif {
+          background-color: #33BB27;
+          height: 2vh;
+          width: 3vw;
+          border-radius: 10%;
+        }
+        #blocObservations {
+          background-color: #F0C02E;
+          height: 2vh;
+          width: 3vw;
+          border-radius: 10%;
+        }
+        #blocAllergies {
+          background-color: #D9042B;
+          height: 2vh;
+          width: 3vw;
+          border-radius: 10%;
+        }
+        #blocNeutre {
+          background-color: #D1D1D1;
+          height: 2vh;
+          width: 3vw;
+          border-radius: 10%;
+        }
+      }
     } //<------- Fin du premier article
 
     #interface { // L'article contenant l'interface d'ajout
-      height: 70vh;
-      width: 30vw;
+      height: 60vh;
+      width: 25vw;
+      margin-top: 7vh;
       display: flex;
       flex-direction: column;
+      //background-color: #ffffff;
+      h1 { // La balise <h1> Renseigner votre journal des repas
+        font-weight: 500;
+        font-size: 1.3rem;
+      }
       form {
         display: flex;
         flex-direction: column;
+      }
+      span {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end; 
+        align-items: center;
+        gap: 0.5vw;
+        p:nth-child(1) {
+          font-size: 2.5rem;
+          margin: 0;
+        }       
+        button {
+          background-color: #33bb27;
+          color: #ffffff;
+        }
+        button:disabled {
+          background-color: #33bb27;
+          color: #444141;
+        }
+
       }
       
     }

@@ -19,15 +19,15 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 .cal-event-title { // Le texte dans le calendrier
   color: #ffffff;
 }
+// L'affichage des events dans la vue calendrier mois (dans la barre grise après un clic sur le jour)
 mwl-calendar-open-day-events {
   div {
     div {
       display: flex;
       flex-direction: row;  
-      align-items: center;
+      //align-items: center;
       gap: 1vw;
     }
-
   }
 }
 

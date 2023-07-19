@@ -52,7 +52,7 @@ export class JournalRepasComponent implements OnInit {
 
   actions: CalendarEventAction [] = [
     {
-      label: '<img src="assets/photoNutri/vitamine.svg"/>',
+      label: '<img src="assets/trashBlue.svg"/>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
             /* this.events = this.events.filter((iEvent) => iEvent !== event);
             console.log('Event deleted', event); */
@@ -94,8 +94,9 @@ export class JournalRepasComponent implements OnInit {
     this.eventService.getEvaluation();
 
     this.formData = this.formBuilder.group ({
+      choice: ['menu', [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf
       title: [null, [Validators.required]],
-      color: [null],      
+      color: [null, [Validators.required]],      
     });
     
   }
