@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "statut": "Positif"             
+    },
+    {
+        "id": 2,
+        "statut": "Observations"        
+    },
+    {
+        "id": 3,
+        "statut": "Allergies"        
+    },
+    {
+        "id": 4,
+        "statut": "Neutre"        
+    }    
+]

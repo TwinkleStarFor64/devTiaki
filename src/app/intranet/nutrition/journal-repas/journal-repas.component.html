@@ -60,6 +60,7 @@
       (dayClicked)="dayClicked($event.day)"
       (eventClicked)="eventClicked($event)"
       (eventTimesChanged)="eventTimesChanged($event)"
+      
       [refresh]="refresh"
       locale="fr"
       ></mwl-calendar-month-view>
@@ -84,7 +85,43 @@
     </div>
   </article>
   <article id="interface">
-    <p>Interface d'ajout de plat</p>
+    <h1>Rensigner votre journal des repas</h1>
+    <form [formGroup]="formData">
+      <p>Je rajoute un menu ou un plat</p>
+      <mat-form-field appearance="outline">
+        <mat-label>VOS MENUS</mat-label>
+        <mat-select formControlName="title">
+          <mat-option *ngFor="let menus of repas" [value]="menus.nom">
+            {{ menus.nom }}              
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>VOS PLATS</mat-label>
+        <mat-select formControlName="title">
+          <mat-option *ngFor="let plat of plats" [value]="plat.nom">
+            {{ plat.nom }}              
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <mat-form-field appearance="outline" id="input">
+        <mat-label>évaluation</mat-label>
+        <input matInput formControlName="color" />
+      </mat-form-field> -->
+      <p>J'évalue mon menu ou mon plat</p>
+      <mat-form-field appearance="outline">
+        <mat-label>ÉVALUATION</mat-label>
+        <mat-select formControlName="color">
+          <mat-option *ngFor="let eval of eventService.evaluation" [value]="eval.statut">
+            {{ eval.statut }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="onSubmitForm()">
+      enregistrer
+    </button>
+    
   </article>
 </div>
 

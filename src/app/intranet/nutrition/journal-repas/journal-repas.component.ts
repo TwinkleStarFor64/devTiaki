@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarEvent, CalendarView } from 'angular-calendar';
+import { CalendarEvent, CalendarEventAction, CalendarView } from 'angular-calendar';
 import { isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
 import { Subject } from 'rxjs';
 import { EventService } from './services/event.service';
+import { MenusService } from '../menus/services/menus.service';
+import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PlatsService } from '../plats/services/plats.service';
 
 
 @Component({
@@ -11,40 +15,63 @@ import { EventService } from './services/event.service';
   styleUrls: ['./journal-repas.component.scss'],
 })
 export class JournalRepasComponent implements OnInit {
+//--------------------------------------------- Ci-dessous code pour les réglages du calendrier ------------------------------------
 
-  viewDate: Date = new Date();
-  view: CalendarView = CalendarView.Week;
+  viewDate: Date = new Date(); // Je définie la vue par défaut sur la date d'aujourd'hui
+  view: CalendarView = CalendarView.Month; // Je définie la vue par défaut du calendrier (Mois, Semaine, Journée)
   CalendarView = CalendarView;
 
-  
-  events: CalendarEvent[] = [];
+  events: CalendarEvent[] = []; // events de type CalendarEvent[]
 
-  activeDayIsOpen = false;
+  activeDayIsOpen = false; // Pour la méthode dayClicked()
 
-  refresh = new Subject<void>();
+  refresh = new Subject<void>(); // Pour la méthode eventTimesChanged()
 
   selectedButton: number = -1; //Pour le CSS des boutons
 
   colors: any = {
-    bon: {
+    Positif: {
       primary: '#33BB27',
       secondary: '#33BB27'
     },
-    moyen: {
+    Observations: {
       primary: '#F0C02E',
       secondary: '#F0C02E',            
     },
-    mauvais: {
+    Allergies: {
       primary: '#D9042B',
       secondary: '#D9042B',
     },
-    neutre: {
+    Neutre: {
       primary: '#D1D1D1',
       secondary: '#D1D1D1'
     }
-  }
+  };
+  
+  
 
-  constructor(public eventService: EventService) {
+  actions: CalendarEventAction [] = [
+    {
+      label: '<img src="assets/photoNutri/vitamine.svg"/>',
+          onClick: ({ event }: { event: CalendarEvent }): void => {
+            /* this.events = this.events.filter((iEvent) => iEvent !== event);
+            console.log('Event deleted', event); */
+            this.eventService.deleteEvent(event.id); // Appel de la méthode pour delete sur supabase
+            // Code angular calendar pour supprimer sur l'affichage HTML
+            this.events = this.events.filter((iEvent) => iEvent.id !== event.id); 
+            console.log('Event deleted', event.id);
+          },
+    }
+  ]
+
+//----------------------------------------- Ci-dessous code pour l'interface d'ajout de données dans l'agenda -------------------------------------
+  repas: MesMenusI[] = [];
+  plats: MesPlatsI[] = [];
+  selectedRepas?: MesMenusI; // Pour la méthode onSelect()
+
+  formData!: FormGroup;
+
+  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder) {
     /* const event1 = {
       title: "Saut en parachute",
       start: new Date ("2023-07-17T14:00"),
@@ -62,21 +89,40 @@ export class JournalRepasComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.fetchEvents();
+    this.fetchMenus();
+    this.fetchRepas();
+    this.eventService.getEvaluation();
+
+    this.formData = this.formBuilder.group ({
+      title: [null, [Validators.required]],
+      color: [null],      
+    });
+    
   }
 
+//--------------------------------------------------- Ci-dessous les méthodes pour le calendrier -----------------------------------------------------
   setView(view: CalendarView) {
     this.view = view;
+    // Pour changer l'affichage ( vue du mois, de la semaine ou du jour)
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+//Cette condition vérifie si le jour cliqué (date) appartient au même mois que la date actuellement affichée (viewDate).Si c'est le cas, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert. 
+//Cela permet de s'assurer que l'ouverture ou la fermeture des événements est effectuée uniquement lorsque l'utilisateur clique sur un jour du mois affiché à l'écran.
     if (isSameMonth(date, this.viewDate)) {
       if (
+//isSameDay(this.viewDate, date): Cela vérifie si le jour cliqué est le même que le jour actuellement ouvert (viewDate).
+//this.activeDayIsOpen === true: Cela vérifie si activeDayIsOpen est déjà défini sur true.
+//events.length === 0: Cela vérifie si la longueur du tableau events est égale à zéro, ce qui signifie qu'il n'y a pas d'événements pour ce jour spécifique.
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0
       ) {
+//Si la condition précédente est vraie, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert, ou qu'il n'y a pas d'événements pour ce jour. 
+//Dans les deux cas, la variable activeDayIsOpen est définie sur false, ce qui ferme les événements pour le jour actuellement sélectionné.
         this.activeDayIsOpen = false;
-      } else {
+      } else { //Dans le cas contraire le clique déclenche l'ouverture de l'événement
         this.activeDayIsOpen = true;
         this.viewDate = date;
+//this.viewDate = date - La variable viewDate est mise à jour avec la date du jour cliqué (date). Cela permet de mettre à jour la vue du calendrier pour afficher les événements du jour sélectionné.
       }
     }
   }
@@ -85,12 +131,23 @@ export class JournalRepasComponent implements OnInit {
     console.log(event);    
   }
 
+// Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier
   eventTimesChanged(event:any) {
     event.event.start = event.newStart;
     event.event.end = event.newEnd;
     this.refresh.next();
   }
   
+  // Méthode pour supprimer un événement
+  deleteEvent(event: CalendarEvent): void {
+    const eventIndex = this.events.indexOf(event);
+    if (eventIndex > -1) {
+      this.events.splice(eventIndex, 1);
+      this.refresh.next();
+    }
+  }
+
+// -------------------------------------- Ci-dessous les méthodes pour l'interface d'ajout de données dans l'agenda --------------------------
   async fetchEvents() {
     const { data, error } = await this.eventService.getEvents();
     if (data) {
@@ -98,8 +155,9 @@ export class JournalRepasComponent implements OnInit {
         id: item['id'],
         title: item['title'],
         start: parseISO(item['start']),
-        color: this.colors[item['color']] || this.colors.neutre,
+        color: this.colors[item['color']] || this.colors.Neutre,
         cssClass: 'calendarTitle',
+        actions: this.actions
       }));     
       console.log(this.events.map((item) => item['title']));
     }
@@ -107,5 +165,58 @@ export class JournalRepasComponent implements OnInit {
       console.log(error);      
     }
   }
+
+  async fetchMenus() {
+    const { data, error } = await this.menuService.getRepas();
+    if (data) {
+      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
+      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
+      this.repas = data.map((item: { [x: string]: any }) => ({
+        id: item['id'],
+        nom: item['nom'],
+        description: item['description'],
+        alim_code: item['alim_code'],
+        statut: item['statut'],
+      }));
+      //console.log(this.repas.map((item) => item['id']));
+    }
+    if (error) {
+      //Si une erreur
+      console.log(error);
+    }
+  }
+
+  async fetchRepas() {
+    const { data, error } = await this.platService.getPlats();
+    if (data) {
+      this.plats = data.map((item: { [x:string]: any }) => ({
+        id: item['id'],
+        nom: item['nom'],
+        description: item['description'],
+        alim_code: item['alim_code'], 
+        statut: item['statut']
+      }));
+    }
+    if (error) {
+      console.log(error);      
+    }
+  }
+
+  async onSubmitForm() {
+    console.log(this.formData.value);
+    const newEntry = {
+      title: this.formData.value.title,
+      color: this.formData.value.color
+    };
+    await this.eventService.createEvent(newEntry).then(() => {
+      this.fetchEvents();
+      this.formData.reset();
+      //window.location.reload();
+    })
+    
+  }
+
+  
+  
 
 }

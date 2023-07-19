@@ -19,6 +19,17 @@ $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des él
 .cal-event-title { // Le texte dans le calendrier
   color: #ffffff;
 }
+mwl-calendar-open-day-events {
+  div {
+    div {
+      display: flex;
+      flex-direction: row;  
+      align-items: center;
+      gap: 1vw;
+    }
+
+  }
+}
 
 // Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {  

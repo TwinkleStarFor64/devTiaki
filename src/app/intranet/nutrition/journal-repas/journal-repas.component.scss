@@ -229,9 +229,14 @@ section {
     } //<------- Fin du premier article
 
     #interface { // L'article contenant l'interface d'ajout
-      background-color: #805E96;
       height: 70vh;
       width: 30vw;
+      display: flex;
+      flex-direction: column;
+      form {
+        display: flex;
+        flex-direction: column;
+      }
       
     }
 
