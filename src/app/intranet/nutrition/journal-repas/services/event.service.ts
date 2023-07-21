@@ -33,7 +33,7 @@ export class EventService {
 
   async createEvent(
     newEntry: {
-      //start: Date;
+      start: Date;
       title: string;
       color: string;
     }) {

@@ -134,7 +134,30 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </form>
+
+      <!-- placeholder="Choisir une date"  OU  [placeholder]="formatDateToFrench(dateTime)" -->
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker"                       
+                        placeholder="Choisir une date" 
+                        formControlName="start"
+                        [min]="minDate" [max]="maxDate" 
+                        [disabled]="disabled"                                               
+                        [value]="formatDateToFrench(dateTime)">
+                        <!-- J'ai rajouté [value] pour essayer de format la date en Fr-->
+        <mat-datepicker-toggle matSuffix [for]="$any(picker)">
+      <!-- Pour résoudre l'erreur sur le [for] - https://github.com/h2qutc/angular-material-components/issues/231 -->
+        </mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker 
+          [showSpinners]="showSpinners" 
+          [showSeconds]="showSeconds"
+          [stepHour]="stepHour" [stepMinute]="stepMinute" 
+          [stepSecond]="stepSecond"
+          [touchUi]="touchUi"
+          [color]="color">
+        </ngx-mat-datetime-picker>        
+      </mat-form-field>
+
+    </form>    
     <span>
       <p>*</p>
       <p>champs requis</p>

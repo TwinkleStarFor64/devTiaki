@@ -1,20 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { CalendarEvent, CalendarEventAction, CalendarView } from 'angular-calendar';
-import { isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CalendarEvent, CalendarEventAction, CalendarView, DateAdapter } from 'angular-calendar';
+import { format, isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
+import { fr } from 'date-fns/locale';
 import { Subject } from 'rxjs';
 import { EventService } from './services/event.service';
 import { MenusService } from '../menus/services/menus.service';
 import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
+import { ThemePalette } from '@angular/material/core';
 
 
 @Component({
   selector: 'app-journal-repas',
   templateUrl: './journal-repas.component.html',
   styleUrls: ['./journal-repas.component.scss'],
+  providers: [
+    
+  ]
 })
 export class JournalRepasComponent implements OnInit {
+  @ViewChild('picker') picker: any; // Ajouter pour Date Time Picker - Voir la doc https://www.npmjs.com/package/@angular-material-components/datetime-picker
+  
+  public dateTime: Date = new Date(); 
+  //public dateTime = parse('2023-07-20', 'yyyy-MM-dd', new Date()); 
+  public disabled = false;
+  public showSpinners = true;
+  public showSeconds = false;
+  public touchUi = false;
+  public enableMeridian = false;
+  public minDate!: Date;
+  public maxDate!: Date;
+  public stepHour = 1;
+  public stepMinute = 1;
+  public stepSecond = 1;
+  public color: ThemePalette = 'primary';
+
+
+  public formatDateToFrench(date: Date): string {
+    return format(date, 'dd/MM/yyyy', { locale: fr });
+  }  
+
+
 //--------------------------------------------- Ci-dessous code pour les réglages du calendrier ------------------------------------
 
   viewDate: Date = new Date(); // Je définie la vue par défaut sur la date d'aujourd'hui
@@ -46,9 +73,7 @@ export class JournalRepasComponent implements OnInit {
       primary: '#D1D1D1',
       secondary: '#D1D1D1'
     }
-  };
-  
-  
+  };  
 
   actions: CalendarEventAction [] = [
     {
@@ -91,15 +116,17 @@ export class JournalRepasComponent implements OnInit {
     this.fetchEvents();
     this.fetchMenus();
     this.fetchRepas();
-    this.eventService.getEvaluation();
+    this.eventService.getEvaluation();    
 
     this.formData = this.formBuilder.group ({
-      choice: ['menu', [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf
+      choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf
       title: [null, [Validators.required]],
-      color: [null, [Validators.required]],      
-    });
+      color: [null, [Validators.required]], 
+      start: [Date, [Validators.required]]    
+    });    
     
-  }
+  }  
+
 
 //--------------------------------------------------- Ci-dessous les méthodes pour le calendrier -----------------------------------------------------
   setView(view: CalendarView) {
@@ -207,14 +234,14 @@ export class JournalRepasComponent implements OnInit {
     console.log(this.formData.value);
     const newEntry = {
       title: this.formData.value.title,
-      color: this.formData.value.color
+      color: this.formData.value.color,
+      start: this.formData.value.start
     };
     await this.eventService.createEvent(newEntry).then(() => {
       this.fetchEvents();
       this.formData.reset();
       //window.location.reload();
-    })
-    
+    })    
   }
 
   
