@@ -64,25 +64,23 @@
     </article>
     <h3>Envoyer un message</h3>
     <article>
-      <form action="">
-
+      <form [formGroup]="formMessage">
         <mat-form-field appearance="outline">
-          <mat-label>Sélectionnez un médecin</mat-label>
-          <mat-select formControlName="">            
-            <mat-option>Liste des médecins</mat-option>
+          <mat-label >Sélectionnez un médecin</mat-label>
+          <mat-select >            
+            <mat-option *ngFor="let med of medecins">{{med.nom}}</mat-option>
           </mat-select>
         </mat-form-field>
-
         <mat-form-field appearance="outline">
           <mat-label>Activité concernée</mat-label>
           <mat-select formControlName="">            
-            <mat-option>Liste des interfaces</mat-option>
+            <mat-option *ngFor="let rel of realisations">{{rel.nom}}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Objet</mat-label>
-          <input matInput formControlName="" />
+          <input matInput formControlName="objet" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" id="textarea">
@@ -93,7 +91,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Copier un message de l’historique</mat-label>
           <mat-select >
-            <mat-option>Historique des messages</mat-option>
+            <mat-option *ngFor="let link of linkMessages" [value]="link">{{ supa.formatDate(link.date) + " - " + link.objet }}</mat-option>
           </mat-select>
         </mat-form-field>
         
@@ -101,8 +99,8 @@
       
     </article>
     <div id="divButton">
-      <button mat-raised-button>Annuler</button>
-      <button mat-raised-button>Envoyer</button>
+      <button mat-raised-button (click)="onCancel()">Annuler</button>
+      <button mat-raised-button type="submit" (click)="onSubmitFormMessage()" [disabled]="formMessage.invalid">Envoyer</button>
     </div>
   </section>
 </section>

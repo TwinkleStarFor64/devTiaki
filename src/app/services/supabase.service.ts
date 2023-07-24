@@ -367,6 +367,14 @@ export class SupabaseService {
     return data;    
   }
 
+  async getHistoriqueMessage() {
+    return await this.supabase
+      .from('journalEvenement') //La table journalEvenement
+      .select(
+        'id, date, objet, description, commentaire, groupeEvenement (id)'
+      ); //Les données que je select sur cette table
+  }
+
 
  
 

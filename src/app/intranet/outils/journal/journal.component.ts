@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
-import { HistoriqueJournalI } from 'src/app/intranet/modeles/Types';
+
 
 import {
   HistoriqueI,
