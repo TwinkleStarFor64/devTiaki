@@ -38,6 +38,7 @@ export class EventService {
       start: Date;
       title: string;
       color: string;
+      observations: string;
     }) {
     //newEntry.start = new Date();
     const { error: createError } = await this.supabase

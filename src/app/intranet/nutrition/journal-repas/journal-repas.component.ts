@@ -123,10 +123,11 @@ export class JournalRepasComponent implements OnInit {
     this.eventService.getEvaluation();    
 
     this.formData = this.formBuilder.group ({
-      choice: ['menu', [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf - Par défaut j'affiche le select 'menu'
+      choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf - Par défaut j'affiche aucun select - pour choisir le select menu remplacer null par 'menu'
       title: [null, [Validators.required]],
       color: [null, [Validators.required]], 
-      start: [Date, [Validators.required]]    
+      start: [Date, [Validators.required]],
+      observations: [null]    
     });    
     
   }  
@@ -182,6 +183,7 @@ export class JournalRepasComponent implements OnInit {
     });
   }
 
+// Méthode faisant appel à la Modal de confirmation puis à la méthode de suppression dans supabase
   async deleteEventConfirm(id: any) {
     this.deleteDialog() // J'appelle la Modal deleteDialog()
     .afterClosed()
@@ -257,11 +259,13 @@ export class JournalRepasComponent implements OnInit {
     const newEntry = {
       title: this.formData.value.title,
       color: this.formData.value.color,
-      start: this.formData.value.start
+      start: this.formData.value.start,
+      observations: this.formData.value.observations
     };
     await this.eventService.createEvent(newEntry).then(() => {
       this.fetchEvents();
       this.formData.reset();
+      
       //window.location.reload();
     })    
   }
