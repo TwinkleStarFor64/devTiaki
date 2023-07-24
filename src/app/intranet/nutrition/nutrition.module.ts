@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRoutingModule } from './nutrition-routing.module';
 import { JournalRepasComponent } from './journal-repas/journal-repas.component';
@@ -25,6 +25,33 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
 import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CalendarDateFormatter, CalendarModule, CalendarNativeDateFormatter, DateAdapter, DateFormatterParams } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
+
+registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
+
+@Injectable() // Pour l'erreur de dépréciation
+// Pour Angular Calendar - Modification du format date et heure en Français
+class CustomDateFormatter extends CalendarNativeDateFormatter {
+
+  public override dayViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+
+  public override weekViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+}
+
 
 
 @NgModule({
@@ -41,8 +68,7 @@ import { MatOptionModule } from '@angular/material/core';
     BottomBarNutriComponent,
     SaveDataComponent,
     DeleteDataComponent,
-    SavePlatComponent,
-    
+    SavePlatComponent,    
   ],
   imports: [
     CommonModule,
@@ -58,7 +84,18 @@ import { MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatAutocompleteModule,
     NgxMatSelectSearchModule,
-    MatOptionModule    
+    MatOptionModule,
+    MatPaginatorModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar 
+    MatCheckboxModule,
+    MatRadioModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MatDatepickerModule     
+  ],
+  providers: [
+    {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus
   ]  
 })
 export class NutritionModule {}

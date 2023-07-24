@@ -1,5 +1,7 @@
 <article>
-  <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+  <div>
+    <mat-icon (click)="closeDialog()">close</mat-icon>
+  </div>  
   <p>{{ data }}</p>
   <div>
     <button mat-raised-button color="warn" [mat-dialog-close]="false">

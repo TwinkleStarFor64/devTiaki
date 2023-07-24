@@ -16,6 +16,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
+
 @NgModule({
   declarations: [
     IntranetComponent,
@@ -24,8 +25,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     TableauComponent,
     ButtonComponent,
     CustomAccordionComponent,
-
-    
+        
   ],
   imports: [
     CommonModule,
