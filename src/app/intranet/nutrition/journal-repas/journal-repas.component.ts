@@ -9,7 +9,9 @@ import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
-import {Router} from "@angular/router"
+import {Router} from "@angular/router";
+import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -82,10 +84,11 @@ export class JournalRepasComponent implements OnInit {
           onClick: ({ event }: { event: CalendarEvent }): void => {
             /* this.events = this.events.filter((iEvent) => iEvent !== event);
             console.log('Event deleted', event); */
-            this.eventService.deleteEvent(event.id); // Appel de la méthode pour delete sur supabase
-            // Code angular calendar pour supprimer sur l'affichage HTML
-            this.events = this.events.filter((iEvent) => iEvent.id !== event.id); 
-            console.log('Event deleted', event.id);
+            this.deleteEventConfirm(event.id) // Appel de la méthode pour delete qui contient la Modal et la méthode supabase           
+            .then(() => { // Aprés validation de la méthode au dessus je gére l'affichage HTML du calendrier
+              // Code angular calendar pour supprimer sur l'affichage HTML
+              this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
+            })
           },
     }
   ]
@@ -97,7 +100,7 @@ export class JournalRepasComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private router: Router, private dialog: MatDialog) {
     /* const event1 = {
       title: "Saut en parachute",
       start: new Date ("2023-07-17T14:00"),
@@ -120,7 +123,7 @@ export class JournalRepasComponent implements OnInit {
     this.eventService.getEvaluation();    
 
     this.formData = this.formBuilder.group ({
-      choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf
+      choice: ['menu', [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf - Par défaut j'affiche le select 'menu'
       title: [null, [Validators.required]],
       color: [null, [Validators.required]], 
       start: [Date, [Validators.required]]    
@@ -168,14 +171,30 @@ export class JournalRepasComponent implements OnInit {
     this.refresh.next();
   }
   
-  // Méthode pour supprimer un événement
-  deleteEvent(event: CalendarEvent): void {
-    const eventIndex = this.events.indexOf(event);
-    if (eventIndex > -1) {
-      this.events.splice(eventIndex, 1);
-      this.refresh.next();
-    }
+// Modal Material Angular pour confirmer la suppression d'un menu
+  deleteDialog() {
+    return this.dialog.open(DeleteDataComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '200px',
+      width: '400px',
+      data: 'Êtes vous sur de vouloir supprimer ?',
+    });
   }
+
+  async deleteEventConfirm(id: any) {
+    this.deleteDialog() // J'appelle la Modal deleteDialog()
+    .afterClosed()
+    .subscribe((res) => { // Je souscris si résolution
+      if (res) {
+        this.eventService.deleteEvent(id) // J'appelle la méthode dans event.service
+        .then(() => {
+          this.fetchEvents(); // Puis (.then) je refais un fetch des évenements
+        })                
+      }      
+    })
+    throw new Error;
+  }  
 
   async fetchEvents() {
     const { data, error } = await this.eventService.getEvents();
@@ -251,3 +270,16 @@ export class JournalRepasComponent implements OnInit {
   
 
 }
+
+
+
+
+
+// Méthode pour supprimer un événement - Remplacer par la méthode supabase contenu dans event.service
+/* deleteEvent(event: CalendarEvent): void {
+  const eventIndex = this.events.indexOf(event);
+  if (eventIndex > -1) {      
+        this.events.splice(eventIndex, 1);
+        this.refresh.next();
+      }    
+  } */

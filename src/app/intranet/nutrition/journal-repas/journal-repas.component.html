@@ -59,8 +59,7 @@
       [activeDayIsOpen]="activeDayIsOpen" 
       (dayClicked)="dayClicked($event.day)"
       (eventClicked)="eventClicked($event)"
-      (eventTimesChanged)="eventTimesChanged($event)"
-      
+      (eventTimesChanged)="eventTimesChanged($event)"      
       [refresh]="refresh"
       locale="fr"
       ></mwl-calendar-month-view>
@@ -97,7 +96,7 @@
   <article id="interface">
     <h1>Renseigner votre journal des repas</h1>
     <form [formGroup]="formData">
-      <p>Je rajoute un menu ou un plat</p>
+      <p>Je rajoute un menu ou un plat :</p>
     <!-- Avec mat-radio j'affiche ensuite le mat-select plat OU menu -->
       <mat-radio-group formControlName="choice">
         <mat-radio-button value="plat">Plat</mat-radio-button>
@@ -125,7 +124,7 @@
           </mat-select>
         </mat-form-field>
       </ng-container>
-      <p>J'évalue mon menu ou mon plat</p>
+      <p>J'évalue mon menu ou mon plat :</p>
       <mat-form-field appearance="outline">
         <mat-label>ÉVALUATION</mat-label>
         <mat-select formControlName="color">
@@ -133,8 +132,8 @@
             {{ eval.statut }}
           </mat-option>
         </mat-select>
-      </mat-form-field>
-
+      </mat-form-field>    
+      <!-- Ci-dessous le component Datetime-picker - https://www.npmjs.com/package/@angular-material-components/datetime-picker -->
       <!-- placeholder="Choisir une date"  OU  [placeholder]="formatDateToFrench(dateTime)" -->
       <mat-form-field>
         <input matInput [ngxMatDatetimePicker]="picker"                       
@@ -156,7 +155,11 @@
           [color]="color">
         </ngx-mat-datetime-picker>        
       </mat-form-field>
-
+      <p>Observations :</p>
+      <mat-form-field appearance="outline" id="textarea">
+        <mat-label>Observations éventuelles</mat-label>
+        <textarea matInput rows="6"  ></textarea>
+      </mat-form-field>
     </form>    
     <span>
       <p>*</p>

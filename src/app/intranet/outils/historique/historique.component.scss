@@ -141,6 +141,14 @@ section:nth-child(2) {
 
     input {
       width: 80%;
+      height: 2.5vh;
+      font-size: 1rem;
+      @media only screen and (max-width: 1280px) {
+        font-size: 0.8rem;
+      }
+      @media screen and (max-width: 834px) {
+        font-size: 0.7rem;
+      }
       @media screen and (max-width: 480px) {
         width: 50%;
       }      
