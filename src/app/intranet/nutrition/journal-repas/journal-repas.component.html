@@ -45,7 +45,7 @@
         <button mat-raised-button mwlCalendarNextView [(viewDate)]="viewDate" [view]="view">></button>
       </span>
       <p>{{ viewDate | calendarDate:(view + "ViewTitle") : 'fr' }}</p>
-      <span>
+      <span> <!-- (click)="selectedButton = 0" [class.selected]="selectedButton === 0" - Code pour le CSS -->
         <button mat-raised-button (click)="setView(CalendarView.Month)" (click)="selectedButton = 0" [class.selected]="selectedButton === 0" >Mois</button>
         <button mat-raised-button (click)="setView(CalendarView.Week)" (click)="selectedButton = 1" [class.selected]="selectedButton === 1" >Semaine</button>
         <button mat-raised-button (click)="setView(CalendarView.Day)" (click)="selectedButton = 2" [class.selected]="selectedButton === 2" >Jour</button>

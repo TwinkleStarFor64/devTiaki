@@ -9,6 +9,7 @@ import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
+import {Router} from "@angular/router"
 
 
 @Component({
@@ -96,7 +97,7 @@ export class JournalRepasComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder) {
+  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private router: Router) {
     /* const event1 = {
       title: "Saut en parachute",
       start: new Date ("2023-07-17T14:00"),
@@ -156,10 +157,11 @@ export class JournalRepasComponent implements OnInit {
   }
 
   eventClicked(event:any) {
-    console.log(event);    
+    console.log(event); 
+    //this.router.navigate(['intranet/nutrition/plats'])   
   }
 
-// Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier
+// Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier - non utilisé pour le moment
   eventTimesChanged(event:any) {
     event.event.start = event.newStart;
     event.event.end = event.newEnd;
@@ -175,14 +177,13 @@ export class JournalRepasComponent implements OnInit {
     }
   }
 
-// -------------------------------------- Ci-dessous les méthodes pour l'interface d'ajout de données dans l'agenda --------------------------
   async fetchEvents() {
     const { data, error } = await this.eventService.getEvents();
     if (data) {
       this.events = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
         title: item['title'],
-        start: parseISO(item['start']),
+        start: parseISO(item['start']), // J'utilise parseISO pour convertir en un objet Date valide
         color: this.colors[item['color']] || this.colors.Neutre,
         cssClass: 'calendarTitle',
         actions: this.actions
@@ -193,6 +194,8 @@ export class JournalRepasComponent implements OnInit {
       console.log(error);      
     }
   }
+
+// -------------------------------------- Ci-dessous les méthodes pour l'interface d'ajout de données dans l'agenda --------------------------
 
   async fetchMenus() {
     const { data, error } = await this.menuService.getRepas();
