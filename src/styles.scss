@@ -1050,8 +1050,9 @@ a {
 //div pour progress bar
 #exercices article>.progress-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 3vh;
+  align-items: center;
 }
 #exercices article>.progress-bar a{
   color: #bfbfbf;
