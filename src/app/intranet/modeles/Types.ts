@@ -54,6 +54,19 @@ export interface HistoriqueJournalI {
   };
   linkedJournals?: HistoriqueJournalI[];
 }
+// Interface Message
+export interface HistoriqueMessageI {
+  id: number;
+  date: string;
+  medecin: string;
+  activite: string;
+  objet: string;
+  echange: string;
+  groupeMessage: {
+    id: number;
+  };
+  linkedMessage?: HistoriqueMessageI[];
+}
 
 //Interface de la page historique des journaux
 export interface HistoriqueI {

@@ -32,7 +32,8 @@
   </section>
   <!-- Section comportant l'historique des messages -->
   <section>
-    <article> <!-- Article pour le Responsive - invisible en Desktop -->
+    <article>
+      <!-- Article pour le Responsive - invisible en Desktop -->
       <div>
         <a routerLink="/intranet">
           <span>Tiaki</span>
@@ -57,7 +58,8 @@
     </ul>
   </section>
   <section>
-    <article> <!-- Article pour le responsive Mobile -->
+    <article>
+      <!-- Article pour le responsive Mobile -->
       <a routerLink="/intranet">
         <span>Tiaki</span>
       </a>
@@ -66,15 +68,17 @@
     <article>
       <form [formGroup]="formMessage">
         <mat-form-field appearance="outline">
-          <mat-label >Sélectionnez un médecin</mat-label>
-          <mat-select >            
-            <mat-option *ngFor="let med of medecins">{{med.nom}}</mat-option>
+          <mat-label>Sélectionnez un médecin</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let med of medecins">{{ med.nom }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Activité concernée</mat-label>
-          <mat-select formControlName="">            
-            <mat-option *ngFor="let rel of realisations">{{rel.nom}}</mat-option>
+          <mat-select formControlName="">
+            <mat-option *ngFor="let rel of realisations">{{
+              rel.nom
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -90,23 +94,27 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Copier un message de l’historique</mat-label>
-          <mat-select >
-            <mat-option *ngFor="let link of linkMessages" [value]="link">{{ supa.formatDate(link.date) + " - " + link.objet }}</mat-option>
+          <mat-select>
+            <mat-option *ngFor="let link of linkMessages" [value]="link">{{
+              supa.formatDate(link.date) + " - " + link.objet
+            }}</mat-option>
           </mat-select>
         </mat-form-field>
-        
       </form>
-      
     </article>
     <div id="divButton">
       <button mat-raised-button (click)="onCancel()">Annuler</button>
-      <button mat-raised-button type="submit" (click)="onSubmitFormMessage()" [disabled]="formMessage.invalid">Envoyer</button>
+      <button
+        mat-raised-button
+        type="submit"
+        (click)="onSubmitFormMessage()"
+        [disabled]="formMessage.invalid"
+      >
+        Envoyer
+      </button>
     </div>
   </section>
 </section>
-
-
-
 
 <!-- <input type="text" placeholder="Selectionner un médecin" />
       <input type="text" placeholder="Activité concernée" />
