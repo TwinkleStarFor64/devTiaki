@@ -12,6 +12,7 @@ import { ThemePalette } from '@angular/material/core';
 import {Router} from "@angular/router";
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CheckJournalComponent } from '../dialog/check-journal/check-journal.component';
 
 
 @Component({
@@ -52,6 +53,7 @@ export class JournalRepasComponent implements OnInit {
   CalendarView = CalendarView;
 
   events: CalendarEvent[] = []; // events de type CalendarEvent[]
+  selectedId: any; // Pour stocker l'id dans la méthode eventClicked()
 
   activeDayIsOpen = false; // Pour la méthode dayClicked()
 
@@ -100,7 +102,7 @@ export class JournalRepasComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private router: Router, private dialog: MatDialog) {
+  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private dialog: MatDialog) {
     /* const event1 = {
       title: "Saut en parachute",
       start: new Date ("2023-07-17T14:00"),
@@ -160,9 +162,24 @@ export class JournalRepasComponent implements OnInit {
     }
   }
 
-  eventClicked(event:any) {
-    console.log(event); 
-    //this.router.navigate(['intranet/nutrition/plats'])   
+  openDialog() {
+    return this.dialog.open(CheckJournalComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '800px',
+      width: '1000px',
+      data: this.selectedId, // data de la modal - renvoie un ID utiliser pour la modal check-journal
+    });
+  }
+
+// Méthode pour cliquer sur un évenement du calendrier
+// {event} est une variable à laquelle j'attribue un event de type CalendarEvent - Doc : https://mattlewis92.github.io/angular-calendar/#/clickable-events
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log("Méthode eventCliked - j'ai cliqué sur l'id : ", event.id);
+    this.selectedId = event.id; // J'attribue l'id de l'event sur lequel j'ai cliqué
+    console.log("Variable selectdId contient l'id : ", this.selectedId);
+    this.openDialog(); // J'ouvre la modal
+    
   }
 
 // Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier - non utilisé pour le moment
@@ -206,10 +223,12 @@ export class JournalRepasComponent implements OnInit {
         title: item['title'],
         start: parseISO(item['start']), // J'utilise parseISO pour convertir en un objet Date valide
         color: this.colors[item['color']] || this.colors.Neutre,
-        cssClass: 'calendarTitle',
-        actions: this.actions
+        choice: item['choice'],
+        observations: item['observations'],
+        cssClass: 'calendarTitle', // Si je veux attribuer une classe CSS
+        actions: this.actions // Utile ??
       }));     
-      console.log(this.events.map((item) => item['title']));
+      console.log("fetchEvents de journal-repas",this.events.map((item) => item['title']));
     }
     if (error) {
       console.log(error);      
@@ -257,6 +276,7 @@ export class JournalRepasComponent implements OnInit {
   async onSubmitForm() {
     console.log(this.formData.value);
     const newEntry = {
+      choice: this.formData.value.choice,
       title: this.formData.value.title,
       color: this.formData.value.color,
       start: this.formData.value.start,
@@ -264,8 +284,7 @@ export class JournalRepasComponent implements OnInit {
     };
     await this.eventService.createEvent(newEntry).then(() => {
       this.fetchEvents();
-      this.formData.reset();
-      
+      this.formData.reset();      
       //window.location.reload();
     })    
   }
@@ -286,4 +305,10 @@ export class JournalRepasComponent implements OnInit {
         this.events.splice(eventIndex, 1);
         this.refresh.next();
       }    
+  } */
+
+
+  /* eventClicked(event:any) {
+    console.log(event);
+    this.openDialog();      
   } */

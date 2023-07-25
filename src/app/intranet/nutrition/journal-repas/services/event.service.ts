@@ -39,6 +39,7 @@ export class EventService {
       title: string;
       color: string;
       observations: string;
+      choice: string;
     }) {
     //newEntry.start = new Date();
     const { error: createError } = await this.supabase
@@ -68,7 +69,7 @@ export class EventService {
     this.http.get<any[]>('assets/data/evaluation.json').subscribe({
       next: (response) => (this.evaluation = response),
       error: (er) => console.log(er),
-      complete: () => console.log(this.evaluation),
+      complete: () => console.log("getEvaluation - eventService",this.evaluation),
     });
     return this.evaluation;
   }
