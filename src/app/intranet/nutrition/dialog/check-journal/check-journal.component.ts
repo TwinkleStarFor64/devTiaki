@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { CalendarEvent } from 'angular-calendar';
 import { EventService } from '../../journal-repas/services/event.service';
 import { parseISO } from 'date-fns';
 
@@ -50,10 +49,6 @@ export class CheckJournalComponent implements OnInit {
       console.log(error);      
     }
   }
-
- 
-  
-
 
 }
 
