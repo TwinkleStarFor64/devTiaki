@@ -54,7 +54,7 @@ export class SupabaseService {
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
   }
-
+//------------------------ Methode pour la page journal--------------------------------
   // DELETE un journal et son groupe sur la table groupeEvenement
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
     const { data: journalData, error: journalError } = await this.supabase
@@ -225,7 +225,7 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
 
-  // Méthode pour supprimer un menu
+  //------------------ Méthode pour supprimer un menu---------------------
   async deleteMenu(id: number) {
     const { error: deleteError } = await this.supabase
       .from('repas')
@@ -237,7 +237,7 @@ export class SupabaseService {
     }
   }
 
-  // Méthode pour supprimer un plat
+  // --------------------Méthode pour supprimer un plat-------------------
   async deletePlat(id: number) {
     const { error: deleteError } = await this.supabase
       .from('plats')
@@ -249,7 +249,7 @@ export class SupabaseService {
     }
   }
 
-  // Méthode pour enregistrer un menu
+  //------------------- Méthode pour enregistrer un menu-----------------------
   async createMenu(newEntry: {
     nom: string;
     description: string;
@@ -269,7 +269,7 @@ export class SupabaseService {
     }
   }
 
-  // Méthode pour enregistrer un plat
+  //------------------- Méthode pour enregistrer un plat------------------
   async createPlat(newEntry: {
     nom: string;
     description: string;
@@ -288,14 +288,14 @@ export class SupabaseService {
     }
   }
 
-  // Méthode pour récupérer la table Ciqual
+  // -------------------Méthode pour récupérer la table Ciqual----------------
   async getCiqual() {
     const ciqual = await this.supabase.from('ciqualAnses').select('*');
     console.log(ciqual);
     return ciqual;
   }
 
-  // Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID
+  //------------------ Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID------------------------
   async getCurrentIngredient(alim_code: number) {
     const { data: currentData } = await this.supabase
       .from('ciqualAnses')
@@ -311,14 +311,14 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
 
-  // Méthode pour récupérer la table Evaluation
+  // -------------------Méthode pour récupérer la table Evaluation-----------------------
   async getEvaluation() {
     const evaluation = await this.supabase.from('evaluation').select('*');
     //console.log(evaluation);
     return evaluation;
   }
 
-  // Méthode pour update une évaluation sur la table Repas
+  // ----------------------Méthode pour update une évaluation sur la table Repas-------------
   async updateEvalMenu(selectedEvaluation: number, selectedStatut: string) {
     const { data: evalData, error: evalError } = await this.supabase
       .from('repas')
@@ -332,7 +332,7 @@ export class SupabaseService {
     return evalData;
   }
 
-  // Méthode pour update une évaluation sur la table Plats
+  //---------------------- Méthode pour update une évaluation sur la table Plats-----------------------
   async updateEvalPlat(selectedEvaluation: number, selectedStatut: string) {
     const { data: evalData, error: evalError } = await this.supabase
       .from('plats')
@@ -346,7 +346,7 @@ export class SupabaseService {
     return evalData;
   }
 
-  // Méthode pour récupérer l'id d'une évaluation
+  //------------------ Méthode pour récupérer l'id d'une évaluation-------------------------
   async getEvaluationById(id: number) {
     const { data, error } = await this.supabase
       .from('evaluation')
@@ -361,16 +361,18 @@ export class SupabaseService {
     }
     return data;
   }
-  // --------------------Methodes page Messageries --------------------
 
+  // --------------------Methodes page Messagerie --------------------
+
+// Récupération des ancien message
   async getHistoriqueMessage() {
     return await this.supabase
-      .from('message') //La table journalEvenement
+      .from('message') 
       .select(
         'id, medecin, activite, objet, echange, groupeMessage (id), date'
-      ); //Les données que je select sur cette table
+      ); 
   }
-
+//  Méthode de création de message
   async createMessage(
     newEntryMessage: {
       medecin: string;
@@ -382,18 +384,18 @@ export class SupabaseService {
     },
     link: HistoriqueMessageI | null
   ) {
-    newEntryMessage.date = new Date(); //Le champ date aura la date actuelle
+    newEntryMessage.date = new Date(); 
 
-    // Cas n°1: le journal est relié à un autre
+    // Cas n°1: 
     if (link) {
       const newMessageEvenement = {
         ...newEntryMessage,
         groupeMessage: link['groupeMessage']['id'],
       };
 
-      this.insertMessage(newMessageEvenement); //J'appelle la méthode insertJournal pour enregistrer dans la table journalEvenement
+      this.insertMessage(newMessageEvenement); 
 
-      // Cas n°2: le journal n'est pas relié
+    // Cas n°2: 
     } else {
       const { data: groupData, error: groupError } = await this.supabase
         .from('groupeMessage')
@@ -412,7 +414,8 @@ export class SupabaseService {
       }
     }
   }
-
+  
+// Méthode d'insertion de message
   private async insertMessage(newEntryMessage: {
     medecin: string;
     activite: string;
@@ -424,26 +427,30 @@ export class SupabaseService {
     //On créer le message dans la base de données
     const { error: messagerieError } = await this.supabase
       .from('message') //je choisi la table message
-      .insert(newEntryMessage); //J'insére la variable newEntry
+      .insert(newEntryMessage); //J'insére la variable newEntryMessage
     if (messagerieError) {
       console.log(messagerieError);
     }
   }
-}
 
-/* async getCurrentIngredient(id: number) {
-    const { data: currentData } = await this.supabase
-      .from('ciqual')
-      .select('id, alim_code')
+  // Récupération d' un message
+  async getCurrentMessage(id: number) {
+    // l'ID va être dynamique quand j'appelle ma méthode dans le component
+    const { data: currentData, error: currentError } = await this.supabase
+      .from('message')
+      .select('id, medecin, activite, objet, echange, groupeMessage (id), date')
       .eq('id', id);
 
-      if (currentData && currentData.length > 0) {
-        console.log("ID de l'ingrédient :", currentData[0].id);
-        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
-        return {
-          id: currentData[0].id,
-          alim_code: currentData[0].alim_code
-        }         
-      }
+    if (currentData) {
+      currentData.forEach((message) => {
+        // forEach car je reçois un tableau
+        console.log('message.objet - supabase.service :', message.objet);
+      });
+      return currentData;
+    }
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-  } */
+  }
+
+}
+
+

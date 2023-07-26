@@ -85,11 +85,11 @@ export class MessagerieComponent implements OnInit {
     console.log(this.formMessage.value);
     //Ci-dessous j'attribue les valeurs
     const newEntryMessage = {
-      medecin:this.formMessage.value.medein,
+      medecin: this.formMessage.value.medein,
       activite: this.formMessage.value.activite,
       objet: this.formMessage.value.objet,
       echange: this.formMessage.value.echange,
-      groupeMessage:this.formMessage.value.groupeMessage
+      groupeMessage: this.formMessage.value.groupeMessage,
     };
     const idLink = this.formMessage.value.linkMessages;
     //J'utilise la méthode createMessage avec comme paramétre newMessage
