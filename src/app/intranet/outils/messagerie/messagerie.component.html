@@ -93,7 +93,7 @@
           <mat-label>Copier un message de l’historique</mat-label>
           <mat-select formControlName="link">
             <mat-option *ngFor="let link of linkMessages" [value]="link">{{
-              supa.formatDate(link.date)+ " " +link.objet
+              supa.formatDate(link.date)+ ": " + link.objet
               }}</mat-option>
           </mat-select>
         </mat-form-field>

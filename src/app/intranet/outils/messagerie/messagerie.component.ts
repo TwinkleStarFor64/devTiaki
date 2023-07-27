@@ -85,7 +85,7 @@ export class MessagerieComponent implements OnInit {
 // Methode pour envoyer un message via le button 
 
   async onSubmitFormMessage() {
-    console.log(this.formMessage.value);
+   
     const newEntryMessage = {
       medecin: this.formMessage.value.medecin,
       activite: this.formMessage.value.activite,
@@ -97,6 +97,7 @@ export class MessagerieComponent implements OnInit {
       this.fetchMessages();
       window.location.reload(); // Bonne solution ??
     });
+    console.log(this.formMessage.value);
     this.formMessage.reset();
   }
 

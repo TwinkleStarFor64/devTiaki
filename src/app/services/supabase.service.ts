@@ -379,7 +379,7 @@ export class SupabaseService {
       // groupeMessage: number;
       date?: Date;
     },
-  link: HistoriqueMessageI | null
+  link?: HistoriqueMessageI | null
   ) {
   newEntryMessage.date = new Date();
 
@@ -433,23 +433,23 @@ export class SupabaseService {
   }
 
   // Récupération d' un message
-  async getCurrentMessage(id: number) {
-    // l'ID va être dynamique quand j'appelle ma méthode dans le component
-    const { data: currentData, error: currentError } = await this.supabase
-      .from('message')
-      .select('id, medecin, activite, objet, echange, groupeMessage (id), date')
-      .eq('id', id);
+//   async getCurrentMessage(id: number) {
+//     // l'ID va être dynamique quand j'appelle ma méthode dans le component
+//     const { data: currentData, error: currentError } = await this.supabase
+//       .from('message')
+//       .select('id, medecin, activite, objet, echange, groupeMessage (id), date')
+//       .eq('id', id);
 
-    if (currentData) {
-      currentData.forEach((message) => {
-        // forEach car je reçois un tableau
-        console.log('message.objet - supabase.service :', message.objet);
-      });
-      return currentData;
-    }
-    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-  }
-// ----------------Fin methode page messagerie--------------------------------
+//     if (currentData) {
+//       currentData.forEach((message) => {
+//         // forEach car je reçois un tableau
+//         console.log('message.objet - supabase.service :', message.objet);
+//       });
+//       return currentData;
+//     }
+//     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+//   }
+// // ----------------Fin methodes page messagerie--------------------------------
 }
 
 
