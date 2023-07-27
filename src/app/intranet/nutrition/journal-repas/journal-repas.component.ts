@@ -164,18 +164,18 @@ export class JournalRepasComponent implements OnInit {
   }
 
   openDialog() {
-    const dataToSend = {
+    const dataToSend = { // J'attribue à data l'id et le nom de l'event ou je clique
       selectedId: this.selectedId,
       selectedTitle: this.selectedTitle       
     }
-
     return this.dialog.open(CheckJournalComponent, {
       disableClose: true,
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal
+      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal      
     });
+    
   }
 
 // Méthode pour cliquer sur un évenement du calendrier
@@ -190,7 +190,6 @@ export class JournalRepasComponent implements OnInit {
     console.log("Variable selectedTitle contient le nom : ", this.selectedTitle);
     
     this.openDialog(); // J'ouvre la modal
-    
   }
 
 // Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier - non utilisé pour le moment
