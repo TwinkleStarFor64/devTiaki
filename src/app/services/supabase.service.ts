@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
 import {
-  AuthChangeEvent,
   AuthSession,
   createClient,
   PostgrestSingleResponse,
-  Session,
   SupabaseClient,
-  User,
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import {
   HistoriqueJournalI,
   HistoriqueMessageI,
 } from '../intranet/modeles/Types';
-import { CiqualI } from '../intranet/utils/modeles/Types';
-import { Observable } from 'rxjs';
+
 
 export interface AidantI {
   id: number;
@@ -54,7 +50,7 @@ export class SupabaseService {
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
   }
-//------------------------ Methode pour la page journal--------------------------------
+  //------------------------ Methode pour la page journal--------------------------------
   // DELETE un journal et son groupe sur la table groupeEvenement
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
     const { data: journalData, error: journalError } = await this.supabase
@@ -364,70 +360,73 @@ export class SupabaseService {
 
   // --------------------Methodes page Messagerie --------------------
 
-// Récupération des ancien message
+  // Récupération des ancien message
   async getHistoriqueMessage() {
     return await this.supabase
-      .from('message') 
+      .from('message')
       .select(
         'id, medecin, activite, objet, echange, groupeMessage (id), date'
-      ); 
+        );
   }
-//  Méthode de création de message
+
+  //  Méthode de création de message
   async createMessage(
     newEntryMessage: {
       medecin: string;
       activite: string;
       objet: string;
       echange: string;
-      groupeMessage: number;
+      // groupeMessage: number;
       date?: Date;
     },
-    link: HistoriqueMessageI | null
+  link: HistoriqueMessageI | null
   ) {
-    newEntryMessage.date = new Date(); 
+  newEntryMessage.date = new Date();
 
-    // Cas n°1: 
-    if (link) {
-      const newMessageEvenement = {
-        ...newEntryMessage,
-        groupeMessage: link['groupeMessage']['id'],
-      };
+  // Cas n°1: 
+  if (link) {
+    const newMessageEvenement = {
+      ...newEntryMessage,
+      groupeMessage: link['groupeMessage']['id'],
+    };
 
-      this.insertMessage(newMessageEvenement); 
+    this.insertMessage(newMessageEvenement);
 
     // Cas n°2: 
-    } else {
-      const { data: groupData, error: groupError } = await this.supabase
-        .from('groupeMessage')
-        .insert({})
-        .select()
-        .single();
-      if (groupError) {
-        console.log(groupError);
-      }
-      if (groupData) {
-        const newMessageEvenement = {
-          ...newEntryMessage,
-          groupeEvenement: groupData['id'],
-        };
-        this.insertMessage(newMessageEvenement);
-      }
+  } else {
+    const { data: groupData, error: groupError } = await this.supabase
+      .from('groupeMessage')
+      .insert({})
+      .select()
+      .single();
+    if (groupError) {
+      console.log(groupError);
+    }
+    if (groupData) {
+      const newMessageEvenement = {
+        ...newEntryMessage,
+        groupeEvenement: groupData['id'],
+      };
+      this.insertMessage(newMessageEvenement);
     }
   }
-  
-// Méthode d'insertion de message
+  }
+
+  // Méthode d'insertion de message
   private async insertMessage(newEntryMessage: {
     medecin: string;
     activite: string;
     objet: string;
     echange: string;
-    groupeMessage: number;
+    groupeMessage?: number;
     date?: Date;
   }) {
     //On créer le message dans la base de données
+    newEntryMessage.date = new Date();
     const { error: messagerieError } = await this.supabase
       .from('message') //je choisi la table message
       .insert(newEntryMessage); //J'insére la variable newEntryMessage
+    
     if (messagerieError) {
       console.log(messagerieError);
     }
@@ -450,7 +449,7 @@ export class SupabaseService {
     }
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
-
+// ----------------Fin methode page messagerie--------------------------------
 }
 
 

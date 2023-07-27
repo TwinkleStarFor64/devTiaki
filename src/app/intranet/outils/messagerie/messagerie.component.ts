@@ -40,8 +40,8 @@ export class MessagerieComponent implements OnInit {
       nom: "Ajout d'un plat",
     },
   ];
-  formMessage!: FormGroup;
 
+  formMessage!: FormGroup;
   public linkMessages: any[] = [];
 
   constructor(
@@ -56,7 +56,7 @@ export class MessagerieComponent implements OnInit {
       activite: [null, [Validators.required]],
       objet: [null, [Validators.required]],
       echange: [null],
-      groupeMessage: [null],
+      link: [null],
     });
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
@@ -64,6 +64,7 @@ export class MessagerieComponent implements OnInit {
     this.echanges.getNomOrga();
     this.fetchMessages();
   }
+  
   // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
   async fetchMessages() {
     const { data, error } = await this.supa.getHistoriqueMessage();
@@ -81,18 +82,17 @@ export class MessagerieComponent implements OnInit {
     }
   }
 
+// Methode pour envoyer un message via le button 
+
   async onSubmitFormMessage() {
     console.log(this.formMessage.value);
-    //Ci-dessous j'attribue les valeurs
     const newEntryMessage = {
-      medecin: this.formMessage.value.medein,
+      medecin: this.formMessage.value.medecin,
       activite: this.formMessage.value.activite,
       objet: this.formMessage.value.objet,
       echange: this.formMessage.value.echange,
-      groupeMessage: this.formMessage.value.groupeMessage,
     };
-    const idLink = this.formMessage.value.linkMessages;
-    //J'utilise la méthode createMessage avec comme paramétre newMessage
+    const idLink = this.formMessage.value.link;
     await this.supa.createMessage(newEntryMessage, idLink).then(() => {
       this.fetchMessages();
       window.location.reload(); // Bonne solution ??

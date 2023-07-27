@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
-
-
 import {
-  HistoriqueI,
   MedecinI,
   RealisationI,
-  RelierI,
 } from 'src/app/intranet/modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
 
@@ -54,7 +50,7 @@ export class JournalComponent implements OnInit {
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
   public reliers: any[] = []; //
 
-  constructor(private formBuilder: FormBuilder, public supa: SupabaseService) {}
+  constructor(private formBuilder: FormBuilder, public supa: SupabaseService) { }
 
   async ngOnInit(): Promise<void> {
     this.formJournal = this.formBuilder.group({

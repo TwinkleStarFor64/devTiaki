@@ -19,7 +19,7 @@ export class HistoriqueComponent implements OnInit {
   selectedHistorique?: HistoriqueJournalI;
   selectedId!: number;
 
-  filtre:string = '';
+  filtre: string = '';
 
   public medecins: MedecinI[] = [
     {
@@ -56,7 +56,7 @@ export class HistoriqueComponent implements OnInit {
   public historiqueSelect: FormControl = new FormControl();
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
-  constructor(public supa: SupabaseService, private dialog: MatDialog) {}
+  constructor(public supa: SupabaseService, private dialog: MatDialog) { }
 
   //ngOnInit asynchrone qui renvoie une Promesse
   async ngOnInit(): Promise<void> {
@@ -135,7 +135,7 @@ export class HistoriqueComponent implements OnInit {
   deleteJournal(id: number) {
     this.openDialog() // La méthode au dessus pour la modal
       .afterClosed()
-    // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
+      // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
       .subscribe((res) => {
         if (res) {
           this.supa

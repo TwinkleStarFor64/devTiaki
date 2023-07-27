@@ -69,47 +69,39 @@
       <form [formGroup]="formMessage">
         <mat-form-field appearance="outline">
           <mat-label>Sélectionnez un médecin</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let med of medecins">{{ med.nom }}</mat-option>
+          <mat-select formControlName="medecin">
+            <mat-option value={{med.nom}} *ngFor="let med of medecins">{{ med.nom }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Activité concernée</mat-label>
-          <mat-select formControlName="">
-            <mat-option *ngFor="let rel of realisations">{{
+          <mat-select formControlName="activite">
+            <mat-option value={{rel.nom}} *ngFor="let rel of realisations">{{
               rel.nom
-            }}</mat-option>
+              }}</mat-option>
           </mat-select>
         </mat-form-field>
-
         <mat-form-field appearance="outline">
           <mat-label>Objet</mat-label>
           <input matInput formControlName="objet" />
         </mat-form-field>
-
         <mat-form-field appearance="outline" id="textarea">
           <mat-label>Message</mat-label>
-          <textarea matInput rows="8" formControlName=""></textarea>
+          <textarea matInput rows="8" formControlName="echange"></textarea>
         </mat-form-field>
-
         <mat-form-field appearance="outline">
           <mat-label>Copier un message de l’historique</mat-label>
-          <mat-select>
+          <mat-select formControlName="link">
             <mat-option *ngFor="let link of linkMessages" [value]="link">{{
-              supa.formatDate(link.date) + " - " + link.objet
-            }}</mat-option>
+              supa.formatDate(link.date)+ " " +link.objet
+              }}</mat-option>
           </mat-select>
         </mat-form-field>
       </form>
     </article>
     <div id="divButton">
       <button mat-raised-button (click)="onCancel()">Annuler</button>
-      <button
-        mat-raised-button
-        type="submit"
-        (click)="onSubmitFormMessage()"
-        [disabled]="formMessage.invalid"
-      >
+      <button mat-raised-button type="submit" (click)="onSubmitFormMessage()" [disabled]="formMessage.invalid">
         Envoyer
       </button>
     </div>
