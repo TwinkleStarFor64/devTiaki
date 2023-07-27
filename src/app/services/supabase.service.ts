@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import {
-  AuthChangeEvent,
   AuthSession,
   createClient,
   PostgrestSingleResponse,
-  Session,
   SupabaseClient,
-  User,
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { HistoriqueJournalI } from '../intranet/modeles/Types';
-import { CiqualI } from '../intranet/utils/modeles/Types';
-import { Observable } from 'rxjs';
+import {
+  HistoriqueJournalI,
+  HistoriqueMessageI,
+} from '../intranet/modeles/Types';
+
 
 export interface AidantI {
   id: number;
@@ -51,7 +50,7 @@ export class SupabaseService {
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
   }
-
+  //------------------------ Methode pour la page journal--------------------------------
   // DELETE un journal et son groupe sur la table groupeEvenement
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
     const { data: journalData, error: journalError } = await this.supabase
@@ -222,180 +221,235 @@ export class SupabaseService {
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
 
-// Méthode pour supprimer un menu
+  //------------------ Méthode pour supprimer un menu---------------------
   async deleteMenu(id: number) {
     const { error: deleteError } = await this.supabase
       .from('repas')
       .delete()
-      .eq('id', id)
-  
-      if(deleteError) {
-        console.log(deleteError);      
-      } 
-    }  
+      .eq('id', id);
 
-// Méthode pour supprimer un plat
-    async deletePlat(id:number) {
-      const { error: deleteError } = await this.supabase
+    if (deleteError) {
+      console.log(deleteError);
+    }
+  }
+
+  // --------------------Méthode pour supprimer un plat-------------------
+  async deletePlat(id: number) {
+    const { error: deleteError } = await this.supabase
       .from('plats')
       .delete()
-      .eq('id', id)
+      .eq('id', id);
 
-      if(deleteError) {
-        console.log(deleteError);        
-      }
+    if (deleteError) {
+      console.log(deleteError);
     }
+  }
 
-// Méthode pour enregistrer un menu
-  async createMenu(
-    newEntry: { 
+  //------------------- Méthode pour enregistrer un menu-----------------------
+  async createMenu(newEntry: {
     nom: string;
     description: string;
     date?: Date;
     alim_code?: number;
     ciqual?: number;
-    }) {
-    newEntry.date = new Date(); //Le champ date aura la date actuelle    
+  }) {
+    newEntry.date = new Date(); //Le champ date aura la date actuelle
     const { data: menuData, error: menuError } = await this.supabase
       .from('repas')
       .insert(newEntry)
       .select()
-      .single();      
+      .single();
 
-      if(menuError) {
-        console.log(menuError);
-      } 
-  }  
- 
-// Méthode pour enregistrer un plat 
-  async createPlat(
-    newEntry: {
+    if (menuError) {
+      console.log(menuError);
+    }
+  }
+
+  //------------------- Méthode pour enregistrer un plat------------------
+  async createPlat(newEntry: {
     nom: string;
     description: string;
     date?: Date;
     alim_code?: number;
-    }) {
-      newEntry.date = new Date();
-      const { error: platError } = await this.supabase
+  }) {
+    newEntry.date = new Date();
+    const { error: platError } = await this.supabase
       .from('plats')
       .insert(newEntry)
       .select()
       .single();
 
-      if(platError) {
-        console.log(platError);
-        
-      }
+    if (platError) {
+      console.log(platError);
     }
-
-// Méthode pour récupérer la table Ciqual
-  async getCiqual() {
-    const ciqual = await this.supabase
-      .from('ciqualAnses')
-      .select('*');
-    console.log(ciqual);
-    return ciqual;    
   }
-  
-// Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID
+
+  // -------------------Méthode pour récupérer la table Ciqual----------------
+  async getCiqual() {
+    const ciqual = await this.supabase.from('ciqualAnses').select('*');
+    console.log(ciqual);
+    return ciqual;
+  }
+
+  //------------------ Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID------------------------
   async getCurrentIngredient(alim_code: number) {
     const { data: currentData } = await this.supabase
       .from('ciqualAnses')
       .select('alim_code')
       .eq('alim_code', alim_code);
 
-      if (currentData && currentData.length > 0) {
-          console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
-        return {
-          alim_code: currentData[0].alim_code
-        }         
-      }
+    if (currentData && currentData.length > 0) {
+      console.log("Alim_code de l'ingrédient", currentData[0].alim_code);
+      return {
+        alim_code: currentData[0].alim_code,
+      };
+    }
     throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
 
-// Méthode pour récupérer la table Evaluation
+  // -------------------Méthode pour récupérer la table Evaluation-----------------------
   async getEvaluation() {
-    const evaluation  = await this.supabase
-      .from('evaluation')
-      .select('*')
+    const evaluation = await this.supabase.from('evaluation').select('*');
     //console.log(evaluation);
-    return evaluation;  
+    return evaluation;
   }
 
-// Méthode pour update une évaluation sur la table Repas
+  // ----------------------Méthode pour update une évaluation sur la table Repas-------------
   async updateEvalMenu(selectedEvaluation: number, selectedStatut: string) {
     const { data: evalData, error: evalError } = await this.supabase
       .from('repas')
       .update({ statut: selectedStatut })
-      .eq('id', selectedEvaluation)
-      
+      .eq('id', selectedEvaluation);
+
     if (evalError) {
       console.log(evalError);
       throw evalError;
-    }    
-    return evalData;
-  }
-
-// Méthode pour update une évaluation sur la table Plats
-  async updateEvalPlat(selectedEvaluation: number, selectedStatut: string) {
-    const { data: evalData, error: evalError } = await this.supabase
-    .from('plats')
-    .update({ statut: selectedStatut })
-    .eq('id', selectedEvaluation)
-
-    if (evalError) {
-      console.log(evalError);
-      throw evalError;      
     }
     return evalData;
   }
 
+  //---------------------- Méthode pour update une évaluation sur la table Plats-----------------------
+  async updateEvalPlat(selectedEvaluation: number, selectedStatut: string) {
+    const { data: evalData, error: evalError } = await this.supabase
+      .from('plats')
+      .update({ statut: selectedStatut })
+      .eq('id', selectedEvaluation);
 
-// Méthode pour récupérer l'id d'une évaluation
+    if (evalError) {
+      console.log(evalError);
+      throw evalError;
+    }
+    return evalData;
+  }
+
+  //------------------ Méthode pour récupérer l'id d'une évaluation-------------------------
   async getEvaluationById(id: number) {
     const { data, error } = await this.supabase
       .from('evaluation')
       .select('id')
       .eq('id', id)
       .single();
-      console.log(data);
-      
+    console.log(data);
+
     if (error) {
       console.log(error);
       throw error;
-    }        
-    return data;    
+    }
+    return data;
   }
 
+  // --------------------Methodes page Messagerie --------------------
 
- 
+  // Récupération des ancien message
+  async getHistoriqueMessage() {
+    return await this.supabase
+      .from('message')
+      .select(
+        'id, medecin, activite, objet, echange, groupeMessage (id), date'
+        );
+  }
 
+  //  Méthode de création de message
+  async createMessage(
+    newEntryMessage: {
+      medecin: string;
+      activite: string;
+      objet: string;
+      echange: string;
+      // groupeMessage: number;
+      date?: Date;
+    },
+  link?: HistoriqueMessageI | null
+  ) {
+  newEntryMessage.date = new Date();
+
+  // Cas n°1: 
+  if (link) {
+    const newMessageEvenement = {
+      ...newEntryMessage,
+      groupeMessage: link['groupeMessage']['id'],
+    };
+
+    this.insertMessage(newMessageEvenement);
+
+    // Cas n°2: 
+  } else {
+    const { data: groupData, error: groupError } = await this.supabase
+      .from('groupeMessage')
+      .insert({})
+      .select()
+      .single();
+    if (groupError) {
+      console.log(groupError);
+    }
+    if (groupData) {
+      const newMessageEvenement = {
+        ...newEntryMessage,
+        groupeEvenement: groupData['id'],
+      };
+      this.insertMessage(newMessageEvenement);
+    }
+  }
+  }
+
+  // Méthode d'insertion de message
+  private async insertMessage(newEntryMessage: {
+    medecin: string;
+    activite: string;
+    objet: string;
+    echange: string;
+    groupeMessage?: number;
+    date?: Date;
+  }) {
+    //On créer le message dans la base de données
+    newEntryMessage.date = new Date();
+    const { error: messagerieError } = await this.supabase
+      .from('message') //je choisi la table message
+      .insert(newEntryMessage); //J'insére la variable newEntryMessage
+    
+    if (messagerieError) {
+      console.log(messagerieError);
+    }
+  }
+
+  // Récupération d' un message
+//   async getCurrentMessage(id: number) {
+//     // l'ID va être dynamique quand j'appelle ma méthode dans le component
+//     const { data: currentData, error: currentError } = await this.supabase
+//       .from('message')
+//       .select('id, medecin, activite, objet, echange, groupeMessage (id), date')
+//       .eq('id', id);
+
+//     if (currentData) {
+//       currentData.forEach((message) => {
+//         // forEach car je reçois un tableau
+//         console.log('message.objet - supabase.service :', message.objet);
+//       });
+//       return currentData;
+//     }
+//     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
+//   }
+// // ----------------Fin methodes page messagerie--------------------------------
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/* async getCurrentIngredient(id: number) {
-    const { data: currentData } = await this.supabase
-      .from('ciqual')
-      .select('id, alim_code')
-      .eq('id', id);
-
-      if (currentData && currentData.length > 0) {
-        console.log("ID de l'ingrédient :", currentData[0].id);
-        console.log("Alim_code de l'ingrédient", currentData[0].alim_code);        
-        return {
-          id: currentData[0].id,
-          alim_code: currentData[0].alim_code
-        }         
-      }
-    throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-  } */
