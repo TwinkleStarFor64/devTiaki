@@ -3,7 +3,7 @@
         <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
     </article>
     <article *ngFor="let informations of events">
-        <div *ngIf="selectedId === informations.id">
+        <div *ngIf="selectedIdValue === informations.id">
             <h1>Voici les données de votre enregistrement sur le journal des repas</h1>
             <p id="date">Le {{ informations.start | date: 'dd/MM/yyyy  à HH:mm' }}</p>
             <p>Vous avez mangé le {{ informations.choice }} {{ informations.title }}</p>
@@ -15,5 +15,9 @@
             </span>
             <p>{{ informations.observations }}</p>
         </div>
+    </article>
+    <article *ngFor="let plat of plats">
+        <div *ngIf="selectedTitleValue  ===  plat.nom"></div>
+        <p>{{ plat.nom }} {{ plat.alim_code }}</p>
     </article>
 </section>

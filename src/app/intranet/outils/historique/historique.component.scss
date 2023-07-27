@@ -339,6 +339,7 @@ section:nth-child(4) {
     }
     ul {
       li {
+        cursor: pointer;
         @media screen and (max-width: 834px) {
           font-size: 0.9rem;
         }

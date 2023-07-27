@@ -54,6 +54,7 @@ export class JournalRepasComponent implements OnInit {
 
   events: CalendarEvent[] = []; // events de type CalendarEvent[]
   selectedId: any; // Pour stocker l'id dans la méthode eventClicked()
+  selectedTitle: any; // Pour stocker le title (Le nom du plat dans la BDD events) dans la méthode eventClicked()
 
   activeDayIsOpen = false; // Pour la méthode dayClicked()
 
@@ -121,7 +122,7 @@ export class JournalRepasComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.fetchEvents();
     this.fetchMenus();
-    this.fetchRepas();
+    this.fetchPlats();
     this.eventService.getEvaluation();    
 
     this.formData = this.formBuilder.group ({
@@ -163,12 +164,17 @@ export class JournalRepasComponent implements OnInit {
   }
 
   openDialog() {
+    const dataToSend = {
+      selectedId: this.selectedId,
+      selectedTitle: this.selectedTitle       
+    }
+
     return this.dialog.open(CheckJournalComponent, {
       disableClose: true,
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: this.selectedId, // data de la modal - renvoie un ID utiliser pour la modal check-journal
+      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal
     });
   }
 
@@ -177,7 +183,12 @@ export class JournalRepasComponent implements OnInit {
   eventClicked({ event }: { event: CalendarEvent }): void {
     console.log("Méthode eventCliked - j'ai cliqué sur l'id : ", event.id);
     this.selectedId = event.id; // J'attribue l'id de l'event sur lequel j'ai cliqué
-    console.log("Variable selectdId contient l'id : ", this.selectedId);
+    console.log("Variable selectedId contient l'id : ", this.selectedId);
+    
+    console.log("Méthode eventClicked - j'ai cliqué sur le nom : ", event.title);
+    this.selectedTitle = event.title;
+    console.log("Variable selectedTitle contient le nom : ", this.selectedTitle);
+    
     this.openDialog(); // J'ouvre la modal
     
   }
@@ -257,7 +268,7 @@ export class JournalRepasComponent implements OnInit {
     }
   }
 
-  async fetchRepas() {
+  async fetchPlats() {
     const { data, error } = await this.platService.getPlats();
     if (data) {
       this.plats = data.map((item: { [x:string]: any }) => ({
