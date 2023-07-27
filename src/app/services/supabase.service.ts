@@ -405,7 +405,7 @@ export class SupabaseService {
     if (groupData) {
       const newMessageEvenement = {
         ...newEntryMessage,
-        groupeEvenement: groupData['id'],
+        groupeMessage: groupData['id'],
       };
       this.insertMessage(newMessageEvenement);
     }
