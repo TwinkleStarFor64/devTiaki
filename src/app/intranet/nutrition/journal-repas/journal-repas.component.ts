@@ -2,14 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarEvent, CalendarEventAction, CalendarView, DateAdapter } from 'angular-calendar';
 import { format, isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { Subject } from 'rxjs';
+import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
 import { MenusService } from '../menus/services/menus.service';
 import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
-import {Router} from "@angular/router";
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CheckJournalComponent } from '../dialog/check-journal/check-journal.component';
@@ -81,17 +80,24 @@ export class JournalRepasComponent implements OnInit {
     }
   };  
 
+//.then(() => { 
+              // this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
+            //})
+
   actions: CalendarEventAction [] = [
     {
       label: '<img src="assets/trashBlue.svg"/>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
             /* this.events = this.events.filter((iEvent) => iEvent !== event);
             console.log('Event deleted', event); */
-            this.deleteEventConfirm(event.id) // Appel de la méthode pour delete qui contient la Modal et la méthode supabase           
-            .then(() => { // Aprés validation de la méthode au dessus je gére l'affichage HTML du calendrier
-              // Code angular calendar pour supprimer sur l'affichage HTML
-              this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
-            })
+            this.deleteEventConfirm(event.id) // Appel de la méthode pour delete qui contient la Modal et la méthode supabase
+// Aprés validation de la méthode au dessus je gére l'affichage HTML du calendrier - Code ci-dessous pour supprimer sur l'affichage HTML
+            .then((isConfirmed: boolean) => { // isConfirmed est soit vrai soit faux
+              if (isConfirmed) { // Si isConfirmed est vrai je filtre les événements avec .filter() dans le tableau this.events
+                this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
+// Ci-dessus filter() itère sur chaque élément de this.events et vérifie si la propriété id de l'événement (iEvent.id) est différente de l'ID de l'événement que je veux supprimer (event.id)
+              }
+            });
           },
     }
   ]
@@ -211,20 +217,25 @@ export class JournalRepasComponent implements OnInit {
   }
 
 // Méthode faisant appel à la Modal de confirmation puis à la méthode de suppression dans supabase
-  async deleteEventConfirm(id: any) {
-    this.deleteDialog() // J'appelle la Modal deleteDialog()
-    .afterClosed()
-    .subscribe((res) => { // Je souscris si résolution
-      if (res) {
-        this.eventService.deleteEvent(id) // J'appelle la méthode dans event.service
-        .then(() => {
-          this.fetchEvents(); // Puis (.then) je refais un fetch des évenements
-        })                
-      }      
-    })
-    throw new Error;
-  }  
+// Je renvoie une promesse "Promise<boolean>" pour indiquer si la suppression a été confirmée 
+async deleteEventConfirm(id: any): Promise<boolean> {
+  try {
+// J'utilise firstValueFrom pour attendre le premier élément émis par l'observable retourné par this.deleteDialog().afterClosed()
+// afterClosed() retourne un Observable qui émet la valeur lorsque la boîte de dialogue est fermée
+    const result = await firstValueFrom(this.deleteDialog().afterClosed());
+    if (result) {
+      await this.eventService.deleteEvent(id);
+      return true; // Suppression confirmée et effectuée avec succès.
+    } else {
+      return false; // Suppression annulée ou la boîte de dialogue a été fermée sans confirmer.
+    }
+  } catch (error) {
+    console.error('Erreur lors de la gestion de la suppression de l\'événement :', error);
+    return false; // En cas d'erreur, renvoie false.
+  }
+}
 
+// Méthode pour récupérer les événements enregistrés sur le calendrier
   async fetchEvents() {
     const { data, error } = await this.eventService.getEvents();
     if (data) {
@@ -322,3 +333,22 @@ export class JournalRepasComponent implements OnInit {
     console.log(event);
     this.openDialog();      
   } */
+
+
+
+// Ancienne méthode pour supprimer un Event
+ /*  async deleteEventConfirm(id: any) {
+    this.deleteDialog() // J'appelle la Modal deleteDialog()
+    .afterClosed()
+    .subscribe((res) => { // Je souscris si résolution
+      if (res) {
+        this.eventService.deleteEvent(id) // J'appelle la méthode dans event.service
+        .then(() => {
+          this.fetchEvents(); // Puis (.then) je refais un fetch des évenements
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression de l\'événement :', error);
+        });                 
+      }      
+    })    
+  }  */
