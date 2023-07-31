@@ -1,0 +1,73 @@
+section {
+background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  article:nth-child(1) { // Article avec l'icône de fermeture
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+      mat-icon {
+        cursor: pointer;
+        font-size: 32px;
+        height: auto;
+        width: auto;
+        margin: 5px 5px 0 0px;
+      }
+  }
+  #events { // article avec les données de l'event choisi sur le calendrier
+    div {
+        h1 {
+            color: #d9042b;
+            font-size: 1.6rem;
+            font-weight: 500;            
+        }
+        #date { // La balise <p id="date">Le {{ informations.start | date: 'dd/MM/yyyy  à HH:mm' }}</p>
+            font-weight: 600;
+        }
+        p:nth-child(4) { // La balise <p>Informations complémentaires :</p>
+            font-weight: 600;
+        }
+        span {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5vw;
+            align-items: center;
+            p:nth-child(1) { // Le bloc de couleur
+                height: 2vh;
+                width: 3vw;
+                border-radius: 10%;
+            }
+        }
+    }
+  }
+
+  #ingredients { // article avec les ingrédients
+    display: flex;
+    flex-direction: column;
+    div {
+        #getBold { // La balise <p id="getBold">Ingrédients de {{ platItem.nom }} :</p> 
+            font-weight: 600;            
+        }
+    }
+  }
+}
+
+// CSS dynamique pour la balise <p class="{{ informations.color }}"></p>
+.Positif {
+    background-color: #33BB27;
+}
+.Allergies {
+    background-color: #D9042B;
+}
+.Observations {
+    background-color: #F0C02E;
+}
+.Neutre {
+    background-color: #D1D1D1;
+}

@@ -217,19 +217,11 @@ section {
         justify-content: space-around;
         align-items: center;
         height: 10vh;
-        span:nth-child(1) {
-          button {
-            
-          }
-        }
+        
         p { // La date en texte
           font-size: 1.5rem;
         }
-        span:nth-child(2) {
-          button {
-            
-          }
-        }
+        
       }  
   
       div:nth-child(2) { // La div contenant le calendrier

@@ -34,7 +34,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { CheckJournalComponent } from './dialog/check-journal/check-journal.component';
 
 
 registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
@@ -68,7 +68,9 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     BottomBarNutriComponent,
     SaveDataComponent,
     DeleteDataComponent,
-    SavePlatComponent,    
+    SavePlatComponent,
+    CheckJournalComponent,
+   
   ],
   imports: [
     CommonModule,
