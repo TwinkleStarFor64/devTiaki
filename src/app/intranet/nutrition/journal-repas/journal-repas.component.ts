@@ -298,10 +298,6 @@ export class JournalRepasComponent implements OnInit {
       //window.location.reload();
     })    
   }
-
-  
-  
-
 }
 
 
