@@ -3,8 +3,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EventService } from '../../journal-repas/services/event.service';
 import { parseISO } from 'date-fns';
 import { PlatsService } from '../../plats/services/plats.service';
-import { CiqualI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
+import { CiqualI, MesMenusI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
 import { SupabaseService } from 'src/app/services/supabase.service';
+import { MenusService } from '../../menus/services/menus.service';
 
 @Component({
   selector: 'app-check-journal',
@@ -19,13 +20,15 @@ export class CheckJournalComponent implements OnInit {
   selectedTitleValue!: string; // Pour stocker le nom (title) de l'event calendar dans ngOnInit  
 
   plats: MesPlatsI[] = [];
+  repas: MesMenusI[] = [];
   aliment: CiqualI[] = [];
 
 // Dans le constructor j'utilise data - voir la doc pour les modals
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CheckJournalComponent>, public eventService: EventService, public platsService: PlatsService, public supa: SupabaseService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CheckJournalComponent>, public eventService: EventService, public platsService: PlatsService, public menuService: MenusService, public supa: SupabaseService) {}
 
   ngOnInit(): void {
     this.fetchPlats();
+    this.fetchMenus();
     this.fetchEvents();  
     this.fetchCiqual();
 
@@ -80,6 +83,25 @@ export class CheckJournalComponent implements OnInit {
     }
   }
 
+  async fetchMenus() {
+    const { data, error } = await this.menuService.getRepas();
+    if (data) {
+      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
+      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
+      this.repas = data.map((item: { [x: string]: any }) => ({
+        id: item['id'],
+        nom: item['nom'],
+        description: item['description'],
+        alim_code: item['alim_code'],
+        statut: item['statut'],
+      }));
+      console.log(this.repas.map((item) => item['id']));
+    }
+    if (error) {
+      console.log(error);
+    }
+  }
+
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
       await this.supa.getCiqual();
@@ -109,7 +131,7 @@ export class CheckJournalComponent implements OnInit {
   }
 
 // Méthode pour afficher les données de la table plats & ciqual en BDD seulement si elles correspondent à selectedTitleValue
-  getFilteredData(): any[] {
+  getFilteredPlatsData(): any[] {
     if (!this.selectedTitleValue) {
       return [];
     }
@@ -139,7 +161,25 @@ export class CheckJournalComponent implements OnInit {
                         {  Ingrédient 2  },    
                         ]
                       } */
-  } // <--------------- FIN DE getFilteredPlats()-----------------------------------
+  } // <--------------- FIN DE getFilteredPlatsData()-----------------------------------
+
+  getFilteredMenusData(): any[] {
+    if (!this.selectedTitleValue) {
+      return [];
+    }
+    const filteredMenus = this.repas.filter(
+      (menu) => menu.nom === this.selectedTitleValue
+    );
+      return filteredMenus.map((menu) => {
+        return {
+          nom: menu.nom,
+          alimCode: menu.alim_code,
+          ingredients: this.aliment.filter(
+            (ingredient) => ingredient.alim_code === menu.alim_code
+          ),
+        };
+      });
+  }
 
 }
 
