@@ -40,7 +40,7 @@ export class JournalRepasComponent implements OnInit {
   public color: ThemePalette = 'primary';
 
 
-  public formatDateToFrench(date: Date): string {
+  public formatDateToFrench(date: Date): any {
     return format(date, 'dd/MM/yyyy', { locale: fr });
   }  
 

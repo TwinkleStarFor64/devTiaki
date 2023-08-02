@@ -96,6 +96,7 @@ $foot: 150px; // Hauteur des menus du bas
           height: 3.5vh;
           font-size: 1rem;
           font-family: $font-family;
+          padding: 4px 8px;
           @media screen and (max-width: 834px) {
             height: 3vh;
             font-size: 0.8rem;
