@@ -7,6 +7,7 @@
   </header>
   <section class="exercice">
     <article *ngFor="let exercice of exercices">
+      <!-- <figure [style.backgroundImage]=""></figure> -->
       <img [src]="exercice.photo" alt="photo-exercice" />
       <h6>{{ exercice.titre }}</h6>
       <p>{{ exercice.description }}</p>
