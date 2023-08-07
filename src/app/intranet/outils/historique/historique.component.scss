@@ -5,24 +5,363 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
+$historique: #F8E6AF;
 
-main {
-  min-height: 100vh;
+// CSS pour la scrollbar
+::-webkit-scrollbar {
+  background-color: #fddd4c;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: #f5d20a;
+  @media screen and (max-width: 480px) {
+    height: auto;
+  }
+}
+
+#mainJournal {
+  font-family: $font-family;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    //width: calc(100% + 68px); // Pour l'aside bar
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Section permettant de voir l'historique des journaux - Non visible en Mobile
+section:nth-child(2) {
+  background-color: $historique;
+  width: 13%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
+  @media screen and (max-width: 1280px) {
+    width: 25%;    
+  }
+  @media screen and (max-width: 834px) {
+    width: 25%;
+  }
+  @media screen and (max-width: 480px) {
+    height: 40vh;
+    width: calc(100% + 65px);
+    display: none;
+  }
 
-  section {
+  div:nth-child(1) {// Div visible en Tablette & Mobile
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        a { // La balise avec le router
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: black;
+            font-size: 3rem;             
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;
+              @media screen and (max-width: 480px) {
+                color: #F0C02E;
+              }                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+      }   
+      @media screen and (max-width: 480px) {
+        height: 8vh;        
+      }   
+  }
+
+  div:nth-child(2) { // Div avec le logo - la balise <p> et un input
+    margin-top: 2vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
+    align-items: center;
+    height: 18%;
+    justify-content: flex-end;
+    gap: 1vw;
+    text-align: start;
+    @media screen and (max-width: 1280px) {
+      margin: 2vh 1vw 0 1vw;
+      height: auto;
+      align-items: normal;
+    }
+    @media screen and (max-width: 480px) {
+      margin: 2vh 1vw 0 4vw;
+      @media screen and (max-width: 480px) {
+        height: 5vh;        
+      }
+    }
 
-    article {
+    img { // Le logo Pacman
+      height: 4vw;
+      @media screen and (max-width: 480px) {
+        display: none;        
+      }
+    }
+
+    p {
+      // La balise <p>Historiques des journaux sur ces activités</p>
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 4px;
+      width: 90%;
+      @media screen and (max-width: 1280px) {                
+        text-align: start;
+      }
+      @media screen and (max-width: 1200px) {
+        font-size: 0.9rem;
+      }
+      @media screen and (max-width: 834px) {
+        font-size: 0.8rem;
+      }
+      @media screen and (max-width: 480px) {
+        margin: 0;
+      }      
+    }
+
+    input {
+      width: 80%;
+      @media screen and (max-width: 480px) {
+        width: 50%;
+      }      
+    }
+  }
+
+  div:nth-child(3) { // La Div qui contient la balise ul et les li
+    @media screen and (max-width: 480px) {
+      height: 27vh;
+      overflow-y: auto;
+      border-top: black dashed 1px;
+      border-bottom: black dashed 1px;
+      margin-top: 1vh;      
+    }
+    ul {
       display: flex;
+      flex-direction: column;
+      justify-content: space-around;
       align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
+      //height: 30%;   
+      @media screen and (max-width: 480px) {
+        overflow-y: auto; 
+        margin: 0;           
+      }           
+      li {
+        cursor: pointer;
+        text-align: start;
+        font-size: 1rem;
+        margin-top: 2vh;        
+        @media only screen and (max-width: 1280px) {
+          font-size: 0.8rem;
+        }
+        @media only screen and (max-width: 1280px) {
+          font-size: 0.8rem;
+        }
+        @media screen and (max-width: 834px) {
+          font-size: 0.7rem;
+        }
+        @media screen and (max-width: 480px) {
+          margin-top: 1vh; 
+          margin-bottom: 1vh;           
+        }  
+      }
+    }
+  }
+}
+
+// Section avec le ngx-mat-select-search - Visible seulement en mobile
+section:nth-child(3) {
+  width: calc(100% + 65px);
+  display: none;  
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    div:nth-child(1) {
+      display: flex;
+      text-align: center;
+        a { // La balise avec le router
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: black;
+            font-size: 3rem; 
+            text-align: center;            
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;
+              @media screen and (max-width: 480px) {
+                color: #F0C02E;
+              }                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+    }
+    div:nth-child(2) {
+      text-align: center;
+      p {
+        font-size: 0.9rem;
+      }
+    }    
+  }
+}
+
+
+// ------------ La section ou s'affiche le journal choisi -------------------
+section:nth-child(4) {
+  width: 74%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //overflow-y: auto;
+  @media screen and (max-width: 1280px) {
+    width: 75%;
+  }  
+  @media screen and (max-width: 480px) {    
+    width: calc(100% + 65px);
+    height: 75vh;       
+  }
+
+  // Article du titre avec la ligne de dashed
+  article:nth-child(1) {
+    margin-top: 8vh;
+    width: 80%;
+    height: 10%;
+    border-bottom: 1px dashed black;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h3 {
+      // La balise <h3>Journal du 21-03-2023</h3>              
+      //align-self:flex-start;
+      font-size: 1.5rem;
+      font-weight: 600;
+      @media screen and (max-width: 834px) {
+        font-size: 1.1rem;
+      }
+      @media screen and (max-width: 480px) {
+        font-size: 1rem;
+      }
+    }
+
+    div { // Div contenant les boutons
+      display: flex;
+      gap: 1vw;
+
+      button {// Le bouton orange Supprimer
+        width: 7vw;
+        font-size: 0.8vw;
+        background-color: #f28705;
+        border-color: #f28705;
+        color: white;
+        @media screen and (max-width: 834px) {
+          width: 11vw;
+          font-size: 0.7rem;
+        }    
+        @media screen and (max-width: 480px) {
+          width: 20vw;
+          font-size: 0.6rem;
+        }    
+      }
+
+      button:nth-child(2) { // le bouton jaune Modifier
+        background-color: $aside-color3;
+      }
+    }
+  }
+
+  article:nth-child(2) {
+    width: 70%;
+    margin-top: 4vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      @media screen and (max-width: 834px) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 480px) {
+        font-size: 0.9rem;
+      }
+    }
+    p {
+      margin: 0;
+      @media screen and (max-width: 834px) {
+        font-size: 0.9rem;
+      }
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;        
+      }
+    }
+    ul {
+      li {
+        @media screen and (max-width: 834px) {
+          font-size: 0.9rem;
+        }
+        @media screen and (max-width: 480px) {
+          font-size: 0.8rem;
+        }
+      }
+    }    
+  }
+}
+
+#default { // La section affiché par défaut si aucun journal choisi
+  justify-content: center;
+  overflow-y: auto;
+  @media screen and (max-width: 1280px) {
+    width: 75%;
+  }
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 65px);
+    text-align: center;
+    justify-content: flex-start;
+  }
+
+
+  p { // La balise <p>Veuillez choisir un journal archivés afin de voir ce qu'il contient</p>
+    font-size: 1.5rem;
+    @media screen and (max-width: 834px) {
+      font-size: 1.1rem;
+    }
+    @media screen and (max-width: 480px) {
+      font-size: 0.9rem;
     }
   }
 }

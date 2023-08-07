@@ -1,10 +1,13 @@
-<!-- Bar de navigation permettant de se déplacer sur l'application -->
-<nav>
+<button mat-icon-button id="burger-icon" (click)="toggleNavbar()">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<nav [class.active]="navbarVisible">
   <ul>
-    <li *ngFor="let aside of asides">
+    <li *ngFor="let aside of asides; let i = index" (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null">
       <a [routerLink]="[aside.url]" [title]="">
-        <img [src]="aside.image" [alt]=""/>
-        <p *ngIf="aside.nom && aside.nom.length > 0">{{ aside.nom }}</p>
+        <img [src]="aside.image" [alt]="" />
+        <p *ngIf="hoveredIndex === i && aside.nom && aside.nom.length > 0">{{ aside.nom }}</p>
       </a>
     </li>
   </ul>

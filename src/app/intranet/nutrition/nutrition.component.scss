@@ -5,18 +5,43 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-:host {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+$clair: white;
+$sombre: black;
 
-  section {
-    display: flex;
+$head: 60px; // Hauteur de l'entête des pages
+$foot: 150px; // Hauteur des menus du bas  
+
+
+section {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+
+  #head {
     flex-flow: column nowrap;
-
-    article {
-      height: 8vh;
-    }
   }
+
+  #head>p {
+    color: $card-kine;
+    font-size: 3rem;
+    font-weight: 300;
+    @media screen and (max-width: 480px) {
+      display: none;
+  }
+  }
+
+  #head>a:nth-child(1) {
+    color: $card-kine;
+  }
+}
+#accueil>#head>p{
+  color: $card-nutri;
+}
+
+#accueil>section:nth-child(2)>article{
+  background-color: $card-nutri;
+
+    button {
+      color: $card-nutri;
+      border-color: $card-nutri;
+    }
 }

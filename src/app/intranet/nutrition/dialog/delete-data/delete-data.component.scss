@@ -1,0 +1,37 @@
+article {
+    background-color: #f1e9d0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    mat-icon {
+        cursor: pointer;
+        font-size: 32px;
+        height: auto;
+        width: auto;
+        margin: 5px 5px 0 0px;
+    }
+    div:nth-child(1) { // La div qui contient l'icône de croix
+        justify-content: flex-end;
+    }
+    div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1vw;
+        button{
+            width: 7vw;
+            font-size: 0.8vw;
+            @media screen and (max-width : 834px) {
+                width: 15vw;
+                font-size: 0.8rem;
+              }
+            @media screen and (max-width: 480px) {
+                width: 25vw;    
+              }
+        }
+        button:nth-child(2) {
+            background-color: #33BB27;
+        }
+    }
+}

@@ -1,27 +1,39 @@
-  <section id="exercices">
-    <header>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
-      <div>
-        <p>Kinésithérapie ></p>
-        <img [src]="avatar" />
-        <p>Le parcours de Cheer Émilie</p>
-      </div>
-    </header>
-    <section>
-      <article *ngFor="let exercice of exercices">
-        <img [src]="exercice.photo" alt="photo-exercice" />
-        <h6>{{ exercice.titre }}</h6>
-        <p>{{ exercice.description }}</p>
-        <div>
-          <img [src]="exercice.horloge" alt="horloge" />
-          <p>Durée</p>
-          <img [src]="exercice.materiel" alt="materiel" />
-          <p>Matériels</p>
+<section id="exercices">
+  <header id="head">
+    <a routerLink="/intranet"><span>Tiaki</span></a>
+    <p>Kinésithérapie > <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
+  </header>
+  <section>
+    <article *ngFor="let exercice of exercicesFiltres">
+      <div class="photo-exo">
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
+        <h6>{{ exercice.title }}</h6>
+        <div class="exercice-texte">
+          <p>{{ exercice.description }}</p>
+          <div>
+            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+            <!-- mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null" -->
+            <p>
+              <!-- (mouseenter)="exerciceDureeSurvole = exercice"
+              (mouseleave)="exerciceDureeSurvole = null" -->
+              Durée
+            </p>
+            <img
+              [src]="sanity.urlFor(exercice.materielIcon).url()"
+              alt="materiel"
+            />
+            <p>Matériels</p>
+          </div>
         </div>
-        <!-- bar de progression -->
-      </article>
-    </section>
+      </div>
+      <div class="progress-bar">
+        <a>&#9664;</a>
+       <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+       <a>&#9654;</a>
+     </div>
+    </article>
   </section>
-  <footer>
-  <app-bottom-bar-kine></app-bottom-bar-kine>
-</footer>
+</section>
+<!-- <app-footer></app-footer> -->
+<app-bottom-bar-kine></app-bottom-bar-kine>

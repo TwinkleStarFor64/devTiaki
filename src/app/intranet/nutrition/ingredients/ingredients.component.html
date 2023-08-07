@@ -1,37 +1,58 @@
-<!-- <app-aside-bar></app-aside-bar> -->
-<header>
-  <article>
-    <a routerLink="/"><span>Tiaki</span>
-      <div></div>
-    </a>
+<section id="main">
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
     <p>Ingrédients et valeurs</p>
-    <div></div>
-  </article>
-</header>
+  </header>
 <section id="nutrition">
   <div>
-    <h1>Ingrédients</h1>
-    <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
-    <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre">
+    <!-- .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage) -->
+    <span>
+      <h1>Ingrédients</h1>
+      <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
+      <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->    
+      <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre" (input)="onFilterChange()">
+    </span>
     <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
     <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
-    <article *ngFor="let ingredient of composition.ciqual | aliments:filtre let i=index">
-      <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
-      <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
-      <h4 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ (debut + i) + ' - '
-        + ingredient.alim_nom_fr | uppercase }}</h4>
-    </article>
+    <!-- En utlisant "as" je crée une variable temporaire utilisable dans ng-container sans besoin de déclarer filteredIngredients dans le component -->
+    <ng-container *ngIf="composition.ciqual | aliments:filtre as filteredIngredients">
+    <!-- Ci-dessus j'utilise le pipe de filtrage et je stock le résultat dans la variable filteredIngredients -->
+    <!-- Doc sur ng-container - https://angular.io/api/core/ng-container#description -->
+    <span>      
+      <!-- filteredIngredients correspond à composition.ciqual - voir le ng-container au dessus -->
+      <article *ngFor="let ingredient of filteredIngredients  | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage  let i=index">
+        <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
+        <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
+        <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
+        <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
+      </article>      
+    </span>
+    <span>
+      <!-- (page)="currentPage = $event.pageIndex" -->
+      <!-- (page)="handlePageEvent($event)" -->
+      <!-- [pageSizeOptions]="[10, 25, 100]"  - Si je veux rajouter un choix du nombre d'ingrédients à afficher--> 
+      <!-- [length] est dynamique grâce à filteredIngredients -->     
+      <mat-paginator 
+        [length]="filteredIngredients.length"
+        [pageSize]="itemsPerPage"      
+        aria-label="Pagination"
+        [showFirstLastButtons]="true"
+        (page)="currentPage = $event.pageIndex"
+        [pageIndex]="currentPage">        
+      </mat-paginator>
+    </span>
+  </ng-container>
   </div>
-  <div>
+  <div id="selectedIngredient">
     <!-- *ngIf selectedIngredient appeler avec la méthode onSelect - declaré ligne 17 dans ingredients.component.ts -->
     <!-- selectedIngredient à pour valeur l'ingrédient sur lequel j'ai cliqué -->
     <article *ngIf="selectedIngredient">
       <span>
-        <h1>{{ selectedIngredient.alim_nom_fr}}</h1>
+        <h3>{{ selectedIngredient.alim_nom_fr}}</h3>
         <p>Cet ingrédient est mal supporté <input type="checkbox" name="allergie" id="allergie"></p>
       </span>
       <span>
-        <h3>Valeurs et compositions</h3>
+        <h4>Valeurs et compositions</h4>
         <p> <img src="assets/photoNutri/compl.svg" alt="icône composition">
           Composition : Protéines : {{ selectedIngredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
           Glucides : {{ selectedIngredient['Glucides (g\/100 g)'] }} Gr -
@@ -43,7 +64,7 @@
           B1 : {{ selectedIngredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
           B2 : {{ selectedIngredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
           B3 : {{ selectedIngredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-          B5 : {{ selectedIngredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }}
+          B5 : {{ selectedIngredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
         </p>
         <p> <img src="assets/photoNutri/vitamine.svg" alt="icône minéraux">
           Minéraux et oligo-éléments : Magnésium : {{ selectedIngredient["Magnésium (mg\/100 g)"] }} Mg -
@@ -52,25 +73,42 @@
           Manganése: {{ selectedIngredient["Manganèse (mg\/100 g)"] }} Mg
         </p>
       </span>
-      <!-- *ngFor sur l'interface MesPlatsI qui s'éxécute dans le le *ngFor de CiqualI (ligne 19)-->
+      <!-- *ngFor sur l'interface MesPlatsI qui s'éxécute dans le le *ngFor de CiqualI (ligne 13)-->
       <!-- J'applique le pipe plats avec le filtre alimCodeFiltre - ligne 15 dans ingredients.component.ts -->
       <span *ngIf="selectedPlat">
-        <h3>Plats contenant cet ingrédient</h3>
-        <div class="mesPlats" *ngFor="let mesPlats of composition.plat | plats:alimCodeFiltre">
-          <p>{{ mesPlats.nom }}</p>
-        </div>
-        <h3>Réactions constatées</h3>
-        <div class="mesObservations" *ngFor="let mesPlats of composition.plat | plats:alimCodeFiltre">
-          <p>{{ mesPlats.reaction }} </p>
-          <img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
-        </div>
-      </span>
-    </article>
-  </div>
+          <h5>Plats contenant cet ingrédient</h5>
+          <div
+            class="mesPlats"
+            *ngFor="let mesPlats of composition.plat | plats : alimCodeFiltre"
+          >
+            <p>{{ mesPlats.nom }}</p>
+            <!-- <p *ngIf="mesPlats.alim_code == alimCodeFiltre">coucou</p> -->
+            <p *ngIf="mesPlats.nom.length <= 0">coucou</p>
+          </div>
+          <h6>Réactions constatées</h6>
+          <!-- Ci-dessous j'utilise la variable locale Angular "first" afin d'afficher uniquement la premiére iteration de la balise img https://angular.io/api/common/NgFor#description -->
+          <div
+            class="mesObservations"
+            *ngFor="
+              let mesPlats of composition.plat | plats : alimCodeFiltre;
+              let first = first
+            "
+          >
+            <p>{{ mesPlats.reaction }}</p>
+            <ng-container *ngIf="first">
+              <img src="assets/photoNutri/vitamine.svg" alt="icône vitamine" />
+            </ng-container>
+          </div>
+        </span>
+      </article>
+    </div>
+  </section>
 </section>
-<footer>
-  <app-bottom-bar-nutri></app-bottom-bar-nutri>
-</footer>
+<app-bottom-bar-nutri></app-bottom-bar-nutri>
+<!-- <p *ngIf="mesPlats.alim_code == alimCodeFiltre; else elseBlock">{{ mesPlats.nom }}</p>
+            <ng-template #elseBlock>
+              coucou
+            </ng-template> -->
 
 <!-- <p>Note du dev : Travail en cours sur la base de donnée</p>
 <img src="https://cdn.pixabay.com/photo/2017/08/07/16/36/cat-2605502_960_720.jpg" alt="miaou"> -->

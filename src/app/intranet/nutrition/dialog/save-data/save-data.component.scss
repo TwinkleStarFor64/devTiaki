@@ -1,0 +1,69 @@
+section {
+  background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  mat-icon {
+    cursor: pointer;
+    font-size: 32px;
+    height: auto;
+    width: auto;
+    margin: 5px 5px 0 0px;
+  }
+  article:nth-child(1) {
+    // La balise article avec l'icône de fermeture de la modal et la balise <p>
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    div { // La div avec l'icône de femerture
+      text-align: end;
+    }
+    p { // Le contenu de la balise <p> viens de menus.component.ts
+      font-size: 1.5vw;
+      @media screen and (max-width : 834px) {
+        font-size: 1rem;
+      }
+    }
+  }
+  article:nth-child(2) {
+    display: flex; // Second article qui contient le formulaire
+    flex-direction: column;
+    align-items: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      align-items: center;
+      justify-content: center;
+      #input { // L'id de tout les inputs
+        width: 100%;
+      }
+      #textarea { // L'i du textarea
+        width: 100%;
+      }
+    }
+  }
+  article:nth-child(3) { // Article contenant les 2 boutons
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1vw;
+    button {
+      width: 7vw;
+      font-size: 0.8vw;
+      @media screen and (max-width : 834px) {
+        width: 15vw;
+        font-size: 0.8rem;
+      }
+      @media screen and (max-width: 480px) {
+        width: 25vw;    
+      }
+    }
+    button:nth-child(2) { // Le bouton confirmer
+      background-color: #33bb27;
+    }
+  }
+}

@@ -1,8 +1,194 @@
-<main>
-  <section>
-    <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
-    </article>
- </section>
- <app-bottom-bar-nutri></app-bottom-bar-nutri>
-</main>
+<section>
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>Journal des Repas</p>
+  </header>
+<!--   <article>
+    <img src="assets/Calendar_section.svg" alt="calendrier" />
+    <img src="assets/jourRepas.svg" alt="repas" />
+  </article>
+  <article id="mobile">
+    <div>
+      <img src="assets/calendriermobile.png" alt="calendrierMobile">
+    </div>
+    <div>
+      <span>
+        <p></p>
+        <p>Rien à signaler</p>
+      </span>
+      <span>
+        <p></p>
+        <p>À surveiller</p>
+      </span>
+      <span>
+        <p></p>
+        <p>Réaction allergique</p>
+      </span>
+      <span>
+        <p></p>
+        <p>Aucune donnée</p>
+      </span>
+    </div>
+    <div>
+      <img src="assets/jourRepas.svg" alt="">
+    </div>
+  </article> -->
+
+<!-- Tuto Angular Calendar - Partie 1 : https://www.youtube.com/watch?v=jebIV9lgS64 -->
+<!-- Tuto Angular Calendar - Partie 2 : https://www.youtube.com/watch?v=BtgJXnppJw8 -->
+<div id="divMain">
+  <article id="calendrier">
+    <div>
+      <span>
+        <button mat-raised-button mwlCalendarPreviousView [(viewDate)]="viewDate" [view]="view"><</button>
+        <button mat-raised-button mwlCalendarToday [(viewDate)]="viewDate">Aujourd'hui</button>
+        <button mat-raised-button mwlCalendarNextView [(viewDate)]="viewDate" [view]="view">></button>
+      </span>
+      <p>{{ viewDate | calendarDate:(view + "ViewTitle") : 'fr' }}</p>
+      <span> <!-- (click)="selectedButton = 0" [class.selected]="selectedButton === 0" - Code pour le CSS -->
+        <button mat-raised-button (click)="setView(CalendarView.Month)" (click)="selectedButton = 0" [class.selected]="selectedButton === 0" >Mois</button>
+        <button mat-raised-button (click)="setView(CalendarView.Week)" (click)="selectedButton = 1" [class.selected]="selectedButton === 1" >Semaine</button>
+        <button mat-raised-button (click)="setView(CalendarView.Day)" (click)="selectedButton = 2" [class.selected]="selectedButton === 2" >Jour</button>
+      </span>
+    </div>
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view 
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate" 
+      [events]="events" 
+      [activeDayIsOpen]="activeDayIsOpen" 
+      (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+      
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-month-view>
+      <mwl-calendar-week-view 
+      *ngSwitchCase="CalendarView.Week" 
+      [viewDate]="viewDate" 
+      [events]="events"
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)" 
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-week-view>
+      <mwl-calendar-day-view 
+      *ngSwitchCase="CalendarView.Day" 
+      [viewDate]="viewDate" 
+      [events]="events" 
+      (eventClicked)="eventClicked($event)"
+      (eventTimesChanged)="eventTimesChanged($event)"
+      [refresh]="refresh"
+      locale="fr"
+      ></mwl-calendar-day-view>
+    </div>
+    <div>
+      <p id="blocPositif"></p>
+      <p>Effet positif</p>
+      <p id="blocObservations"></p>
+      <p>Observations</p>
+      <p id="blocAllergies"></p>
+      <p>Réaction allergique</p>
+      <p id="blocNeutre"></p>
+      <p>Aucune donnée</p>
+    </div>
+  </article>
+  <article id="interface">
+    <h1>Renseigner votre journal des repas</h1>
+    <form [formGroup]="formData">
+      <p>Je rajoute un menu ou un plat</p>
+    <!-- Avec mat-radio j'affiche ensuite le mat-select plat OU menu -->
+      <mat-radio-group formControlName="choice">
+        <mat-radio-button value="plat">Plat</mat-radio-button>
+        <mat-radio-button value="menu">Menu</mat-radio-button>
+      </mat-radio-group>
+    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->  
+      <ng-container *ngIf="formData.get('choice')?.value === 'menu'">
+        <mat-form-field appearance="outline">
+          <mat-label>VOS MENUS</mat-label>
+          <mat-select formControlName="title">
+            <mat-option *ngFor="let menus of repas" [value]="menus.nom">
+              {{ menus.nom }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->
+      <ng-container *ngIf="formData.get('choice')?.value === 'plat'">
+        <mat-form-field appearance="outline">
+          <mat-label>VOS PLATS</mat-label>
+          <mat-select formControlName="title">
+            <mat-option *ngFor="let plat of plats" [value]="plat.nom">
+              {{ plat.nom }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-container>
+      <p>J'évalue mon menu ou mon plat</p>
+      <mat-form-field appearance="outline">
+        <mat-label>ÉVALUATION</mat-label>
+        <mat-select formControlName="color">
+          <mat-option *ngFor="let eval of eventService.evaluation" [value]="eval.statut">
+            {{ eval.statut }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- placeholder="Choisir une date"  OU  [placeholder]="formatDateToFrench(dateTime)" -->
+      <mat-form-field>
+        <input matInput [ngxMatDatetimePicker]="picker"                       
+                        placeholder="Choisir une date" 
+                        formControlName="start"
+                        [min]="minDate" [max]="maxDate" 
+                        [disabled]="disabled"                                               
+                        [value]="formatDateToFrench(dateTime)">
+                        <!-- J'ai rajouté [value] pour essayer de format la date en Fr-->
+        <mat-datepicker-toggle matSuffix [for]="$any(picker)">
+      <!-- Pour résoudre l'erreur sur le [for] - https://github.com/h2qutc/angular-material-components/issues/231 -->
+        </mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker 
+          [showSpinners]="showSpinners" 
+          [showSeconds]="showSeconds"
+          [stepHour]="stepHour" [stepMinute]="stepMinute" 
+          [stepSecond]="stepSecond"
+          [touchUi]="touchUi"
+          [color]="color">
+        </ngx-mat-datetime-picker>        
+      </mat-form-field>
+
+    </form>    
+    <span>
+      <p>*</p>
+      <p>champs requis</p>
+      <button mat-raised-button (click)="onSubmitForm()" [disabled]="formData.invalid">
+        enregistrer
+      </button>    
+    </span>
+  </article>
+</div>  
+  <!-- <app-footer></app-footer> -->
+</section>
+<app-bottom-bar-nutri></app-bottom-bar-nutri>
+
+
+
+
+
+
+<!-- <mat-form-field appearance="outline">
+        <mat-label>VOS MENUS</mat-label>
+        <mat-select formControlName="title">
+          <mat-option *ngFor="let menus of repas" [value]="menus.nom">
+            {{ menus.nom }}              
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>VOS PLATS</mat-label>
+        <mat-select formControlName="title">
+          <mat-option *ngFor="let plat of plats" [value]="plat.nom">
+            {{ plat.nom }}              
+          </mat-option>
+        </mat-select>
+      </mat-form-field> --> 

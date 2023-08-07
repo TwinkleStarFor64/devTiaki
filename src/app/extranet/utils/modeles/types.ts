@@ -9,4 +9,3 @@ export interface ImageI {
     url:string;
     alt?:string;
 }
-

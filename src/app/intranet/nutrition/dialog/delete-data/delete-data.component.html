@@ -1,0 +1,16 @@
+<article>
+  <div>
+    <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+  </div>
+    <p>{{ data }}</p>
+    <div>
+      <button mat-raised-button color="warn" [mat-dialog-close]="false">
+        Annuler
+      </button>
+      <button mat-raised-button color="primary" [mat-dialog-close]="true">
+        Confirmer
+      </button>
+    </div>
+  </article>
+  
+  <!-- Tuto vidéo pour la modal ici : https://www.youtube.com/watch?v=L7mrAYsh0-0 -->

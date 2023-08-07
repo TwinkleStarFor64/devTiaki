@@ -1,3 +1,35 @@
-#exercices > header, #exercices > header a {
-  color:#F22F1D;
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+#exercices>header,
+#exercices>header a {
+  color: $card-kine;
+}
+::-webkit-scrollbar {
+  background-color:#f0857b ;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-kine;
+}
+
+// #exercices {
+//   ::-webkit-scrollbar {
+//     background-color: $card-kine;
+//     width: 10px;
+//   }
+
+//   ::-webkit-scrollbar-thumb {
+//     height: 200px;
+//     background-color: $card-kine;
+//   }
+// }
+.progress-bar .mat-mdc-progress-bar {
+  --mdc-linear-progress-active-indicator-color:#f22f1d;
 }

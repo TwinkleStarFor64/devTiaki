@@ -1,5 +1,39 @@
-:host{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+:host {
+  height: 100%;
+  width: 100%;
+
+  section {
+    height: 10vh;
+    width: 100%;
+
+    article {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+      justify-content: space-around;
+      div{
+        h2 {
+          font-size: 2vw;
+        }
+        p{
+          font-size: 1.2vw;
+        }
+
+      }
+      img {
+        width: 20vh;
+        height: 20vw;
+      }
+    }
+
+    button{
+      height: 7vh;
+      width: 14vw;
+      font-size: 1vw ;
+      color: #4a0c74;;
+      background-color: #fff;
+      border-color: #000000;
+      font-weight: 700;
+  }
+  }
 }

@@ -1,27 +1,61 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRoutingModule } from './nutrition-routing.module';
 import { JournalRepasComponent } from './journal-repas/journal-repas.component';
-import { BottomBarNutriComponent } from 'src/app/intranet/nutrition/bottom-bar-nutri/bottom-bar-nutri.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
 import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
-import { MessagesModule } from 'primeng/messages';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
 import { PlatsPipe } from '../utils/pipes/plats.pipe';
+import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
+import { SaveDataComponent } from './dialog/save-data/save-data.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CalendarDateFormatter, CalendarModule, CalendarNativeDateFormatter, DateAdapter, DateFormatterParams } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
+
+registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
+
+@Injectable() // Pour l'erreur de dépréciation
+// Pour Angular Calendar - Modification du format date et heure en Français
+class CustomDateFormatter extends CalendarNativeDateFormatter {
+
+  public override dayViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+
+  public override weekViewHour({ date, locale }: DateFormatterParams): string {
+    return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
+  }
+}
+
 
 
 @NgModule({
   declarations: [
-    BottomBarNutriComponent,
     JournalRepasComponent,
     IngredientsComponent,
     MenusComponent,
@@ -29,19 +63,39 @@ import { PlatsPipe } from '../utils/pipes/plats.pipe';
     RecettesComponent,
     NutritionComponent,
     AlimentsPipe,
-    PlatsPipe
+    PlatsPipe,
+    IngredientsPipe,
+    BottomBarNutriComponent,
+    SaveDataComponent,
+    DeleteDataComponent,
+    SavePlatComponent,    
   ],
   imports: [
     CommonModule,
     NutritionRoutingModule,
-    InputTextModule,
-    InputTextareaModule,
-    DropdownModule,
-    MessagesModule,
-    ConfirmDialogModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,    
-  ]
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    NgxMatSelectSearchModule,
+    MatOptionModule,
+    MatPaginatorModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar 
+    MatCheckboxModule,
+    MatRadioModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    MatDatepickerModule     
+  ],
+  providers: [
+    {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus
+  ]  
 })
-export class NutritionModule { }
+export class NutritionModule {}

@@ -4,9 +4,15 @@ import { IntranetRoutingModule } from './intranet-routing.module';
 import { IntranetComponent } from './intranet.component';
 import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { FormsModule } from '@angular/forms';
-import { PlatsPipe } from './utils/pipes/plats.pipe';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableauComponent } from './tableau/tableau.component';
+import { ButtonComponent } from './template/ui/button/button.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 
@@ -16,14 +22,21 @@ import { PlatsPipe } from './utils/pipes/plats.pipe';
     IntranetComponent,
     AsideBarComponent,
     AccueilComponent,
-    //PlatsPipe,
-    
-    
+    TableauComponent,
+    ButtonComponent,
+    CustomAccordionComponent,
+        
   ],
   imports: [
     CommonModule,
     IntranetRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatIconModule,
+    CdkAccordionModule,
+    MatProgressBarModule
+  ],
 })
-export class IntranetModule { }
+export class IntranetModule {}

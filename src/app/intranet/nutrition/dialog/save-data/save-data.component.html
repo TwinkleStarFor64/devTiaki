@@ -1,0 +1,47 @@
+<section>
+  <article>
+    <div>
+      <mat-icon fontIcon="close" (click)="closeDialog()"></mat-icon>
+    </div>
+    <p>{{ data }}</p>
+    <!-- Le contenu de la balise <p> viens de menus.component.ts dans la méthode openDialog() -->
+  </article>
+  <article>
+    <form [formGroup]="formData">
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="nom" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" id="textarea">
+        <mat-label>Description</mat-label>
+        <textarea matInput rows="8" formControlName="description"></textarea>
+      </mat-form-field>      
+      <mat-form-field appearance="outline" id="input">
+        <mat-label>Ajouter un ingrédient</mat-label>
+        <mat-select formControlName="ingredient">
+          <mat-option>
+            <ngx-mat-select-search [formControl]="filtreControl" placeholderLabel="Ajouter un ingrédient" noEntriesFoundLabel="Aucun ingrédient correspondant"></ngx-mat-select-search>
+          </mat-option>
+          <!-- Sur le pipe aliments j'applique la value du formControl="filtreControl" -->
+          <!-- Ceci afin de pas utiliser [(ngModel)] qui est déprécié dans un formControl -->
+          <mat-option *ngFor="let ingredient of repas | aliments:filtreControl.value" [value]="ingredient">{{ ingredient.alim_nom_fr }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </article>
+  <article>
+    <button mat-raised-button color="warn" [mat-dialog-close]="false">
+      Annuler
+    </button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" type="submit" (click)="onSubmitForm()" [disabled]="formData.invalid">
+      Confirmer
+    </button>
+  </article>
+</section>
+
+
+<!-- [(ngModel)]="filtre" [formControl]="searchControl" -->
+
+
+
+

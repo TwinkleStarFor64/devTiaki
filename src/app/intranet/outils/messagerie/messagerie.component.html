@@ -1,7 +1,123 @@
-<main>
-  <section>
+<section id="mainMessagerie">
+  <!-- Section avec le logo, les médecins et les réalisations -->
+  <section id="menuJournalMessage">
     <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
     </article>
- </section>
-</main>
+    <article>
+      <h1>Messages</h1>
+    </article>
+    <article class="medecin">
+      <div>
+        <img [src]="[medecinImg]" alt="logo medecin" />
+        <h2>Médecins</h2>
+      </div>
+      <ul>
+        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+      </ul>
+    </article>
+    <article class="realisation">
+      <div>
+        <img src="assets/iconeBottom/echange.svg" alt="logo organisme" />
+        <h2>Organismes</h2>
+      </div>
+      <ul>
+        <li *ngFor="let organisme of echanges.nomOrga">
+          {{ organisme.nomOrganisme }}
+        </li>
+      </ul>
+    </article>
+  </section>
+  <!-- Section comportant l'historique des messages -->
+  <section>
+    <article> <!-- Article pour le Responsive - invisible en Desktop -->
+      <div>
+        <a routerLink="/intranet">
+          <span>Tiaki</span>
+        </a>
+      </div>
+      <div>
+        <h1>Messages</h1>
+      </div>
+    </article>
+    <div id="allUi">
+      <img [src]="[blackMedecinImg]" alt="image-noir-medecin" />
+      <p>Historiques des messages avec le Dr Genoise</p>
+    </div>
+    <ul>
+      <li>Messages du 25-06-22</li>
+      <li>Messages du 16-06-22</li>
+      <li>Messages du 14-06-22</li>
+      <li>Messages du 11-09-22</li>
+      <li>Messages du 09-06-22</li>
+      <li>Messages du 06-06-22</li>
+      <li>Messages du 02-06-22</li>
+    </ul>
+  </section>
+  <section>
+    <article> <!-- Article pour le responsive Mobile -->
+      <a routerLink="/intranet">
+        <span>Tiaki</span>
+      </a>
+    </article>
+    <h3>Envoyer un message</h3>
+    <article>
+      <form action="">
+
+        <mat-form-field appearance="outline">
+          <mat-label>Sélectionnez un médecin</mat-label>
+          <mat-select formControlName="">            
+            <mat-option>Liste des médecins</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Activité concernée</mat-label>
+          <mat-select formControlName="">            
+            <mat-option>Liste des interfaces</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Objet</mat-label>
+          <input matInput formControlName="" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" id="textarea">
+          <mat-label>Message</mat-label>
+          <textarea matInput rows="8" formControlName=""></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Copier un message de l’historique</mat-label>
+          <mat-select >
+            <mat-option>Historique des messages</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </form>
+      
+    </article>
+    <div id="divButton">
+      <button mat-raised-button>Annuler</button>
+      <button mat-raised-button>Envoyer</button>
+    </div>
+  </section>
+</section>
+
+
+
+
+<!-- <input type="text" placeholder="Selectionner un médecin" />
+      <input type="text" placeholder="Activité concernée" />
+      <input type="text" placeholder="Objet" />
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="20"
+        placeholder="Message"
+      ></textarea>
+      <input type="text" placeholder="Copier un message de l’historique" /> -->

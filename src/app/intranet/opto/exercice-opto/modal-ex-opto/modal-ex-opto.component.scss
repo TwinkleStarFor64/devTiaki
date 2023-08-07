@@ -1,0 +1,11 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+
+#modalExercices article:nth-child(2) div:nth-child(2) button {
+    background-color: $card-opto
+}

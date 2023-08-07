@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ProgrammeOptoI } from '../../utils/modeles/Types';
+import { ProgrammeI } from '../../utils/modeles/Types';
 import { ProgrammeOptoService } from './services/programme-opto.service';
 
 @Component({
@@ -11,11 +11,12 @@ import { ProgrammeOptoService } from './services/programme-opto.service';
 })
 export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
-  myProg = new FormControl<any | ProgrammeOptoI>('');
+  myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
-  selectedProgrammeOpto?: ProgrammeOptoI;
-  programmesFiltres: ProgrammeOptoI[] = [];
-  hoveredProgramme?: ProgrammeOptoI;
+  selectedProgrammeOpto?: ProgrammeI;
+  programmesFiltres: ProgrammeI[] = [];
+  hoveredProgramme?: ProgrammeI;
+  selectedImageTitle: string = '';
 
   constructor(public programmeOpto: ProgrammeOptoService) {}
 
@@ -35,16 +36,20 @@ export class ProgrammeOptoComponent implements OnInit {
 
     if (filtre) {
       this.programmesFiltres = this.programmeOpto.programme.filter(
-        (programme: ProgrammeOptoI) =>
+        (programme: ProgrammeI) =>
           programme.titre.toLowerCase().includes(filtre)
       );
     } else {
       this.programmesFiltres = [];
     }
   }
+  // Méthode permettant lors du click de l'input de voir tout les programmes
+  allProgrammes() {
+    this.programmesFiltres = [...this.programmeOpto.programme];
+  }
 
   // méthode permettant la récupération des données json via l'interface ProgrammeOptoI
-  onSelectProgramme(programme: ProgrammeOptoI): void {
+  onSelectProgramme(programme: ProgrammeI): void {
     this.selectedProgrammeOpto = programme;
     this.myProg.setValue(programme);
     console.log('souris : ', programme);
@@ -72,12 +77,11 @@ export class ProgrammeOptoComponent implements OnInit {
     if (programme) {
       this.selectedProgrammeOpto = programme;
       this.control.setValue(programme.titre);
-      // this.control.markAsDirty();
     }
   }
 
   // méthode que je veux mettre sur la touche entrée
-  onEnterProgramme(programme: ProgrammeOptoI): void {
+  onEnterProgramme(programme: ProgrammeI): void {
     this.selectedProgrammeOpto = programme;
     console.log('clavier : ', programme);
   }
@@ -85,6 +89,9 @@ export class ProgrammeOptoComponent implements OnInit {
   //methode permettant de voir le titre dans l'input en survolant les titres des programme du menu déroulant
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
-    // this.control.markAsDirty();
+  }
+  onCarouselItemClick(programme: ProgrammeI) {
+    this.selectedProgrammeOpto = programme;
+    this.selectedImageTitle = programme.titre;
   }
 }

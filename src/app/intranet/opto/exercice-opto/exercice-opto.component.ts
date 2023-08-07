@@ -1,88 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI }from'src/app/intranet/modeles/Types.js';
+import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
+import { FormControl } from '@angular/forms';
+import { SanityService } from 'src/app/services/sanity.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';
 
 @Component({
   selector: 'app-exercice-otpo',
   templateUrl: './exercice-opto.component.html',
-  styleUrls: ['./exercice-opto.component.scss']
+  styleUrls: ['./exercice-opto.component.scss'],
 })
 export class ExerciceOptoComponent implements OnInit {
-  avatar!:string;
-  public exercices:ExerciceI[] = [
-    {
-      photo:'assets/imageOpto/exerciceOpto1.png',
-      titre:"Muscles profonds",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-      
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto2.png',
-      titre:"Étirements",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-      
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto3.png',
-      titre:"Grenouille",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-    
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto4.png',
-      titre:"Quotidien",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-     
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto5.png',
-      titre:"Muscles profonds",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-      
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto1.png',
-      titre:"Étirements",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-      
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto2.png',
-      titre:"Grenouille",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-    
-    },
-    {
-      photo:'assets/imageOpto/exerciceOpto3.png',
-      titre:"Quotidien",
-      description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
-      horloge:'assets/iconeKineOpto/horlogeOpto.svg',
-      materiel:'assets/iconeKineOpto/materielOpto.svg',
-     
-    }
+  avatar!: string;
+  exercicesOpto!: ExerciceI[];
+  control = new FormControl('');
+  exercicesFiltres: ExerciceI[] = [];
+  selectedImageTitle: string = '';
+  selectedExerciceOpto?: ExerciceI;
+  filtrerExercice: string = '';
+  exerciceDureeSurvole: ExerciceI | null = null;
+  exerciceMaterielSurvole: ExerciceI | null = null;
 
-  ]
-
-  constructor() { }
+  constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
-   
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
+    this.sanity.getExercicesOpto().then((data) => {
+      this.exercicesOpto = data;
+      this.exercicesFiltres = [...this.exercicesOpto]; // Afficher tous les exercices
+    });
   }
 
- 
+  // Ouverture de la modal exercice au click
+  openDialog(exercice: ExerciceI) {
+    return this.dialog.open(ModalExOptoComponent, {
+      disableClose: true,
+      autoFocus: true,
+      panelClass:'modalExercices',
+      data: exercice,
+    });
+  }
+  // filtrer les exercices
+  filtrerExercices(): void {
+    const controlValue = this.control.value;
+    const filtre =
+      typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
 
+    if (filtre) {
+      this.exercicesFiltres = this.exercicesOpto.filter((exercice: ExerciceI) =>
+        exercice.title.toLowerCase().includes(filtre)
+      );
+    } else {
+      this.exercicesFiltres = [...this.exercicesOpto];
+    }
+  }
+  // methode de selection d'un élément
+  onOptionSelected(event: MatAutocompleteSelectedEvent) {
+    const exercice = event.option.value;
+    this.selectedExerciceOpto = exercice;
+    this.control.setValue(exercice.title);
+    this.exercicesFiltres = [exercice];
+  }
+  //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant
+  hoverSelectedExercice(exercice: any) {
+    this.control.setValue(exercice ? exercice.title : '');
+  }
 }

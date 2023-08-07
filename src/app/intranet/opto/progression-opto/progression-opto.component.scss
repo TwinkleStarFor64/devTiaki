@@ -1,3 +1,30 @@
-#exercices > header, #exercices > header a {
-  color:#f28705;
+main>footer {
+  background-color: #f28705;
 }
+
+#exercices>header,
+#exercices>header a {
+  color: #f28705;
+}
+::-webkit-scrollbar {
+  background-color: #f7b757;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: #f28705;
+}
+#exercices header article {
+  background: none;
+  width: 60vw;
+  align-items: end;
+
+}
+
+#exercices section article>div:nth-child(2)>div>img {
+  height: 2vh;
+  width: 1vw;
+}
+
+

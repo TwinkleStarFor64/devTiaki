@@ -5,24 +5,35 @@ $card-opto: #f28705;
 $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
+$foot: 150px;
 
-main {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
 
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
+::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: $card-nutri;
+}
 
-    article {
-      display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
-    }
+section {
+  flex-flow: column nowrap;
+  height: calc(100vh - $foot);
+  @media screen and (max-width: 834px) {
+    height: calc(100vh - 100px);
+  }
+
+  #head>p {
+    color: $card-nutri;
+  }
+
+  #head>p:after {
+    content: '   ......';
+    font-size: 50%;
+  }
+
+  #head>a:nth-child(1) {
+    color: $card-nutri;
   }
 }

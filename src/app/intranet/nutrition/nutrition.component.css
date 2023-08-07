@@ -2,6 +2,9 @@ section {
   display: flex;
   flex-flow: column nowrap;
 }
+
 section article {
   height: 88vh;
-}/*# sourceMappingURL=nutrition.component.css.map */
+}
+
+/*# sourceMappingURL=nutrition.component.css.map */

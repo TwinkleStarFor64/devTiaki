@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600;800&display=swap');
+@import "../node_modules/angular-calendar/css/angular-calendar.css"; // Pour Angular Calendar
 
 $font-family: 'Raleway', sans-serif;
 $card-nutri: #D9042B;
@@ -11,9 +12,64 @@ $aside-color3: #F0C02E;
 $clair: white;
 $sombre: black;
 
-$head:60px; // Hauteur de l'entête des pages
-$foot:150px; // Hauteur des menus du bas
-$l:65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+$head: 60px; // Hauteur de l'entête des pages
+$foot: 150px; // Hauteur des menus du bas
+$l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+
+.cal-event-title { // Le texte dans le calendrier
+  color: #ffffff;
+}
+// L'affichage des events dans la vue calendrier mois (dans la barre grise après un clic sur le jour)
+mwl-calendar-open-day-events {
+  div {
+    div {
+      display: flex;
+      flex-direction: row;  
+      //align-items: center;
+      gap: 1vw;
+    }
+  }
+}
+
+// Le label 'Éléments par page :' de mat-paginator
+.mat-mdc-paginator-page-size {  
+    display: none!important;  
+}
+// Le label 'x sur x' de mat-paginator
+.mat-mdc-paginator-range-label {
+  margin: 0!important;
+  font-family: $font-family;
+  @media screen and (max-width: 1310px) {
+    display: none;
+  }
+}
+// La couleurs des fléches dans la pagination
+.mat-mdc-paginator-icon {
+  fill: red;
+}
+
+.mat-mdc-option {
+  // Pour les options de choix dans tout les menus déroulants
+  @media screen and (max-width: 834px) {
+    font-size: 0.6rem;
+  }
+}
+
+// Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie et toutes les balises mat-select suivantes)
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  @media screen and (max-width: 480px) {
+    top: 50%; // Pour positionner le label au milieu du select    
+  }
+}
+
+// Pour le label dans le textarea de la modal save-data dans la page plats (Lors d'un ajout de plat) - Aussi pour les textarea de Journal
+#textarea {
+  .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+    @media screen and (max-width: 480px) {
+      top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)  
+    }
+  }
+}
 
 html {
   height: 100%;
@@ -21,7 +77,6 @@ html {
 
 body {
   border-spacing: 0;
-  height: 100vh;
   margin: 0;
   padding: 0;
   background: url('./assets/imgAsidebar/BgVector2.svg'), rgba(242, 183, 5, 0.1);
@@ -29,123 +84,2504 @@ body {
   background-size: cover;
   background-position: center;
   transform: matrix(1, 0, 0, 1, 0, 0);
-  height: 100vh;
+  min-height: 100vh;
   border-spacing: 0;
 }
+
 html,
 body {
   height: 100%;
-  overflow:hidden;
+  overflow: hidden;
 }
+
 body {
   margin: 0;
   font-family: $font-family;
 }
+
 * {
   box-sizing: border-box;
 }
+
 main,
 section,
-article, header, footer {
+article,
+header,
+footer {
   display: flex;
+
 }
-a{
+
+a {
   text-decoration: none;
-  color:$aside-color1;
+  color: $aside-color1;
 }
+
+// AFFICHAGE PAGE DE CONNEXION
+#actualites {
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+
+}
+
+#actualites>article:nth-child(1) {
+  width: 100%;
+  justify-content: space-around;
+
+  img {
+    width: 10vw;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: $aside-color1;
+  }
+}
+
+#actualites>article:nth-child(n+2) {
+  flex-direction: column;
+
+  h3 {
+    color: $aside-color2;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  img {
+    width: 20vw;
+  }
+}
+
+// ------------------------------------------------------
+// Affichage page d'accueil
+#accueil {
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Titre et description
+#accueil>#head-accueil {
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  color: $aside-color2;
+  // margin: 50px;
+}
+
+#accueil>#head-accueil>div {
+  display: flex;
+  align-items: flex-end;
+
+  a {
+    margin: 0;
+    color: $card-nutri ;
+    font-size: 3rem;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+#accueil>article>div::before {
+  content: ".........";
+}
+
+#accueil>article>div::after {
+  content: ".........";
+}
+
+#accueil>article>p {
+  font-size: 2.2rem;
+}
+
+// Les 3 Cartes 
+
+#accueil>section:nth-child(2) {
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100%;
+}
+
+#accueil>section:nth-child(2)>article {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 250ms;
+  height: 75%;
+  width: 22%;
+
+  &:hover {
+    transform: translateY(-3vw);
+  }
+
+  &:nth-child(1) {
+    background-color: $card-opto ;
+
+    button {
+      color: $card-opto;
+      border-color: $card-opto;
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: $card-nutri ;
+
+    button {
+      color: $card-nutri;
+      border-color: $card-nutri;
+    }
+  }
+
+  &:nth-child(3) {
+    background-color: $card-kine ;
+
+    button {
+      color: $card-kine;
+      border-color: $card-kine ;
+    }
+  }
+
+  &:nth-child(4) {
+    background-color: $aside-color3 ;
+
+    button {
+      color: $aside-color3;
+      border-color: $aside-color3 ;
+    }
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 2.2vh;
+    font-weight: 400;
+    margin: 15px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    button {
+      background-color: #ffffff;
+      width: 10vw;
+      height: 8vh;
+      margin-bottom: 1vw;
+      font-weight: bolder;
+      font-size: 1vw;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      color: $card-nutri;
+    }
+  }
+
+}
+
+
+#accueil>section:nth-child(2)>article {
+  justify-content: space-between;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 15px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #accueil>section:nth-child(2)>article {
+    height: 60%;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Media query pour les écrans de taille moyenne
+@media screen and (max-width: 912px) and (min-height:928px) {
+  #accueil>#head-accueil {
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    height: 95%;
+    width: 70%;
+    cursor: pointer;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        display: none
+      }
+
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
+      }
+    }
+  }
+}
+
+
+
+@media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
+  #accueil>#head-accueil {
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #accueil>section:nth-child(2) {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-color: $card-opto #be861e;
+    scrollbar-width: auto;
+    gap: 10vw;
+  }
+
+  #accueil>section:nth-child(2)>article {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    height: 95%;
+    width: 70%;
+    cursor: pointer;
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 15px;
+    }
+
+    a {
+      button {
+        display: none
+      }
+
+      img {
+        height: 100%;
+        width: 80%;
+        transform: translateY(10%);
+      }
+    }
+  }
+}
+
+
+// Media query pour les écrans plus petits
+@media screen and (max-width: 480px) {
+  #accueil {
+    margin-left: 10%;
+    // justify-content: center;
+
+    >#head-accueil {
+      height: 20%;
+
+      a {
+        font-size: 1.8rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    >section:nth-child(2)>article {
+      margin-left: 20px;
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.7rem;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 384px) and (max-height:640px) {
+  #accueil {
+
+    >#head-accueil {
+      >a {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    #accueil>section:nth-child(2)>article {
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 0.7rem;
+        font-weight: 400;
+        margin: 15px;
+      }
+
+      a {
+        button {
+          display: none
+        }
+
+        img {
+          height: 100%;
+          width: 80%;
+          transform: translateY(5%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  #accueil>#head-accueil>p {
+    font-size: 0.9rem;
+  }
+
+  #accueil>section:nth-child(2)>article>p {
+    font-size: 0.8rem;
+  }
+}
+
+// Navbar icone burger
+#burger-icon {
+  color: $card-kine;
+}
+
+//HEADER PAGES D'ACCUEIL DES INTERFACES
+#head-accueil {
+  flex-flow: row nowrap;
+  height: $head;
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+}
+
+#head-accueil>a {
+  font-size: 2.8rem;
+  font-weight: 100;
+  width: 40%;
+  text-align: center;
+  margin-top: 6vh;
+
+  @media (max-width: 954px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>a:nth-child(1):after {
+  content: '   ......';
+  font-size: 50%;
+}
+
+#head-accueil img {
+  width: 30px;
+}
+
+#head-accueil>p {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 1020px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 1.6rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 706px) {
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 490px) {
+    font-size: 1rem;
+  }
+}
+
+#head-accueil>article {
+  align-items: start;
+}
+
+#head-accueil>* {
+  margin: 5px;
+  padding: 0;
+}
+
+// -------------------------------------------------
+// HEADER DES PAGES AUTRES QU'ACCUEIL
+
+//HEADER
+#head {
+  flex-flow: row nowrap;
+  height: $head;
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+
+  @media screen and (max-width:502px) {
+    font-size: 1rem;
+  }
+}
+
+#head>a:nth-child(1) {
+  font-size: 1.6rem;
+  font-weight: 100;
+  width: 10%;
+
+  @media screen and (max-width:906px) {
+    width: 14%;
+  }
+
+  @media screen and (max-width:804px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 664px) {
+    font-size: 1.4rem;
+  }
+
+  @media screen and (max-width:586px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 525px) {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 484px) {
+    font-size: 1rem;
+  }
+
+}
+
+#head>a:nth-child(1):after {
+  content: '   ......';
+  font-size: 50%;
+}
+
+#head img {
+  width: 30px;
+}
+
+#head p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  // width: 50%;
+
+  @media screen and (max-width: 910px) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 686px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 633px) {
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 584px) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width: 498px) {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 0.6rem;
+  }
+}
+
+#head>* {
+  margin: 5px;
+  padding: 0;
+}
+
+// -----------------------------------------------
+// AFFICHAGE PAGES PROGRAMMES
+#programmes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: $sombre;
+  height: calc(100vh - $foot);
+
+
+  @media (max-width: 768px) {
+    height: calc(100vh - 100px);
+  }
+
+  @media screen and (max-width:480px) {
+    width: calc(100% + 65px);
+  }
+}
+
+// section principale
+#programmes>section {
+  width: 100%;
+  flex-direction: column;
+  height: calc(100vh - $head - $foot);
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 100vh;
+
+}
+
+// search bar
+#programmes>article:nth-child(2) {
+  width: 100%;
+  //gap: 1.5vw;
+  justify-content: center;
+  align-items: center;  
+  img {
+    // L'icône de loupe
+    margin-left: 25vw;
+    
+  }
+
+  @media screen and (max-width:502px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
+}
+
+// article ligne dashed
+#programmes>article:nth-child(3) {
+  width: 80%;
+  align-self: center;
+  height: 2vh;
+  border-bottom: dashed 1px black;
+}
+
+// article qui apparait lors du choix du programme
+#programmes>article:nth-child(4) {
+  width: 100%;
+  height: calc(100vh - $foot );
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  overflow-y: auto;
+  scrollbar-color: $card-opto #be861e;
+  scrollbar-width: auto;
+  padding-top: 30px;
+
+  @media screen and (max-width:768px) {
+    max-width: 100%;
+  }
+
+}
+
+// image du programme
+#programmes article:nth-child(4)>img {
+  width: 75%;
+  max-height: 90%;
+  align-self: center;
+
+  @media screen and (max-width:1440px) {
+    width: 50%;
+    max-height: 70%;
+  }
+}
+
+// Article de description
+#programmes article:nth-child(4)>article {
+  margin: 50px;
+  margin-left: 11vw;
+  align-self: baseline;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 4vw;
+  width: 78%;
+
+  @media screen and (max-width:1440px) {
+    font-size: 0.9rem;
+    gap: 5vw;
+  }
+
+  @media screen and (max-width:1024px) {
+    gap: 5vw;
+  }
+
+  @media screen and (max-width:768px) {
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+    gap: 1vw;
+  }
+}
+
+// Article avec l'image de pouce et le select "Avis et commentaire de la communauté"
+#programmes article:nth-child(4)>article:nth-child(3) {
+  //background-color: #33BB27;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5vw; 
+
+  select {
+    width: 75vw;
+    height: 5vh;
+    background: none;
+    font-size: 1.2rem;
+    color: #3D3D3D;
+  }
+}
+
+#programmes article:nth-child(4)>article>div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  max-width: 30%;
+  text-align: justify;
+
+  @media screen and (max-width:1024px) {
+    font-size: 0.8rem;
+    max-width: 30%;
+  }
+
+  @media screen and (max-width:768px) {
+    font-size: 1.1rem;
+    max-width: 70%;
+  }
+}
+
+// titre 
+#programmes article:nth-child(4)>article>div:nth-child(1) h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+// durée materiel
+#programmes article:nth-child(4)>article>div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  width: 12%;
+
+  @media screen and (max-width:1024px) {
+    font-size: 0.8rem;
+  }
+
+  @media screen and (max-width:768px) {
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+  }
+}
+
+// block horloge et materiels
+#programmes article:nth-child(4)>article>div:nth-child(2) div {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  height: 40%;
+  width: 100%;
+}
+
+// img horloge materiel
+#programmes article:nth-child(4)>article>div:nth-child(2) div img {
+  height: 2vh;
+  width: 3vw;
+}
+
+
 // AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
 #exercices {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
   color: $sombre;
-  height:100vh;
+  height: calc(100vh - $foot);
+  overflow-y: auto;
+  scrollbar-color: $card-nutri #e7adb7;
+  scrollbar-width: auto;
+  justify-content: center;
+
+  @media screen and (max-width:768px) {
+    height: calc(100vh - 100px);
+  }
+
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 65px); // 65px pour l'aside bar
+  }
 }
-#exercices > * {
-  width:100%;
+
+//Section principale
+#exercices>* {
+  width: 100%;
 }
-#exercices > header {
-  flex-flow:row nowrap;
-  height:$head;
-  padding:10px;
-  margin:0;
+
+// barre de recherche exercices
+#exercices #head article {
+  background: none;
+  width: 40vw;
+  // align-items: end;
+
+  @media (max-width: 706px) {
+    width: 30vw;
+    align-items: center;
+  }
+
+  @media (max-width: 490px) {
+    align-items: center;
+    width: 30vw;
+  }
+}
+
+// Loupe de recherche à gauche de la search  bar
+#exercices #head article form {
+  display: flex;
   align-items: center;
+  gap: 4vw;
+
+  .searchMobile {
+    width: auto;
+    height: 3vh;
+
+    @media screen and (max-width: 597px) {
+      margin-top: 20px;
+    }
+  }
 }
-#exercices > section {
-  width:100%;
-  flex-flow:row wrap;
-  overflow-x:hidden;
-  overflow-y:auto;
+
+//section exercice
+#exercices>section {
+  width: 100%;
+  flex-flow: row wrap;
   justify-content: space-around;
-  height:calc(100vh - $head - $foot);
+  height: calc(100vh - $head - $foot);
+
+  @media (max-width: 768px) {
+    height: calc(100vh - $head - 100px);
+  }
 }
-#exercices > footer {
-  height:$foot;
-  width:calc(100vw - $l)
+
+// search bar
+#exercices>article:nth-child(2) {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  flex-direction: row;
+
+  @media screen and (max-width:502px) {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
 }
-#exercices > header > a:nth-child(1) {
-  font-size:32px;
-  font-weight: 100;
+
+#exercices>article:nth-child(2)>form {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
 }
-#exercices > header > a:nth-child(1):after {
-  content:'   ......';
-  font-size:50%;
+
+#exercices>article:nth-child(2)>div {
+  width: 10%;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
-#exercices > header img{
-  width:30px;
+
+// #exercices>article:nth-child(2)>div>img {
+//   width: 1.5vw;
+//   height: 3vh;
+// }
+
+// article ligne dashed
+#exercices>article:nth-child(3) {
+  width: 80%;
+  align-self: center;
+  height: 1vh;
+  background: none;
+  border-bottom: dashed 1px black;
 }
-#exercices > header > *{
-  margin:5px;
-  padding:0;
-}
+
+// articles générer avec le ngFor avec la photo ou video et le titre la description 
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
+  max-height: 100vh;
   background: $clair;
-  padding: 10px;
-  margin:5px;
+  margin: 10px;
+  gap: 0.5vw;
+  justify-content: space-between;
+  cursor: pointer;
 }
-#exercices article > div {
-  display:flex;
-  flex-flow: row nowrap;
+
+//div des photos ou videos de l'exo
+#exercices section>article>.photo-exo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+
+}
+
+// video ou photo
+#exercices section>article>.photo-exo>img {
+  width: 100%;
+}
+
+//div pour progress bar
+#exercices article>.progress-bar {
+  display: flex;
+  justify-content: space-around;
+  height: 3vh;
+  align-items: center;
+}
+#exercices article>.progress-bar a{
+  color: #bfbfbf;
+}
+.progress-bar .mat-mdc-progress-bar {
+  align-self: center;
+  height: 100%;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 3px;
+  --mdc-linear-progress-active-indicator-color: #f28705;
+  --mdc-linear-progress-track-height: 200px;
+}
+
+// titre de l'exercice
+#exercices article>div>h6 {
+  margin: 10px 0 0 0;
+  justify-self: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  align-self: flex-start;
+  color: $sombre;
+  ;
+
+  @media (max-width: 1024px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+}
+
+
+// balise img de durée et materiel
+#exercices section article>div:nth-child(2)>div>div>img {
+  height: 2vh;
+  width: 1vw;
+}
+
+// balise p durée et materiel
+#exercices section article>div>p {
+  font-size: 1rem;
+  margin: 5px;
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+  }
+}
+
+// conteneur de description et du lien vers la modal
+#exercices article>div>.exercice-texte {
+  display: flex;
+  flex-direction: column;
+  max-height: 50vh;
+  justify-content: space-between;
+  gap: 1vw;
+}
+
+// div durée et materiel
+#exercices article>div>.exercice-texte>div {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  min-height: 4vh;
   justify-content: flex-end;
 }
-#exercices article > div > *{
-  margin-left:10px;
+
+// description
+#exercices article>div>.exercice-texte>p {
+  font-size: 1rem;
+  text-align: justify;
+  word-spacing: -2px;
+
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.9rem;
+  }
 }
-#exercices article > figure {
+
+// lien vers la modal
+#exercices article>div>.exercice-texte>span {
+  align-self: flex-end;
+  font-weight: 700;
+  cursor: pointer;
+  color: $aside-color1;
+
+  @media (max-width: 1020px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 906px) {
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 793px) {
+    font-size: 0.8rem;
+  }
+}
+
+// #exercices article>figure {
+//   width: 100%;
+//   margin: -10px -10px 0;
+//   background-size: contain;
+//   background-position: 50%;
+// }
+
+#exercices>footer {
+  height: $foot;
+  width: calc(100vw - $l)
+}
+
+// Modal
+
+
+// Partie responsive essai
+/* Styles pour les écrans de taille supérieure à 1154px */
+@media (max-width: 1154px) {
+  #exercices section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #exercices article {
+    width: 30%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 906px) {
+  #exercices section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #exercices article {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Styles pour < 560px */
+@media (max-width: 560px) {
+  #exercices section {
+    display: flex;
+    align-items: center;
+  }
+
+  #exercices article {
+    align-items: center;
+    width: 80%;
+  }
+
+  #exercices article {
+    background: #f2f2f2;
+  }
+
+  #exercices article .photo-exo img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #exercices article p {
+    margin: 5px;
+  }
+
+  #exercices article .exercice-texte {
+    margin: 10px;
+  }
+}
+
+// Modal exercices Kine et Opto
+
+#modalExercices {
+  background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  article:nth-child(1) {
+    display: flex;
+    justify-content: end;
+    height: 2%;
+  }
+
+  article:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 98%;
+
+    .photo-exo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 35vh;
+      width: 50vw;
+
+      img {
+        width: 50%;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        margin: 25px;
+        text-align: justify;
+        font-size: 1rem;
+
+        @media screen and (max-width:480px) {
+          font-size: 0.9rem;
+        }
+      }
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+          height: 30px;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    button {
+      width: 12vw;
+      height: 4vh;
+      font-size: 1rem;
+      color: white;
+      background-color: $aside-color2;
+      margin-bottom: 50px;
+
+      @media screen and (max-width:880px) {
+        font-size: 0.9rem;
+        width: 170px;
+      }
+
+      @media screen and (max-width:480px) {
+        font-size: 0.9rem;
+        width: 220px;
+      }
+    }
+  }
+}
+
+
+
+// Responsive Modal
+// .modalExercies{
+//   mat-dialog-container {
+//   //   @media screen and (max-width: 1024px) and (max-height: 855px) {
+//   //     max-height: 80vh ;
+//   //     max-width: 90vw ;
+//   //   }
+
+//   //   @media screen and (max-width: 768px) and (max-height:860) {
+//   //     max-height: 40vh;
+//   //     max-width: 50vw;
+//   //   }
+//   // }
+// }
+
+
+
+// -----------------------------------------------------------------
+// CSS des pages plats et menus
+#platMenu {
+  @media screen and (max-width: 480px) {
+    width: calc(100% + 68px); // Pour l'aside Bar    
+    align-items: flex-start;
+    overflow: auto;
+  }
+}
+
+#sectionPrincipale {
+  display: flex;
+  flex-direction: row;
+
+  @media screen and (max-width: 480px) {
+    //display: none;
+    flex-direction: column;
+    padding: 10px;
+    width: 100%;
+  }
+}
+
+// La partie gauche avec la liste des plats/menus enregistrés
+#sectionPrincipale>#listePlats {
+  height: calc(100vh - $head - $foot);
+  width: 30%;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: auto;
+  align-items: center;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
+
+  // Le bouton 1 - Ajouter un nouveau plat
+  #ajoutButton {
+    background-color: #33BB27;
+    width: 75%;
+    padding: 4vh 2vw;
+    font-size: 1vw;
+    color: black;
+
+  }
+
+  .mat-ripple mat-mdc-button-ripple {
+    height: 10vh;
+  }
+
+  // La balise <h1>Reprendre un repas précédent</h1>
+  h1 {
+    color: $card-nutri;
+    font-weight: 100;
+    font-size: 1.4rem;
+    margin: 5vh 0 2vh 0;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Article qui contient les 3 boutons pour évaluer 
+  #evalBouton {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    //padding-left: 1vw;
+    margin-bottom: 1vh;
+
+    // Code s'appliquant aux 3 boutons
+    button {
+      width: 7vw;
+      height: 4vh;
+      font-size: 0.6vw;
+      color: white;
+    }
+
+    // Le bouton plats non évalués
+    button:nth-child(1) {
+      background-color: #33BB27;
+    }
+
+    // Le bouton plats non évalués
+    button:nth-child(2) {
+      background-color: #F28705;
+    }
+
+    // Le bouton Plats évalués et problématiques
+    button:nth-child(3) {
+      background-color: #D9042B;
+    }
+  }
+
+  // Article contenant la liste des plats enregistrés
+  #listing {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-left: 1vw;
+
+    // Div avec le *ngFor
+    div {
+      display: flex;
+      flex-direction: column;
+
+      // Balise <h2>{{ plat.nom }}</h2>
+      h2 {
+        margin: 2vh 2vh 0 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        @media screen and (max-width : 1200px) {
+          font-size: 1.1rem;
+        }
+      }
+
+      p {
+        margin: 0.5vh 0 1vh 0;
+
+        @media screen and (max-width : 1200px) {
+          font-size: 0.8rem;
+        }
+      }
+
+      // Contient un bouton, 2 images et 2 balise
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        button {
+          //background-color: #F28705;
+          width: 5vw;
+          height: 3vh;
+          font-size: 0.6vw;
+          color: white;
+          margin-right: 2vw;
+        }
+
+        // Les 2 images ( horloge et casserole )
+        img {
+          height: 2vh;
+          width: 2vw;
+        }
+
+        p {
+          padding: 1vh;
+          font-size: 0.8vw;
+        }
+
+        // Pour souligner la balise <p>Matériels</p>
+        #dashed {
+          border-bottom: dashed black 1px;
+        }
+      }
+    }
+  }
+}
+
+// La partie droite avec la fonction de création d'un plat
+#sectionPrincipale article:nth-child(2) {
+  height: calc(100vh - $head - $foot);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4vw;
+  padding-right: 4vw;
+  overflow: auto;
+
+  // La balise <h3>2 - Ajouter un plat</h3>
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #4A4A4A;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  // La div qui contient les 3 balises select
+  #selectBalise {
+    border-bottom: dashed black 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+
+    // L'icône d'ajout 
+    img {
+      height: 3vh;
+      width: 3vh;
+    }
+
+    // La balise select "Les plats de la communautés"
+    mat-form-field:nth-child(3) {
+      width: 18vw;
+    }
+  }
+
+  // Le label des balises select
+  mat-label {
+    font-size: 0.9rem;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  // La balise <h4>Tourte aux champignons</h4>
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4A4A4A;
+    margin: 2vh 0 0 0;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.3rem;
+    }
+  }
+
+  textarea {
+    min-height: 10vh;
+  }
+
+  // La div sous le textarea
+  div:nth-child(6) {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: dashed black 1px;
+    border-bottom: dashed black 1px;
+  }
+
+  // La balise select AJOUTER
+  #ajouter {
+    width: 10vw;
+
+    @media screen and (max-width : 1200px) {
+      width: 12vw;
+    }
+  }
+
+  // La div avec les 2 boutons annuler & valider
+  div:nth-child(10) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1vw;
+    border-bottom: dashed black 1px;
+    padding: 2vh;
+
+    button:nth-child(1) {
+      background-color: #F28705;
+    }
+
+    button:nth-child(2) {
+      background-color: #33BB27;
+    }
+
+  }
+}
+
+/* -----Ci-dessous CSS pour la barre de menu à gauche dans les pages Journal et Messagerie----- */
+// Section permettant de voir les medecins et les réalisations - Visible en Desktop
+#menuJournalMessage {
+  background-color: $aside-color3;
+  width: 13%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  align-items: center;
+  gap: 1vw;
+
+  @media screen and (max-width: 1280px) {
+    display: none; // Invisible en Tablette & Mobile
+  }
+
+  article:nth-child(1) {
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      text-decoration: none;
+      width: 100%;
+      color: #ffffff;
+      font-size: 4rem;
+      font-weight: 100;
+
+      // Le gros logo Tiaki
+      span {
+        font-weight: 100;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (max-width: 1200px) {
+          font-size: 3rem;
+        }
+      }
+    }
+
+    span:before {
+      content: '........';
+      font-size: 50%;
+    }
+
+    span:after {
+      content: '........';
+      font-size: 50%;
+    }
+  }
+
+  article:nth-child(2) {
+    border-bottom: 1px white dashed;
+    margin-left: 1vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // La balise <h1>Journal</h1>
+    h1:nth-child(1) {
+      margin: 0 0 1vh 0;
+      font-size: 2rem;
+      font-weight: 700;
+      width: 60%;
+      @media only screen and (max-width: 1280px) {
+        font-size: 1.7rem;
+      }
+    }
+    // La balise <h1>de suivi</h1>
+    h1:nth-child(2) {
+      margin: 0 0 1vh 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      width: 60%;
+      @media only screen and (max-width: 1280px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .medecin {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    height: 30%;
+    width: 100%;
+    margin-left: 1vw;
+
+    div {
+      display: flex;
+      align-items: flex-end;
+      gap: 9px;
+      justify-content: flex-start;
+
+      img {
+        width: 3vw;
+      }
+
+      // La balise <h2>Médecins</h2>
+      h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        @media only screen and (max-width: 1330px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    // Liste des medecins
+    ul {
+      li {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+        text-align: start;
+
+        @media only screen and (max-width: 1330px) {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+
+  // Realisations et organismes
+  .realisation {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 30%;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 1vw;
+
+    div {
+      display: flex;
+      align-items: flex-end;
+      gap: 9px;
+      justify-content: flex-start;
+
+      img {
+        width: 3vw;
+      }
+
+      // La balise <h2>Réalisations</h2>
+      h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+
+        @media only screen and (max-width: 1330px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    // Listes des réalisations ou organismes
+    ul {
+      li {
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+
+        @media only screen and (max-width: 1330px) {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}
+
+/* ---------------- CSS de la Page Plats -------------------- */
+// Contenant principale
+/* #sectionPrincipale {
+  display: flex;
+  flex-direction: row;
+  
+} */
+
+// La partie gauche avec la liste des plats/menus enregistrés
+#sectionPrincipale>#listePlats {
+  height: calc(100vh - $head - $foot);
+  width: 30%;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  overflow-x: auto;
+  align-items: center;
+
+  @media screen and (max-width: 834px) {
+    height: calc(100vh - $head - 100px);
+    width: 35%;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    //height: 60%;
+    align-items: flex-start;
+    border-bottom: dashed #270140 1px;
+    padding-top: 0;
+  }
+
+  // Le bouton 1 - Ajouter un nouveau plat
+  #ajoutButton {
+    background-color: #33BB27;
+    width: 75%;
+    padding: 4vh 2vw;
+    font-size: 1vw;
+    color: black;
+
+    @media screen and (max-width: 834px) {
+      padding: 2vh 1.5vw;
+    }
+
+    @media screen and (max-width: 480px) {
+      display: none;
+      width: 25vw;
+      height: 3vh;
+      font-size: 1.5vw;
+      align-self: flex-end;
+      margin-right: 2vw;
+    }
+  }
+
+  .mat-ripple mat-mdc-button-ripple {
+    height: 10vh;
+  }
+
+  // La balise <h1>Reprendre un repas précédent</h1>
+  h1 {
+    color: $card-nutri;
+    font-weight: 100;
+    font-size: 1.4rem;
+    margin: 5vh 0 2vh 0;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.1rem;
+    }
+
+    @media screen and (max-width: 834px) {
+      font-size: 0.8rem;
+      margin: 2vh 0 2vh 0;
+    }
+
+    @media screen and (max-width: 480px) {
+      margin-top: 0;
+    }
+  }
+
+  // Article qui contient les 3 boutons pour évaluer 
+  #evalBouton {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    margin-bottom: 1vh;
+
+    //padding-left: 1vw;
+    //width: 80%;
+    @media screen and (max-width: 834px) {
+      gap: 1vw;
+    }
+
+    @media screen and (max-width: 480px) {
+      gap: 2vw;
+      justify-content: center;
+      width: 100%;
+    }
+
+    // Code s'appliquant aux 3 boutons
+    button {
+      width: 7vw;
+      height: 4vh;
+      font-size: 0.6vw;
+      color: white;
+
+      @media screen and (max-width: 834px) {
+        width: 4vw;
+        height: 3vh;
+      }
+
+      @media screen and (max-width: 480px) {
+        width: 20vw;
+        height: 3vh;
+        font-size: 1.4vw;
+      }
+    }
+
+    // Le bouton plats non évalués
+    button:nth-child(1) {
+      background-color: #33BB27;
+    }
+
+    // Le bouton plats non évalués
+    button:nth-child(2) {
+      background-color: #F28705;
+    }
+
+    // Le bouton Plats évalués et problématiques
+    button:nth-child(3) {
+      background-color: #D9042B;
+    }
+
+    button:nth-child(4) {
+      // Le bouton ajouter un menu - visible seulement en mobile
+      display: none;
+
+      @media screen and (max-width: 480px) {
+        display: block;
+        background-color: #805E96;
+      }
+    }
+  }
+
+  // Article qui contient le bouton Effacer les filtres - Dans un *ngIf visible suivant les cas
+  #filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+
+    button {
+      background-color: #bdb087;
+      width: 10vw;
+      height: 4vh;
+      font-size: 0.6vw;
+      color: white;
+
+      @media screen and (max-width: 834px) {
+        width: 8vw;
+        height: 3vh;
+      }
+
+      @media screen and (max-width: 480px) {
+        width: 20vw;
+        height: 3vh;
+        font-size: 1.4vw;
+      }
+    }
+  }
+
+  // Article contenant la liste des plats enregistrés
+  #listing {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding-left: 1vw;
+
+    // Div avec le *ngFor
+    div {
+      display: flex;
+      flex-direction: column;
+
+      // Balise <h2>{{ plat.nom }}</h2>
+      h2 {
+        margin: 2vh 2vh 0 0;
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        @media screen and (max-width : 1200px) {
+          font-size: 1.1rem;
+        }
+
+        @media screen and (max-width: 834px) {
+          font-size: 0.8rem;
+        }
+      }
+
+      h2:hover {
+        //font-size: 1.6rem;
+        font-weight: 700;
+      }
+
+      p {
+        // Balise <p> {{ plat.description }}
+        margin: 0.5vh 0 1vh 0;
+
+        @media screen and (max-width : 1200px) {
+          font-size: 0.8rem;
+        }
+
+        @media screen and (max-width: 834px) {
+          font-size: 0.6rem;
+        }
+      }
+
+      // Contient un bouton (ou une pastille), 2 images et 2 balise
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+
+        #pastilleEval {
+          // Balise <span> servant de pastille coloré - Si j'utilise pas de bouton
+          width: 30px;
+          height: 30px;
+          margin-right: 2vw;
+          border-radius: 50%;
+
+          @media screen and (max-width: 1024px) {
+            width: 20px;
+            height: 20px;
+          }
+
+          @media screen and (max-width: 834px) {
+            width: 15px;
+            height: 15px;
+          }
+        }
+
+        button {
+          // Les 3 boutons dans la liste à gauche - Si j'utilise un bouton
+          width: 7vw;
+          height: 4vh;
+          font-size: 0.6vw;
+          color: white;
+          margin-right: 2vw;
+        }
+
+        .Eval {
+          // Le bouton Evaluer ce menu
+          background-color: #F28705;
+        }
+
+        .EvalYes {
+          // Le bouton Menus évalués et validés
+          background-color: #33BB27;
+        }
+
+        .EvalNo {
+          // Le bouton Menus évalués et problématiques
+          background-color: #D9042B;
+        }
+
+        // Les 2 images ( horloge et casserole )
+        img {
+          height: 2vh;
+          width: 2vw;
+
+          @media screen and (max-width: 480px) {
+            height: 15px;
+            width: 15px;
+          }
+        }
+
+        p {
+          padding: 1vh;
+          font-size: 0.8vw;
+
+          @media screen and (max-width: 480px) {
+            font-size: 0.6rem;
+          }
+        }
+
+        // Pour souligner la balise <p>Matériels</p>
+        #dashed {
+          border-bottom: dashed black 1px;
+        }
+      }
+    }
+  }
+}
+
+// La partie droite avec la fonction de création d'un plat
+#sectionPrincipale article:nth-child(2) {
+  height: calc(100vh - $head - $foot);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4vw;
+  padding-right: 4vw;
+  overflow: auto;
+
+  @media screen and (max-width: 834px) {
+    height: calc(100vh - $head - 100px);
+    width: 65%;
+  }
+
+  @media screen and (max-width: 834px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    width: auto;
+    margin-top: 2vh;
+  }
+
+  // La balise <h3>2 - Ajouter un plat</h3>
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #4A4A4A;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (max-width : 834px) {
+      font-size: 1.1rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  // La div qui contient les 3 balises select
+  #selectBalise {
+    border-bottom: dashed black 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+    align-items: center;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 2vh;
+    }
+
+    // L'icône d'ajout 
+    img {
+      height: 3vh;
+      width: 3vh;
+
+      @media screen and (max-width : 834px) {
+        height: 2vh;
+        width: 2vh;
+      }
+    }
+
+    mat-form-field {
+      @media screen and (max-width : 834px) {
+        width: 15vw;
+      }
+
+      @media screen and (max-width: 480px) {
+        width: 25vw;
+      }
+    }
+
+    // La balise select "Les plats de la communautés"
+    mat-form-field:nth-child(3) {
+      width: 18vw;
+
+      @media screen and (max-width: 480px) {
+        width: 25vw;
+      }
+    }
+  }
+
+  // Le label des balises select
+  mat-label {
+    font-size: 0.9rem;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width : 834px) {
+      font-size: 0.6rem;
+    }
+  }
+
+  // Le nom des menus dans le select
+  mat-select {
+    @media screen and (max-width : 834px) {
+      font-size: 0.6rem;
+    }
+  }
+
+  .mat-mdc-text-field-wrapper {
+
+    // La taille du label et la fléche dans les balises select
+    @media screen and (max-width : 480px) {
+      height: 6vh;
+      align-items: center;
+    }
+  }
+
+  span:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width : 834px) {
+      p {
+        font-size: 0.8rem;
+      }
+    }
+
+    @media screen and (max-width : 480px) {
+      p {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  // La balise <h4>Tourte aux champignons</h4>
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #4A4A4A;
+    margin: 2vh 0 0 0;
+
+    @media screen and (max-width : 1200px) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (max-width : 834px) {
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width : 480px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  textarea {
+    min-height: 10vh;
+
+    @media screen and (max-width : 834px) {
+      font-size: 0.8rem;
+    }
+
+    @media screen and (max-width : 480px) {
+      font-size: 0.6rem;
+    }
+  }
+
+  // La div sous le textarea
+  div:nth-child(4) {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: dashed black 1px;
+    border-bottom: dashed black 1px;
+    text-align: center;
+    gap: 1vw;
+
+    @media screen and (max-width : 480px) {
+      gap: 1.5vw;
+    }
+  }
+
+  span:nth-child(3)>span {
+    display: flex;
+    flex-direction: column // align-items: center;
+  }
+
+  span:nth-child(3)>span>p:nth-child(1) {
+    //width: 18%;
+    width: 75%;
+    font-weight: 700;
+  }
+
+  /* span:nth-child(3)>span>p:nth-child(2) {
+    width: 75%;    
+  } */
+
+  // La balise select AJOUTER
+  #ajouter {
+    width: 10vw;
+    margin-top: 2vh;
+
+    @media screen and (max-width : 1200px) {
+      width: 12vw;
+    }
+
+    @media screen and (max-width : 834px) {
+      font-size: 0.8rem;
+      width: 15vw;
+    }
+
+    @media screen and (max-width : 480px) {
+      width: 25vw;
+    }
+  }
+
+  // La div avec les 2 boutons annuler & valider
+  span:nth-child(3)>div:nth-child(7) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1vw;
+    border-bottom: dashed black 1px;
+    padding: 2vh;
+
+    button:nth-child(1) {
+      // Le bouton supprimer
+      background-color: #F28705;
+      font-size: 0.8vw;
+
+      @media screen and (max-width : 834px) {
+        width: 4vw;
+        height: 3vh;
+      }
+    }
+
+    button:nth-child(2) {
+      // Le bouton valider
+      background-color: #33BB27;
+      font-size: 0.8vw;
+
+      @media screen and (max-width : 834px) {
+        width: 4vw;
+        height: 3vh;
+      }
+    }
+
+  }
+
+  // Code identique que ci-dessus mais pour la page menu avec un ID sur la Div contenant les 2 boutons
+  #boutonPageMenus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: dashed black 1px;
+    padding: 2vh 0 0 0;
+    vertical-align: baseline;
+    align-items: center;
+
+    span:nth-child(1) {
+      // La balise span avec le mat-form-field et le bouton évaluer
+      display: flex;
+      flex-direction: row;
+      //justify-content: center;
+      align-items: center;
+      gap: 1vw;
+
+      @media screen and (max-width: 480px) {
+        margin-right: 1vw;
+      }
+
+      mat-label {
+        font-size: 0.9rem;
+
+        @media screen and (max-width : 1200px) {
+          font-size: 0.8rem;
+        }
+
+        @media screen and (max-width : 834px) {
+          font-size: 0.6rem;
+        }
+      }
+
+      mat-form-field {
+        width: 16vw;
+
+        @media screen and (max-width : 1200px) {
+          width: 22vw;
+        }
+
+        @media screen and (max-width : 834px) {
+          font-size: 0.6rem;
+          width: 22vw;
+        }
+
+        @media screen and (max-width : 480px) {
+          width: 30vw;
+        }
+      }
+
+      button {
+        background-color: #f0c02e;
+
+        @media screen and (max-width : 834px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
+      }
+    }
+
+    span:nth-child(2) {
+      // La balise span avec les boutons supprimer et valider
+      display: flex;
+      gap: 1vw;
+
+      button:nth-child(1) {
+        background-color: #F28705;
+
+        @media screen and (max-width : 834px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
+      }
+
+      button:nth-child(2) {
+        background-color: #33BB27;
+
+        @media screen and (max-width : 834px) {
+          font-size: 1vw;
+          width: 5vw;
+          height: 3vh;
+        }
+
+        @media screen and (max-width : 480px) {
+          font-size: 1.4vw;
+          width: 15vw;
+          height: 3vh;
+        }
+      }
+    }
+  }
+
+}
+
+// AFFICHAGE TABLEAU DE BORD
+
+#tableau {
+  height: calc(100vh - 120px);
   width: 100%;
-  margin: -10px -10px 0;
-  background-size: contain;
-  background-position: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  @media screen and (max-width:715px) {
+    height: 100vh;
+  }
+
+  @media screen and (max-width:481px) {
+    align-items: center;
+    width: calc(100% + $l);
+  }
 }
-// Menu des pages d'exercices
-#exercices > footer > *{
-  width:100%;
-  height:$foot;
-  margin:0;
-  padding: 0;
+
+
+
+// design input des pages programmes
+#input-programmes {
+  height: 3vh;
+  width: 15vw;
+
+  @media screen and (max-width:938px) {
+    width: 20vh;
+  }
+
+  @media screen and (max-width:596px) {
+    width: 15vh;
+    display: none;
+  }
 }
-#exercices > footer nav{
-  display:flex;
-  flex-flow:row nowrap;
-  width:100%;
-  height:100%;
-  // justify-content: space-around;
+
+#input-ckeckbox {
+  height: 3vh;
+  width: 4vw;
 }
-#exercices > footer nav a{
-  display:flex;
-  color:$clair;
-  flex-flow: row nowrap;
-  margin:auto;
-  max-width:25%;
-  height:fit-content;
+
+// PAGE RECETTES
+
+#recettes {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  color: $sombre;
+  height: calc(100vh - $foot);
+  scrollbar-color: $card-nutri #d3354f;
+  scrollbar-width: auto;
+  overflow-y: auto;
 }
-#exercices > footer nav a article{
-  color:$clair;
+
+#recettes>* {
+  width: 100%;
+}
+
+#recettes>section {
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: calc(100vh - $head - $foot);
+}
+
+#recettes article {
+  flex-flow: column nowrap;
+  width: 20%;
+  max-height: 100vh;
+  background: $clair;
+  padding: 10px;
+  margin: 5px;
+  gap: 0.5vw;
+}
+
+#recettes>article:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  width: 100%;
+  margin: 0px 50px 0px 50px;
+  justify-content: center;
+  align-items: center;
   background: none;
-  width:auto;
+  border-bottom: dashed 1px black;
 }
-#exercices > footer nav a article > *{
-  margin:0;
+
+#recettes>article:nth-child(2)>form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
+
+//div des photos de recettes
+#recettes section>article>.photo-recettes {
+  height: 50%;
+  align-items: center;
+}
+
+// video ou photo
+#recettes section>article>.photo-recettes>img {
+  height: 100%;
+  width: 100%;
+}
+
+#recettes article>div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  text-align: end;
+  gap: 1vw;
+}
+
+// div comportant le titre la description et durée materiels
+#recettes article>div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+#recettes article>div:nth-child(2)>div {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+
+#recettes article>div:nth-child(2)>div>div {
+  display: flex;
+  text-align: justify;
+  gap: 1vw;
+}
+
+// titre de l'exercice
+#recettes article>div>h6 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+// description de l'exercice
+#recettes article>div>p {
+  margin: 0;
+}
+
+// div de la durée et materiel
+#recettes section article>div:nth-child(2)>div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3vw;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/*  body { // Pourquoi c'est ici ça ??!!
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}  */

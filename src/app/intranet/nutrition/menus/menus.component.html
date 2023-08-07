@@ -1,9 +1,122 @@
-<!-- <app-aside-bar></app-aside-bar> -->
-<main>
-  <section>
-    <article>
-      <a routerLink="/"><span>Tiaki</span><div></div></a>
+<section id="platMenu">
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>les menus</p>
+  </header>
+  <section id="sectionPrincipale">
+    <article id="listePlats">      
+      <button id="ajoutButton" mat-raised-button color="primary" (click)="openDialog()">
+        1 - Ajouter un nouveau menu
+      </button>
+      <!-- <button>1 - Ajouter un nouveau menu</button> -->
+      <h1>Reprendre un repas précédent</h1>
+      <article id="evalBouton">
+      <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->      
+        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Menus évalués et validés</button>
+        <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Menus non évalués</button>
+        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Menus évalués et problématiques</button>
+        <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau menu</button>
+      </article>
+      <!-- Ci-dessous Article pour revenir à l'affichage initial -->
+      <article id="filter" *ngIf="affichageDefaut !== 'allMenus'">          
+        <button mat-raised-button (click)="triParTexte('allMenus')">Effacer les filtres</button>
+      </article>
+      <article id="listing">        
+        <div *ngFor="let menus of repas">          
+      <!-- ngIf qui affiche tout les menus au départ (Valeur 'allMenus') OU le menu.statut qui change quand je clique sur les boutons au dessus  -->    
+          <h2 style="cursor: pointer" *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut" (click)="onSelectMenu(menus)">{{ menus.nom }}</h2>
+          <p *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">{{ menus.description }}</p>                     
+          <div *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">
+            <span id="pastilleEval"              
+            [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
+             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
+            </span>
+            <!-- <button mat-raised-button             
+            [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
+            {{ menus.statut }}
+            </button> -->
+            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
+            <p>Durée</p>
+            <img src="assets/photoNutri/casserole.svg" alt="matériel" />
+            <p id="dashed">Matériels</p>
+          </div>
+        </div>
+      </article>
     </article>
- </section>
- <app-bottom-bar-nutri></app-bottom-bar-nutri>
-</main>
+    <article>
+      <h3>2 - Ajouter un menu</h3>
+      <div id="selectBalise">
+        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout" />
+        <mat-form-field appearance="outline">
+          <mat-label>VOS MENUS</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
+              {{ menus.nom }}              
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>LES MENUS DE LA COMMUNAUTÉ</mat-label>
+          <mat-select> </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>ALLERGIES D'ÉMILIE</mat-label>
+          <mat-select> </mat-select>
+        </mat-form-field>
+      </div>
+      <span *ngIf="selectedRepas">
+        <h4>{{ selectedRepas.nom }}</h4>
+        <p>Description</p>
+        <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
+        <div>
+          <p>Ingrédients</p>
+          <p>Quantités</p>
+          <p>Valeurs nutrionnelles</p>
+          <p>Allèrgenes</p>
+          <p>Retour de la communauté</p>
+        </div>
+        <span *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre">
+          <p>{{ ingredients.alim_nom_fr }}</p>
+          <p>
+            <img src="assets/photoNutri/compl.svg" alt="icône composition" />
+            Composition : Protéines :
+            {{ ingredients["Protéines, N x 6.25 (g\/100 g)"] }} Gr - Glucides :
+            {{ ingredients["Glucides (g\/100 g)"] }} Gr - Lipide :
+            {{ ingredients["Lipides (g\/100 g)"] }} Gr - Sucre :
+            {{ ingredients["Sucres (g/100 g)"] }} Gr            
+          </p>
+          <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+            Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
+            B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+            B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+            B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+            B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+         </p>
+        </span>
+        <mat-form-field id="ajouter" appearance="outline">
+          <mat-label>AJOUTER</mat-label>
+          <mat-select> </mat-select>
+        </mat-form-field>
+        <div id="boutonPageMenus">
+          <span>
+            <mat-form-field appearance="outline">
+              <mat-label>ÉVALUER CE MENU</mat-label>
+              <mat-select [(ngModel)]="selectedEvaluation">
+                <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
+                  {{ eval.statut }}                
+                </mat-option>
+              </mat-select>
+            </mat-form-field>          
+            <button mat-raised-button color="primary" (click)="getMenusId()">ÉVALUER</button>
+          </span>
+          <span>
+            <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
+            <button mat-raised-button color="primary">VALIDER</button>
+          </span>
+        </div>
+      </span>
+    </article>
+    <!-- <app-footer></app-footer> -->
+  </section>
+</section>
+<app-bottom-bar-nutri></app-bottom-bar-nutri>

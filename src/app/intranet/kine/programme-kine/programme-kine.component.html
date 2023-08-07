@@ -1,51 +1,83 @@
-<main>
-  <section>
-    <a routerLink="/"
-      ><span>Tiaki</span>
-      <div></div
-    ></a>
-    <article>
-      <input type="search" />
-      <input type="checkbox" id="allergie" name="allergie" value="allergie" />
-      <label for="allergie">Tenir compte de mes allergies </label>
+<section id="programmes">
+  <header id="head">
+    <a routerLink="/intranet">Tiaki</a>
+    <p>Kinésithérapie > Les programmes</p>
+  </header>
+  <article>
+    <form class="example-form">
       <input
-        type="checkbox"
-        id="jamaisFait"
-        name="jamaisFait"
-        value="jamaisFait"
+        id="input-programmes"
+        class="example-input"
+        type="search"
+        name="myProg"
+        placeholder="Recherche libre"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerProgrammes()"
+        (click)="allProgrammes()"
+        [value]="selectedImageTitle"
       />
-      <label for="jamaisFait">Jamais faites </label>
-    </article>
-    <article class="dashed"></article>
-  </section>
-  <section></section>
-  <!-- <ng-container *ngIf="modalService.showModal$ | async">
-        <article class="modal" *ngIf="(modalService.showModal$ | async)">
-          <div class="modal-content">
-            <span class="close" (click)="modalService.setShowModal(false)">&times;</span>
-            <article *ngIf="selectedMedia?.type === 'image'">
-              <img [src]="selectedMedia?.url" alt="image">
-            </article>
-            <article *ngIf="selectedMedia?.type === 'video'">
-              <video [src]="selectedMedia?.url" controls></video>
-            </article>
-          </div>
-        </article>
-      </ng-container> -->
-  <section>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="onOptionSelected($event)"
+      >
+        <mat-option
+          *ngFor="let programme of programmesFiltres"
+          [value]="programme"
+          (mouseover)="hoverSelectedProgramme(programme)"
+        >
+          {{ programme.titre }}
+        </mat-option>
+      </mat-autocomplete>
+    </form>
+    <!-- <app-input></app-input> -->
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="observations"
+      value="observation"
+    />
+    <label for="input-ckeckbox">Tenir comptes de mes observations</label>
+    <input
+      type="checkbox"
+      id="input-ckeckbox"
+      name="jamaisFait"
+      value="jamaisFait"
+    />
+    <label for="jamaisFait">Jamais faites </label>
+    <img src="assets/iconeKineOpto/loupe.png" alt="">
+  </article>
+  <article></article>
+  <article *ngIf="selectedProgrammeKine; selectedProgramme">
+    <img src="{{ selectedProgrammeKine.photo }}" alt="imageKine" />
     <article>
-      <h2>Occluimetrie</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, dolor!
-      </p>
+      <div>
+        <h1>{{ selectedProgrammeKine.titre }}</h1>
+        <p>{{ selectedProgrammeKine.description }}</p>
+      </div>
+      <div>
+        <div>
+          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+          <p>{{ selectedProgrammeKine.duree }}</p>
+        </div>
+        <div>
+          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+          <p>{{ selectedProgrammeKine.materiel }}</p>
+        </div>
+      </div>
+      <app-carousel
+        [items]="programmesFiltres"
+        (onSelect)="onSelectProgramme($event)"
+        (carouselItemClick)="onCarouselItemClick($event)"
+      ></app-carousel>
     </article>
     <article>
-      <img src="assets/iconeKineOpto/horloge.png" />
-      <p>Durée</p>
-      <img src="assets/iconeKineOpto/materielOpto.png" />
-      <p>Matériels</p>
+      <img src="assets/iconeKineOpto/pouce.png" alt="">
+      <select name="" id="">
+        <option value="">Avis et commentaires de la communauté</option>
+      </select>
     </article>
-    <app-carousel></app-carousel>
-  </section>
-  <app-bottom-bar-kine></app-bottom-bar-kine>
-</main>
+  </article>
+</section>
+<app-bottom-bar-kine></app-bottom-bar-kine>
+<!-- <app-footer></app-footer> -->

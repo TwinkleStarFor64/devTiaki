@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ProgrammeOptoI } from 'src/app/intranet/utils/modeles/Types';
+import { ProgrammeI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProgrammeOptoService {
-
-  programme:ProgrammeOptoI[] = [];
+  programme: ProgrammeI[] = [];
 
   private programmeUrl = 'assets/data/dataOpto.json';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getProgrammeOpto(): Observable<ProgrammeOptoI[]> {
-    return this.http.get<ProgrammeOptoI[]>(this.programmeUrl);
+  getProgrammeOpto(): Observable<ProgrammeI[]> {
+    return this.http.get<ProgrammeI[]>(this.programmeUrl);
   }
 }

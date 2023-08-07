@@ -7,12 +7,18 @@ import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { MessagesModule } from 'primeng/messages';
-import { DropdownModule } from 'primeng/dropdown';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { InputTextModule } from 'primeng/inputtext';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { ParametreComponent } from './parametre/parametre.component';
+import { DeleteComponent } from './dialog/delete/delete.component';
+import { JournalPipe } from '../utils/pipes/journal.pipe';
+import { EditJournalComponent } from './edit-journal/edit-journal.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatOptionModule } from '@angular/material/core';
 
 
 
@@ -22,17 +28,28 @@ import { InputTextModule } from 'primeng/inputtext';
     HistoriqueComponent,
     MessagerieComponent,
     ProfilComponent,
+    ParametreComponent,
+    DeleteComponent,
+    EditJournalComponent, 
+    JournalPipe    
+        
   ],
   imports: [
     CommonModule,
     OutilsRoutingModule,
-    InputTextModule,
-    InputTextareaModule,
     ReactiveFormsModule,
-    DropdownModule,
-    MessagesModule,
-    ConfirmDialogModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    FormsModule,
+    NgxMatSelectSearchModule,
+    MatOptionModule
+    
+  ],
+  entryComponents: [DeleteComponent],
 })
-export class OutilsModule { }
+export class OutilsModule {}

@@ -1,5 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ModalService } from '../../utils/services/modal.service';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ProgrammeI } from '../../utils/modeles/Types';
 
 @Component({
   selector: 'app-carousel',
@@ -7,46 +7,37 @@ import { ModalService } from '../../utils/services/modal.service';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent {
-  @ViewChild('carouselContainer', {static: true}) carouselContainer: ElementRef;
-  mediaList = [
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
-    { type: 'video', url: 'video1.mp4' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice3.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice4.png'},
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice2.png' },
-    { type: 'image', url: 'assets/iconeKineOpto/exercice1.png'},
-  ];
+  @ViewChild('carouselContainer', { static: true }) carouselContainer: ElementRef;
+  @Input() items: ProgrammeI[] = [];
+  @Output() onSelect: EventEmitter<ProgrammeI> = new EventEmitter<ProgrammeI>();
+  @Output() carouselItemClick: EventEmitter<ProgrammeI> = new EventEmitter<ProgrammeI>();
 
   currentSlide = 0;
   selectedMedia: any;
- 
-  showModal = false;
-  constructor(public modalService: ModalService) {
+
+  constructor() {
     this.carouselContainer = new ElementRef(null);
   }
+  //méthode pour changer de slide
   nextSlide() {
-    this.currentSlide = (this.currentSlide + 1) % this.mediaList.length;
+    this.currentSlide = (this.currentSlide + 1) % this.items.length;
     this.updateCarousel();
   }
-
+  //méthode pour changer de slide
   prevSlide() {
-    this.currentSlide = (this.currentSlide - 1 + this.mediaList.length) % this.mediaList.length;
+    this.currentSlide = (this.currentSlide - 1 + this.items.length) % this.items.length;
     this.updateCarousel();
   }
-
+  // méthode permettant de mettre à jour le container de slide
   updateCarousel() {
-    this.carouselContainer.nativeElement.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+    const containerWidth = this.carouselContainer.nativeElement.offsetWidth;
+    const slideWidth = containerWidth / 4;
+    const containerOffset = -this.currentSlide * slideWidth;//Le décalage du container en fonction du currentSlide
+    this.carouselContainer.nativeElement.style.transform = `translateX(${containerOffset}px)`;//Transformation CSS au container pour effectuer le défilement
   }
-
-  showMedia(index: number) {
-    this.selectedMedia = this.mediaList[index];
-    this.modalService.setShowModal(true);
-  }
-
-  closeModal() {
-    this.showModal = false;
+  // gérer le clic sur un élément du carrousel.
+  onCarouselItemClick(item: ProgrammeI) {
+    this.carouselItemClick.emit(item);
   }
 }
 

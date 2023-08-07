@@ -1,0 +1,452 @@
+$font-family: "Raleway", sans-serif;
+$card-nutri: #d9042b;
+$card-kine: #f22f1d;
+$card-opto: #f28705;
+$aside-color1: #270140;
+$aside-color2: #805e96;
+$aside-color3: #f0c02e;
+$historique: #F8E6AF;
+$button-color1: #33BB27;
+
+// CSS pour la scrollbar
+::-webkit-scrollbar {
+    background-color: #fddd4c;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f5d20a;
+}
+
+mat-label {
+    // La font-size de tout les input
+    font-size: 1vw;
+    @media screen and (max-width: 834px) {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ci-dessous CSS pour l'input "Rechercher un ingrédients */
+#mat-input-3 {
+    font-size: 1vw;
+}
+
+#inputSearch {
+    font-size: 0.7vw;
+}
+
+#mainJournal {
+    font-family: $font-family;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    @media screen and (max-width: 480px) {
+        width: calc(100% + 68px); // Pour l'aside bar
+    }
+}
+
+// Section permettant de voir l'historique des journaux - Invisible en Mobile
+section:nth-child(2) {
+    background-color: $historique;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @media screen and (max-width: 1280px) {
+        width: 20%;
+    }
+    @media screen and (max-width: 834px) {
+        width: 25%;
+    }
+    @media screen and (max-width: 480px) {
+        display: none;
+    }
+
+    #ResponsiveJournal { // Div visible en Tablette & Mobile
+        display: none;
+        @media screen and (max-width: 1280px) {
+            display: flex;
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                text-decoration: none;
+                width: 100%;
+                color: black;
+                font-size: 3rem;             
+
+                // Le gros logo Tiaki
+                span {
+                  font-weight: 100;
+                  margin: 0;
+                  padding: 0; 
+                  width: 100%;                 
+                }
+              }
+              span:before {
+                content: '........';
+                font-size: 50%;
+              }          
+              span:after {
+                content: '........';
+                font-size: 50%;
+              }
+        }
+    }
+
+    #listeJournaux { // Div contenant la liste de journaux existant
+        margin-top: 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 18%;
+        justify-content: flex-end;
+        gap: 1vw;
+        text-align: start;
+        @media screen and (max-width: 1280px) {
+            align-items: flex-start;
+            margin: 2vh 1vw 0 1vw;
+        }
+        @media screen and (max-width: 834px) {
+            height: auto;
+        }        
+
+        img {
+            height: 4vw;
+            @media screen and (max-width: 1280px) {
+                display: none;
+            }
+        }
+
+        h1 { // La balise <h1>Journaux de suivi</h1> - Visible en Tablette & Mobile
+            display: none;
+            @media screen and (max-width: 1280px) {
+                display: flex;
+                font-size: 1.3rem;
+                font-weight: 600;
+                border-bottom: dashed 1px black;
+                width: 100%;
+                padding-bottom: 1vh;
+            }
+            @media screen and (max-width: 834px) {
+                font-size: 1rem;
+            }
+        }
+
+        p { // La balise <p>Historiques des journaux sur ces activités</p>
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 4px;
+            width: 90%;
+            @media screen and (max-width: 1280px) {                
+                text-align: start;
+            }
+            @media screen and (max-width: 1200px) {
+                font-size: 0.9rem;
+            }
+            @media screen and (max-width: 834px) {
+                font-size: 0.8rem;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        //height: 30%;
+        li {
+            text-align: start;
+            font-size: 1rem;
+            margin-top: 2vh;
+            @media only screen and (max-width: 1280px) {
+                font-size: 0.8rem;
+            }
+            @media screen and (max-width: 834px) {
+                font-size: 0.7rem;
+            }
+        }
+    }
+}
+
+// Section qui comporte le formulaire d'enregistrement du journal
+section:nth-child(3) {
+    width: 61%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vw;
+    overflow-y: auto;
+    @media screen and (max-width: 834px) {
+        width: 75%;
+    }
+    @media screen and (max-width: 480px) {
+        width: 100%;
+    }
+
+    article:nth-child(1) {
+        a {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            text-decoration: none;
+            width: 100%;
+            color: #F0C02E;
+            font-size: 2rem;             
+
+            // Le gros logo Tiaki
+            span {
+              font-weight: 100;
+              margin: 0;
+              padding: 0; 
+              width: 100%;                 
+            }
+          }
+          span:before {
+            content: '........';
+            font-size: 50%;
+          }          
+          span:after {
+            content: '........';
+            font-size: 50%;
+          }
+    }
+
+    // Article du titre avec la ligne de dashed
+    article:nth-child(2) {
+        width: 80%;
+        height: 10%;
+        border-bottom: 1px dashed black;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        h3 {
+            // La balise <h3>Ajouter un journal</h3>
+            align-self: flex-start;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+
+    //Article comportant le formulaire
+    article:nth-child(3) {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        form {
+            width: 80%;
+            //height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            mat-form-field:nth-child(1) {
+                // L'input avec le label "Objet"
+                width: 80%;
+            }
+
+            // Ci-dessous le CSS pour les 3 boutons (Partager Annuler Enregistrer)
+            .spanBouton {
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    font-size: 0.8vw;
+                    width: 7vw;
+                    @media screen and (max-width: 834px) {
+                        width: 11vw;
+                        font-size: 0.7rem;
+                    }
+                    @media screen and (max-width: 480px) {
+                        width: 20vw;
+                        font-size: 0.6rem;
+                    }
+                }
+
+                //align-content: stretch;
+                .mat-mdc-raised-button:not(:disabled) {
+                    // Le bouton orange Partager
+                    background-color: $card-opto;
+                    color: #ffffff;
+                }
+
+                div {
+                    // La div qui contient les 2 boutons
+                    display: flex;
+                    width: fit-content;
+                    gap: 2vw; // L'écart entre les 2 boutons
+
+                    //height: 10%;
+                    .mat-mdc-raised-button:not(:disabled):nth-child(1) {
+                        // Le bouton jaune Annuler
+                        background-color: $aside-color3;
+                        color: #ffffff;
+                    }
+
+                    .mat-mdc-raised-button:disabled:nth-child(2) {
+                        // Le bouton vert Enregistrer désactivé
+                        background-color: $button-color1;
+                        color: #ffffff;
+                        opacity: 50%;
+                    }
+
+                    .mat-mdc-raised-button:not(:disabled):nth-child(2) {
+                        // Le bouton vert Enregistrer activé
+                        background-color: $button-color1;
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Section Concerner permettant de choisir les activités éffectué sur l'application - Visible en Desktop
+.concerner {
+    background-color: $historique;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 0.5vw;
+    @media screen and (max-width: 1280px) {
+        display: none;
+      }
+
+    h4 {
+        // La balise <h4>Concerne</h4>
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    h5 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    p {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .buttonPlats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        button {
+            background-color: $card-nutri;
+            border: 1px solid #999;
+            text-align: center;
+            font-size: 0.7vw;
+            color: #ffffff;
+            border-radius: 8px;
+            width: 5vw;
+            height: 1.5vw;
+
+        }
+    }
+
+    .mat-mdc-form-field {
+        width: 95%;
+    }
+
+    /* input{
+            background-color: transparent;
+            align-self: center;
+            width: 70%;
+            border-radius: 8px ;
+            height: 1vw;
+            border-color: #ffffff;
+        } */
+
+    .buttonKine {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        button {
+            background-color: $card-kine;
+            border: 1px solid #999;
+            font-size: 0.7vw;
+            color: #ffffff;
+            border-radius: 8px;
+            width: 5vw;
+            height: 1.5vw;
+        }
+    }
+
+    .buttonOpto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        button {
+            background-color: $card-opto;
+            border: 1px solid #999;
+            text-align: center;
+            font-size: 0.7vw;
+            color: #ffffff;
+            border-radius: 8px;
+            width: 5vw;
+            height: 1.5vw;
+        }
+    }
+
+    .buttonMedecin {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        button {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            text-align: center;
+            font-size: 0.7vw;
+            border-radius: 8px;
+            width: 5.3vw;
+            height: 1.5vw;
+        }
+    }
+
+    .buttonOrg {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        button {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            text-align: center;
+            font-size: 0.7vw;
+            border-radius: 8px;
+            width: 5.3vw;
+            height: 1.5vw;
+        }
+    }
+}
+
+#blocResponsive { // Section visible en Tablette - Décoration pour le moment
+    display: none;
+    @media screen and (max-width: 1280px) {
+        display: flex;
+        background-color: $historique;
+        width: 19%;
+    }
+    @media screen and (max-width: 834px) {
+        display: none;
+    }
+}

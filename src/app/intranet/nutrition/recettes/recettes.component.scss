@@ -6,23 +6,20 @@ $aside-color1: #270140;
 $aside-color2: #805e96;
 $aside-color3: #f0c02e;
 
-main {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-family: $font-family;
+#recettes>#head>a,
+#recettes>#head>p {
+  color: $card-nutri;
+}
 
-    article {
-      display: flex;
-      align-items: flex-start;
-      color: #f22f1d;
-      height: 13vh;
-    }
+#recettes {
+  ::-webkit-scrollbar {
+    background-color: #f09c94;
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    height: 200px;
+    background-color: #f22f1d;
   }
 }
