@@ -265,12 +265,13 @@ section {
     } //<------- Fin du premier article
 
     #interface { // L'article contenant l'interface d'ajout
-      height: 60vh;
+      height: 64vh;
       width: 25vw;
       margin-top: 7vh;
       display: flex;
       flex-direction: column;
-      //background-color: #ffffff;
+      overflow-y: auto;
+      padding-right: 20px;
       h1 { // La balise <h1> Renseigner votre journal des repas
         font-weight: 500;
         font-size: 1.3rem;
