@@ -7,10 +7,16 @@ jobs:
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
-    
+      
+    - name: 🛠 Build Angular app
+      run: npm install && ng build --prod
+      
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: ProjetTiaki/FTP-Deploy-Action@V1.0
       with:
-        server: ftp.cluster027.hosting.ovh.net
+        server: 54.36.91.62
         username: tiakiau
         password: ${{ secrets.ftp_password }}
+        local-dir: dist  # This is the local directory to upload
+        remote-dir: /public_html  # This is the remote directory on the server
+ 
