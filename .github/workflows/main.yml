@@ -20,6 +20,6 @@ jobs:
         server: 54.36.91.62
         username: tiakiau
         password: ${{ secrets.ftp_password }}
-        local-dir: dist  # This is the local directory to upload
+        local-dir: dist/tiaki/  # This is the local directory to upload
         remote-dir: /home/tiakiau/www  # This is the remote directory on the server
  
