@@ -19,9 +19,7 @@ jobs:
       with:
         server: ftp.cluster027.hosting.ovh.net
         username: tiakiau
-        password: ${{ secrets.ftp_password }}
-        protocol: ftps
-        port: 21
+        password: ${{ secrets.ftp_password }}        
         local-dir: dist/tiaki/  # This is the local directory to upload
         server-dir: /home/tiakiau/www/  # This is the remote directory on the server
  
