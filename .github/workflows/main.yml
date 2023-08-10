@@ -12,7 +12,7 @@ jobs:
       run: npm install && ng build --prod
       
     - name: 📂 Sync files
-      uses: ProjetTiaki/FTP-Deploy-Action@V1.0
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: 54.36.91.62
         username: tiakiau
