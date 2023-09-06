@@ -1,0 +1,35 @@
+# Ne pas oublier de rajouter des informations dans package.json (Dans la balise scripts) pour la bonne exécution des tests
+# "build:prod": "ng build --prod", 
+# "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
+
+name: 🚀 Run Unit Tests and SonarCloud Analysis
+
+on:
+  push:
+    branches: ["preProd","main","dev"]
+  pull_request:
+    branches: ["preProd","main","dev"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run test:prod
+    
+      - name: SonarCloud Analysis
+        run: |
+          npm install -g sonarqube-scanner
+          sonar-scanner -Dsonar.projectKey=TwinkleStarFor64_adminTiaki -Dsonar.organization=twinklestarfor64 -Dsonar.host.url=https://sonarcloud.io 
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -31,8 +31,6 @@ export class PlatsComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.platService.getMesPlats();
-    //this.platService.getCiqual();
-    this.fetchPlats();
     this.fetchCiqual();
     this.fetchEvaluation();   
   }
@@ -78,7 +76,6 @@ export class PlatsComponent implements OnInit {
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
         ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
       }));
-      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));           
     }
     if (groupError) {
       console.log(groupError);
@@ -163,7 +160,6 @@ onSelectPlat(plats: MesPlatsI): void {
         this.supa.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
           .then(() => {
             this.fetchPlats();
-            //window.location.reload(); // Bonne solution ??
           })
           .catch((error) => {
             console.log(error);
@@ -197,10 +193,6 @@ onSelectPlat(plats: MesPlatsI): void {
 
 
 }
-
-
-
-
 
 
 /* ----------------- Ancienne méthode de trie suivant les évaluations ------------------------ */

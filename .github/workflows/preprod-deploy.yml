@@ -1,8 +1,8 @@
 on: 
- push:
+  push:
     branches:
-      - dev
-name: 🚀 Deploy website on push
+      - preProd
+name: 🚀 Deploy preProd for development on preProd website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -24,6 +24,5 @@ jobs:
         username: tiakiau
         password: ${{ secrets.ftp_password }}        
         local-dir: dist/tiaki/  # This is the local directory to upload
-        server-dir: /dev/  # This is the remote directory on the server
+        server-dir: /preprod/  # This is the remote directory on the server
  
-
