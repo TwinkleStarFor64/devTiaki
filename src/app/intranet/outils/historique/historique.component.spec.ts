@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HistoriqueComponent } from './historique.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HistoriqueComponent', () => {
   let component: HistoriqueComponent;
@@ -8,9 +9,10 @@ describe('HistoriqueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HistoriqueComponent ]
+      declarations: [HistoriqueComponent],
+      imports: [HttpClientModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(HistoriqueComponent);
     component = fixture.componentInstance;

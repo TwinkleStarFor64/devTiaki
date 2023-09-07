@@ -94,7 +94,7 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-    MatDatepickerModule     
+    MatDatepickerModule   
   ],
   providers: [
     {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus

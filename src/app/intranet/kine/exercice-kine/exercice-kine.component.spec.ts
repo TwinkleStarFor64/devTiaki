@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExerciceKineComponent } from './exercice-kine.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ExerciceKineComponent', () => {
   let component: ExerciceKineComponent;
@@ -8,7 +9,8 @@ describe('ExerciceKineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExerciceKineComponent ]
+      declarations: [ ExerciceKineComponent ],
+      imports:[ HttpClientModule ]
     })
     .compileComponents();
 

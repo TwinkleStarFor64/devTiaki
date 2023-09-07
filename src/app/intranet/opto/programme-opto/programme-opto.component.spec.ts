@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgrammeOptoComponent } from './programme-opto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ProgrammeOptoComponent', () => {
   let component: ProgrammeOptoComponent;
@@ -8,7 +9,8 @@ describe('ProgrammeOptoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgrammeOptoComponent ]
+      declarations: [ ProgrammeOptoComponent ],
+      imports:[ HttpClientModule]
     })
     .compileComponents();
 

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExerciceOptoComponent } from './exercice-opto.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ExerciceOptoComponent', () => {
   let component: ExerciceOptoComponent;
@@ -8,7 +9,8 @@ describe('ExerciceOptoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExerciceOptoComponent ]
+      declarations: [ ExerciceOptoComponent, MatDialogModule ],
+      imports: [MatDialogModule]
     })
     .compileComponents();
 

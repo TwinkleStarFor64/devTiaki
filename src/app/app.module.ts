@@ -32,7 +32,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     RouterModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule,
+    HttpClientModule    
     
   ],
   providers: [],

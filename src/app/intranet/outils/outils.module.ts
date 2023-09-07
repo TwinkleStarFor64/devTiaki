@@ -38,7 +38,6 @@ import { MatOptionModule } from '@angular/material/core';
     CommonModule,
     OutilsRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -47,7 +46,8 @@ import { MatOptionModule } from '@angular/material/core';
     MatIconModule,
     FormsModule,
     NgxMatSelectSearchModule,
-    MatOptionModule
+    MatOptionModule,
+    HttpClientModule
     
   ],
   entryComponents: [DeleteComponent],

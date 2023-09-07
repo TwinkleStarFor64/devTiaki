@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ParametreComponent } from './parametre.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ParametreComponent', () => {
   let component: ParametreComponent;
@@ -8,7 +9,8 @@ describe('ParametreComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ParametreComponent ]
+      declarations: [ ParametreComponent,HttpClientModule ],
+      imports:[ HttpClientModule]
     })
     .compileComponents();
 

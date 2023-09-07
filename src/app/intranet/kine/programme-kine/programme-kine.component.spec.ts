@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgrammeKineComponent } from './programme-kine.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 describe('ProgrammeKineComponent', () => {
   let component: ProgrammeKineComponent;
@@ -8,7 +10,8 @@ describe('ProgrammeKineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProgrammeKineComponent ]
+      declarations: [ ProgrammeKineComponent,MatAutocompleteModule ],
+      imports:[ HttpClientModule,MatAutocompleteModule ]
     })
     .compileComponents();
 

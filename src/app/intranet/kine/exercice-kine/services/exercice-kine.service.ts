@@ -8,8 +8,6 @@ import { ExerciceI } from 'src/app/intranet/modeles/Types';
 export class ExerciceKineService {
   exerciceKine:ExerciceI[] = [];
 
-  private exerciceUrl = 'assets/data/dataKine.json';
-
   constructor(private http: HttpClient) { }
 
   getExerciceKine()  {

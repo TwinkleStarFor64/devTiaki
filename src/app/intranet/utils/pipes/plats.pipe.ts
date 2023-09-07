@@ -6,7 +6,7 @@ import { MesPlatsI } from '../modeles/Types';
   name: 'plats'
 })
 export class PlatsPipe implements PipeTransform {
-  constructor(public composition:IngredientsServiceService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
+ 
 
   transform(items: MesPlatsI[], codeAlim: number): any { // codeAlim est un filtre de type number
         

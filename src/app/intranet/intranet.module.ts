@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,7 +37,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSelectModule,
     MatIconModule,
     CdkAccordionModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule
   ],
 })
 export class IntranetModule {}
