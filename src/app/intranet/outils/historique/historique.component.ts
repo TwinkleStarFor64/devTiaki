@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI, RelierI } from '../../modeles/Types';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { HistoriqueJournalI } from '../../modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';

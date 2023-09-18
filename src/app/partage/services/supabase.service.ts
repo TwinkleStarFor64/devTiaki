@@ -9,23 +9,17 @@ import { environment } from 'src/environments/environment';
 import {
   HistoriqueJournalI,
   HistoriqueMessageI,
-} from '../intranet/modeles/Types';
-
-
-export interface AidantI {
-  id: number;
-  nom: string;
-}
+} from '../../intranet/modeles/Types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SupabaseService {
-  private supabase: SupabaseClient;
-  _session: AuthSession | null = null;
+  private supabase: SupabaseClient; // Instance du client Supabase
+  _session: AuthSession | null = null; // Session d'authentification
 
   historiqueJournal: HistoriqueJournalI[] = [];
-
+  /**  */
   constructor() {
     this.supabase = createClient(
       environment.supabaseUrl,
@@ -33,25 +27,28 @@ export class SupabaseService {
     );
   }
 
-  //Méthode pour formater la date
-  formatDate(date: string) {
-    //J'utilise split pour diviser en sous-chaines les éléments de date séparé par -
-    let dateParts = date.split('-');
-    //Ci-dessous j'utilise chacun des items de dateParts
-    let year = parseInt(dateParts[0]); //Je convertie le 1er élément (l'année) en number avec parseInt
-    let month = parseInt(dateParts[1]);
-    let day = parseInt(dateParts[2]);
-    //Ci-dessous j'attribue à la variable newDate une new Date sur chacun des items au dessus
-    let newDate = new Date(year, month - 1, day); //year, month, day ont désormais la date du jour
-    return newDate.toLocaleDateString('fr'); //Cette méthode formate la date au format Fr
-  }
+  /**
+   * Formater des dates
+   * @param data {string} Transmettre une chaîne de caractères
+   * @return Renvoie une date formatée
+   */
+  formatDate(date: string): string {
+    const dateParts = date.split('-');
+    const year = parseInt(dateParts[0]);
+    const month = parseInt(dateParts[1]);
+    const day = parseInt(dateParts[2]);
+    const newDate = new Date(year, month - 1, day);
 
-  //Je récupére les données de la BDD supaBase
+    return newDate.toLocaleDateString('fr');
+  }
+  /** Appeler la liste des aidants dans Supabase */
   async getAidant() {
     return await this.supabase.from('aidant').select('id, nom');
   }
   //------------------------ Methode pour la page journal--------------------------------
-  // DELETE un journal et son groupe sur la table groupeEvenement
+  /** DELETE un journal et son groupe sur la table groupeEvenement
+   * @param id {number} Id du journal
+  */
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
     const { data: journalData, error: journalError } = await this.supabase
       .from('journalEvenement') // La table journalEvenement
@@ -63,18 +60,20 @@ export class SupabaseService {
       console.log(journalError);
     }
 
-    // Je recupere tous les journaux qui sont liés à l'ID journalData.groupeEvenement
+    /**
+     * Récupérer le journaux en lien avec l'ID journalData.groupeEvenement
+     */
     const { data: linkedJournalsData, error: linkedJournalsError } =
       await this.supabase
-        .from('journalEvenement') // La table journalEvenement
-        .select('id') // Je select la colone id
+        .from('journalEvenement')
+        .select('id')
         .eq('groupeEvenement', journalData?.groupeEvenement);
 
-    // Si le journal est le seul lié à ce groupe, on supprime le groupe
+    /** Suppression du groupe si le journal supprimé était le seul présent dans le groupe */
     if (linkedJournalsData && linkedJournalsData.length === 1) {
       const { error: groupError } = await this.supabase
-        .from('groupeEvenement') // La table groupeEvenement
-        .delete() // Je delete
+        .from('groupeEvenement')
+        .delete()
         .eq('id', journalData?.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
 
       if (groupError) {
@@ -85,33 +84,32 @@ export class SupabaseService {
     return await this.supabase.from('journalEvenement').delete().eq('id', id);
   }
 
-  //Je récupére les données de la BDD supaBase
+  /** Appeler la liste des journaux */
   async getHistoriqueJournal() {
     return await this.supabase
-      .from('journalEvenement') //La table journalEvenement
+      .from('journalEvenement')
       .select(
         'id, date, objet, description, commentaire, groupeEvenement (id)'
-      ); //Les données que je select sur cette table
+      );
   }
 
-  //Je récupére les données de la BDD supaBase
+  /** Récupérer les journaux liés */
   async getHistoriqueLinkedJournal(
     groupeEvenementId: number,
     journalEvenementId: number
   ) {
-    // Renvoi tous les journaux qui sont liés au groupe sauf celui "jounalEvenementId"
+    /** Renvoi tous les journaux qui sont liés au groupe sauf celui "jounalEvenementId" */
     return await this.supabase
       .from('journalEvenement') //La table journalEvenement
       .select('id, date, objet, description, commentaire, groupeEvenement (id)')
-      // L'id de la colone groupeEvenement correspond à l'id groupeEvenement du journal afficher - filtrer avec .eq
       .eq('groupeEvenement (id)', groupeEvenementId)
-      // L'id du journal afficher est filter avec .neq pour ne pas l'afficher dans le html
       .neq('id', journalEvenementId);
   }
-
-  //J'enregistre des données dans la BDD avec la méthode createJournal qui est asynchrone et prend 2 arguments (newEntry & relier)
-  //newEntry est un objet contenant les propriétés objet, description, commentaire et date
-  //relier peut être soit un objet qui contient des informations pour relier le journal à un autre, soit null.
+  /**
+   * Créer un journal
+   * @param newEntry objet contenant les propriétés objet, description, commentaire et date
+   * @param relier peut être soit un objet qui contient des informations pour relier le journal à un autre, soit null
+   */
   async createJournal(
     newEntry: {
       objet: string;
@@ -135,7 +133,7 @@ export class SupabaseService {
 
       // Cas n°2: le journal n'est pas relié
     } else {
-      //Ci-dessous j'insére une nouvelle ligne dans la table groupeEvenement avec insert
+      // Ci-dessous j'insére une nouvelle ligne dans la table groupeEvenement avec insert
       //.select(): sélectionne toutes les lignes de la table "groupeEvenement", y compris la nouvelle ligne insérée précédemment.
       //.single retourne les objets au lieu d'un tableau d'objets
       const { data: groupData, error: groupError } = await this.supabase
@@ -160,9 +158,10 @@ export class SupabaseService {
       }
     }
   }
-
-  //Méthode pour enregistrer un journal en BDD
-  //newEntry contient tout les champs de la table journalEvenenement
+  /**
+   * Méthode pour enregistrer un journal en BDD
+   * @param newEntry contient tout les champs de la table journalEvenenement
+   */
   private async insertJournal(newEntry: {
     objet: string;
     description: string;
@@ -181,7 +180,11 @@ export class SupabaseService {
     }
   }
 
-  // UPDATE un journal
+  /**
+   * Mise à jour d'un journal
+   * @param journalId Id du journal à mettre à jour
+   * @param newEntry contient tout les champs de la table journalEvenenement
+   */
   async updateJournal(
     journalId: number,
     newEntry: {
@@ -203,7 +206,11 @@ export class SupabaseService {
       console.log(updateError);
     }
   }
-
+  /**
+   * Récupérer les données d'un journal
+   * @param id Id du journal à récupérer
+   * @returns Renvoie un journal
+   */
   async getCurrentJournal(id: number) {
     // l'ID va être dynamique quand j'appelle ma méthode dans le component
     const { data: currentData, error: currentError } = await this.supabase
@@ -220,8 +227,10 @@ export class SupabaseService {
     }
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
   }
-
-  //------------------ Méthode pour supprimer un menu---------------------
+  /**
+   * Supprimer un menu
+   * @param id Id du menu à supprimer
+   */
   async deleteMenu(id: number) {
     const { error: deleteError } = await this.supabase
       .from('repas')
@@ -232,8 +241,10 @@ export class SupabaseService {
       console.log(deleteError);
     }
   }
-
-  // --------------------Méthode pour supprimer un plat-------------------
+  /**
+   * Suprimer un plat
+   * @param id Id du plat à supprimer
+   */
   async deletePlat(id: number) {
     const { error: deleteError } = await this.supabase
       .from('plats')
@@ -245,7 +256,10 @@ export class SupabaseService {
     }
   }
 
-  //------------------- Méthode pour enregistrer un menu-----------------------
+  /**
+   * Enregistrer un nouveau menu
+   * @param newEntry Menu à enregistrer dans la base
+   */
   async createMenu(newEntry: {
     nom: string;
     description: string;
@@ -264,8 +278,10 @@ export class SupabaseService {
       console.log(menuError);
     }
   }
-
-  //------------------- Méthode pour enregistrer un plat------------------
+  /**
+   * Enregistrer un nouveau plat
+   * @param newEntry Plat à enregistrer dans la base
+   */
   async createPlat(newEntry: {
     nom: string;
     description: string;
@@ -283,8 +299,10 @@ export class SupabaseService {
       console.log(platError);
     }
   }
-
-  // -------------------Méthode pour récupérer la table Ciqual----------------
+  /**
+   * Récupérer la base Ciqual
+   * @returns Renvoie la base Ciqual
+   */
   async getCiqual() {
     const ciqual = await this.supabase.from('ciqualAnses').select('*');
     console.log(ciqual);
@@ -306,15 +324,21 @@ export class SupabaseService {
     }
     throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
-
-  // -------------------Méthode pour récupérer la table Evaluation-----------------------
+  /**
+   * Méthode pour récupérer la table Evaluation
+   * @returns Renvoie les évaluations
+   */
   async getEvaluation() {
     const evaluation = await this.supabase.from('evaluation').select('*');
     //console.log(evaluation);
     return evaluation;
   }
-
-  // ----------------------Méthode pour update une évaluation sur la table Repas-------------
+  /**
+   * Méthode pour update une évaluation sur la table Repas
+   * @param selectedEvaluation Evaluation choisie
+   * @param selectedStatut Statut sélectionné
+   * @returns
+   */
   async updateEvalMenu(selectedEvaluation: number, selectedStatut: string) {
     const { data: evalData, error: evalError } = await this.supabase
       .from('repas')
@@ -328,7 +352,12 @@ export class SupabaseService {
     return evalData;
   }
 
-  //---------------------- Méthode pour update une évaluation sur la table Plats-----------------------
+  /**
+   * Mettre à jour une évaluation sur la table des plats
+   * @param selectedEvaluation Evaluation sélectionnée
+   * @param selectedStatut Statut sélectionné
+   * @returns
+   */
   async updateEvalPlat(selectedEvaluation: number, selectedStatut: string) {
     const { data: evalData, error: evalError } = await this.supabase
       .from('plats')
@@ -341,8 +370,11 @@ export class SupabaseService {
     }
     return evalData;
   }
-
-  //------------------ Méthode pour récupérer l'id d'une évaluation-------------------------
+  /**
+   * Méthode pour récupérer l'id d'une évaluation
+   * @param id
+   * @returns
+   */
   async getEvaluationById(id: number) {
     const { data, error } = await this.supabase
       .from('evaluation')
@@ -358,18 +390,23 @@ export class SupabaseService {
     return data;
   }
 
-  // --------------------Methodes page Messagerie --------------------
-
-  // Récupération des ancien message
+  /** Méthodes de la page de la messagerie */
+  /**
+   * Récupération des ancien message
+   * @returns
+   */
   async getHistoriqueMessage() {
     return await this.supabase
       .from('message')
       .select(
         'id, medecin, activite, objet, echange, groupeMessage (id), date'
-        );
+      );
   }
-
-  //  Méthode de création de message
+  /**
+   * Méthode de création de message
+   * @param newEntryMessage Nouveau message à écrire
+   * @param link
+   */
   async createMessage(
     newEntryMessage: {
       medecin: string;
@@ -379,40 +416,42 @@ export class SupabaseService {
       // groupeMessage: number;
       date?: Date;
     },
-  link?: HistoriqueMessageI | null
+    link?: HistoriqueMessageI | null
   ) {
-  newEntryMessage.date = new Date();
+    newEntryMessage.date = new Date();
 
-  // Cas n°1: 
-  if (link) {
-    const newMessageEvenement = {
-      ...newEntryMessage,
-      groupeMessage: link['groupeMessage']['id'],
-    };
-
-    this.insertMessage(newMessageEvenement);
-
-    // Cas n°2: 
-  } else {
-    const { data: groupData, error: groupError } = await this.supabase
-      .from('groupeMessage')
-      .insert({})
-      .select()
-      .single();
-    if (groupError) {
-      console.log(groupError);
-    }
-    if (groupData) {
+    // Cas n°1:
+    if (link) {
       const newMessageEvenement = {
         ...newEntryMessage,
-        groupeMessage: groupData['id'],
+        groupeMessage: link['groupeMessage']['id'],
       };
+
       this.insertMessage(newMessageEvenement);
+
+      // Cas n°2:
+    } else {
+      const { data: groupData, error: groupError } = await this.supabase
+        .from('groupeMessage')
+        .insert({})
+        .select()
+        .single();
+      if (groupError) {
+        console.log(groupError);
+      }
+      if (groupData) {
+        const newMessageEvenement = {
+          ...newEntryMessage,
+          groupeMessage: groupData['id'],
+        };
+        this.insertMessage(newMessageEvenement);
+      }
     }
   }
-  }
-
-  // Méthode d'insertion de message
+  /**
+   * Méthode d'insertion de message
+   * @param newEntryMessage Message à insérer
+   */
   private async insertMessage(newEntryMessage: {
     medecin: string;
     activite: string;
@@ -426,30 +465,11 @@ export class SupabaseService {
     const { error: messagerieError } = await this.supabase
       .from('message') //je choisi la table message
       .insert(newEntryMessage); //J'insére la variable newEntryMessage
-    
+
     if (messagerieError) {
       console.log(messagerieError);
     }
   }
-
-  // Récupération d' un message
-//   async getCurrentMessage(id: number) {
-//     // l'ID va être dynamique quand j'appelle ma méthode dans le component
-//     const { data: currentData, error: currentError } = await this.supabase
-//       .from('message')
-//       .select('id, medecin, activite, objet, echange, groupeMessage (id), date')
-//       .eq('id', id);
-
-//     if (currentData) {
-//       currentData.forEach((message) => {
-//         // forEach car je reçois un tableau
-//         console.log('message.objet - supabase.service :', message.objet);
-//       });
-//       return currentData;
-//     }
-//     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-//   }
-// // ----------------Fin methodes page messagerie--------------------------------
 }
 
 

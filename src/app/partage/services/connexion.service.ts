@@ -14,7 +14,4 @@ export class ConnexionService {
       placeholder:'Mot de passe'
     }
   }
-  constructor() { }
-
-
 }

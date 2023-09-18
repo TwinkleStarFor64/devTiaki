@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI } from '../../modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
   selector: 'app-messagerie',
@@ -64,7 +64,7 @@ export class MessagerieComponent implements OnInit {
     this.echanges.getNomOrga();
     this.fetchMessages();
   }
-  
+
   // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
   async fetchMessages() {
     const { data, error } = await this.supa.getHistoriqueMessage();
@@ -82,10 +82,10 @@ export class MessagerieComponent implements OnInit {
     }
   }
 
-// Methode pour envoyer un message via le button 
+// Methode pour envoyer un message via le button
 
   async onSubmitFormMessage() {
-   
+
     const newEntryMessage = {
       medecin: this.formMessage.value.medecin,
       activite: this.formMessage.value.activite,

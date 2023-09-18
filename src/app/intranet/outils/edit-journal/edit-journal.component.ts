@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MedecinI, RealisationI } from '../../modeles/Types';
 import { DeleteComponent } from '../dialog/delete/delete.component';

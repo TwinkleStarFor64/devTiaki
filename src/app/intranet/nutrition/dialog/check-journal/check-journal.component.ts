@@ -4,7 +4,7 @@ import { EventService } from '../../journal-repas/services/event.service';
 import { parseISO } from 'date-fns';
 import { PlatsService } from '../../plats/services/plats.service';
 import { CiqualI, MesMenusI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 
 @Component({
@@ -14,10 +14,10 @@ import { MenusService } from '../../menus/services/menus.service';
 })
 export class CheckJournalComponent implements OnInit {
 
-  events: any[] = []; 
-  
+  events: any[] = [];
+
   selectedIdValue!: number; // Pour stocker l'id de l'event calendar dans ngOnInit
-  selectedTitleValue!: string; // Pour stocker le nom (title) de l'event calendar dans ngOnInit  
+  selectedTitleValue!: string; // Pour stocker le nom (title) de l'event calendar dans ngOnInit
 
   plats: MesPlatsI[] = [];
   repas: MesMenusI[] = [];
@@ -29,18 +29,18 @@ export class CheckJournalComponent implements OnInit {
   ngOnInit(): void {
     this.fetchPlats();
     this.fetchMenus();
-    this.fetchEvents();  
+    this.fetchEvents();
     this.fetchCiqual();
 
-// Le data de this.data provient de la méthode openDialog dans journal-repas.component - elle contient l'id de l'élément sur lequel j'ai cliqué et aussi son nom (title dans la BDD)    
+// Le data de this.data provient de la méthode openDialog dans journal-repas.component - elle contient l'id de l'élément sur lequel j'ai cliqué et aussi son nom (title dans la BDD)
     this.selectedIdValue = this.data.selectedId; // this.selectedIdValue contient maintenant l'id de l'event calendar sur lequel j'ai cliqué
     console.log("this.selectedIdValue : ", this.selectedIdValue);
     this.selectedTitleValue = this.data.selectedTitle; // this.selectedTitleValue contient maintenant le nom (title) de l'event calendar sur lequel j'ai cliqué
-    console.log("this.selectedTitleValue : ",this.selectedTitleValue);    
+    console.log("this.selectedTitleValue : ",this.selectedTitleValue);
 
     //console.log("console.log de this.data", JSON.stringify(this.data));
     //console.log('selectedID', this.selectedId);
-    
+
   }
 
   closeDialog() { // Pour fermer la modal
@@ -59,11 +59,11 @@ export class CheckJournalComponent implements OnInit {
         observations: item['observations'],
         cssClass: 'calendarTitle',
         //actions: this.actions
-      }));        
+      }));
       //console.log(this.events.map((item) => item['id']));
     }
     if (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -74,12 +74,12 @@ export class CheckJournalComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'], 
+        alim_code: item['alim_code'],
         statut: item['statut']
-      }));      
+      }));
     }
     if (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -107,7 +107,7 @@ export class CheckJournalComponent implements OnInit {
       await this.supa.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
-        alim_code: item['alim_code'],        
+        alim_code: item['alim_code'],
         alim_nom_fr: item['alim_nom_fr'],
         ['Protéines, N x 6.25 (g/100 g)']: item['Protéines, N x 6.25 (g/100 g)'],
         ['Glucides (g/100 g)']: item['Glucides (g/100 g)'],
@@ -123,7 +123,7 @@ export class CheckJournalComponent implements OnInit {
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
         ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
       }));
-      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));           
+      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
     }
     if (groupError) {
       console.log(groupError);
@@ -154,11 +154,11 @@ export class CheckJournalComponent implements OnInit {
         //L'objet final contient : {
         /*   nom: "Nom du plat",
              alimCode: "Code de l'aliment",
-             ingredients: 
+             ingredients:
                         [
                         Tableau des ingrédients associés au plat
                         {  Ingrédient 1  },
-                        {  Ingrédient 2  },    
+                        {  Ingrédient 2  },
                         ]
                       } */
   } // <--------------- FIN DE getFilteredPlatsData()-----------------------------------

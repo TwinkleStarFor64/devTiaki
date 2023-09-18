@@ -4,7 +4,7 @@ import { ConnexionComponent } from './extranet/connexion/connexion.component';
 import { InfosComponent } from './extranet/infos/infos.component';
 import { MentionsLegalesComponent } from './extranet/mentions-legales/mentions-legales.component';
 import { RgpdComponent } from './extranet/rgpd/rgpd.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './extranet/pagenotfound/pagenotfound.component';
 
 // Toutes les routes permettant de naviguer sur l'application.
 const routes: Routes = [

@@ -5,7 +5,7 @@ import {
   MedecinI,
   RealisationI,
 } from 'src/app/intranet/modeles/Types';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
   selector: 'app-journal',

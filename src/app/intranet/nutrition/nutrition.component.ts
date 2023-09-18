@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BottomI, NutritionI } from '../modeles/Types';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
   selector: 'app-nutrition',
@@ -77,7 +77,7 @@ export class NutritionComponent implements OnInit {
   // ];
 
   accueilNutrition!: NutritionI[];
-  
+
 
   constructor( private router: Router, public sanity: SanityService) { }
 
@@ -87,8 +87,8 @@ export class NutritionComponent implements OnInit {
         item.active = activeUrl.startsWith(item.url);
     });
     // Pour voir le résultat dans la console
-    // this.sanity.getAccueilNutrition().then((data) => console.log(this.accueilNutrition = data));  
-    // Pour exécuter la méthode - J'utilise sort() pour les trier suivant leur ID afin de gérer l'ordre d'affichage   
+    // this.sanity.getAccueilNutrition().then((data) => console.log(this.accueilNutrition = data));
+    // Pour exécuter la méthode - J'utilise sort() pour les trier suivant leur ID afin de gérer l'ordre d'affichage
     this.sanity.getAccueilNutrition().then((data) => {
       this.accueilNutrition = data.sort((a, b) => a.id - b.id);
     });

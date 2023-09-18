@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
 import { ExerciceOptoService } from '../exercice-opto/services/exercice-opto.service';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
   selector: 'app-progression-opto',

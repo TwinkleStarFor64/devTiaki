@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ConnexionService } from '../utils/services/connexion.service';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { ConnexionService } from '../../partage/services/connexion.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
   selector: 'app-connexion',

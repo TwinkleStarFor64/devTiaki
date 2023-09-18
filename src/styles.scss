@@ -25,10 +25,8 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background: url('./assets/images/bg/BgVector2.svg');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
+  background: url('./assets/images/bg/bg.svg') no-repeat center center fixed;
+  background-size: cover;
   font-family: $font-family;
   font-size: 16px;
 }

@@ -1,0 +1,11 @@
+section {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+article{
+  display:flex;
+  flex-flow:column nowrap;
+  margin:auto;
+  text-align: center;
+}
