@@ -1,17 +1,20 @@
-<section id="accueil">
-  <header id="head-accueil">
-    <a routerLink="/intranet">Tiaki</a>
-    <p>Kinésithérapie</p>
-  </header>
-  <section>
-    <article *ngFor="let card of accueilKine">
+<header class="ariane">
+  <h1><a routerLink="/intranet">Tiaki</a></h1>
+  <h2>Kinésithérapie</h2>
+</header>
+<section class="accueil">
+  <article *ngFor="let card of accueilKine" class="cartel">
+    <div>
       <h2>{{ card.title }}</h2>
       <p>{{ card.text }}</p>
       <a [routerLink]="[card.url]">
         <button>{{ card.button }}</button>
-        <img src={{sanity.urlFor(card.image).url()}} alt="photo" />
       </a>
-    </article>
-  </section>
+    </div>
+    <figure>
+      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
+      </div>
+    </figure>
+  </article>
 </section>
 <!-- <app-bottom-bar-kine></app-bottom-bar-kine> -->

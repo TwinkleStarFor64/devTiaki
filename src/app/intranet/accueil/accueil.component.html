@@ -1,17 +1,19 @@
-<header id="head-accueil" class="ariane">
+<header class="ariane">
   <h1><a routerLink="/intranet">Tiaki</a></h1>
   <h2>Application numérique pour les aidants familiaux</h2>
 </header>
-<section>
-  <article *ngFor="let card of imageAccueil">
-    <h2>{{ card.title }}</h2>
-    <p>{{ card.text }}</p>
-    <a [routerLink]="[card.url]">
-      <button>{{ card.button }}</button>
-    </a>
+<section class="accueil">
+  <article *ngFor="let card of imageAccueil" class="cartel">
+    <div>
+      <h2>{{ card.title }}</h2>
+      <p>{{ card.text }}</p>
+      <a [routerLink]="[card.url]">
+        <button>{{ card.button }}</button>
+      </a>
+    </div>
     <figure>
-      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration"></div>
+      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
+      </div>
     </figure>
-    <!-- <img src={{sanity.urlFor(card.image).url()}} alt="photo" /> -->
   </article>
 </section>

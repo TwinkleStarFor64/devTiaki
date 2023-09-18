@@ -25,11 +25,12 @@ body {
 body {
   margin: 0;
   padding: 0;
-  background: url('./assets/images/bg/BgVector2.svg'), rgba(242, 183, 5, 0.1);
+  background: url('./assets/images/bg/BgVector2.svg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
   font-family: $font-family;
+  font-size: 16px;
 }
 
 * {
@@ -42,6 +43,10 @@ article,
 header,
 footer {
   display: flex;
+}
+main{
+  width:100vw;
+  height:100vh;
 }
 a {
   text-decoration: none;
@@ -61,6 +66,7 @@ button{
   width: fit-content;
   background-color:$clair;
   color:$aside-color1;
+  font-size: 16px;
 }
 button:hover{
   background-color: $aside-color3;
@@ -80,6 +86,7 @@ button:hover{
 }
 .ariane h1, .ariane h2{
   font-weight: 100;
+  margin-left:20px;
 }
 .ariane h2:before{
   content:'...... '
@@ -213,19 +220,22 @@ mwl-calendar-open-day-events {
 /** ------------------------------------------------------
 // COMPOSANT ACCUEIL DE L'INTRANET
 */
+// app-intranet > main > router-outlet > *{
+
+// }
 app-accueil {
   height: 100vh;
   flex-direction: column;
 }
 
 // Les 3 Cartes
-app-accueil > section {
+section.accueil {
   flex-direction: row;
   height: calc(100vh - $head);
 }
 
-app-accueil > section > article {
-  margin: auto 5% 0;
+article.cartel {
+  margin: auto 2% 0;
   flex-direction: column;
   text-align: center;
   color: $clair;
@@ -239,7 +249,6 @@ app-accueil > section > article {
 
     button {
       color: $card-opto;
-      border-color: $card-opto;
     }
   }
 
@@ -248,7 +257,6 @@ app-accueil > section > article {
 
     button {
       color: $card-nutri;
-      border-color: $card-nutri;
     }
   }
 
@@ -257,7 +265,6 @@ app-accueil > section > article {
 
     button {
       color: $card-kine;
-      border-color: $card-kine ;
     }
   }
 
@@ -266,26 +273,32 @@ app-accueil > section > article {
 
     button {
       color: $aside-color3;
-      border-color: $aside-color3 ;
     }
   }
-
+  & > div{
+    height:calc(100% - 250px);
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    padding:20px;
+    transition:all .3s ease;
+  }
   figure{
-    margin:0 -20px;
+    margin:0 -20px -20px;
     padding:0;
     border-top-left-radius:70%;
     border-top-right-radius: 50%;
-    height:200px;
+    height:250px;
     overflow: hidden;
-    transition:all .3s ease;
+    transition:all .5s ease;
   }
   figure > div{
     width:100%;
     height:100%;
-    margin:0 20px;
+    margin:0 -20px -20px;
     // background-position:0 50%;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
   }
   a {
     display: flex;
@@ -297,7 +310,9 @@ app-accueil > section > article {
     img {
       width: 100%;
     }
-
+    button:hover{
+      background-color: $clair;
+    }
     &:nth-child(2) {
       color: $card-nutri;
     }
@@ -307,24 +322,26 @@ app-accueil > section > article {
     padding:30px 50px 0;
     transform: scale(1.1);
   }
-
+  &:hover > div {
+    height:calc(100% - 325px);
+    padding-bottom:40px;
+  }
   &:hover > figure {
     margin:-20px -70px 0;
-    height:250px;
-    border-top-left-radius: 50%;
+    height:325px;
+    border-radius: 0;
   }
 
 }
 
-app-accueil > section>article {
+article.cartel {
   justify-content: space-between;
 
   h2 {
     font-size: 2rem;
   }
   p {
-    font-size: 1.2rem;
-    margin: 15px;
+    padding: 15px;
   }
 
   a {
@@ -335,121 +352,23 @@ app-accueil > section>article {
   }
 }
 
-@media screen and (max-width: 1200px) {
-  app-accueil > section > article {
-    height: 60%;
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    p {
-      font-size: 1rem;
-    }
-  }
-}
-
-// Media query pour les écrans de taille moyenne
-@media screen and (max-width: 912px) and (min-height:928px) {
-  app-accueil > header {
-    height: 30%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  app-accueil > section {
+@media screen and (max-width: 960px) {
+  section.accueilection {
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    gap: 10vw;
   }
-
-  app-accueil > section > article {
-    height: 95%;
-    width: 70%;
-    cursor: pointer;
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
-      }
-
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(10%);
-      }
-    }
+  article.cartel {
+    flex-direction: row;
   }
-}
-
-@media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
-  app-accueil > header {
-    height: 30%;
-    align-items: center;
-    justify-content: center;
+  article.cartel div{
+    width:55%;
+    height:100%;
   }
-
-  app-accueil > section {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    gap: 10vw;
-  }
-
-  app-accueil > section > article {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    height: 95%;
-    width: 70%;
-    cursor: pointer;
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
-      }
-
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(10%);
-      }
-    }
+  article.cartel figure{
+    width:45%;
+    height:100%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
   }
 }
 
@@ -514,7 +433,7 @@ app-accueil > section>article {
       }
     }
 
-    app-accueil > section > article {
+    article.cartel {
 
       h2 {
         font-size: 1rem;
