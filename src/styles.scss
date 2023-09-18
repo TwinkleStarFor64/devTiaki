@@ -243,6 +243,21 @@ article.cartel {
   height: 75%;
   flex: 1 1 0px;
   overflow: hidden;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 2rem;
+  }
+  p {
+    padding: 15px;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &:nth-child(1) {
     background-color: $card-opto ;
@@ -276,19 +291,22 @@ article.cartel {
     }
   }
   & > div{
-    height:calc(100% - 250px);
+    height:66%;
     display:flex;
     flex-flow: column nowrap;
     justify-content: space-around;
     padding:20px;
     transition:all .3s ease;
   }
+  & > div > *{
+    margin:0 auto;
+  }
   figure{
     margin:0 -20px -20px;
     padding:0;
     border-top-left-radius:70%;
     border-top-right-radius: 50%;
-    height:250px;
+    height:34%;
     overflow: hidden;
     transition:all .5s ease;
   }
@@ -323,33 +341,15 @@ article.cartel {
     transform: scale(1.1);
   }
   &:hover > div {
-    height:calc(100% - 325px);
+    height:50%;
     padding-bottom:40px;
   }
   &:hover > figure {
-    margin:-20px -70px 0;
-    height:325px;
+    margin:0 -70px 0;
     border-radius: 0;
+    height:50%;
   }
 
-}
-
-article.cartel {
-  justify-content: space-between;
-
-  h2 {
-    font-size: 2rem;
-  }
-  p {
-    padding: 15px;
-  }
-
-  a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
 }
 
 @media screen and (max-width: 960px) {
@@ -358,6 +358,21 @@ article.cartel {
   }
   article.cartel {
     flex-direction: row;
+    margin:0;
+
+    &:hover {
+      padding:0;
+      transform: scale(1);
+    }
+    &:hover > div {
+      height:100%;
+      padding-bottom:0;
+    }
+    &:hover > figure {
+      margin:0 -70px 0;
+      border-radius: 0;
+      height:100%;
+    }
   }
   article.cartel div{
     width:55%;
@@ -370,6 +385,7 @@ article.cartel {
     border-top-left-radius: 15%;
     border-bottom-left-radius: 15%;
   }
+
 }
 
 
@@ -1703,13 +1719,6 @@ article.cartel {
 }
 
 /* ---------------- CSS de la Page Plats -------------------- */
-// Contenant principale
-/* #sectionPrincipale {
-  display: flex;
-  flex-direction: row;
-
-} */
-
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
   height: calc(100vh - $head - $foot);
