@@ -62,9 +62,16 @@ nav {
         color: #ffffff;
         margin: auto;
 
-        p {
+        span {
           font-size: 0.8rem;
+          opacity:0;
+          margin-top:-10px;
+          transition:all .3s ease;
         }
+      }
+      a:hover > span{
+        opacity:1;
+        margin-top:10px;
       }
     }
   }
@@ -105,7 +112,7 @@ nav {
       padding-top: 25px;
       z-index: 998;
       color: #ffffff;
-      
+
 
       ul {
         display: flex;

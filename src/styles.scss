@@ -177,45 +177,45 @@ mwl-calendar-open-day-events {
 }
 
 // AFFICHAGE PAGE DE CONNEXION
-#actualites {
-  height: 100vh;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
+// #actualites {
+//   height: 100vh;
+//   width: 100%;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+//   justify-content: space-around;
 
-}
+// }
 
-#actualites>article:nth-child(1) {
-  width: 100%;
-  justify-content: space-around;
+// #actualites>article:nth-child(1) {
+//   width: 100%;
+//   justify-content: space-around;
 
-  img {
-    width: 10vw;
-  }
+//   img {
+//     width: 10vw;
+//   }
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    color: $aside-color1;
-  }
-}
+//   h2 {
+//     font-size: 2rem;
+//     font-weight: 400;
+//     color: $aside-color1;
+//   }
+// }
 
-#actualites>article:nth-child(n+2) {
-  flex-direction: column;
+// #actualites>article:nth-child(n+2) {
+//   flex-direction: column;
 
-  h3 {
-    color: $aside-color2;
-    font-weight: 400;
-    font-size: 1.5rem;
-    margin: 0;
-  }
+//   h3 {
+//     color: $aside-color2;
+//     font-weight: 400;
+//     font-size: 1.5rem;
+//     margin: 0;
+//   }
 
-  img {
-    width: 20vw;
-  }
-}
+//   img {
+//     width: 20vw;
+//   }
+// }
 
 /** ------------------------------------------------------
 // COMPOSANT ACCUEIL DE L'INTRANET
@@ -353,7 +353,7 @@ article.cartel {
 }
 
 @media screen and (max-width: 960px) {
-  section.accueilection {
+  section.accueil {
     flex-direction: column;
   }
   article.cartel {
@@ -374,102 +374,102 @@ article.cartel {
 
 
 // Media query pour les écrans plus petits
-@media screen and (max-width: 480px) {
-  app-accueil {
-    margin-left: 10%;
-    // justify-content: center;
+// @media screen and (max-width: 480px) {
+//   app-accueil {
+//     margin-left: 10%;
+//     // justify-content: center;
 
-    > header {
-      height: 20%;
+//     > header {
+//       height: 20%;
 
-      a {
-        font-size: 1.8rem;
-        width: 100%;
-        text-align: center;
-      }
+//       a {
+//         font-size: 1.8rem;
+//         width: 100%;
+//         text-align: center;
+//       }
 
-      p {
-        font-size: 1.2rem;
-      }
-    }
+//       p {
+//         font-size: 1.2rem;
+//       }
+//     }
 
-    > section > article {
-      margin-left: 20px;
+//     > section > article {
+//       margin-left: 20px;
 
-      h2 {
-        font-size: 1rem;
-      }
+//       h2 {
+//         font-size: 1rem;
+//       }
 
-      p {
-        font-size: 0.7rem;
-        margin: 15px;
-      }
+//       p {
+//         font-size: 0.7rem;
+//         margin: 15px;
+//       }
 
-      a {
-        button {
-          display: none
-        }
+//       a {
+//         button {
+//           display: none
+//         }
 
-        img {
-          height: 100%;
-          width: 80%;
-          transform: translateY(5%);
-        }
-      }
-    }
-  }
-}
+//         img {
+//           height: 100%;
+//           width: 80%;
+//           transform: translateY(5%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 384px) and (max-height:640px) {
-  app-accueil {
+// @media screen and (max-width: 384px) and (max-height:640px) {
+//   app-accueil {
 
-    > header{
-      >a {
-        font-size: 1.8rem;
-      }
+//     > header{
+//       >a {
+//         font-size: 1.8rem;
+//       }
 
-      p {
-        font-size: 1.2rem;
-      }
-    }
+//       p {
+//         font-size: 1.2rem;
+//       }
+//     }
 
-    article.cartel {
+//     article.cartel {
 
-      h2 {
-        font-size: 1rem;
-        font-weight: 500;
-      }
+//       h2 {
+//         font-size: 1rem;
+//         font-weight: 500;
+//       }
 
-      p {
-        font-size: 0.7rem;
-        font-weight: 400;
-        margin: 15px;
-      }
+//       p {
+//         font-size: 0.7rem;
+//         font-weight: 400;
+//         margin: 15px;
+//       }
 
-      a {
-        button {
-          display: none
-        }
+//       a {
+//         button {
+//           display: none
+//         }
 
-        img {
-          height: 100%;
-          width: 80%;
-          transform: translateY(5%);
-        }
-      }
-    }
-  }
-}
+//         img {
+//           height: 100%;
+//           width: 80%;
+//           transform: translateY(5%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 376px) {
-  app-accueil > header > p {
-    font-size: 0.9rem;
-  }
+// @media screen and (max-width: 376px) {
+//   app-accueil > header > p {
+//     font-size: 0.9rem;
+//   }
 
-  app-accueil >section > article > p {
-    font-size: 0.8rem;
-  }
-}
+//   app-accueil >section > article > p {
+//     font-size: 0.8rem;
+//   }
+// }
 
 // Navbar icone burger
 #burger-icon {
@@ -478,66 +478,66 @@ article.cartel {
 
 //HEADER PAGES D'ACCUEIL DES INTERFACES
 
-#head-accueil > a {
-  font-size: 2.8rem;
-  font-weight: 100;
-  width: 40%;
-  text-align: center;
-  margin-top: 6vh;
+// #head-accueil > a {
+//   font-size: 2.8rem;
+//   font-weight: 100;
+//   width: 40%;
+//   text-align: center;
+//   margin-top: 6vh;
 
-  @media (max-width: 954px) {
-    font-size: 2.5rem;
-  }
+//   @media (max-width: 954px) {
+//     font-size: 2.5rem;
+//   }
 
-  @media (max-width: 706px) {
-    font-size: 2rem;
-  }
+//   @media (max-width: 706px) {
+//     font-size: 2rem;
+//   }
 
-  @media (max-width: 490px) {
-    font-size: 1rem;
-  }
-}
+//   @media (max-width: 490px) {
+//     font-size: 1rem;
+//   }
+// }
 
 
 
-#head-accueil img {
-  width: 30px;
-}
+// #head-accueil img {
+//   width: 30px;
+// }
 
-#head-accueil>p {
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
+// #head-accueil>p {
+//   font-size: 2rem;
+//   font-weight: 500;
+//   text-align: center;
 
-  @media (max-width: 1020px) {
-    font-size: 1.8rem;
-  }
+//   @media (max-width: 1020px) {
+//     font-size: 1.8rem;
+//   }
 
-  @media (max-width: 906px) {
-    font-size: 1.6rem;
-  }
+//   @media (max-width: 906px) {
+//     font-size: 1.6rem;
+//   }
 
-  @media (max-width: 793px) {
-    font-size: 1.5rem;
-  }
+//   @media (max-width: 793px) {
+//     font-size: 1.5rem;
+//   }
 
-  @media (max-width: 706px) {
-    font-size: 1.3rem;
-  }
+//   @media (max-width: 706px) {
+//     font-size: 1.3rem;
+//   }
 
-  @media (max-width: 490px) {
-    font-size: 1rem;
-  }
-}
+//   @media (max-width: 490px) {
+//     font-size: 1rem;
+//   }
+// }
 
-#head-accueil>article {
-  align-items: start;
-}
+// #head-accueil>article {
+//   align-items: start;
+// }
 
-#head-accueil>* {
-  margin: 5px;
-  padding: 0;
-}
+// #head-accueil>* {
+//   margin: 5px;
+//   padding: 0;
+// }
 
 // -------------------------------------------------
 // HEADER DES PAGES AUTRES QU'ACCUEIL
@@ -642,7 +642,6 @@ article.cartel {
   flex-direction: column;
   color: $sombre;
   height: calc(100vh - $foot);
-
 
   @media (max-width: 768px) {
     height: calc(100vh - 100px);
