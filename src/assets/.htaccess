@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # HTTP to HTTPS
+  # RewriteCond %{HTTPS} on [OR]
+  # RewriteCond %{SERVER_PORT} 443
+  RewriteCond %{SERVER_PORT} 80
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redirection of requests to index.html
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteRule ^.*$ - [NC,L]
+  # Redirect all non-file routes to index.html
+  RewriteRule ^(?!.*\.).*$ index.html [NC,L]
+</IfModule>
