@@ -13,30 +13,38 @@ section {
 }
 
 article {
-    margin: auto;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 50px 25px;
-    background-color: white;
-    max-width: 50%;
+  margin: auto;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 25px;
+  background-color: white;
+  max-width: 50%;
 }
-footer{
-  flex-flow : row nowrap;
+.alerte{
+  padding:15px;
+  margin:25px 20px;
+  display: none;
+}
+footer {
+  flex-flow: row nowrap;
   justify-content: flex-end;
   align-items: center;
   background-color: white;
-  padding:20px;
-  width:fit-content;
+  padding: 20px;
+  width: fit-content;
   align-self: flex-end;
 }
-footer > * {
-  margin:0 10px;
+
+footer>* {
+  margin: 0 10px;
 }
-footer img{
+
+footer img {
   max-height: 50px;
 }
+
 form {
   width: 30vw;
   height: 100%;
@@ -45,20 +53,37 @@ form {
   justify-content: center;
   align-items: center;
 }
+
 form * {
   margin: 5px 10px;
 }
+
 form div {
   display: flex;
   flex-flow: row nowrap;
 }
+
 form div input {
   width: -moz-fit-content;
   width: fit-content;
   border: none;
   padding: 8px 16px;
 }
+
 app-infos {
   width: 70vw;
   height: 100%;
+}
+
+@media screen and (max-width: 980px) {
+  article {
+    margin: auto 15%;
+    max-width: 100%;
+  }
+  article button{
+    display:none;
+  }
+  .alerte{
+    display: flex;
+  }
 }

@@ -12,6 +12,7 @@ export class ConnexionComponent implements OnInit {
 
   constructor(public conn: ConnexionService, public supa:SupabaseService) { }
 
+
   async ngOnInit(): Promise<void> {
     const { data, error } = await this.supa.getAidant();
     console.log(data);
