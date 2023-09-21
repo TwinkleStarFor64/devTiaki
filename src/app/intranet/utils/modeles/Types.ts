@@ -50,7 +50,7 @@ export interface MesMenusI {
   description: string;
   alim_code: number;
   statut: string;
-  //ciqual: number;   
+  //ciqual: number;
 }
 
 export interface EvaluationI {
@@ -64,7 +64,6 @@ export interface BottomBarTableau {
   firstInfo: string;
   secondInfo: string;
 }
-
 export interface EchangeI {
   nom: string;
   message: string;

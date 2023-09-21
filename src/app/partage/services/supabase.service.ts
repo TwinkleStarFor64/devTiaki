@@ -26,7 +26,12 @@ export class SupabaseService {
       environment.supabaseKey
     );
   }
-
+  /** Authentifier un utilisateur depuis Supabase */
+  getAuth(){
+    this.supabase.auth.signInWithPassword({email:'coucou', password:'leChat'})
+    .then(data => console.log(data))
+    .catch();
+  }
   /**
    * Formater des dates
    * @param data {string} Transmettre une chaîne de caractères
