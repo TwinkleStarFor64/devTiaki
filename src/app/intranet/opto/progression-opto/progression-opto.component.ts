@@ -12,7 +12,7 @@ export class ProgressionOptoComponent implements OnInit {
   avatar!: string;
   exercicesOpto!: ExerciceI[];
   exercicesFiltres: ExerciceI[] = [];
-
+  exoSelect!:ExerciceI;
 
   constructor(public sanity:SanityService) {}
 

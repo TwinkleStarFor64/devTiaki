@@ -12,7 +12,7 @@ export class NutritionComponent implements OnInit {
 
   public bottoms:BottomI[] = [
     {
-      image:"assets/iconeBottom/journalBottom.png",
+      image:"assets/images/pictos/menus/journalBottom.png",
       titre:"Journal",
       info:"Naviguer dans votre historique alimentaire",
       lien:'Journal',
@@ -20,7 +20,7 @@ export class NutritionComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/journalBottom.png",
+      image:"assets/images/pictos/menus/journalBottom.png",
       titre:"Menus",
       info:"Les listes de vos menus et de ceux de la communautés",
       lien:'Menus',
@@ -28,7 +28,7 @@ export class NutritionComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/platBottom.png",
+      image:"assets/images/pictos/menus/platBottom.png",
       titre:"Plats",
       info:"Vos plats ou ceux de la communauté",
       lien:'Plats',
@@ -36,7 +36,7 @@ export class NutritionComponent implements OnInit {
       active:false
     },
     {
-      image:"assets/iconeBottom/ingredientBottom.png",
+      image:"assets/images/pictos/menus/ingredientBottom.png",
       titre:"Ingrédients",
       info:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
       lien:'Ingredients',

@@ -21,6 +21,7 @@ export class ExerciceOptoComponent implements OnInit {
   filtrerExercice: string = '';
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
+  exoSelect!:ExerciceI;
 
   constructor(public sanity: SanityService, private dialog: MatDialog) {}
 

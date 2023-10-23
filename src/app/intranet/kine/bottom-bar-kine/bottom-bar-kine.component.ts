@@ -9,10 +9,10 @@ import { BottomI } from 'src/app/intranet/modeles/Types.js';
   styleUrls: ['./bottom-bar-kine.component.scss']
 })
 export class BottomBarKineComponent implements OnInit {
-  
+
   public bottoms: BottomI[] = [
     {
-      image:"assets/iconeBottom/cheerleader.svg",
+      image:"assets/images/pictos/menus/cheerleader.svg",
       titre:"Progression d'Émilie",
       info:"Suivez les progréssion d'Émilie",
       lien:'ProgressionKine',
@@ -20,7 +20,7 @@ export class BottomBarKineComponent implements OnInit {
       active: false,
     },
     {
-      image:"assets/iconeBottom/programme.svg",
+      image:"assets/images/pictos/menus/programme.svg",
       titre:"Programmes",
       info:"Des programmes de kinésithérapie",
       lien:'ProgrammeKine',
@@ -28,7 +28,7 @@ export class BottomBarKineComponent implements OnInit {
       active: false,
     },
     {
-      image:"assets/iconeBottom/exerciceIcon.svg",
+      image:"assets/images/pictos/menus/exerciceIcon.svg",
       titre:"Exercices",
       info:"Découvrez les exercices.",
       lien:'ExerciceKine',
@@ -38,15 +38,15 @@ export class BottomBarKineComponent implements OnInit {
   ]
 
   constructor(private router: Router) {
-    
+
   }
-  
+
   ngOnInit(): void {
     const activeUrl = this.router.url;
     this.bottoms.forEach(item => {
         item.active = activeUrl.startsWith(item.url);
     });
- 
+
   }
   onNavItemClick(bottom:BottomI) {
     this.bottoms.forEach(item => item.active = false);

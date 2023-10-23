@@ -10,7 +10,7 @@ import { BottomI } from 'src/app/intranet/modeles/Types.js';
 export class BottomBarOptoComponent implements OnInit {
   public bottoms: BottomI[] = [
     {
-      image: 'assets/iconeBottom/cheerleader.svg',
+      image: 'assets/images/pictos/menus/cheerleader.svg',
       titre: "Progression d'Émilie",
       info: "Suivez les progréssion d'Émilie",
       lien: 'ProgressionOpto',
@@ -18,7 +18,7 @@ export class BottomBarOptoComponent implements OnInit {
       active: false,
     },
     {
-      image: 'assets/iconeBottom/programme.svg',
+      image: 'assets/images/pictos/menus/programme.svg',
       titre: 'Programmes',
       info: "Des programmes d'optométrie",
       lien: 'ProgrammeOpto',
@@ -26,7 +26,7 @@ export class BottomBarOptoComponent implements OnInit {
       active: false,
     },
     {
-      image: 'assets/iconeBottom/exerciceIcon.svg',
+      image: 'assets/images/pictos/menus/exerciceIcon.svg',
       titre: 'Exercices',
       info: 'Découvrez les exercices.',
       lien: 'ExerciceOpto',

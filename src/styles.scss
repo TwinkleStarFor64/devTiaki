@@ -10,7 +10,8 @@ $aside-color3: #F0C02E;
 $clair: white;
 $sombre: black;
 
-$head: 60px; // Hauteur de l'entête des pages
+$head: 20vh; // Hauteur de l'entête des pages d'accueil
+$breadcrumb:60px; // Hauteur du fil d'ariane
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
@@ -46,6 +47,22 @@ main{
   width:100vw;
   height:100vh;
 }
+h1 {
+  color: $card-nutri;
+  font-weight: 100;
+  font-size: 62px;
+  margin:20px 0 10px;
+}
+h1:before, h1:after{
+  content:'......'
+}
+h1 a,
+h1 a:hover {
+  color: $card-nutri;
+}
+h2{
+
+}
 a {
   text-decoration: none;
   color: $aside-color1;
@@ -54,6 +71,13 @@ a {
 a:hover{
   font-weight: 600;
   color: $aside-color2;
+}
+figure{
+  background: 50% 50% no-repeat;
+  background-size: 100%;
+  transition: all .3s ease;
+  overflow: hidden;
+  display:flex;
 }
 button{
   padding:25px 20px;
@@ -75,16 +99,26 @@ button:hover{
 .logo{
   width:150px;
 }
+.entete{
+  display:flex;
+  flex-flow: column nowrap;
+  width:100%;
+  text-align:center;
+  justify-content: flex-end;
+  height:$head;
+  margin:0;
+}
 .ariane{
   display:flex;
   flex-flow: row nowrap;
-  align-items: flex-end;
+  align-items: center;
   color: $aside-color2;
-  height:$head;
+  height:$breadcrumb;
 }
 .ariane h1, .ariane h2{
   font-weight: 100;
-  margin-left:20px;
+  font-size:24px;
+  margin:0 0 0 20px;
 }
 .ariane h2:before{
   content:'...... '
@@ -92,7 +126,57 @@ button:hover{
 .ariane h2:after{
   content:' ......'
 }
+.menus-themes{
+  display: flex;
+  justify-content: space-evenly;
+  height: 150px;
+  width: 100%;
+}
+.menus-themes{
+  display: flex;
+  justify-content: space-evenly;
+  height: 150px;
+  width: 100%;
+}
+.menus-themes > a {
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 1vw;
+  align-items: center;
+  height:100%;
+}
+.menus-themes > a section {
+  height:100%;
+}
+.menus-themes > a section > img {
+  width: 3vw;
+  margin-right:15px;
+  transition: all .3s ease;
+  aspect-ratio: auto;
+}
+.menus-themes > a section > article {
+  color: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+}
+.menus-themes > a section > article * {
+  margin:0;
+}
+.menus-themes > a:hover {
+  transform: scale(1.05);
+}
+.menus-themes > a:hover img{
+  width:4vw;
+  margin-right:20px;
+}
+
 /** CLASSES POUR LES COULEURS DE LA CHARTE GRAPHIQUE */
+.icone{
+  width:30px;
+  cursor: pointer;
+}
 .bg-nutrition{
   color:$clair;
   background-color: $card-nutri;
@@ -112,16 +196,26 @@ button:hover{
 .nutrition{
   color: $card-nutri;
 }
+.nutrition svg path{
+  fill:$card-opto;
+}
 .opto{
-  color:$card-opto
+  color:$card-opto;
+}
+.opto svg path{
+  fill:$card-opto;
 }
 .kine{
   color:$card-kine;
+}
+.kine svg path{
+  fill:$card-kine;
 }
 /** COMPOSANTS */
 .cal-event-title { // Le texte dans le calendrier
   color: $clair;
 }
+
 // L'affichage des events dans la vue calendrier mois (dans la barre grise après un clic sur le jour)
 mwl-calendar-open-day-events {
   div {
@@ -174,53 +268,9 @@ mwl-calendar-open-day-events {
   }
 }
 
-// AFFICHAGE PAGE DE CONNEXION
-// #actualites {
-//   height: 100vh;
-//   width: 100%;
-//   flex-direction: column;
-//   align-items: center;
-//   text-align: center;
-//   justify-content: space-around;
-
-// }
-
-// #actualites>article:nth-child(1) {
-//   width: 100%;
-//   justify-content: space-around;
-
-//   img {
-//     width: 10vw;
-//   }
-
-//   h2 {
-//     font-size: 2rem;
-//     font-weight: 400;
-//     color: $aside-color1;
-//   }
-// }
-
-// #actualites>article:nth-child(n+2) {
-//   flex-direction: column;
-
-//   h3 {
-//     color: $aside-color2;
-//     font-weight: 400;
-//     font-size: 1.5rem;
-//     margin: 0;
-//   }
-
-//   img {
-//     width: 20vw;
-//   }
-// }
-
 /** ------------------------------------------------------
 // COMPOSANT ACCUEIL DE L'INTRANET
 */
-// app-intranet > main > router-outlet > *{
-
-// }
 app-accueil {
   height: 100vh;
   flex-direction: column;
@@ -238,7 +288,7 @@ article.cartel {
   text-align: center;
   color: $clair;
   transition: all .3s ease;
-  height: 75%;
+  height: 85%;
   flex: 1 1 0px;
   overflow: hidden;
   justify-content: space-between;
@@ -289,7 +339,7 @@ article.cartel {
     }
   }
   & > div{
-    height:66%;
+    height:60%;
     display:flex;
     flex-flow: column nowrap;
     justify-content: space-around;
@@ -304,9 +354,7 @@ article.cartel {
     padding:0;
     border-top-left-radius:70%;
     border-top-right-radius: 50%;
-    height:34%;
-    overflow: hidden;
-    transition:all .5s ease;
+    height:40%;
   }
   figure > div{
     width:100%;
@@ -386,172 +434,10 @@ article.cartel {
 
 }
 
-
-// Media query pour les écrans plus petits
-// @media screen and (max-width: 480px) {
-//   app-accueil {
-//     margin-left: 10%;
-//     // justify-content: center;
-
-//     > header {
-//       height: 20%;
-
-//       a {
-//         font-size: 1.8rem;
-//         width: 100%;
-//         text-align: center;
-//       }
-
-//       p {
-//         font-size: 1.2rem;
-//       }
-//     }
-
-//     > section > article {
-//       margin-left: 20px;
-
-//       h2 {
-//         font-size: 1rem;
-//       }
-
-//       p {
-//         font-size: 0.7rem;
-//         margin: 15px;
-//       }
-
-//       a {
-//         button {
-//           display: none
-//         }
-
-//         img {
-//           height: 100%;
-//           width: 80%;
-//           transform: translateY(5%);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 384px) and (max-height:640px) {
-//   app-accueil {
-
-//     > header{
-//       >a {
-//         font-size: 1.8rem;
-//       }
-
-//       p {
-//         font-size: 1.2rem;
-//       }
-//     }
-
-//     article.cartel {
-
-//       h2 {
-//         font-size: 1rem;
-//         font-weight: 500;
-//       }
-
-//       p {
-//         font-size: 0.7rem;
-//         font-weight: 400;
-//         margin: 15px;
-//       }
-
-//       a {
-//         button {
-//           display: none
-//         }
-
-//         img {
-//           height: 100%;
-//           width: 80%;
-//           transform: translateY(5%);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 376px) {
-//   app-accueil > header > p {
-//     font-size: 0.9rem;
-//   }
-
-//   app-accueil >section > article > p {
-//     font-size: 0.8rem;
-//   }
-// }
-
 // Navbar icone burger
 #burger-icon {
   color: $card-kine;
 }
-
-//HEADER PAGES D'ACCUEIL DES INTERFACES
-
-// #head-accueil > a {
-//   font-size: 2.8rem;
-//   font-weight: 100;
-//   width: 40%;
-//   text-align: center;
-//   margin-top: 6vh;
-
-//   @media (max-width: 954px) {
-//     font-size: 2.5rem;
-//   }
-
-//   @media (max-width: 706px) {
-//     font-size: 2rem;
-//   }
-
-//   @media (max-width: 490px) {
-//     font-size: 1rem;
-//   }
-// }
-
-
-
-// #head-accueil img {
-//   width: 30px;
-// }
-
-// #head-accueil>p {
-//   font-size: 2rem;
-//   font-weight: 500;
-//   text-align: center;
-
-//   @media (max-width: 1020px) {
-//     font-size: 1.8rem;
-//   }
-
-//   @media (max-width: 906px) {
-//     font-size: 1.6rem;
-//   }
-
-//   @media (max-width: 793px) {
-//     font-size: 1.5rem;
-//   }
-
-//   @media (max-width: 706px) {
-//     font-size: 1.3rem;
-//   }
-
-//   @media (max-width: 490px) {
-//     font-size: 1rem;
-//   }
-// }
-
-// #head-accueil>article {
-//   align-items: start;
-// }
-
-// #head-accueil>* {
-//   margin: 5px;
-//   padding: 0;
-// }
 
 // -------------------------------------------------
 // HEADER DES PAGES AUTRES QU'ACCUEIL
@@ -559,7 +445,7 @@ article.cartel {
 //HEADER
 #head {
   flex-flow: row nowrap;
-  height: $head;
+  height: $breadcrumb;
   padding: 10px;
   margin: 0;
   align-items: center;
@@ -670,7 +556,7 @@ article.cartel {
 #programmes>section {
   width: 100%;
   flex-direction: column;
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 100vh;
@@ -900,10 +786,10 @@ article.cartel {
   width: 100%;
   flex-flow: row wrap;
   justify-content: space-around;
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
 
   @media (max-width: 768px) {
-    height: calc(100vh - $head - 100px);
+    height: calc(100vh - $breadcrumb - 100px);
   }
 }
 
@@ -952,32 +838,95 @@ article.cartel {
   border-bottom: dashed 1px black;
 }
 
-// articles générer avec le ngFor avec la photo ou video et le titre la description
+// articles générés avec le ngFor avec la photo ou video et le titre la description
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
-  max-height: 100vh;
+  // max-height: 100vh;
   background: $clair;
   margin: 10px;
-  gap: 0.5vw;
   justify-content: space-between;
   cursor: pointer;
+  position:relative;
+  transition: all .3s ease;
 }
-
-//div des photos ou videos de l'exo
-#exercices section>article>.photo-exo {
+#exercices section>article:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 4px $aside-color1;
+}
+#exercices section>article:hover>figure {
+  background-size: 120%;
+  filter: grayscale(100%);
+}
+#exercices section>article>ul{
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  align-self: flex-end;
   align-items: center;
-  text-align: justify;
-
+  margin:0 0 10px 0;
 }
-
-// video ou photo
-#exercices section>article>.photo-exo>img {
+#exercices section>article>ul li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right:10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+#exercices section>article>ul li:hover{
+  transform: scale(1.05);
+}
+#exercices section>article>ul li > *{
+  margin-right: 10px;
+}
+#exercices section>article>figure {
   width: 100%;
+  height:135px;
+  margin:0;
+  position:relative;
+  align-items: flex-end;
 }
-
+#exercices section>article>nav {
+  background-color:$clair;
+  width:40%;
+  height:34px;
+  margin-top:-34px;
+  justify-content: space-around;
+  align-self: flex-end;
+  z-index: 2;
+  display:flex;
+  flex-flow:row nowrap;
+  align-items: center;
+}
+#exercices section>article>nav i {
+  align-self: flex-end;
+  position: relative;
+  display:flex;
+  align-items: center;
+  height:100%;
+  transition: all .3s ease;
+}
+#exercices section>article>nav i svg {
+}
+#exercices section>article>nav i:hover {
+  transform: scale(1.1);
+}
+#exercices section>article>nav i span {
+  opacity:0;
+  width:0;
+  height: 0;
+  position:absolute;
+  transition:all .3s ease;
+  font-size: 80%;
+}
+// #exercices section>article>nav i:hover span{
+//   opacity:1;
+//   width:auto;
+//   height:auto;
+// }
+#exercices section>article>h3, #exercices section>article>p {
+  margin:10px;
+}
 //div pour progress bar
 #exercices article>.progress-bar {
   display: flex;
@@ -1087,13 +1036,6 @@ article.cartel {
     font-size: 0.8rem;
   }
 }
-
-// #exercices article>figure {
-//   width: 100%;
-//   margin: -10px -10px 0;
-//   background-size: contain;
-//   background-position: 50%;
-// }
 
 #exercices>footer {
   height: $foot;
@@ -1303,7 +1245,7 @@ article.cartel {
 
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 30%;
   padding-top: 5vh;
   display: flex;
@@ -1443,7 +1385,7 @@ article.cartel {
 
 // La partie droite avec la fonction de création d'un plat
 #sectionPrincipale article:nth-child(2) {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -1719,7 +1661,7 @@ article.cartel {
 /* ---------------- CSS de la Page Plats -------------------- */
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 30%;
   padding-top: 5vh;
   display: flex;
@@ -1729,7 +1671,7 @@ article.cartel {
   align-items: center;
 
   @media screen and (max-width: 834px) {
-    height: calc(100vh - $head - 100px);
+    height: calc(100vh - $breadcrumb - 100px);
     width: 35%;
   }
 
@@ -2004,7 +1946,7 @@ article.cartel {
 
 // La partie droite avec la fonction de création d'un plat
 #sectionPrincipale article:nth-child(2) {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -2013,7 +1955,7 @@ article.cartel {
   overflow: auto;
 
   @media screen and (max-width: 834px) {
-    height: calc(100vh - $head - 100px);
+    height: calc(100vh - $breadcrumb - 100px);
     width: 65%;
   }
 
@@ -2419,7 +2361,7 @@ article.cartel {
 #recettes>section {
   flex-flow: row wrap;
   justify-content: space-around;
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
 }
 
 #recettes article {
