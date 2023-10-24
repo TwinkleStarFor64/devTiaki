@@ -40,12 +40,4 @@ export class MenusService {
     console.log( repas);
     return repas;
   }
-
-  /* async getCiqual() {
-    const ciqual = await this.supabase
-      .from('ciqualAnses')
-      .select('*');
-    return ciqual;
-  } */
-
 }

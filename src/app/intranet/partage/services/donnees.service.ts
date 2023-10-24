@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class DonneesService {
 
   menus: any = {};
+  ciqual:any;
   private supabase: SupabaseClient; // Instance du client Supabase
   historiqueJournal: Array<HistoriqueJournalI> = [];
 
@@ -74,9 +75,9 @@ export class DonneesService {
    * @returns Renvoie la base Ciqual
    */
   async getCiqual() {
-    const ciqual = await this.supabase.from('ciqualAnses').select('*');
-    console.log(ciqual);
-    return ciqual;
+    if(!this.ciqual) this.ciqual = await this.supabase.from('ciqualAnses').select('*');
+    console.log(this.ciqual);
+    return this.ciqual;
   }
 
   //------------------ Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID------------------------

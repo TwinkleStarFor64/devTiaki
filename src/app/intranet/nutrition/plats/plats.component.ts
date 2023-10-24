@@ -33,7 +33,6 @@ export class PlatsComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.platService.getMesPlats();
-    //this.platService.getCiqual();
     this.fetchPlats();
     this.fetchCiqual();
     this.fetchEvaluation();
