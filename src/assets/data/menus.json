@@ -1,33 +1,27 @@
-[
+{
+  "opto": [
     {
-        "id": 1,
-        "nom": "Menu du dimanche",
-        "description": "Une salade landaise, entrecôte de boeuf avec des frites maison et sauce béarnaise, brownies en déssert",
-        "alim_code": 0,
-        "reaction": "Réaction limite avec la vitamine B1, mon enfant y réagit mal et elle semble être très présente dans cet aliment."     
+      "image": "assets/images/pictos/menus/cheerleader.svg",
+      "titre": "Progression d'Émilie",
+      "info": "Suivez les progréssion d'Émilie",
+      "lien": "ProgressionOpto",
+      "url": "/intranet/opto/progression-Opto"
     },
     {
-        "id": 2,
-        "nom": "Menu rapide",
-        "description": "Sandwich pain de mie, salade, jambon blanc et mayonnaise",
-        "alim_code": 0
+      "image": "assets/images/pictos/menus/programme.svg",
+      "titre": "Programmes",
+      "info": "Des programmes d'optométrie",
+      "lien": "ProgrammeOpto",
+      "url": "/intranet/opto/programme-Opto"
     },
     {
-        "id": 3,
-        "nom": "Menu complet",
-        "description": "Steack haché 5% mat. grasses avec du riz, fruits de saison en déssert",
-        "alim_code": 0
-    },
-    {
-        "id": 4,
-        "nom": "Menu landais",
-        "description": "Magret de canard au miel avec des haricots vert, laitage pour le déssert",
-        "alim_code": 0              
-    },
-    {
-        "id": 5,
-        "nom": "Spaghetti bolognaise",
-        "description": "Un plat de spaghetti de la marque Panzanni avec une sauce bolognaise de la même marque",
-        "alim_code": 0               
+      "image": "assets/images/pictos/menus/exerciceIcon.svg",
+      "titre": "Exercices",
+      "info": "Découvrez les exercices.",
+      "lien": "ExerciceOpto",
+      "url": "/intranet/opto/exercice-Opto"
     }
-]
+  ],
+  "kine": [],
+  "nutrition": []
+}

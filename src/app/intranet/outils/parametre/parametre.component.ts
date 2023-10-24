@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { MedecinI, RealisationI } from '../../modeles/Types';
-import { MessageJournalI } from '../../modeles/journal';
+import { MedecinI, RealisationI,MessageJournalI  } from '../../partage/modeles/Types';
 import { ParametreService } from './services/parametre.service';
-import { EchangeI } from '../../utils/modeles/Types';
 
 @Component({
   selector: 'app-parametre',

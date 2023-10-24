@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CiqualI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
+import { CiqualI, MesPlatsI } from 'src/app/intranet/partage/modeles/Types';
 import {
   AuthChangeEvent,
   AuthSession,
@@ -48,9 +48,9 @@ export class PlatsService {
       .select('*'); //Je select toutes les données avec *
     console.log( plats);
     return plats;
-  }  
+  }
 
- 
+
 
 
 

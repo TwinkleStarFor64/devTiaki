@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
+import { CiqualI, MesPlatsI } from '../../partage/modeles/Types';
 import { IngredientsServiceService } from './services/ingredients-service.service';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 
@@ -22,7 +22,7 @@ class MyPaginatorIntl extends MatPaginatorIntl {
     // If the start index exceeds the list length, do not try and fix the end index to the end.
     const endIndex = startIndex < length ? Math.min(startIndex + pageSize, length) : startIndex + pageSize;
     return `${startIndex + 1} - ${endIndex} sur ${length}`;
-  };  
+  };
 }
 
 @Component({
@@ -38,16 +38,16 @@ export class IngredientsComponent implements OnInit {
   selectedIngredient?: CiqualI; //Je récupére dans la variable mon interface CiqualI déclaré dans Types.ts
   selectedPlat?: MesPlatsI;
 
-  currentPage = 0; // Page actuelle pour MatPaginator 
+  currentPage = 0; // Page actuelle pour MatPaginator
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
-    
+
   constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
     this.composition.getCiqual();
-    this.composition.getMesPlats();    
+    this.composition.getMesPlats();
 
     // Ci-dessous je modifie les labels de MatPaginator en initialisant une nouvelle instance de la classe
     const myPaginatorIntl = new MyPaginatorIntl();
@@ -56,7 +56,7 @@ export class IngredientsComponent implements OnInit {
     this.paginatorIntl.previousPageLabel = myPaginatorIntl.previousPageLabel;
     this.paginatorIntl.firstPageLabel = myPaginatorIntl.firstPageLabel;
     this.paginatorIntl.lastPageLabel = myPaginatorIntl.lastPageLabel;
-    this.paginatorIntl.getRangeLabel = myPaginatorIntl.getRangeLabel;    
+    this.paginatorIntl.getRangeLabel = myPaginatorIntl.getRangeLabel;
   }
 
   //Méthode onSelect pour afficher les informations de l'aliment sur lequel j'ai cliqué - le paramétre aliment et de type CiqualI (interface)
@@ -76,17 +76,17 @@ export class IngredientsComponent implements OnInit {
 
   onMesPlats(plat: MesPlatsI): void {
     this.selectedPlat = plat;
-  } 
- 
+  }
+
 // Méthode utilisé dans l'input afin de réinitialiser [pageIndex] de paginator
 // Si l'input et vide ou pas vide l'index est défini à 0 afin de retrouver l'affichage initial
   onFilterChange() {
     if (this.filtre === '' || this.filtre != '') { // Variable filtre utilisé dans ngModel de l'input
-      this.currentPage = 0;       
+      this.currentPage = 0;
     }
   }
 
-// Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)" 
+// Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)"
   handlePageEvent(event: PageEvent) {
     console.log(event.pageIndex);
     //this.currentPage = event.pageIndex;

@@ -6,8 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { ModalService } from '../../utils/services/modal.service';
-import { ProgrammeI } from '../../utils/modeles/Types';
+import { ProgrammeI } from '../../partage/modeles/Types';
 
 @Component({
   selector: 'app-carousel-opto',

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI, RelierI } from '../../modeles/Types';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
-import { HistoriqueJournalI } from '../../modeles/Types';
+import { MedecinI, RealisationI, HistoriqueJournalI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { FormControl } from '@angular/forms';
+import { DonneesService } from '../../partage/services/donnees.service';
+import { AdminService } from '../../partage/services/admin.service';
 
 @Component({
   selector: 'app-historique',
@@ -56,7 +56,7 @@ export class HistoriqueComponent implements OnInit {
   public historiqueSelect: FormControl = new FormControl();
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
-  constructor(public supa: SupabaseService, private dialog: MatDialog) { }
+  constructor(public get:DonneesService,private admin:AdminService, private dialog: MatDialog) { }
 
   //ngOnInit asynchrone qui renvoie une Promesse
   async ngOnInit(): Promise<void> {
@@ -68,12 +68,12 @@ export class HistoriqueComponent implements OnInit {
 
   async fetchJournals() {
     // Attend la résolution de la promesse retournée par la méthode getHistoriqueJournal du service supa
-    const { data, error } = await this.supa.getHistoriqueJournal();
+    const { data, error } = await this.get.getHistoriqueJournal();
 
     if (data) {
       data.forEach(async (journal: any) => {
         const { data: linkedData, error: linkedError } =
-          await this.supa.getHistoriqueLinkedJournal(
+          await this.get.getHistoriqueLinkedJournal(
             // La méthode dans supabase.service qui filtre les journaux avec l'id de groupeEvenement
             // Cette méthode récupére tout les journaux
             // Ci-dessous les ID à utiliser pour filtrer
@@ -138,7 +138,7 @@ export class HistoriqueComponent implements OnInit {
       // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
       .subscribe((res) => {
         if (res) {
-          this.supa
+          this.admin
             .deleteJournal(id)
             .then(() => {
               this.fetchJournals();
@@ -152,37 +152,3 @@ export class HistoriqueComponent implements OnInit {
   }
 
 }
-
-/* onSelect(journalHisto: HistoriqueJournalI) {
-    this.selectedHistorique = journalHisto;
-    console.log(
-      'Voici le journal : ' +
-        this.selectedHistorique.objet +
-        "Avec l'id de groupe " +
-        this.selectedHistorique.groupeEvenement.id
-    );
-    this.selectedId = journalHisto.groupeEvenement.id;
-    console.log(this.selectedId);
-  } */
-
-//const dialogConfig = new MatDialogConfig();
-
-//dialogConfig.disableClose = true;
-//dialogConfig.autoFocus = true;
-
-//Dans le console.log ci-dessous typeof permet de connaitre le type de l'objet date (string, number etc....)
-//console.log(typeof this.historiques[0].date);
-
-//public reliers: RelierI[]; //je remplis le tableau de RelierI dans le constructor en dessous
-
-/* this.reliers = [
-      { nom: 'Journal du 5 Janvier 2022' },
-      { nom: 'Journal du 10 Janvier 2022' },
-      { nom: 'Journal du 15 Janvier 2022' },
-      { nom: 'Journal du 20 Janvier 2022' },
-    ]; */
-
-/* this.supa.getHistoriqueJournal().then((response:any) => {
-      this.historiques = response.data
-      console.log(this.historiques)
-    }); */

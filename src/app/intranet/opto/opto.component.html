@@ -7,9 +7,9 @@
     <div>
       <h2>{{ card.title }}</h2>
       <p>{{ card.text }}</p>
-      <a [routerLink]="[card.url]">
-        <button>{{ card.button }}</button>
-      </a>
+      <!-- <a> -->
+        <button [routerLink]="[card.url]">{{ card.button }}</button>
+      <!-- </a> -->
     </div>
     <figure>
       <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">

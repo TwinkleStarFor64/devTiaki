@@ -1,0 +1,11 @@
+<footer id="menus-themes" [class]="classe">
+  <a *ngFor="let m of menu" routerLink="m.url" (click)="onNavItemClick(m)" >
+    <section [ngStyle]="{ filter: m.active ? 'none' : 'opacity(50%)' }">
+      <img [src]="m.image" alt="image d'exercice" />
+      <article>
+        <h3>{{ m.titre }}</h3>
+        <p>{{ m.info }}</p>
+      </article>
+    </section>
+  </a>
+</footer>

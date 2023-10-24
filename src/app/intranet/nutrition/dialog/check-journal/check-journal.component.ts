@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EventService } from '../../journal-repas/services/event.service';
 import { parseISO } from 'date-fns';
 import { PlatsService } from '../../plats/services/plats.service';
-import { CiqualI, MesMenusI, MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
+import { CiqualI, MesMenusI, MesPlatsI } from 'src/app/intranet/partage/modeles/Types';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
+import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 
 @Component({
   selector: 'app-check-journal',
@@ -24,7 +25,13 @@ export class CheckJournalComponent implements OnInit {
   aliment: CiqualI[] = [];
 
 // Dans le constructor j'utilise data - voir la doc pour les modals
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CheckJournalComponent>, public eventService: EventService, public platsService: PlatsService, public menuService: MenusService, public supa: SupabaseService) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+  public dialogRef: MatDialogRef<CheckJournalComponent>,
+  public eventService: EventService,
+  public platsService: PlatsService,
+  public menuService: MenusService,
+  private get:DonneesService
+  ) {}
 
   ngOnInit(): void {
     this.fetchPlats();
@@ -37,10 +44,6 @@ export class CheckJournalComponent implements OnInit {
     console.log("this.selectedIdValue : ", this.selectedIdValue);
     this.selectedTitleValue = this.data.selectedTitle; // this.selectedTitleValue contient maintenant le nom (title) de l'event calendar sur lequel j'ai cliqué
     console.log("this.selectedTitleValue : ",this.selectedTitleValue);
-
-    //console.log("console.log de this.data", JSON.stringify(this.data));
-    //console.log('selectedID', this.selectedId);
-
   }
 
   closeDialog() { // Pour fermer la modal
@@ -104,7 +107,7 @@ export class CheckJournalComponent implements OnInit {
 
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
-      await this.supa.getCiqual();
+      await this.get.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],

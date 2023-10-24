@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI } from '../../modeles/Types';
+import { MedecinI, RealisationI } from '../../partage/modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
+import { EditService } from '../../partage/services/edit.service';
+import { DonneesService } from '../../partage/services/donnees.service';
 
 @Component({
   selector: 'app-messagerie',
@@ -47,7 +48,8 @@ export class MessagerieComponent implements OnInit {
   constructor(
     public echanges: MessagerieService,
     private formBuilder: FormBuilder,
-    public supa: SupabaseService
+    private get:DonneesService,
+    private edit:EditService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -67,7 +69,7 @@ export class MessagerieComponent implements OnInit {
 
   // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
   async fetchMessages() {
-    const { data, error } = await this.supa.getHistoriqueMessage();
+    const { data, error } = await this.get.getHistoriqueMessage();
     if (data) {
       if (data[0].date) {
         data.sort(
@@ -93,7 +95,7 @@ export class MessagerieComponent implements OnInit {
       echange: this.formMessage.value.echange,
     };
     const idLink = this.formMessage.value.link;
-    await this.supa.createMessage(newEntryMessage, idLink).then(() => {
+    await this.edit.createMessage(newEntryMessage, idLink).then(() => {
       this.fetchMessages();
       window.location.reload(); // Bonne solution ??
     });

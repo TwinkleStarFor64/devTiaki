@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
-import { ExerciceOptoService } from '../exercice-opto/services/exercice-opto.service';
+import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({

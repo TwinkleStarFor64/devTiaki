@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI } from './modeles/Types';
+import { BottomI } from './partage/modeles/Types';
 
 @Component({
   selector: 'app-intranet',

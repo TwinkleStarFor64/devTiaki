@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
-import { CiqualI, EvaluationI, MesMenusI } from '../../utils/modeles/Types';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { CiqualI, EvaluationI, MesMenusI } from '../../partage/modeles/Types';
+import { MatDialog } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { DonneesService } from '../../partage/services/donnees.service';
+import { AdminService } from '../../partage/services/admin.service';
+import { EditService } from '../../partage/services/edit.service';
 
 @Component({
   selector: 'app-menus',
@@ -30,7 +32,9 @@ export class MenusComponent implements OnInit {
 
   constructor(
     public menuService: MenusService,
-    public supa: SupabaseService,
+    private get:DonneesService,
+    private edit:EditService,
+    private admin:AdminService,
     private dialog: MatDialog
   ) {}
 
@@ -62,7 +66,7 @@ export class MenusComponent implements OnInit {
   }
 
   async fetchCiqual() {
-    const { data: groupData, error: groupError } = await this.supa.getCiqual();
+    const { data: groupData, error: groupError } = await this.get.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],
@@ -95,7 +99,7 @@ export class MenusComponent implements OnInit {
 
   // Méthode pour récupérer la table Evaluation
   async fetchEvaluation() {
-    const { data, error } = await this.supa.getEvaluation();
+    const { data, error } = await this.get.getEvaluation();
     if (data) {
       this.evaluation = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
@@ -170,7 +174,7 @@ export class MenusComponent implements OnInit {
       // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
       .subscribe((res) => {
         if (res) {
-          this.supa
+          this.admin
             .deleteMenu(id) // La méthode deleteMenu de supabase.service.ts
             .then(() => {
               this.fetchMenus();
@@ -187,14 +191,11 @@ export class MenusComponent implements OnInit {
     // Méthode sur le bouton Évaluer
     if (this.selectedMenusId) {
       console.log("Voici l'id du menu choisi :" + this.selectedMenusId);
-      await this.supa.getEvaluationById(this.evaluationId); // Id dynamique pour la méthode supabase
+      await this.get.getEvaluationById(this.evaluationId); // Id dynamique pour la méthode supabase
       console.log(
         "L'id de l'évaluation que je donne au menu : " + this.evaluationId
       );
-      await this.supa
-        .updateEvalMenu(this.selectedMenusId, this.evaluationStatut)
-        // Id dynamique pour le EQ de la méthode supabase
-        // Statut dynamique pour le UPDATE de la méthode supabase
+      await this.edit.updateEvalMenu(this.selectedMenusId, this.evaluationStatut)
         .then(() => {
           this.fetchMenus();
         });
@@ -202,57 +203,8 @@ export class MenusComponent implements OnInit {
       throw new Error();
     }
   }
-
 // Méthode pour trier les plats suivant leur evaluation
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
-
-
 }
-
-
-//------------------ Ci-dessous code si j'utilise pas la méthode fetchMenus() ----------------
-/* const { data, error } = await this.menuService.getRepas();
-    if (data) {
-      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
-      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.repas = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-      }));
-      console.log(this.repas);
-    }
-    if (error) {
-      //Si une erreur
-      console.log(error);
-    } */
-
-//------------------ Ci-dessous code si j'utilise pas la méthode fetchCiqual() ----------------
-/* const { data: groupData, error: groupError } =
-      await this.menuService.getCiqual();
-    if (groupData) {
-      this.aliment = groupData.map((item: { [x: string]: any }) => ({
-        alim_code: item['alim_code'],
-        alim_nom_fr: item['alim_nom_fr'],
-        ['Protéines, N x 6.25 (g/100 g)']: item['Protéines, N x 6.25 (g/100 g)'],
-        ['Glucides (g/100 g)']: item['Glucides (g/100 g)'],
-        ['Lipides (g/100 g)']: item['Lipides (g/100 g)'],
-        ['Sucres (g/100 g)']: item['Sucres (g/100 g)'],
-        ['Vitamine C (mg/100 g)']: item['Vitamine C (mg/100 g)'],
-        ['Vitamine B1 ou Thiamine (mg/100 g)']: item['Vitamine B1 ou Thiamine (mg/100 g)'],
-        ['Vitamine B2 ou Riboflavine (mg/100 g)']: item['Vitamine B2 ou Riboflavine (mg/100 g)'],
-        ['Vitamine B3 ou PP ou Niacine (mg/100 g)']: item['Vitamine B3 ou PP ou Niacine (mg/100 g)'],
-        ['Vitamine B5 ou Acide pantothénique (mg/100 g)']: item['Vitamine B5 ou Acide pantothénique (mg/100 g)'],
-        ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
-        ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
-        ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
-      }));
-      console.log(this.aliment.map((item) => item['Protéines, N x 6.25 (g/100 g)']));
-    }
-    if (groupError) {
-      console.log(groupError);
-    } */

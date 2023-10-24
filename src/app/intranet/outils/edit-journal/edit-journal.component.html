@@ -14,7 +14,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Relier un journal précédent</mat-label>
       <mat-select formControlName="relier">
-         
+
         <mat-option *ngFor="let rel of reliers" [value]="rel">{{ supa.formatDate(rel.date) + " - " + rel.objet }}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -23,7 +23,7 @@
       <div>
         <button mat-raised-button (click)="onCancel()">Annuler</button>
         <button mat-raised-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid">Enregistrer</button>
-        
+
       </div>
     </span>
   </form> -->
@@ -32,7 +32,7 @@
     <!-- Section avec le logo, les médecins et les réalisations - Visible en Desktop -->
     <section id="menuJournalMessage"> <!-- Visible en Desktop -->
       <article>
-        <a routerLink="/intranet">        
+        <a routerLink="/intranet">
           <span>Tiaki</span>
         </a>
       </article>
@@ -75,7 +75,7 @@
       </div>
       <ul>
         <li *ngFor="let relier of reliers">
-          Journal du {{ supa.formatDate(relier.date) }} <br> {{ relier.objet }}
+          Journal du {{ relier.date | formatDate }} <br> {{ relier.objet }}
         </li>
       </ul>
     </section>
@@ -107,7 +107,7 @@
             <mat-label>Relier un journal précédent</mat-label>
             <mat-select formControlName="relier">
                <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
-              <mat-option *ngFor="let rel of reliers" [value]="rel">{{ supa.formatDate(rel.date) + " - " + rel.objet }}</mat-option>
+              <mat-option *ngFor="let rel of reliers" [value]="rel">{{ (rel.date | formatDate) + " - " + rel.objet }}</mat-option>
             </mat-select>
           </mat-form-field>
           <span class="spanBouton">

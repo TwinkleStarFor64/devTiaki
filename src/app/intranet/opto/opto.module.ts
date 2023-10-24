@@ -4,39 +4,24 @@ import { OptoRoutingModule } from './opto-routing.module';
 import { ExerciceOptoComponent } from './exercice-opto/exercice-opto.component';
 import { ProgrammeOptoComponent } from './programme-opto/programme-opto.component';
 import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
-import { BottomBarOptoComponent } from './bottom-bar-opto/bottom-bar-opto.component';
-import { ProgrammeOptoPipe } from '../utils/pipes/programme-opto.pipe';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatSelectModule } from '@angular/material/select';
+import { ProgrammeOptoPipe } from '../partage/pipes/programme-opto.pipe';
+import { SharedModule } from '../partage/shared.module';
 import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 import { OptoComponent } from './opto.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { ModalExOptoComponent } from './exercice-opto/modal-ex-opto/modal-ex-opto.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
+    OptoComponent,
     ExerciceOptoComponent,
     ProgrammeOptoComponent,
     ProgressionOptoComponent,
-    BottomBarOptoComponent,
     ProgrammeOptoPipe,
-    CarouselOptoComponent,
-    OptoComponent,
-    ModalExOptoComponent,
+    CarouselOptoComponent
   ],
   imports: [
     CommonModule,
     OptoRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatSelectModule,
-    MatIconModule,
-    MatDialogModule,
-    MatProgressBarModule
+    SharedModule
   ],
 })
 export class OptoModule {}

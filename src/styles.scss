@@ -126,48 +126,42 @@ button:hover{
 .ariane h2:after{
   content:' ......'
 }
-.menus-themes{
+#menus-themes{
   display: flex;
   justify-content: space-evenly;
   height: 150px;
   width: 100%;
 }
-.menus-themes{
-  display: flex;
-  justify-content: space-evenly;
-  height: 150px;
-  width: 100%;
-}
-.menus-themes > a {
+#menus-themes > a {
   flex-flow: row nowrap;
   justify-content: center;
   gap: 1vw;
   align-items: center;
   height:100%;
 }
-.menus-themes > a section {
+#menus-themes > a section {
   height:100%;
 }
-.menus-themes > a section > img {
+#menus-themes > a section > img {
   width: 3vw;
   margin-right:15px;
   transition: all .3s ease;
   aspect-ratio: auto;
 }
-.menus-themes > a section > article {
+#menus-themes > a section > article {
   color: #ffffff;
   display: flex;
   flex-flow: column nowrap;
   height: 100%;
   justify-content: center;
 }
-.menus-themes > a section > article * {
+#menus-themes > a section > article * {
   margin:0;
 }
-.menus-themes > a:hover {
+#menus-themes > a:hover {
   transform: scale(1.05);
 }
-.menus-themes > a:hover img{
+#menus-themes > a:hover img{
   width:4vw;
   margin-right:20px;
 }

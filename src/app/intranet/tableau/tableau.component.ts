@@ -6,7 +6,7 @@ import {
   TableauBordProblemeI,
   TableauReussiteI,
   SanteI,
-} from '../utils/modeles/Types';
+} from '../partage/modeles/Types';
 import { TableauService } from './services/tableau.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -158,7 +158,7 @@ public sante: SanteI[] = [
   sanitizeHTML(html: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
-  
+
   ngOnInit() {
     this.tableaux.getTableauBordHistorique();
     this.tableaux.getTableauBordMedecin();

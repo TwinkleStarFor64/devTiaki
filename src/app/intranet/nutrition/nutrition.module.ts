@@ -9,12 +9,12 @@ import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AlimentsPipe } from '../utils/pipes/aliments.pipe';
-import { PlatsPipe } from '../utils/pipes/plats.pipe';
+import { AlimentsPipe } from '../partage/pipes/aliments.pipe';
+import { PlatsPipe } from '../partage/pipes/plats.pipe';
 import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { IngredientsPipe } from '../utils/pipes/ingredients.pipe';
+import { IngredientsPipe } from '../partage/pipes/ingredients.pipe';
 import { SaveDataComponent } from './dialog/save-data/save-data.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -70,7 +70,7 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     DeleteDataComponent,
     SavePlatComponent,
     CheckJournalComponent,
-   
+
   ],
   imports: [
     CommonModule,
@@ -88,16 +88,16 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     NgxMatSelectSearchModule,
     MatOptionModule,
     MatPaginatorModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar 
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }), // Angular Calendar
     MatCheckboxModule,
     MatRadioModule,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
-    MatDatepickerModule     
+    MatDatepickerModule
   ],
   providers: [
     {provide: CalendarDateFormatter, useClass: CustomDateFormatter} // Angular Calendar - J'intégre la classe définie au dessus
-  ]  
+  ]
 })
 export class NutritionModule {}

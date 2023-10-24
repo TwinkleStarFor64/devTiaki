@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ProgrammeI } from '../../utils/modeles/Types';
-import { ProgrammeOptoService } from './services/programme-opto.service';
+import { ProgrammeI } from '../../partage/modeles/Types';
+import { ProgrammeOptoService } from '../services/programme-opto.service';
 
 @Component({
   selector: 'app-programme-opto',

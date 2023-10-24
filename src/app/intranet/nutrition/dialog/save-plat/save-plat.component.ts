@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { PlatsService } from '../../plats/services/plats.service';
-import { MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
+import { MesPlatsI } from 'src/app/intranet/partage/modeles/Types';
+import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
+import { EditService } from 'src/app/intranet/partage/services/edit.service';
 
 @Component({
   selector: 'app-save-plat',
@@ -19,8 +20,9 @@ export class SavePlatComponent implements OnInit {
   filtre: string = ''; // Utiliser comme filtre dans ngModel et le pipe aliments
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>,
-               private formBuilder: FormBuilder, public supa: SupabaseService, public platService: PlatsService ) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>,
+               private formBuilder: FormBuilder, public platService: PlatsService, private get:DonneesService, private edit:EditService) {}
 
 
   async ngOnInit(): Promise<void> {
@@ -41,7 +43,7 @@ export class SavePlatComponent implements OnInit {
       if (selectedIngredient) {
         const ingredientAlimCode = selectedIngredient.alim_code;
         console.log(ingredientAlimCode);
-        this.result = await this.supa.getCurrentIngredient(ingredientAlimCode);
+        this.result = await this.get.getCurrentIngredient(ingredientAlimCode);
         console.log(this.result);
       }
     });
@@ -59,14 +61,14 @@ export class SavePlatComponent implements OnInit {
       description: this.formData.value.description,
       alim_code: this.result.alim_code
     };
-    await this.supa.createPlat(newEntry).then(() => {
+    await this.edit.createPlat(newEntry).then(() => {
       this.fetchPlats();
       window.location.reload(); // Bonne solution ??
     });
   }
 
   async fetchCiqual() {
-    const { data, error } = await this.supa.getCiqual();
+    const { data, error } = await this.get.getCiqual();
     if (data) {
       this.plats = data;
     }

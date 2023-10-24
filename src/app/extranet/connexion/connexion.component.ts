@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../../partage/services/connexion.service';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
+import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 
 @Component({
   selector: 'app-connexion',
@@ -10,11 +11,11 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 export class ConnexionComponent implements OnInit {
   titre:string="Se connecter";
 
-  constructor(public conn: ConnexionService, public supa:SupabaseService) { }
+  constructor(public conn: ConnexionService, private get:DonneesService) { }
 
 
   async ngOnInit(): Promise<void> {
-    const { data, error } = await this.supa.getAidant();
+    const { data, error } = await this.get.getAidant();
     console.log(data);
     //const { data, error } = await this.supa.getHistoriqueJournal();
     //console.log(data);

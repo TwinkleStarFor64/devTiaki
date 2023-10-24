@@ -5,7 +5,7 @@ import { fr } from 'date-fns/locale';
 import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
 import { MenusService } from '../menus/services/menus.service';
-import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
+import { MesMenusI, MesPlatsI } from '../../partage/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
@@ -19,14 +19,14 @@ import { CheckJournalComponent } from '../dialog/check-journal/check-journal.com
   templateUrl: './journal-repas.component.html',
   styleUrls: ['./journal-repas.component.scss'],
   providers: [
-    
+
   ]
 })
 export class JournalRepasComponent implements OnInit {
   @ViewChild('picker') picker: any; // Ajouter pour Date Time Picker - Voir la doc https://www.npmjs.com/package/@angular-material-components/datetime-picker
-  
-  public dateTime: Date = new Date(); 
-  //public dateTime = parse('2023-07-20', 'yyyy-MM-dd', new Date()); 
+
+  public dateTime: Date = new Date();
+  //public dateTime = parse('2023-07-20', 'yyyy-MM-dd', new Date());
   public disabled = false;
   public showSpinners = true;
   public showSeconds = false;
@@ -42,7 +42,7 @@ export class JournalRepasComponent implements OnInit {
 
   public formatDateToFrench(date: Date): any {
     return format(date, 'dd/MM/yyyy', { locale: fr });
-  }  
+  }
 
 
 //--------------------------------------------- Ci-dessous code pour les réglages du calendrier ------------------------------------
@@ -68,7 +68,7 @@ export class JournalRepasComponent implements OnInit {
     },
     Observations: {
       primary: '#F0C02E',
-      secondary: '#F0C02E',            
+      secondary: '#F0C02E',
     },
     Allergies: {
       primary: '#D9042B',
@@ -78,9 +78,9 @@ export class JournalRepasComponent implements OnInit {
       primary: '#D1D1D1',
       secondary: '#D1D1D1'
     }
-  };  
+  };
 
-//.then(() => { 
+//.then(() => {
               // this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
             //})
 
@@ -129,17 +129,17 @@ export class JournalRepasComponent implements OnInit {
     this.fetchEvents();
     this.fetchMenus();
     this.fetchPlats();
-    this.eventService.getEvaluation();    
+    this.eventService.getEvaluation();
 
     this.formData = this.formBuilder.group ({
       choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf - Par défaut j'affiche aucun select - pour choisir le select menu remplacer null par 'menu'
       title: [null, [Validators.required]],
-      color: [null, [Validators.required]], 
+      color: [null, [Validators.required]],
       start: [Date, [Validators.required]],
-      observations: [null]    
-    });    
-    
-  }  
+      observations: [null]
+    });
+
+  }
 
 
 //--------------------------------------------------- Ci-dessous les méthodes pour le calendrier -----------------------------------------------------
@@ -149,7 +149,7 @@ export class JournalRepasComponent implements OnInit {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-//Cette condition vérifie si le jour cliqué (date) appartient au même mois que la date actuellement affichée (viewDate).Si c'est le cas, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert. 
+//Cette condition vérifie si le jour cliqué (date) appartient au même mois que la date actuellement affichée (viewDate).Si c'est le cas, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert.
 //Cela permet de s'assurer que l'ouverture ou la fermeture des événements est effectuée uniquement lorsque l'utilisateur clique sur un jour du mois affiché à l'écran.
     if (isSameMonth(date, this.viewDate)) {
       if (
@@ -158,7 +158,7 @@ export class JournalRepasComponent implements OnInit {
 //events.length === 0: Cela vérifie si la longueur du tableau events est égale à zéro, ce qui signifie qu'il n'y a pas d'événements pour ce jour spécifique.
         (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) || events.length === 0
       ) {
-//Si la condition précédente est vraie, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert, ou qu'il n'y a pas d'événements pour ce jour. 
+//Si la condition précédente est vraie, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert, ou qu'il n'y a pas d'événements pour ce jour.
 //Dans les deux cas, la variable activeDayIsOpen est définie sur false, ce qui ferme les événements pour le jour actuellement sélectionné.
         this.activeDayIsOpen = false;
       } else { //Dans le cas contraire le clique déclenche l'ouverture de l'événement
@@ -172,16 +172,16 @@ export class JournalRepasComponent implements OnInit {
   openDialog() {
     const dataToSend = { // J'attribue à data l'id et le nom de l'event ou je clique
       selectedId: this.selectedId,
-      selectedTitle: this.selectedTitle       
+      selectedTitle: this.selectedTitle
     }
     return this.dialog.open(CheckJournalComponent, {
       disableClose: true,
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal      
+      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal
     });
-    
+
   }
 
 // Méthode pour cliquer sur un évenement du calendrier
@@ -190,11 +190,11 @@ export class JournalRepasComponent implements OnInit {
     console.log("Méthode eventCliked - j'ai cliqué sur l'id : ", event.id);
     this.selectedId = event.id; // J'attribue l'id de l'event sur lequel j'ai cliqué
     console.log("Variable selectedId contient l'id : ", this.selectedId);
-    
+
     console.log("Méthode eventClicked - j'ai cliqué sur le nom : ", event.title);
     this.selectedTitle = event.title;
     console.log("Variable selectedTitle contient le nom : ", this.selectedTitle);
-    
+
     this.openDialog(); // J'ouvre la modal
   }
 
@@ -204,7 +204,7 @@ export class JournalRepasComponent implements OnInit {
     event.event.end = event.newEnd;
     this.refresh.next();
   }
-  
+
 // Modal Material Angular pour confirmer la suppression d'un menu
   deleteDialog() {
     return this.dialog.open(DeleteDataComponent, {
@@ -217,7 +217,7 @@ export class JournalRepasComponent implements OnInit {
   }
 
 // Méthode faisant appel à la Modal de confirmation puis à la méthode de suppression dans supabase
-// Je renvoie une promesse "Promise<boolean>" pour indiquer si la suppression a été confirmée 
+// Je renvoie une promesse "Promise<boolean>" pour indiquer si la suppression a été confirmée
 async deleteEventConfirm(id: any): Promise<boolean> {
   try {
 // J'utilise firstValueFrom pour attendre le premier élément émis par l'observable retourné par this.deleteDialog().afterClosed()
@@ -248,11 +248,11 @@ async deleteEventConfirm(id: any): Promise<boolean> {
         observations: item['observations'],
         cssClass: 'calendarTitle', // Si je veux attribuer une classe CSS
         actions: this.actions // Utile ??
-      }));     
+      }));
       console.log("fetchEvents de journal-repas",this.events.map((item) => item['title']));
     }
     if (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -285,12 +285,12 @@ async deleteEventConfirm(id: any): Promise<boolean> {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'], 
+        alim_code: item['alim_code'],
         statut: item['statut']
       }));
     }
     if (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -305,9 +305,9 @@ async deleteEventConfirm(id: any): Promise<boolean> {
     };
     await this.eventService.createEvent(newEntry).then(() => {
       this.fetchEvents();
-      this.formData.reset();      
+      this.formData.reset();
       //window.location.reload();
-    })    
+    })
   }
 }
 
@@ -318,16 +318,16 @@ async deleteEventConfirm(id: any): Promise<boolean> {
 // Méthode pour supprimer un événement - Remplacer par la méthode supabase contenu dans event.service
 /* deleteEvent(event: CalendarEvent): void {
   const eventIndex = this.events.indexOf(event);
-  if (eventIndex > -1) {      
+  if (eventIndex > -1) {
         this.events.splice(eventIndex, 1);
         this.refresh.next();
-      }    
+      }
   } */
 
 
   /* eventClicked(event:any) {
     console.log(event);
-    this.openDialog();      
+    this.openDialog();
   } */
 
 
@@ -344,7 +344,7 @@ async deleteEventConfirm(id: any): Promise<boolean> {
         })
         .catch((error) => {
           console.error('Erreur lors de la suppression de l\'événement :', error);
-        });                 
-      }      
-    })    
+        });
+      }
+    })
   }  */

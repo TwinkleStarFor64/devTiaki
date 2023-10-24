@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BottomBarTableau } from 'src/app/intranet/utils/modeles/Types';
+import { BottomBarTableau } from 'src/app/intranet/partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root',

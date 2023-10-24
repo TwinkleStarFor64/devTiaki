@@ -39,5 +39,7 @@
     </article>
   </section>
 </section>
-<app-bottom-bar-opto></app-bottom-bar-opto>
-<app-modal-ex-opto *ngIf="exoSelect"></app-modal-ex-opto>
+<!-- Afficher le menu -->
+<app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
+<!-- Modale pour un article -->
+<app-exercice-otpo *ngIf="exoSelect"></app-exercice-otpo>

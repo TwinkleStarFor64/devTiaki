@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ProgrammeI } from '../../utils/modeles/Types';
+import { ProgrammeI } from '../../partage/modeles/Types';
 
 @Component({
   selector: 'app-carousel',

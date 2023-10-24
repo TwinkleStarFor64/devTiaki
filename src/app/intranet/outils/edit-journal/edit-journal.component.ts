@@ -7,9 +7,11 @@ import {
 } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MedecinI, RealisationI } from '../../modeles/Types';
+import { MedecinI, RealisationI } from '../../partage/modeles/Types';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DonneesService } from '../../partage/services/donnees.service';
+import { EditService } from '../../partage/services/edit.service';
 
 @Component({
   selector: 'app-edit-journal',
@@ -52,10 +54,11 @@ export class EditJournalComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    public supa: SupabaseService,
     private router: ActivatedRoute,
     private route: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private get:DonneesService,
+    private edit:EditService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -78,7 +81,7 @@ export class EditJournalComponent {
     // Dans ce cas, je récupére le paramètre 'id' de la route en accédant à la propriété 'params' de l'objet snapshot
     console.log('snapshot id', this.router.snapshot.params['id']);
     // J'appelle getCurrentJournal(id: number) - j'attribue à id de la méthode l'id que je récupére avec snapshot
-    const result = await this.supa.getCurrentJournal(
+    const result = await this.get.getCurrentJournal(
       this.router.snapshot.params['id']
     );
 
@@ -87,7 +90,7 @@ export class EditJournalComponent {
       console.log('journal.groupeEvenement',(journal.groupeEvenement as { id: any })?.id);
 
       const { data: linkedJournals } =
-        await this.supa.getHistoriqueLinkedJournal(
+        await this.get.getHistoriqueLinkedJournal(
           (journal.groupeEvenement as { id: any })?.id,
           journal.id
         );
@@ -108,7 +111,7 @@ export class EditJournalComponent {
 
   async fetchJournals() {
     //Ici je me récupére les données de la table journalEvenement via la méthode getHistoriqueJournal()
-    const { data, error } = await this.supa.getHistoriqueJournal();
+    const { data, error } = await this.get.getHistoriqueJournal();
     if (data) {
       // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
       if (data[0].date) {
@@ -153,7 +156,7 @@ export class EditJournalComponent {
       .subscribe((res) => {
         if (res) {
           //J'utilise la méthode updateJournal avec comme paramétre l'id obtenue avec snapshot et la variable newEntry
-          this.supa
+          this.edit
             .updateJournal(id, newEntry)
             .then(() => {
               this.route.navigateByUrl('/intranet/outils/historique'); // Je retourne sur la page historique

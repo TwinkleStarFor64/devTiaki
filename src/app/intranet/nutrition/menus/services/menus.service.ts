@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CiqualI, MesMenusI } from 'src/app/intranet/utils/modeles/Types';
+import { CiqualI, MesMenusI } from 'src/app/intranet/partage/modeles/Types';
 import {
   AuthChangeEvent,
   AuthSession,
@@ -39,13 +39,13 @@ export class MenusService {
       .select('*'); //Je select toutes les données avec *
     console.log( repas);
     return repas;
-  }  
+  }
 
   /* async getCiqual() {
     const ciqual = await this.supabase
       .from('ciqualAnses')
-      .select('*');    
-    return ciqual;    
+      .select('*');
+    return ciqual;
   } */
 
 }

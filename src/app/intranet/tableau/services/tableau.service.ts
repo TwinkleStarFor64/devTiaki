@@ -7,7 +7,7 @@ import {
   TableauBordProblemeI,
   TableauReussiteI,
   BottomBarTableau,
-} from '../../utils/modeles/Types';
+} from '../../partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root',

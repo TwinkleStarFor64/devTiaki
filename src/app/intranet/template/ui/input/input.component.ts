@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ProgrammeKineService } from 'src/app/intranet/kine/programme-kine/services/programme-kine.service';
-import { ProgrammeI } from 'src/app/intranet/utils/modeles/Types';
-import { ModalService } from 'src/app/intranet/utils/services/modal.service';
+import { ProgrammeI } from 'src/app/intranet/partage/modeles/Types';
+import { ModalService } from 'src/app/intranet/partage/services/modal.service';
 
 @Component({
   selector: 'app-input',

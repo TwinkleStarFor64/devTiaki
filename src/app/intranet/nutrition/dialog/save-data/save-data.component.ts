@@ -1,8 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
+import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
+import { EditService } from 'src/app/intranet/partage/services/edit.service';
 
 @Component({
   selector: 'app-save-data',
@@ -19,7 +20,7 @@ export class SaveDataComponent implements OnInit {
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>,
-               private formBuilder: FormBuilder, public supa: SupabaseService, public menuService: MenusService ) {}
+               private formBuilder: FormBuilder, public menuService: MenusService, private get:DonneesService, private edit:EditService ) {}
 
   async ngOnInit(): Promise<void>  {
     this.fetchCiqual();
@@ -37,7 +38,7 @@ export class SaveDataComponent implements OnInit {
       if (selectedIngredient) {
         const ingredientAlimCode = selectedIngredient.alim_code;
         console.log(ingredientAlimCode);
-        this.result = await this.supa.getCurrentIngredient(ingredientAlimCode);
+        this.result = await this.get.getCurrentIngredient(ingredientAlimCode);
         console.log(this.result);
       }
     });
@@ -56,14 +57,14 @@ export class SaveDataComponent implements OnInit {
       description: this.formData.value.description,
       alim_code: this.result.alim_code
     };
-    await this.supa.createMenu(newEntry).then(() => {
+    await this.edit.createMenu(newEntry).then(() => {
       this.fetchMenus();
       window.location.reload(); // Bonne solution ??
     });
   }
 
   async fetchCiqual() {
-    const { data, error } = await this.supa.getCiqual();
+    const { data, error } = await this.get.getCiqual();
     if (data) {
       this.repas = data;
     }
@@ -85,7 +86,6 @@ export class SaveDataComponent implements OnInit {
         statut: item['statut']
       }));
       console.log(this.repas.map((item) => item['id']));
-
     }
     if (error) {
       //Si une erreur

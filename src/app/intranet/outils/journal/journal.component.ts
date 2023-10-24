@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
-import {
-  MedecinI,
-  RealisationI,
-} from 'src/app/intranet/modeles/Types';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
+import { MedecinI, RealisationI, MessageJournalI } from 'src/app/intranet/partage/modeles/Types';
+import { DonneesService } from '../../partage/services/donnees.service';
+import { EditService } from '../../partage/services/edit.service';
 
 @Component({
   selector: 'app-journal',
@@ -50,7 +47,7 @@ export class JournalComponent implements OnInit {
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
   public reliers: any[] = []; //
 
-  constructor(private formBuilder: FormBuilder, public supa: SupabaseService) { }
+  constructor(private formBuilder: FormBuilder, private get:DonneesService, private edit:EditService) { }
 
   async ngOnInit(): Promise<void> {
     this.formJournal = this.formBuilder.group({
@@ -67,7 +64,7 @@ export class JournalComponent implements OnInit {
 
   async fetchJournals() {
     //Ici je me récupére les données de la table journalEvenement via la méthode getHistoriqueJournal()
-    const { data, error } = await this.supa.getHistoriqueJournal();
+    const { data, error } = await this.get.getHistoriqueJournal();
     if (data) {
       // Vérifiez que la propriété date est présente dans les objets data afin de trier l'affichage par date
       if (data[0].date) {
@@ -95,7 +92,7 @@ export class JournalComponent implements OnInit {
     };
     const idRelier = this.formJournal.value.relier;
     //J'utilise la méthode createJournal avec comme paramétre newEntry
-    await this.supa.createJournal(newEntry, idRelier).then(() => {
+    await this.edit.createJournal(newEntry, idRelier).then(() => {
       this.fetchJournals();
       window.location.reload(); // Bonne solution ??
     });

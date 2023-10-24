@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI, NutritionI } from '../modeles/Types';
+import { BottomI, NutritionI } from '../partage/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({

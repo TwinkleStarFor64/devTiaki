@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsideI } from 'src/app/intranet/modeles/Types.js';
+import { AsideI } from 'src/app/intranet//partage/modeles/Types.js';
 
 @Component({
   selector: 'app-aside-bar',

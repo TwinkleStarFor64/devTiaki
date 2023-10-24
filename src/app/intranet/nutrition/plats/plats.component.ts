@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PlatsService } from './services/plats.service';
-import { CiqualI, EvaluationI, MesPlatsI } from '../../utils/modeles/Types';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
+import { CiqualI, EvaluationI, MesPlatsI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { DonneesService } from '../../partage/services/donnees.service';
+import { AdminService } from '../../partage/services/admin.service';
+import { EditService } from '../../partage/services/edit.service';
 
 @Component({
   selector: 'app-plats',
@@ -27,7 +29,7 @@ export class PlatsComponent implements OnInit {
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
   affichageDefaut: string = 'allPlats';
 
-  constructor(public platService: PlatsService, public supa: SupabaseService, private dialog:MatDialog) {}
+  constructor(public platService: PlatsService, private get:DonneesService, private admin:AdminService, private edit:EditService, private dialog:MatDialog) {}
 
   async ngOnInit(): Promise<void> {
     this.platService.getMesPlats();
@@ -59,7 +61,7 @@ export class PlatsComponent implements OnInit {
 
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
-      await this.supa.getCiqual();
+      await this.get.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],
@@ -87,7 +89,7 @@ export class PlatsComponent implements OnInit {
 
 // Méthode pour récupérer la table Evaluation
   async fetchEvaluation() {
-    const { data, error } = await this.supa.getEvaluation();
+    const { data, error } = await this.get.getEvaluation();
     if (data) {
       this.evaluation = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
@@ -160,7 +162,7 @@ onSelectPlat(plats: MesPlatsI): void {
     // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
     .subscribe((res) => {
       if (res) {
-        this.supa.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
+        this.admin.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
           .then(() => {
             this.fetchPlats();
             //window.location.reload(); // Bonne solution ??
@@ -175,9 +177,9 @@ onSelectPlat(plats: MesPlatsI): void {
   async getPlatsId(): Promise<any> { // Méthode sur le bouton Évaluer
     if (this.selectedPlatsId ) {
       console.log("Voici l'id du plat choisi :" + this.selectedPlatsId );
-      await this.supa.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
+      await this.get.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
       console.log("L'id de l'évaluation que je donne au plat : " + this.evaluationId);
-      await this.supa.updateEvalPlat(this.selectedPlatsId, this.evaluationStatut)
+      await this.edit.updateEvalPlat(this.selectedPlatsId, this.evaluationStatut)
       // Id dynamique pour le EQ de la méthode supabase
       // Statut dynamique pour le UPDATE de la méthode supabase
       .then(() => {
@@ -208,7 +210,7 @@ onSelectPlat(plats: MesPlatsI): void {
 //dernierTri: string = ''; // Pour la méthode triParTexte
 
 // Méthode utilisé sur les 3 boutons d'évaluation des plats lorsque je clique dessus
-// J'utilse le texte contenu dans les boutons afin des les trier
+// J'partagee le texte contenu dans les boutons afin des les trier
 /* triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le code html
   // Si triActif et false que dernierTri contient le texte du bouton la fonction s'arrête
   if (!this.triActif && this.dernierTri === texte) {

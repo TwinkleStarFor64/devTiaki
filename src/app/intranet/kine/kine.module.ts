@@ -15,7 +15,7 @@ import { ModalExKineComponent } from './exercice-kine/modal-ex-kine/modal-ex-kin
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { FilterPipe } from '../utils/pipes/filter.pipe';
+import { FilterPipe } from '../partage/pipes/filter.pipe';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
