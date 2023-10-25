@@ -1,27 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HistoriqueJournalI } from '../modeles/Types';
+import { BottomI, HistoriqueJournalI } from '../modeles/Types';
 import { createClient, PostgrestSingleResponse, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DonneesService {
+  // Gestion des sous menus des thèmes nutrition, opto et kiné
+  listeSousMenus: any;
+  sousMenu$: BehaviorSubject<Array<BottomI>> = new BehaviorSubject([] as Array<BottomI>);
+  sousMenu: Array<BottomI> = [];
 
-  menus: any = {};
-  ciqual:any;
+  ciqual: any; // Base de données Ciqual
   private supabase: SupabaseClient; // Instance du client Supabase
   historiqueJournal: Array<HistoriqueJournalI> = [];
 
   constructor(private http: HttpClient) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
-    this.getMenus();
+    this.getSousMenus(); // Récupérer la liste des menus
   }
   /** Récupérerles menus en JSON */
-  getMenus() {
-    this.http.get("assets/data/menus/json").subscribe(m => this.menus = m);
+  getSousMenus(id: string = 'opto') {
+    if (!this.listeSousMenus) {
+      this.http.get("assets/data/menus.json").subscribe(m => {
+        this.listeSousMenus = m;
+        this.sousMenu = this.listeSousMenus[id];
+      })
+    } else {
+      this.sousMenu = this.listeSousMenus[id];
+    };
   }
   /** Appeler la liste des aidants dans Supabase */
   async getAidant() {
@@ -75,7 +86,7 @@ export class DonneesService {
    * @returns Renvoie la base Ciqual
    */
   async getCiqual() {
-    if(!this.ciqual) this.ciqual = await this.supabase.from('ciqualAnses').select('*');
+    if (!this.ciqual) this.ciqual = await this.supabase.from('ciqualAnses').select('*');
     console.log(this.ciqual);
     return this.ciqual;
   }

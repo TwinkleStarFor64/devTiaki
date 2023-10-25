@@ -9,15 +9,15 @@ import { RecettesComponent } from './recettes/recettes.component';
 
 const routes: Routes = [
   { path: '', component: NutritionComponent },
-  { path: 'journal-Repas', component: JournalRepasComponent },
+  { path: 'journal', component: JournalRepasComponent },
   { path: 'ingredients', component: IngredientsComponent },
   { path: 'menus', component: MenusComponent },
   { path: 'plats', component: PlatsComponent },
-  { path: 'recettes', component: RecettesComponent },
+  { path: 'recettes', component: RecettesComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class NutritionRoutingModule {}
+export class NutritionRoutingModule { }

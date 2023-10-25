@@ -7,7 +7,7 @@
     <article id="listePlats">
       <button id="ajoutButton" mat-raised-button color="primary" (click)="openDialog()">
         1 - Ajouter un nouveau plat
-      </button>      
+      </button>
       <h1>Reprendre un repas précédent</h1>
       <article id="evalBouton">
       <!-- Dans la méthode triParTexte() je passe en paramétre le texte du bouton -->
@@ -16,7 +16,7 @@
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Plats évalués et problématiques</button>
         <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau plat</button>
       </article>
-      <article id="filter" *ngIf="affichageDefaut !== 'allPlats'">          
+      <article id="filter" *ngIf="affichageDefaut !== 'allPlats'">
         <button mat-raised-button (click)="triParTexte('allPlats')">Effacer les filtres</button>
       </article>
       <article id="listing">
@@ -24,11 +24,11 @@
           <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut" (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
           <p *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.description }}</p>
           <div *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">
-            <span id="pastilleEval"              
+            <span id="pastilleEval"
              [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
              <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
             </span>
-            <!-- <button mat-raised-button                      
+            <!-- <button mat-raised-button
             [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
             {{ plat.statut }}
             </button> -->
@@ -86,7 +86,7 @@
              B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
              B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
              B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-          </p>          
+          </p>
         </span>
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
@@ -98,10 +98,10 @@
               <mat-label>ÉVALUER CE PLAT</mat-label>
               <mat-select [(ngModel)]="selectedEvaluation">
                 <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
-                  {{ eval.statut }}                
+                  {{ eval.statut }}
                 </mat-option>
               </mat-select>
-            </mat-form-field>          
+            </mat-form-field>
             <button mat-raised-button color="primary" (click)="getPlatsId()">ÉVALUER</button>
           </span>
           <span>
@@ -111,7 +111,7 @@
         </div>
       </span>
     </article>
-    <!-- <app-footer></app-footer> -->
   </section>
 </section>
-<app-bottom-bar-nutri></app-bottom-bar-nutri>
+<!-- Afficher le menu -->
+<app-menu [idMenu]="'nutrition'" [classe]="'bg-nutrition'"></app-menu>

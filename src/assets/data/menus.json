@@ -5,23 +5,170 @@
       "titre": "Progression d'Émilie",
       "info": "Suivez les progréssion d'Émilie",
       "lien": "ProgressionOpto",
-      "url": "/intranet/opto/progression-Opto"
+      "url": "/intranet/opto/progressions",
+      "active": true
     },
     {
       "image": "assets/images/pictos/menus/programme.svg",
       "titre": "Programmes",
       "info": "Des programmes d'optométrie",
       "lien": "ProgrammeOpto",
-      "url": "/intranet/opto/programme-Opto"
+      "url": "/intranet/opto/programmes",
+      "active": false
     },
     {
       "image": "assets/images/pictos/menus/exerciceIcon.svg",
       "titre": "Exercices",
       "info": "Découvrez les exercices.",
       "lien": "ExerciceOpto",
-      "url": "/intranet/opto/exercice-Opto"
+      "url": "/intranet/opto/exercices",
+      "active": false
     }
   ],
-  "kine": [],
-  "nutrition": []
+  "kine": [
+    {
+      "image": "assets/images/pictos/menus/cheerleader.svg",
+      "titre": "Progression d'Émilie",
+      "info": "Suivez les progréssion d'Émilie",
+      "lien": "ProgressionKine",
+      "url": "/intranet/kine/progressions",
+      "active": false
+    },
+    {
+      "image": "assets/images/pictos/menus/programme.svg",
+      "titre": "Programmes",
+      "info": "Des programmes de kinésithérapie",
+      "lien": "ProgrammeKine",
+      "url": "/intranet/kine/programmes",
+      "active": false
+    },
+    {
+      "image": "assets/images/pictos/menus/exerciceIcon.svg",
+      "titre": "Exercices",
+      "info": "Découvrez les exercices.",
+      "lien": "ExerciceKine",
+      "url": "/intranet/kine/exercices",
+      "active": false
+    }
+  ],
+  "nutrition": [
+    {
+      "image": "assets/images/pictos/menus/journalBottom.png",
+      "titre": "Journal",
+      "info": "Naviguer dans votre historique alimentaire",
+      "lien": "Journal",
+      "url": "/intranet/nutrition/journal",
+      "active": false
+    },
+    {
+      "image": "assets/images/pictos/menus/journalBottom.png",
+      "titre": "Menus",
+      "info": "Les listes de vos menus et de ceux de la communautés",
+      "lien": "Menus",
+      "url": "/intranet/nutrition/menus",
+      "active": false
+    },
+    {
+      "image": "assets/images/pictos/menus/platBottom.png",
+      "titre": "Plats",
+      "info": "Vos plats ou ceux de la communauté",
+      "lien": "Plats",
+      "url": "/intranet/nutrition/plats",
+      "active": false
+    },
+    {
+      "image": "assets/images/pictos/menus/ingredientBottom.png",
+      "titre": "Ingrédients",
+      "info": "La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
+      "lien": "Ingredients",
+      "url": "/intranet/nutrition/ingredients",
+      "active": false
+    }
+  ],
+  "outils":[
+    {
+      "image":"assets/images/pictos/menus/journalBottom.png",
+      "titre":"Journal",
+      "info":"Naviguer dans votre historique alimentaire",
+      "lien":"Journal",
+      "url":"/intranet/nutrition/journal-Repas",
+      "active": false
+    },
+    {
+      "image":"assets/images/pictos/menus/journalBottom.png",
+      "titre":"Menus",
+      "info":"Les listes de vos menus et de ceux de la communautés",
+      "lien":"Menus",
+      "url":"/intranet/nutrition/menus",
+      "active": false
+    },
+    {
+      "image":"assets/images/pictos/menus/platBottom.png",
+      "titre":"Plats",
+      "info":"Vos plats ou ceux de la communauté",
+      "lien":"Plats",
+      "url":"/intranet/nutrition/plats",
+      "active": false
+    },
+    {
+      "image":"assets/images/pictos/menus/ingredientBottom.png",
+      "titre":"Ingrédients",
+      "info":"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
+      "lien":"Ingredients",
+      "url":"/intranet/nutrition/ingredients",
+      "active": false
+    }
+  ],
+  "principal":[
+    {
+      "nom":"Émilie",
+      "image":"assets/imgAsidebar/cheerleader1.svg",
+      "url":"/intranet/tableau"
+    },
+    {
+      "nom":"Kalhifa",
+      "image":"assets/imgAsidebar/skier1.svg",
+      "url":"/intranet/tableau"
+    },
+    {
+      "nom":"Nutrition",
+      "image":"assets/imgAsidebar/Vector.svg",
+      "url":"/intranet/nutrition"
+    },
+    {
+      "nom":"Kiné",
+      "image":"assets/imgAsidebar/Vector1.svg",
+      "url":"/intranet/kine"
+    },
+    {
+      "nom":"Opto",
+      "image":"assets/imgAsidebar/Group1.svg",
+      "url":"/intranet/opto"
+    },
+    {
+      "nom":"Journal",
+      "image":"assets/imgAsidebar/Group2.svg",
+      "url":"/intranet/outils/journal"
+    },
+    {
+      "nom":"Historique",
+      "image":"assets/imgAsidebar/Group3.svg",
+      "url":"/intranet/outils/historique"
+    },
+    {
+      "nom":"Messagerie",
+      "image":"assets/imgAsidebar/Group4.svg",
+      "url":"/intranet/outils/messagerie"
+    },
+    {
+      "nom":"Profil",
+      "image":"assets/imgAsidebar/Group5.svg",
+      "url":"/intranet/outils/profil"
+    },
+    {
+      "nom":"Paramètre",
+      "image":"assets/imgAsidebar/Group6.svg",
+      "url":"/intranet/outils/parametre"
+    }
+  ]
 }

@@ -1,39 +1,43 @@
 <section id="exercices">
-  <header id="head">
+  <header id="head" class="kine">
     <a routerLink="/intranet"><span>Tiaki</span></a>
     <p>Kinésithérapie > <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
   </header>
-  <section>
-    <article *ngFor="let exercice of exercicesFiltres">
-      <div class="photo-exo">
-        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-        <h6>{{ exercice.title }}</h6>
-        <div class="exercice-texte">
-          <p>{{ exercice.description }}</p>
-          <div>
-            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
-            <!-- mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-            <p>
-              <!-- (mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-              Durée
-            </p>
-            <img
-              [src]="sanity.urlFor(exercice.materielIcon).url()"
-              alt="materiel"
-            />
-            <p>Matériels</p>
-          </div>
-        </div>
-      </div>
-      <div class="progress-bar">
-        <a>&#9664;</a>
-       <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-       <a>&#9654;</a>
-     </div>
+  <section class="exercices">
+    <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
+      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'">
+      </figure>
+      <nav class="kine">
+        <i>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">
+            <path class="st0" d="M14.8,13.7c-0.6,0-1.2,0.2-1.7,0.5l-4.9-3.4c0.1-0.3,0.1-0.6,0.1-0.9c0-0.3,0-0.6-0.1-0.9L13,5.7
+  c0.5,0.4,1.1,0.6,1.8,0.6c1.7,0,3.1-1.4,3.1-3.1S16.5,0,14.8,0s-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7L6.8,7.2
+  c-0.5-0.3-1-0.5-1.6-0.5C3.5,6.8,2,8.2,2,9.9s1.4,3.1,3.1,3.1c0.6,0,1.2-0.2,1.6-0.5l4.9,3.4c-0.1,0.3-0.1,0.5-0.1,0.8
+  c0,1.7,1.4,3.1,3.1,3.1s3.1-1.4,3.1-3.1C18,15.1,16.5,13.7,14.8,13.7z" />
+          </svg>
+          <span>Partager cet exercice</span></i>
+        <i>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">
+            <path class="st0" d="M18.8,7.6h-8.7V1.5c0-0.7-0.6-1.2-1.2-1.2H6.4c-0.7,0-1.2,0.6-1.2,1.2v6.2V20h10.9c0.8,0,1.3-0.5,1.5-1.2
+  L20,9.1C20.2,8.2,19.5,7.6,18.8,7.6z" />
+            <path class="st0" d="M0.2,8.9v9.9c0,0.7,0.6,1.2,1.2,1.2h1.2V7.6H1.5C0.8,7.6,0.2,8.2,0.2,8.9z" />
+          </svg>
+          <span>Je recommande !</span></i>
+        <i>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">
+            <path class="st0" d="M19.9,10.1v9.6H0V0.5h9.9v1.9H2v15.4h15.9v-7.7H19.9z M7,10.4l8-7.7l1.5,2L8.4,13H7L7,10.4L7,10.4z M5,14.9h4.3
+            l9.9-10.3L15,0.1L5,9.6V14.9z" />
+          </svg>
+          <span>Prendre une note sur cet article</span></i>
+      </nav>
+      <h3>{{ exercice.title }}</h3>
+      <p>{{ exercice.description }}</p>
+      <ul class="kine">
+        <li><img src="assets/images/pictos/horloge.svg" alt="Picto d'horloge" /><span>Durée</span></li>
+        <li><img src="assets/images/pictos/materiel.svg" alt="materiel" /><span>Matériels</span></li>
+      </ul>
     </article>
   </section>
 </section>
-<!-- <app-footer></app-footer> -->
-<app-bottom-bar-kine></app-bottom-bar-kine>
+<!-- Afficher le menu -->
+<app-menu [idMenu]="'kine'" [classe]="'bg-kine'"></app-menu>

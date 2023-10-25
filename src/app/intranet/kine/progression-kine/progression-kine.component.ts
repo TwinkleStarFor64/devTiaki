@@ -12,6 +12,8 @@ export class ProgressionKineComponent implements OnInit {
   exercicesKine!: ExerciceI[];
   exercicesFiltres: ExerciceI[] = [];
 
+  exoSelect!:ExerciceI; // Exercice sélectionné
+
   constructor(public sanity:SanityService) {}
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BottomI } from '../../modeles/Types';
+import { BottomI } from '../../partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root',

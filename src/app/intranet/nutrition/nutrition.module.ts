@@ -7,11 +7,8 @@ import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
 import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { AlimentsPipe } from '../partage/pipes/aliments.pipe';
 import { PlatsPipe } from '../partage/pipes/plats.pipe';
-import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { IngredientsPipe } from '../partage/pipes/ingredients.pipe';
@@ -35,6 +32,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { CheckJournalComponent } from './dialog/check-journal/check-journal.component';
+import { SharedModule } from '../partage/shared.module';
 
 
 registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
@@ -65,7 +63,6 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     AlimentsPipe,
     PlatsPipe,
     IngredientsPipe,
-    BottomBarNutriComponent,
     SaveDataComponent,
     DeleteDataComponent,
     SavePlatComponent,
@@ -75,9 +72,7 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
   imports: [
     CommonModule,
     NutritionRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     MatButtonModule,
     MatSelectModule,
     MatDialogModule,

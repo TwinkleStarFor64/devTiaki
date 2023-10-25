@@ -22,6 +22,8 @@ export class ExerciceKineComponent implements OnInit {
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
 
+  exoSelect!:ExerciceI; // Exercice sélectionné
+
   constructor(public sanity: SanityService, private dialog: MatDialog) {}
 
   ngOnInit(): void {

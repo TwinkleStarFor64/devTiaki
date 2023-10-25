@@ -1,5 +1,5 @@
 <footer id="menus-themes" [class]="classe">
-  <a *ngFor="let m of menu" routerLink="m.url" (click)="onNavItemClick(m)" >
+  <a *ngFor="let m of get.sousMenu" (click)="onNavItemClick(m)" >
     <section [ngStyle]="{ filter: m.active ? 'none' : 'opacity(50%)' }">
       <img [src]="m.image" alt="image d'exercice" />
       <article>

@@ -7,13 +7,13 @@ import { ProgressionKineComponent } from './progression-kine/progression-kine.co
 
 const routes: Routes = [
   { path: '', component: KineComponent },
-  { path: 'progression-Kine', component: ProgressionKineComponent },
-  { path: 'programme-Kine', component: ProgrammeKineComponent },
-  { path: 'exercice-Kine', component: ExerciceKineComponent },
+  { path: 'progressions', component: ProgressionKineComponent },
+  { path: 'programmes', component: ProgrammeKineComponent },
+  { path: 'exercices', component: ExerciceKineComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class KineRoutingModule {}
+export class KineRoutingModule { }

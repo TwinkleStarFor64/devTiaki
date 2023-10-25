@@ -10,71 +10,7 @@ import { SanityService } from 'src/app/partage/services/sanity.service';
 })
 export class NutritionComponent implements OnInit {
 
-  public bottoms:BottomI[] = [
-    {
-      image:"assets/images/pictos/menus/journalBottom.png",
-      titre:"Journal",
-      info:"Naviguer dans votre historique alimentaire",
-      lien:'Journal',
-      url:'/intranet/nutrition/journalRepas',
-      active:false
-    },
-    {
-      image:"assets/images/pictos/menus/journalBottom.png",
-      titre:"Menus",
-      info:"Les listes de vos menus et de ceux de la communautés",
-      lien:'Menus',
-      url:'/intranet/nutrition/menus',
-      active:false
-    },
-    {
-      image:"assets/images/pictos/menus/platBottom.png",
-      titre:"Plats",
-      info:"Vos plats ou ceux de la communauté",
-      lien:'Plats',
-      url:'/intranet/nutrition/plats',
-      active:false
-    },
-    {
-      image:"assets/images/pictos/menus/ingredientBottom.png",
-      titre:"Ingrédients",
-      info:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-      lien:'Ingredients',
-      url:'/intranet/nutrition/ingredients',
-      active:false
-    }
-  ];
-
-  // public cards:any = [
-  //   {
-  //     title:"Journal",
-  //     text:"Naviguer dans votre historique alimentaire",
-  //     button:"Accéder à la page Journal",
-  //     image:"assets/photoNutri/accueilJournal.svg",
-  //     url:'journal-Repas'
-  //   },
-  //   {
-  //     title:"Menus",
-  //     text:"Les listes de vos menus et de ceux de la communautés",
-  //     button:"Accéder à la page des Menus",
-  //     image:"assets/photoNutri/accueilMenus.svg",
-  //     url:'menus'
-  //   },
-  //   {
-  //     title:"Plats",
-  //     text:"Vos plats ou ceux de la communauté",
-  //     button:"Accéder à la page des Plats",
-  //     image:"assets/photoNutri/accueilPlats.svg",
-  //     url:'plats'
-  //   },
-  //   {
-  //     title:"Ingrédients",
-  //     text:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-  //     button:"Accéder à la page Ingrédients",
-  //     image:"assets/photoNutri/accueilIngredients.svg",
-  //     url:'ingredients'
-  //   },
-  // ];
+  public bottoms:BottomI[] = [];
 
   accueilNutrition!: NutritionI[];
 

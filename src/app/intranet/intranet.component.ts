@@ -8,32 +8,7 @@ import { BottomI } from './partage/modeles/Types';
   styleUrls: ['./intranet.component.scss'],
 })
 export class IntranetComponent implements OnInit {
-  public bottoms: BottomI[] = [
-    {
-      image: 'assets/images/pictos/menus/cheerleader.svg',
-      titre: "Progression d'Émilie",
-      info: "Suivez les progréssion d'Émilie",
-      lien: 'ProgressionKine',
-      url: '/intranet/kine/progression-Kine',
-      active: false,
-    },
-    {
-      image: 'assets/images/pictos/menus/programme.svg',
-      titre: 'Programmes',
-      info: 'Des programmes de kinésithérapie',
-      lien: 'ProgrammeKine',
-      url: '/intranet/kine/programme-Kine',
-      active: false,
-    },
-    {
-      image: 'assets/images/pictos/menus/exerciceIcon.svg',
-      titre: 'Exercices',
-      info: 'Découvrez les exercices.',
-      lien: 'ExerciceKine',
-      url: '/intranet/kine/exercice-Kine',
-      active: false,
-    },
-  ];
+  public bottoms: BottomI[] = [];
 
   constructor(private router: Router) {}
 

@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
-import { BottomBarKineComponent } from './bottom-bar-kine/bottom-bar-kine.component';
 import { InputComponent } from '../template/ui/input/input.component';
 import { ModalExKineComponent } from './exercice-kine/modal-ex-kine/modal-ex-kine.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterPipe } from '../partage/pipes/filter.pipe';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { SharedModule } from '../partage/shared.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ProgrammeKineComponent,
     CarouselComponent,
     KineComponent,
-    BottomBarKineComponent,
     InputComponent,
     ModalExKineComponent,
     FilterPipe
@@ -34,8 +33,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   imports: [
     CommonModule,
     KineRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
+    SharedModule,
     MatAutocompleteModule,
     MatSelectModule,
     MatButtonModule,

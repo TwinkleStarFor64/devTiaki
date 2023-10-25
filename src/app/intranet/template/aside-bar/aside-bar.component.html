@@ -4,7 +4,7 @@
 
 <nav [class.active]="navbarVisible">
   <ul>
-    <li *ngFor="let lien of asides; let i = index">
+    <li *ngFor="let lien of get.listeSousMenus['principal']; let i = index">
       <a [routerLink]="[lien.url]" [title]="lien.nom">
         <img [src]="lien.image" [alt]="" />
         <span>{{ lien.nom }}</span>

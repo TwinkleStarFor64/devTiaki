@@ -52,30 +52,30 @@
       </span>
     </div>
     <div [ngSwitch]="view">
-      <mwl-calendar-month-view 
+      <mwl-calendar-month-view
       *ngSwitchCase="CalendarView.Month"
-      [viewDate]="viewDate" 
-      [events]="events" 
-      [activeDayIsOpen]="activeDayIsOpen" 
+      [viewDate]="viewDate"
+      [events]="events"
+      [activeDayIsOpen]="activeDayIsOpen"
       (dayClicked)="dayClicked($event.day)"
       (eventClicked)="eventClicked($event)"
-      (eventTimesChanged)="eventTimesChanged($event)"      
+      (eventTimesChanged)="eventTimesChanged($event)"
       [refresh]="refresh"
       locale="fr"
       ></mwl-calendar-month-view>
-      <mwl-calendar-week-view 
-      *ngSwitchCase="CalendarView.Week" 
-      [viewDate]="viewDate" 
+      <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
       [events]="events"
       (eventClicked)="eventClicked($event)"
-      (eventTimesChanged)="eventTimesChanged($event)" 
+      (eventTimesChanged)="eventTimesChanged($event)"
       [refresh]="refresh"
       locale="fr"
       ></mwl-calendar-week-view>
-      <mwl-calendar-day-view 
-      *ngSwitchCase="CalendarView.Day" 
-      [viewDate]="viewDate" 
-      [events]="events" 
+      <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [events]="events"
       (eventClicked)="eventClicked($event)"
       (eventTimesChanged)="eventTimesChanged($event)"
       [refresh]="refresh"
@@ -102,7 +102,7 @@
         <mat-radio-button value="plat">Plat</mat-radio-button>
         <mat-radio-button value="menu">Menu</mat-radio-button>
       </mat-radio-group>
-    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->  
+    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->
       <ng-container *ngIf="formData.get('choice')?.value === 'menu'">
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
@@ -132,66 +132,44 @@
             {{ eval.statut }}
           </mat-option>
         </mat-select>
-      </mat-form-field>    
+      </mat-form-field>
       <!-- Ci-dessous le component Datetime-picker - https://www.npmjs.com/package/@angular-material-components/datetime-picker -->
       <!-- placeholder="Choisir une date"  OU  [placeholder]="formatDateToFrench(dateTime)" -->
       <mat-form-field>
-        <input matInput [ngxMatDatetimePicker]="picker"                       
-                        placeholder="Choisir une date" 
+        <input matInput [ngxMatDatetimePicker]="picker"
+                        placeholder="Choisir une date"
                         formControlName="start"
-                        [min]="minDate" [max]="maxDate" 
-                        [disabled]="disabled"                                               
+                        [min]="minDate" [max]="maxDate"
+                        [disabled]="disabled"
                         [value]="formatDateToFrench(dateTime)">
                         <!-- J'ai rajouté [value] pour essayer de format la date en Fr-->
         <mat-datepicker-toggle matSuffix [for]="$any(picker)">
       <!-- Pour résoudre l'erreur sur le [for] - https://github.com/h2qutc/angular-material-components/issues/231 -->
         </mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker 
-          [showSpinners]="showSpinners" 
+        <ngx-mat-datetime-picker #picker
+          [showSpinners]="showSpinners"
           [showSeconds]="showSeconds"
-          [stepHour]="stepHour" [stepMinute]="stepMinute" 
+          [stepHour]="stepHour" [stepMinute]="stepMinute"
           [stepSecond]="stepSecond"
           [touchUi]="touchUi"
           [color]="color">
-        </ngx-mat-datetime-picker>        
+        </ngx-mat-datetime-picker>
       </mat-form-field>
       <p>Observations :</p>
       <mat-form-field appearance="outline" id="textarea">
         <mat-label>Réactions éventuelles</mat-label>
         <textarea matInput rows="6" formControlName="observations" ></textarea>
       </mat-form-field>
-    </form>    
+    </form>
     <span>
       <p>*</p>
       <p>champs requis</p>
       <button mat-raised-button (click)="onSubmitForm()" [disabled]="formData.invalid">
         enregistrer
-      </button>    
+      </button>
     </span>
   </article>
-</div>  
-  <!-- <app-footer></app-footer> -->
+</div>
 </section>
-<app-bottom-bar-nutri></app-bottom-bar-nutri>
-
-
-
-
-
-
-<!-- <mat-form-field appearance="outline">
-        <mat-label>VOS MENUS</mat-label>
-        <mat-select formControlName="title">
-          <mat-option *ngFor="let menus of repas" [value]="menus.nom">
-            {{ menus.nom }}              
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>VOS PLATS</mat-label>
-        <mat-select formControlName="title">
-          <mat-option *ngFor="let plat of plats" [value]="plat.nom">
-            {{ plat.nom }}              
-          </mat-option>
-        </mat-select>
-      </mat-form-field> --> 
+<!-- Afficher le menu -->
+<app-menu [idMenu]="'nutrition'" [classe]="'bg-nutrition'"></app-menu>

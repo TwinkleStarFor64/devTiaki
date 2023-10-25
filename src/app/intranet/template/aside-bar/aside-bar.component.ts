@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsideI } from 'src/app/intranet//partage/modeles/Types.js';
+import { DonneesService } from '../../partage/services/donnees.service';
 
 @Component({
   selector: 'app-aside-bar',
@@ -11,60 +12,10 @@ export class AsideBarComponent implements OnInit {
   navbarVisible: boolean = false;
 
   // Insertion de l'interface Aside permettant de changer les image et les urls
-  public asides: AsideI[] = [
-    {
-      nom: 'Émilie',
-      image: 'assets/imgAsidebar/cheerleader1.svg',
-      url: '/intranet/tableau',
-    },
-    {
-      nom: 'Kalhifa',
-      image: 'assets/imgAsidebar/skier1.svg',
-      url: '/intranet/tableau',
-    },
-    {
-      nom: 'Nutrition',
-      image: 'assets/imgAsidebar/Vector.svg',
-      url: '/intranet/nutrition',
-    },
-    {
-      nom: 'Kiné',
-      image: 'assets/imgAsidebar/Vector1.svg',
-      url: '/intranet/kine',
-    },
-    {
-      nom: 'Opto',
-      image: 'assets/imgAsidebar/Group1.svg',
-      url: '/intranet/opto',
-    },
-    {
-      nom: 'Journal',
-      image: 'assets/imgAsidebar/Group2.svg',
-      url: '/intranet/outils/journal',
-    },
-    {
-      nom: 'Historique',
-      image: 'assets/imgAsidebar/Group3.svg',
-      url: '/intranet/outils/historique',
-    },
-    {
-      nom: 'Messagerie',
-      image: 'assets/imgAsidebar/Group4.svg',
-      url: '/intranet/outils/messagerie',
-    },
-    {
-      nom: 'Profil',
-      image: 'assets/imgAsidebar/Group5.svg',
-      url: '/intranet/outils/profil',
-    },
-    {
-      nom: 'Paramètre',
-      image: 'assets/imgAsidebar/Group6.svg',
-      url: '/intranet/outils/parametre',
-    },
-  ];
+  public asides: AsideI[] = [];
   public hoveredIndex: number | null = null;
-  constructor() {}
+
+  constructor(public get:DonneesService) {}
 
   ngOnInit(): void {}
   toggleNavbar() {

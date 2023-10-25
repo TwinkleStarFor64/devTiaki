@@ -128,25 +128,28 @@ button:hover{
 }
 #menus-themes{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   height: 150px;
   width: 100%;
+  padding:15px;
 }
 #menus-themes > a {
   flex-flow: row nowrap;
   justify-content: center;
-  gap: 1vw;
+  padding:15px;
   align-items: center;
   height:100%;
+  cursor: pointer;
 }
 #menus-themes > a section {
   height:100%;
+  align-items: center;
 }
 #menus-themes > a section > img {
-  width: 3vw;
+  width: 50px;
+  height:50px;
   margin-right:15px;
   transition: all .3s ease;
-  aspect-ratio: auto;
 }
 #menus-themes > a section > article {
   color: #ffffff;
@@ -438,92 +441,30 @@ article.cartel {
 
 //HEADER
 #head {
+  display:flex;
   flex-flow: row nowrap;
   height: $breadcrumb;
-  padding: 10px;
+  padding: 5px;
   margin: 0;
   align-items: center;
-
-  @media screen and (max-width:502px) {
-    font-size: 1rem;
-  }
-}
-
-#head>a:nth-child(1) {
-  font-size: 1.6rem;
+  font-size: 24px;
   font-weight: 100;
-  width: 10%;
-
-  @media screen and (max-width:906px) {
-    width: 14%;
-  }
-
-  @media screen and (max-width:804px) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 664px) {
-    font-size: 1.4rem;
-  }
-
-  @media screen and (max-width:586px) {
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 525px) {
-    font-size: 1.1rem;
-  }
-
-  @media screen and (max-width: 484px) {
-    font-size: 1rem;
-  }
-
+}
+#head p{
+  display:flex;
+  align-items: center;
+}
+#head>a:nth-child(1) {
 }
 
 #head>a:nth-child(1):after {
   content: '   ......';
-  font-size: 50%;
 }
 
 #head img {
   width: 30px;
 }
-
-#head p {
-  font-size: 1.6rem;
-  font-weight: 500;
-  // width: 50%;
-
-  @media screen and (max-width: 910px) {
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 800px) {
-    font-size: 1.1rem;
-  }
-
-  @media screen and (max-width: 686px) {
-    font-size: 1rem;
-  }
-
-  @media screen and (max-width: 633px) {
-    font-size: 0.9rem;
-  }
-
-  @media screen and (max-width: 584px) {
-    font-size: 0.8rem;
-  }
-
-  @media screen and (max-width: 498px) {
-    font-size: 0.7rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 0.6rem;
-  }
-}
-
-#head>* {
+#head>*, #head p > * {
   margin: 5px;
   padding: 0;
 }

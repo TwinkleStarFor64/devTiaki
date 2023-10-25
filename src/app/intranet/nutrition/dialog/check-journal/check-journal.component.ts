@@ -108,6 +108,7 @@ export class CheckJournalComponent implements OnInit {
   async fetchCiqual() {
     const { data: groupData, error: groupError } =
       await this.get.getCiqual();
+    console.log(this.get.ciqual);
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
         alim_code: item['alim_code'],
