@@ -14,7 +14,7 @@ export class FilterPipe implements PipeTransform {
 
     const filtreLowerCase = filtre.trim().toLowerCase();
     return exercices.filter(exercice =>
-      exercice.title.toLowerCase().includes(filtreLowerCase)
+      exercice.titre.toLowerCase().includes(filtreLowerCase)
     );
   }
 }

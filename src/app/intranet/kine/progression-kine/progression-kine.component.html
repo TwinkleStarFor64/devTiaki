@@ -1,5 +1,5 @@
-<section id="exercices">
-  <section class="exercices">
+<section id="module" class="progression">
+  <section>
     <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
       <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo"></figure>
       <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
@@ -26,7 +26,7 @@
           </svg>
           <span>Prendre une note sur cet article</span></i>
       </nav>
-      <h3>{{ exercice.title }}</h3>
+      <h3>{{ exercice.titre }}</h3>
       <p>{{ exercice.description }}</p>
       <ul class="kine">
         <li><img src="assets/images/pictos/horloge.svg" alt="Picto d'horloge" /><span>Durée</span></li>
@@ -34,6 +34,6 @@
       </ul>
     </article>
   </section>
+  <!-- Afficher le menu -->
+  <app-menu [idMenu]="'kine'" [classe]="'bg-kine'"></app-menu>
 </section>
-<!-- Afficher le menu -->
-<app-menu [idMenu]="'kine'" [classe]="'bg-kine'"></app-menu>

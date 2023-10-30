@@ -1,77 +1,52 @@
 <!-- section contenant la barre de recherche et les checkbox -->
-<section id="programmes">
+<section id="module" class="progression">
   <!-- Article contenant le formulaire permettant de rechercher les programmes -->
-  <article>
-    <form class="example-form">
-      <input
-        id="input-programmes"
-        class="example-input"
-        type="search"
-        name="myProg"
-        placeholder="Recherche"
-        [formControl]="control"
-        [matAutocomplete]="auto"
-        (keyup)="filtrerProgrammes()"
-        (click)="allProgrammes()"
-        [value]="selectedImageTitle"
-      />
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        (optionSelected)="onOptionSelected($event)"
-      >
-        <mat-option
-          *ngFor="let programme of programmesFiltres"
-          [value]="programme"
-          (mouseover)="hoverSelectedProgramme(programme)"
-        >
-          {{ programme.titre }}
-        </mat-option>
-      </mat-autocomplete>
-    </form>
-    <input
-      type="checkbox"
-      id="input-ckeckbox"
-      name="jamaisFait"
-      value="jamaisFait"
-      />
+  <header>
+    <form>
+      <mat-form-field>
+        <mat-label>{{ l.t.pages['PROGRAMMES'] }}</mat-label>
+        <mat-select name="programmes" [(ngModel)]="programme" (change)="setProgramme(ctlListe.value)" #ctlListe="ngModel">
+          <mat-option *ngFor="let p of listeProgrammes" [value]="p">
+            {{ p.titre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
       <label for="jamaisFait">Tenir comptes de mes observations </label>
-    <input
-      type="checkbox"
-      id="input-ckeckbox"
-      name="jamaisFait"
-      value="jamaisFait"
-    />
-    <label for="jamaisFait">Jamais faites </label>
-    <img src="assets/images/pictos/loupe.png" alt="">
-  </article>
-  <article></article>
+      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
+      <label for="jamaisFait">Jamais faites </label>
+      <button><img src="assets/images/pictos/loupe.png" alt=""></button>
+    </form>
+  </header>
   <!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
-  <article *ngIf="selectedProgrammeOpto; selectedProgramme">
-    <img src="{{ selectedProgrammeOpto.photo }}" alt="imageOpto" />
+  <section class="programme">
     <article>
+      <figure [style.background-image]="'url(' + programme.photo + ')'" *ngIf="programme.photo">
+        <h1>{{ programme.titre }}</h1>
+      </figure>
       <div>
-        <h1>{{ selectedProgrammeOpto.titre }}</h1>
-        <p>{{ selectedProgrammeOpto.description }}</p>
-      </div>
+        <p>{{ programme.description }}</p>
       <div>
         <div>
-          <img src="assets/iconeKineOpto/horlogeOpto.svg" alt="horloge" />
-          <p>{{ selectedProgrammeOpto.duree }}</p>
+          <img src="assets/images/pictos/horloge.svg" alt="horloge" />
+          <p>{{ programme.duree }}</p>
         </div>
         <div>
-          <img src="assets/iconeKineOpto/materielOpto.svg" alt="materiel" />
-          <p>{{ selectedProgrammeOpto.materiel }}</p>
+          <img src="assets/images/pictos/materiel.svg" alt="materiel" />
+          <p>{{ programme.materiel }}</p>
         </div>
       </div>
-      <app-carousel-opto [items]="programmesFiltres" (onSelect)="onSelectProgramme($event)" (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+      <app-carousel-opto [items]="programme.exercices" (onSelect)="onSelectExercice($event)"
+        (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+      </div>
     </article>
     <article>
-      <img src="assets/iconeKineOpto/pouce.png" alt="">
+      <img src="assets/images/pictos/pouce.png" alt="">
       <select name="" id="">
         <option value="">Avis et commentaires de la communauté</option>
       </select>
     </article>
-  </article>
+  </section>
+  <app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 </section>
-<app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 <!-- <app-exercice-otpo *ngIf="exoSelect"></app-exercice-otpo> -->

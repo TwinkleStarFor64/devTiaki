@@ -6,7 +6,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { ProgrammeI } from '../../partage/modeles/Types';
+import { ExerciceI } from '../../partage/modeles/Types';
 
 @Component({
   selector: 'app-carousel-opto',
@@ -16,10 +16,9 @@ import { ProgrammeI } from '../../partage/modeles/Types';
 export class CarouselOptoComponent {
   @ViewChild('carouselContainer', { static: true })
   carouselContainer: ElementRef;
-  @Input() items: ProgrammeI[] = [];
-  @Output() onSelect: EventEmitter<ProgrammeI> = new EventEmitter<ProgrammeI>();
-  @Output() carouselItemClick: EventEmitter<ProgrammeI> =
-    new EventEmitter<ProgrammeI>();
+  @Input() items: Array<ExerciceI> = [];
+  @Output() onSelect: EventEmitter<ExerciceI> = new EventEmitter<ExerciceI>();
+  @Output() carouselItemClick: EventEmitter<ExerciceI> = new EventEmitter<ExerciceI>();
 
   currentSlide = 0;
   selectedMedia: any;
@@ -46,7 +45,7 @@ export class CarouselOptoComponent {
     this.carouselContainer.nativeElement.style.transform = `translateX(${containerOffset}px)`; //Transformation CSS au container pour effectuer le défilement
   }
   // gérer le clic sur un élément du carrousel.
-  onCarouselItemClick(item: ProgrammeI) {
+  onCarouselItemClick(item: ExerciceI) {
     this.carouselItemClick.emit(item);
   }
 }

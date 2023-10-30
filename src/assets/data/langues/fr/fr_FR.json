@@ -1,6 +1,6 @@
 {
   "routes": {
-    "EXERCICES": "Les exercices en ",
+    "EXERCICES": "Les exercices",
     "INTRANET": "Accueil",
     "OPTO": "Optométrie",
     "KINE": "Kinésithérapie",
@@ -19,6 +19,31 @@
     "TIAKI":"Tiaki",
     "SLOGAN":"Pour aider les aidants",
     "DE":"de",
-    "POUR":"pour"
+    "POUR":"pour",
+    "ALLERIES":"Allergies",
+    "ALLERGIES-FILTRE":"Tenir compte de mes allergies",
+    "PAS-FAITS":"Jamais faits",
+    "RECHERCHE":"Rcherche libre",
+    "RECHERCHER":"Recherche",
+    "PROGRAMMES":"Programmes",
+    "PROGRAMME":"Proramme",
+    "VALIDER":"Valider",
+    "ANNULER":"Annuler",
+    "FILTRER":"Filtrer"
+  },
+  "nutrition":{
+    "NUTRITION":"Nutrition",
+    "PLATS":"Plats",
+    "PLAT":"Plat",
+    "MENUS":"Menus",
+    "MENU":"Menu"
+  },
+  "opto":{
+    "OPTO":"Optométrie",
+    "EXERCICES":"Exercices d'optométrie",
+    "PROGRAMMES":"Programmes d'optométrie"
+  },
+  "kine":{
+    "KINE":"Kinésithérapie"
   }
 }

@@ -30,6 +30,7 @@ export class InfosService {
   }
   /** Récupérer les textes en fonction de la langue de l'utilisateur */
   getTraductions() {
+    console.log("On va tenter les traductions");
     this.http.get("assets/data/langues/fr/fr_FR.json").subscribe({
       next: t => this.t = t,
       error: er => console.log(er),

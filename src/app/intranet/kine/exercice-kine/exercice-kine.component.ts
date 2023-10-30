@@ -5,6 +5,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { InfosService } from 'src/app/partage/services/infos.service';
+import { KineService } from '../services/kine.service';
 
 @Component({
   selector: 'app-exercice-kine',
@@ -13,9 +15,10 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 })
 export class ExerciceKineComponent implements OnInit {
   avatar!: string;
-  exercicesKine!: ExerciceI[];
+  listeExos:Array<ExerciceI> = [];
+  // exercicesKine!: ExerciceI[];
   control = new FormControl('');
-  exercicesFiltres: ExerciceI[] = [];
+  listeExosFiltres: ExerciceI[] = [];
   selectedImageTitle: string = '';
   selectedExerciceKine?: ExerciceI;
   filtrerExercice: string = '';
@@ -24,16 +27,28 @@ export class ExerciceKineComponent implements OnInit {
 
   exoSelect!:ExerciceI; // Exercice sélectionné
 
-  constructor(public sanity: SanityService, private dialog: MatDialog) {}
+  constructor(public sanity: SanityService, private dialog: MatDialog, public l:InfosService, public kine:KineService) {}
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
     // Récupérer la méthode de sanity service pour avoir les photos et descriptions
-    this.sanity.getExercices().then((data) => {
-      this.exercicesKine = data;
-      this.exercicesFiltres = [...this.exercicesKine]; // Afficher tous les exercices
-    });
+    // this.sanity.getExercices().then((data) => {
+    //   this.exercicesKine = data;
+    //   this.listeExosFiltres = [...this.exercicesKine]; // Afficher tous les exercices
+    // });
     this.control = new FormControl('');
+
+    // Récupérer la liste des exercices
+    if(this.listeExos.length == 0) this.kine.getExercicesKine().subscribe(
+      {
+        next:r => {
+          this.listeExos = r;
+          this.listeExosFiltres = [...r];
+        },
+        error:er => console.log(er),
+        complete: () => console.log(this.listeExos)
+      }
+    );;
   }
 
   // Ouverture de la modal exercice au click
@@ -54,11 +69,11 @@ export class ExerciceKineComponent implements OnInit {
       typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
 
     if (filtre) {
-      this.exercicesFiltres = this.exercicesKine.filter((exercice: ExerciceI) =>
-        exercice.title.toLowerCase().includes(filtre)
+      this.listeExosFiltres = this.listeExos.filter((exercice: ExerciceI) =>
+        exercice.titre.toLowerCase().includes(filtre)
       );
     } else {
-      this.exercicesFiltres = [...this.exercicesKine];
+      this.listeExosFiltres = [...this.listeExos];
     }
   }
 
@@ -67,7 +82,7 @@ export class ExerciceKineComponent implements OnInit {
     const exercice = event.option.value;
     this.selectedExerciceKine = exercice;
     this.control.setValue(exercice.title);
-    this.exercicesFiltres = [exercice];
+    this.listeExosFiltres = [exercice];
   }
 
   //methode permettant de voir le titre dans l'input en survolant les titres des exercices du menu déroulant

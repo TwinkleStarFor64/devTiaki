@@ -40,6 +40,7 @@ main,
 section,
 article,
 header,
+form,
 footer {
   display: flex;
 }
@@ -463,338 +464,63 @@ app-ariane article a:hover:after{
 app-ariane img {
   width:30px;
 }
-// -----------------------------------------------
-// AFFICHAGE PAGES PROGRAMMES
-#programmes {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: $sombre;
-  height: calc(100vh - $foot);
-
-  @media (max-width: 768px) {
-    height: calc(100vh - 100px);
-  }
-
-  @media screen and (max-width:480px) {
-    width: calc(100% + 65px);
-  }
-}
-
-// section principale
-#programmes>section {
-  width: 100%;
-  flex-direction: column;
-  height: calc(100vh - $breadcrumb - $foot);
-  overflow-x: hidden;
-  overflow-y: auto;
-  max-height: 100vh;
-
-}
-
-// search bar
-#programmes>article:nth-child(2) {
-  width: 100%;
-  //gap: 1.5vw;
-  justify-content: center;
-  align-items: center;
-  img {
-    // L'icône de loupe
-    margin-left: 25vw;
-
-  }
-
-  @media screen and (max-width:502px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 20px;
-  }
-}
-
-// article ligne dashed
-#programmes>article:nth-child(3) {
-  width: 80%;
-  align-self: center;
-  height: 2vh;
-  border-bottom: dashed 1px black;
-}
-
-// article qui apparait lors du choix du programme
-#programmes>article:nth-child(4) {
-  width: 100%;
-  height: calc(100vh - $foot );
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  overflow-y: auto;
-  scrollbar-color: $card-opto #be861e;
-  scrollbar-width: auto;
-  padding-top: 30px;
-
-  @media screen and (max-width:768px) {
-    max-width: 100%;
-  }
-
-}
-
-// image du programme
-#programmes article:nth-child(4)>img {
-  width: 75%;
-  max-height: 90%;
-  align-self: center;
-
-  @media screen and (max-width:1440px) {
-    width: 50%;
-    max-height: 70%;
-  }
-}
-
-// Article de description
-#programmes article:nth-child(4)>article {
-  margin: 50px;
-  margin-left: 11vw;
-  align-self: baseline;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 4vw;
-  width: 78%;
-
-  @media screen and (max-width:1440px) {
-    font-size: 0.9rem;
-    gap: 5vw;
-  }
-
-  @media screen and (max-width:1024px) {
-    gap: 5vw;
-  }
-
-  @media screen and (max-width:768px) {
-    flex-direction: column-reverse;
-    width: 100%;
-    margin: 0;
-    margin-top: 20px;
-    gap: 1vw;
-  }
-}
-
-// Article avec l'image de pouce et le select "Avis et commentaire de la communauté"
-#programmes article:nth-child(4)>article:nth-child(3) {
-  //background-color: #33BB27;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5vw;
-
-  select {
-    width: 75vw;
-    height: 5vh;
-    background: none;
-    font-size: 1.2rem;
-    color: #3D3D3D;
-  }
-}
-
-#programmes article:nth-child(4)>article>div:nth-child(1) {
-  display: flex;
-  flex-direction: column;
-  max-width: 30%;
-  text-align: justify;
-
-  @media screen and (max-width:1024px) {
-    font-size: 0.8rem;
-    max-width: 30%;
-  }
-
-  @media screen and (max-width:768px) {
-    font-size: 1.1rem;
-    max-width: 70%;
-  }
-}
-
-// titre
-#programmes article:nth-child(4)>article>div:nth-child(1) h1 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-// durée materiel
-#programmes article:nth-child(4)>article>div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  width: 12%;
-
-  @media screen and (max-width:1024px) {
-    font-size: 0.8rem;
-  }
-
-  @media screen and (max-width:768px) {
-    flex-direction: row;
-    width: 50%;
-    align-items: center;
-  }
-}
-
-// block horloge et materiels
-#programmes article:nth-child(4)>article>div:nth-child(2) div {
-  display: flex;
-  align-items: center;
-  gap: 0.5vw;
-  height: 40%;
-  width: 100%;
-}
-
-// img horloge materiel
-#programmes article:nth-child(4)>article>div:nth-child(2) div img {
-  height: 2vh;
-  width: 3vw;
-}
-
-
-// AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
-#exercices {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  color: $sombre;
-  height: calc(100vh - $foot);
-  overflow-y: auto;
-  scrollbar-color: $card-nutri #e7adb7;
-  scrollbar-width: auto;
-  justify-content: center;
-
-  @media screen and (max-width:768px) {
-    height: calc(100vh - 100px);
-  }
-
-  @media screen and (max-width: 480px) {
-    width: calc(100% + 65px); // 65px pour l'aside bar
-  }
-}
-
-//Section principale
-#exercices>* {
-  width: 100%;
-}
-
-// barre de recherche exercices
-#exercices #head article {
-  background: none;
-  width: 40vw;
-  // align-items: end;
-
-  @media (max-width: 706px) {
-    width: 30vw;
-    align-items: center;
-  }
-
-  @media (max-width: 490px) {
-    align-items: center;
-    width: 30vw;
-  }
-}
-
 // Loupe de recherche à gauche de la search  bar
-#exercices #head article form {
-  display: flex;
+header > form{
+  display:flex;
+  flex-flow: row nowrap;
   align-items: center;
-  gap: 4vw;
-
-  .searchMobile {
-    width: auto;
-    height: 3vh;
-
-    @media screen and (max-width: 597px) {
-      margin-top: 20px;
-    }
-  }
+  margin:0 auto;
 }
-
 //section exercice
-#exercices>section {
-  width: 100%;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  height: calc(100vh - $breadcrumb - $foot);
-
-  @media (max-width: 768px) {
-    height: calc(100vh - $breadcrumb - 100px);
-  }
-}
-
-// search bar
-#exercices>article:nth-child(2) {
-  width: 80%;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  flex-direction: row;
-
-  @media screen and (max-width:502px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 20px;
-  }
-}
-
-#exercices>article:nth-child(2)>form {
-  display: flex;
-  width: 90%;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5vw;
-}
-
-#exercices>article:nth-child(2)>div {
-  width: 10%;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-// #exercices>article:nth-child(2)>div>img {
-//   width: 1.5vw;
-//   height: 3vh;
-// }
-
-// article ligne dashed
-#exercices>article:nth-child(3) {
-  width: 80%;
-  align-self: center;
-  height: 1vh;
-  background: none;
-  border-bottom: dashed 1px black;
-}
-
-// articles générés avec le ngFor avec la photo ou video et le titre la description
-#exercices article {
+#module{
+  width:calc(100vw - $breadcrumb);
+  height:calc(100vh - $breadcrumb);
   flex-flow: column nowrap;
-  width: 20%;
-  // max-height: 100vh;
+  overflow: hidden;
+}
+#module > header {
+  height:$breadcrumb;
+}
+#module > section {
+  height:calc(100% - $breadcrumb - $foot);
+  flex-flow: row wrap;
+  // justify-content: space-around;
+  overflow-y:auto;
+}
+#module.progression > section {
+  height:calc(100% - $foot);
+}
+#module > app-menu {
+  height:$foot;
+}
+// articles générés avec le ngFor avec la photo ou video et le titre la description
+#module > section > article {
+  flex-flow: column nowrap;
+  flex:1;
   background: $clair;
-  margin: 10px;
+  margin:20px;
   justify-content: space-between;
   cursor: pointer;
   position:relative;
   transition: all .3s ease;
+  border: 1px solid rgba(0,0,0,.1);
 }
-#exercices section>article:hover {
+#module > section > article:hover {
   transform: scale(1.05);
   box-shadow: 0 0 4px $aside-color1;
 }
-#exercices section>article:hover>figure {
+#module > section > article:hover>figure {
   background-size: 120%;
   filter: grayscale(100%);
 }
-#exercices section>article>ul{
+#module > section > article>ul{
   display: flex;
   flex-flow: row nowrap;
   align-self: flex-end;
   align-items: center;
   margin:0 0 10px 0;
 }
-#exercices section>article>ul li{
+#module > section > article >ul li{
   list-style: none;
   display: flex;
   align-items: center;
@@ -802,13 +528,13 @@ app-ariane img {
   cursor: pointer;
   transition: all .3s ease;
 }
-#exercices section>article>ul li:hover{
+#module > section > article > ul li:hover{
   transform: scale(1.05);
 }
-#exercices section>article>ul li > *{
+#module > section > article > ul li > *{
   margin-right: 10px;
 }
-#exercices section>article>figure {
+#module > section > article > figure {
   width: 100%;
   height:135px;
   margin:0;
@@ -816,7 +542,7 @@ app-ariane img {
   align-items: flex-end;
   background-position: 50% 0%;
 }
-#exercices section>article>nav {
+#module > section > article > nav {
   background-color:$clair;
   width:40%;
   height:34px;
@@ -828,7 +554,7 @@ app-ariane img {
   flex-flow:row nowrap;
   align-items: center;
 }
-#exercices section>article>nav i {
+#module > section > article > nav i {
   align-self: flex-end;
   position: relative;
   display:flex;
@@ -836,12 +562,12 @@ app-ariane img {
   height:100%;
   transition: all .3s ease;
 }
-#exercices section>article>nav i svg {
+#module > section > article > nav i svg {
 }
-#exercices section>article>nav i:hover {
+#module > section > article > nav i:hover {
   transform: scale(1.1);
 }
-#exercices section>article>nav i span {
+#module > section > article > nav i span {
   opacity:0;
   width:0;
   height: 0;
@@ -849,23 +575,53 @@ app-ariane img {
   transition:all .3s ease;
   font-size: 80%;
 }
-// #exercices section>article>nav i:hover span{
-//   opacity:1;
-//   width:auto;
-//   height:auto;
-// }
-#exercices section>article>h3, #exercices section>article>p {
+#module > section > article >h3, #module > section > article >p {
   margin:10px;
 }
 //div pour progress bar
-#exercices article>.progress-bar {
+#module article>.progress-bar {
   display: flex;
   justify-content: space-around;
   height: 3vh;
   align-items: center;
 }
-#exercices article>.progress-bar a{
+#module article>.progress-bar a{
   color: #bfbfbf;
+}
+// Afficher un programme sur les pages programmes
+#module .programme {
+  flex-flow: column nowrap;
+  padding:30px;
+}
+#module .programme article{
+  flex:none;
+}
+#module .programme article:hover{
+  transform:scale(1);
+}
+.programme > article:nth-child(1){
+  flex-flow: column nowrap;
+  height: calc(100% - $breadcrumb);
+}
+.programme > article:nth-child(2){
+  flex-flow: row nowrap;
+  height:$breadcrumb;
+}
+.programme > article > *{
+  width:100%;
+}
+#module .programme > article > figure{
+  height: 75%;
+}
+#module .programme > article > figure h1{
+  color: $clair;
+  margin:0;
+  text-shadow: 1px 1px 0 $sombre;
+}
+.programme > article > div{
+  display:flex;
+  flex-flow:row nowrap;
+  height:25%;
 }
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;
@@ -876,163 +632,6 @@ app-ariane img {
   --mdc-linear-progress-active-indicator-color: #f28705;
   --mdc-linear-progress-track-height: 200px;
 }
-
-// titre de l'exercice
-#exercices article>div>h6 {
-  margin: 10px 0 0 0;
-  justify-self: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  align-self: flex-start;
-  color: $sombre;
-  ;
-
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
-}
-
-
-// balise img de durée et materiel
-#exercices section article>div:nth-child(2)>div>div>img {
-  height: 2vh;
-  width: 1vw;
-}
-
-// balise p durée et materiel
-#exercices section article>div>p {
-  font-size: 1rem;
-  margin: 5px;
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-  }
-}
-
-// conteneur de description et du lien vers la modal
-#exercices article>div>.exercice-texte {
-  display: flex;
-  flex-direction: column;
-  max-height: 50vh;
-  justify-content: space-between;
-  gap: 1vw;
-}
-
-// div durée et materiel
-#exercices article>div>.exercice-texte>div {
-  display: flex;
-  align-items: center;
-  gap: 0.5vw;
-  min-height: 4vh;
-  justify-content: flex-end;
-}
-
-// description
-#exercices article>div>.exercice-texte>p {
-  font-size: 1rem;
-  text-align: justify;
-  word-spacing: -2px;
-
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-  }
-}
-
-// lien vers la modal
-#exercices article>div>.exercice-texte>span {
-  align-self: flex-end;
-  font-weight: 700;
-  cursor: pointer;
-  color: $aside-color1;
-
-  @media (max-width: 1020px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 906px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.8rem;
-  }
-}
-
-#exercices>footer {
-  height: $foot;
-  width: calc(100vw - $l)
-}
-
-// Modal
-
-
-// Partie responsive essai
-/* Styles pour les écrans de taille supérieure à 1154px */
-@media (max-width: 1154px) {
-  #exercices section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  #exercices article {
-    width: 30%;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 906px) {
-  #exercices section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  #exercices article {
-    width: 40%;
-    margin-bottom: 20px;
-  }
-}
-
-/* Styles pour < 560px */
-@media (max-width: 560px) {
-  #exercices section {
-    display: flex;
-    align-items: center;
-  }
-
-  #exercices article {
-    align-items: center;
-    width: 80%;
-  }
-
-  #exercices article {
-    background: #f2f2f2;
-  }
-
-  #exercices article .photo-exo img {
-    max-height: 100%;
-    max-width: 100%;
-  }
-
-  #exercices article p {
-    margin: 5px;
-  }
-
-  #exercices article .exercice-texte {
-    margin: 10px;
-  }
-}
-
 // Modal exercices Kine et Opto
 
 #modalExercices {
@@ -1131,25 +730,6 @@ app-ariane img {
     }
   }
 }
-
-
-
-// Responsive Modal
-// .modalExercies{
-//   mat-dialog-container {
-//   //   @media screen and (max-width: 1024px) and (max-height: 855px) {
-//   //     max-height: 80vh ;
-//   //     max-width: 90vw ;
-//   //   }
-
-//   //   @media screen and (max-width: 768px) and (max-height:860) {
-//   //     max-height: 40vh;
-//   //     max-width: 50vw;
-//   //   }
-//   // }
-// }
-
-
 
 // -----------------------------------------------------------------
 // CSS des pages plats et menus

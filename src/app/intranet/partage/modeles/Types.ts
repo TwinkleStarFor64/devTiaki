@@ -1,4 +1,5 @@
 export interface PlatI {
+  id?:number;
   nom: string;
   description?: string;
   dureePreparation:number;
@@ -11,13 +12,13 @@ export interface IngredientI {
   nom: string;
 }
 export interface ExerciceI {
-  title: string;
+  id?:number;
+  titre: string;
   description: string;
-  dureeIcon: string;
   duree: string;
   media?: MediaI;
   photo?:string;
-  materiels: Array<MaterielI>;
+  materiels?: Array<MaterielI>;
 }
 export interface AsideI {
   nom?: string;
@@ -124,6 +125,14 @@ export interface AccueilI {
   image:string;
   url:string;
 }
+export interface AccueilModulesI {
+  id?:number;
+  titre:string;
+  description:string;
+  bouton:string;
+  image:string;
+  url:string;
+}
 // Interface pour la page profil(exemple)
 export interface ProfilI {
   id:number;
@@ -168,6 +177,7 @@ export interface ProgrammeI {
   description: string;
   duree: string;
   materiel: string;
+  exercices:Array<ExerciceI>;
 }
 // interface pour la page plat
 export interface MesPlatsI {
@@ -254,7 +264,7 @@ export interface MaterielI{
   media?:MediaI;
 }
 export interface MediaI{
-  id:string;
+  id?:number;
   titre:string;
   url:string;
   description?:string;

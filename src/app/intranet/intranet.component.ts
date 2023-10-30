@@ -7,4 +7,8 @@ import { InfosService } from '../partage/services/infos.service';
   templateUrl: './intranet.component.html',
   styleUrls: ['./intranet.component.scss'],
 })
-export class IntranetComponent {}
+export class IntranetComponent {
+  constructor(private l:InfosService){
+    if(! this.l.t) this.l.getTraductions();
+  }
+}

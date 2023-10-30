@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ProgrammeI } from '../../partage/modeles/Types';
-import { ProgrammeOptoService } from '../services/programme-opto.service';
+import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { OptoService } from '../services/opto.service';
+import { InfosService } from 'src/app/partage/services/infos.service';
 
 @Component({
   selector: 'app-programme-opto',
@@ -13,19 +14,30 @@ export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
-  selectedProgrammeOpto?: ProgrammeI;
+  listeProgrammes:Array<ProgrammeI> = [];
+  programme: ProgrammeI = {id:-1, titre:'', description:'', duree:'', materiel:'', exercices:[]};
+  exercice:ExerciceI = {id:-1, titre:'', description:'', duree:''};
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-  constructor(public programmeOpto: ProgrammeOptoService) {}
+  constructor(public opto: OptoService, public l:InfosService) {}
 
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
+  // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {
-    this.programmeOpto.getProgrammeOpto().subscribe((programmes) => {
-      this.programmeOpto.programme = programmes;
-      this.control = new FormControl('');
+    if(this.listeProgrammes.length == 0) this.opto.getProgrammes().subscribe({
+      next: p => {
+        this.listeProgrammes = p;
+        this.programme = this.listeProgrammes[0];
+      },
+      error: er => console.log(er),
+      complete: () => console.log("Programmes chargés")
     });
+  }
+  /** Sélectionner un programme en particulier */
+  setProgramme(p:ProgrammeI){
+    this.programme = p;
   }
 
   //  méthode permettant de filtrer les programmes lorsqu'on utilise l'input
@@ -35,7 +47,7 @@ export class ProgrammeOptoComponent implements OnInit {
       typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
 
     if (filtre) {
-      this.programmesFiltres = this.programmeOpto.programme.filter(
+      this.programmesFiltres = this.listeProgrammes.filter(
         (programme: ProgrammeI) =>
           programme.titre.toLowerCase().includes(filtre)
       );
@@ -45,44 +57,26 @@ export class ProgrammeOptoComponent implements OnInit {
   }
   // Méthode permettant lors du click de l'input de voir tout les programmes
   allProgrammes() {
-    this.programmesFiltres = [...this.programmeOpto.programme];
+    this.programmesFiltres = [...this.listeProgrammes];
   }
 
   // méthode permettant la récupération des données json via l'interface ProgrammeOptoI
-  onSelectProgramme(programme: ProgrammeI): void {
-    this.selectedProgrammeOpto = programme;
-    this.myProg.setValue(programme);
-    console.log('souris : ', programme);
+  onSelectExercice(exo: ExerciceI): void {
+    this.exercice = exo;
+    this.myProg.setValue(exo);
+    console.log('souris : ', exo);
   }
 
   // Méthode pour la sélection d'un élément avec le clavier
   onOptionSelected(event: MatAutocompleteSelectedEvent) {
     const programme = event.option.value;
-    this.selectedProgrammeOpto = programme;
+    this.programme = programme;
     this.control.setValue(programme.titre);
     // this.control.markAsDirty();
   }
-
-  // méthode permettant de sélectionner le premier programme et de mettre à jour la valeur de l'input
-  selectionnerPremierProgramme() {
-    if (this.programmesFiltres.length > 0) {
-      const premierProgramme = this.programmesFiltres[0];
-      this.onSelectProgramme(premierProgramme);
-      this.control.setValue(premierProgramme.titre);
-    }
-  }
-
-  // méthode permettant de définir le programme sélectionné et de mettre à jour la valeur de l'input
-  setSelectedProgramme(programme: any) {
-    if (programme) {
-      this.selectedProgrammeOpto = programme;
-      this.control.setValue(programme.titre);
-    }
-  }
-
   // méthode que je veux mettre sur la touche entrée
   onEnterProgramme(programme: ProgrammeI): void {
-    this.selectedProgrammeOpto = programme;
+    this.programme = programme;
     console.log('clavier : ', programme);
   }
 
@@ -90,8 +84,8 @@ export class ProgrammeOptoComponent implements OnInit {
   hoverSelectedProgramme(programme: any) {
     this.control.setValue(programme ? programme.titre : '');
   }
-  onCarouselItemClick(programme: ProgrammeI) {
-    this.selectedProgrammeOpto = programme;
-    this.selectedImageTitle = programme.titre;
+  onCarouselItemClick(exo: ExerciceI) {
+    this.exercice = exo;
+    this.selectedImageTitle = exo.titre;
   }
 }

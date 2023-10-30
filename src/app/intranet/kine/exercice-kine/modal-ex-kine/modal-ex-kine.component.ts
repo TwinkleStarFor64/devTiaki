@@ -20,7 +20,7 @@ export class ModalExKineComponent implements OnInit {
 
   ngOnInit(): void {
     this.exerciceModal = this.data;
-    console.log(this.exerciceModal.title);
+    console.log(this.exerciceModal.titre);
   }
   // Fermer la modal de description exercice
   closeDialog() {

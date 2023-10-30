@@ -1,28 +1,25 @@
-<section id="exercices">
-  <!-- Article contenant le formulaire permettant de rechercher les exercices -->
-  <article>
-    <form class="example-form">
+<section id="module">
+  <header>
+    <form>
       <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
         [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
         <mat-option *ngFor="let exercice of exercicesFiltres" [value]="exercice"
           (mouseover)="hoverSelectedExercice(exercice)">
-          {{ exercice.title }}
+          {{ exercice.titre }}
         </mat-option>
       </mat-autocomplete>
       <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait">
       <span>Tenir compte de mes allergies</span>
       <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait">
       <span>Jamais faites</span>
+      <button type="submit"><img class="searchMobile" src="assets/images/pictos/loupe.png"></button>
     </form>
-    <div>
-      <img class="searchMobile" src="assets/images/pictos/loupe.png">
-    </div>
-  </article>
-  <article></article>
-  <section class="exercices">
+  </header>
+  <section>
     <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo"></figure>
+      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo">
+      </figure>
       <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
       <nav class="opto">
         <i>
@@ -47,7 +44,7 @@
           </svg>
           <span>Prendre une note sur cet article</span></i>
       </nav>
-      <h3>{{ exercice.title }}</h3>
+      <h3>{{ exercice.titre }}</h3>
       <p>{{ exercice.description }}</p>
       <ul class="opto">
         <li><img src="assets/images/pictos/horloge.svg" alt="Picto d'horloge" /><span>Durée</span></li>
@@ -55,6 +52,6 @@
       </ul>
     </article>
   </section>
+  <app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 </section>
-<app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 <app-exercice-otpo *ngIf="exoSelect"></app-exercice-otpo>

@@ -50,7 +50,7 @@ export class ExerciceOptoComponent implements OnInit {
 
     if (filtre) {
       this.exercicesFiltres = this.exercicesOpto.filter((exercice: ExerciceI) =>
-        exercice.title.toLowerCase().includes(filtre)
+        exercice.titre.toLowerCase().includes(filtre)
       );
     } else {
       this.exercicesFiltres = [...this.exercicesOpto];

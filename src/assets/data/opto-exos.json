@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "photo": "assets/images/exos/opto/exerciceOpto1.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto1.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Perception Tangram",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "12mn",
+    "materiel": ["Boule"]
+  },
+  {
+    "id": 2,
+    "photo": "assets/images/exos/opto/exerciceOpto2.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto2.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Oculomotricité partie 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 3,
+    "photo": "assets/images/exos/opto/exerciceOpto3.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto3.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "L'accomodation",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 4,
+    "photo": "assets/images/exos/opto/exerciceOpto4.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto4.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Exercices hémisphérique II",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "5mn",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 5,
+    "photo": "assets/images/exos/opto/exerciceOpto5.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto5.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Contrôle des yeux de Kraskin",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 6,
+    "photo": "assets/images/exos/opto/exerciceOpto1.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto1.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Cercle de couleur",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 7,
+    "photo": "assets/images/exos/opto/exerciceOpto2.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto2.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "Périphérie du centre d'intégration",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  },
+  {
+    "id": 8,
+    "photo": "assets/images/exos/opto/exerciceOpto3.png",
+    "media": {
+      "titre":"Pointer le bout de son nez",
+      "url":"assets/images/exos/opto/exerciceOpto3.png",
+      "description":"",
+      "type":"image"
+    },
+    "titre": "La Convergence",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra facilisis congue. Duis sit amet leo sed turpis molestie interdum. Praesent feugiat in libero et laoreet.",
+    "duree": "Durée",
+    "materiel": "Matériels"
+  }
+]
