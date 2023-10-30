@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MedecinI, RealisationI, MessageJournalI } from 'src/app/intranet/partage/modeles/Types';
+import { RealisationI, MessageJournalI } from 'src/app/intranet/partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 import { EditService } from '../../partage/services/edit.service';
 
@@ -14,18 +14,6 @@ export class JournalComponent implements OnInit {
   public medecinImg!: string;
   public realisationImg!: string;
   public pacman!: string;
-
-  public medecins: MedecinI[] = [
-    {
-      nom: 'Docteur Ferreira',
-    },
-    {
-      nom: 'Docteur Sebastian',
-    },
-    {
-      nom: 'Docteur Rusco',
-    },
-  ];
 
   public realisations: RealisationI[] = [
     {
@@ -47,7 +35,7 @@ export class JournalComponent implements OnInit {
   //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
   public reliers: any[] = []; //
 
-  constructor(private formBuilder: FormBuilder, private get:DonneesService, private edit:EditService) { }
+  constructor(private formBuilder: FormBuilder, public get:DonneesService, private edit:EditService) { }
 
   async ngOnInit(): Promise<void> {
     this.formJournal = this.formBuilder.group({
@@ -56,9 +44,6 @@ export class JournalComponent implements OnInit {
       commentaire: [null],
       relier: [null],
     });
-    this.pacman = 'assets/imageOutils/Maskgroup.svg';
-    this.realisationImg = 'assets/imageOutils/whitePacman.svg';
-    this.medecinImg = 'assets/imageOutils/medecin.svg';
     this.fetchJournals();
   }
 

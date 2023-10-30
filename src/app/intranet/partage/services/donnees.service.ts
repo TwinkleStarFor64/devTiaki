@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BottomI, HistoriqueJournalI } from '../modeles/Types';
+import { BottomI, JournalI, TherapeuteI } from '../modeles/Types';
 import { createClient, PostgrestSingleResponse, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject } from 'rxjs';
@@ -15,9 +15,12 @@ export class DonneesService {
   sousMenu$: BehaviorSubject<Array<BottomI>> = new BehaviorSubject([] as Array<BottomI>);
   sousMenu: Array<BottomI> = [];
 
+  // Données stockées de l'application
+  therapeutes:Array<TherapeuteI> = [];
+
   ciqual: any; // Base de données Ciqual
   private supabase: SupabaseClient; // Instance du client Supabase
-  historiqueJournal: Array<HistoriqueJournalI> = [];
+  historiqueJournal: Array<JournalI> = [];
 
   constructor(private http: HttpClient) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
@@ -33,6 +36,8 @@ export class DonneesService {
     } else {
       this.sousMenu = this.listeSousMenus[id];
     };
+    // Enchainer en récupérant les thérapeutes
+    this.getTherapeutes();
   }
   /** Appeler la liste des aidants dans Supabase */
   async getAidant() {
@@ -147,6 +152,14 @@ export class DonneesService {
       .select(
         'id, medecin, activite, objet, echange, groupeMessage (id), date'
       );
+  }
+  /** Récupérer la liste des thérapeutes */
+  getTherapeutes(){
+    this.http.get<Array<TherapeuteI>>('assets/data/therapeutes.json').subscribe({
+      next:(t) => this.therapeutes = t,
+      error: er => console.log(er),
+      complete : () => console.log("Thérapeutes chargés")
+    });
   }
 
 }

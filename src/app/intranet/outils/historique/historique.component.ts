@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI, HistoriqueJournalI } from '../../partage/modeles/Types';
+import { TherapeuteI, RealisationI, JournalI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { FormControl } from '@angular/forms';
@@ -16,22 +16,10 @@ export class HistoriqueComponent implements OnInit {
   public realisationImg!: string;
   public pacman!: string;
 
-  selectedHistorique?: HistoriqueJournalI;
+  selectedHistorique?: JournalI;
   selectedId!: number;
 
   filtre: string = '';
-
-  public medecins: MedecinI[] = [
-    {
-      nom: 'Docteur Ferreira',
-    },
-    {
-      nom: 'Docteur Sebastian',
-    },
-    {
-      nom: 'Docteur Rusco',
-    },
-  ];
 
   public realisations: RealisationI[] = [
     {
@@ -48,7 +36,7 @@ export class HistoriqueComponent implements OnInit {
     },
   ];
 
-  //Pourquoi je dois mettre any et pas HistoriqueJournalI ?
+  //Pourquoi je dois mettre any et pas JournalI ?
   public historiques: any[] = [];
 
   public groupeEvenementId!: number;

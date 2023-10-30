@@ -13,16 +13,16 @@
     </article>
     <article class="medecin">
       <div>
-        <img [src]="[medecinImg]" alt="logo medecin" />
+        <img src="assets/images/pictos/medecin.svg" alt="logo thérapeutes" />
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
       <div>
-        <img [src]="[realisationImg]" alt="logo realisation" />
+        <img src="assets/images/pictos/whitePacman.svg" alt="logo realisation" />
         <h2>Réalisations</h2>
       </div>
       <ul>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <div id="listeJournaux">
-      <img [src]="[pacman]" alt="pacman" />
+      <img src="assets/images/pictos/medecin.svg" alt="pacman" />
       <!-- Visible en Desktop -->
       <h1>Journaux de suivi</h1>
       <!-- Visible en Tablette -->

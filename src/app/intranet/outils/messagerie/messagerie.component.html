@@ -15,7 +15,7 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
@@ -44,7 +44,7 @@
       </div>
     </article>
     <div id="allUi">
-      <img [src]="[blackMedecinImg]" alt="image-noir-medecin" />
+      <img [src]="[blackTherapeuteImg]" alt="image-noir-medecin" />
       <p>Historiques des messages avec le Dr Genoise</p>
     </div>
     <ul>
@@ -70,7 +70,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Sélectionnez un médecin</mat-label>
           <mat-select formControlName="medecin">
-            <mat-option value={{med.nom}} *ngFor="let med of medecins">{{ med.nom }}</mat-option>
+            <mat-option value={{med.nom}} *ngFor="let med of get.therapeutes">{{ med.nom }}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">

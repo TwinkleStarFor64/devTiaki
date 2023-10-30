@@ -1,4 +1,4 @@
-import { AlimentsPipe } from './aliments.pipe';
+import { AlimentsPipe } from './nutrition.pipe';
 
 describe('AlimentsPipe', () => {
   it('create an instance', () => {

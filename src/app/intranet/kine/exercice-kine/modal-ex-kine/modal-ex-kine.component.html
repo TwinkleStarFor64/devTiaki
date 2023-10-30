@@ -6,7 +6,7 @@
     <div class="photo-exo">
       <img
         src="{{ sanity.urlFor(exerciceModal.photo).url() }}"
-        alt="photo-exercice"
+        alt="photo-exercice" *ngIf="exerciceModal.photo"
       />
     </div>
     <div>
@@ -19,7 +19,9 @@
         </div>
         <div>
           <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-          <p>{{exerciceModal.materiel}}</p>
+          <ul>
+            <li *ngFor="let mat of exerciceModal.materiels">{{ mat }}</li>
+          </ul>
         </div>
       </div>
       <button>Commencer</button>

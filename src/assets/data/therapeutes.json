@@ -1,0 +1,20 @@
+[
+  {
+    "nom": "Docteur Ferreira",
+    "prenom":"Bouboule",
+    "specialites":["Généraliste"],
+    "type":"specialiste"
+  },
+  {
+    "nom": "Docteur Sebastian",
+    "prenom":"Abdul",
+    "specialites":["Généraliste"],
+    "type":"generaliste"
+  },
+  {
+    "nom": "Rusco",
+    "prenom":"Jennifer",
+    "specialites":["Optométriste"],
+    "type":"therapeute"
+  }
+]

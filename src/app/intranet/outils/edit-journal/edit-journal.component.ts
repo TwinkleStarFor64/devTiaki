@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MedecinI, RealisationI } from '../../partage/modeles/Types';
+import { TherapeuteI, RealisationI } from '../../partage/modeles/Types';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DonneesService } from '../../partage/services/donnees.service';
@@ -24,18 +24,6 @@ export class EditJournalComponent {
   public medecinImg!: string;
   public realisationImg!: string;
   public pacman!: string;
-
-  public medecins: MedecinI[] = [
-    {
-      nom: 'Docteur Ferreira',
-    },
-    {
-      nom: 'Docteur Sebastian',
-    },
-    {
-      nom: 'Docteur Rusco',
-    },
-  ];
 
   public realisations: RealisationI[] = [
     {
@@ -57,7 +45,7 @@ export class EditJournalComponent {
     private router: ActivatedRoute,
     private route: Router,
     private dialog: MatDialog,
-    private get:DonneesService,
+    public get:DonneesService,
     private edit:EditService
   ) {}
 

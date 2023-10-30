@@ -1,0 +1,24 @@
+{
+  "routes": {
+    "EXERCICES": "Les exercices en ",
+    "INTRANET": "Accueil",
+    "OPTO": "Optométrie",
+    "KINE": "Kinésithérapie",
+    "NUTRITION": "Nutrition",
+    "PLANIFICATION-REPAS": "Planification des repas",
+    "AGENDA": "Agenda",
+    "JOURNAL": "Journal",
+    "MENUS": "Les menus",
+    "PLATS":"Les pats",
+    "INGREDIENTS":"Les ingrédients & valeurs",
+    "MENU": "Menu",
+    "PROGRESSIONS":"vos progressions",
+    "PROGRAMMES":"les programmes"
+  },
+  "pages":{
+    "TIAKI":"Tiaki",
+    "SLOGAN":"Pour aider les aidants",
+    "DE":"de",
+    "POUR":"pour"
+  }
+}

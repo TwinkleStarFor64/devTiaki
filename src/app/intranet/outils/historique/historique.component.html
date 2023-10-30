@@ -16,7 +16,7 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article class="realisation">
@@ -87,7 +87,11 @@
         <h4>Note</h4>
         <p>{{ selectedHistorique.description }}</p>
         <h4>Commentaire</h4>
-        <p>{{ selectedHistorique.commentaire }}</p>
+        <ul>
+          <li *ngFor="let n of selectedHistorique.notes">
+            {{ n }}
+          </li>
+        </ul>
         <h4>Journal en rapport</h4>
           <ul *ngFor="let linkedJournal of selectedHistorique.linkedJournals">
             <li>

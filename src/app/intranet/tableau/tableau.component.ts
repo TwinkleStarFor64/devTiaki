@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   TableauEnCoursI,
   TableauBordHistoriqueI,
-  TableauBordMedecinI,
+  TableauBordTherapeuteI,
   TableauBordProblemeI,
   TableauReussiteI,
   SanteI,
@@ -20,7 +20,7 @@ export class TableauComponent {
   reussite?: TableauReussiteI;
   historique?: TableauBordHistoriqueI;
   probleme?: TableauBordProblemeI;
-  medecin?: TableauBordMedecinI;
+  medecin?: TableauBordTherapeuteI;
   expandedIndex = 0;
   listeGenerale: string = '';
 

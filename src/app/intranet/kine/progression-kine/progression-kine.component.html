@@ -1,12 +1,8 @@
 <section id="exercices">
-  <header id="head" class="kine">
-    <a routerLink="/intranet"><span>Tiaki</span></a>
-    <p>Kinésithérapie > <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
-  </header>
   <section class="exercices">
     <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'">
-      </figure>
+      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo"></figure>
+      <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
       <nav class="kine">
         <i>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">

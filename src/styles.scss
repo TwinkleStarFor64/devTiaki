@@ -194,10 +194,10 @@ button:hover{
   color: $card-nutri;
 }
 .nutrition svg path{
-  fill:$card-opto;
+  fill:$card-nutri;
 }
 .opto{
-  color:$card-opto;
+  color:$card-nutri;
 }
 .opto svg path{
   fill:$card-opto;
@@ -437,38 +437,32 @@ article.cartel {
 }
 
 // -------------------------------------------------
-// HEADER DES PAGES AUTRES QU'ACCUEIL
-
-//HEADER
-#head {
+// Fil d'ariane
+app-ariane article{
   display:flex;
   flex-flow: row nowrap;
   height: $breadcrumb;
   padding: 5px;
   margin: 0;
   align-items: center;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 100;
 }
-#head p{
-  display:flex;
-  align-items: center;
+app-ariane article a{
+  margin-right:5px;
 }
-#head>a:nth-child(1) {
+app-ariane article a:after{
+  transition: padding .3s ease;
+  padding-left:5px;
+  content : ' » '
 }
-
-#head>a:nth-child(1):after {
-  content: '   ......';
+app-ariane article a:hover:after{
+  padding-left:10px;
+  padding-right:10px;
 }
-
-#head img {
-  width: 30px;
+app-ariane img {
+  width:30px;
 }
-#head>*, #head p > * {
-  margin: 5px;
-  padding: 0;
-}
-
 // -----------------------------------------------
 // AFFICHAGE PAGES PROGRAMMES
 #programmes {
@@ -820,6 +814,7 @@ article.cartel {
   margin:0;
   position:relative;
   align-items: flex-end;
+  background-position: 50% 0%;
 }
 #exercices section>article>nav {
   background-color:$clair;

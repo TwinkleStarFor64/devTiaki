@@ -7,14 +7,9 @@ import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
 import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
-import { AlimentsPipe } from '../partage/pipes/aliments.pipe';
-import { PlatsPipe } from '../partage/pipes/plats.pipe';
+import { AlimentsPipe, PlatsPipe, IngredientsPipe } from '../partage/pipes/nutrition.pipe';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { IngredientsPipe } from '../partage/pipes/ingredients.pipe';
 import { SaveDataComponent } from './dialog/save-data/save-data.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
@@ -74,9 +69,6 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     NutritionRoutingModule,
     SharedModule,
     MatButtonModule,
-    MatSelectModule,
-    MatDialogModule,
-    MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,

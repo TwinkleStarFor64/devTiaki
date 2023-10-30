@@ -1,19 +1,23 @@
 export interface PlatI {
   nom: string;
-  description: string;
-  ingredient: Array<IngredientI>;
+  description?: string;
+  dureePreparation:number;
+  dureeRepos:number;
+  dureeCuisson:number;
+  ingredients: Array<IngredientI>; // Ecrit quantiteIngredients dans la base
+  note?:string;
 }
 export interface IngredientI {
   nom: string;
 }
 export interface ExerciceI {
   title: string;
-  photo: string;
   description: string;
   dureeIcon: string;
   duree: string;
-  materielIcon: string;
-  materiel: string;
+  media?: MediaI;
+  photo?:string;
+  materiels: Array<MaterielI>;
 }
 export interface AsideI {
   nom?: string;
@@ -21,29 +25,30 @@ export interface AsideI {
   url: string;
 }
 //Interface de la page Journal
-export interface HistoriqueJournalI {
+export interface JournalI {
   id: number;
   date: string;
   objet: string;
-  description: string;
-  commentaire: string;
-  groupeEvenement: {
+  description?: string;
+  notes?: Array<string>;
+  groupeEvenement: { // Qu'est ce que c'est ?
     id: number;
+
   };
-  linkedJournals?: HistoriqueJournalI[];
+  linkedJournals?: JournalI[];
 }
 // Interface Message
-export interface HistoriqueMessageI {
+export interface MessageI {
   id: number;
   date: string;
-  medecin: string;
+  therapeutes: Array<TherapeuteI>;
   activite: string;
   objet: string;
   echange: string;
   groupeMessage: {
     id: number;
   };
-  linkedMessage?: HistoriqueMessageI[];
+  linkedMessage?: MessageI[];
 }
 
 //Interface de la page historique des journaux
@@ -55,31 +60,36 @@ export interface RealisationI {
   nom: string;
 }
 //Interface de la page journal pour les Medecins
-export interface MedecinI {
+export interface TherapeuteI {
   nom: string;
+  prenom:string;
+  adresse?:string;
+  ville?:string;
+  codePostal?:number;
+  telephone?:string;
+  mobile?:string;
+  specialites:Array<string>;
+  type:TypeTherapeute;
+  notes?:Array<string>;
+}
+enum TypeTherapeute{
+  infirmiere = 'infirmiere',
+  medecin = 'generaliste',
+  specialiste = 'specialiste',
+  therapeute = 'therapeute'
+}
+interface AdresseI{
+  adresse:string;
+  ville:string;
+  codePostal:number;
 }
 //Interface de la page journal
 export interface RelierI {
   nom: string;
 }
-//Interface de la page historique des journaux
-export interface HistoriqueI {
-  // journal: Array<JournalI>
-}
-// Interface de la page journal pour les réalisations
-export interface RealisationI {
-  nom: string;
-}
-//Interface de la page journal pour les Medecins
-export interface MedecinI {
-  nom: string;
-}
-//Interface de la page journal
-export interface RelierI {
-  nom: string;
-}
-//Interface des Recettes
+// Interface des Recettes // Quelle différence avec les plats ?
 export interface RecetteI {
+  id:number;
   photo: string;
   titre: string;
   preparationFig: string;
@@ -89,9 +99,8 @@ export interface RecetteI {
   valeurFig: string;
   valeurTxt: string;
   complexiteFig: string;
-  complexiteTxt: string;
+  complexiteTxt: string; // Ces points n'existent pas dans la base, ça serait intéressant de les considérer
 }
-
 //Interface de la page d'accueil Nutrition
 export interface NutritionI {
   id:number;
@@ -115,14 +124,21 @@ export interface AccueilI {
   image:string;
   url:string;
 }
-
 // Interface pour la page profil(exemple)
 export interface ProfilI {
+  id:number;
   nom: string;
   prenom: string;
-  age: string;
-  email: string;
-  adresse: string;
+  dateNaissance?: number | string | Date;
+  email?: string;
+  telephone?:string;
+  adresse?: string;
+  ville?:string;
+  codePostal?:number | string;
+  journaux?:Array<JournalI>; // AJOUT DES JOURNAUX RECUS DEPUIS LA TABLE groupeEvenement (MCD)
+  therapeutes?:Array<TherapeuteI>;
+  progressions?:Array<ProgrammeI>; // La liste des programmes en cours de réalisation (sans distinction)
+  nutrition?:any;
 }
 // Interface pour la page ingrédient de la table Ciqual
 export interface CiqualI {
@@ -145,6 +161,7 @@ export interface CiqualI {
 }
 // Interface pour les pages programmes
 export interface ProgrammeI {
+  id:number;
   photo?: string;
   video?: string;
   titre: string;
@@ -168,7 +185,6 @@ export interface MesMenusI {
   description: string;
   alim_code: number;
   statut: string;
-  //ciqual: number;
 }
 
 export interface EvaluationI {
@@ -206,7 +222,7 @@ export interface TableauBordHistoriqueI {
   histoOpto: string;
   active: boolean;
 }
-export interface TableauBordMedecinI {
+export interface TableauBordTherapeuteI {
   medecinNutri: string;
   general: string;
   medecinOpto: string;
@@ -227,8 +243,21 @@ export interface TableauReussiteI {
 export interface OrganismeI {
   nomOrganisme: string;
 }
-
 export interface SanteI {
   img: string;
   nom: string;
+}
+export interface MaterielI{
+  id:string;
+  titre:string;
+  description?:string;
+  media?:MediaI;
+}
+export interface MediaI{
+  id:string;
+  titre:string;
+  url:string;
+  description?:string;
+  auteur?:string;
+  type:string;
 }

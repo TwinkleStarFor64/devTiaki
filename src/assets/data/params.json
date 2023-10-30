@@ -1,4 +1,5 @@
-[
+{
+  "profils":[
     {
         "nom":"Toto",
         "prenom":"Khalifa",
@@ -24,4 +25,36 @@
         "progressions":[],
         "nutrition":{}
     }
+],
+"therapeutes":[
+  {
+    "nom": "Docteur Ferreira",
+    "prenom":"Bouboule",
+    "specialites":["Généraliste"],
+    "type":"specialiste"
+  },
+  {
+    "nom": "Docteur Sebastian",
+    "prenom":"Abdul",
+    "specialites":["Généraliste"],
+    "type":"generaliste"
+  },
+  {
+    "nom": "Rusco",
+    "prenom":"Jennifer",
+    "specialites":["Optométriste"],
+    "type":"therapeute"
+  }
+],
+"organismes":[
+  {
+      "nomOrganisme":"MDPH64"
+  },
+  {
+      "nomOrganisme":"Le Méliange"
+  },
+  {
+      "nomOrganisme":"Hôpital de Bordeaux"
+  }
 ]
+}

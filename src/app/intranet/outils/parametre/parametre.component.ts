@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MedecinI, RealisationI,MessageJournalI  } from '../../partage/modeles/Types';
+import { TherapeuteI, RealisationI,MessageJournalI  } from '../../partage/modeles/Types';
 import { ParametreService } from './services/parametre.service';
+import { DonneesService } from '../../partage/services/donnees.service';
 
 @Component({
   selector: 'app-parametre',
@@ -13,17 +14,6 @@ export class ParametreComponent {
   public realisationImg!: string;
   public pacman!: string;
 
-  public medecins: MedecinI[] = [
-    {
-      nom: 'Docteur David Ferreira',
-    },
-    {
-      nom: 'Docteur Sebastian',
-    },
-    {
-      nom: 'Docteur Rusco',
-    },
-  ];
   public realisations: RealisationI[] = [
     {
       nom: 'Occlumotricité',
@@ -38,7 +28,7 @@ export class ParametreComponent {
       nom: "Ajout du plat 'Soupe de courgette'",
     },
   ];
-  constructor(public echanges: ParametreService) {}
+  constructor(public echanges: ParametreService, public get:DonneesService) {}
 
   ngOnInit() {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import {
   TableauEnCoursI,
   TableauBordHistoriqueI,
-  TableauBordMedecinI,
+  TableauBordTherapeuteI,
   TableauBordProblemeI,
   TableauReussiteI,
   BottomBarTableau,
@@ -16,7 +16,7 @@ export class TableauService {
   tableauReussite: TableauReussiteI[] = [];
   tableauEnCours: TableauEnCoursI[] = [];
   tableauBordHistorique: TableauBordHistoriqueI[] = [];
-  tableauBordMedecin: TableauBordMedecinI[] = [];
+  tableauBordMedecin: TableauBordTherapeuteI[] = [];
   tableauBordProbleme: TableauBordProblemeI[] = [];
   bottomBarTableau: BottomBarTableau[] = [];
   constructor(private http: HttpClient) {}
@@ -71,7 +71,7 @@ export class TableauService {
   // Recuperation json du tableau de bord des medecin
   getTableauBordMedecin() {
     this.http
-      .get<TableauBordMedecinI[]>('assets/data/tableauBordMedecin.json')
+      .get<TableauBordTherapeuteI[]>('assets/data/tableauBordMedecin.json')
       .subscribe({
         next: (r) => (this.tableauBordMedecin = r),
         error: (er) => console.log(er),

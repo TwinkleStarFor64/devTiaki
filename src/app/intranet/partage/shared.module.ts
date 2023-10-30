@@ -10,13 +10,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FormatDatePipe } from './pipes/filter.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     MenuComponent,
     PopExerciceComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    FormatDateToFrenchPipe
   ],
   exports:[
     MenuComponent,
@@ -30,7 +33,10 @@ import { FormatDatePipe } from './pipes/filter.pipe';
     CdkAccordionModule,
     MatProgressBarModule,
     MatDialogModule,
-    FormatDatePipe
+    MatInputModule,
+    MatFormFieldModule,
+    FormatDatePipe,
+    FormatDateToFrenchPipe
   ],
   imports: [
     CommonModule,

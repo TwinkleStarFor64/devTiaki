@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ExerciceI } from '../../partage/modeles/Types';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 @Pipe({
   name: 'filter'
@@ -31,5 +33,17 @@ export class FormatDatePipe implements PipeTransform {
     const newDate = new Date(year, month - 1, day);
 
     return newDate.toLocaleDateString('fr');
+  }
+}
+
+@Pipe({
+  name: 'formatDateToFrench'
+})
+export class FormatDateToFrenchPipe implements PipeTransform {
+  transform(date:number | Date): string {
+    if (!date) {
+      return ''; // Retourne tous les exercices si le filtre est vide
+    }
+    return format(date, 'dd/MM/yyyy', { locale: fr });
   }
 }

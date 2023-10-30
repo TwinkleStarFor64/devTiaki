@@ -1,4 +1,4 @@
-import { ProgrammeOptoPipe } from './programme-opto.pipe';
+import { ProgrammeOptoPipe } from './programme.pipe';
 
 describe('ProgrammeOptoPipe', () => {
   it('create an instance', () => {

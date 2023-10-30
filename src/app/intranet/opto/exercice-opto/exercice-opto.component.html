@@ -1,8 +1,4 @@
 <section id="exercices">
-  <header id="head">
-    <a routerLink="/intranet">Tiaki</a>
-    <p>Optométrie > Choisir un exercice</p>
-  </header>
   <!-- Article contenant le formulaire permettant de rechercher les exercices -->
   <article>
     <form class="example-form">
@@ -26,8 +22,8 @@
   <article></article>
   <section class="exercices">
     <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'">
-      </figure>
+      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo"></figure>
+      <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
       <nav class="opto">
         <i>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">

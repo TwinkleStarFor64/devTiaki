@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {createClient, PostgrestSingleResponse, SupabaseClient} from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { HistoriqueJournalI, HistoriqueMessageI } from '../modeles/Types';
+import { JournalI, MessageI } from '../modeles/Types';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class EditService {
       commentaire: string;
       date?: Date;
     },
-    relier: HistoriqueJournalI | null
+    relier: JournalI | null
   ) {
     newEntry.date = new Date(); //Le champ date aura la date actuelle
 
@@ -34,7 +34,7 @@ export class EditService {
       //Ci-dessous j'attribue comme valeur à la variable newJournalEvenenement la variable newEntry + l'id de la table groupeEvenement
       const newJournalEvenement = {
         ...newEntry, //Les trois points "..." sont l'opérateur de spread en JavaScript
-        groupeEvenement: relier['groupeEvenement']['id'], //Correspond à l'interface HistoriqueJournalI - groupeEvenement: {id: number}
+        groupeEvenement: relier['groupeEvenement']['id'], //Correspond à l'interface JournalI - groupeEvenement: {id: number}
       };
 
       this.insertJournal(newJournalEvenement); //J'appelle la méthode insertJournal pour enregistrer dans la table journalEvenement
@@ -170,7 +170,7 @@ export class EditService {
       // groupeMessage: number;
       date?: Date;
     },
-    link?: HistoriqueMessageI | null
+    link?: MessageI | null
   ) {
     newEntryMessage.date = new Date();
 

@@ -4,7 +4,7 @@ import { OptoRoutingModule } from './opto-routing.module';
 import { ExerciceOptoComponent } from './exercice-opto/exercice-opto.component';
 import { ProgrammeOptoComponent } from './programme-opto/programme-opto.component';
 import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
-import { ProgrammeOptoPipe } from '../partage/pipes/programme-opto.pipe';
+import { ProgrammeOptoPipe } from '../partage/pipes/programme.pipe';
 import { SharedModule } from '../partage/shared.module';
 import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 import { OptoComponent } from './opto.component';

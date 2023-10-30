@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI } from '../../partage/modeles/Types';
+import { TherapeuteI, RealisationI } from '../../partage/modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from '../../partage/services/edit.service';
@@ -12,20 +12,8 @@ import { DonneesService } from '../../partage/services/donnees.service';
 })
 export class MessagerieComponent implements OnInit {
   public medecinImg!: string;
-  public blackMedecinImg!: string;
+  public blackTherapeuteImg!: string;
   public realisationImg!: string;
-
-  public medecins: MedecinI[] = [
-    {
-      nom: 'Martin Genoise',
-    },
-    {
-      nom: 'Roger Lagourge',
-    },
-    {
-      nom: 'Michel Poiton',
-    },
-  ];
 
   public realisations: RealisationI[] = [
     {
@@ -48,7 +36,7 @@ export class MessagerieComponent implements OnInit {
   constructor(
     public echanges: MessagerieService,
     private formBuilder: FormBuilder,
-    private get:DonneesService,
+    public get:DonneesService,
     private edit:EditService
   ) {}
 
@@ -62,7 +50,7 @@ export class MessagerieComponent implements OnInit {
     });
     this.realisationImg = 'assets/imageOutils/whitePacman.svg';
     this.medecinImg = 'assets/imageOutils/medecin.svg';
-    this.blackMedecinImg = 'assets/imageOutils/blackMedecin.svg';
+    this.blackTherapeuteImg = 'assets/imageOutils/blackMedecin.svg';
     this.echanges.getNomOrga();
     this.fetchMessages();
   }
