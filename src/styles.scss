@@ -483,6 +483,9 @@ header > form{
 header > form > * {
   margin:10px;
 }
+header > form div.mat-mdc-form-field-infix {
+  min-width:300px;
+}
 //section exercice
 #module{
   width:calc(100vw - $breadcrumb);
@@ -640,6 +643,15 @@ header > form > * {
   display:flex;
   flex-flow:row nowrap;
   height:25%;
+}
+.programme > article p{
+  padding:10px 15px;
+}
+.programme > article > div > div > div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 25%;
 }
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;

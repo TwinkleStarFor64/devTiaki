@@ -14,24 +14,42 @@ export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
-  programme: ProgrammeI = {id:-1, titre:'', description:'', duree:'', materiel:'', exercices:[]};
-  exercice:ExerciceI = {id:-1, titre:'', description:'', duree:''};
+  programme: ProgrammeI = { id: -1, titre: '', description: '', duree: '', materiel: '', exercices: [] };
+  exercice: ExerciceI = { id: -1, titre: '', description: '', duree: '' };
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-  constructor(public opto: OptoService, public l:InfosService) {}
+  fFait: boolean = false;
+  fAllergies: boolean = false;
+
+  constructor(public opto: OptoService, public l: InfosService) { }
 
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {
-    if(this.opto.listeProgrammes.length == 0) this.opto.getProgrammes();
+    if (this.opto.listeProgrammes.length == 0) {
+      this.opto.getProgrammes().subscribe({
+        next: p => {
+          this.opto.listeProgrammes = p;
+          this.programme = p[0];
+        },
+        error: er => console.log(er),
+        complete: () => console.log("Programmes chargés")
+      })
+    } else { this.programme = this.opto.listeProgrammes[0]; }
   }
   /** Sélectionner un programme en particulier */
-  setProgramme(p:ProgrammeI){
+  setProgramme(p: ProgrammeI) {
     this.programme = p;
   }
 
+  /** Réinitialiser les filtres */
+  initFiltres() {
+    this.programme = { id: -1, titre: '', description: '', duree: '', materiel: '', exercices: [] };
+    this.fAllergies = false;
+    this.fFait = false;
+  }
   //  méthode permettant de filtrer les programmes lorsqu'on utilise l'input
   filtrerProgrammes(): void {
     const controlValue = this.control.value;

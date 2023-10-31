@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "photo": "assets/images/exos/opto/exerciceOpto1.png",
+    "photo": "assets/images/programmes/opto/programme-opto1.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto1.png",
+      "url":"assets/images/programmes/opto/programme-opto1.jpg",
       "description":"",
       "type":"image"
     },
@@ -15,10 +15,10 @@
   },
   {
     "id": 2,
-    "photo": "assets/images/exos/opto/exerciceOpto2.png",
+    "photo": "assets/images/programmes/opto/programme-opto2.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto2.png",
+      "url":"assets/images/programmes/opto/programme-opto2.jpg",
       "description":"",
       "type":"image"
     },
@@ -29,10 +29,10 @@
   },
   {
     "id": 3,
-    "photo": "assets/images/exos/opto/exerciceOpto3.png",
+    "photo": "assets/images/programmes/opto/programme-opto3.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto3.png",
+      "url":"assets/images/programmes/opto/programme-opto3.jpg",
       "description":"",
       "type":"image"
     },
@@ -43,10 +43,10 @@
   },
   {
     "id": 4,
-    "photo": "assets/images/exos/opto/exerciceOpto4.png",
+    "photo": "assets/images/programmes/opto/programme-opto2.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto4.png",
+      "url":"assets/images/programmes/opto/programme-opto2.jpg",
       "description":"",
       "type":"image"
     },
@@ -57,10 +57,10 @@
   },
   {
     "id": 5,
-    "photo": "assets/images/exos/opto/exerciceOpto5.png",
+    "photo": "assets/images/programmes/opto/programme-opto1.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto5.png",
+      "url":"assets/images/programmes/opto/programme-opto1.jpg",
       "description":"",
       "type":"image"
     },
@@ -71,10 +71,10 @@
   },
   {
     "id": 6,
-    "photo": "assets/images/exos/opto/exerciceOpto1.png",
+    "photo": "assets/images/programmes/opto/programme-opto2.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto1.png",
+      "url":"assets/images/programmes/opto/programme-opto2.jpg",
       "description":"",
       "type":"image"
     },
@@ -85,10 +85,10 @@
   },
   {
     "id": 7,
-    "photo": "assets/images/exos/opto/exerciceOpto2.png",
+    "photo": "assets/images/programmes/opto/programme-opto3.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto2.png",
+      "url":"assets/images/programmes/opto/programme-opto3.jpg",
       "description":"",
       "type":"image"
     },
@@ -99,10 +99,10 @@
   },
   {
     "id": 8,
-    "photo": "assets/images/exos/opto/exerciceOpto3.png",
+    "photo": "assets/images/programmes/opto/programme-opto3.jpg",
     "media": {
       "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/opto/exerciceOpto3.png",
+      "url":"assets/images/programmes/opto/programme-opto3.jpg",
       "description":"",
       "type":"image"
     },

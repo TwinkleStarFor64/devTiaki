@@ -13,7 +13,7 @@ export class OptoService {
   constructor(public get:DonneesService) {}
 
   getProgrammes(){
-    this.get.getJsonData('opto-programmes').subscribe(p => this.listeProgrammes = p);
+    return this.get.getJsonData('opto-programmes');
   }
   getExercices()  {
     this.get.getJsonData('opto-exos').subscribe(e => this.listeExos = e);

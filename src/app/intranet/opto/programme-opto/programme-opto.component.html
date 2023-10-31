@@ -5,17 +5,22 @@
     <form>
       <mat-form-field>
         <mat-label>{{ l.t.pages['PROGRAMMES'] }}</mat-label>
-        <mat-select name="programmes" [(ngModel)]="programme" (change)="setProgramme(ctlListe.value)" #ctlListe="ngModel">
-          <mat-option *ngFor="let p of opto.listeProgrammes" [value]="p">
-            {{ p.titre }}
-          </mat-option>
+        <mat-select name="programmes" [(ngModel)]="programme" (change)="setProgramme(ctlListe.value)"
+          #ctlListe="ngModel">
+          <mat-form-field>
+            <mat-label> {{ l.t.pages['FILTRER']+ '...' }}</mat-label>
+            <input matInput #filterPlc>
+          </mat-form-field>
+          <div *ngFor="let p of opto.listeProgrammes">
+            <mat-option [value]="p" *ngIf="p.titre.toLowerCase().indexOf(filterPlc.value.toLowerCase()) !== -1">
+              {{ p.titre }}
+            </mat-option>
+          </div>
         </mat-select>
       </mat-form-field>
-      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
-      <label for="jamaisFait">Tenir comptes de mes observations </label>
-      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
-      <label for="jamaisFait">Jamais faites </label>
-      <button><img src="assets/images/pictos/loupe.png" alt=""></button>
+      <mat-checkbox name="allergies" [(ngModel)]="fAllergies"> <span>{{ l.t.pages['ALLERGIES-FILTRE'] }}</span></mat-checkbox>
+      <mat-checkbox type="checkbox" name="faits" [(ngModel)]="fFait"><span>{{ l.t.pages['PAS-FAITS'] }}</span></mat-checkbox>
+      <button (click)="initFiltres()" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
     </form>
   </header>
   <!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
@@ -26,18 +31,18 @@
       </figure>
       <div>
         <p>{{ programme.description }}</p>
-      <div>
         <div>
-          <img src="assets/images/pictos/horloge.svg" alt="horloge" />
-          <p>{{ programme.duree }}</p>
+          <div>
+            <img src="assets/images/pictos/horloge.svg" alt="horloge" />
+            <p>{{ programme.duree }}</p>
+          </div>
+          <div>
+            <img src="assets/images/pictos/materiel.svg" alt="materiel" />
+            <p>{{ programme.materiel }}</p>
+          </div>
         </div>
-        <div>
-          <img src="assets/images/pictos/materiel.svg" alt="materiel" />
-          <p>{{ programme.materiel }}</p>
-        </div>
-      </div>
-      <app-carousel-opto [items]="programme.exercices" (onSelect)="onSelectExercice($event)"
-        (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+        <app-carousel-opto [items]="programme.exercices" (onSelect)="onSelectExercice($event)"
+          (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
       </div>
     </article>
     <article>
