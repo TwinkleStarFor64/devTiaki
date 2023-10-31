@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AccueilI, ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 
 @Injectable({
@@ -11,7 +10,7 @@ export class KineService {
   listeProgrammes:Array<ProgrammeI> = [];
   listeExos:Array<ExerciceI> = [];
 
-  constructor(private http: HttpClient, public get:DonneesService) {}
+  constructor(public get:DonneesService) {}
 
   getProgrammes(){
     this.get.getJsonData('kine-programmes').subscribe(p => this.listeProgrammes = p);

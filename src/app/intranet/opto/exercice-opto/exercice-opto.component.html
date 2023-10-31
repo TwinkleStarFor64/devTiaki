@@ -1,26 +1,27 @@
 <section id="module">
   <header>
     <form>
-      <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
-        [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let exercice of listeExosFiltres" [value]="exercice"
-          (mouseover)="hoverSelectedExercice(exercice)">
-          {{ exercice.titre }}
-        </mat-option>
-      </mat-autocomplete>
-      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait">
-      <span>Tenir compte de mes allergies</span>
-      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait">
-      <span>Jamais faites</span>
-      <button type="submit"><img class="searchMobile" src="assets/images/pictos/loupe.png"></button>
+      <mat-form-field>
+        <mat-label> {{ l.t.pages['LISTE-CONTENUS'] }}</mat-label>
+        <mat-select [(ngModel)]="fChoix" name="liste" #ctlListe="ngModel" [placeholder]="l.t.pages['CHOIX-CONTENUS']" multiple>
+          <mat-form-field>
+            <mat-label> {{ l.t.pages['FILTRER']+ '...' }}</mat-label>
+            <input matInput #filterplc>
+          </mat-form-field>
+          <div *ngFor="let exo of opto.listeExos">
+            <mat-option [value]="exo.titre.toLowerCase()" *ngIf="exo.titre.toLowerCase().indexOf(filterplc.value.toLowerCase()) !== -1">{{ exo.titre
+              }}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox name="allergies" [(ngModel)]="fAllergies"> <span>{{ l.t.pages['ALLERGIES-FILTRE'] }}</span></mat-checkbox>
+      <mat-checkbox type="checkbox" name="faits" [(ngModel)]="fFait"><span>{{ l.t.pages['PAS-FAITS'] }}</span></mat-checkbox>
+      <button (click)="initFiltres()" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
     </form>
   </header>
   <section>
-    <article *ngFor="let exercice of listeExosFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + exercice.media.url + ')'" *ngIf="exercice.media">
-      </figure>
-      <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
+    <article *ngFor="let exercice of opto.listeExos | exercices:fChoix:fFait:fAllergies" class="exercice">
+      <figure [style.background-image]="'url(' + exercice.media.url + ')'" *ngIf="exercice.media"></figure>
       <nav class="opto">
         <i>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">
@@ -54,4 +55,3 @@
   </section>
   <app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 </section>
-<app-exercice-otpo *ngIf="exoSelect"></app-exercice-otpo>

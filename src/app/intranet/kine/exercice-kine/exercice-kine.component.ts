@@ -29,6 +29,7 @@ export class ExerciceKineComponent implements OnInit {
     // Récupérer la liste des exercices
     if(this.kine.listeExos.length == 0) this.kine.getExercices();
   }
+  /** Réinitialiser les filtres */
   initFiltres(){
     this.fChoix = [];
     this.fAllergies = false;

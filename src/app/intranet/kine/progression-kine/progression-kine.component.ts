@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
 import { KineService } from '../services/kine.service';
+import { InfosService } from 'src/app/partage/services/infos.service';
 
 @Component({
   selector: 'app-progression-kine',
@@ -14,7 +15,7 @@ export class ProgressionKineComponent implements OnInit {
 
   exoSelect!:ExerciceI; // Exercice sélectionné
 
-  constructor(public kine:KineService) {}
+  constructor(public kine:KineService, public l:InfosService) {}
 
   ngOnInit(): void {
     // Récupérer la liste des exercices

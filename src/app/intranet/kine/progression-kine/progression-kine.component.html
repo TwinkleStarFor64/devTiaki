@@ -1,6 +1,6 @@
 <section id="module" class="progression">
   <section>
-    <article *ngFor="let exercice of listeExosFiltres" class="exercice" (click)="exoSelect = exercice">
+    <article *ngFor="let exercice of kine.listeExos" class="exercice" (click)="exoSelect = exercice">
       <figure [style.background-image]="'url(' + exercice.media.url + ')'" *ngIf="exercice.media"></figure>
       <nav class="kine">
         <i>
