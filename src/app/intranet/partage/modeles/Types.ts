@@ -119,9 +119,9 @@ export interface MessageJournalI {
 // Interface pour les cards de l'accueil
 export interface AccueilI {
   id:number;
-  title:string;
-  text:string;
-  button:string;
+  titre:string;
+  description:string;
+  bouton:string;
   image:string;
   url:string;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
-import { SanityService } from 'src/app/partage/services/sanity.service';
+import { KineService } from '../services/kine.service';
 
 @Component({
   selector: 'app-progression-kine',
@@ -10,17 +10,14 @@ import { SanityService } from 'src/app/partage/services/sanity.service';
 export class ProgressionKineComponent implements OnInit {
   avatar!: string;
   exercicesKine!: ExerciceI[];
-  exercicesFiltres: ExerciceI[] = [];
+  listeExosFiltres: ExerciceI[] = [];
 
   exoSelect!:ExerciceI; // Exercice sélectionné
 
-  constructor(public sanity:SanityService) {}
+  constructor(public kine:KineService) {}
 
   ngOnInit(): void {
-    this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
-    this.sanity.getExercices().then((data) => {
-      this.exercicesKine = data;
-      this.exercicesFiltres = [...this.exercicesKine]; // Afficher tous les exercices
-    });
+    // Récupérer la liste des exercices
+    if(this.kine.listeExos.length == 0) this.kine.getExercices();
   }
 }

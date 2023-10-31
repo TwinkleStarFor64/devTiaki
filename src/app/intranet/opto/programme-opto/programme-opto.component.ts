@@ -14,7 +14,6 @@ export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
-  listeProgrammes:Array<ProgrammeI> = [];
   programme: ProgrammeI = {id:-1, titre:'', description:'', duree:'', materiel:'', exercices:[]};
   exercice:ExerciceI = {id:-1, titre:'', description:'', duree:''};
   programmesFiltres: ProgrammeI[] = [];
@@ -26,14 +25,7 @@ export class ProgrammeOptoComponent implements OnInit {
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {
-    if(this.listeProgrammes.length == 0) this.opto.getProgrammes().subscribe({
-      next: p => {
-        this.listeProgrammes = p;
-        this.programme = this.listeProgrammes[0];
-      },
-      error: er => console.log(er),
-      complete: () => console.log("Programmes chargés")
-    });
+    if(this.opto.listeProgrammes.length == 0) this.opto.getProgrammes();
   }
   /** Sélectionner un programme en particulier */
   setProgramme(p:ProgrammeI){
@@ -47,7 +39,7 @@ export class ProgrammeOptoComponent implements OnInit {
       typeof controlValue === 'string' ? controlValue.trim().toLowerCase() : '';
 
     if (filtre) {
-      this.programmesFiltres = this.listeProgrammes.filter(
+      this.programmesFiltres = this.opto.listeProgrammes.filter(
         (programme: ProgrammeI) =>
           programme.titre.toLowerCase().includes(filtre)
       );
@@ -57,7 +49,7 @@ export class ProgrammeOptoComponent implements OnInit {
   }
   // Méthode permettant lors du click de l'input de voir tout les programmes
   allProgrammes() {
-    this.programmesFiltres = [...this.listeProgrammes];
+    this.programmesFiltres = [...this.opto.listeProgrammes];
   }
 
   // méthode permettant la récupération des données json via l'interface ProgrammeOptoI

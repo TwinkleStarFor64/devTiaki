@@ -13,13 +13,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
+import { ExercicesPipe } from './pipes/programme.pipe';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
     MenuComponent,
     PopExerciceComponent,
     FormatDatePipe,
-    FormatDateToFrenchPipe
+    FormatDateToFrenchPipe,
+    ExercicesPipe
   ],
   exports:[
     MenuComponent,
@@ -35,8 +38,10 @@ import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
     MatDialogModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCheckboxModule,
     FormatDatePipe,
-    FormatDateToFrenchPipe
+    FormatDateToFrenchPipe,
+    ExercicesPipe
   ],
   imports: [
     CommonModule,
@@ -48,7 +53,8 @@ import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
     MatIconModule,
     CdkAccordionModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ]
 })
 export class SharedModule { }

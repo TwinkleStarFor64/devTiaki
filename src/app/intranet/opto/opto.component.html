@@ -3,18 +3,15 @@
   <h2>Optométrie</h2>
 </header>
 <section class="accueil">
-  <article *ngFor="let card of accueilOpto" class="cartel">
+  <article *ngFor="let card of get.accueilModule" class="cartel">
     <div>
-      <h2>{{ card.title }}</h2>
-      <p>{{ card.text }}</p>
+      <h2>{{ card.titre }}</h2>
+      <p>{{ card.description }}</p>
       <!-- <a> -->
-        <button [routerLink]="[card.url]">{{ card.button }}</button>
+        <button [routerLink]="[card.url]">{{ card.bouton }}</button>
       <!-- </a> -->
     </div>
-    <figure>
-      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
-      </div>
-    </figure>
+    <figure [style.background-image]="'url(' + card.image + ')'"></figure>
   </article>
 </section>
 <!-- <app-bottom-bar-opto></app-bottom-bar-opto> -->

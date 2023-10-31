@@ -29,7 +29,10 @@
     "PROGRAMME":"Proramme",
     "VALIDER":"Valider",
     "ANNULER":"Annuler",
-    "FILTRER":"Filtrer"
+    "FILTRER":"Filtrer",
+    "FILTRE-APPLIQUER":"Appliquer des filtres",
+    "LISTE-CONTENUS":"Liste des contenus",
+    "CHOIX-CONTENUS":"Choisissez ce que vous voulez afficher"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",

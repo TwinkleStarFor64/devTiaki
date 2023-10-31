@@ -1,0 +1,26 @@
+[
+  {
+      "id": 2,
+      "titre": "Programmes",
+      "description": "Suivez les programmes prescrit par votre optométriste.",
+      "bouton": "Accéder à la page contenant les programmes",
+      "image":"assets/images/modules/opto/opto1.jpg",
+      "url": "/intranet/opto/programmes"
+  },
+  {
+      "description": "Suivez la progression des vos exercices et les médailles que vous avez gagnées.",
+      "bouton": "Accéder à la page de progression",
+      "image":"assets/images/modules/opto/opto2.jpg",
+      "url": "/intranet/opto/progressions",
+      "id": 1,
+      "titre": "Progression"
+  },
+  {
+      "image":"assets/images/modules/opto/opto3.jpg",
+      "url": "/intranet/opto/exercices",
+      "id": 3,
+      "titre": "Exercices",
+      "description": "Réaliser les exercices en recherche libre ou recommander par vôtre optométriste.",
+      "bouton": "Accéder à la page d'exercices"
+  }
+]

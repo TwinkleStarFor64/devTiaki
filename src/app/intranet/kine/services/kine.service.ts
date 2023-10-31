@@ -1,28 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AccueilI, ExerciceI } from '../../partage/modeles/Types';
+import { AccueilI, ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { DonneesService } from '../../partage/services/donnees.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class KineService {
 
+  listeProgrammes:Array<ProgrammeI> = [];
   listeExos:Array<ExerciceI> = [];
-  accueil:Array<AccueilI> = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public get:DonneesService) {}
 
-  getExercicesKine()  {
-    console.log("Chargement des exercices");
-    return this.http.get<ExerciceI[]>('assets/data/kine-exos.json');
-  };
-  getAccueil(){
-    this.http.get<Array<AccueilI>>('assets/data/kine-accueil.json').subscribe(
-      {
-        next:r => this.accueil = r,
-        error:er => console.log(er),
-        complete: () => console.log(this.accueil)
-      }
-    );
+  getProgrammes(){
+    this.get.getJsonData('kine-programmes').subscribe(p => this.listeProgrammes = p);
   }
+  getExercices()  {
+    this.get.getJsonData('kine-exos').subscribe(e => this.listeExos = e);
+  };
+
 }

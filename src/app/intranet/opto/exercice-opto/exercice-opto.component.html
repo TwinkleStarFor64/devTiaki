@@ -4,7 +4,7 @@
       <input id="input-programmes" class="example-input" type="search" name="myEx" placeholder="Recherche libre"
         [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerExercices()" [value]="selectedImageTitle" />
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let exercice of exercicesFiltres" [value]="exercice"
+        <mat-option *ngFor="let exercice of listeExosFiltres" [value]="exercice"
           (mouseover)="hoverSelectedExercice(exercice)">
           {{ exercice.titre }}
         </mat-option>
@@ -17,8 +17,8 @@
     </form>
   </header>
   <section>
-    <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo">
+    <article *ngFor="let exercice of listeExosFiltres" class="exercice" (click)="exoSelect = exercice">
+      <figure [style.background-image]="'url(' + exercice.media.url + ')'" *ngIf="exercice.media">
       </figure>
       <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
       <nav class="opto">

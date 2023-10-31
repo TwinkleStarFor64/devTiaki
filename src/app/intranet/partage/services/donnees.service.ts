@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BottomI, JournalI, TherapeuteI } from '../modeles/Types';
+import { AccueilI, BottomI, JournalI, TherapeuteI } from '../modeles/Types';
 import { createClient, PostgrestSingleResponse, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -15,8 +15,10 @@ export class DonneesService {
   sousMenu$: BehaviorSubject<Array<BottomI>> = new BehaviorSubject([] as Array<BottomI>);
   sousMenu: Array<BottomI> = [];
 
+  accueilModule: Array<AccueilI> = [];
+
   // Données stockées de l'application
-  therapeutes:Array<TherapeuteI> = [];
+  therapeutes: Array<TherapeuteI> = [];
 
   ciqual: any; // Base de données Ciqual
   private supabase: SupabaseClient; // Instance du client Supabase
@@ -25,6 +27,18 @@ export class DonneesService {
   constructor(private http: HttpClient) {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
     this.getSousMenus(); // Récupérer la liste des menus
+  }
+  /** Récupérer les données de l'accueil */
+  getAccueil(fichier: string) {
+    this.http.get<Array<AccueilI>>('assets/data/' + fichier + '-accueil.json').subscribe(
+      {
+        next: r => {
+          this.accueilModule = r.sort((a, b) => a.id - b.id);
+        },
+        error: er => console.log(er),
+        complete: () => console.log(this.accueilModule)
+      }
+    );
   }
   /** Récupérerles menus en JSON */
   getSousMenus(id: string = 'opto') {
@@ -154,12 +168,21 @@ export class DonneesService {
       );
   }
   /** Récupérer la liste des thérapeutes */
-  getTherapeutes(){
+  getTherapeutes() {
     this.http.get<Array<TherapeuteI>>('assets/data/therapeutes.json').subscribe({
-      next:(t) => this.therapeutes = t,
+      next: (t) => this.therapeutes = t,
       error: er => console.log(er),
-      complete : () => console.log("Thérapeutes chargés")
+      complete: () => console.log("Thérapeutes chargés")
     });
   }
-
+  /** Récupérer un fichier json */
+  getJsonData(fichier: string):Observable<any> {
+    console.log("Chargement des exercices");
+    if (fichier.indexOf('..') === -1) {
+      return this.http.get('assets/data/' + fichier + '.json')
+    }
+    else {
+      return new Observable();
+    }
+  };
 }

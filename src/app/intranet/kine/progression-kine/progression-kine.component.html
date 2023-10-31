@@ -1,8 +1,7 @@
 <section id="module" class="progression">
   <section>
-    <article *ngFor="let exercice of exercicesFiltres" class="exercice" (click)="exoSelect = exercice">
-      <figure [style.background-image]="'url(' + sanity.urlFor(exercice.photo).url() + ')'" *ngIf="exercice.photo"></figure>
-      <!-- <figure [style.background-image]="'url(' + sanity.urlFor(exercice.media!.url).url() + ')'" *ngIf="exercice.media"></figure> -->
+    <article *ngFor="let exercice of listeExosFiltres" class="exercice" (click)="exoSelect = exercice">
+      <figure [style.background-image]="'url(' + exercice.media.url + ')'" *ngIf="exercice.media"></figure>
       <nav class="kine">
         <i>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icone">

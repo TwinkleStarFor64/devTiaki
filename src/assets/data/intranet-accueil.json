@@ -1,0 +1,26 @@
+[
+  {
+      "id": 0,
+      "titre": "Nutrition",
+      "description": "Suivez les consommations caloriques, élaborez des menus, surveillez les allergies.",
+      "bouton": "Accéder à l'espace Nutrition",
+      "image":"assets/images/modules/intranet/intra2.jpg",
+      "url": "/intranet/nutrition"
+  },
+  {
+      "description": "Des exercices conseillés, des tutoriels et un suivi quotidien.",
+      "bouton": "Accéder à l'espace Optométrie",
+      "image":"assets/images/modules/intranet/intra1.jpg",
+      "url": "/intranet/opto",
+      "id": 1,
+      "titre": "Optométrie"
+  },
+  {
+      "image":"assets/images/modules/intranet/intra3.jpg",
+      "url": "/intranet/kine",
+      "id": 2,
+      "titre": "Kinésithérapie",
+      "description": "Motricité, musculature, souplesse, découvrez et suivez des exercices quotidiens.",
+      "bouton": "Accéder à l'espace Kinésithérapie"
+  }
+]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../partage/modeles/Types';
+import { DonneesService } from '../partage/services/donnees.service';
 
 @Component({
   selector: 'app-opto',
@@ -10,10 +11,9 @@ import { AccueilI } from '../partage/modeles/Types';
 export class OptoComponent implements OnInit {
 
   accueilOpto!: AccueilI[];
-  constructor(public sanity: SanityService) { }
+  constructor(public get:DonneesService) { }
   ngOnInit(): void {
-    this.sanity.getAccueilOpto().then((data) => {
-      this.accueilOpto = data.sort((a, b) => a.id - b.id);
-    });
+    this.get.getAccueil('opto');
   }
+
 }

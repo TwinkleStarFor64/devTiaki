@@ -6,6 +6,7 @@ $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
 $aside-color3: #F0C02E;
+$vert:rgb(23, 173, 43);
 
 $clair: white;
 $sombre: black;
@@ -81,7 +82,7 @@ figure{
   display:flex;
 }
 button{
-  padding:25px 20px;
+  padding:15px 20px;
   border:none;
   transition:all .3s ease;
   cursor: pointer;
@@ -190,6 +191,14 @@ button:hover{
 .bg-admin{
   color:$clair;
   background-color: $aside-color1;
+}
+.bg-valide{
+  color:$clair;
+  background-color: $vert;
+}
+.bg-annule{
+  color:$clair;
+  background-color: $aside-color3;
 }
 .nutrition{
   color: $card-nutri;
@@ -471,6 +480,9 @@ header > form{
   align-items: center;
   margin:0 auto;
 }
+header > form > * {
+  margin:10px;
+}
 //section exercice
 #module{
   width:calc(100vw - $breadcrumb);
@@ -484,8 +496,11 @@ header > form{
 #module > section {
   height:calc(100% - $breadcrumb - $foot);
   flex-flow: row wrap;
-  // justify-content: space-around;
+  justify-content: space-evenly;
   overflow-y:auto;
+  overflow-x:hidden;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 #module.progression > section {
   height:calc(100% - $foot);
@@ -497,8 +512,11 @@ header > form{
 #module > section > article {
   flex-flow: column nowrap;
   flex:1;
+  // flex-basis:1;
+  // max-width:17%;
+  // gap:3vw;
   background: $clair;
-  margin:20px;
+  margin:10px;
   justify-content: space-between;
   cursor: pointer;
   position:relative;
@@ -536,7 +554,7 @@ header > form{
 }
 #module > section > article > figure {
   width: 100%;
-  height:135px;
+  height:175px;
   margin:0;
   position:relative;
   align-items: flex-end;

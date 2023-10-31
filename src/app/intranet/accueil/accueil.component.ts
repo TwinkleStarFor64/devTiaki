@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../partage/modeles/Types';
+import { DonneesService } from '../partage/services/donnees.service';
 
 @Component({
   selector: 'app-accueil',
@@ -11,11 +11,9 @@ export class AccueilComponent implements OnInit {
 
   imageAccueil!: AccueilI[];
 
-  constructor( public sanity: SanityService) {}
+  constructor(public get: DonneesService) { }
 
- ngOnInit(): void {
-  this.sanity.getAccueil().then((data) => {
-    this.imageAccueil = data.sort((a, b) => a.id - b.id);
-    });
+  ngOnInit(): void {
+    this.get.getAccueil('intranet');
   }
 }

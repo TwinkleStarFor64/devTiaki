@@ -6,7 +6,7 @@
       <mat-form-field>
         <mat-label>{{ l.t.pages['PROGRAMMES'] }}</mat-label>
         <mat-select name="programmes" [(ngModel)]="programme" (change)="setProgramme(ctlListe.value)" #ctlListe="ngModel">
-          <mat-option *ngFor="let p of listeProgrammes" [value]="p">
+          <mat-option *ngFor="let p of opto.listeProgrammes" [value]="p">
             {{ p.titre }}
           </mat-option>
         </mat-select>

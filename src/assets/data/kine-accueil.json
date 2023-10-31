@@ -3,24 +3,24 @@
       "id": 2,
       "titre": "Programmes",
       "description": " Suivez les programmes prescrit par vôtre kinésithérapeute.",
-      "button": "Accéder à la page contenant les programmes",
-      "image":"assets/images/modules/kine/kine1.svg",
-      "url": "programmes"
+      "bouton": "Accéder à la page contenant les programmes",
+      "image":"assets/images/modules/kine/kine1.jpg",
+      "url": "/intranet/kine/programmes"
   },
   {
       "description": "Suivez la progression des vos exercices et les médailles que vous avez gagnez.",
-      "button": "Accéder à la page de progression",
-      "image":"assets/images/modules/kine/kine2.svg",
-      "url": "progressions",
+      "bouton": "Accéder à la page de progression",
+      "image":"assets/images/modules/kine/kine2.jpg",
+      "url": "/intranet/kine/progressions",
       "id": 1,
       "titre": "Progression"
   },
   {
-      "image":"assets/images/modules/kine/kine3.svg",
-      "url": "exercices",
+      "image":"assets/images/modules/kine/kine3.jpg",
+      "url": "/intranet/kine/exercices",
       "id": 3,
       "titre": "Exercices",
       "description": "Réaliser les exercices en recherche libre ou recommander par vôtre kinésithérapeute.",
-      "button": "Accéder à la page d'exercices"
+      "bouton": "Accéder à la page d'exercices"
   }
 ]

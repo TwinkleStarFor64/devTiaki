@@ -18,7 +18,7 @@ import { ArianeComponent } from './template/ariane/ariane.component';
     TableauComponent,
     ButtonComponent,
     CustomAccordionComponent,
-    ArianeComponent,
+    ArianeComponent
   ],
   imports: [
     CommonModule,
