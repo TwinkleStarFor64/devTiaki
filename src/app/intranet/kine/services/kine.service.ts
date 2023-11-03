@@ -13,7 +13,7 @@ export class KineService {
   constructor(public get:DonneesService) {}
 
   getProgrammes(){
-    this.get.getJsonData('kine-programmes').subscribe(p => this.listeProgrammes = p);
+    return this.get.getJsonData('kine-programmes');
   }
   getExercices()  {
     this.get.getJsonData('kine-exos').subscribe(e => this.listeExos = e);

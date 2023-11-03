@@ -32,7 +32,11 @@
     "FILTRER":"Filtrer",
     "FILTRE-APPLIQUER":"Appliquer des filtres",
     "LISTE-CONTENUS":"Liste des contenus",
-    "CHOIX-CONTENUS":"Choisissez ce que vous voulez afficher"
+    "CHOIX-CONTENUS":"Choisissez ce que vous voulez afficher",
+    "COMMENTAIRE":"Commentaire",
+    "COMMENTAIRES":"Commentaires",
+    "COMMENTAIRES-TITRE":"Notes et commentaires",
+    "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",

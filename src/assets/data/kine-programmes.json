@@ -3,120 +3,1110 @@
     "id": 0,
     "photo": "assets/images/exos/kine/ours.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/ours.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/ours.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Ours",
     "description": "Exercice de renforcement musculaire pour améliorer la stabilité et la coordination du corps, ainsi que pour renforcer les muscles profonds de la ceinture scapulaire, de la ceinture pelvienne et des abdominaux.Positionnement à quatre pattes sur le sol en maintenant le dos plat, puis avance en alternant le mouvement de chaque bras et chaque jambe.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "8mn",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": []
   },
   {
     "id": 1,
     "photo": "assets/images/exos/kine/planche.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/planche.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/planche.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Planche",
     "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": []
   },
   {
     "id": 2,
     "photo": "assets/images/exos/kine/grenouille.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/grenouille.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/grenouille.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Grenouille",
     "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": []
   },
   {
     "id": 3,
     "photo": "assets/images/exos/kine/4pattes.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/4pattes.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/4pattes.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "4 pattes",
     "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": [
+      {
+        "id": 1,
+        "photo": "assets/images/exos/kine/planche.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/planche.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Planche",
+        "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 2,
+        "photo": "assets/images/exos/kine/grenouille.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/grenouille.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Grenouille",
+        "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ],
+        "exercices": [
+          {
+            "id": 1,
+            "photo": "assets/images/exos/kine/planche.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/planche.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Planche",
+            "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 2,
+            "photo": "assets/images/exos/kine/grenouille.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/grenouille.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Grenouille",
+            "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 3,
+            "photo": "assets/images/exos/kine/4pattes.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/4pattes.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "4 pattes",
+            "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 4,
+            "photo": "assets/images/exos/kine/escalier.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/escalier.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Escalier",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 5,
+            "photo": "assets/images/exos/kine/retournement.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/retournement.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Retournement",
+            "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 6,
+            "photo": "assets/images/exos/kine/rampe.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/rampe.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Ramper",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 7,
+            "photo": "assets/images/exos/kine/appuis.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/appuis.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Appuis",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "photo": "assets/images/exos/kine/4pattes.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/4pattes.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "4 pattes",
+        "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 4,
+        "photo": "assets/images/exos/kine/escalier.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/escalier.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Escalier",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 5,
+        "photo": "assets/images/exos/kine/retournement.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/retournement.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Retournement",
+        "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 6,
+        "photo": "assets/images/exos/kine/rampe.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/rampe.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ramper",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 7,
+        "photo": "assets/images/exos/kine/appuis.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/appuis.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Appuis",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "Balle",
+          "Boule",
+          "Tapis de sol"
+        ]
+      }
+    ]
   },
   {
     "id": 4,
     "photo": "assets/images/exos/kine/escalier.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/escalier.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/escalier.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Escalier",
     "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": [
+      {
+        "id": 1,
+        "photo": "assets/images/exos/kine/planche.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/planche.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Planche",
+        "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 2,
+        "photo": "assets/images/exos/kine/grenouille.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/grenouille.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Grenouille",
+        "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 3,
+        "photo": "assets/images/exos/kine/4pattes.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/4pattes.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "4 pattes",
+        "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 4,
+        "photo": "assets/images/exos/kine/escalier.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/escalier.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Escalier",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 5,
+        "photo": "assets/images/exos/kine/retournement.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/retournement.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Retournement",
+        "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 6,
+        "photo": "assets/images/exos/kine/rampe.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/rampe.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ramper",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 7,
+        "photo": "assets/images/exos/kine/appuis.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/appuis.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Appuis",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      }
+    ]
   },
   {
     "id": 5,
     "photo": "assets/images/exos/kine/retournement.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/retournement.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/retournement.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Retournement",
     "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": [
+      {
+        "id": 1,
+        "photo": "assets/images/exos/kine/planche.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/planche.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Planche",
+        "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 2,
+        "photo": "assets/images/exos/kine/grenouille.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/grenouille.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Grenouille",
+        "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 3,
+        "photo": "assets/images/exos/kine/4pattes.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/4pattes.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "4 pattes",
+        "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 4,
+        "photo": "assets/images/exos/kine/escalier.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/escalier.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Escalier",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 5,
+        "photo": "assets/images/exos/kine/retournement.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/retournement.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Retournement",
+        "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 6,
+        "photo": "assets/images/exos/kine/rampe.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/rampe.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ramper",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 7,
+        "photo": "assets/images/exos/kine/appuis.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/appuis.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Appuis",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      }
+    ]
   },
   {
     "id": 6,
     "photo": "assets/images/exos/kine/rampe.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/rampe.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/rampe.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Ramper",
     "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": [
+      {
+        "id": 1,
+        "photo": "assets/images/exos/kine/planche.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/planche.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Planche",
+        "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 2,
+        "photo": "assets/images/exos/kine/grenouille.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/grenouille.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Grenouille",
+        "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 3,
+        "photo": "assets/images/exos/kine/4pattes.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/4pattes.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "4 pattes",
+        "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 4,
+        "photo": "assets/images/exos/kine/escalier.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/escalier.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Escalier",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 5,
+        "photo": "assets/images/exos/kine/retournement.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/retournement.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Retournement",
+        "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 6,
+        "photo": "assets/images/exos/kine/rampe.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/rampe.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ramper",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 7,
+        "photo": "assets/images/exos/kine/appuis.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/appuis.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Appuis",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      }
+    ]
   },
   {
     "id": 7,
     "photo": "assets/images/exos/kine/appuis.svg",
     "media": {
-      "titre":"Pointer le bout de son nez",
-      "url":"assets/images/exos/kine/appuis.svg",
-      "description":"",
-      "type":"image"
+      "titre": "Pointer le bout de son nez",
+      "url": "assets/images/exos/kine/appuis.svg",
+      "description": "",
+      "type": "image"
     },
     "titre": "Appuis",
     "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement assis sur le sol et bras tendu, pivotemment du tronc de droite à gauche afin de travailler la coordination. ",
     "horloge": "assets/images/pictos/horloge.svg",
     "duree": "Durée",
-    "materiels":["boule"]
+    "materiels": [
+      "boule"
+    ],
+    "exercices": [
+      {
+        "id": 0,
+        "photo": "assets/images/exos/kine/ours.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/ours.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ours",
+        "description": "Exercice de renforcement musculaire pour améliorer la stabilité et la coordination du corps, ainsi que pour renforcer les muscles profonds de la ceinture scapulaire, de la ceinture pelvienne et des abdominaux.Positionnement à quatre pattes sur le sol en maintenant le dos plat, puis avance en alternant le mouvement de chaque bras et chaque jambe.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "8mn",
+        "materiels": [
+          "boule"
+        ],
+        "exercices": [
+          {
+            "id": 0,
+            "photo": "assets/images/exos/kine/ours.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/ours.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Ours",
+            "description": "Exercice de renforcement musculaire pour améliorer la stabilité et la coordination du corps, ainsi que pour renforcer les muscles profonds de la ceinture scapulaire, de la ceinture pelvienne et des abdominaux.Positionnement à quatre pattes sur le sol en maintenant le dos plat, puis avance en alternant le mouvement de chaque bras et chaque jambe.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "8mn",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 1,
+            "photo": "assets/images/exos/kine/planche.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/planche.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Planche",
+            "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 2,
+            "photo": "assets/images/exos/kine/grenouille.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/grenouille.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Grenouille",
+            "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 3,
+            "photo": "assets/images/exos/kine/4pattes.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/4pattes.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "4 pattes",
+            "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 4,
+            "photo": "assets/images/exos/kine/escalier.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/escalier.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Escalier",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 5,
+            "photo": "assets/images/exos/kine/retournement.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/retournement.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Retournement",
+            "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 6,
+            "photo": "assets/images/exos/kine/rampe.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/rampe.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Ramper",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "photo": "assets/images/exos/kine/planche.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/planche.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Planche",
+        "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ],
+        "exercices": []
+      },
+      {
+        "id": 2,
+        "photo": "assets/images/exos/kine/grenouille.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/grenouille.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Grenouille",
+        "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ],
+        "exercices": [
+          {
+            "id": 0,
+            "photo": "assets/images/exos/kine/ours.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/ours.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Ours",
+            "description": "Exercice de renforcement musculaire pour améliorer la stabilité et la coordination du corps, ainsi que pour renforcer les muscles profonds de la ceinture scapulaire, de la ceinture pelvienne et des abdominaux.Positionnement à quatre pattes sur le sol en maintenant le dos plat, puis avance en alternant le mouvement de chaque bras et chaque jambe.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "8mn",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 1,
+            "photo": "assets/images/exos/kine/planche.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/planche.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Planche",
+            "description": "La planche est un exercice de renforcement musculaire pour renforcer les muscles abdominaux, les muscles du dos et les muscles des membres inférieurs.Positionnement de planche en appui sur les avant-bras et les orteils, en gardant le corps droit et les abdominaux contractés. Efficace pour améliorer la stabilité du tronc, la posture et la coordination musculaire.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 2,
+            "photo": "assets/images/exos/kine/grenouille.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/grenouille.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Grenouille",
+            "description": " Exercice de renforcement musculaire pour améliorer la force, l'endurance et la stabilité des muscles des membres inférieurs, en particulier les quadriceps, les fessiers et les muscles du mollet.Positionnement accroupie et avance dans cette position.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 3,
+            "photo": "assets/images/exos/kine/4pattes.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/4pattes.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "4 pattes",
+            "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 4,
+            "photo": "assets/images/exos/kine/escalier.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/escalier.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Escalier",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 5,
+            "photo": "assets/images/exos/kine/retournement.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/retournement.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Retournement",
+            "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          },
+          {
+            "id": 6,
+            "photo": "assets/images/exos/kine/rampe.svg",
+            "media": {
+              "titre": "Pointer le bout de son nez",
+              "url": "assets/images/exos/kine/rampe.svg",
+              "description": "",
+              "type": "image"
+            },
+            "titre": "Ramper",
+            "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+            "horloge": "assets/images/pictos/horloge.svg",
+            "duree": "Durée",
+            "materiels": [
+              "boule"
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "photo": "assets/images/exos/kine/4pattes.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/4pattes.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "4 pattes",
+        "description": "Exercice de renforcement musculaire pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnemment à quatre pattes sur le sol en maintenant le dos plat . Ensuite, soulever une jambe et le bras opposé en maintenant l'équilibre sur les membres restants, puis répèter l'exercice avec l'autre jambe et l'autre bras. Renforcement des membres supérieurs et inférieurs, et améliorer la proprioception (sensibilité des articulations).",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 4,
+        "photo": "assets/images/exos/kine/escalier.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/escalier.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Escalier",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, améliorer la coordination et l'endurance.Monter et descendre d'un escalier (ou autre) à un rythme régulier en utilisant les jambes pour monter et descendre les marches. Permet de traiter les douleurs chroniques des membres inférieurs.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      },
+      {
+        "id": 5,
+        "photo": "assets/images/exos/kine/retournement.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/retournement.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Retournement",
+        "description": "Exercice de coordination pour améliorer la mobilité de la colonne vertébrale et renforcer les muscles abdominaux.se couche sur le dos, fléchit les genoux et place les pieds à plat sur le sol. Ensuite, le patient décolle une jambe et la fait passer par-dessus l'autre jambe, en gardant les deux épaules au sol. Répéter l'exercice avec l'autre jambe pour effectuer un cycle de retournement.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "Boule", "Tapis"
+        ]
+      },
+      {
+        "id": 6,
+        "photo": "assets/images/exos/kine/rampe.svg",
+        "media": {
+          "titre": "Pointer le bout de son nez",
+          "url": "assets/images/exos/kine/rampe.svg",
+          "description": "",
+          "type": "image"
+        },
+        "titre": "Ramper",
+        "description": "Exercice pour renforcer les muscles des membres inférieurs, des membres supérieurs, du tronc et améliorer la coordination.Positionnement sur le sol avancer en alternant le mouvement de la jambe et du bras opposé pour avancer en rampant.",
+        "horloge": "assets/images/pictos/horloge.svg",
+        "duree": "Durée",
+        "materiels": [
+          "boule"
+        ]
+      }
+    ]
   }
 ]

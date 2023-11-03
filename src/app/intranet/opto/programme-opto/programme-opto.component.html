@@ -18,8 +18,10 @@
           </div>
         </mat-select>
       </mat-form-field>
-      <mat-checkbox name="allergies" [(ngModel)]="fAllergies"> <span>{{ l.t.pages['ALLERGIES-FILTRE'] }}</span></mat-checkbox>
-      <mat-checkbox type="checkbox" name="faits" [(ngModel)]="fFait"><span>{{ l.t.pages['PAS-FAITS'] }}</span></mat-checkbox>
+      <mat-checkbox name="allergies" [(ngModel)]="fAllergies"> <span>{{ l.t.pages['ALLERGIES-FILTRE']
+          }}</span></mat-checkbox>
+      <mat-checkbox type="checkbox" name="faits" [(ngModel)]="fFait"><span>{{ l.t.pages['PAS-FAITS']
+          }}</span></mat-checkbox>
       <button (click)="initFiltres()" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
     </form>
   </header>
@@ -32,26 +34,32 @@
       <div>
         <p>{{ programme.description }}</p>
         <div>
-          <div>
+          <div *ngIf="programme.duree">
             <img src="assets/images/pictos/horloge.svg" alt="horloge" />
             <p>{{ programme.duree }}</p>
           </div>
-          <div>
+          <div *ngIf="programme.materiels">
             <img src="assets/images/pictos/materiel.svg" alt="materiel" />
-            <p>{{ programme.materiel }}</p>
+            <p>{{ programme.materiels.toString() }}</p>
           </div>
         </div>
-        <app-carousel-opto [items]="programme.exercices" (onSelect)="onSelectExercice($event)"
-          (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+        <app-carousel-opto [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
       </div>
     </article>
-    <article>
-      <img src="assets/images/pictos/pouce.png" alt="">
-      <select name="" id="">
-        <option value="">Avis et commentaires de la communauté</option>
-      </select>
-    </article>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon aria-hidden="false" aria-label="" fontIcon="diversity_1" class="opto mat-icone"></mat-icon>
+            {{ l.t.pages['COMMENTAIRES-TITRE'] }}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ l.t.pages['COMMENTAIRES-DESCR'] }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <ul>
+          <li>Commentaires de la communauté</li>
+        </ul>
+      </mat-expansion-panel>
   </section>
   <app-menu [idMenu]="'opto'" [classe]="'bg-opto'"></app-menu>
 </section>
-<!-- <app-exercice-otpo *ngIf="exoSelect"></app-exercice-otpo> -->

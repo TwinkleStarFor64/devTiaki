@@ -4,6 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from '../template/menu/menu.component';
 import { PopExerciceComponent } from '../template/pop-exercice/pop-exercice.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
+import { ExercicesPipe } from './pipes/programme.pipe';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,9 +15,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { FormatDatePipe, FormatDateToFrenchPipe } from './pipes/filter.pipe';
-import { ExercicesPipe } from './pipes/programme.pipe';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatExpansionModule,
     FormatDatePipe,
     FormatDateToFrenchPipe,
     ExercicesPipe
@@ -54,7 +57,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     CdkAccordionModule,
     MatProgressBarModule,
     MatDialogModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatExpansionModule
   ]
 })
 export class SharedModule { }

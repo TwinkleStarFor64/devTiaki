@@ -1,50 +1,62 @@
-<section id="module">
+<section id="module" class="progression">
   <header>
-    <form class="example-form">
-      <input id="input-programmes" class="example-input" type="search" name="myProg" placeholder="Recherche libre"
-        [formControl]="control" [matAutocomplete]="auto" (keyup)="filtrerProgrammes()" (click)="allProgrammes()"
-        [value]="selectedImageTitle" />
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-        <mat-option *ngFor="let programme of programmesFiltres" [value]="programme"
-          (mouseover)="hoverSelectedProgramme(programme)">
-          {{ programme.titre }}
-        </mat-option>
-      </mat-autocomplete>
-      <input type="checkbox" id="input-ckeckbox" name="observations" value="observation" />
-      <label for="input-ckeckbox">Tenir comptes de mes observations</label>
-      <input type="checkbox" id="input-ckeckbox" name="jamaisFait" value="jamaisFait" />
-      <label for="jamaisFait">Jamais faites </label>
-      <button><img src="assets/images/pictos/loupe.png" alt=""></button>
+    <form>
+      <mat-form-field>
+        <mat-label>{{ l.t.pages['PROGRAMMES'] }}</mat-label>
+        <mat-select name="programmes" [(ngModel)]="programme" (change)="setProgramme(ctlListe.value)"
+          #ctlListe="ngModel">
+          <mat-form-field>
+            <mat-label> {{ l.t.pages['FILTRER']+ '...' }}</mat-label>
+            <input matInput #filterPlc>
+          </mat-form-field>
+          <div *ngFor="let p of kine.listeProgrammes">
+            <mat-option [value]="p" *ngIf="p.titre.toLowerCase().indexOf(filterPlc.value.toLowerCase()) !== -1">
+              {{ p.titre }}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox name="allergies" [(ngModel)]="fAllergies"> <span>{{ l.t.pages['ALLERGIES-FILTRE']
+          }}</span></mat-checkbox>
+      <mat-checkbox type="checkbox" name="faits" [(ngModel)]="fFait"><span>{{ l.t.pages['PAS-FAITS']
+          }}</span></mat-checkbox>
+      <button (click)="initFiltres()" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
     </form>
   </header>
-  <section>
-    <article *ngIf="selectedProgrammeKine; selectedProgramme">
-      <img src="{{ selectedProgrammeKine.photo }}" alt="imageKine" />
-      <article>
+  <section class="programme">
+    <article>
+      <figure [style.background-image]="'url(' + programme.photo + ')'" *ngIf="programme.photo">
+        <h1>{{ programme.titre }}</h1>
+      </figure>
+      <div>
+        <p>{{ programme.description }}</p>
         <div>
-          <h1>{{ selectedProgrammeKine.titre }}</h1>
-          <p>{{ selectedProgrammeKine.description }}</p>
-        </div>
-        <div>
-          <div>
+          <div *ngIf="programme.duree">
             <img src="assets/images/pictos/horloge.svg" alt="horloge" />
-            <p>{{ selectedProgrammeKine.duree }}</p>
+            <p>{{ programme.duree }}</p>
           </div>
-          <div>
+          <div *ngIf="programme.materiels">
             <img src="assets/images/pictos/materiel.svg" alt="materiel" />
-            <p>{{ selectedProgrammeKine.materiel }}</p>
+            <p>{{ programme.materiels.toString() }}</p>
           </div>
         </div>
-        <app-carousel [items]="programmesFiltres" (onSelect)="onSelectProgramme($event)"
-          (carouselItemClick)="onCarouselItemClick($event)"></app-carousel>
-      </article>
-      <article>
-        <img src="assets/images/pictos/pouce.png" alt="">
-        <select name="" id="">
-          <option value="">Avis et commentaires de la communauté</option>
-        </select>
-      </article>
+        <app-carousel [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carousel>
+      </div>
     </article>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon aria-hidden="false" aria-label="" fontIcon="diversity_1" class="opto mat-icone"></mat-icon>
+          {{ l.t.pages['COMMENTAIRES-TITRE'] }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ l.t.pages['COMMENTAIRES-DESCR'] }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <ul>
+        <li>Commentaires de la communauté</li>
+      </ul>
+    </mat-expansion-panel>
   </section>
   <!-- Afficher le menu -->
   <app-menu [idMenu]="'kine'" [classe]="'bg-kine'"></app-menu>

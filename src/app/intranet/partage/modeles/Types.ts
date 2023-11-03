@@ -176,7 +176,7 @@ export interface ProgrammeI {
   titre: string;
   description: string;
   duree: string;
-  materiel: string;
+  materiels: Array<string>;
   exercices:Array<ExerciceI>;
 }
 // interface pour la page plat

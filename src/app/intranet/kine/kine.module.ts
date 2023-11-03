@@ -5,11 +5,9 @@ import { ProgressionKineComponent } from './progression-kine/progression-kine.co
 import { ExerciceKineComponent } from './exercice-kine/exercice-kine.component';
 import { ProgrammeKineComponent } from './programme-kine/programme-kine.component';
 import { CarouselComponent } from './carousel/carousel.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { KineComponent } from './kine.component';
-import { InputComponent } from '../template/ui/input/input.component';
 import { ModalExKineComponent } from './exercice-kine/modal-ex-kine/modal-ex-kine.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -25,7 +23,6 @@ import { SharedModule } from '../partage/shared.module';
     ProgrammeKineComponent,
     CarouselComponent,
     KineComponent,
-    InputComponent,
     ModalExKineComponent,
     FilterPipe
   ],

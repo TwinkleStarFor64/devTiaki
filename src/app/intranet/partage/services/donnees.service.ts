@@ -30,7 +30,7 @@ export class DonneesService {
   }
   /** Récupérer les données de l'accueil */
   getAccueil(fichier: string) {
-    this.http.get<Array<AccueilI>>('assets/data/' + fichier + '-accueil.json').subscribe(
+    if(fichier.indexOf('..') === -1) this.http.get<Array<AccueilI>>('assets/data/' + fichier + '-accueil.json').subscribe(
       {
         next: r => {
           this.accueilModule = r.sort((a, b) => a.id - b.id);

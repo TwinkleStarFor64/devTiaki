@@ -25,6 +25,7 @@ export class CarouselOptoComponent {
 
   constructor() {
     this.carouselContainer = new ElementRef(null);
+    console.log(this.items);
   }
   //méthode pour changer de slide
   nextSlide() {
