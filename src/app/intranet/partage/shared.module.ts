@@ -17,6 +17,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ArianeComponent } from '../template/ariane/ariane.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
     PopExerciceComponent,
     FormatDatePipe,
     FormatDateToFrenchPipe,
-    ExercicesPipe
+    ExercicesPipe,
+    ArianeComponent
   ],
   exports:[
     MenuComponent,
     PopExerciceComponent,
+    ArianeComponent,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -48,6 +52,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

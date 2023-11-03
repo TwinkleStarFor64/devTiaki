@@ -22,8 +22,13 @@ main {
 main > header {
   width:100%;
   height:$l;
+  justify-content: flex-end;
+  // margin-bottom:- $l;
 }
 main > section{
   width:100%;
   height:calc(100vh - $l);
+}
+:host ::ng-deep router-outlet + *{
+  width:100%;
 }

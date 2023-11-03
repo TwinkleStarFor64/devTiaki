@@ -690,6 +690,32 @@ header > form div.mat-mdc-form-field-infix {
   --mdc-linear-progress-active-indicator-color: #f28705;
   --mdc-linear-progress-track-height: 200px;
 }
+/** PAGES OUTILS */
+.outils{
+  flex-flow:row nowrap;
+  width:calc(100vw - $breadcrumb);
+  height: 100vh;
+}
+.outils > section{
+  flex-flow: column nowrap;
+  width:15%;
+  padding:10px 15px;
+}
+.outils > section article{
+  flex-flow: column nowrap;
+}
+.outils section:nth-child(1){
+  background-color: #F0C02E;
+}
+.outils section:nth-child(2){
+  background-color: #F8E6AF;
+}
+.outils section:nth-child(3){
+  flex:3;
+}
+.outils section:nth-child(4){
+  background-color: #F8E6AF;
+}
 // Modal exercices Kine et Opto
 
 #modalExercices {

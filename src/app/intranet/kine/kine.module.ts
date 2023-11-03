@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FilterPipe } from '../partage/pipes/filter.pipe';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SharedModule } from '../partage/shared.module';
+import { ArianeComponent } from '../template/ariane/ariane.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ import { SharedModule } from '../partage/shared.module';
     ModalExKineComponent,
     FilterPipe
   ],
-
   imports: [
     CommonModule,
     KineRoutingModule,
