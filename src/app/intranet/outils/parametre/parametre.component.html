@@ -1,13 +1,6 @@
-<section id="mainJournal">
-  <section id="menuJournalMessage">
-    <article>
-      <a routerLink="/intranet">
-        <span>Tiaki</span>
-      </a>
-    </article>
-    <article>
-      <h1>Échanges</h1>
-    </article>
+<section class="outils">
+  <section>
+    <h1>Échanges</h1>
     <article class="medecin">
       <div>
         <img [src]="[medecinImg]" alt="logo medecin" />
@@ -17,11 +10,8 @@
         <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
-    <article class="realisation">
-      <div>
-        <img src="assets/.images/pictos/menus/echange.svg" alt="logo organisme" />
-        <h2>Organismes</h2>
-      </div>
+    <article>
+      <h2><img src="assets/.images/pictos/menus/echange.svg" alt="logo organisme" /> Organismes</h2>
       <ul>
         <li *ngFor="let organisme of echanges.nomOrga">
           {{ organisme.nomOrganisme }}
@@ -29,31 +19,24 @@
       </ul>
     </article>
   </section>
-  <section class="principale">
+  <section>
     <article> <!-- Article pour le Responsive - invisible en Desktop -->
-      <div>
-        <a routerLink="/intranet">
-          <span>Tiaki</span>
-        </a>
-      </div>
-      <div>
-        <h3>Historique des derniers échanges</h3>
-      </div>
+      <h3>Historique des derniers échanges</h3>
     </article>
     <!-- <h3>Historique des échanges</h3> -->
-    <section class="contenuEchange">
-      <section class="echangeMedecin">
+    <section>
+      <section>
         <article *ngFor="let message of echanges.echangeMedecin">
           <h4>{{ message.nom }}</h4>
           <p>{{ message.message }}</p>
-          <img src="assets/imgEchange/modif.svg" />
+          <img src="assets/images/pictos/modif.svg" />
         </article>
       </section>
-      <section class="echangeMedecin2">
+      <section>
         <article *ngFor="let message of echanges.echangeOrga">
           <h4>{{ message.nom }}</h4>
           <p>{{ message.message }}</p>
-          <img src="assets/imgEchange/modif.svg" />
+          <img src="assets/images/pictos/modif.svg" />
         </article>
       </section>
     </section>
