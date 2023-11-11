@@ -91,7 +91,7 @@
       "titre":"Journal",
       "info":"Naviguer dans votre historique alimentaire",
       "lien":"Journal",
-      "url":"/intranet/nutrition/journal-Repas",
+      "url":"/intranet/nutrition/journal",
       "active": false
     },
     {
@@ -148,12 +148,12 @@
     {
       "nom":"Journal",
       "image":"assets/imgAsidebar/Group2.svg",
-      "url":"/intranet/outils/journal"
+      "url":"/intranet/outils/journaux"
     },
     {
       "nom":"Historique",
       "image":"assets/imgAsidebar/Group3.svg",
-      "url":"/intranet/outils/historique"
+      "url":"/intranet/outils/historiques"
     },
     {
       "nom":"Messagerie",
@@ -168,7 +168,7 @@
     {
       "nom":"Paramètre",
       "image":"assets/imgAsidebar/Group6.svg",
-      "url":"/intranet/outils/parametre"
+      "url":"/intranet/outils/parametres"
     }
   ]
 }

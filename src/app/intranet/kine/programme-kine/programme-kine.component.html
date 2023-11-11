@@ -41,7 +41,7 @@
             <p>{{ programme.materiels.toString() }}</p>
           </div>
         </div>
-        <app-carousel [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carousel>
+        <app-carrousel [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carrousel>
       </div>
     </article>
     <mat-expansion-panel>

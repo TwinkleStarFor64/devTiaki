@@ -25,15 +25,10 @@
           <div *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">
             <span id="pastilleEval"
             [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
-             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
             </span>
-            <!-- <button mat-raised-button
-            [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
-            {{ menus.statut }}
-            </button> -->
-            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
+            <img src="assets/images/pictos/horloge.svg" alt="durée" />
             <p>Durée</p>
-            <img src="assets/photoNutri/casserole.svg" alt="matériel" />
+            <img src="assets/images/pictos/nutri/casserole.svg" alt="matériel" />
             <p id="dashed">Matériels</p>
           </div>
         </div>
@@ -42,7 +37,7 @@
     <article>
       <h3>2 - Ajouter un menu</h3>
       <div id="selectBalise">
-        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout" />
+        <img src="assets/images/pictos/nutri/ingredient.svg" alt="Icône d'ajout" />
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
@@ -74,14 +69,14 @@
         <span *ngFor="let ingredients of aliment | ingredients : alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
           <p>
-            <img src="assets/photoNutri/compl.svg" alt="icône composition" />
+            <img src="assets/images/pictos/nutri/compl.svg" alt="icône composition" />
             Composition : Protéines :
             {{ ingredients["Protéines, N x 6.25 (g\/100 g)"] }} Gr - Glucides :
             {{ ingredients["Glucides (g\/100 g)"] }} Gr - Lipide :
             {{ ingredients["Lipides (g\/100 g)"] }} Gr - Sucre :
             {{ ingredients["Sucres (g/100 g)"] }} Gr
           </p>
-          <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+          <p><img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
             Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
             B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
             B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -

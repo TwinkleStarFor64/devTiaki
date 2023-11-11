@@ -6,21 +6,22 @@ $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
 $aside-color3: #F0C02E;
-$vert:rgb(23, 173, 43);
+$vert: rgb(23, 173, 43);
 
 $clair: white;
 $sombre: black;
 
 $head: 20vh; // Hauteur de l'entête des pages d'accueil
-$breadcrumb:60px; // Hauteur du fil d'ariane
+$breadcrumb: 60px; // Hauteur du fil d'ariane
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+$icone: 36px;
 
 /** BALISES GENERIQUES HTML */
 html,
 body {
   height: 100%;
-  width:100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -32,11 +33,9 @@ body {
   font-family: $font-family;
   font-size: 16px;
 }
-
 * {
   box-sizing: border-box;
 }
-
 main,
 section,
 article,
@@ -45,186 +44,264 @@ form,
 footer {
   display: flex;
 }
-main{
-  width:100vw;
-  height:100vh;
+main {
+  width: 100vw;
+  height: 100vh;
+}
+form {
+  flex-flow: column nowrap;
 }
 h1 {
   color: $card-nutri;
   font-weight: 100;
   font-size: 62px;
-  margin:20px 0 10px;
+  margin: 20px 0 10px;
 }
-h1:before, h1:after{
-  content:'......'
+
+h1:before,
+h1:after {
+  content: '......'
 }
+
 h1 a,
 h1 a:hover {
   color: $card-nutri;
 }
-h2{
 
+h1, h2, h3{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+h1 img, h2 img, h3 img{
+  margin-right:10px;
 }
 a {
   text-decoration: none;
   color: $aside-color1;
-  transition:all .3s ease;
+  transition: all .3s ease;
 }
-a:hover{
+
+a:hover {
   font-weight: 600;
   color: $aside-color2;
 }
-figure{
+
+figure {
   background: 50% 50% no-repeat;
   background-size: 100%;
   transition: all .3s ease;
   overflow: hidden;
-  display:flex;
+  display: flex;
 }
-button{
-  padding:15px 20px;
-  border:none;
-  transition:all .3s ease;
+figure:hover{
+  background-size: 120%;
+}
+button {
+  position: relative;
+  padding: 15px 20px;
+  border: none;
+  transition: all .3s ease;
   cursor: pointer;
-  font-weight:600;
+  font-weight: 600;
   width: fit-content;
-  background-color:$clair;
-  color:$aside-color1;
+  background-color: $clair;
+  color: $aside-color1;
   font-size: 16px;
 }
-button:hover{
+button:hover {
   background-color: $aside-color3;
   color: $aside-color1;
   transform: scale(1.1);
 }
+button.active:before{
+  content:'O';
+  position:absolute;
+  top:5px;
+  left:5px;
+}
+ul{
+  display:flex;
+  flex-flow:column nowrap;
+}
+ul li{
+  list-style: circle;
+  padding:5px 10px 5px 0;
+}
 /** CLASSES GENERIQUES */
-.logo{
-  width:150px;
+.logo {
+  width: 150px;
 }
-.entete{
-  display:flex;
+
+.entete {
+  display: flex;
   flex-flow: column nowrap;
-  width:100%;
-  text-align:center;
+  width: 100%;
+  text-align: center;
   justify-content: flex-end;
-  height:$head;
-  margin:0;
+  height: $head;
+  margin: 0;
 }
-.ariane{
-  display:flex;
+.entete h1, .entete h2 {
+  margin:auto;
+}
+.ariane {
+  display: flex;
   flex-flow: row nowrap;
   align-items: center;
   color: $aside-color2;
-  height:$breadcrumb;
+  height: $breadcrumb;
 }
-.ariane h1, .ariane h2{
+
+.ariane h1,
+.ariane h2 {
   font-weight: 100;
-  font-size:24px;
-  margin:0 0 0 20px;
+  font-size: 24px;
+  margin: 0 0 0 20px;
 }
-.ariane h2:before{
-  content:'...... '
+
+.ariane h2:before {
+  content: '...... '
 }
-.ariane h2:after{
-  content:' ......'
+
+.ariane h2:after {
+  content: ' ......'
 }
-#menus-themes{
+
+#menus-themes {
   display: flex;
   justify-content: space-around;
   height: 150px;
   width: 100%;
-  padding:15px;
+  padding: 15px;
 }
-#menus-themes > a {
+
+#menus-themes>a {
   flex-flow: row nowrap;
   justify-content: center;
-  padding:15px;
+  padding: 15px;
   align-items: center;
-  height:100%;
+  height: 100%;
   cursor: pointer;
 }
-#menus-themes > a section {
-  height:100%;
+
+#menus-themes>a section {
+  height: 100%;
   align-items: center;
 }
-#menus-themes > a section > img {
+
+#menus-themes>a section>img {
   width: 50px;
-  height:50px;
-  margin-right:15px;
+  height: 50px;
+  margin-right: 15px;
   transition: all .3s ease;
 }
-#menus-themes > a section > article {
+
+#menus-themes>a section>article {
   color: #ffffff;
   display: flex;
   flex-flow: column nowrap;
   height: 100%;
   justify-content: center;
 }
-#menus-themes > a section > article * {
-  margin:0;
+
+#menus-themes>a section>article * {
+  margin: 0;
 }
-#menus-themes > a:hover {
+
+#menus-themes>a:hover {
   transform: scale(1.05);
 }
-#menus-themes > a:hover img{
-  width:4vw;
-  margin-right:20px;
+
+#menus-themes>a:hover img {
+  width: 4vw;
+  margin-right: 20px;
 }
 
 /** CLASSES POUR LES COULEURS DE LA CHARTE GRAPHIQUE */
-.icone{
-  width:30px;
+.icone {
+  width: 30px;
   cursor: pointer;
 }
-.mat-icone{
-  font-size: 36px;
-  width:36px !important;
-  height: 36px !important;
+
+.mat-icone {
+  font-size: $icone;
+  width: $icone !important;
+  height: $icone !important;
 }
-.bg-nutrition{
-  color:$clair;
+
+.mat-icone:hover {
+  transform: scale(1.1);
+}
+.align-right{
+  display:flex;
+  justify-content: flex-end;
+}
+.bg-nutrition {
+  color: $clair;
   background-color: $card-nutri;
 }
-.bg-opto{
-  color:$clair;
+
+.bg-opto {
+  color: $clair;
   background-color: $card-opto;
 }
-.bg-kine{
-  color:$clair;
+
+.bg-kine {
+  color: $clair;
   background-color: $card-kine;
 }
-.bg-admin{
-  color:$clair;
+
+.bg-admin {
+  color: $clair;
   background-color: $aside-color1;
 }
-.bg-valide{
-  color:$clair;
+
+.bg-valide {
+  color: $clair;
   background-color: $vert;
 }
-.bg-annule{
-  color:$clair;
+
+.bg-annule {
+  color: $clair;
   background-color: $aside-color3;
 }
-.nutrition{
+.bg-delete {
+  color: $clair;
+  background-color: $card-nutri;
+}
+.nutrition {
   color: $card-nutri;
 }
-.nutrition svg path{
-  fill:$card-nutri;
+
+.nutrition svg path {
+  fill: $card-nutri;
 }
-.opto{
-  color:$card-nutri;
+
+.opto {
+  color: $card-nutri;
 }
-.opto svg path{
-  fill:$card-opto;
+
+.opto svg path {
+  fill: $card-opto;
 }
-.kine{
-  color:$card-kine;
+
+.kine {
+  color: $card-kine;
 }
-.kine svg path{
-  fill:$card-kine;
+
+.kine svg path {
+  fill: $card-kine;
+}
+.admin {
+  color: $aside-color1;
+}
+.admin svg path{
+  fill: $aside-color1;
 }
 /** COMPOSANTS */
-.cal-event-title { // Le texte dans le calendrier
+.cal-event-title {
+  // Le texte dans le calendrier
   color: $clair;
 }
 
@@ -239,31 +316,38 @@ mwl-calendar-open-day-events {
     }
   }
 }
-mat-panel-title{
-  padding:5px;
+
+mat-panel-title {
+  padding: 5px;
   font-weight: bold;
 }
-mat-panel-title > mat-icon{
-  margin-right:15px;
+
+mat-panel-title>mat-icon {
+  margin-right: 15px;
 }
+
 // Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {
-    display: none!important;
+  display: none !important;
 }
+
 // Le label 'x sur x' de mat-paginator
 .mat-mdc-paginator-range-label {
-  margin: 0!important;
+  margin: 0 !important;
   font-family: $font-family;
+
   @media screen and (max-width: 1310px) {
     display: none;
   }
 }
+
 // La couleurs des fléches dans la pagination
 .mat-mdc-paginator-icon {
   fill: red;
 }
 
 .mat-mdc-option {
+
   // Pour les options de choix dans tout les menus déroulants
   @media screen and (max-width: 834px) {
     font-size: 0.6rem;
@@ -314,6 +398,7 @@ article.cartel {
   h2 {
     font-size: 2rem;
   }
+
   p {
     padding: 15px;
   }
@@ -356,32 +441,37 @@ article.cartel {
       color: $aside-color3;
     }
   }
-  & > div{
-    height:60%;
-    display:flex;
+
+  &>div {
+    height: 60%;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    padding:20px;
-    transition:all .3s ease;
+    padding: 20px;
+    transition: all .3s ease;
   }
-  & > div > *{
-    margin:0 auto;
+
+  &>div>* {
+    margin: 0 auto;
   }
-  figure{
-    margin:0 -20px -20px;
-    padding:0;
-    border-top-left-radius:70%;
+
+  figure {
+    margin: 0 -20px -20px;
+    padding: 0;
+    border-top-left-radius: 70%;
     border-top-right-radius: 50%;
-    height:40%;
+    height: 40%;
   }
-  figure > div{
-    width:100%;
-    height:100%;
-    margin:0 -20px -20px;
+
+  figure>div {
+    width: 100%;
+    height: 100%;
+    margin: 0 -20px -20px;
     // background-position:0 50%;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
   a {
     display: flex;
     flex-direction: column;
@@ -392,26 +482,31 @@ article.cartel {
     img {
       width: 100%;
     }
-    button:hover{
+
+    button:hover {
       background-color: $clair;
     }
+
     &:nth-child(2) {
       color: $card-nutri;
     }
   }
+
   // Animation sur le hover
   &:hover {
-    padding:30px 50px 0;
+    padding: 30px 50px 0;
     transform: scale(1.1);
   }
-  &:hover > div {
-    height:50%;
-    padding-bottom:40px;
+
+  &:hover>div {
+    height: 50%;
+    padding-bottom: 40px;
   }
-  &:hover > figure {
-    margin:0 -70px 0;
+
+  &:hover>figure {
+    margin: 0 -70px 0;
     border-radius: 0;
-    height:50%;
+    height: 50%;
   }
 
 }
@@ -420,48 +515,48 @@ article.cartel {
   section.accueil {
     flex-direction: column;
   }
+
   article.cartel {
     flex-direction: row;
-    margin:0;
+    margin: 0;
 
     &:hover {
-      padding:0;
+      padding: 0;
       transform: scale(1);
     }
-    &:hover > div {
-      height:100%;
-      padding-bottom:0;
+
+    &:hover>div {
+      height: 100%;
+      padding-bottom: 0;
     }
-    &:hover > figure {
-      margin:0 -70px 0;
+
+    &:hover>figure {
+      margin: 0 -70px 0;
       border-radius: 0;
-      height:100%;
+      height: 100%;
     }
   }
-  article.cartel div{
-    width:55%;
-    height:100%;
+  article.cartel div {
+    width: 55%;
+    height: 100%;
   }
-  article.cartel figure{
-    width:45%;
-    height:100%;
+  article.cartel figure {
+    width: 45%;
+    height: 100%;
     border-top-right-radius: 0;
     border-top-left-radius: 15%;
     border-bottom-left-radius: 15%;
   }
-
 }
-
 // Navbar icone burger
 #burger-icon {
   color: $card-kine;
 }
-
 // -------------------------------------------------
 // Fil d'ariane
-app-ariane article{
-  display:flex;
-  flex-flow: row nowrap;
+app-ariane article {
+  display: flex;
+  flex-flow: row nowrap !important;
   height: $breadcrumb;
   padding: 5px;
   margin: 0;
@@ -469,147 +564,174 @@ app-ariane article{
   font-size: 18px;
   font-weight: 100;
 }
-app-ariane article a{
-  margin-right:5px;
+
+app-ariane article a {
+  margin-right: 5px;
 }
-app-ariane article a:after{
+
+app-ariane article a:after {
   transition: padding .3s ease;
-  padding-left:5px;
-  content : ' » '
+  padding-left: 5px;
+  content: ' » '
 }
-app-ariane article a:hover:after{
-  padding-left:10px;
-  padding-right:10px;
+
+app-ariane article a:hover:after {
+  padding-left: 10px;
+  padding-right: 10px;
 }
+
 app-ariane img {
-  width:30px;
+  width: 30px;
 }
+
 // Loupe de recherche à gauche de la search  bar
-header > form{
-  display:flex;
+header>form {
+  display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  margin:0 auto;
+  margin: 0 auto;
 }
-header > form > * {
-  margin:10px;
+
+header>form>* {
+  margin: 10px;
 }
-header > form div.mat-mdc-form-field-infix {
-  min-width:300px;
+
+header>form div.mat-mdc-form-field-infix {
+  min-width: 300px;
 }
+
 //section exercice
-#module{
-  width:calc(100vw - $breadcrumb);
-  height:calc(100vh - $breadcrumb);
+#module {
+  width: calc(100vw - $breadcrumb);
+  height: calc(100vh - $breadcrumb);
   flex-flow: column nowrap;
   overflow: hidden;
 }
-#module > header {
-  height:$breadcrumb;
+
+#module>header {
+  height: $breadcrumb;
 }
-#module > section {
-  height:calc(100% - $breadcrumb - $foot);
+
+#module>section {
+  height: calc(100% - $breadcrumb - $foot);
   flex-flow: row wrap;
   justify-content: space-evenly;
-  overflow-y:auto;
-  overflow-x:hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   align-items: flex-start;
   align-content: flex-start;
 }
-#module.progression > section {
-  height:calc(100% - $foot);
+
+#module.progression>section {
+  height: calc(100% - $foot);
 }
-#module > app-menu {
-  height:$foot;
+
+#module>app-menu {
+  height: $foot;
 }
+
 // articles générés avec le ngFor avec la photo ou video et le titre la description
-#module > section > article {
+#module>section>article {
   flex-flow: column nowrap;
-  flex:1;
+  flex: 1;
   // flex-basis:1;
   // max-width:17%;
   // gap:3vw;
   background: $clair;
-  margin:10px;
+  margin: 10px;
   justify-content: space-between;
   cursor: pointer;
-  position:relative;
+  position: relative;
   transition: all .3s ease;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0, 0, 0, .1);
 }
-#module > section > article:hover {
+
+#module>section>article:hover {
   transform: scale(1.05);
   box-shadow: 0 0 4px $aside-color1;
 }
-#module > section > article:hover > figure {
+
+#module>section>article:hover>figure {
   background-size: 120%;
   filter: grayscale(100%);
 }
-#module > section > article > ul{
+
+#module>section>article>ul {
   display: flex;
   flex-flow: row nowrap;
   align-self: flex-end;
   align-items: center;
-  margin:0 0 10px 0;
+  margin: 0 0 10px 0;
 }
-#module > section > article > ul li{
+
+#module>section>article>ul li {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-right:10px;
+  margin-right: 10px;
   cursor: pointer;
   transition: all .3s ease;
 }
-#module > section > article > ul li:hover{
+
+#module>section>article>ul li:hover {
   transform: scale(1.05);
 }
-#module > section > article > ul li > *{
+
+#module>section>article>ul li>* {
   margin-right: 10px;
 }
-#module > section > article > figure {
+
+#module>section>article>figure {
   width: 100%;
-  height:175px;
-  margin:0;
-  position:relative;
+  height: 175px;
+  margin: 0;
+  position: relative;
   align-items: flex-end;
   background-position: 50% 0%;
 }
-#module > section > article > nav {
-  background-color:$clair;
-  width:40%;
-  height:34px;
-  margin-top:-34px;
+
+#module>section>article>nav {
+  background-color: $clair;
+  width: 40%;
+  height: 34px;
+  margin-top: -34px;
   justify-content: space-around;
   align-self: flex-end;
   z-index: 2;
-  display:flex;
-  flex-flow:row nowrap;
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
 }
-#module > section > article > nav i {
+
+#module>section>article>nav i {
   align-self: flex-end;
   position: relative;
-  display:flex;
+  display: flex;
   align-items: center;
-  height:100%;
+  height: 100%;
   transition: all .3s ease;
 }
-#module > section > article > nav i svg {
-}
-#module > section > article > nav i:hover {
+
+#module>section>article>nav i svg {}
+
+#module>section>article>nav i:hover {
   transform: scale(1.1);
 }
-#module > section > article > nav i span {
-  opacity:0;
-  width:0;
+
+#module>section>article>nav i span {
+  opacity: 0;
+  width: 0;
   height: 0;
-  position:absolute;
-  transition:all .3s ease;
+  position: absolute;
+  transition: all .3s ease;
   font-size: 80%;
 }
-#module > section > article >h3, #module > section > article > p {
-  margin:10px;
+
+#module>section>article>h3,
+#module>section>article>p {
+  margin: 10px;
 }
+
 //div pour progress bar
 #module article>.progress-bar {
   display: flex;
@@ -617,70 +739,95 @@ header > form div.mat-mdc-form-field-infix {
   height: 3vh;
   align-items: center;
 }
-#module article>.progress-bar a{
+
+#module article>.progress-bar a {
   color: #bfbfbf;
 }
+
 // Afficher un programme sur les pages programmes
 #module .programme {
   flex-flow: column nowrap;
-  padding:30px;
+  padding: 10px;
 }
-#module .programme article{
-  flex:none;
+
+#module .programme article {
+  flex: none;
   width: 100%;
-  margin:0;
+  margin: 0;
 }
-#module .programme article:hover{
-  transform:scale(1);
+
+#module .programme article:hover {
+  transform: scale(1);
 }
-#module .programme article:hover > figure{
-  transform:scale(1);
+
+#module .programme article:hover>figure {
+  transform: scale(1);
   filter: grayscale(0);
 }
-.programme > article:nth-child(1){
+
+.programme>article:nth-child(1) {
   flex-flow: column nowrap;
   height: calc(100% - $breadcrumb);
 }
-#module .programme mat-expansion-panel{
+
+#module .programme mat-expansion-panel {
   width: 100%;
 }
 
-.programme > article > *{
-  width:100%;
+.programme>article>* {
+  width: 100%;
 }
-#module .programme > article > figure{
+
+#module .programme>article>figure {
   height: 75%;
 }
-#module .programme > article > figure h1{
+
+#module .programme>article>figure h1 {
   color: $clair;
-  margin:0;
+  margin: 0;
   text-shadow: 1px 1px 0 $sombre;
 }
-.programme div{
-  display:flex;
+
+.programme div {
+  display: flex;
 }
-.programme > article > div{
-  flex-flow:row nowrap;
-  padding:10px;
-  height:25%;
+
+.programme>article>div {
+  flex-flow: row nowrap;
+  padding: 10px;
+  height: 25%;
+  > p{
+    flex:4
+  }
+  > div {
+    flex:1;
+  }
+  > app-carrousel{
+    flex:4;
+  }
 }
-.programme > article > div > p{
-  padding:10px 15px;
+
+.programme>article>div>p {
+  padding: 10px 15px;
 }
-.programme > article > div > div{
+
+.programme>article>div>div {
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
 }
-.programme > article > div > div img{
-  margin-right:10px;
+
+.programme>article>div>div img {
+  margin-right: 10px;
 }
-.programme > article > div > div > div {
+
+.programme>article>div>div>div {
   flex-flow: row nowrap;
   align-items: center;
   height: 25%;
-  padding:10px 15px;
+  padding: 10px 15px;
 }
+
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;
   height: 100%;
@@ -690,32 +837,143 @@ header > form div.mat-mdc-form-field-infix {
   --mdc-linear-progress-active-indicator-color: #f28705;
   --mdc-linear-progress-track-height: 200px;
 }
+
 /** PAGES OUTILS */
-.outils{
-  flex-flow:row nowrap;
-  width:calc(100vw - $breadcrumb);
+.outils {
+  flex-flow: row nowrap;
+  width: calc(100vw - $breadcrumb);
   height: 100vh;
 }
-.outils > section{
-  flex-flow: column nowrap;
-  width:15%;
-  padding:10px 15px;
+.outils h1, .outils h2{
+  font-size:24px;
+  width:100%;
+  clear:both;
+  color:$clair;
 }
-.outils > section article{
+.outils li{
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.outils li:hover{
+  transform: scale(1.05);
+  font-weight: 600;
+}
+.outils>section {
+  flex-flow: column nowrap;
+  width: 15%;
+  padding: 10px 15px;
+}
+
+.outils>section article {
   flex-flow: column nowrap;
 }
-.outils section:nth-child(1){
+
+.outils section:nth-child(1) {
   background-color: #F0C02E;
 }
-.outils section:nth-child(2){
+
+.outils section:nth-child(2) {
   background-color: #F8E6AF;
 }
-.outils section:nth-child(3){
-  flex:3;
+
+.outils section:nth-child(3) {
+  flex: 3;
 }
-.outils section:nth-child(4){
+
+.outils section:nth-child(4) {
   background-color: #F8E6AF;
 }
+.outils section:nth-child(4) article{
+  flex-flow:row wrap;
+}
+.outils section:nth-child(4) article button{
+  font-size:80%;
+  padding:10px 15px;
+  margin:5px;
+}
+/** CARROUSEL PROGRAMMES **/
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+
+  >div {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    display: flex;
+    flex-flow: row nowrap;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    position:relative;
+    display: flex;
+    width: 25% !important;
+    height:100%;
+
+    img {
+      height: auto;
+      filter: grayscale(1);
+      width: 100%;
+      transition: filter .3s ease;
+    }
+    figure{
+      height:100%;
+      width: 100%;
+      filter: grayscale(1);
+      margin:0;
+    }
+    p {
+      margin: 0;
+      padding: 5px 15px;
+      position:absolute;
+      color: $clair;
+      left:0;
+      bottom:0;
+      font-weight: bold;
+      transition: all .3s ease;
+      max-width: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .carousel-slide:hover {
+    transform: scale(1.05);
+
+    img {
+      filter: grayscale(0);
+    }
+    figure {
+      filter: grayscale(0);
+      background-size: 140%;
+    }
+    p{
+      background-color: $clair;
+      color: $sombre;
+      padding:10px;
+    }
+  }
+
+  .carousel-slide.active {
+    img {
+      filter: grayscale(0);
+    }
+    figure{
+      filter: grayscale(0);
+    }
+  }
+}
+
 // Modal exercices Kine et Opto
 
 #modalExercices {
@@ -1145,16 +1403,19 @@ header > form div.mat-mdc-form-field-infix {
       font-size: 2rem;
       font-weight: 700;
       width: 60%;
+
       @media only screen and (max-width: 1280px) {
         font-size: 1.7rem;
       }
     }
+
     // La balise <h1>de suivi</h1>
     h1:nth-child(2) {
       margin: 0 0 1vh 0;
       font-size: 1.5rem;
       font-weight: 700;
       width: 60%;
+
       @media only screen and (max-width: 1280px) {
         font-size: 1.2rem;
       }

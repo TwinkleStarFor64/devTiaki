@@ -7,13 +7,18 @@
     "NUTRITION": "Nutrition",
     "PLANIFICATION-REPAS": "Planification des repas",
     "AGENDA": "Agenda",
-    "JOURNAL": "Journal",
+    "JOURNAUX": "Vos journaux enregistrés",
+    "HISTORIQUES": "Historique de vos activités",
+    "MESSAGERIE": "Messagerie",
+    "PROFIL": "Votre profil",
+    "PARAMETRES": "Paramètres",
     "MENUS": "Les menus",
     "PLATS":"Les pats",
     "INGREDIENTS":"Les ingrédients & valeurs",
     "MENU": "Menu",
     "PROGRESSIONS":"vos progressions",
-    "PROGRAMMES":"les programmes"
+    "PROGRAMMES":"les programmes",
+    "OUTILS":"Outils"
   },
   "pages":{
     "TIAKI":"Tiaki",

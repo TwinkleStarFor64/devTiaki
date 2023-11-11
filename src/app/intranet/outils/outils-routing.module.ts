@@ -9,11 +9,11 @@ import { EditJournalComponent } from './edit-journal/edit-journal.component';
 
 
 const routes: Routes = [
-  {path:'journal', component:JournalComponent},
-  {path:'historique', component:HistoriqueComponent},
+  {path:'journaux', component:JournalComponent},
+  {path:'historiques', component:HistoriqueComponent},
   {path:'messagerie', component:MessagerieComponent},
   {path:'profil', component:ProfilComponent},
-  {path:'parametre', component:ParametreComponent},
+  {path:'parametres', component:ParametreComponent},
   {path:'modifier/:id', component:EditJournalComponent}
 ];
 

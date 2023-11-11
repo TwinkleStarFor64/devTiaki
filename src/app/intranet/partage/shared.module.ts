@@ -19,6 +19,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ArianeComponent } from '../template/ariane/ariane.component';
 import { RouterModule } from '@angular/router';
+import { CarrouselComponent } from '../template/carrousel/carrousel.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RouterModule } from '@angular/router';
     FormatDatePipe,
     FormatDateToFrenchPipe,
     ExercicesPipe,
-    ArianeComponent
+    ArianeComponent,
+    CarrouselComponent
   ],
   exports:[
     MenuComponent,
@@ -48,7 +50,8 @@ import { RouterModule } from '@angular/router';
     MatExpansionModule,
     FormatDatePipe,
     FormatDateToFrenchPipe,
-    ExercicesPipe
+    ExercicesPipe,
+    CarrouselComponent
   ],
   imports: [
     CommonModule,

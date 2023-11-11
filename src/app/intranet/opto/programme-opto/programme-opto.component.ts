@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
 import { OptoService } from '../services/opto.service';
 import { InfosService } from 'src/app/partage/services/infos.service';

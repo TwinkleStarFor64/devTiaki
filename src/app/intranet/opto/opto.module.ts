@@ -6,7 +6,6 @@ import { ProgrammeOptoComponent } from './programme-opto/programme-opto.componen
 import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
 import { ProgrammeOptoPipe } from '../partage/pipes/programme.pipe';
 import { SharedModule } from '../partage/shared.module';
-import { CarouselOptoComponent } from './carousel-opto/carousel-opto.component';
 import { OptoComponent } from './opto.component';
 
 @NgModule({
@@ -15,8 +14,7 @@ import { OptoComponent } from './opto.component';
     ExerciceOptoComponent,
     ProgrammeOptoComponent,
     ProgressionOptoComponent,
-    ProgrammeOptoPipe,
-    CarouselOptoComponent
+    ProgrammeOptoPipe
   ],
   imports: [
     CommonModule,

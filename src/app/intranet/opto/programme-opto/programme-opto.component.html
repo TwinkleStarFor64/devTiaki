@@ -1,4 +1,4 @@
-<!-- section contenant la barre de recherche et les checkbox -->
+<app-ariane></app-ariane>
 <section id="module" class="progression">
   <!-- Article contenant le formulaire permettant de rechercher les programmes -->
   <header>
@@ -25,8 +25,6 @@
       <button (click)="initFiltres()" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
     </form>
   </header>
-  <!-- partie contenant la photo ou image principale et le titre la description le carroussel -->
-  <app-ariane></app-ariane>
   <section class="programme">
     <article>
       <figure [style.background-image]="'url(' + programme.photo + ')'" *ngIf="programme.photo">
@@ -44,7 +42,7 @@
             <p>{{ programme.materiels.toString() }}</p>
           </div>
         </div>
-        <app-carousel-opto [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carousel-opto>
+        <app-carrousel [items]="programme.exercices" (carouselItemClick)="onCarouselItemClick($event)"></app-carrousel>
       </div>
     </article>
       <mat-expansion-panel>

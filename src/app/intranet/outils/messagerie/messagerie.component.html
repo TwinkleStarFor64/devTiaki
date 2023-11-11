@@ -1,28 +1,15 @@
-<section id="mainMessagerie">
+<section class="outils">
   <!-- Section avec le logo, les médecins et les réalisations -->
-  <section id="menuJournalMessage">
-    <article>
-      <a routerLink="/intranet">
-        <span>Tiaki</span>
-      </a>
-    </article>
-    <article>
-      <h1>Messages</h1>
-    </article>
+  <section>
+    <h1>Messages</h1>
     <article class="medecin">
-      <div>
-        <img [src]="[medecinImg]" alt="logo medecin" />
-        <h2>Médecins</h2>
-      </div>
+      <h3><img src="assets/images/pictos/medecin.svg" alt="logo thérapeutes" /> Médecins</h3>
       <ul>
         <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
-    <article class="realisation">
-      <div>
-        <img src="assets/images/pictos/menus/echange.svg" alt="logo organisme" />
-        <h2>Organismes</h2>
-      </div>
+    <article>
+      <h3><img src="assets/images/pictos/menus/echange.svg" alt="logo organisme" /> Organismes</h3>
       <ul>
         <li *ngFor="let organisme of echanges.nomOrga">
           {{ organisme.nomOrganisme }}
@@ -32,21 +19,7 @@
   </section>
   <!-- Section comportant l'historique des messages -->
   <section>
-    <article>
-      <!-- Article pour le Responsive - invisible en Desktop -->
-      <div>
-        <a routerLink="/intranet">
-          <span>Tiaki</span>
-        </a>
-      </div>
-      <div>
-        <h1>Messages</h1>
-      </div>
-    </article>
-    <div id="allUi">
-      <img [src]="[blackTherapeuteImg]" alt="image-noir-medecin" />
-      <p>Historiques des messages avec le Dr Genoise</p>
-    </div>
+    <h3><img src="assets/images/pictos/medecin.svg" alt="logo thérapeutes" /> Médecins</h3>
     <ul>
       <li>Messages du 25-06-22</li>
       <li>Messages du 16-06-22</li>
@@ -58,13 +31,8 @@
     </ul>
   </section>
   <section>
-    <article>
-      <!-- Article pour le responsive Mobile -->
-      <a routerLink="/intranet">
-        <span>Tiaki</span>
-      </a>
-    </article>
-    <h3>Envoyer un message</h3>
+    <app-ariane></app-ariane>
+    <h3>Ecrire un message</h3>
     <article>
       <form [formGroup]="formMessage">
         <mat-form-field appearance="outline">
@@ -92,28 +60,18 @@
         <mat-form-field appearance="outline">
           <mat-label>Copier un message de l’historique</mat-label>
           <mat-select formControlName="link">
-            <mat-option *ngFor="let link of linkMessages" [value]="link">{{ link.date+ ": " + link.objet | formatDate }}</mat-option>
+            <mat-option *ngFor="let link of linkMessages" [value]="link">{{ link.date+ ": " + link.objet | formatDate
+              }}</mat-option>
           </mat-select>
         </mat-form-field>
+        <div class="align-right">
+          <button (click)="onCancel()" class="bg-annule">Annuler</button>
+          <button type="submit" (click)="onSubmitFormMessage()" [disabled]="formMessage.invalid" class="bg-valide">
+            Envoyer
+          </button>
+        </div>
       </form>
     </article>
-    <div id="divButton">
-      <button mat-raised-button (click)="onCancel()">Annuler</button>
-      <button mat-raised-button type="submit" (click)="onSubmitFormMessage()" [disabled]="formMessage.invalid">
-        Envoyer
-      </button>
-    </div>
+
   </section>
 </section>
-
-<!-- <input type="text" placeholder="Selectionner un médecin" />
-      <input type="text" placeholder="Activité concernée" />
-      <input type="text" placeholder="Objet" />
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="20"
-        placeholder="Message"
-      ></textarea>
-      <input type="text" placeholder="Copier un message de l’historique" /> -->

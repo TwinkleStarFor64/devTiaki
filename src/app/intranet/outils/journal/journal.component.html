@@ -2,24 +2,15 @@
   <!-- Section avec le logo, les médecins et les réalisations - Visible en Desktop -->
   <section>
     <!-- Visible en Desktop -->
-    <header>
-      <h1>Journaux</h1>
-      <h1>de suivi</h1>
-    </header>
+    <h1>Journaux de suivi</h1>
     <article>
-      <div>
-        <img src="assets/images/pictos/medecin.svg" alt="logo thérapeutes" />
-        <h2>Médecins</h2>
-      </div>
+      <h3><img src="assets/images/pictos/medecin.svg" alt="logo thérapeutes" /> Médecins</h3>
       <ul>
         <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
       </ul>
     </article>
     <article>
-      <div>
-        <img src="assets/images/pictos/whitePacman.svg" alt="logo realisation" />
-        <h2>Réalisations</h2>
-      </div>
+      <h3><img src="assets/images/pictos/whitePacman.svg" alt="logo realisation" /> Réalisations</h3>
       <ul>
         <li *ngFor="let realisation of realisations">
           {{ realisation.nom }}
@@ -29,13 +20,7 @@
   </section>
   <!-- Section comportant l'historique des journaux -->
   <section>
-    <header>
-      <img src="assets/images/pictos/medecin.svg" alt="pacman" />
-      <!-- Visible en Desktop -->
-      <h1>Journaux de suivi</h1>
-      <!-- Visible en Tablette -->
-      <p>Historiques des journaux sur ces activités</p>
-    </header>
+    <h2><img src="assets/images/pictos/medecin.svg" alt="pacman" /> Historique</h2>
     <ul>
       <li *ngFor="let relier of reliers">
         Journal du {{ relier.date | formatDate }} <br />
@@ -46,9 +31,7 @@
   <!-- Section Ajouter un journal avec le formulaire -->
   <section>
     <app-ariane></app-ariane>
-    <article>
-      <h3>Ajouter un journal</h3>
-    </article>
+    <h3>Ajouter un journal</h3>
     <article>
       <form [formGroup]="formJournal">
         <mat-form-field appearance="outline">
@@ -67,68 +50,60 @@
           <mat-label>Relier un journal précédent</mat-label>
           <mat-select formControlName="relier">
             <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
-            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ (rel.date | formatDate) + " - " + rel.objet }}</mat-option>
+            <mat-option *ngFor="let rel of reliers" [value]="rel">{{ (rel.date | formatDate) + " - " + rel.objet
+              }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <span class="spanBouton">
-          <button mat-raised-button color="warn">Partager</button>
-          <div>
-            <button mat-raised-button (click)="onCancel()">Annuler</button>
-            <button
-              mat-raised-button
-              type="submit"
-              (click)="onSubmitForm()"
-              [disabled]="formJournal.invalid"
-            >
-              Enregistrer
-            </button>
-            <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->
-          </div>
-        </span>
+        <div class="align-right">
+          <button mat-raised-button (click)="onCancel()" class="bg-annule">Annuler</button>
+          <button mat-raised-button type="submit" (click)="onSubmitForm()" [disabled]="formJournal.invalid" class="bg-valide">
+            Enregistrer
+          </button>
+        </div>
       </form>
     </article>
   </section>
   <!-- Section Concerner permettant de choisir les activités éffectué sur l'application - Visible en Desktop -->
   <section>
-    <h4>Concerne</h4>
-    <h5>Nutrition</h5>
-    <p>Plats</p>
+    <h2>Concerne</h2>
+    <h3>Nutrition</h3>
+    <h4>Plats</h4>
     <article class="nutrition">
-      <button>Salade</button>
-      <button>Thon</button>
-      <button>Kiwi</button>
-      <button>Lasagne</button>
+      <button class="bg-nutrition">Salade</button>
+      <button class="bg-nutrition">Thon</button>
+      <button class="bg-nutrition">Kiwi</button>
+      <button class="bg-nutrition">Lasagne</button>
     </article>
-    <p>Ingrédients</p>
+    <h4>Ingrédients</h4>
     <mat-form-field class="nutrition">
       <mat-label id="inputSearch">Rechercher un ingrédient</mat-label>
       <input type="search" matInput placeholder="Ex. Courgette" />
     </mat-form-field>
-    <h5>Kiné</h5>
+    <h3>Kiné</h3>
     <article class="kine">
-      <button>Exo 1</button>
-      <button>Exo 2</button>
-      <button>Exo 3</button>
-      <button>Exo 4</button>
+      <button class="bg-kine">Exo 1</button>
+      <button class="bg-kine">Exo 2</button>
+      <button class="bg-kine">Exo 3</button>
+      <button class="bg-kine">Exo 4</button>
     </article>
-    <h5>Optométrie</h5>
+    <h3>Optométrie</h3>
     <article class="opto">
-      <button>Exo 1</button>
-      <button>Exo 2</button>
-      <button>Exo 3</button>
-      <button>Exo 4</button>
+      <button class="bg-opto">Exo 1</button>
+      <button class="bg-opto">Exo 2</button>
+      <button class="bg-opto">Exo 3</button>
+      <button class="bg-opto">Exo 4</button>
     </article>
-    <h5>Médecins concernés</h5>
+    <h3>Médecins concernés</h3>
     <article class="buttonMedecin">
-      <button>Dr Genoise</button>
-      <button>Dr Lagourge</button>
-      <button>Dr Poiton</button>
+      <button class="bg-admin">Dr Genoise</button>
+      <button class="bg-admin">Dr Lagourge</button>
+      <button class="bg-admin">Dr Poiton</button>
     </article>
-    <h5>Organisme concernés</h5>
+    <h3>Organisme concernés</h3>
     <article class="buttonOrg">
-      <button>Clinique</button>
-      <button>Association</button>
-      <button>Hôpital</button>
+      <button class="bg-admin">Clinique</button>
+      <button class="bg-admin">Association</button>
+      <button class="bg-admin">Hôpital</button>
     </article>
   </section>
 </section>
