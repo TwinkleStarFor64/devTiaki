@@ -1,60 +1,83 @@
 {
-  "profils":[
+  "profils": [
     {
-        "nom":"Toto",
-        "prenom":"Khalifa",
-        "age":"16",
-        "email":"toto@titi.fr",
-        "adresse":"22 rue charles 3",
-        "ville":"Engelin sur Marne",
-        "codePostal":"44870",
-        "journaux":[],
-        "therapeutes":[],
-        "progressions":[],
-        "nutrition":{}
+      "nom": "Toto",
+      "prenom": "Khalifa",
+      "age": "16",
+      "email": "toto@titi.fr",
+      "adresse": "22 rue charles 3",
+      "ville": "Engelin sur Marne",
+      "codePostal": "44870",
+      "journaux": [],
+      "therapeutes": [],
+      "progressions": [],
+      "nutrition": {}
     },
     {
-        "nom":"Tata",
-        "prenom":"Emilie",
-        "age":"5",
-        "adresse":"23 rue charles 3",
-        "ville":"Rébénacq",
-        "codePostal":"64260",
-        "journaux":[],
-        "therapeutes":[],
-        "progressions":[],
-        "nutrition":{}
+      "nom": "Tata",
+      "prenom": "Emilie",
+      "age": "5",
+      "adresse": "23 rue charles 3",
+      "ville": "Rébénacq",
+      "codePostal": "64260",
+      "journaux": [],
+      "therapeutes": [],
+      "progressions": [],
+      "nutrition": {}
     }
-],
-"therapeutes":[
-  {
-    "nom": "Docteur Ferreira",
-    "prenom":"Bouboule",
-    "specialites":["Généraliste"],
-    "type":"specialiste"
-  },
-  {
-    "nom": "Docteur Sebastian",
-    "prenom":"Abdul",
-    "specialites":["Généraliste"],
-    "type":"generaliste"
-  },
-  {
-    "nom": "Rusco",
-    "prenom":"Jennifer",
-    "specialites":["Optométriste"],
-    "type":"therapeute"
-  }
-],
-"organismes":[
-  {
-      "nomOrganisme":"MDPH64"
-  },
-  {
-      "nomOrganisme":"Le Méliange"
-  },
-  {
-      "nomOrganisme":"Hôpital de Bordeaux"
-  }
-]
+  ],
+  "therapeutes": [
+    {
+      "nom": "Docteur Ferreira",
+      "prenom": "Bouboule",
+      "specialites": [
+        "Généraliste"
+      ],
+      "type": "specialiste"
+    },
+    {
+      "nom": "Docteur Sebastian",
+      "prenom": "Abdul",
+      "specialites": [
+        "Généraliste"
+      ],
+      "type": "generaliste"
+    },
+    {
+      "nom": "Rusco",
+      "prenom": "Jennifer",
+      "specialites": [
+        "Optométriste"
+      ],
+      "type": "therapeute"
+    }
+  ],
+  "organismes": [
+    {
+      "nomOrganisme": "MDPH64"
+    },
+    {
+      "nomOrganisme": "Le Méliange"
+    },
+    {
+      "nomOrganisme": "Hôpital de Bordeaux"
+    }
+  ],
+  "app": [
+    {
+      "titre": "Google Photos",
+      "description": "Vous pouvez paramétrer les accès à Google photos pour permettre aux utilisateurs d'utiliser ce Cloud comme solution de stockage et de partage de leurs médias",
+      "url": ""
+    },
+    {
+      "titre": "Google Drive",
+      "description": "Vous pouvez paramétrer les accès à Google Drive pour permettre aux utilisateurs d'utiliser ce Cloud comme solution de stockage et de partage de leurs médias",
+      "url": ""
+    },
+    {
+      "titre": "ICloud",
+      "description": "Vous pouvez paramétrer les accès à ICloud pour permettre aux utilisateurs d'utiliser ce Cloud comme solution de stockage et de partage de leurs médias",
+      "url": ""
+    }
+  ]
 }

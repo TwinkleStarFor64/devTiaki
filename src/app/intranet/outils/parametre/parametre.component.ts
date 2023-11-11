@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TherapeuteI, RealisationI,MessageJournalI  } from '../../partage/modeles/Types';
-import { ParametreService } from './services/parametre.service';
+import { InfosService } from 'src/app/partage/services/infos.service';
 import { DonneesService } from '../../partage/services/donnees.service';
+import { ParamI, ParamsI } from '../../partage/modeles/Types';
 
 @Component({
   selector: 'app-parametre',
@@ -9,33 +9,23 @@ import { DonneesService } from '../../partage/services/donnees.service';
   styleUrls: ['./parametre.component.scss'],
 })
 export class ParametreComponent {
-  public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
-  public medecinImg!: string;
-  public realisationImg!: string;
-  public pacman!: string;
 
-  public realisations: RealisationI[] = [
-    {
-      nom: 'Occlumotricité',
-    },
-    {
-      nom: 'Perception Tangram',
-    },
-    {
-      nom: 'Planche',
-    },
-    {
-      nom: "Ajout du plat 'Soupe de courgette'",
-    },
-  ];
-  constructor(public echanges: ParametreService, public get:DonneesService) {}
+  params:ParamsI = {app:[]};
+  param!:ParamI;
 
-  ngOnInit() {
-    this.pacman = 'assets/imageOutils/Maskgroup.svg';
-    this.realisationImg = 'assets/imageOutils/whitePacman.svg';
-    this.medecinImg = 'assets/imageOutils/medecin.svg';
-    this.echanges.getEchangeMedecin();
-    this.echanges.getEchangeOrga();
-    this.echanges.getNomOrga();
+  constructor(public l:InfosService, private get:DonneesService){
+    this.get.getJsonData('params').subscribe({
+      next: p => {
+        this.params = p;
+        this.param = this.params.app[0];
+      },
+      error: er => console.log(er),
+      complete: () => console.log("Paramètres chargés")
+    })
   }
+  /** Indiquer sur quel paramètre nous travaillons actuellement */
+  setParam(p:any){
+    this.param = p;
+  }
+
 }

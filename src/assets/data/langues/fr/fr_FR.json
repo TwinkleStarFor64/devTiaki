@@ -41,7 +41,10 @@
     "COMMENTAIRE":"Commentaire",
     "COMMENTAIRES":"Commentaires",
     "COMMENTAIRES-TITRE":"Notes et commentaires",
-    "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu"
+    "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu",
+    "PARAMS":"Paramètres",
+    "CLOUD":"Cloud",
+    "COMMENT":"Comment ça marche ?"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",
