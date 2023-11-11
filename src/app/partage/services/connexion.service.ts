@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConnexionService {
+  connecte:boolean = true; // Valider l'état de la connexion de l'utilisateur
   connexion:any = {
     id:{
       value:'',

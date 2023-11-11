@@ -271,3 +271,11 @@ export interface MediaI{
   auteur?:string;
   type:string;
 }
+export interface ParamsI{
+  app:Array<ParamI>;
+}
+export interface ParamI{
+  titre:string;
+  description:string;
+  url:string;
+}

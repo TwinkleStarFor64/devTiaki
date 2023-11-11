@@ -1,44 +1,23 @@
 <section class="outils">
   <section>
-    <h1>Échanges</h1>
+    <h1>{{ l.t.pages['PARAMS'] }}</h1>
     <article class="medecin">
-      <div>
-        <img [src]="[medecinImg]" alt="logo medecin" />
-        <h2>Médecins</h2>
-      </div>
+      <h2></h2>
       <ul>
-        <li *ngFor="let medecin of get.therapeutes">{{ medecin.nom }}</li>
-      </ul>
-    </article>
-    <article>
-      <h2><img src="assets/.images/pictos/menus/echange.svg" alt="logo organisme" /> Organismes</h2>
-      <ul>
-        <li *ngFor="let organisme of echanges.nomOrga">
-          {{ organisme.nomOrganisme }}
-        </li>
+        <li *ngFor="let p of params.app; let i=index" (click)="setParam(p)">{{ p.titre }}</li>
       </ul>
     </article>
   </section>
   <section>
-    <article> <!-- Article pour le Responsive - invisible en Desktop -->
-      <h3>Historique des derniers échanges</h3>
+    <h3>{{ l.t.pages['COMMENT'] }}</h3>
+    <article>
+      {{ param.description }}
     </article>
     <!-- <h3>Historique des échanges</h3> -->
-    <section>
-      <section>
-        <article *ngFor="let message of echanges.echangeMedecin">
-          <h4>{{ message.nom }}</h4>
-          <p>{{ message.message }}</p>
-          <img src="assets/images/pictos/modif.svg" />
-        </article>
-      </section>
-      <section>
-        <article *ngFor="let message of echanges.echangeOrga">
-          <h4>{{ message.nom }}</h4>
-          <p>{{ message.message }}</p>
-          <img src="assets/images/pictos/modif.svg" />
-        </article>
-      </section>
-    </section>
-  </section>
+</section>
+<section>
+  <h3>{{ param.titre }}</h3>
+  <article>
+    {{ param.description }}
+  </article>
 </section>

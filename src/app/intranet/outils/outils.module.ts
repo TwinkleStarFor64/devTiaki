@@ -26,7 +26,6 @@ import { OutilsRoutingModule } from './outils-routing.module';
     CommonModule,
     OutilsRoutingModule,
     SharedModule
-  ],
-  entryComponents: [DeleteComponent],
+  ]
 })
 export class OutilsModule {}
