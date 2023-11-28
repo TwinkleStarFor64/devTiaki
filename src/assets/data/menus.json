@@ -69,7 +69,7 @@
       "active": false
     },
     {
-      "image": "assets/images/pictos/menus/platBottom.png",
+      "image": "assets/images/pictos/menus/plat.png",
       "titre": "Plats",
       "info": "Vos plats ou ceux de la communauté",
       "lien": "Plats",
@@ -103,7 +103,7 @@
       "active": false
     },
     {
-      "image":"assets/images/pictos/menus/platBottom.png",
+      "image":"assets/images/pictos/menus/plat.png",
       "titre":"Plats",
       "info":"Vos plats ou ceux de la communauté",
       "lien":"Plats",
@@ -122,52 +122,52 @@
   "principal":[
     {
       "nom":"Émilie",
-      "image":"assets/imgAsidebar/cheerleader1.svg",
+      "image":"assets/images/aside/cheerleader1.svg",
       "url":"/intranet/tableau"
     },
     {
       "nom":"Kalhifa",
-      "image":"assets/imgAsidebar/skier1.svg",
+      "image":"assets/images/aside/skier1.svg",
       "url":"/intranet/tableau"
     },
     {
       "nom":"Nutrition",
-      "image":"assets/imgAsidebar/Vector.svg",
+      "image":"assets/images/aside/Vector.svg",
       "url":"/intranet/nutrition"
     },
     {
       "nom":"Kiné",
-      "image":"assets/imgAsidebar/Vector1.svg",
+      "image":"assets/images/aside/Vector1.svg",
       "url":"/intranet/kine"
     },
     {
       "nom":"Opto",
-      "image":"assets/imgAsidebar/Group1.svg",
+      "image":"assets/images/aside/Group1.svg",
       "url":"/intranet/opto"
     },
     {
       "nom":"Journal",
-      "image":"assets/imgAsidebar/Group2.svg",
+      "image":"assets/images/aside/Group2.svg",
       "url":"/intranet/outils/journaux"
     },
     {
-      "nom":"Historique",
-      "image":"assets/imgAsidebar/Group3.svg",
-      "url":"/intranet/outils/historiques"
+      "nom":"Agenda",
+      "image":"assets/images/aside/Group3.svg",
+      "url":"/intranet/outils/agenda"
     },
     {
       "nom":"Messagerie",
-      "image":"assets/imgAsidebar/Group4.svg",
+      "image":"assets/images/aside/Group4.svg",
       "url":"/intranet/outils/messagerie"
     },
     {
       "nom":"Profil",
-      "image":"assets/imgAsidebar/Group5.svg",
+      "image":"assets/images/aside/Group5.svg",
       "url":"/intranet/outils/profil"
     },
     {
       "nom":"Paramètre",
-      "image":"assets/imgAsidebar/Group6.svg",
+      "image":"assets/images/aside/Group6.svg",
       "url":"/intranet/outils/parametres"
     }
   ]

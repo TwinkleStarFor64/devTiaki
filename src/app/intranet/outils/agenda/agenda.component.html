@@ -1,0 +1,83 @@
+<section class="outils">
+  <!-- Section avec le logo, les médecins et les réalisations -->
+  <section> <!-- Visible en Desktop -->
+    <h1>{{ l.t.outils['AGENDA'] }}</h1>
+    <p>{{ l.t.outils['AGENDA_DESCR'] }}</p>
+    <article>
+      <h3><img src="assets/images/pictos/menus/plat.svg" alt="Pictogramme d'un plat" class="icone">{{ l.t.outils['AGENDA_MENU'] }}</h3>
+      <ul>
+        <li>
+
+        </li>
+      </ul>
+    </article>
+    <article>
+      <h3><img src="assets/images/pictos/medecin.svg" alt="Pictogramme d'un médecin" class="icone">{{ l.t.outils['AGENDA_MEDECIN'] }}</h3>
+      <ul>
+        <li>
+
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section>
+  </section>
+  <section>
+    <app-ariane></app-ariane>
+    <article>
+      <header>
+        <span>
+          <button mat-raised-button mwlCalendarPreviousView [(viewDate)]="viewDate" [view]="view"><</button>
+          <button mat-raised-button mwlCalendarToday [(viewDate)]="viewDate">Aujourd'hui</button>
+          <button mat-raised-button mwlCalendarNextView [(viewDate)]="viewDate" [view]="view">></button>
+        </span>
+        <p>{{ viewDate | calendarDate:(view + "ViewTitle") : 'fr' }}</p>
+        <span>
+          <button mat-raised-button (click)="setView(CalendarView.Month)" (click)="selectedButton = 0" [class.selected]="selectedButton === 0" >Mois</button>
+          <button mat-raised-button (click)="setView(CalendarView.Week)" (click)="selectedButton = 1" [class.selected]="selectedButton === 1" >Semaine</button>
+          <button mat-raised-button (click)="setView(CalendarView.Day)" (click)="selectedButton = 2" [class.selected]="selectedButton === 2" >Jour</button>
+        </span>
+      </header>
+      <div [ngSwitch]="view">
+        <mwl-calendar-month-view
+        *ngSwitchCase="CalendarView.Month"
+        [viewDate]="viewDate"
+        [events]="events"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="eventClicked($event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+        [refresh]="refresh"
+        locale="fr"
+        ></mwl-calendar-month-view>
+        <mwl-calendar-week-view
+        *ngSwitchCase="CalendarView.Week"
+        [viewDate]="viewDate"
+        [events]="events"
+        (eventClicked)="eventClicked($event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+        [refresh]="refresh"
+        locale="fr"
+        ></mwl-calendar-week-view>
+        <mwl-calendar-day-view
+        *ngSwitchCase="CalendarView.Day"
+        [viewDate]="viewDate"
+        [events]="events"
+        (eventClicked)="eventClicked($event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+        [refresh]="refresh"
+        locale="fr"
+        ></mwl-calendar-day-view>
+      </div>
+      <ul class="legende">
+        <li><span></span>{{ l.t.outils['AGENDA_NOTE_POSITIF'] }}</li>
+        <li><span></span>{{ l.t.outils['AGENDA_NOTE_OBS'] }}</li>
+        <li><span></span>{{ l.t.outils['AGENDA_NOTE_REAC'] }}</li>
+        <li><span></span>{{ l.t.outils['AGENDA_NOTE_NONE'] }}</li>
+      </ul>
+    </article>
+  </section>
+  <!-- <section id="default" *ngIf="!selectedHistorique">
+    <p>Veuillez choisir un journal archivé afin de voir ce qu'il contient</p>
+  </section> -->
+</section>

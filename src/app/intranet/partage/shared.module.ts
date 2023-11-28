@@ -20,6 +20,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ArianeComponent } from '../template/ariane/ariane.component';
 import { RouterModule } from '@angular/router';
 import { CarrouselComponent } from '../template/carrousel/carrousel.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +57,14 @@ import { CarrouselComponent } from '../template/carrousel/carrousel.component';
     FormatDatePipe,
     FormatDateToFrenchPipe,
     ExercicesPipe,
-    CarrouselComponent
+    CarrouselComponent,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatPaginatorModule,
+    MatNativeDateModule
   ],
   imports: [
     CommonModule,
@@ -59,14 +72,18 @@ import { CarrouselComponent } from '../template/carrousel/carrousel.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatSelectModule,
+    // MatAutocompleteModule,
+    // MatSelectModule,
     MatIconModule,
-    CdkAccordionModule,
-    MatProgressBarModule,
-    MatDialogModule,
-    MatCheckboxModule,
-    MatExpansionModule
+    // CdkAccordionModule,
+    // MatProgressBarModule,
+    // MatDialogModule,
+    // MatCheckboxModule,
+    // MatExpansionModule,
+    // MatRadioModule,
+    // MatDatepickerModule,
+    // MatButtonModule,
+    // MatFormFieldModule
   ]
 })
 export class SharedModule { }

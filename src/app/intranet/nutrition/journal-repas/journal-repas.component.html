@@ -1,5 +1,5 @@
 <section>
-<div id="divMain">
+<!-- <div id="divMain">
   <article id="calendrier">
     <div>
       <span>
@@ -8,7 +8,7 @@
         <button mat-raised-button mwlCalendarNextView [(viewDate)]="viewDate" [view]="view">></button>
       </span>
       <p>{{ viewDate | calendarDate:(view + "ViewTitle") : 'fr' }}</p>
-      <span> <!-- (click)="selectedButton = 0" [class.selected]="selectedButton === 0" - Code pour le CSS -->
+      <span>
         <button mat-raised-button (click)="setView(CalendarView.Month)" (click)="selectedButton = 0" [class.selected]="selectedButton === 0" >Mois</button>
         <button mat-raised-button (click)="setView(CalendarView.Week)" (click)="selectedButton = 1" [class.selected]="selectedButton === 1" >Semaine</button>
         <button mat-raised-button (click)="setView(CalendarView.Day)" (click)="selectedButton = 2" [class.selected]="selectedButton === 2" >Jour</button>
@@ -60,12 +60,10 @@
     <h1>Renseigner votre journal des repas</h1>
     <form [formGroup]="formData">
       <p>Je rajoute un menu ou un plat :</p>
-    <!-- Avec mat-radio j'affiche ensuite le mat-select plat OU menu -->
       <mat-radio-group formControlName="choice">
         <mat-radio-button value="plat">Plat</mat-radio-button>
         <mat-radio-button value="menu">Menu</mat-radio-button>
       </mat-radio-group>
-    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->
       <ng-container *ngIf="formData.get('choice')?.value === 'menu'">
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
@@ -76,7 +74,6 @@
           </mat-select>
         </mat-form-field>
       </ng-container>
-    <!-- En ajoutant ? à formData.get('choice') j'évite l'erreur Object is possibly 'null'-->
       <ng-container *ngIf="formData.get('choice')?.value === 'plat'">
         <mat-form-field appearance="outline">
           <mat-label>VOS PLATS</mat-label>
@@ -96,27 +93,16 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <!-- Ci-dessous le component Datetime-picker - https://www.npmjs.com/package/@angular-material-components/datetime-picker -->
-      <!-- placeholder="Choisir une date"  OU  [placeholder]="formatDateToFrench(dateTime)" -->
       <mat-form-field>
-        <input matInput [ngxMatDatetimePicker]="picker"
+        <input matInput [matDatepicker]="picker"
                         placeholder="Choisir une date"
                         formControlName="start"
                         [min]="minDate" [max]="maxDate"
                         [disabled]="disabled"
                         [value]="dateTime | formatDateToFrench">
-                        <!-- J'ai rajouté [value] pour essayer de format la date en Fr-->
-        <mat-datepicker-toggle matSuffix [for]="$any(picker)">
-      <!-- Pour résoudre l'erreur sur le [for] - https://github.com/h2qutc/angular-material-components/issues/231 -->
-        </mat-datepicker-toggle>
-        <ngx-mat-datetime-picker #picker
-          [showSpinners]="showSpinners"
-          [showSeconds]="showSeconds"
-          [stepHour]="stepHour" [stepMinute]="stepMinute"
-          [stepSecond]="stepSecond"
-          [touchUi]="touchUi"
-          [color]="color">
-        </ngx-mat-datetime-picker>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-date-range-input #picker></mat-date-range-input>
       </mat-form-field>
       <p>Observations :</p>
       <mat-form-field appearance="outline" id="textarea">
@@ -132,7 +118,7 @@
       </button>
     </span>
   </article>
-</div>
+</div> -->
 </section>
 <!-- Afficher le menu -->
 <app-menu [idMenu]="'nutrition'" [classe]="'bg-nutrition'"></app-menu>

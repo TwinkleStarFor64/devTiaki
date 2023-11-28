@@ -51,10 +51,20 @@ export interface MessageI {
   };
   linkedMessage?: MessageI[];
 }
-
-//Interface de la page historique des journaux
-export interface HistoriqueI {
-  //journal:Array<JournalI>
+export interface EventI{
+  date: number;
+  titre: string;
+  note?:string;
+  observations?: string;
+  importance?:ImportanceE;
+  idMedecin?:number;
+  idMenu?:number;
+}
+enum ImportanceE{
+  faible = 'Faible',
+  moyenne = 'Moyenne',
+  forte = 'Forte',
+  critique = 'Critique'
 }
 // Interface de la page journal pour les réalisations
 export interface RealisationI {

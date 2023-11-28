@@ -44,7 +44,8 @@
     "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu",
     "PARAMS":"Paramètres",
     "CLOUD":"Cloud",
-    "COMMENT":"Comment ça marche ?"
+    "COMMENT":"Comment ça marche ?",
+    "RDV":"Rendez-vous"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",
@@ -60,5 +61,16 @@
   },
   "kine":{
     "KINE":"Kinésithérapie"
+  },
+  "outils":{
+    "OUTILS":"Outils",
+    "AGENDA":"Agenda",
+    "AGENDA_DESCR":"Retrouvez ici, tous les événements qui vous concernent : médicaux, repas...",
+    "AGENDA_NOTE_POSITIF":"Effet positif",
+    "AGENDA_NOTE_OBS":"Observations",
+    "AGENDA_NOTE_REAC":"Réaction allergique",
+    "AGENDA_NOTE_NONE":"Aucune donnée",
+    "AGENDA_MENU":"Menus programmés",
+    "AGENDA_MEDECIN":"Vos prochains rendez-vous"
   }
 }
