@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PlatsService } from './services/plats.service';
-import { CiqualI, EvaluationI, MesPlatsI } from '../../partage/modeles/Types';
+import { CiqualI, EvaluationI, PlatI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { DonneesService } from '../../partage/services/donnees.service';
-import { AdminService } from '../../partage/services/admin.service';
-import { EditService } from '../../partage/services/edit.service';
+import { NutritionService } from '../services/nutrition.service';
 
 @Component({
   selector: 'app-plats',
@@ -15,11 +12,11 @@ import { EditService } from '../../partage/services/edit.service';
 })
 export class PlatsComponent implements OnInit {
   aliment: CiqualI[] = [];
-  plats: MesPlatsI [] = [];
+  plats: Array<PlatI> = [];
   evaluation: EvaluationI[] = [];
 
   //selectedIngredients?: CiqualI;
-  selectedPlats?: MesPlatsI;
+  selectedPlats?: PlatI;
   selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
 
   selectedPlatsId!: number; // Pour la méthode onSelect()
@@ -29,88 +26,20 @@ export class PlatsComponent implements OnInit {
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
   affichageDefaut: string = 'allPlats';
 
-  constructor(public platService: PlatsService, private get:DonneesService, private admin:AdminService, private edit:EditService, private dialog:MatDialog) {}
+  constructor(public nutri:NutritionService, private dialog:MatDialog) {}
 
-  async ngOnInit(): Promise<void> {
-    this.platService.getMesPlats();
-    this.fetchPlats();
-    this.fetchCiqual();
-    this.fetchEvaluation();
-  }
+  async ngOnInit() {}
 
-  async fetchPlats() {
-    const { data, error } = await this.platService.getPlats();
-    if (data) {
-      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
-      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.plats = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut']
-      }));
-      console.log(this.plats.map((item) => item['id']));
-    }
-    if (error) {
-      //Si une erreur
-      console.log(error);
-    }
-  }
-
-  async fetchCiqual() {
-    const { data: groupData, error: groupError } =
-      await this.get.getCiqual();
-    if (groupData) {
-      this.aliment = groupData.map((item: { [x: string]: any }) => ({
-        alim_code: item['alim_code'],
-        alim_nom_fr: item['alim_nom_fr'],
-        ['Protéines, N x 6.25 (g/100 g)']: item['Protéines, N x 6.25 (g/100 g)'],
-        ['Glucides (g/100 g)']: item['Glucides (g/100 g)'],
-        ['Lipides (g/100 g)']: item['Lipides (g/100 g)'],
-        ['Sucres (g/100 g)']: item['Sucres (g/100 g)'],
-        ['Vitamine C (mg/100 g)']: item['Vitamine C (mg/100 g)'],
-        ['Vitamine B1 ou Thiamine (mg/100 g)']: item['Vitamine B1 ou Thiamine (mg/100 g)'],
-        ['Vitamine B2 ou Riboflavine (mg/100 g)']: item['Vitamine B2 ou Riboflavine (mg/100 g)'],
-        ['Vitamine B3 ou PP ou Niacine (mg/100 g)']: item['Vitamine B3 ou PP ou Niacine (mg/100 g)'],
-        ['Vitamine B5 ou Acide pantothénique (mg/100 g)']: item['Vitamine B5 ou Acide pantothénique (mg/100 g)'],
-        ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
-        ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
-        ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
-      }));
-      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
-    }
-    if (groupError) {
-      console.log(groupError);
-    }
-  }
-
-// Méthode pour récupérer la table Evaluation
-  async fetchEvaluation() {
-    const { data, error } = await this.get.getEvaluation();
-    if (data) {
-      this.evaluation = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        statut: item['statut']
-      }));
-      console.log(this.evaluation.map((item) => item['statut']).join(', '));
-    }
-    if (error) {
-      console.log(error);
-    }
-  }
-
-  onSelect(event: any, plats: MesPlatsI): void {
+  onSelect(event: any, plats: PlatI): void {
     // La ligne de code "if (event.isUserInput)" permet de vérifier que l'utilisateur a bien sélectionné une option
     // Cela permet d'ignorer l'événement déclenché lors de la désélection de l'option précédemment sélectionnée.
     // Sans cela la valeur de mat-option et du HTML ne se met pas à jour en temps réel
     if (event.isUserInput) {
       this.selectedPlats = plats;
       console.log("J'ai cliqué sur : " + this.selectedPlats.nom + event.isUserInput);
-      this.alimCodeFiltre = plats.alim_code;
+      this.alimCodeFiltre = Number(plats.alim_code);
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
-      this.selectedPlatsId = plats.id;
+      this.selectedPlatsId = Number(plats.id);
       console.log("Voici l'id du plat : " + this.selectedPlatsId);
     }
   }
@@ -124,11 +53,11 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
   }
 }
 
-onSelectPlat(plats: MesPlatsI): void {
+onSelectPlat(plats: PlatI): void {
   this.selectedPlats = plats;
-  this.alimCodeFiltre = plats.alim_code;
+  this.alimCodeFiltre = Number(plats.alim_code);
     console.log('Je veux ce code : ' + this.alimCodeFiltre);
-    this.selectedPlatsId = plats.id;
+    this.selectedPlatsId = Number(plats.id);
     console.log("Voici l'id du plat : " + this.selectedPlatsId);
 }
 
@@ -154,48 +83,10 @@ onSelectPlat(plats: MesPlatsI): void {
     });
   }
 
-  // Méthode pour delete un plat
-  async deletePlat(id: number) {
-    this.deleteDialog() // J'appelle la modal deleteDialog
-    .afterClosed()
-    // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
-    .subscribe((res) => {
-      if (res) {
-        this.admin.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
-          .then(() => {
-            this.fetchPlats();
-            //window.location.reload(); // Bonne solution ??
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    });
-  }
-
-  async getPlatsId(): Promise<any> { // Méthode sur le bouton Évaluer
-    if (this.selectedPlatsId ) {
-      console.log("Voici l'id du plat choisi :" + this.selectedPlatsId );
-      await this.get.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
-      console.log("L'id de l'évaluation que je donne au plat : " + this.evaluationId);
-      await this.edit.updateEvalPlat(this.selectedPlatsId, this.evaluationStatut)
-      // Id dynamique pour le EQ de la méthode supabase
-      // Statut dynamique pour le UPDATE de la méthode supabase
-      .then(() => {
-        this.fetchPlats();
-      })
-    } else {
-      throw new Error
-    }
-  }
-
 // Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
-
-
-
 
 }
 

@@ -1,21 +1,17 @@
 <header class="entete">
   <h1><a routerLink="/intranet">Tiaki</a></h1>
-  <h2>Accueil Nutrition</h2>
+  <h2>Nutrition</h2>
 </header>
 <section class="accueil">
-  <article *ngFor="let card of accueilNutrition" class="cartel">
+  <article *ngFor="let card of get.accueilModule" class="cartel">
     <div>
-      <h2>{{ card.title }}</h2>
-      <p>{{ card.text }}</p>
+      <h2>{{ card.titre }}</h2>
+      <p>{{ card.description }}</p>
       <a [routerLink]="[card.url]">
-        <button>{{ card.button }}</button>
+        <button>{{ card.bouton }}</button>
       </a>
     </div>
-    <figure>
-      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
-      </div>
+    <figure [style.background-image]="'url(' + card.image + ')'" >
     </figure>
   </article>
 </section>
-<!-- Afficher le menu -->
-<!-- <app-menu [idMenu]="'kine'" [classe]="'bg-kine'"></app-menu> -->

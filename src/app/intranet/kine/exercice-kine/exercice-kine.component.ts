@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
-import { SanityService } from 'src/app/partage/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { KineService } from '../services/kine.service';
-import { DonneesService } from '../../partage/services/donnees.service';
 
 @Component({
   selector: 'app-exercice-kine',

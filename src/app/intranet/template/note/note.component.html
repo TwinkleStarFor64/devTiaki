@@ -1,0 +1,32 @@
+<section>
+  <header>
+    <h2>{{ l.t.pages['NOTES'] }}</h2>
+    <button (click)="initNote()"><mat-icon>add</mat-icon>{{ l.t.pages['NOTE_ADD'] }}</button>
+  </header>
+  <article><p>{{ l.t.pages['NOTE_NONE'] }}</p></article>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let note of listeNotes; let i=index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ note.table }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ note.titre }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>{{ note.description }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
+<section>
+  <form *ngIf="note">
+    <mat-form-field>
+      <mat-label>{{ l.t.pages['NOTE_SAISIE'] }}</mat-label>
+      <input matInput [(ngModel)]="note.titre" [placeholder]="l.t.pages['NOTE_SAISIE']">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>{{ l.t.pages['NOTE_SAISIE'] }}</mat-label>
+      <textarea matInput [(ngModel)]="note.description" [placeholder]="l.t.pages['NOTE_SAISIE']"></textarea>
+    </mat-form-field>
+  </form>
+</section>

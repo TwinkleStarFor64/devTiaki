@@ -51,6 +51,9 @@ main {
 form {
   flex-flow: column nowrap;
 }
+input, textarea{
+  font-family: $font-family;
+}
 h1 {
   color: $card-nutri;
   font-weight: 100;
@@ -75,6 +78,10 @@ h1, h2, h3{
 }
 h1 img, h2 img, h3 img, h1 mat-icon, h2 mat-icon, h3 mat-icon{
   margin-right:10px;
+}
+h2{
+  font-size: 36px;
+  font-weight: 100;
 }
 a {
   text-decoration: none;
@@ -108,6 +115,9 @@ button {
   background-color: $clair;
   color: $aside-color1;
   font-size: 16px;
+  display:flex;
+  align-items: center;
+  height:fit-content;
 }
 button:hover {
   background-color: $aside-color3;
@@ -223,13 +233,17 @@ ul li{
   width: 30px;
   cursor: pointer;
 }
-
+.pointilles{
+  width:100%;
+  height:0;
+  border:none;
+  border-bottom:1px dashed $aside-color1;
+}
 .mat-icone {
   font-size: $icone;
   width: $icone !important;
   height: $icone !important;
 }
-
 .mat-icone:hover {
   transform: scale(1.1);
 }
@@ -621,22 +635,16 @@ header>form div.mat-mdc-form-field-infix {
   align-items: flex-start;
   align-content: flex-start;
 }
-
 #module.progression>section {
   height: calc(100% - $foot);
 }
-
 #module>app-menu {
   height: $foot;
 }
-
 // articles générés avec le ngFor avec la photo ou video et le titre la description
 #module>section>article {
   flex-flow: column nowrap;
   flex: 1;
-  // flex-basis:1;
-  // max-width:17%;
-  // gap:3vw;
   background: $clair;
   margin: 10px;
   justify-content: space-between;
@@ -806,28 +814,23 @@ header>form div.mat-mdc-form-field-infix {
     flex:4;
   }
 }
-
 .programme>article>div>p {
   padding: 10px 15px;
 }
-
 .programme>article>div>div {
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
 }
-
 .programme>article>div>div img {
   margin-right: 10px;
 }
-
 .programme>article>div>div>div {
   flex-flow: row nowrap;
   align-items: center;
   height: 25%;
   padding: 10px 15px;
 }
-
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;
   height: 100%;
@@ -837,7 +840,69 @@ header>form div.mat-mdc-form-field-infix {
   --mdc-linear-progress-active-indicator-color: #f28705;
   --mdc-linear-progress-track-height: 200px;
 }
-
+/** PAGES NUTRITIONS */
+#nutrition{
+  height: calc(100vh - $foot);
+  width:calc(100vw - $breadcrumb);
+  flex-flow: row nowrap;
+}
+#nutrition header{
+  width:100%;
+  flex-flow: column nowrap;
+}
+#nutrition > section, #nutrition > section > section{
+  height: 100%;
+  width:calc(100vw - $breadcrumb);
+  flex-flow: column nowrap;
+}
+#nutrition > section:nth-child(1){
+  flex:1;
+}
+#nutrition > section:nth-child(1) header{
+  flex:1;
+  height: $foot;
+}
+#nutrition > section:nth-child(1) article{
+  height:calc(100% - $foot);
+  overflow-x:hidden;
+  overflow-y:auto;
+  margin:20px 0;
+}
+#nutrition > section:nth-child(1) footer{
+  height:$breadcrumb;
+}
+#nutrition > section:nth-child(1) h1, #nutrition > section:nth-child(1) h2{
+  font-size: 24px;
+}
+#nutrition > section:nth-child(1) ul{
+  padding:10px;
+}
+#nutrition > section:nth-child(1) ul li{
+  cursor: pointer;
+  transition: all 0.3s ease;
+  list-style: none;
+  position:relative;
+  margin-bottom:10px;
+}
+#nutrition > section:nth-child(1) ul li:after{
+  content:'.......................';
+  position:absolute;
+  right:0;
+  bottom:-5px;
+}
+#nutrition > section:nth-child(1) ul li:hover{
+  transform: scale(1.05);
+  font-weight: 600;
+}
+#nutrition > section:nth-child(2){
+  flex:3;
+  padding:0 30px;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+#nutrition > section:nth-child(2) article{
+  flex-flow:column nowrap;
+}
 /** PAGES OUTILS */
 .outils {
   flex-flow: row nowrap;
@@ -863,23 +928,18 @@ header>form div.mat-mdc-form-field-infix {
   width: 15%;
   padding: 10px 15px;
 }
-
 .outils>section article {
   flex-flow: column nowrap;
 }
-
 .outils section:nth-child(1) {
   background-color: #F0C02E;
 }
-
 .outils section:nth-child(2) {
   background-color: #F8E6AF;
 }
-
 .outils section:nth-child(3) {
   flex: 3;
 }
-
 .outils section:nth-child(4) {
   background-color: #F8E6AF;
 }
@@ -890,6 +950,20 @@ header>form div.mat-mdc-form-field-infix {
   font-size:80%;
   padding:10px 15px;
   margin:5px;
+}
+/** PAGINATION **/
+.pagination{
+  width:100%;
+  align-items: center;
+  justify-content: center;
+  padding:15px;
+}
+.pagination mat-icon{
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.pagination mat-icon:hover{
+  transform: scale(1.1);
 }
 /** CARROUSEL PROGRAMMES **/
 .carousel {
@@ -975,7 +1049,6 @@ header>form div.mat-mdc-form-field-infix {
 }
 
 // Modal exercices Kine et Opto
-
 #modalExercices {
   background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
   background-repeat: no-repeat;
@@ -2156,7 +2229,6 @@ header>form div.mat-mdc-form-field-infix {
 }
 
 // AFFICHAGE TABLEAU DE BORD
-
 #tableau {
   height: calc(100vh - 120px);
   width: 100%;
@@ -2173,134 +2245,121 @@ header>form div.mat-mdc-form-field-infix {
     width: calc(100% + $l);
   }
 }
+// // PAGE RECETTES
 
+// #recettes {
+//   width: 100%;
+//   display: flex;
+//   flex-flow: row wrap;
+//   color: $sombre;
+//   height: calc(100vh - $foot);
+//   scrollbar-color: $card-nutri #d3354f;
+//   scrollbar-width: auto;
+//   overflow-y: auto;
+// }
 
+// #recettes>* {
+//   width: 100%;
+// }
 
-// design input des pages programmes
-#input-programmes {
-  height: 3vh;
-  width: 15vw;
+// #recettes>section {
+//   flex-flow: row wrap;
+//   justify-content: space-around;
+//   height: calc(100vh - $breadcrumb - $foot);
+// }
 
-  @media screen and (max-width:938px) {
-    width: 20vh;
-  }
+// #recettes article {
+//   flex-flow: column nowrap;
+//   width: 20%;
+//   max-height: 100vh;
+//   background: $clair;
+//   padding: 10px;
+//   margin: 5px;
+//   gap: 0.5vw;
+// }
 
-  @media screen and (max-width:596px) {
-    width: 15vh;
-    display: none;
-  }
+// #recettes>article:nth-child(2) {
+//   display: flex;
+//   flex-direction: row;
+//   align-self: center;
+//   width: 100%;
+//   margin: 0px 50px 0px 50px;
+//   justify-content: center;
+//   align-items: center;
+//   background: none;
+//   border-bottom: dashed 1px black;
+// }
+
+// #recettes>article:nth-child(2)>form {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// //div des photos de recettes
+// #recettes section>article>.photo-recettes {
+//   height: 50%;
+//   align-items: center;
+// }
+
+// // video ou photo
+// #recettes section>article>.photo-recettes>img {
+//   height: 100%;
+//   width: 100%;
+// }
+
+// #recettes article>div {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: center;
+//   text-align: end;
+//   gap: 1vw;
+// }
+
+// // div comportant le titre la description et durée materiels
+// #recettes article>div:nth-child(2) {
+//   display: flex;
+//   flex-direction: column;
+//   text-align: justify;
+// }
+
+// #recettes article>div:nth-child(2)>div {
+//   display: flex;
+//   flex-direction: column;
+//   text-align: justify;
+// }
+
+// #recettes article>div:nth-child(2)>div>div {
+//   display: flex;
+//   text-align: justify;
+//   gap: 1vw;
+// }
+
+// // titre de l'exercice
+// #recettes article>div>h6 {
+//   margin: 0;
+//   font-size: 1rem;
+// }
+
+// // description de l'exercice
+// #recettes article>div>p {
+//   margin: 0;
+// }
+
+// // div de la durée et materiel
+// #recettes section article>div:nth-child(2)>div {
+//   display: flex;
+//   justify-content: flex-end;
+//   gap: 0.3vw;
+// }
+
+::-webkit-scrollbar {
+  background-color:#f0857b ;
+  width: 10px;
 }
 
-#input-ckeckbox {
-  height: 3vh;
-  width: 4vw;
-}
-
-// PAGE RECETTES
-
-#recettes {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  color: $sombre;
-  height: calc(100vh - $foot);
-  scrollbar-color: $card-nutri #d3354f;
-  scrollbar-width: auto;
-  overflow-y: auto;
-}
-
-#recettes>* {
-  width: 100%;
-}
-
-#recettes>section {
-  flex-flow: row wrap;
-  justify-content: space-around;
-  height: calc(100vh - $breadcrumb - $foot);
-}
-
-#recettes article {
-  flex-flow: column nowrap;
-  width: 20%;
-  max-height: 100vh;
-  background: $clair;
-  padding: 10px;
-  margin: 5px;
-  gap: 0.5vw;
-}
-
-#recettes>article:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  width: 100%;
-  margin: 0px 50px 0px 50px;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border-bottom: dashed 1px black;
-}
-
-#recettes>article:nth-child(2)>form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-//div des photos de recettes
-#recettes section>article>.photo-recettes {
-  height: 50%;
-  align-items: center;
-}
-
-// video ou photo
-#recettes section>article>.photo-recettes>img {
-  height: 100%;
-  width: 100%;
-}
-
-#recettes article>div {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  text-align: end;
-  gap: 1vw;
-}
-
-// div comportant le titre la description et durée materiels
-#recettes article>div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-}
-
-#recettes article>div:nth-child(2)>div {
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-}
-
-#recettes article>div:nth-child(2)>div>div {
-  display: flex;
-  text-align: justify;
-  gap: 1vw;
-}
-
-// titre de l'exercice
-#recettes article>div>h6 {
-  margin: 0;
-  font-size: 1rem;
-}
-
-// description de l'exercice
-#recettes article>div>p {
-  margin: 0;
-}
-
-// div de la durée et materiel
-#recettes section article>div:nth-child(2)>div {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.3vw;
+::-webkit-scrollbar-thumb {
+  // height: 200px;
+  background-color: $card-kine;
 }

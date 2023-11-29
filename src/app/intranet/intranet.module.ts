@@ -16,7 +16,7 @@ import { SharedModule } from './partage/shared.module';
     AccueilComponent,
     TableauComponent,
     ButtonComponent,
-    CustomAccordionComponent,
+    CustomAccordionComponent
   ],
   imports: [
     CommonModule,

@@ -1,103 +1,89 @@
-<section id="main">
 <section id="nutrition">
-  <div>
+  <section>
     <!-- .slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage) -->
-    <span>
+    <header>
       <h1>Ingrédients</h1>
-      <!-- Ci-dessous dans [(ngModel)] je récupére la variable filtre déclaré dans ingrédients.component.ts -->
-      <!-- Pour utiliser [(ngModel)] je dois importer dans le module FormsModule !!!! -->
-      <input name="filtrer" placeholder="Recherche" [(ngModel)]="filtre" (input)="onFilterChange()">
-    </span>
-    <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
-    <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
-    <!-- En utlisant "as" je crée une variable temporaire utilisable dans ng-container sans besoin de déclarer filteredIngredients dans le component -->
-    <ng-container *ngIf="composition.ciqual | aliments:filtre as filteredIngredients">
-    <!-- Ci-dessus j'utilise le pipe de filtrage et je stock le résultat dans la variable filteredIngredients -->
-    <!-- Doc sur ng-container - https://angular.io/api/core/ng-container#description -->
-    <span>
-      <!-- filteredIngredients correspond à composition.ciqual - voir le ng-container au dessus -->
-      <article *ngFor="let ingredient of filteredIngredients  | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage  let i=index">
-        <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
-        <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->
-        <h2 (click)="onSelect(ingredient)" (click)="onMesPlats(ingredient)" style="cursor: pointer">{{ ingredient.alim_nom_fr | uppercase }}</h2>
-        <!-- (debut + i) + ' - ' + --> <!-- Si je veux utiliser un index dans la balise h2 au dessus -->
-      </article>
-    </span>
-    <span>
-      <!-- (page)="currentPage = $event.pageIndex" -->
-      <!-- (page)="handlePageEvent($event)" -->
-      <!-- [pageSizeOptions]="[10, 25, 100]"  - Si je veux rajouter un choix du nombre d'ingrédients à afficher-->
-      <!-- [length] est dynamique grâce à filteredIngredients -->
-      <mat-paginator
-        [length]="filteredIngredients.length"
-        [pageSize]="itemsPerPage"
-        aria-label="Pagination"
-        [showFirstLastButtons]="true"
-        (page)="currentPage = $event.pageIndex"
-        [pageIndex]="currentPage">
+      <mat-form-field>
+        <mat-label>Filtrer</mat-label>
+        <input matInput name="filtrer" placeholder="Recherche" [(ngModel)]="filtre" (input)="onFilterChange()">
+      </mat-form-field>
+    </header>
+    <article>
+      <ul>
+        <li
+          *ngFor="let ingredient of nutri.ciqual | aliments:filtre | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage"
+          (click)="selectIngredient(ingredient)">
+          {{ ingredient.alim_nom_fr | uppercase }}
+        </li>
+      </ul>
+    </article>
+    <footer class="pagination">
+      <mat-paginator [length]="nutri.ciqual.length" [pageSize]="itemsPerPage" aria-label="Pagination"
+        [showFirstLastButtons]="true" (page)="currentPage = $event.pageIndex" [pageIndex]="currentPage">
       </mat-paginator>
-    </span>
-  </ng-container>
-  </div>
-  <div id="selectedIngredient">
-    <!-- *ngIf selectedIngredient appeler avec la méthode onSelect - declaré ligne 17 dans ingredients.component.ts -->
-    <!-- selectedIngredient à pour valeur l'ingrédient sur lequel j'ai cliqué -->
+    </footer>
+
+  </section>
+  <section>
+    <app-ariane></app-ariane>
+    <article *ngIf="!selectedIngredient">
+      <h2>Données sur les ingrédients</h2>
+      <p>La table de composition nutritionnelle des aliments (Ciqual) est mise à disposition par le Ministère de la Santé sur la plateforme <a href="https://www.data.gouv.fr/fr/datasets/table-de-composition-nutritionnelle-des-aliments-ciqual/" title="Accéder à la table Ciqual" taget="_blank">data.gouv.fr</a></p>
+      <p>C'est grâce à ces données que nous pouvons vous aider à mieux comprendre la composition des aliments et les origines d'allergies ou de troubles alimentaires que vous constatez chez les personnes que vous aidez.</p>
+      <p>Notre IA s'appuie sur vos commentaires pour identifier les ingrédients qui seraient susceptibles de créer un problème pour vous aider au quotidien.</p>
+      <p>Choisissez sur la gauche les ingrédients dont vous souhaitez connaître la composition.</p>
+    </article>
     <article *ngIf="selectedIngredient">
-      <span>
-        <h3>{{ selectedIngredient.alim_nom_fr}}</h3>
+      <header>
+        <h2>{{ selectedIngredient.alim_nom_fr}}</h2>
         <p>Cet ingrédient est mal supporté <input type="checkbox" name="allergie" id="allergie"></p>
-      </span>
-      <span>
-        <h4>Valeurs et compositions</h4>
-        <p> <img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
+      </header>
+        <h3>Valeurs et compositions</h3>
+      <ul>
+        <li> <img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
           Composition : Protéines : {{ selectedIngredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
           Glucides : {{ selectedIngredient['Glucides (g\/100 g)'] }} Gr -
           Lipide : {{ selectedIngredient['Lipides (g\/100 g)'] }} Gr -
           Sucre : {{ selectedIngredient['Sucres (g/100 g)'] }} Gr
-        </p>
-        <p> <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
+        </li>
+        <li> <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
           Vitamines : C : {{ selectedIngredient["Vitamine C (mg\/100 g)"] }} Mg -
           B1 : {{ selectedIngredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
           B2 : {{ selectedIngredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
           B3 : {{ selectedIngredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
           B5 : {{ selectedIngredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-        </p>
-        <p> <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône minéraux">
+        </li>
+        <li> <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône minéraux">
           Minéraux et oligo-éléments : Magnésium : {{ selectedIngredient["Magnésium (mg\/100 g)"] }} Mg -
           Potassium : {{ selectedIngredient["Potassium (mg\/100 g)"] }} Mg -
           Cuivre : {{ selectedIngredient["Cuivre (mg\/100 g)"] }} Mg -
           Manganése: {{ selectedIngredient["Manganèse (mg\/100 g)"] }} Mg
-        </p>
-      </span>
-      <!-- *ngFor sur l'interface MesPlatsI qui s'éxécute dans le le *ngFor de CiqualI (ligne 13)-->
-      <!-- J'applique le pipe plats avec le filtre alimCodeFiltre - ligne 15 dans ingredients.component.ts -->
-      <span *ngIf="selectedPlat">
-          <h5>Plats contenant cet ingrédient</h5>
-          <div
-            class="mesPlats"
-            *ngFor="let mesPlats of composition.plat | plats : alimCodeFiltre"
-          >
+        </li>
+      </ul>
+      <!-- J'applique le pipe plats avec le filtre selectedIngredient.alim_code - ligne 15 dans ingredients.component.ts -->
+      <article *ngIf="selectedPlat">
+        <h5>Plats contenant cet ingrédient</h5>
+        <ul>
+          <li class="mesPlats" *ngFor="let mesPlats of nutri.listePlats | plats : selectedIngredient.alim_code">
             <p>{{ mesPlats.nom }}</p>
-            <!-- <p *ngIf="mesPlats.alim_code == alimCodeFiltre">coucou</p> -->
-            <p *ngIf="mesPlats.nom.length <= 0">coucou</p>
-          </div>
-          <h6>Réactions constatées</h6>
-          <!-- Ci-dessous j'utilise la variable locale Angular "first" afin d'afficher uniquement la premiére iteration de la balise img https://angular.io/api/common/NgFor#description -->
-          <div
-            class="mesObservations"
-            *ngFor="
-              let mesPlats of composition.plat | plats : alimCodeFiltre;
+          <!-- <p *ngIf="mesPlats.alim_code == selectedIngredient.alim_code">coucou</p> -->
+          <p *ngIf="mesPlats.nom.length <= 0">coucou</p>
+        </li>
+        </ul>
+        <h6>Réactions constatées</h6>
+        <!-- Ci-dessous j'utilise la variable locale Angular "first" afin d'afficher uniquement la premiére iteration de la balise img https://angular.io/api/common/NgFor#description -->
+        <div class="mesObservations" *ngFor="
+              let mesPlats of nutri.listePlats | plats : selectedIngredient.alim_code;
               let first = first
-            "
-          >
-            <p>{{ mesPlats.reaction }}</p>
-            <ng-container *ngIf="first">
-              <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine" />
-            </ng-container>
-          </div>
-        </span>
+            ">
+          <p>{{ mesPlats.reaction }}</p>
+          <ng-container *ngIf="first">
+            <img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine" />
+          </ng-container>
+        </div>
       </article>
-    </div>
+    </article>
+  <app-note [id]="selectedIngredient!.alim_code" [table]="'ciqual'" *ngIf="selectedIngredient"></app-note>
   </section>
 </section>
 <!-- Afficher le menu -->

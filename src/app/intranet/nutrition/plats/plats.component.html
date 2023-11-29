@@ -68,7 +68,7 @@
           <p>Allèrgenes</p>
           <p>Retour de la communauté</p>
         </div>
-        <span *ngFor="let ingredients of aliment | ingredients:alimCodeFiltre">
+        <span *ngFor="let ingredients of aliment | ingredient:alimCodeFiltre">
           <p>{{ ingredients.alim_nom_fr }}</p>
           <p><img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
              Composition - Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
@@ -98,10 +98,10 @@
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <button mat-raised-button color="primary" (click)="getPlatsId()">ÉVALUER</button>
+            <!-- <button mat-raised-button color="primary" (click)="nutri.getPlatsId()">ÉVALUER</button> -->
           </span>
           <span>
-            <button mat-raised-button color="primary" (click)="deletePlat(selectedPlats.id)">SUPPRIMER</button>
+            <!-- <button mat-raised-button color="primary" (click)="nutri.deletePlat(selectedPlats.id!)">SUPPRIMER</button> -->
             <button mat-raised-button color="primary">VALIDER</button>
           </span>
         </div>

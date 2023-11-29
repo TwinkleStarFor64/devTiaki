@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PlatsService } from '../../plats/services/plats.service';
-import { MesPlatsI } from 'src/app/intranet/partage/modeles/Types';
+import { PlatI } from 'src/app/intranet/partage/modeles/Types';
 import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 import { EditService } from 'src/app/intranet/partage/services/edit.service';
+import { NutritionService } from '../../services/nutrition.service';
 
 @Component({
   selector: 'app-save-plat',
@@ -15,20 +15,16 @@ export class SavePlatComponent implements OnInit {
   formData!: FormGroup;
   public plats: any[] = []; // Utiliser dans fetchCiqual()
   result: any; // Pour stocker le résultat ingrédient du formulaire
-  mesPlats: MesPlatsI[] = [];
+  mesPlats: Array<PlatI> = [];
 
   filtre: string = ''; // Utiliser comme filtre dans ngModel et le pipe aliments
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>,
-               private formBuilder: FormBuilder, public platService: PlatsService, private get:DonneesService, private edit:EditService) {}
+    @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>, public nutri:NutritionService) {}
 
 
   async ngOnInit(): Promise<void> {
-    this.fetchCiqual();
-    this.fetchPlats();
-
 
     this.formData = new FormGroup ({
       nom: new FormControl('', [Validators.required]),
@@ -43,8 +39,8 @@ export class SavePlatComponent implements OnInit {
       if (selectedIngredient) {
         const ingredientAlimCode = selectedIngredient.alim_code;
         console.log(ingredientAlimCode);
-        this.result = await this.get.getCurrentIngredient(ingredientAlimCode);
-        console.log(this.result);
+        // this.result = await this.get.getCurrentIngredient(ingredientAlimCode);
+        // console.log(this.result);
       }
     });
 
@@ -61,40 +57,9 @@ export class SavePlatComponent implements OnInit {
       description: this.formData.value.description,
       alim_code: this.result.alim_code
     };
-    await this.edit.createPlat(newEntry).then(() => {
-      this.fetchPlats();
-      window.location.reload(); // Bonne solution ??
-    });
+    // await this.edit.createPlat(newEntry).then(() => {
+    //   this.fetchPlats();
+    //   window.location.reload(); // Bonne solution ??
+    // });
   }
-
-  async fetchCiqual() {
-    const { data, error } = await this.get.getCiqual();
-    if (data) {
-      this.plats = data;
-    }
-    if (error) {
-      console.log(error);
-    }
-  }
-
-  async fetchPlats() {
-    const { data, error } = await this.platService.getPlats();
-    if (data) {
-      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
-      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.mesPlats = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut']
-      }));
-      console.log(this.mesPlats.map((item) => item['nom']));
-    }
-    if (error) {
-      //Si une erreur
-      console.log(error);
-    }
-  }
-
 }

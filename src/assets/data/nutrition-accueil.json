@@ -1,0 +1,34 @@
+[
+  {
+      "id": 0,
+      "titre": "Programmes",
+      "description": "Accédez aux programmes nutritionnels",
+      "bouton": "Voir les programmes nutritionnels",
+      "image":"assets/images/modules/nutrition/programmes.jpg",
+      "url": "/intranet/nutrition/programmes"
+  },
+  {
+      "description": "Suivez la progression des vos exercices et les médailles que vous avez gagnez.",
+      "bouton": "Voir ou créer des menus",
+      "image":"assets/images/modules/nutrition/menus.jpg",
+      "url": "/intranet/nutrition/menus",
+      "id": 1,
+      "titre": "Menus"
+  },
+  {
+      "description": "Suivez la progression des vos exercices et les médailles que vous avez gagnez.",
+      "bouton": "Accéder à la page des plats",
+      "image":"assets/images/modules/nutrition/plats.jpg",
+      "url": "/intranet/nutrition/plats",
+      "id": 1,
+      "titre": "Plats"
+  },
+  {
+      "image":"assets/images/modules/nutrition/ingredients.jpg",
+      "url": "/intranet/nutrition/ingredients",
+      "id": 3,
+      "titre": "Ingrédients",
+      "description": "La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles.",
+      "bouton": "Voir la liste des ingrédients"
+  }
+]

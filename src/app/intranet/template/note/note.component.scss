@@ -1,0 +1,11 @@
+mat-accordion, form, textarea, section{
+  width:100%;
+}
+section{
+  flex-flow:column nowrap;
+}
+header{
+  width:100%;
+  flex-flow:row wrap !important;
+  justify-content: space-between;
+}

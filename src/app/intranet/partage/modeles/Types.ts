@@ -2,11 +2,14 @@ export interface PlatI {
   id?:number;
   nom: string;
   description?: string;
-  dureePreparation:number;
-  dureeRepos:number;
-  dureeCuisson:number;
-  ingredients: Array<IngredientI>; // Ecrit quantiteIngredients dans la base
+  alim_code:string;
+  statut?:string;
+  idIngredients:Array<string>;
+  dureePreparation?:number;
+  dureeRepos?:number;
+  dureeCuisson?:number;
   note?:string;
+  date?:string | number;
 }
 export interface IngredientI {
   nom: string;
@@ -189,15 +192,6 @@ export interface ProgrammeI {
   materiels: Array<string>;
   exercices:Array<ExerciceI>;
 }
-// interface pour la page plat
-export interface MesPlatsI {
-  id: number;
-  nom: string;
-  description: string;
-  alim_code: number;
-  statut: string;
-  reaction?: string;
-}
 // interface pour
 export interface MesMenusI {
   id: number;
@@ -288,4 +282,11 @@ export interface ParamI{
   titre:string;
   description:string;
   url:string;
+}
+export interface NoteI{
+  id?:number;
+  titre:string;
+  description:string;
+  relation:number;
+  table?:string;
 }

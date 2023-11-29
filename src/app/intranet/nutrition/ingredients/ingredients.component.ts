@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, MesPlatsI } from '../../partage/modeles/Types';
-import { IngredientsServiceService } from './services/ingredients-service.service';
+import { CiqualI, PlatI } from '../../partage/modeles/Types';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { NutritionService } from '../services/nutrition.service';
+import { IngredientsPipe } from '../../partage/pipes/nutrition.pipe';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
 class MyPaginatorIntl extends MatPaginatorIntl {
@@ -33,22 +34,18 @@ class MyPaginatorIntl extends MatPaginatorIntl {
 export class IngredientsComponent implements OnInit {
   filtre: string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel
   debut: number = 1; //Le début de l'index - utiliser en HTML pour ajouter un chiffre à chaque élément du tableau
-  alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 
   selectedIngredient?: CiqualI; //Je récupére dans la variable mon interface CiqualI déclaré dans Types.ts
-  selectedPlat?: MesPlatsI;
+  selectedPlat?: PlatI;
+  ingredients:Array<CiqualI> = [];
 
   currentPage = 0; // Page actuelle pour MatPaginator
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
+  itemsLength:number = 20;
 
-  constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
+  constructor(public nutri: NutritionService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
   ngOnInit(): any {
-    //Lancer la récupération de la table ciqual
-    //Je récupére la méthode getCiqual() de ingredients-service.services
-    this.composition.getCiqual();
-    this.composition.getMesPlats();
-
     // Ci-dessous je modifie les labels de MatPaginator en initialisant une nouvelle instance de la classe
     const myPaginatorIntl = new MyPaginatorIntl();
     this.paginatorIntl.itemsPerPageLabel = myPaginatorIntl.itemsPerPageLabel;
@@ -57,24 +54,16 @@ export class IngredientsComponent implements OnInit {
     this.paginatorIntl.firstPageLabel = myPaginatorIntl.firstPageLabel;
     this.paginatorIntl.lastPageLabel = myPaginatorIntl.lastPageLabel;
     this.paginatorIntl.getRangeLabel = myPaginatorIntl.getRangeLabel;
-  }
 
-  //Méthode onSelect pour afficher les informations de l'aliment sur lequel j'ai cliqué - le paramétre aliment et de type CiqualI (interface)
-  //J'utilise cette méthode dans le HTML avec (click) afin de l'utiliser uniquement sur l'élément cliquer
-  onSelect(aliment: CiqualI): void {
-    //Ci-dessous j'attribue à la variable selectedIngredient (ligne 17) l'interface CiqualI et tout ce qu'elle contient
+    this.onFilterChange();
+  }
+  /** Sélectionner un ingrédient
+   * @param {CiqualI} aliment Ingrédient à afficher
+   */
+  selectIngredient(aliment: CiqualI): void {
     this.selectedIngredient = aliment;
-    console.log(
-      "La méthode onSelect, j'ai cliqué sur : " + aliment.alim_nom_fr
-    );
-    //Ci-dessous j'attribue à la variable alimCodeFiltre (ligne 15) l'alim_code de l'interface CiqualI
-    //alimCodeFiltre contient maintenant l'alim_code de l'ingrédient sur lequel j'ai cliqué
-    //Je m'en sers de valeur sur le filtre appliqué au pipe plats
-    this.alimCodeFiltre = aliment.alim_code;
-    console.log('Je veux ce code : ' + this.alimCodeFiltre);
   }
-
-  onMesPlats(plat: MesPlatsI): void {
+  onMesPlats(plat: PlatI): void {
     this.selectedPlat = plat;
   }
 
@@ -84,6 +73,7 @@ export class IngredientsComponent implements OnInit {
     if (this.filtre === '' || this.filtre != '') { // Variable filtre utilisé dans ngModel de l'input
       this.currentPage = 0;
     }
+    this.itemsLength = this.nutri.ciqual.slice((this.currentPage * this.itemsPerPage), (this.currentPage + 1) * this.itemsPerPage).length;
   }
 
 // Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)"

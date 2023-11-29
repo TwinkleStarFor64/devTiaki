@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NutritionRoutingModule } from './nutrition-routing.module';
-// import { JournalRepasComponent } from './journal-repas/journal-repas.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
-import { RecettesComponent } from './recettes/recettes.component';
 import { NutritionComponent } from './nutrition.component';
 import { AlimentsPipe, PlatsPipe, IngredientsPipe } from '../partage/pipes/nutrition.pipe';
 import { SaveDataComponent } from './dialog/save-data/save-data.component';
@@ -17,11 +15,9 @@ import { ProgrammesComponent } from './programmes/programmes.component';
 
 @NgModule({
   declarations: [
-    // JournalRepasComponent,
     IngredientsComponent,
     MenusComponent,
     PlatsComponent,
-    RecettesComponent,
     NutritionComponent,
     AlimentsPipe,
     PlatsPipe,
@@ -30,8 +26,7 @@ import { ProgrammesComponent } from './programmes/programmes.component';
     DeleteDataComponent,
     SavePlatComponent,
     CheckJournalComponent,
-    ProgrammesComponent,
-
+    ProgrammesComponent
   ],
   imports: [
     CommonModule,

@@ -4,15 +4,14 @@ import { format, isSameDay, isSameMonth, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
-import { EventI, MesMenusI, MesPlatsI } from '../../partage/modeles/Types';
+import { EventI, MesMenusI, PlatI } from '../../partage/modeles/Types';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MenusService } from '../../nutrition/menus/services/menus.service';
-import { PlatsService } from '../../nutrition/plats/services/plats.service';
 import { CheckJournalComponent } from '../../nutrition/dialog/check-journal/check-journal.component';
 import { DeleteDataComponent } from '../../nutrition/dialog/delete-data/delete-data.component';
 import { InfosService } from 'src/app/partage/services/infos.service';
+import { NutritionService } from '../../nutrition/services/nutrition.service';
 
 
 @Component({
@@ -79,17 +78,14 @@ export class AgendaComponent {
   };
   //----------------------------------------- Ci-dessous code pour l'interface d'ajout de données dans l'agenda -------------------------------------
   repas: MesMenusI[] = [];
-  plats: MesPlatsI[] = [];
+  plats: Array<PlatI> = [];
   selectedRepas?: MesMenusI; // Pour la méthode onSelect()
 
   formData!: FormGroup;
 
-  constructor(public l: InfosService, public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private dialog: MatDialog) { }
+  constructor(public l: InfosService, public eventService: EventService, public nutri: NutritionService, private dialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
-    this.fetchEvents();
-    this.fetchMenus();
-    this.fetchPlats();
     this.eventService.getEvaluation();
   }
   /** Initialiser l'événement à ajouter */
@@ -214,45 +210,6 @@ export class AgendaComponent {
       console.log(error);
     }
   }
-
-  // -------------------------------------- Ci-dessous les méthodes pour l'interface d'ajout de données dans l'agenda --------------------------
-
-  async fetchMenus() {
-    const { data, error } = await this.menuService.getRepas();
-    if (data) {
-      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
-      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.repas = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut'],
-      }));
-      //console.log(this.repas.map((item) => item['id']));
-    }
-    if (error) {
-      //Si une erreur
-      console.log(error);
-    }
-  }
-
-  async fetchPlats() {
-    const { data, error } = await this.platService.getPlats();
-    if (data) {
-      this.plats = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut']
-      }));
-    }
-    if (error) {
-      console.log(error);
-    }
-  }
-
   async onSubmitForm() {
     await this.eventService.createEvent(this.event).then(() => {
       this.fetchEvents();

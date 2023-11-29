@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MenusService } from '../../menus/services/menus.service';
 import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 import { EditService } from 'src/app/intranet/partage/services/edit.service';
+import { NutritionService } from '../../services/nutrition.service';
 
 @Component({
   selector: 'app-save-data',
@@ -19,11 +20,9 @@ export class SaveDataComponent implements OnInit {
   //public searchControl : FormControl = new FormControl(); // Pour ngx-mat-select-search
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>,
-               private formBuilder: FormBuilder, public menuService: MenusService, private get:DonneesService, private edit:EditService ) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>, public menuService: MenusService, private get:DonneesService, private edit:EditService, public nutrition:NutritionService ) {}
 
   async ngOnInit(): Promise<void>  {
-    this.fetchCiqual();
 
     this.formData = new FormGroup ({
       nom: new FormControl('', [Validators.required]),
@@ -36,9 +35,7 @@ export class SaveDataComponent implements OnInit {
     const ingredientControl = this.formData.get('ingredient') as FormControl;
     ingredientControl.valueChanges.subscribe( async (selectedIngredient) => {
       if (selectedIngredient) {
-        const ingredientAlimCode = selectedIngredient.alim_code;
-        console.log(ingredientAlimCode);
-        this.result = await this.get.getCurrentIngredient(ingredientAlimCode);
+        this.result = await this.nutrition.getIngredient(selectedIngredient.alim_code);
         console.log(this.result);
       }
     });
@@ -62,17 +59,6 @@ export class SaveDataComponent implements OnInit {
       window.location.reload(); // Bonne solution ??
     });
   }
-
-  async fetchCiqual() {
-    const { data, error } = await this.get.getCiqual();
-    if (data) {
-      this.repas = data;
-    }
-    if (error) {
-      console.log(error);
-    }
-  }
-
   async fetchMenus() {
     const { data, error } = await this.menuService.getRepas();
     if (data) {

@@ -45,14 +45,29 @@
     "PARAMS":"Paramètres",
     "CLOUD":"Cloud",
     "COMMENT":"Comment ça marche ?",
-    "RDV":"Rendez-vous"
+    "RDV":"Rendez-vous",
+    "NOTE":"Note",
+    "NOTES":"Notes",
+    "NOTES_LISTE":"Liste des notes",
+    "NOTE_ADD":"Ajouter une note",
+    "NOTE_NONE":"Aucune note"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",
     "PLATS":"Plats",
     "PLAT":"Plat",
     "MENUS":"Menus",
-    "MENU":"Menu"
+    "MENU":"Menu",
+    "INGREDIENTS":"Ingrédients",
+    "INGREDIENTS_FILTRE":"Filtrer les ingrédients",
+    "B1":"Vitamine B1 ou Thiamine (mg\/100 g)",
+    "B2":"Vitamine B2 ou Riboflavine (mg\/100 g)",
+    "B3":"Vitamine B3 ou PP ou Niacine (mg\/100 g)",
+    "B5":"Vitamine B5 ou Acide pantothénique (mg\/100 g)",
+    "MG":"Magnésium (mg\/100 g)",
+    "PO":"Potassium (mg\/100 g)",
+    "CU":"Cuivre (mg\/100 g)",
+    "MA":"Manganèse (mg\/100 g)"
   },
   "opto":{
     "OPTO":"Optométrie",

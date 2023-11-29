@@ -20,7 +20,6 @@ export class DonneesService {
   // Données stockées de l'application
   therapeutes: Array<TherapeuteI> = [];
 
-  ciqual: any; // Base de données Ciqual
   private supabase: SupabaseClient; // Instance du client Supabase
   historiqueJournal: Array<JournalI> = [];
 
@@ -98,32 +97,6 @@ export class DonneesService {
       return currentData;
     }
     throw new Error("Les données n'ont pas été trouvées pour cet ID.");
-  }
-
-  /**
-   * Récupérer la base Ciqual
-   * @returns Renvoie la base Ciqual
-   */
-  async getCiqual() {
-    if (!this.ciqual) this.ciqual = await this.supabase.from('ciqualAnses').select('*');
-    console.log(this.ciqual);
-    return this.ciqual;
-  }
-
-  //------------------ Méthode pour récupérer alim_code sur la table Ciqual - alim_code est un ID------------------------
-  async getCurrentIngredient(alim_code: number) {
-    const { data: currentData } = await this.supabase
-      .from('ciqualAnses')
-      .select('alim_code')
-      .eq('alim_code', alim_code);
-
-    if (currentData && currentData.length > 0) {
-      console.log("Alim_code de l'ingrédient", currentData[0].alim_code);
-      return {
-        alim_code: currentData[0].alim_code,
-      };
-    }
-    throw new Error("Les données n'ont pas été trouvées pour cet alim_code.");
   }
   /**
    * Méthode pour récupérer la table Evaluation
