@@ -18,7 +18,8 @@
     "MENU": "Menu",
     "PROGRESSIONS":"vos progressions",
     "PROGRAMMES":"les programmes",
-    "OUTILS":"Outils"
+    "OUTILS":"Outils",
+    "CHERI":"Vous l'aidez"
   },
   "pages":{
     "TIAKI":"Tiaki",
@@ -44,13 +45,26 @@
     "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu",
     "PARAMS":"Paramètres",
     "CLOUD":"Cloud",
+    "PRIVE":"Privé",
+    "PUBLIC":"Public",
     "COMMENT":"Comment ça marche ?",
     "RDV":"Rendez-vous",
     "NOTE":"Note",
-    "NOTES":"Notes",
-    "NOTES_LISTE":"Liste des notes",
-    "NOTE_ADD":"Ajouter une note",
-    "NOTE_NONE":"Aucune note"
+    "NOTES":"Vos notes",
+    "NOTES_LISTE":"Liste des annotations",
+    "NOTE_ADD":"Ajouter une note personnelle",
+    "NOTE_NONE":"Aucune note",
+    "EVAL":"Evaluation",
+    "EVALS":"Evaluations",
+    "EVALS_ADD":"Ajouter une évaluation",
+    "EVALS_NONE":"Il n'y a pas d'évaluation",
+    "COMMUNAUTE":"Communauté",
+    "ANIMATIONS":"Animations/Rencontres",
+    "MEDECIN":"Médecin",
+    "MEDECINS":"Médecins",
+    "INFIRMIER":"Infirmier",
+    "INFIRMIERS":"Infirmiers",
+    "CORPS_MEDICAL":"Corps médical"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",
@@ -87,5 +101,12 @@
     "AGENDA_NOTE_NONE":"Aucune donnée",
     "AGENDA_MENU":"Menus programmés",
     "AGENDA_MEDECIN":"Vos prochains rendez-vous"
+  },
+  "profil":{
+    "PROFIL":"Profil",
+    "HISTORIQUE":"Historique des réalisations",
+    "INFOS_SANTE":"Informations de santé",
+    "SYNTHESE":"Synthèse des problèmes identifiés",
+    "ECOSYSTEME":"Son écosystème de santé"
   }
 }

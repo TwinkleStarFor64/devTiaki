@@ -92,29 +92,6 @@ enum TypeTherapeute{
   specialiste = 'specialiste',
   therapeute = 'therapeute'
 }
-interface AdresseI{
-  adresse:string;
-  ville:string;
-  codePostal:number;
-}
-//Interface de la page journal
-export interface RelierI {
-  nom: string;
-}
-// Interface des Recettes // Quelle différence avec les plats ?
-export interface RecetteI {
-  id:number;
-  photo: string;
-  titre: string;
-  preparationFig: string;
-  preparationTxt: string;
-  ingredientsFig: string;
-  ingredientsTxt: string;
-  valeurFig: string;
-  valeurTxt: string;
-  complexiteFig: string;
-  complexiteTxt: string; // Ces points n'existent pas dans la base, ça serait intéressant de les considérer
-}
 //Interface de la page d'accueil Nutrition
 export interface NutritionI {
   id:number;
@@ -203,7 +180,23 @@ export interface MesMenusI {
 
 export interface EvaluationI {
   id: number;
-  statut: string;
+  statut?: string;
+  score?:number;
+  commentaire?:NoteI;
+}
+export interface NoteI{
+  id?:number;
+  titre:string;
+  description:string;
+  relation:number;
+  table?:string;
+  type?:NoteE;
+  public?:boolean;
+}
+enum NoteE {
+  commentaire = "Commentaire",
+  note = "Note",
+  eval = "Evaluation"
 }
 export interface BottomI {
   image: string;
@@ -229,7 +222,6 @@ export interface TableauEnCoursI {
   progressionOpto: string;
   progressionNutri: string;
 }
-
 export interface TableauBordHistoriqueI {
   histoNutri: string;
   histoKine: string;
@@ -257,16 +249,14 @@ export interface TableauReussiteI {
 export interface OrganismeI {
   nomOrganisme: string;
 }
-export interface SanteI {
-  img: string;
-  nom: string;
-}
+// Lister des matéries
 export interface MaterielI{
   id:string;
   titre:string;
   description?:string;
   media?:MediaI;
 }
+// Ajouter un média aux autres types
 export interface MediaI{
   id?:number;
   titre:string;
@@ -278,15 +268,15 @@ export interface MediaI{
 export interface ParamsI{
   app:Array<ParamI>;
 }
+// Paramètres
 export interface ParamI{
   titre:string;
   description:string;
   url:string;
 }
-export interface NoteI{
-  id?:number;
-  titre:string;
-  description:string;
-  relation:number;
-  table?:string;
+// Objet générique utilisé dans le profil d'un chéri pour recueillir les informations historiques
+export interface InfosI{
+  historiques?:Array<any>;
+  events?:Array<EventI>;
+  contacts?:Array<TherapeuteI>;
 }

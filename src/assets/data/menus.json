@@ -53,15 +53,15 @@
   ],
   "nutrition": [
     {
-      "image": "assets/images/pictos/menus/journalBottom.png",
+      "image": "assets/images/pictos/menus/programme.png",
       "titre": "Journal",
-      "info": "Naviguer dans votre historique alimentaire",
+      "info": "Des programmes alimentaires spécifiques (diabète, gluten, protéinés...)",
       "lien": "Journal",
-      "url": "/intranet/nutrition/journal",
+      "url": "/intranet/nutrition/programmes",
       "active": false
     },
     {
-      "image": "assets/images/pictos/menus/journalBottom.png",
+      "image": "assets/images/pictos/menus/programme.png",
       "titre": "Menus",
       "info": "Les listes de vos menus et de ceux de la communautés",
       "lien": "Menus",
@@ -77,7 +77,7 @@
       "active": false
     },
     {
-      "image": "assets/images/pictos/menus/ingredientBottom.png",
+      "image": "assets/images/pictos/menus/ingredient.png",
       "titre": "Ingrédients",
       "info": "La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
       "lien": "Ingredients",
@@ -87,7 +87,7 @@
   ],
   "outils":[
     {
-      "image":"assets/images/pictos/menus/journalBottom.png",
+      "image":"assets/images/pictos/menus/programme.png",
       "titre":"Journal",
       "info":"Naviguer dans votre historique alimentaire",
       "lien":"Journal",
@@ -95,7 +95,7 @@
       "active": false
     },
     {
-      "image":"assets/images/pictos/menus/journalBottom.png",
+      "image":"assets/images/aside/Group2.svg",
       "titre":"Menus",
       "info":"Les listes de vos menus et de ceux de la communautés",
       "lien":"Menus",
@@ -111,7 +111,7 @@
       "active": false
     },
     {
-      "image":"assets/images/pictos/menus/ingredientBottom.png",
+      "image":"assets/images/pictos/menus/ingredient.png",
       "titre":"Ingrédients",
       "info":"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
       "lien":"Ingredients",
@@ -122,52 +122,52 @@
   "principal":[
     {
       "nom":"Émilie",
-      "image":"assets/images/aside/cheerleader1.svg",
+      "image":"assets/images/pictos/cheerleader.svg",
       "url":"/intranet/tableau"
     },
     {
       "nom":"Kalhifa",
-      "image":"assets/images/aside/skier1.svg",
+      "image":"assets/images/pictos/skier.svg",
       "url":"/intranet/tableau"
     },
     {
       "nom":"Nutrition",
-      "image":"assets/images/aside/Vector.svg",
+      "image":"assets/images/pictos/nutrition.svg",
       "url":"/intranet/nutrition"
     },
     {
       "nom":"Kiné",
-      "image":"assets/images/aside/Vector1.svg",
+      "image":"assets/images/pictos/kine.svg",
       "url":"/intranet/kine"
     },
     {
       "nom":"Opto",
-      "image":"assets/images/aside/Group1.svg",
+      "image":"assets/images/pictos/opto.svg",
       "url":"/intranet/opto"
     },
     {
       "nom":"Journal",
-      "image":"assets/images/aside/Group2.svg",
+      "image":"assets/images/pictos/journal.svg",
       "url":"/intranet/outils/journaux"
     },
     {
       "nom":"Agenda",
-      "image":"assets/images/aside/Group3.svg",
+      "image":"assets/images/pictos/agenda.svg",
       "url":"/intranet/outils/agenda"
     },
     {
       "nom":"Messagerie",
-      "image":"assets/images/aside/Group4.svg",
+      "image":"assets/images/pictos/message.svg",
       "url":"/intranet/outils/messagerie"
     },
     {
       "nom":"Profil",
-      "image":"assets/images/aside/Group5.svg",
+      "image":"assets/images/pictos/profil.svg",
       "url":"/intranet/outils/profil"
     },
     {
       "nom":"Paramètre",
-      "image":"assets/images/aside/Group6.svg",
+      "image":"assets/images/pictos/params.svg",
       "url":"/intranet/outils/parametres"
     }
   ]

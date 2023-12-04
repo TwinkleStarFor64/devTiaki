@@ -16,7 +16,7 @@ import { EditService } from '../../partage/services/edit.service';
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   repas: MesMenusI[] = [];
-  evaluation: EvaluationI[] = [];
+  evaluation: Array<EvaluationI> = [];
 
   selectedRepas?: MesMenusI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
   selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
@@ -99,7 +99,7 @@ export class MenusComponent implements OnInit {
     if (event.isUserInput) {
       this.evaluationId = evaluation.id;
       console.log("Voici l'id de l'eval : " + this.evaluationId);
-      this.evaluationStatut = evaluation.statut;
+      this.evaluationStatut = evaluation.statut!;
     }
   }
 

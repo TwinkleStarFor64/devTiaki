@@ -4,8 +4,7 @@ import {
   TableauBordHistoriqueI,
   TableauBordTherapeuteI,
   TableauBordProblemeI,
-  TableauReussiteI,
-  SanteI,
+  TableauReussiteI
 } from '../partage/modeles/Types';
 import { TableauService } from './services/tableau.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -119,7 +118,7 @@ export class TableauComponent {
 
   ];
 
-public sante: SanteI[] = [
+public sante: Array<any> = [
   {
     img:'assets/iconeTableau/profil.png',
     nom:'Profil de santé'

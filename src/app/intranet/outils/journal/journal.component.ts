@@ -88,35 +88,3 @@ export class JournalComponent implements OnInit {
     this.formJournal.reset();
   }
 }
-
-//public selectedJournal!: RelierI; //Sur cette variable ne pas oublier le !
-
-/* this.reliers = [
-      { nom: 'Journal du 5 Janvier 2022' },
-      { nom: 'Journal du 10 Janvier 2022' },
-      { nom: 'Journal du 15 Janvier 2022' },
-      { nom: 'Journal du 20 Janvier 2022' },
-    ]; */
-
-/* onCancel() {
-  this.confirmationService.confirm({
-    message: 'Voulez-vous annuler votre enregistrement ?',
-    header: 'Confirmation',
-    icon: 'pi pi-info-circle',
-    accept: () => {
-      this.msgs = [
-        {
-          severity: 'info',
-          summary: 'Confirmation',
-          detail: 'Journal effacé',
-        },
-      ];
-      this.formJournal.reset();
-    },
-    reject: () => {
-      this.msgs = [
-        { severity: 'info', summary: 'Confirmation', detail: 'Annulation' },
-      ];
-    },
-  });
-} */

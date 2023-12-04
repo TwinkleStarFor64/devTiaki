@@ -33,9 +33,13 @@ body {
   font-family: $font-family;
   font-size: 16px;
 }
+
 * {
   box-sizing: border-box;
+
+  font-family: $font-family;
 }
+
 main,
 section,
 article,
@@ -44,16 +48,21 @@ form,
 footer {
   display: flex;
 }
+
 main {
   width: 100vw;
   height: 100vh;
 }
+
 form {
   flex-flow: column nowrap;
 }
-input, textarea{
+
+input,
+textarea {
   font-family: $font-family;
 }
+
 h1 {
   color: $card-nutri;
   font-weight: 100;
@@ -71,18 +80,28 @@ h1 a:hover {
   color: $card-nutri;
 }
 
-h1, h2, h3{
-  display:flex;
+h1,
+h2,
+h3 {
+  display: flex;
   flex-direction: row;
   align-items: center;
 }
-h1 img, h2 img, h3 img, h1 mat-icon, h2 mat-icon, h3 mat-icon{
-  margin-right:10px;
+
+h1 img,
+h2 img,
+h3 img,
+h1 mat-icon,
+h2 mat-icon,
+h3 mat-icon {
+  margin-right: 10px;
 }
-h2{
+
+h2 {
   font-size: 36px;
   font-weight: 100;
 }
+
 a {
   text-decoration: none;
   color: $aside-color1;
@@ -101,9 +120,11 @@ figure {
   overflow: hidden;
   display: flex;
 }
-figure:hover{
+
+figure:hover {
   background-size: 120%;
 }
+
 button {
   position: relative;
   padding: 15px 20px;
@@ -115,29 +136,34 @@ button {
   background-color: $clair;
   color: $aside-color1;
   font-size: 16px;
-  display:flex;
+  display: flex;
   align-items: center;
-  height:fit-content;
+  height: fit-content;
 }
+
 button:hover {
   background-color: $aside-color3;
   color: $aside-color1;
   transform: scale(1.1);
 }
-button.active:before{
-  content:'O';
-  position:absolute;
-  top:5px;
-  left:5px;
+
+button.active:before {
+  content: 'O';
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
-ul{
-  display:flex;
-  flex-flow:column nowrap;
+
+ul {
+  display: flex;
+  flex-flow: column nowrap;
 }
-ul li{
+
+ul li {
   list-style: circle;
-  padding:5px 10px 5px 0;
+  padding: 5px 10px 5px 0;
 }
+
 /** CLASSES GENERIQUES */
 .logo {
   width: 150px;
@@ -152,9 +178,12 @@ ul li{
   height: $head;
   margin: 0;
 }
-.entete h1, .entete h2 {
-  margin:auto;
+
+.entete h1,
+.entete h2 {
+  margin: auto;
 }
+
 .ariane {
   display: flex;
   flex-flow: row nowrap;
@@ -233,24 +262,29 @@ ul li{
   width: 30px;
   cursor: pointer;
 }
-.pointilles{
-  width:100%;
-  height:0;
-  border:none;
-  border-bottom:1px dashed $aside-color1;
+
+.pointilles {
+  width: 100%;
+  height: 0;
+  border: none;
+  border-bottom: 1px dashed $aside-color1;
 }
+
 .mat-icone {
   font-size: $icone;
   width: $icone !important;
   height: $icone !important;
 }
+
 .mat-icone:hover {
   transform: scale(1.1);
 }
-.align-right{
-  display:flex;
+
+.align-right {
+  display: flex;
   justify-content: flex-end;
 }
+
 .bg-nutrition {
   color: $clair;
   background-color: $card-nutri;
@@ -280,10 +314,12 @@ ul li{
   color: $clair;
   background-color: $aside-color3;
 }
+
 .bg-delete {
   color: $clair;
   background-color: $card-nutri;
 }
+
 .nutrition {
   color: $card-nutri;
 }
@@ -307,12 +343,15 @@ ul li{
 .kine svg path {
   fill: $card-kine;
 }
+
 .admin {
   color: $aside-color1;
 }
-.admin svg path{
+
+.admin svg path {
   fill: $aside-color1;
 }
+
 /** COMPOSANTS */
 .cal-event-title {
   // Le texte dans le calendrier
@@ -335,11 +374,38 @@ mat-panel-title {
   padding: 5px;
   font-weight: bold;
 }
-
-mat-panel-title>mat-icon {
+mat-panel-title > mat-icon {
   margin-right: 15px;
 }
-
+mat-stepper, mat-tab-group{
+  width:100%;
+}
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-icon {
+  background-color: $aside-color1;
+}
+.mat-accordion .mat-expansion-panel:last-of-type,
+.mat-accordion .mat-expansion-panel:first-of-type {
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+mat-accordion{
+  width:100%;
+  height:100%;
+}
+mat-expansion-panel-header {
+  background-color: $aside-color2;
+  width: 100%;
+  color: white;
+  font-weight: 300;
+  min-height: 5vh;
+  border-radius: 0;
+}
+.mat-expansion-panel-header-title, .mat-expansion-panel-header-description{
+  color: white;
+}
+mat-expansion-panel-header:hover .mat-expansion-panel-header-title, mat-expansion-panel-header:hover .mat-expansion-panel-header-description{
+  color:$aside-color2;
+}
 // Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {
   display: none !important;
@@ -550,10 +616,12 @@ article.cartel {
       height: 100%;
     }
   }
+
   article.cartel div {
     width: 55%;
     height: 100%;
   }
+
   article.cartel figure {
     width: 45%;
     height: 100%;
@@ -562,10 +630,12 @@ article.cartel {
     border-bottom-left-radius: 15%;
   }
 }
+
 // Navbar icone burger
 #burger-icon {
   color: $card-kine;
 }
+
 // -------------------------------------------------
 // Fil d'ariane
 app-ariane article {
@@ -635,12 +705,15 @@ header>form div.mat-mdc-form-field-infix {
   align-items: flex-start;
   align-content: flex-start;
 }
+
 #module.progression>section {
   height: calc(100% - $foot);
 }
+
 #module>app-menu {
   height: $foot;
 }
+
 // articles générés avec le ngFor avec la photo ou video et le titre la description
 #module>section>article {
   flex-flow: column nowrap;
@@ -804,33 +877,41 @@ header>form div.mat-mdc-form-field-infix {
   flex-flow: row nowrap;
   padding: 10px;
   height: 25%;
-  > p{
-    flex:4
+
+  >p {
+    flex: 4
   }
-  > div {
-    flex:1;
+
+  >div {
+    flex: 1;
   }
-  > app-carrousel{
-    flex:4;
+
+  >app-carrousel {
+    flex: 4;
   }
 }
+
 .programme>article>div>p {
   padding: 10px 15px;
 }
+
 .programme>article>div>div {
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
 }
+
 .programme>article>div>div img {
   margin-right: 10px;
 }
+
 .programme>article>div>div>div {
   flex-flow: row nowrap;
   align-items: center;
   height: 25%;
   padding: 10px 15px;
 }
+
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;
   height: 100%;
@@ -840,131 +921,164 @@ header>form div.mat-mdc-form-field-infix {
   --mdc-linear-progress-active-indicator-color: #f28705;
   --mdc-linear-progress-track-height: 200px;
 }
+
 /** PAGES NUTRITIONS */
-#nutrition{
+#nutrition {
   height: calc(100vh - $foot);
-  width:calc(100vw - $breadcrumb);
+  width: calc(100vw - $breadcrumb);
   flex-flow: row nowrap;
 }
-#nutrition header{
-  width:100%;
+
+#nutrition header {
+  width: 100%;
   flex-flow: column nowrap;
 }
-#nutrition > section, #nutrition > section > section{
+
+#nutrition>section,
+#nutrition>section>section {
   height: 100%;
-  width:calc(100vw - $breadcrumb);
+  width: calc(100vw - $breadcrumb);
   flex-flow: column nowrap;
 }
-#nutrition > section:nth-child(1){
-  flex:1;
+
+#nutrition>section:nth-child(1) {
+  flex: 1;
 }
-#nutrition > section:nth-child(1) header{
-  flex:1;
+
+#nutrition>section:nth-child(1) header {
+  flex: 1;
   height: $foot;
 }
-#nutrition > section:nth-child(1) article{
-  height:calc(100% - $foot);
-  overflow-x:hidden;
-  overflow-y:auto;
-  margin:20px 0;
+
+#nutrition>section:nth-child(1) article {
+  height: calc(100% - $foot);
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 20px 0;
 }
-#nutrition > section:nth-child(1) footer{
-  height:$breadcrumb;
+
+#nutrition>section:nth-child(1) footer {
+  height: $breadcrumb;
 }
-#nutrition > section:nth-child(1) h1, #nutrition > section:nth-child(1) h2{
+
+#nutrition>section:nth-child(1) h1,
+#nutrition>section:nth-child(1) h2 {
   font-size: 24px;
 }
-#nutrition > section:nth-child(1) ul{
-  padding:10px;
+
+#nutrition>section:nth-child(1) ul {
+  padding: 10px;
 }
-#nutrition > section:nth-child(1) ul li{
+
+#nutrition>section:nth-child(1) ul li {
   cursor: pointer;
   transition: all 0.3s ease;
   list-style: none;
-  position:relative;
-  margin-bottom:10px;
+  position: relative;
+  margin-bottom: 10px;
 }
-#nutrition > section:nth-child(1) ul li:after{
-  content:'.......................';
-  position:absolute;
-  right:0;
-  bottom:-5px;
+
+#nutrition>section:nth-child(1) ul li:after {
+  content: '.......................';
+  position: absolute;
+  right: 0;
+  bottom: -5px;
 }
-#nutrition > section:nth-child(1) ul li:hover{
+
+#nutrition>section:nth-child(1) ul li:hover {
   transform: scale(1.05);
   font-weight: 600;
 }
-#nutrition > section:nth-child(2){
-  flex:3;
-  padding:0 30px;
-  overflow-x:hidden;
-  overflow-y:auto;
+
+#nutrition>section:nth-child(2) {
+  flex: 3;
+  padding: 0 30px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-#nutrition > section:nth-child(2) article{
-  flex-flow:column nowrap;
+
+#nutrition>section:nth-child(2) article {
+  flex-flow: column nowrap;
 }
+
 /** PAGES OUTILS */
 .outils {
   flex-flow: row nowrap;
   width: calc(100vw - $breadcrumb);
   height: 100vh;
 }
-.outils h1, .outils h2{
-  font-size:24px;
-  width:100%;
-  clear:both;
-  color:$clair;
+
+.outils h1,
+.outils h2 {
+  font-size: 24px;
+  width: 100%;
+  clear: both;
+  color: $clair;
 }
-.outils li{
+
+.outils li {
   cursor: pointer;
   transition: all .3s ease;
 }
-.outils li:hover{
+
+.outils li:hover {
   transform: scale(1.05);
   font-weight: 600;
 }
+
 .outils>section {
   flex-flow: column nowrap;
   width: 15%;
   padding: 10px 15px;
 }
+
 .outils>section article {
   flex-flow: column nowrap;
 }
+
 .outils section:nth-child(1) {
   background-color: #F0C02E;
 }
+
 .outils section:nth-child(2) {
   background-color: #F8E6AF;
 }
+
 .outils section:nth-child(3) {
   flex: 3;
 }
+
 .outils section:nth-child(4) {
   background-color: #F8E6AF;
 }
-.outils section:nth-child(4) article{
-  flex-flow:row wrap;
+
+.outils section:nth-child(4) article {
+  flex-flow: row wrap;
 }
-.outils section:nth-child(4) article button{
-  font-size:80%;
-  padding:10px 15px;
-  margin:5px;
+
+.outils section:nth-child(4) article button {
+  font-size: 80%;
+  padding: 10px 15px;
+  margin: 5px;
 }
+
 /** PAGINATION **/
-.pagination{
-  width:100%;
+.pagination {
+  width: 100%;
   align-items: center;
   justify-content: center;
-  padding:15px;
+  padding: 15px;
 }
-.pagination mat-icon{
+
+.pagination mat-icon {
   cursor: pointer;
   transition: all .3s ease;
 }
-.pagination mat-icon:hover{
+
+.pagination mat-icon:hover {
   transform: scale(1.1);
 }
+
 /** CARROUSEL PROGRAMMES **/
 .carousel {
   position: relative;
@@ -990,10 +1104,10 @@ header>form div.mat-mdc-form-field-infix {
   }
 
   .carousel-slide {
-    position:relative;
+    position: relative;
     display: flex;
     width: 25% !important;
-    height:100%;
+    height: 100%;
 
     img {
       height: auto;
@@ -1001,19 +1115,21 @@ header>form div.mat-mdc-form-field-infix {
       width: 100%;
       transition: filter .3s ease;
     }
-    figure{
-      height:100%;
+
+    figure {
+      height: 100%;
       width: 100%;
       filter: grayscale(1);
-      margin:0;
+      margin: 0;
     }
+
     p {
       margin: 0;
       padding: 5px 15px;
-      position:absolute;
+      position: absolute;
       color: $clair;
-      left:0;
-      bottom:0;
+      left: 0;
+      bottom: 0;
       font-weight: bold;
       transition: all .3s ease;
       max-width: 100%;
@@ -1027,14 +1143,16 @@ header>form div.mat-mdc-form-field-infix {
     img {
       filter: grayscale(0);
     }
+
     figure {
       filter: grayscale(0);
       background-size: 140%;
     }
-    p{
+
+    p {
       background-color: $clair;
       color: $sombre;
-      padding:10px;
+      padding: 10px;
     }
   }
 
@@ -1042,7 +1160,8 @@ header>form div.mat-mdc-form-field-infix {
     img {
       filter: grayscale(0);
     }
-    figure{
+
+    figure {
       filter: grayscale(0);
     }
   }
@@ -2245,6 +2364,7 @@ header>form div.mat-mdc-form-field-infix {
     width: calc(100% + $l);
   }
 }
+
 // // PAGE RECETTES
 
 // #recettes {
@@ -2355,7 +2475,7 @@ header>form div.mat-mdc-form-field-infix {
 // }
 
 ::-webkit-scrollbar {
-  background-color:#f0857b ;
+  background-color: #f0857b;
   width: 10px;
 }
 

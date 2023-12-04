@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+}
+header{
+  height:65px;
+}
+mat-tab-group {
+  height: calc(100vh - 250px);
+}
+
+section {
+  padding:10px 20px;
+}
+
+footer {
+  height: 250px;
+  justify-content: space-around;
+  background-color: #270140;
+  flex-flow: column nowrap;
+}
+footer > section {
+  color:white;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  height:100%;
+}
+footer > h2 {
+  margin-top:-35px;
+}
+footer article {
+  width:30%;
+  height:100%;
+}

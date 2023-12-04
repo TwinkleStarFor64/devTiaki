@@ -8,6 +8,7 @@ import { TableauComponent } from './tableau/tableau.component';
 import { ButtonComponent } from './template/ui/button/button.component';
 import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
 import { SharedModule } from './partage/shared.module';
+import { EvalComponent } from './template/eval/eval.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from './partage/shared.module';
     AccueilComponent,
     TableauComponent,
     ButtonComponent,
-    CustomAccordionComponent
+    CustomAccordionComponent,
+    EvalComponent
   ],
   imports: [
     CommonModule,

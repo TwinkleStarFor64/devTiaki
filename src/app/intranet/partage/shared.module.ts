@@ -25,6 +25,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
 import { NoteComponent } from '../template/note/note.component';
 
 @NgModule({
@@ -52,7 +53,6 @@ import { NoteComponent } from '../template/note/note.component';
     MatProgressBarModule,
     MatDialogModule,
     MatInputModule,
-    MatFormFieldModule,
     MatCheckboxModule,
     MatExpansionModule,
     FormatDatePipe,
@@ -66,7 +66,8 @@ import { NoteComponent } from '../template/note/note.component';
     MatOptionModule,
     MatPaginatorModule,
     MatNativeDateModule,
-    NoteComponent
+    NoteComponent,
+    MatTabsModule
   ],
   imports: [
     CommonModule,
@@ -82,10 +83,12 @@ import { NoteComponent } from '../template/note/note.component';
     // MatDialogModule,
     // MatCheckboxModule,
     MatExpansionModule,
+    MatInputModule,
     // MatRadioModule,
     // MatDatepickerModule,
     // MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTabsModule
   ]
 })
 export class SharedModule { }

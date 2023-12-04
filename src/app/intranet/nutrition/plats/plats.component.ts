@@ -49,7 +49,7 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
   if (event.isUserInput) {
     this.evaluationId = evaluation.id;
     console.log("Voici l'id de l'eval : " + this.evaluationId);
-    this.evaluationStatut = evaluation.statut;
+    this.evaluationStatut = evaluation.statut!;
   }
 }
 

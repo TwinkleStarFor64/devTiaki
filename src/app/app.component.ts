@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
             })
           }
           );
+        console.log("Ariane", this.l.ariane);
         }
       },
       error: er => console.log(er),

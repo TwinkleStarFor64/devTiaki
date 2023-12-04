@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../../partage/services/connexion.service';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 
 @Component({

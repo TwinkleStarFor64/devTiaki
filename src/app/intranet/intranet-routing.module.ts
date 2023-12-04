@@ -11,6 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AccueilComponent },
       { path: 'tableau', component: TableauComponent },
+      { path: 'cheri/:id', loadComponent: () => import('./cheri/cheri.component').then((m) => m.CheriComponent)},
       { path: 'kine', loadChildren: () => import('./kine/kine.module').then((m) => m.KineModule)},
       { path: 'opto', loadChildren: () => import('./opto/opto.module').then((m) => m.OptoModule)},
       { path: 'nutrition', loadChildren: () => import('./nutrition/nutrition.module').then((m) => m.NutritionModule)},
