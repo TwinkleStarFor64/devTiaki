@@ -9,7 +9,7 @@
             <p>Vous avez mangé le {{ informations.choice }} {{ informations.title }}</p>
             <p>Informations complémentaires :</p>
             <span>
-<!-- Le bloc de couleur - classe dynamique pour du CSS différent suivant la valeur de {{ informations.color }} -->    
+<!-- Le bloc de couleur - classe dynamique pour du CSS différent suivant la valeur de {{ informations.color }} -->
                 <p class="{{ informations.color }}"></p>
                 <p>{{ informations.color }}</p>
             </span>
@@ -17,30 +17,30 @@
         </div>
     </article>
 <!-- Article s'affichant dans le cas ou les informations sont celles d'un PLAT -->
-    <article id="ingredients" *ngFor="let platItem of getFilteredPlatsData()">
+    <article id="ingredients" *ngFor="let plat of plats">
         <div>
-          <p id="getBold">Compisition de {{ platItem.nom }} :</p>
-        </div>      
-        <div *ngFor="let ingredient of platItem.ingredients">
+          <p id="getBold">Compisition de {{ plat.nom }} :</p>
+        </div>
+        <div *ngFor="let ingredient of plat.ingredients">
             <p><img src="assets/photoNutri/compl.svg" alt="icône composition">
-                Protéines : {{ ingredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+                <!-- Protéines : {{ ingredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
                 Glucides : {{ ingredient['Glucides (g\/100 g)'] }} Gr -
                 Lipide : {{ ingredient['Lipides (g\/100 g)'] }} Gr -
-                Sucre : {{ ingredient['Sucres (g/100 g)'] }} Gr
+                Sucre : {{ ingredient['Sucres (g/100 g)'] }} Gr -->
              </p>
              <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
-                Vitamines C : {{ ingredient["Vitamine C (mg\/100 g)"] }} Mg -
+                <!-- Vitamines C : {{ ingredient["Vitamine C (mg\/100 g)"] }} Mg -
                 B1 : {{ ingredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
                 B2 : {{ ingredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
                 B3 : {{ ingredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-                B5 : {{ ingredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+                B5 : {{ ingredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg -->
              </p>
              <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
-                Magnésium : {{ ingredient['Magnésium (mg/100 g)'] }} Mg - 
+                <!-- Magnésium : {{ ingredient['Magnésium (mg/100 g)'] }} Mg -
                 Potassium : {{ ingredient['Potassium (mg/100 g)'] }} Mg -
-                Cuivre : {{ ingredient['Cuivre (mg/100 g)'] }} Mg - 
-                Manganèse : {{ ingredient['Manganèse (mg/100 g)'] }} Mg
-             </p> 
+                Cuivre : {{ ingredient['Cuivre (mg/100 g)'] }} Mg -
+                Manganèse : {{ ingredient['Manganèse (mg/100 g)'] }} Mg -->
+             </p>
         </div>
     </article>
 <!-- Article s'affichant dans le cas ou les informations sont celles d'un MENU -->
@@ -50,7 +50,7 @@
         </div>
         <div *ngFor="let ingredient of menuItem.ingredients">
             <p><img src="assets/photoNutri/compl.svg" alt="icône composition">
-                Protéines : {{ ingredient["Protéines, N x 6.25 (g\/100 g)"] }} Gr - 
+                Protéines : {{ ingredient["Protéines, N x 6.25 (g\/100 g)"] }} Gr -
                 Glucides : {{ ingredient["Glucides (g\/100 g)"] }} Gr -
                 Lipide : {{ ingredient["Lipides (g\/100 g)"] }} Gr -
                 Sucre :  {{ ingredient["Sucres (g/100 g)"] }} Gr
@@ -63,9 +63,9 @@
                 B5 : {{ ingredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
             </p>
             <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
-                Magnésium : {{ ingredient['Magnésium (mg/100 g)'] }} Mg - 
+                Magnésium : {{ ingredient['Magnésium (mg/100 g)'] }} Mg -
                 Potassium : {{ ingredient['Potassium (mg/100 g)'] }} Mg -
-                Cuivre : {{ ingredient['Cuivre (mg/100 g)'] }} Mg - 
+                Cuivre : {{ ingredient['Cuivre (mg/100 g)'] }} Mg -
                 Manganèse : {{ ingredient['Manganèse (mg/100 g)'] }} Mg
              </p>
         </div>
@@ -78,11 +78,11 @@
             <p>plat.nom = {{ plat.nom }}</p>
             <p>plat.alimCode = {{ plat.alim_code }}</p>
         </div>
-        
+
         <div *ngFor="let ingredients of aliment">
-            <span *ngIf=" (plat.alim_code  === ingredients.alim_code) && (selectedTitleValue  ===  plat.nom)">                
+            <span *ngIf=" (plat.alim_code  === ingredients.alim_code) && (selectedTitleValue  ===  plat.nom)">
                 <p>ingredients.alimCode = {{ ingredients.alim_nom_fr }}</p>
                 <p>{{ ingredients["Glucides (g/100 g)"] }}</p>
             </span>
-        </div>        
+        </div>
     </article> -->

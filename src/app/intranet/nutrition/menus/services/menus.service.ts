@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CiqualI, MesMenusI } from 'src/app/intranet/partage/modeles/Types';
+import { CiqualI, MenuI } from 'src/app/intranet/partage/modeles/Types';
 import {
   AuthChangeEvent,
   AuthSession,
@@ -18,18 +18,18 @@ export class MenusService {
   private supabase: SupabaseClient;
   _session: AuthSession | null = null;
 
-  menu: MesMenusI[] = [];
+  menus: Array<MenuI> = [];
   ciqual: CiqualI[] = [];
 
   constructor(private http: HttpClient) {this.supabase = createClient(environment.supabaseUrl,environment.supabaseKey);}
 
   getMesMenus() {
-    this.http.get<MesMenusI[]>('assets/data/menus.json').subscribe({
-      next: (response) => (this.menu = response),
+    this.http.get<Array<MenuI>>('assets/data/menus.json').subscribe({
+      next: (response) => (this.menus = response),
       error: (er) => console.log(er),
-      complete: () => console.log(this.menu),
+      complete: () => console.log(this.menus),
     });
-    return this.menu;
+    return this.menus;
   }
 
   //Je récupére les données de la BDD supaBase

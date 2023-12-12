@@ -7,21 +7,23 @@
       <h1>Reprendre un repas précédent</h1>
       <article id="evalBouton">
       <!-- Dans la méthode triParTexte() je passe en paramétre le texte du bouton -->
-        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Plats évalués et validés</button>
-        <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Plats non évalués</button>
-        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Plats évalués et problématiques</button>
+        <button mat-raised-button color="primary" (click)="triParTexte(-1)">Plats évalués et validés</button>
+        <button mat-raised-button color="primary" (click)="triParTexte(0)">Plats non évalués</button>
+        <button mat-raised-button color="primary" (click)="triParTexte(1)">Plats évalués et problématiques</button>
         <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau plat</button>
       </article>
-      <article id="filter" *ngIf="affichageDefaut !== 'allPlats'">
-        <button mat-raised-button (click)="triParTexte('allPlats')">Effacer les filtres</button>
+      <article id="filter" *ngIf="affichageDefaut !== 1">
+        <button mat-raised-button (click)="triParTexte(1)">Effacer les filtres</button>
       </article>
       <article id="listing">
         <div *ngFor="let plat of plats">
-          <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut" (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
-          <p *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.description }}</p>
-          <div *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">
-            <span id="pastilleEval"
-             [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
+          <h2 *ngIf="affichageDefaut === 1 || affichageDefaut === plat.statut" (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
+          <p *ngIf="affichageDefaut === 1 || affichageDefaut === plat.statut">{{ plat.description }}</p>
+          <div *ngIf="affichageDefaut === 1 || affichageDefaut === plat.statut">
+            <!-- <span id="pastilleEval"
+             [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }"
+             > -->
+             <span id="pastilleEval">
              <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
             </span>
             <!-- <button mat-raised-button

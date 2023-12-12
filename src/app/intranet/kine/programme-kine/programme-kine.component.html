@@ -26,7 +26,7 @@
   </header>
   <section class="programme">
     <article>
-      <figure [style.background-image]="'url(' + programme.photo + ')'" *ngIf="programme.photo">
+      <figure [style.background-image]="'url(' + programme.media.url + ')'" *ngIf="programme.media">
         <h1>{{ programme.titre }}</h1>
       </figure>
       <div>

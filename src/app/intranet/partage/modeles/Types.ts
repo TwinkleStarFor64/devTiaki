@@ -1,18 +1,40 @@
+/** TYPAGE DE LA PARTIE NUTRITION */
 export interface PlatI {
   id?:number;
   nom: string;
   description?: string;
-  alim_code:string;
-  statut?:string;
-  idIngredients:Array<string>;
-  dureePreparation?:number;
-  dureeRepos?:number;
-  dureeCuisson?:number;
-  note?:string;
+  statut?:-1 | 0 | 1;
+  qualites?:string;
+  allergenes?:Array<number>;
+  ingredients:Array<IngredientI>;
+  nutriments?:Array<NutrimentI>;
+  astuces?:string;
+  notes?:string;
   date?:string | number;
 }
-export interface IngredientI {
-  nom: string;
+export interface IngredientI{
+  id:number;
+  alim_code:string;
+  quantite:number;
+  mesure:MesuresE;
+}
+export interface NutrimentI{
+  id:number;
+  titre:string;
+  quantite:number;
+  mesure:MesuresE;
+}
+export interface AllergeneI{
+  id:number;
+  titre:string;
+  description?:string;
+  type:'ingredient' | 'nutriment'
+}
+export interface RegimeI{
+  id:number;
+  titre:string;
+  description?:string;
+  type?:string
 }
 export interface ExerciceI {
   id?:number;
@@ -63,12 +85,6 @@ export interface EventI{
   idMedecin?:number;
   idMenu?:number;
 }
-enum ImportanceE{
-  faible = 'Faible',
-  moyenne = 'Moyenne',
-  forte = 'Forte',
-  critique = 'Critique'
-}
 // Interface de la page journal pour les réalisations
 export interface RealisationI {
   nom: string;
@@ -85,12 +101,6 @@ export interface TherapeuteI {
   specialites:Array<string>;
   type:TypeTherapeute;
   notes?:Array<string>;
-}
-enum TypeTherapeute{
-  infirmiere = 'infirmiere',
-  medecin = 'generaliste',
-  specialiste = 'specialiste',
-  therapeute = 'therapeute'
 }
 //Interface de la page d'accueil Nutrition
 export interface NutritionI {
@@ -161,26 +171,32 @@ export interface CiqualI {
 // Interface pour les pages programmes
 export interface ProgrammeI {
   id:number;
-  photo?: string;
-  video?: string;
   titre: string;
-  description: string;
+  description?: string;
   duree: string;
-  materiels: Array<string>;
+  materiels?: Array<string>;
   exercices:Array<ExerciceI>;
+  media?:MediaI;
 }
-// interface pour
-export interface MesMenusI {
+export interface MenuI {
   id: number;
-  nom: string;
-  description: string;
-  alim_code: number;
-  statut: string;
+  titre: string;
+  description?: string;
+  plats: Array<number>;
+  regimes?:Array<RegimeI>;
+  programmes?:Array<number>;
+  statut?: -1 | 0 | 1;
 }
-
+export interface NutriProgrammeI{
+  id: number;
+  titre: string;
+  description?: string;
+  statut: -1 | 0 | 1;
+}
+/** INTERFACES POUR LA COMMUNAUTE */
 export interface EvaluationI {
   id: number;
-  statut?: string;
+  statut?: number;
   score?:number;
   commentaire?:NoteI;
 }
@@ -193,11 +209,7 @@ export interface NoteI{
   type?:NoteE;
   public?:boolean;
 }
-enum NoteE {
-  commentaire = "Commentaire",
-  note = "Note",
-  eval = "Evaluation"
-}
+/** NAVIGATIONS */
 export interface BottomI {
   image: string;
   titre: string;
@@ -213,6 +225,73 @@ export interface BottomBarTableau {
   firstInfo: string;
   secondInfo: string;
 }
+export interface OrganismeI {
+  nomOrganisme: string;
+}
+// Lister des matéries
+export interface MaterielI{
+  id:string;
+  titre:string;
+  description?:string;
+  media?:MediaI;
+  commentaire?:string;
+}
+export interface LienI{
+  id:number;
+  titre:string;
+  url:string;
+  description?:string;
+  cible?:'_self' | '_blank'
+}
+// Ajouter un média aux autres types
+export interface MediaI{
+  id?:number;
+  titre:string;
+  url:string;
+  description?:string;
+  auteur?:string;
+  type?: 'image' | 'video' | 'audio'
+}
+export interface ParamsI{
+  app:Array<ParamI>;
+}
+// Paramètres
+export interface ParamI{
+  titre:string;
+  description:string;
+  url:string;
+}
+// Enumération pour nos types
+export enum MesuresE{
+  mgr = 'mgr',
+  gr = 'gr',
+  kgs = 'kgs'
+}
+export enum NoteE {
+  commentaire = "Commentaire",
+  note = "Note",
+  eval = "Evaluation"
+}
+export enum TypeTherapeute{
+  infirmiere = 'infirmiere',
+  medecin = 'generaliste',
+  specialiste = 'specialiste',
+  therapeute = 'therapeute'
+}
+export enum ImportanceE{
+  faible = 'Faible',
+  moyenne = 'Moyenne',
+  forte = 'Forte',
+  critique = 'Critique'
+}
+export enum PlatE{
+  ptitdej = "P'tit déj.",
+  encas = "Encas",
+  dejeuner = "Déjeuner",
+  Goûter = "Goûter",
+  diner = "Diner"
+}
+/** POUBELLE */
 export interface EchangeI {
   nom: string;
   message: string;
@@ -245,38 +324,4 @@ export interface TableauReussiteI {
   exerciceOptoReussi: string;
   exerciceKineReussi: string;
   repasNutri: string;
-}
-export interface OrganismeI {
-  nomOrganisme: string;
-}
-// Lister des matéries
-export interface MaterielI{
-  id:string;
-  titre:string;
-  description?:string;
-  media?:MediaI;
-}
-// Ajouter un média aux autres types
-export interface MediaI{
-  id?:number;
-  titre:string;
-  url:string;
-  description?:string;
-  auteur?:string;
-  type:string;
-}
-export interface ParamsI{
-  app:Array<ParamI>;
-}
-// Paramètres
-export interface ParamI{
-  titre:string;
-  description:string;
-  url:string;
-}
-// Objet générique utilisé dans le profil d'un chéri pour recueillir les informations historiques
-export interface InfosI{
-  historiques?:Array<any>;
-  events?:Array<EventI>;
-  contacts?:Array<TherapeuteI>;
 }

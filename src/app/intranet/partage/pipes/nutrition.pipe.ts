@@ -41,12 +41,14 @@ export class IngredientsPipe implements PipeTransform {
 export class PlatsPipe implements PipeTransform {
   constructor(public nutri:NutritionService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
 
-  transform(items: Array<PlatI>, codeAlim: string | number): any { // codeAlim est un filtre de type number
+  transform(plats: Array<PlatI>, codeAlim: string | number): any { // codeAlim est un filtre de type number
 
-    if (!items || codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
-      return items;
-  }
+    if (!plats) { //Si pas de plats ou pas de numéro alim_code
+      return [];
+  }if (codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
+    return plats;
+}
       //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
-      return items.filter( item => item.alim_code === codeAlim);
+      return plats.map(plat => plat.ingredients.filter( item => item.alim_code === codeAlim))
   }
 }

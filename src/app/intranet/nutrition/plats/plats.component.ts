@@ -21,10 +21,10 @@ export class PlatsComponent implements OnInit {
 
   selectedPlatsId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
-  evaluationStatut!: string; // Pour la méthode onSelectEval()
+  evaluationStatut!: number; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-  affichageDefaut: string = 'allPlats';
+  affichageDefaut: number | null = 1;
 
   constructor(public nutri:NutritionService, private dialog:MatDialog) {}
 
@@ -37,7 +37,7 @@ export class PlatsComponent implements OnInit {
     if (event.isUserInput) {
       this.selectedPlats = plats;
       console.log("J'ai cliqué sur : " + this.selectedPlats.nom + event.isUserInput);
-      this.alimCodeFiltre = Number(plats.alim_code);
+      // this.alimCodeFiltre = Number(plats.alim_code);
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
       this.selectedPlatsId = Number(plats.id);
       console.log("Voici l'id du plat : " + this.selectedPlatsId);
@@ -55,7 +55,7 @@ onSelectEval(event: any, evaluation: EvaluationI): void {
 
 onSelectPlat(plats: PlatI): void {
   this.selectedPlats = plats;
-  this.alimCodeFiltre = Number(plats.alim_code);
+  // this.alimCodeFiltre = Number(plats.alim_code);
     console.log('Je veux ce code : ' + this.alimCodeFiltre);
     this.selectedPlatsId = Number(plats.id);
     console.log("Voici l'id du plat : " + this.selectedPlatsId);
@@ -84,37 +84,8 @@ onSelectPlat(plats: PlatI): void {
   }
 
 // Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)
-  triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
+  triParTexte(statut: number | null) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
 
 }
-
-
-
-
-
-
-/* ----------------- Ancienne méthode de trie suivant les évaluations ------------------------ */
-//triActif: boolean = true; // Pour la méthode triParTexte
-//dernierTri: string = ''; // Pour la méthode triParTexte
-
-// Méthode utilisé sur les 3 boutons d'évaluation des plats lorsque je clique dessus
-// J'partagee le texte contenu dans les boutons afin des les trier
-/* triParTexte(texte: string) { // Le paramétre texte prends sa valeur dans le code html
-  // Si triActif et false que dernierTri contient le texte du bouton la fonction s'arrête
-  if (!this.triActif && this.dernierTri === texte) {
-    return; // Quitte la fonction si le même bouton est cliqué à nouveau
-  }
-
-  this.dernierTri = texte; // La variable dernierTri prends la valeur du bouton sur lequel j'ai cliquer
-  this.triActif = false; // triActif est true par défaut et deviens false après le clic
-  // Ci-dessous j'utilise sort() sur l'interface mesPlatsI
-  this.plats.sort((a, b) => {
-    if (a.statut === texte) { // Si mesPlatsI.statut et = au texte du bouton
-      return -1; // Je renvoie -1 pour le placer en premier
-    } else {
-      return 0; // Sinon je renvoie 0 pour conserver l'ordre actuel des éléments
-    }
-  });
-} */

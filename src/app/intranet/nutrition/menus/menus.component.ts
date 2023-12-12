@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
-import { CiqualI, EvaluationI, MesMenusI } from '../../partage/modeles/Types';
+import { CiqualI, EvaluationI, MenuI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
@@ -15,20 +15,20 @@ import { EditService } from '../../partage/services/edit.service';
 })
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
-  repas: MesMenusI[] = [];
+  menus: Array<MenuI> = [];
   evaluation: Array<EvaluationI> = [];
 
-  selectedRepas?: MesMenusI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
+  selectedRepas?: MenuI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
   selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
 
   selectedMenusId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
-  evaluationStatut!: string; // Pour la méthode onSelectEval()
+  evaluationStatut!: number; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
 // Ci-dessous affichageDefaut est utilisé dans le ngIf est dans la méthode triParTexte()
 // Sa valeur par défaut 'allMenus' permet d'afficher tout les menus - Dans la méthode triParTexte je change sa valeur
-  affichageDefaut: string = 'allMenus';
+  affichageDefaut: number | undefined = 1;
 
   constructor(
     public menuService: MenusService,
@@ -47,16 +47,10 @@ export class MenusComponent implements OnInit {
   async fetchMenus() {
     const { data, error } = await this.menuService.getRepas();
     if (data) {
+      console.log(this.menus);
       //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
       //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.repas = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut'],
-      }));
-      console.log(this.repas.map((item) => item['id']));
+      this.menus = data as Array<MenuI>;
     }
     if (error) {
       //Si une erreur
@@ -79,16 +73,15 @@ export class MenusComponent implements OnInit {
   }
 
   // Méthode pour le mat-select des menus
-  onSelect(event: any, menus: MesMenusI): void {
+  onSelect(event: any, menus: MenuI): void {
     // La ligne de code "if (event.isUserInput)" permet de vérifier que l'utilisateur a bien sélectionné une option
     // Cela permet d'ignorer l'événement déclenché lors de la désélection de l'option précédemment sélectionnée.
     // Sans cela la valeur de mat-option et du HTML ne se met pas à jour en temps réel
     if (event.isUserInput) {
       this.selectedRepas = menus;
       console.log(
-        "J'ai cliqué sur : " + this.selectedRepas.nom + ' ' + event.isUserInput
+        "J'ai cliqué sur : " + this.selectedRepas.titre + ' ' + event.isUserInput
       );
-      this.alimCodeFiltre = menus.alim_code;
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
       this.selectedMenusId = menus.id;
       console.log("Voici l'id du menu : " + this.selectedMenusId);
@@ -103,9 +96,8 @@ export class MenusComponent implements OnInit {
     }
   }
 
-  onSelectMenu(menus: MesMenusI): void {
+  onSelectMenu(menus: MenuI): void {
     this.selectedRepas = menus;
-    this.alimCodeFiltre = menus.alim_code;
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
       this.selectedMenusId = menus.id;
       console.log("Voici l'id du plat : " + this.selectedMenusId);
@@ -155,22 +147,22 @@ export class MenusComponent implements OnInit {
 
   async getMenusId(): Promise<any> {
     // Méthode sur le bouton Évaluer
-    if (this.selectedMenusId) {
-      console.log("Voici l'id du menu choisi :" + this.selectedMenusId);
-      await this.get.getEvaluationById(this.evaluationId); // Id dynamique pour la méthode supabase
-      console.log(
-        "L'id de l'évaluation que je donne au menu : " + this.evaluationId
-      );
-      await this.edit.updateEvalMenu(this.selectedMenusId, this.evaluationStatut)
-        .then(() => {
-          this.fetchMenus();
-        });
-    } else {
-      throw new Error();
-    }
+    // if (this.selectedMenusId) {
+    //   console.log("Voici l'id du menu choisi :" + this.selectedMenusId);
+    //   await this.get.getEvaluationById(this.evaluationId); // Id dynamique pour la méthode supabase
+    //   console.log(
+    //     "L'id de l'évaluation que je donne au menu : " + this.evaluationId
+    //   );
+    //   await this.edit.updateEvalMenu(this.selectedMenusId, this.evaluationStatut)
+    //     .then(() => {
+    //       this.fetchMenus();
+    //     });
+    // } else {
+    //   throw new Error();
+    // }
   }
 // Méthode pour trier les plats suivant leur evaluation
-  triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
+  triParTexte(statut?: number ) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
 }

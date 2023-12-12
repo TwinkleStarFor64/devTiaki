@@ -4,7 +4,7 @@ import { format, isSameDay, isSameMonth, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
-import { EventI, MesMenusI, PlatI } from '../../partage/modeles/Types';
+import { EventI, MenuI, PlatI } from '../../partage/modeles/Types';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -77,9 +77,9 @@ export class AgendaComponent {
     }
   };
   //----------------------------------------- Ci-dessous code pour l'interface d'ajout de données dans l'agenda -------------------------------------
-  repas: MesMenusI[] = [];
+  repas: Array<MenuI>= [];
   plats: Array<PlatI> = [];
-  selectedRepas?: MesMenusI; // Pour la méthode onSelect()
+  selectedRepas?: MenuI; // Pour la méthode onSelect()
 
   formData!: FormGroup;
 

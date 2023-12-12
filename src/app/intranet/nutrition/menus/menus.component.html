@@ -5,26 +5,26 @@
         1 - Ajouter un nouveau menu
       </button>
       <!-- <button>1 - Ajouter un nouveau menu</button> -->
-      <h1>Reprendre un repas précédent</h1>
+      <h1>Reprendre un menus précédent</h1>
       <article id="evalBouton">
       <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->
-        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Menus évalués et validés</button>
-        <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Menus non évalués</button>
-        <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Menus évalués et problématiques</button>
+        <button mat-raised-button color="primary" (click)="triParTexte(0)">Menus évalués et validés</button>
+        <button mat-raised-button color="primary" (click)="triParTexte()">Menus non évalués</button>
+        <button mat-raised-button color="primary" (click)="triParTexte(1)">Menus évalués et problématiques</button>
         <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau menu</button>
       </article>
       <!-- Ci-dessous Article pour revenir à l'affichage initial -->
-      <article id="filter" *ngIf="affichageDefaut !== 'allMenus'">
-        <button mat-raised-button (click)="triParTexte('allMenus')">Effacer les filtres</button>
+      <article id="filter" *ngIf="affichageDefaut !== 1">
+        <button mat-raised-button (click)="triParTexte(1)">Effacer les filtres</button>
       </article>
       <article id="listing">
-        <div *ngFor="let menus of repas">
-      <!-- ngIf qui affiche tout les menus au départ (Valeur 'allMenus') OU le menu.statut qui change quand je clique sur les boutons au dessus  -->
-          <h2 style="cursor: pointer" *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut" (click)="onSelectMenu(menus)">{{ menus.nom }}</h2>
-          <p *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">{{ menus.description }}</p>
-          <div *ngIf="affichageDefaut === 'allMenus' || affichageDefaut === menus.statut">
+        <div *ngFor="let menu of menus">
+      <!-- ngIf qui affiche tout les menu au départ (Valeur 1) OU le menu.statut qui change quand je clique sur les boutons au dessus  -->
+          <h2 style="cursor: pointer" *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut" (click)="onSelectMenu(menu)">{{ menu.titre }}</h2>
+          <p *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut">{{ menu.description }}</p>
+          <div *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut">
             <span id="pastilleEval"
-            [ngClass]="{ 'Eval': menus.statut === 'Évaluer', 'EvalYes': menus.statut === 'Évalués et validés', 'EvalNo': menus.statut === 'Évalués et problématiques' }">
+            [ngClass]="{ 'Eval': menu.statut === -1, 'EvalYes': menu.statut === 0, 'EvalNo': menu.statut === 1 }">
             </span>
             <img src="assets/images/pictos/horloge.svg" alt="durée" />
             <p>Durée</p>
@@ -41,8 +41,8 @@
         <mat-form-field appearance="outline">
           <mat-label>VOS MENUS</mat-label>
           <mat-select>
-            <mat-option *ngFor="let menus of repas" [value]="menus.nom" (onSelectionChange)="onSelect($event, menus)">
-              {{ menus.nom }}
+            <mat-option *ngFor="let menu of menus" [value]="menu.titre" (onSelectionChange)="onSelect($event, menu)">
+              {{ menu.titre }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -56,7 +56,7 @@
         </mat-form-field>
       </div>
       <span *ngIf="selectedRepas">
-        <h4>{{ selectedRepas.nom }}</h4>
+        <h4>{{ selectedRepas.titre }}</h4>
         <p>Description</p>
         <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
         <div>
