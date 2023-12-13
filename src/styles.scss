@@ -62,7 +62,12 @@ input,
 textarea {
   font-family: $font-family;
 }
-
+fieldset{
+  border:none;
+  width:100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
 h1 {
   color: $card-nutri;
   font-weight: 100;

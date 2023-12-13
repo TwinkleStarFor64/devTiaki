@@ -13,7 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FilterPipe } from '../partage/pipes/filter.pipe';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { SharedModule } from '../partage/shared.module';
+import { SharedModule } from '../../partage/shared.module';
 
 @NgModule({
   declarations: [

@@ -7,7 +7,7 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
 import { JournalPipe } from '../partage/pipes/journal.pipe';
 import { EditJournalComponent } from './edit-journal/edit-journal.component';
-import { SharedModule } from '../partage/shared.module';
+import { SharedModule } from '../../partage/shared.module';
 import { OutilsRoutingModule } from './outils-routing.module';
 import { AgendaComponent } from './agenda/agenda.component';
 import localeFr from '@angular/common/locales/fr';

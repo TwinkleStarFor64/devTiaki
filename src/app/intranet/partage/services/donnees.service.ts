@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AccueilI, NavI, JournalI, TherapeuteI } from '../modeles/Types';
-import { createClient, PostgrestSingleResponse, SupabaseClient } from '@supabase/supabase-js';
+import { AccueilI, NavI, JournalI, TherapeuteI, CheriI } from '../modeles/Types';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -12,13 +12,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DonneesService {
   // Gestion des sous menus des thèmes nutrition, opto et kiné
   listeSousMenus: any;
-  sousMenu$: BehaviorSubject<Array<NavI>> = new BehaviorSubject([] as Array<NavI>);
   sousMenu: Array<NavI> = [];
 
   accueilModule: Array<AccueilI> = [];
 
   // Données stockées de l'application
   therapeutes: Array<TherapeuteI> = [];
+  cheris:Array<CheriI> = []; // Liste des chéris
 
   private supabase: SupabaseClient; // Instance du client Supabase
   historiqueJournal: Array<JournalI> = [];

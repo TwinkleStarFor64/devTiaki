@@ -162,18 +162,14 @@ export interface AidantI extends UtilisateurI{
 }
 export interface CheriI extends UtilisateurI{
   idCheri:number;
+  therapeutes?:Array<TherapeuteI>;
+  progressions?:Array<any>;
 }
 export interface TherapeuteI extends UtilisateurI{
   idTerapeute:number;
-  prenom:string;
-  adresse?:string;
-  ville?:string;
-  codePostal?:number;
-  telephone?:string;
-  mobile?:string;
   specialites:Array<string>;
-  type:TypeTherapeute;
-  notes?:Array<string>;
+  type:TherapeuteE;
+  organisme:OrganismeI;
 }
 interface RoleI{
   id:number;
@@ -281,8 +277,9 @@ export enum NoteE {
   note = "Note",
   eval = "Evaluation"
 }
-export enum TypeTherapeute{
+export enum TherapeuteE{
   infirmiere = 'infirmiere',
+  infirmier = 'infirmier',
   medecin = 'generaliste',
   specialiste = 'specialiste',
   therapeute = 'therapeute'

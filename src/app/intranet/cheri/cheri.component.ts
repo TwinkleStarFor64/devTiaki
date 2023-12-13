@@ -1,21 +1,21 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CheriService } from '../partage/services/cheri.service';
-import { SharedModule } from '../partage/shared.module';
+import { SharedModule } from '../../partage/shared.module';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { CheriI } from '../partage/modeles/Types';
 import { ActivatedRoute } from '@angular/router';
+import { DonneesService } from '../partage/services/donnees.service';
 
 @Component({
   selector: 'app-cheri',
   templateUrl: './cheri.component.html',
   styleUrls: ['./cheri.component.scss'],
   standalone:true,
-  providers:[CheriService, InfosService],
+  providers:[DonneesService, InfosService],
   imports: [SharedModule]
 })
 export class CheriComponent implements OnInit{
 
-  service:CheriService = inject(CheriService);
+  get:DonneesService = inject(DonneesService);
   l:InfosService = inject(InfosService);
   route:ActivatedRoute = inject(ActivatedRoute);
 

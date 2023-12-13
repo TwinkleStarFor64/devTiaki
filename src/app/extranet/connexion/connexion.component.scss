@@ -1,17 +1,16 @@
 :host {
-  height: 100%;
-  width: 100%;
-}
-
-section {
-  background: url('../../../assets//images/bg/connexion.jpg');
-  background-repeat: no-repeat;
+  background: url('../../../assets//images/bg/connexion.jpg') 50% no-repeat;
   background-size: cover;
-  height: 100%;
+  display:flex;
+  height:100%;
   width: 100%;
-  flex-direction: column;
+  flex-flow: column nowrap;
 }
-
+section{
+  flex-flow: row nowrap;
+  width:100%;
+  height:calc(100% - 80px);
+}
 article {
   margin: auto;
   flex-flow: column nowrap;
@@ -21,6 +20,9 @@ article {
   padding: 50px 25px;
   background-color: white;
   max-width: 50%;
+}
+fieldset{
+  justify-content: center;
 }
 .alerte{
   padding:15px;
@@ -35,6 +37,7 @@ footer {
   padding: 20px;
   width: fit-content;
   align-self: flex-end;
+  height:80px;
 }
 
 footer>* {

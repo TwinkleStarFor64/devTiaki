@@ -1,5 +1,13 @@
 [
   {
+      "id": 0,
+      "titre": "Programmes",
+      "description": "Accédez aux programmes nutritionnels",
+      "bouton": "Voir les programmes nutritionnels",
+      "image":"assets/images/modules/nutrition/programmes.jpg",
+      "url": "/intranet/nutrition/programmes"
+  },
+  {
       "description": "Suivez la progression des vos exercices et les médailles que vous avez gagnez.",
       "bouton": "Voir ou créer des menus",
       "image":"assets/images/modules/nutrition/menus.jpg",

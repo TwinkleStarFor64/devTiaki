@@ -10,7 +10,7 @@ import { SaveDataComponent } from './dialog/save-data/save-data.component';
 import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
 import { CheckJournalComponent } from './dialog/check-journal/check-journal.component';
-import { SharedModule } from '../partage/shared.module';
+import { SharedModule } from '../../partage/shared.module';
 import { ProgrammesComponent } from './programmes/programmes.component';
 
 @NgModule({

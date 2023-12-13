@@ -1,23 +1,7 @@
-<!-- <app-infos></app-infos> -->
-<!-- <form #f="ngForm">
-        <input name="id" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel"  [placeholder]="conn.connexion.id.placeholder" required>
-        <span *ngIf="ctlId.invalid"> Vous devez renseigner vôtre identifiant ou un mail </span>
-        <input name="mdp"  [(ngModel)]="conn.connexion.mdp.value" #ctlMdp="ngModel" type="password" [placeholder]="conn.connexion.mdp.placeholder">
-        <span *ngIf="ctlMdp.invalid"> Mot de passe? </span>
-        <div>
-            <input type="reset" value="Annuler">
-            <input type="submit" value="Se connecter" [disabled]="f.invalid">
-        </div>
-        <a routerLink='intranet'>Cliquer ici pour accéder à l'application en cours de développement </a>
-    </form> -->
 <section>
-  <!-- <header>
-      <a href="https://tiaki-app.org" title="Accéder au site de Tiaki"><img src="assets/images/logos/twinkle.svg" alt="Logo Twinkle Star for 64" class="logo"></a>
-  </header> -->
   <article>
     <a href="https://tiaki-app.org" title="Voir le site de Tiaki" target="_blank"><img
         src="assets/images/logos/tiaki.svg" alt="Logo Tiaki" class="logo"></a>
-    <!-- <h1>Tiaki</h1> -->
     <h2>Une application pour les aidants</h2>
     <p>Tiaki est en cours de développement. Les premiers tests seront ouverts à partir du mois de mars prochain. Ce que
       vous découvrirez est fourni à titre d'information pour vous donner une vision approximative de ce à que seront ses
@@ -31,20 +15,39 @@
     </div>
   </article>
 
-  <footer>
-    <h4>Les partenaires du projet,<br>chaleureusement remerciés</h4>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire STEP" target="_blank">
-      <img src="assets/images/logos/logo_step.png" alt="Logo de la société STEP"></a>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire Cap Gemini" target="_blank"><img
-        src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini"></a>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire Région Nouvelle Aquitaine" target="_blank"><img
-        src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine"></a>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire Département des Pyrénées-Atlantiques" target="_blank"><img
-        src="assets/images/logos/logo_CD64.png" alt="Logo ddu département du 64"></a>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire Danser sous la pluie"
-      target="_blank"><img src="assets/images/logos/logo_dansesouslapluie.png"
-        alt="Logo de l'association Danser sous la pluie'"></a>
-    <a href="https://tiaki-app.org/partenaires" title="Partenaire exlineo" target="_blank"><img
-        src="assets/images/logos/logo_exlineo.png" alt="Logo de la société exlineo"></a>
-  </footer>
+  <article>
+    <form (submit)="conn.getAuth()">
+      <mat-form-field appearance="fill">
+        <mat-label>Identifiant</mat-label>
+        <input matInput [(ngModel)]="conn.connexion.id" (input)="showConnexion()" placeholder="Placeholder" name="id">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [(ngModel)]="conn.connexion.mdp" placeholder="Placeholder" name="mdp">
+        <mat-icon matSuffix>key</mat-icon>
+      </mat-form-field>
+      <fieldset>
+      <button type="reset" class="bg-annule">Annuler</button>
+      <button class="bg-valide">S'identifier</button></fieldset>
+    </form>
+    <button><mat-icon matSuffix>autorenew</mat-icon> J'ai oublié mon mot de passe</button>
+    <p>* utilisez cheri / cheri comme identifiant et mot de passe</p>
+  </article>
 </section>
+<footer>
+  <h4>Les partenaires du projet,<br>chaleureusement remerciés</h4>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire STEP" target="_blank">
+    <img src="assets/images/logos/logo_step.png" alt="Logo de la société STEP"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Cap Gemini" target="_blank"><img
+      src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Région Nouvelle Aquitaine" target="_blank"><img
+      src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Département des Pyrénées-Atlantiques" target="_blank"><img
+      src="assets/images/logos/logo_CD64.png" alt="Logo ddu département du 64"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Danser sous la pluie"
+    target="_blank"><img src="assets/images/logos/logo_dansesouslapluie.png"
+      alt="Logo de l'association Danser sous la pluie'"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire exlineo" target="_blank"><img
+      src="assets/images/logos/logo_exlineo.png" alt="Logo de la société exlineo"></a>
+</footer>

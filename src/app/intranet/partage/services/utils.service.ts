@@ -4,12 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UtilsService {
-
-  constructor() { }
-
-  setArianeUrls(){
-
-  }
   /** Renvoyer une chaîne de caractère d'un  */
   stringfy(obj:any):string{
     if(! Array.isArray(obj) && !obj.length) {

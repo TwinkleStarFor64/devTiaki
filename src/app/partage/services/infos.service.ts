@@ -49,4 +49,13 @@ export class InfosService {
       return '';
     }
   }
+  /**
+   * Afficher les erreurs dans l'interface
+   * @param msg {string} Message à montrer dans l'interface utilisateur
+   */
+  erreur(msg:string, er:unknown){
+    console.log(msg, er);
+    if(typeof er !== 'string') er = JSON.stringify(er);
+    throw new Error(msg + ' : \n' + er);
+  }
 }

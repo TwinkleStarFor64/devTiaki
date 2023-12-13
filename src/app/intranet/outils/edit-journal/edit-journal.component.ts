@@ -5,9 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TherapeuteI, RealisationI } from '../../partage/modeles/Types';
+import { RealisationI } from '../../partage/modeles/Types';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DonneesService } from '../../partage/services/donnees.service';
