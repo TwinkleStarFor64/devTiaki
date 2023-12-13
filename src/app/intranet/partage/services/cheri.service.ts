@@ -1,19 +1,31 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit, inject } from '@angular/core';
+import { CheriI } from '../modeles/Types';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CheriService {
+export class CheriService implements OnInit {
 
   infos:any;
   sante:any;
   contact:any;
+  profils:Array<CheriI> = [];
 
-  constructor() {
+  http:HttpClient = inject(HttpClient);
 
+  ngOnInit(){
+    this.getCheri();
   }
+
   /** Récupérer les données du chérichéri */
   getCheri(){
-
+    this.http.get<Array<CheriI>>('assets/data/profil.json').subscribe(
+      {
+        next:p => this.profils = p,
+        error:e => console.log(e),
+        complete: () => console.log('Profils chargés')
+      }
+    )
   }
 }

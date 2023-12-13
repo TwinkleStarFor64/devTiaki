@@ -10,6 +10,6 @@ export class ProfilComponent implements OnInit {
   constructor(public profil: ProfilService) {}
 
   ngOnInit(): void {
-    this.profil.getBottomBarTableau();
+    this.profil.getNavTableau();
   }
 }

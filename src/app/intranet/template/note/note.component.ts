@@ -17,7 +17,7 @@ export class NoteComponent {
 
   constructor(public l:InfosService){};
   initNote(){
-    this.note = {titre:'', description:'', relation:-1, table:''}
+    this.note = {titre:'', contenu:'', id:-1, idUtilisateur:-1};
   }
   /** Créer une nouvelle note dans la base de données */
   setNote(){

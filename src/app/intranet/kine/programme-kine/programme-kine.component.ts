@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { KineService } from '../services/kine.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 
@@ -10,7 +10,7 @@ import { InfosService } from 'src/app/partage/services/infos.service';
 })
 export class ProgrammeKineComponent implements OnInit {
   filtre: string = '';
-  programme: ProgrammeI = { id: -1, titre: '', description: '', duree: '', materiels:[], exercices: [] };
+  programme: ExoPogrammeI = { id: -1, titre: '', description: '', duree:-1, materiels:[], exercices: [] };
   exercice!:ExerciceI;
 
   fFait: boolean = false;
@@ -25,12 +25,12 @@ export class ProgrammeKineComponent implements OnInit {
     });
   }
   /** Sélectionner un programme en particulier */
-  setProgramme(p: ProgrammeI) {
+  setProgramme(p: ExoPogrammeI) {
     this.programme = p;
   }
   /** Réinitialiser les filtres */
   initFiltres() {
-    this.programme = { id: -1, titre: '', description: '', duree: '', materiels:[], exercices: [] };
+    this.programme = { id: -1, titre: '', description: '', duree:-1, materiels:[], exercices: [] };
     this.fAllergies = false;
     this.fFait = false;
   }

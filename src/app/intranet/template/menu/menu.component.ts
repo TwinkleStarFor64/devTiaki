@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DonneesService } from '../../partage/services/donnees.service';
-import { BottomI } from '../../partage/modeles/Types';
+import { NavI } from '../../partage/modeles/Types';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit{
   @Input('idMenu') idMenu!:string; // Ide du menu dont on récupère les données
   @Input('classe') classe!:string; // La classe à appliquer sur le template
 
-  menu:Array<BottomI> = []; // Le menu à activer, reçu depuis le composant
+  menu:Array<NavI> = []; // Le menu à activer, reçu depuis le composant
 
   constructor(public get:DonneesService, private router:Router){}
 
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit{
     this.get.getSousMenus(this.idMenu);
   }
 
-  onNavItemClick(m: BottomI) {
+  onNavItemClick(m: NavI) {
     this.get.sousMenu.forEach((item) => (item.active = false));
     m.active = true;
     this.router.navigateByUrl(m.url);

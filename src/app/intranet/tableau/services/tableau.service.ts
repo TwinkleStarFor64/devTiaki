@@ -6,7 +6,7 @@ import {
   TableauBordTherapeuteI,
   TableauBordProblemeI,
   TableauReussiteI,
-  BottomBarTableau,
+  NavTableau,
 } from '../../partage/modeles/Types';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class TableauService {
   tableauBordHistorique: TableauBordHistoriqueI[] = [];
   tableauBordMedecin: TableauBordTherapeuteI[] = [];
   tableauBordProbleme: TableauBordProblemeI[] = [];
-  bottomBarTableau: BottomBarTableau[] = [];
+  bottomBarTableau: NavTableau[] = [];
   constructor(private http: HttpClient) {}
 
   // Recupération des données json des reussites du tableau
@@ -80,9 +80,9 @@ export class TableauService {
     return this.tableauBordMedecin;
   }
   // Récupération json des information de la bottomBar Tableau de bord
-  getBottomBarTableau() {
+  getNavTableau() {
     this.http
-      .get<BottomBarTableau[]>('assets/data/bottomTableau.json')
+      .get<NavTableau[]>('assets/data/bottomTableau.json')
       .subscribe({
         next: (r) => (this.bottomBarTableau = r),
         error: (er) => console.log(er),

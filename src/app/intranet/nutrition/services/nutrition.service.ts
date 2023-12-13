@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CiqualI, MenuI, PlatI, ProgrammeI } from '../../partage/modeles/Types';
+import { CiqualI, MenuI, PlatI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { DonneesService } from '../../partage/services/donnees.service';
 })
 export class NutritionService {
 
-  listeProgrammes: Array<ProgrammeI> = [];
+  listeProgrammes: Array<ExoPogrammeI> = [];
   listeMenus: Array<MenuI> = [];
   listePlats: Array<PlatI> = [];
   ciqual!: Array<CiqualI>;

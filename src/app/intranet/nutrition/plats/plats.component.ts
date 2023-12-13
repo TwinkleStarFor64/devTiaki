@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, EvaluationI, PlatI } from '../../partage/modeles/Types';
+import { CiqualI, EvalI, PlatI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
@@ -13,11 +13,11 @@ import { NutritionService } from '../services/nutrition.service';
 export class PlatsComponent implements OnInit {
   aliment: CiqualI[] = [];
   plats: Array<PlatI> = [];
-  evaluation: EvaluationI[] = [];
+  evaluation: EvalI[] = [];
 
   //selectedIngredients?: CiqualI;
   selectedPlats?: PlatI;
-  selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
+  selectedEvaluation!: EvalI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
 
   selectedPlatsId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
@@ -45,7 +45,7 @@ export class PlatsComponent implements OnInit {
   }
 
 // Méthode pour le mat-select des evaluations
-onSelectEval(event: any, evaluation: EvaluationI): void {
+onSelectEval(event: any, evaluation: EvalI): void {
   if (event.isUserInput) {
     this.evaluationId = evaluation.id;
     console.log("Voici l'id de l'eval : " + this.evaluationId);

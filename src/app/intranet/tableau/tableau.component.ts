@@ -164,7 +164,7 @@ public sante: Array<any> = [
     this.tableaux.getTableauBordProbleme();
     this.tableaux.getTableauEnCours();
     this.tableaux.getTableauReussite();
-    this.tableaux.getBottomBarTableau();
+    this.tableaux.getNavTableau();
     console.log(this.sante)
   }
 }

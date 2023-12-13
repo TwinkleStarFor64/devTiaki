@@ -5,8 +5,7 @@
   <article>
     <div class="photo-exo">
       <img
-        src="{{ sanity.urlFor(exerciceModal.photo).url() }}"
-        alt="photo-exercice" *ngIf="exerciceModal.photo"
+        [src]="exerciceModal.media.url" alt="photo-exercice" *ngIf="exerciceModal.media"
       />
     </div>
     <div>

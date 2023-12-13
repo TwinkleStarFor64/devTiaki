@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
-import { CiqualI, EvaluationI, MenuI } from '../../partage/modeles/Types';
+import { CiqualI, EvalI, MenuI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
@@ -16,10 +16,10 @@ import { EditService } from '../../partage/services/edit.service';
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   menus: Array<MenuI> = [];
-  evaluation: Array<EvaluationI> = [];
+  evaluation: Array<EvalI> = [];
 
   selectedRepas?: MenuI; // Pour la méthode onSelect() et le ngIf "<span *ngIf="selectedRepas">"
-  selectedEvaluation!: EvaluationI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
+  selectedEvaluation!: EvalI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
 
   selectedMenusId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
@@ -61,9 +61,12 @@ export class MenusComponent implements OnInit {
   async fetchEvaluation() {
     const { data, error } = await this.get.getEvaluation();
     if (data) {
-      this.evaluation = data.map((item: { [x: string]: any }) => ({
+      this.evaluation = data.map((item:any) => ({
         id: item['id'],
+        aidant:item['aidant'],
         statut: item['statut'],
+        etoiles:item['etoiles'],
+        date:item['date']
       }));
       console.log(this.evaluation.map((item) => item['statut']).join(', '));
     }
@@ -88,7 +91,7 @@ export class MenusComponent implements OnInit {
     }
   }
   // Méthode pour le mat-select des evaluations
-  onSelectEval(event: any, evaluation: EvaluationI): void {
+  onSelectEval(event: any, evaluation: EvalI): void {
     if (event.isUserInput) {
       this.evaluationId = evaluation.id;
       console.log("Voici l'id de l'eval : " + this.evaluationId);

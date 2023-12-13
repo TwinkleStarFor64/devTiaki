@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { DonneesService } from '../../partage/services/donnees.service';
 })
 export class KineService {
 
-  listeProgrammes:Array<ProgrammeI> = [];
+  listeProgrammes:Array<ExoPogrammeI> = [];
   listeExos:Array<ExerciceI> = [];
 
   constructor(public get:DonneesService) {}

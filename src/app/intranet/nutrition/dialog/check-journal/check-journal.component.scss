@@ -25,7 +25,7 @@ background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
         h1 {
             color: #d9042b;
             font-size: 1.6rem;
-            font-weight: 500;            
+            font-weight: 500;
         }
         #date { // La balise <p id="date">Le {{ informations.start | date: 'dd/MM/yyyy  à HH:mm' }}</p>
             font-weight: 600;
@@ -51,14 +51,12 @@ background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
     display: flex;
     flex-direction: column;
     div {
-        #getBold { // La balise <p id="getBold">Ingrédients de {{ platItem.nom }} :</p> 
-            font-weight: 600;            
+        #getBold { // La balise <p id="getBold">Ingrédients de {{ platItem.nom }} :</p>
+            font-weight: 600;
         }
     }
   }
 }
-
-// CSS dynamique pour la balise <p class="{{ informations.color }}"></p>
 .Positif {
     background-color: #33BB27;
 }

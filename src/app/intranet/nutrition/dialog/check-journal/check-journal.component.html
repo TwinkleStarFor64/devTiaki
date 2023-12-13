@@ -10,7 +10,7 @@
             <p>Informations complémentaires :</p>
             <span>
 <!-- Le bloc de couleur - classe dynamique pour du CSS différent suivant la valeur de {{ informations.color }} -->
-                <p class="{{ informations.color }}"></p>
+                <p [class]="informations.color"></p>
                 <p>{{ informations.color }}</p>
             </span>
             <p>{{ informations.observations }}</p>

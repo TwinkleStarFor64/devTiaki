@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AccueilI, BottomI, JournalI, TherapeuteI } from '../modeles/Types';
+import { AccueilI, NavI, JournalI, TherapeuteI } from '../modeles/Types';
 import { createClient, PostgrestSingleResponse, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -12,8 +12,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class DonneesService {
   // Gestion des sous menus des thèmes nutrition, opto et kiné
   listeSousMenus: any;
-  sousMenu$: BehaviorSubject<Array<BottomI>> = new BehaviorSubject([] as Array<BottomI>);
-  sousMenu: Array<BottomI> = [];
+  sousMenu$: BehaviorSubject<Array<NavI>> = new BehaviorSubject([] as Array<NavI>);
+  sousMenu: Array<NavI> = [];
 
   accueilModule: Array<AccueilI> = [];
 

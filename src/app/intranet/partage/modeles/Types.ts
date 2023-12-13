@@ -1,4 +1,19 @@
 /** TYPAGE DE LA PARTIE NUTRITION */
+export interface MenuI {
+  id: number;
+  titre: string;
+  description?: string;
+  plats: Array<number>;
+  regimes?:Array<RegimeI>;
+  programmes?:Array<NutriProgrammeI>;
+  statut?: -1 | 0 | 1;
+}
+export interface NutriProgrammeI{
+  id: number;
+  titre: string;
+  description?: string;
+  statut: -1 | 0 | 1;
+}
 export interface PlatI {
   id?:number;
   nom: string;
@@ -36,14 +51,19 @@ export interface RegimeI{
   description?:string;
   type?:string
 }
+/** TYPE OPTO */
 export interface ExerciceI {
-  id?:number;
+  id:number;
   titre: string;
+  intro?:string;
   description: string;
-  duree: string;
+  duree: number;
   media?: MediaI;
-  photo?:string;
+  editeurs?:Array<UtilisateurI>;
   materiels?: Array<MaterielI>;
+}
+export interface ExoPogrammeI extends ExerciceI {
+  exercices:Array<ExerciceI>;
 }
 export interface AsideI {
   nom?: string;
@@ -89,19 +109,6 @@ export interface EventI{
 export interface RealisationI {
   nom: string;
 }
-//Interface de la page journal pour les Medecins
-export interface TherapeuteI {
-  nom: string;
-  prenom:string;
-  adresse?:string;
-  ville?:string;
-  codePostal?:number;
-  telephone?:string;
-  mobile?:string;
-  specialites:Array<string>;
-  type:TypeTherapeute;
-  notes?:Array<string>;
-}
 //Interface de la page d'accueil Nutrition
 export interface NutritionI {
   id:number;
@@ -134,20 +141,43 @@ export interface AccueilModulesI {
   url:string;
 }
 // Interface pour la page profil(exemple)
-export interface ProfilI {
+export interface UtilisateurI {
   id:number;
   nom: string;
   prenom: string;
   dateNaissance?: number | string | Date;
   email?: string;
   telephone?:string;
+  mobile?:string;
   adresse?: string;
   ville?:string;
   codePostal?:number | string;
-  journaux?:Array<JournalI>; // AJOUT DES JOURNAUX RECUS DEPUIS LA TABLE groupeEvenement (MCD)
-  therapeutes?:Array<TherapeuteI>;
-  progressions?:Array<ProgrammeI>; // La liste des programmes en cours de réalisation (sans distinction)
-  nutrition?:any;
+  avatar?:string;
+  roles:Array<RoleI>;
+}
+export interface AidantI extends UtilisateurI{
+  idAidant:number;
+  cheris:Array<CheriI>;
+  therapeutes:Array<TherapeuteI>;
+}
+export interface CheriI extends UtilisateurI{
+  idCheri:number;
+}
+export interface TherapeuteI extends UtilisateurI{
+  idTerapeute:number;
+  prenom:string;
+  adresse?:string;
+  ville?:string;
+  codePostal?:number;
+  telephone?:string;
+  mobile?:string;
+  specialites:Array<string>;
+  type:TypeTherapeute;
+  notes?:Array<string>;
+}
+interface RoleI{
+  id:number;
+  role:string;
 }
 // Interface pour la page ingrédient de la table Ciqual
 export interface CiqualI {
@@ -168,49 +198,26 @@ export interface CiqualI {
   ['Cuivre (mg/100 g)']: string;
   ['Manganèse (mg/100 g)']: string;
 }
-// Interface pour les pages programmes
-export interface ProgrammeI {
-  id:number;
-  titre: string;
-  description?: string;
-  duree: string;
-  materiels?: Array<string>;
-  exercices:Array<ExerciceI>;
-  media?:MediaI;
-}
-export interface MenuI {
-  id: number;
-  titre: string;
-  description?: string;
-  plats: Array<number>;
-  regimes?:Array<RegimeI>;
-  programmes?:Array<number>;
-  statut?: -1 | 0 | 1;
-}
-export interface NutriProgrammeI{
-  id: number;
-  titre: string;
-  description?: string;
-  statut: -1 | 0 | 1;
-}
 /** INTERFACES POUR LA COMMUNAUTE */
-export interface EvaluationI {
+export interface CommentaireI {
   id: number;
-  statut?: number;
-  score?:number;
-  commentaire?:NoteI;
+  aidant:number;
+  contenu?:string;
+  statut?: -1 | 0 | 1;
+  date?:number;
+  parent?:number;
+}
+export interface EvalI extends CommentaireI{
+  etoiles:number;
 }
 export interface NoteI{
-  id?:number;
+  id:number;
+  idUtilisateur:number;
   titre:string;
-  description:string;
-  relation:number;
-  table?:string;
-  type?:NoteE;
-  public?:boolean;
+  contenu:string;
 }
 /** NAVIGATIONS */
-export interface BottomI {
+export interface NavI {
   image: string;
   titre: string;
   info: string;
@@ -220,13 +227,15 @@ export interface BottomI {
   activeUrl?: string;
 }
 // Interface bottomBar Tableau de bord & Profil
-export interface BottomBarTableau {
+export interface NavTableau {
   titre: string;
   firstInfo: string;
   secondInfo: string;
 }
 export interface OrganismeI {
-  nomOrganisme: string;
+  id: number;
+  titre:string;
+  type:string;
 }
 // Lister des matéries
 export interface MaterielI{

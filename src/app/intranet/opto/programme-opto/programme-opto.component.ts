@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI, ProgrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { OptoService } from '../services/opto.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 
@@ -10,10 +10,10 @@ import { InfosService } from 'src/app/partage/services/infos.service';
 })
 export class ProgrammeOptoComponent implements OnInit {
   filtre: string = '';
-  programme: ProgrammeI = { id: -1, titre: '', description: '', duree: '', materiels:[], exercices: [] };
-  exercice: ExerciceI = { id: -1, titre: '', description: '', duree: '' };
-  programmesFiltres: ProgrammeI[] = [];
-  hoveredProgramme?: ProgrammeI;
+  programme: ExoPogrammeI = { id: -1, titre: '', description: '', duree:-1, materiels:[], exercices: [] };
+  exercice: ExerciceI = { id: -1, titre: '', description: '', duree:-1 };
+  programmesFiltres: ExoPogrammeI[] = [];
+  hoveredProgramme?: ExoPogrammeI;
   selectedImageTitle: string = '';
 
   fFait: boolean = false;
@@ -36,13 +36,13 @@ export class ProgrammeOptoComponent implements OnInit {
     } else { this.programme = this.opto.listeProgrammes[0]; }
   }
   /** Sélectionner un programme en particulier */
-  setProgramme(p: ProgrammeI) {
+  setProgramme(p: ExoPogrammeI) {
     this.programme = p;
   }
 
   /** Réinitialiser les filtres */
   initFiltres() {
-    this.programme = { id: -1, titre: '', description: '', duree: '', materiels:[], exercices: [] };
+    this.programme = { id: -1, titre: '', description: '', duree:-1, materiels:[], exercices: [] };
     this.fAllergies = false;
     this.fFait = false;
   }

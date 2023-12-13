@@ -4,10 +4,7 @@
     </article>
     <article>
       <div class="photo-exo">
-        <img
-          src="{{ sanity.urlFor(exerciceModal.photo).url() }}"
-          alt="photo-exercice" *ngIf="exerciceModal.photo"
-        />
+        <img [src]="exerciceModal.media!.url" *ngIf="exerciceModal.media" alt="photo-exercice"/>
       </div>
       <div>
         <h1>{{ exerciceModal.titre }}</h1>
