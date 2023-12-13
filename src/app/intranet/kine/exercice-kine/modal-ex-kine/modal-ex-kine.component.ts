@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ExerciceI } from 'src/app/intranet/partage/modeles/Types';
-import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
   selector: 'app-modal-ex-kine',
@@ -14,9 +13,7 @@ export class ModalExKineComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<ModalExKineComponent>,
-    public sanity: SanityService
-  ) {}
+    public dialogRef: MatDialogRef<ModalExKineComponent>  ) {}
 
   ngOnInit(): void {
     this.exerciceModal = this.data;

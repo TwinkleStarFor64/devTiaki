@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../partage/modeles/Types';
 import { DonneesService } from '../partage/services/donnees.service';
 

@@ -15,11 +15,11 @@ export class CheriService implements OnInit {
   http:HttpClient = inject(HttpClient);
 
   ngOnInit(){
-    this.getCheri();
+    this.getCheris();
   }
 
   /** Récupérer les données du chérichéri */
-  getCheri(){
+  getCheris(){
     this.http.get<Array<CheriI>>('assets/data/profil.json').subscribe(
       {
         next:p => this.profils = p,

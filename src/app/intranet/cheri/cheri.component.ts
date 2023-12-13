@@ -19,7 +19,7 @@ export class CheriComponent implements OnInit{
   l:InfosService = inject(InfosService);
   route:ActivatedRoute = inject(ActivatedRoute);
 
-  cheri!:CheriI;
+  cheri:CheriI = {id:-1, idCheri:-1, nom:"", prenom:"", roles:[]};
   id:string | number = -1;
 
   ngOnInit(): void {
