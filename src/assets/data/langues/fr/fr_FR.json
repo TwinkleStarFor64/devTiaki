@@ -64,7 +64,13 @@
     "MEDECINS":"Médecins",
     "INFIRMIER":"Infirmier",
     "INFIRMIERS":"Infirmiers",
-    "CORPS_MEDICAL":"Corps médical"
+    "CORPS_MEDICAL":"Corps médical",
+    "ID":"Identifiant",
+    "MDP":"Mot de passe",
+    "EMAIL":"Email",
+    "ID_SAISIE":"Saissez votre identifiant (email)",
+    "MDP_DESCR":"Saissez votre mot de passe",
+    "MDP_HINT":"Minimum un carctère spécial, un chiffre, une majuscule et 8 caractère"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",

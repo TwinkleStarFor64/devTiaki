@@ -19,12 +19,12 @@
     <form (submit)="conn.getAuth()">
       <mat-form-field appearance="fill">
         <mat-label>Identifiant</mat-label>
-        <input matInput [(ngModel)]="conn.connexion.id" (input)="showConnexion()" placeholder="Placeholder" name="id">
+        <input matInput [(ngModel)]="conn.connexion.id" placeholder="Identifiant (email)" name="id">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Mot de passe</mat-label>
-        <input matInput [(ngModel)]="conn.connexion.mdp" placeholder="Placeholder" name="mdp">
+        <input matInput type="password" [(ngModel)]="conn.connexion.mdp" placeholder="Mot de passe" name="mdp">
         <mat-icon matSuffix>key</mat-icon>
       </mat-form-field>
       <fieldset>
@@ -32,6 +32,7 @@
       <button class="bg-valide">S'identifier</button></fieldset>
     </form>
     <button><mat-icon matSuffix>autorenew</mat-icon> J'ai oublié mon mot de passe</button>
+    <button routerLink="/inscription"><mat-icon matSuffix>person_add</mat-icon> Créer un compte (gratuit)</button>
     <p>* utilisez cheri / cheri comme identifiant et mot de passe</p>
   </article>
 </section>

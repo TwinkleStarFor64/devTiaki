@@ -1,0 +1,60 @@
+<section>
+  <article>
+    <h1>Créer un compte</h1>
+    <mat-stepper linear #stepper>
+      <mat-step [stepControl]="compte.control" [editable]="false">
+        <form #compte="ngForm">
+          <ng-template matStepLabel>Créer un compte</ng-template>
+          <mat-form-field>
+            <mat-label>Email *</mat-label>
+            <input matInput name="email" placeholder="Saissiez un email valide" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Mot de passe *</mat-label>
+            <input matInput type="password" name="mdp" placeholder="Saissiez un email valide" required>
+          </mat-form-field>
+          <button mat-button type="reset" class="bg-annule">M'inscrire</button>
+            <button mat-button (click)="creeCompte()" class="bg-valide">M'inscrire</button>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="profil.control" [editable]="false">
+        <form #profil="ngForm">
+          <ng-template matStepLabel>Remplir mes informations</ng-template>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. 1 Main St, New York, NY"
+                   required>
+          </mat-form-field>
+          <div>
+            <!-- <button mat-button matStepperPrevious>Back</button> -->
+            <button mat-button >Valider</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="profil.control" [editable]="false">
+        <!-- <form> -->
+          <ng-template matStepLabel>C'est fait !</ng-template>
+          <h2>Votre compte a été créé</h2>
+          <p>Bravo, votre compte a été créé. Vous avez accès aux services du logiciel. Vous pouvez maintenant vous connecter.</p>
+          <button routerLink="/" class="bg-admin">Me connecter</button>
+        <!-- </form> -->
+      </mat-step>
+    </mat-stepper>
+  </article>
+</section>
+<footer>
+  <h4>Les partenaires du projet,<br>chaleureusement remerciés</h4>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire STEP" target="_blank">
+    <img src="assets/images/logos/logo_step.png" alt="Logo de la société STEP"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Cap Gemini" target="_blank"><img
+      src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Région Nouvelle Aquitaine" target="_blank"><img
+      src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Département des Pyrénées-Atlantiques" target="_blank"><img
+      src="assets/images/logos/logo_CD64.png" alt="Logo ddu département du 64"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Danser sous la pluie"
+    target="_blank"><img src="assets/images/logos/logo_dansesouslapluie.png"
+      alt="Logo de l'association Danser sous la pluie'"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire exlineo" target="_blank"><img
+      src="assets/images/logos/logo_exlineo.png" alt="Logo de la société exlineo"></a>
+</footer>

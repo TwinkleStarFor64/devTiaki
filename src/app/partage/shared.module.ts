@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 import { NoteComponent } from '../intranet/template/note/note.component';
 
 @NgModule({
@@ -67,7 +68,8 @@ import { NoteComponent } from '../intranet/template/note/note.component';
     MatPaginatorModule,
     MatNativeDateModule,
     NoteComponent,
-    MatTabsModule
+    MatTabsModule,
+    MatStepperModule
   ],
   imports: [
     CommonModule,
@@ -87,6 +89,7 @@ import { NoteComponent } from '../intranet/template/note/note.component';
     // MatRadioModule,
     // MatDatepickerModule,
     // MatButtonModule,
+    MatStepperModule,
     MatFormFieldModule,
     MatTabsModule
   ]

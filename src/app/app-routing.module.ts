@@ -5,10 +5,12 @@ import { InfosComponent } from './extranet/infos/infos.component';
 import { MentionsLegalesComponent } from './extranet/mentions-legales/mentions-legales.component';
 import { RgpdComponent } from './extranet/rgpd/rgpd.component';
 import { PagenotfoundComponent } from './extranet/pagenotfound/pagenotfound.component';
+import { InscriptionComponent } from './extranet/inscription/inscription.component';
 
 // Toutes les routes permettant de naviguer sur l'application.
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
+  { path: 'inscription', component: InscriptionComponent },
   { path: 'rgpd', component: RgpdComponent },
   { path: 'mentions-legales', component: MentionsLegalesComponent },
   { path: 'infos', component: InfosComponent },

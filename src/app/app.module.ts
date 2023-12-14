@@ -9,6 +9,7 @@ import { MentionsLegalesComponent } from './extranet/mentions-legales/mentions-l
 import { RgpdComponent } from './extranet/rgpd/rgpd.component';
 import { PagenotfoundComponent } from './extranet/pagenotfound/pagenotfound.component';
 import { SharedModule } from './partage/shared.module';
+import { InscriptionComponent } from './extranet/inscription/inscription.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SharedModule } from './partage/shared.module';
     MentionsLegalesComponent,
     RgpdComponent,
     PagenotfoundComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,

@@ -73,12 +73,14 @@ export class ConnexionService {
     });
     return data;
   }
-  /** Récupérer les données du profil de la personne identifiée */
+  /** Récupérer les données du profil de la personne identifiée
+   * L'utilisation des alias permet d'identifier un tableau relié (ex. cheris) ou un enfant à aplatir dans la réponse
+  */
   getProfilAidant() {
     console.log("User id", this.user.id);
     this.supabase.from('aidants')
     // .select('*')
-      .select('*, attribuerCheris!attribuerCheris_idAidant_fkey(cheris(*))')
+      .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
       .eq('utilisateur', this.user.id)
       .then(({data, error}) => {
         console.log("Données du profil récupéré", data);
