@@ -5,6 +5,9 @@
       <mat-step [stepControl]="compte.control" [editable]="false">
         <form #compte="ngForm">
           <ng-template matStepLabel>Créer un compte</ng-template>
+          <h2>1 - Créer votre compte</h2>
+          <p>Nous devons devrez créer un compte d'identification avec votre email et votre mot de passe avant de
+            renseigner votre profil.</p>
           <mat-form-field>
             <mat-label>Email *</mat-label>
             <input matInput name="email" placeholder="Saissiez un email valide" required>
@@ -13,30 +16,47 @@
             <mat-label>Mot de passe *</mat-label>
             <input matInput type="password" name="mdp" placeholder="Saissiez un email valide" required>
           </mat-form-field>
-          <button mat-button type="reset" class="bg-annule">M'inscrire</button>
-            <button mat-button (click)="creeCompte()" class="bg-valide">M'inscrire</button>
+          <div>
+            <button type="reset" class="bg-annule">Annuler</button>
+            <button (click)="creeCompte()" class="bg-valide">M'inscrire</button>
+          </div>
         </form>
       </mat-step>
       <mat-step [stepControl]="profil.control" [editable]="false">
         <form #profil="ngForm">
-          <ng-template matStepLabel>Remplir mes informations</ng-template>
+          <ng-template matStepLabel>2 - Renseigner les informations de mon profil</ng-template>
+          <h2>2 - Renseigner les informations de mon profil</h2>
+          <p>Ce sont les informations de votre profil.</p>
           <mat-form-field>
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="Ex. 1 Main St, New York, NY"
-                   required>
+            <mat-label>{{ l.t.form['NOM'] }}</mat-label>
+            <input matInput name="nom" [placeholder]="l.t.form['NOM']" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.form['PRENOM'] }}</mat-label>
+            <input matInput name="prenom" [placeholder]="l.t.form['PRENOM']" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.form['ADRESSE'] }}</mat-label>
+            <input matInput name="adresse" [placeholder]="l.t.form['ADRESSE']" required>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.form['CODEPOSTAL'] }}</mat-label>
+            <input matInput name="codepostal" [placeholder]="l.t.form['CODEPOSTAL']" required>
           </mat-form-field>
           <div>
             <!-- <button mat-button matStepperPrevious>Back</button> -->
-            <button mat-button >Valider</button>
+            <button mat-button class="bg-annule">Annuler</button>
+            <button mat-button class="bg-valide">Valider</button>
           </div>
         </form>
       </mat-step>
       <mat-step [stepControl]="profil.control" [editable]="false">
         <!-- <form> -->
-          <ng-template matStepLabel>C'est fait !</ng-template>
-          <h2>Votre compte a été créé</h2>
-          <p>Bravo, votre compte a été créé. Vous avez accès aux services du logiciel. Vous pouvez maintenant vous connecter.</p>
-          <button routerLink="/" class="bg-admin">Me connecter</button>
+        <ng-template matStepLabel>C'est fait !</ng-template>
+        <h2>Votre compte a été créé</h2>
+        <p>Bravo, votre compte a été créé. Vous avez accès aux services du logiciel. Vous pouvez maintenant vous
+          connecter.</p>
+        <button routerLink="/" class="bg-admin">Me connecter</button>
         <!-- </form> -->
       </mat-step>
     </mat-stepper>
@@ -50,11 +70,10 @@
       src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini"></a>
   <a href="https://tiaki-app.org/partenaires" title="Partenaire Région Nouvelle Aquitaine" target="_blank"><img
       src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine"></a>
-  <a href="https://tiaki-app.org/partenaires" title="Partenaire Département des Pyrénées-Atlantiques" target="_blank"><img
-      src="assets/images/logos/logo_CD64.png" alt="Logo ddu département du 64"></a>
-  <a href="https://tiaki-app.org/partenaires" title="Partenaire Danser sous la pluie"
-    target="_blank"><img src="assets/images/logos/logo_dansesouslapluie.png"
-      alt="Logo de l'association Danser sous la pluie'"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Département des Pyrénées-Atlantiques"
+    target="_blank"><img src="assets/images/logos/logo_CD64.png" alt="Logo ddu département du 64"></a>
+  <a href="https://tiaki-app.org/partenaires" title="Partenaire Danser sous la pluie" target="_blank"><img
+      src="assets/images/logos/logo_dansesouslapluie.png" alt="Logo de l'association Danser sous la pluie'"></a>
   <a href="https://tiaki-app.org/partenaires" title="Partenaire exlineo" target="_blank"><img
       src="assets/images/logos/logo_exlineo.png" alt="Logo de la société exlineo"></a>
 </footer>

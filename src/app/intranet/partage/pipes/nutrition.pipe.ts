@@ -24,12 +24,10 @@ export class AlimentsPipe implements PipeTransform {
 export class IngredientsPipe implements PipeTransform {
   transform(items: Array<CiqualI>, codeAlim: number): any {
     // codeAlim est un filtre de type number
-
     if (!items || codeAlim === undefined) {
       //Si pas de plats ou pas de numéro alim_code
       return items;
     }
-
     //Ci-dessous je filtre CiqualI - je récupére alim_code sur CiqualI et je le compare au filtre codeAlim
     return items.filter((item) => item.alim_code === codeAlim);
   }
@@ -39,16 +37,47 @@ export class IngredientsPipe implements PipeTransform {
   name: 'plats'
 })
 export class PlatsPipe implements PipeTransform {
-  constructor(public nutri:NutritionService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
+  constructor(public nutri: NutritionService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
 
   transform(plats: Array<PlatI>, codeAlim: string | number): any { // codeAlim est un filtre de type number
 
     if (!plats) { //Si pas de plats ou pas de numéro alim_code
       return [];
-  }if (codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
-    return plats;
+    } if (codeAlim === undefined) { //Si pas de plats ou pas de numéro alim_code
+      return plats;
+    }
+    //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
+    return plats.map(plat => plat.ingredients.filter(item => item.alim_code === codeAlim))
+  }
 }
-      //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
-      return plats.map(plat => plat.ingredients.filter( item => item.alim_code === codeAlim))
+/** Filtrer les plats en fonction d'un filtre libre */
+@Pipe({
+  name: 'platLibre'
+})
+export class PlatLibrePipe implements PipeTransform {
+  constructor(public nutri: NutritionService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
+
+  transform(plats: Array<PlatI>, filtre: string): any { // codeAlim est un filtre de type number
+    if (!plats) return [];
+    if (filtre === undefined || filtre.length < 3) return plats;
+
+    //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
+    return plats.filter(plat => JSON.stringify(plat).indexOf(filtre) != -1);
+  }
+}
+
+/** Filtrer les plats en fonction d'un filtre libre */
+@Pipe({
+  name: 'platEvals'
+})
+export class PlatEvalPipe implements PipeTransform {
+  constructor(public nutri: NutritionService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform
+
+  transform(plats: Array<PlatI>, evaluation: number): any { // codeAlim est un filtre de type number
+    if (!plats) return [];
+    if (!evaluation) return plats;
+
+    //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
+    // return plats.filter(plat => JSON.stringify(plat).indexOf(evaluation) != -1);
   }
 }

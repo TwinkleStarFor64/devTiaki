@@ -19,7 +19,7 @@
 <!-- Article s'affichant dans le cas ou les informations sont celles d'un PLAT -->
     <article id="ingredients" *ngFor="let plat of plats">
         <div>
-          <p id="getBold">Compisition de {{ plat.nom }} :</p>
+          <p id="getBold">Compisition de {{ plat.titre }} :</p>
         </div>
         <div *ngFor="let ingredient of plat.ingredients">
             <p><img src="assets/photoNutri/compl.svg" alt="icône composition">

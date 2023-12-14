@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CiqualI, MenuI, PlatI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
+import {
+  createClient,
+  SupabaseClient,
+} from '@supabase/supabase-js';
+import { environment } from 'src/environments/environment';
+import { InfosService } from 'src/app/partage/services/infos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +18,14 @@ export class NutritionService {
   listePlats: Array<PlatI> = [];
   ciqual!: Array<CiqualI>;
 
-  constructor(public get: DonneesService) {
-    if(!this.ciqual) this.getCiqual();
+  private supabase: SupabaseClient; // Instance du client Supabase
+
+  constructor(public get: DonneesService, public l:InfosService) {
+    this.supabase = createClient(
+      environment.supabaseUrl,
+      environment.supabaseKey
+    );
+    if (!this.ciqual) this.getCiqual();
   }
   /** Récupérer la liste des ingrédients */
   getCiqual() {
@@ -26,7 +38,7 @@ export class NutritionService {
     );
   }
   /** Récupérer un ingrédient à partir de son alim_code */
-  getIngredient(code:number){
+  getIngredient(code: number) {
     return this.ciqual.find(c => c.alim_code == code);
   }
   // Récupérer la liste des programmes alimentaires
@@ -50,15 +62,15 @@ export class NutritionService {
     );
   };
   /** Récupérer la liste des plats */
+  // Exemple de recquête : .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
+
   getPlats() {
-    if (this.listePlats.length == 0) {
-      this.get.getJsonData('nutrition-plats').subscribe(
-        {
-          next: m => this.listeMenus = m,
-          error: er => console.log(er),
-          complete: () => console.log("Données chargées")
-        }
-      );
-    }
+    this.supabase.from('plats')
+      .select('*')
+      .then(({data, error}) => {
+        console.log("Données du profil récupéré", data);
+        this.listePlats = data as Array<PlatI>;
+        if (error) this.l.erreur("Erreur dans le chargement des données du profil", error);
+      });
   };
 }

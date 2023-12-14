@@ -16,7 +16,7 @@ export interface NutriProgrammeI{
 }
 export interface PlatI {
   id?:number;
-  nom: string;
+  titre: string;
   description?: string;
   statut?:-1 | 0 | 1;
   qualites?:string;
@@ -142,7 +142,7 @@ export interface AccueilModulesI {
 }
 // Interface pour la page profil(exemple)
 export interface UtilisateurI {
-  id:number;
+  id?:number;
   nom: string;
   prenom: string;
   dateNaissance?: number | string | Date;
@@ -153,15 +153,15 @@ export interface UtilisateurI {
   ville?:string;
   codePostal?:number | string;
   avatar?:string;
-  roles:Array<RoleI>;
+  roles?:Array<RoleI>;
 }
 export interface AidantI extends UtilisateurI{
-  idAidant:number;
+  idAidant?:number;
   cheris:Array<CheriI>;
   therapeutes:Array<TherapeuteI>;
 }
 export interface CheriI extends UtilisateurI{
-  idCheri:number;
+  idCheri?:number;
   therapeutes?:Array<TherapeuteI>;
   progressions?:Array<any>;
 }

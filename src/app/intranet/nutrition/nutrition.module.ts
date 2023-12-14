@@ -5,7 +5,7 @@ import { IngredientsComponent } from './ingredients/ingredients.component';
 import { MenusComponent } from './menus/menus.component';
 import { PlatsComponent } from './plats/plats.component';
 import { NutritionComponent } from './nutrition.component';
-import { AlimentsPipe, PlatsPipe, IngredientsPipe } from '../partage/pipes/nutrition.pipe';
+import { AlimentsPipe, PlatsPipe, IngredientsPipe, PlatLibrePipe, PlatEvalPipe } from '../partage/pipes/nutrition.pipe';
 import { SaveDataComponent } from './dialog/save-data/save-data.component';
 import { DeleteDataComponent } from './dialog/delete-data/delete-data.component';
 import { SavePlatComponent } from './dialog/save-plat/save-plat.component';
@@ -21,6 +21,8 @@ import { ProgrammesComponent } from './programmes/programmes.component';
     NutritionComponent,
     AlimentsPipe,
     PlatsPipe,
+    PlatEvalPipe,
+    PlatLibrePipe,
     IngredientsPipe,
     SaveDataComponent,
     DeleteDataComponent,

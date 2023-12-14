@@ -35,7 +35,7 @@ export class DonneesService {
           this.accueilModule = r.sort((a, b) => a.id - b.id);
         },
         error: er => console.log(er),
-        complete: () => console.log(this.accueilModule)
+        complete: () => console.log("Données de l'accueil chargées")
       }
     );
   }

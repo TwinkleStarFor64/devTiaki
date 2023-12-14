@@ -21,6 +21,21 @@
     "OUTILS":"Outils",
     "CHERI":"Vous l'aidez"
   },
+  "form":{
+    "ID":"Identifiant",
+    "MDP":"Mot de passe",
+    "EMAIL":"Email",
+    "ID_SAISIE":"Saissez votre identifiant (email)",
+    "MDP_DESCR":"Saissez votre mot de passe",
+    "MDP_HINT":"Minimum un carctère spécial, un chiffre, une majuscule et 8 caractère",
+    "NOM":"Nom",
+    "PRENOM":"Prénom",
+    "ADRESSE":"Adresse",
+    "CODEPOSTAL":"Code postal",
+    "VILLE":"Ville",
+    "TEL":"Téléphone",
+    "MOBILE":"Mobile"
+  },
   "pages":{
     "TIAKI":"Tiaki",
     "SLOGAN":"Pour aider les aidants",
@@ -64,17 +79,23 @@
     "MEDECINS":"Médecins",
     "INFIRMIER":"Infirmier",
     "INFIRMIERS":"Infirmiers",
-    "CORPS_MEDICAL":"Corps médical",
-    "ID":"Identifiant",
-    "MDP":"Mot de passe",
-    "EMAIL":"Email",
-    "ID_SAISIE":"Saissez votre identifiant (email)",
-    "MDP_DESCR":"Saissez votre mot de passe",
-    "MDP_HINT":"Minimum un carctère spécial, un chiffre, une majuscule et 8 caractère"
+    "CORPS_MEDICAL":"Corps médical"
+  },
+  "statuts":{
+    "-1":"Dépublié",
+    "0":"Brouillon",
+    "1":"Publié"
   },
   "nutrition":{
     "NUTRITION":"Nutrition",
     "PLATS":"Plats",
+    "PLATS_DISPO":"Plats disponibles",
+    "PLATS_TOUS":"Tous les plats",
+    "PLATS_FILTRE":"Filtrer la liste des plats",
+    "PLATS_EVAL":"Plats évalués par la communautés et validés",
+    "PLATS_EVAL_NON":"Plats pas encore évalués",
+    "PLATS_EVAL_PROBLEME":"Plats évalués et problématiques",
+    "PLAT_AJOUT":"Plats disponibles",
     "PLAT":"Plat",
     "MENUS":"Menus",
     "MENU":"Menu",
@@ -87,7 +108,13 @@
     "MG":"Magnésium (mg\/100 g)",
     "PO":"Potassium (mg\/100 g)",
     "CU":"Cuivre (mg\/100 g)",
-    "MA":"Manganèse (mg\/100 g)"
+    "MA":"Manganèse (mg\/100 g)",
+    "MATERIEL":"Matériel",
+    "DIFFICULTE":"Difficulé",
+    "DUREE":"Temps de préparation",
+    "COMMUNAUTE":"Les plats de la communauté",
+    "MES_PLATS":"Mes plats",
+    "ALLERGENES_SANS":"Tenir compte des allergenes"
   },
   "opto":{
     "OPTO":"Optométrie",

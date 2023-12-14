@@ -1,5 +1,5 @@
 section {
-  background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
+  background: url("/assets/images/bg/bg.svg") rgba(242, 183, 5, 0.1);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -59,7 +59,7 @@ section {
         font-size: 0.8rem;
       }
       @media screen and (max-width: 480px) {
-        width: 25vw;    
+        width: 25vw;
       }
     }
     button:nth-child(2) { // Le bouton confirmer

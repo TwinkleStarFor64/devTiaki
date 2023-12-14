@@ -54,14 +54,6 @@
   "nutrition": [
     {
       "image": "assets/images/pictos/menus/programme.png",
-      "titre": "Journal",
-      "info": "Des programmes alimentaires spécifiques (diabète, gluten, protéinés...)",
-      "lien": "Journal",
-      "url": "/intranet/nutrition/programmes",
-      "active": false
-    },
-    {
-      "image": "assets/images/pictos/menus/programme.png",
       "titre": "Menus",
       "info": "Les listes de vos menus et de ceux de la communautés",
       "lien": "Menus",
@@ -169,6 +161,16 @@
       "nom":"Paramètre",
       "image":"assets/images/pictos/params.svg",
       "url":"/intranet/outils/parametres"
+    }
+  ],
+  "reserve":[
+    {
+      "image": "assets/images/pictos/menus/programme.png",
+      "titre": "Journal",
+      "info": "Des programmes alimentaires spécifiques (diabète, gluten, protéinés...)",
+      "lien": "Journal",
+      "url": "/intranet/nutrition/programmes",
+      "active": false
     }
   ]
 }

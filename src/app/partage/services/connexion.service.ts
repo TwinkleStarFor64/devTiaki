@@ -79,8 +79,8 @@ export class ConnexionService {
   getProfilAidant() {
     console.log("User id", this.user.id);
     this.supabase.from('aidants')
-    // .select('*')
-      .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
+      // .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
+      .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*))')
       .eq('utilisateur', this.user.id)
       .then(({data, error}) => {
         console.log("Données du profil récupéré", data);
