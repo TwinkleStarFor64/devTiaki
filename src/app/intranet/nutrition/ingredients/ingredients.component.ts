@@ -3,6 +3,7 @@ import { CiqualI, PlatI } from '../../partage/modeles/Types';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { NutritionService } from '../services/nutrition.service';
 import { IngredientsPipe } from '../../partage/pipes/nutrition.pipe';
+import { InfosService } from 'src/app/partage/services/infos.service';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
 class MyPaginatorIntl extends MatPaginatorIntl {
@@ -16,7 +17,7 @@ class MyPaginatorIntl extends MatPaginatorIntl {
   // Plus d'infos ici : https://stackoverflow.com/questions/54057030/how-to-change-itemsperpagelabel-in-mat-paginator-in-angular-6
   override getRangeLabel = (page: number, pageSize: number, length: number) => {
     if (length === 0 || pageSize === 0) {
-      return `0 à ${length }`;
+      return `0 à ${length}`;
     }
     length = Math.max(length, 0);
     const startIndex = page * pageSize;
@@ -35,15 +36,15 @@ export class IngredientsComponent implements OnInit {
   filtre: string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel
   debut: number = 1; //Le début de l'index - utiliser en HTML pour ajouter un chiffre à chaque élément du tableau
 
-  selectedIngredient?: CiqualI; //Je récupére dans la variable mon interface CiqualI déclaré dans Types.ts
+  selectedIngredient: CiqualI = { alim_code: -1, alim_nom_fr: '' }; // Ingrédient sélectionné
   selectedPlat?: PlatI;
-  ingredients:Array<CiqualI> = [];
+  ingredients: Array<CiqualI> = [];
 
   currentPage = 0; // Page actuelle pour MatPaginator
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
-  itemsLength:number = 20;
+  itemsLength: number = 20;
 
-  constructor(public nutri: NutritionService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
+  constructor(public nutri: NutritionService, private paginatorIntl: MatPaginatorIntl, public l: InfosService) { } // Injection du service
 
   ngOnInit(): any {
     // Ci-dessous je modifie les labels de MatPaginator en initialisant une nouvelle instance de la classe
@@ -57,18 +58,26 @@ export class IngredientsComponent implements OnInit {
 
     this.onFilterChange();
   }
+  /** Réinitialiser l'ingrédient sélectionn */
+  initIngredient() {
+    this.selectedIngredient = { alim_code: -1, alim_nom_fr: '' };
+  }
   /** Sélectionner un ingrédient
    * @param {CiqualI} aliment Ingrédient à afficher
    */
   selectIngredient(aliment: CiqualI): void {
-    this.selectedIngredient = aliment;
+    if (aliment.alim_code == this.selectedIngredient?.alim_code) {
+      this.selectedIngredient = { alim_code: -1, alim_nom_fr: '' };
+    } else {
+      this.selectedIngredient = aliment;
+    }
   }
   onMesPlats(plat: PlatI): void {
     this.selectedPlat = plat;
   }
 
-// Méthode utilisé dans l'input afin de réinitialiser [pageIndex] de paginator
-// Si l'input et vide ou pas vide l'index est défini à 0 afin de retrouver l'affichage initial
+  // Méthode utilisé dans l'input afin de réinitialiser [pageIndex] de paginator
+  // Si l'input et vide ou pas vide l'index est défini à 0 afin de retrouver l'affichage initial
   onFilterChange() {
     if (this.filtre === '' || this.filtre != '') { // Variable filtre utilisé dans ngModel de l'input
       this.currentPage = 0;
@@ -76,7 +85,7 @@ export class IngredientsComponent implements OnInit {
     this.itemsLength = this.nutri.ciqual.slice((this.currentPage * this.itemsPerPage), (this.currentPage + 1) * this.itemsPerPage).length;
   }
 
-// Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)"
+  // Méthode pour voir le comportement de mat-paginator - si j'utilise dans le html (page)="handlePageEvent($event)"
   handlePageEvent(event: PageEvent) {
     console.log(event.pageIndex);
     //this.currentPage = event.pageIndex;

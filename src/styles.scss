@@ -376,6 +376,8 @@ i:hover span {
 .actif{
   background-color: $aside-color3;
   color:$clair;
+  padding-top:10px !important;
+  padding-bottom:10px !important;
 }
 /** COMPOSANTS */
 .cal-event-title {
@@ -1006,7 +1008,12 @@ header>form div.mat-mdc-form-field-infix {
   position: relative;
   padding: 0 15px;
 }
-
+#nutrition>section:nth-child(1) ul h2{
+  margin:0 0 5px;
+}
+#nutrition>section:nth-child(1) article > ul > li {
+  margin:10px 0;
+}
 #nutrition>section:nth-child(1) article > ul > li:after {
   content: '.......................';
   position: absolute;

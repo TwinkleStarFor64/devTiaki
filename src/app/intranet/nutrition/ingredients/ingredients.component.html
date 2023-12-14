@@ -11,7 +11,7 @@
       <ul>
         <li
           *ngFor="let ingredient of nutri.ciqual | aliments:filtre | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage"
-          (click)="selectIngredient(ingredient)">
+          (click)="selectIngredient(ingredient)" [class.actif]="ingredient.alim_code == selectedIngredient.alim_code" >
           {{ ingredient.alim_nom_fr | uppercase }}
         </li>
       </ul>
@@ -25,17 +25,17 @@
   </section>
   <section>
     <app-ariane></app-ariane>
-    <article *ngIf="!selectedIngredient">
+    <article *ngIf="selectedIngredient.alim_code == -1">
       <h2>Données sur les ingrédients</h2>
       <p>La table de composition nutritionnelle des aliments (Ciqual) est mise à disposition par le Ministère de la Santé sur la plateforme <a href="https://www.data.gouv.fr/fr/datasets/table-de-composition-nutritionnelle-des-aliments-ciqual/" title="Accéder à la table Ciqual" taget="_blank">data.gouv.fr</a></p>
       <p>C'est grâce à ces données que nous pouvons vous aider à mieux comprendre la composition des aliments et les origines d'allergies ou de troubles alimentaires que vous constatez chez les personnes que vous aidez.</p>
       <p>Notre IA s'appuie sur vos commentaires pour identifier les ingrédients qui seraient susceptibles de créer un problème pour vous aider au quotidien.</p>
       <p>Choisissez sur la gauche les ingrédients dont vous souhaitez connaître la composition.</p>
     </article>
-    <article *ngIf="selectedIngredient">
+    <article *ngIf="selectedIngredient.alim_code != -1">
       <header>
         <h2>{{ selectedIngredient.alim_nom_fr}}</h2>
-        <p>Cet ingrédient est mal supporté <input type="checkbox" name="allergie" id="allergie"></p>
+        <p>Cet ingrédient est mal supporté <mat-checkbox>{{ l.t.nutrition['INGREDIENT_MAL'] }}</mat-checkbox></p>
       </header>
         <h3>Valeurs et compositions</h3>
       <ul>
@@ -81,7 +81,7 @@
         </div>
       </article>
     </article>
-  <app-note [id]="selectedIngredient!.alim_code" [table]="'ciqual'" *ngIf="selectedIngredient"></app-note>
+  <app-note [id]="selectedIngredient!.alim_code" [table]="'ciqual'" *ngIf="selectedIngredient.alim_code != -1"></app-note>
   </section>
 </section>
 <!-- Afficher le menu -->
