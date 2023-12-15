@@ -17,22 +17,23 @@
 
   <article>
     <form (submit)="conn.getAuth()">
+      <h2>{{ l.t.form['CONNEXION'] }}</h2>
       <mat-form-field appearance="fill">
-        <mat-label>Identifiant</mat-label>
-        <input matInput [(ngModel)]="conn.connexion.id" placeholder="Identifiant (email)" name="id">
+        <mat-label>{{ l.t.form['ID'] }} *</mat-label>
+        <input matInput [(ngModel)]="conn.connexion.id" [placeholder]="l.t.form['ID']" name="id">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Mot de passe</mat-label>
-        <input matInput type="password" [(ngModel)]="conn.connexion.mdp" placeholder="Mot de passe" name="mdp">
+        <mat-label>{{ l.t.form['MDP'] }} *</mat-label>
+        <input matInput type="password" [(ngModel)]="conn.connexion.mdp" [placeholder]="l.t.form['MDP']" name="mdp">
         <mat-icon matSuffix>key</mat-icon>
       </mat-form-field>
       <fieldset>
-      <button type="reset" class="bg-annule">Annuler</button>
-      <button class="bg-valide">S'identifier</button></fieldset>
+      <button type="reset" class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
+      <button class="bg-valide">{{ l.t.form['IDENTIFIER'] }}</button></fieldset>
     </form>
-    <button><mat-icon matSuffix>autorenew</mat-icon> J'ai oublié mon mot de passe</button>
-    <button routerLink="/inscription"><mat-icon matSuffix>person_add</mat-icon> Créer un compte (gratuit)</button>
+    <button><mat-icon matSuffix>autorenew</mat-icon>{{ l.t.form['MDP'] }}</button>
+    <button routerLink="/inscription"><mat-icon matSuffix>person_add</mat-icon>{{ l.t.form['COMPTE_CREE'] }}</button>
     <p>* utilisez cheri / cheri comme identifiant et mot de passe</p>
   </article>
 </section>

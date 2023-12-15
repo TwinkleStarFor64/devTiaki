@@ -21,7 +21,7 @@ export interface PlatI {
   statut?:-1 | 0 | 1;
   qualites?:string;
   allergenes?:Array<number>;
-  ingredients:Array<IngredientI>;
+  ingredients:Array<string>;
   nutriments?:Array<NutrimentI>;
   astuces?:string;
   notes?:string;

@@ -25,16 +25,21 @@
     "ID":"Identifiant",
     "MDP":"Mot de passe",
     "EMAIL":"Email",
-    "ID_SAISIE":"Saissez votre identifiant (email)",
+    "ID_DESCR":"Saissez votre identifiant (email)",
     "MDP_DESCR":"Saissez votre mot de passe",
     "MDP_HINT":"Minimum un carctère spécial, un chiffre, une majuscule et 8 caractère",
+    "MDP_OUBLIE":"J'ai oublié mon mot de passe",
+    "IDENTIFIER":"S'identifier",
     "NOM":"Nom",
     "PRENOM":"Prénom",
     "ADRESSE":"Adresse",
     "CODEPOSTAL":"Code postal",
     "VILLE":"Ville",
     "TEL":"Téléphone",
-    "MOBILE":"Mobile"
+    "MOBILE":"Mobile",
+    "CONNEXION":"Se connecter",
+    "COMPTE_CREE":"Créer un compte (gratuit)",
+    "COMPTE_EDIT":"Modificer mon compte"
   },
   "pages":{
     "TIAKI":"Tiaki",
@@ -79,7 +84,8 @@
     "MEDECINS":"Médecins",
     "INFIRMIER":"Infirmier",
     "INFIRMIERS":"Infirmiers",
-    "CORPS_MEDICAL":"Corps médical"
+    "CORPS_MEDICAL":"Corps médical",
+    "DESCR":"Description"
   },
   "statuts":{
     "-1":"Dépublié",
@@ -92,6 +98,8 @@
     "PLATS_DISPO":"Plats disponibles",
     "PLATS_TOUS":"Tous les plats",
     "PLATS_FILTRE":"Filtrer la liste des plats",
+    "PLATS_FILTRE_NOMS":"Filtrer par noms",
+    "PLATS_FILTRE_EVALS":"Filtrer en fonction des évaluations",
     "PLATS_EVAL":"Plats évalués par la communautés et validés",
     "PLATS_EVAL_NON":"Plats pas encore évalués",
     "PLATS_EVAL_PROBLEME":"Plats évalués et problématiques",
@@ -102,6 +110,7 @@
     "INGREDIENTS":"Ingrédients",
     "INGREDIENTS_FILTRE":"Filtrer les ingrédients",
     "INGREDIENT_MAL":"Ingrédient mal supporté",
+    "VALEURS_NUTRI":"Valeurs nutritionnelles",
     "B1":"Vitamine B1 ou Thiamine (mg\/100 g)",
     "B2":"Vitamine B2 ou Riboflavine (mg\/100 g)",
     "B3":"Vitamine B3 ou PP ou Niacine (mg\/100 g)",
@@ -114,6 +123,7 @@
     "DIFFICULTE":"Difficulé",
     "DUREE":"Temps de préparation",
     "COMMUNAUTE":"Les plats de la communauté",
+    "COMMUNAUTE_EVALS":"Les évaluations de la communauté",
     "MES_PLATS":"Mes plats",
     "ALLERGENES_SANS":"Tenir compte des allergenes"
   },
@@ -134,7 +144,8 @@
     "AGENDA_NOTE_REAC":"Réaction allergique",
     "AGENDA_NOTE_NONE":"Aucune donnée",
     "AGENDA_MENU":"Menus programmés",
-    "AGENDA_MEDECIN":"Vos prochains rendez-vous"
+    "AGENDA_MEDECIN":"Vos prochains rendez-vous",
+    "QTS":"Quantités"
   },
   "profil":{
     "PROFIL":"Profil",

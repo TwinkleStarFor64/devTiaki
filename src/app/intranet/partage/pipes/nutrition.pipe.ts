@@ -47,7 +47,7 @@ export class PlatsPipe implements PipeTransform {
       return plats;
     }
     //Ci-dessous je filtre MesPlatsI - je récupére alim_code sur MesPlatsI et je le compare au filtre codeAlim
-    return plats.map(plat => plat.ingredients.filter(item => item.alim_code === codeAlim))
+    return plats.map(plat => plat.ingredients.filter(item => item === codeAlim))
   }
 }
 /** Filtrer les plats en fonction d'un filtre libre */

@@ -20,11 +20,13 @@ export class PlatsComponent implements OnInit {
   //selectedIngredients?: CiqualI;
   selectedPlat: PlatI = { id: -1, titre: '', ingredients: [] };
   selectedEvaluation!: EvalI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
+  selectedIngredients:Array<CiqualI> = [];
 
   evaluationId!: number; // Pour la méthode onSelectEval()
   evaluationStatut!: number; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
+  step:number = 0;
 
   constructor(public nutri: NutritionService, private dialog: MatDialog, public l: InfosService) { }
 
@@ -35,6 +37,7 @@ export class PlatsComponent implements OnInit {
   /** Initialiser un plat vide */
   initPlat() {
     this.selectedPlat = { id: -1, titre: '', ingredients: [] };
+    this.selectedIngredients = [];
   }
   /** Sélectionner un plat */
   setPlat(plat: PlatI) {
@@ -42,9 +45,13 @@ export class PlatsComponent implements OnInit {
       this.initPlat();
     } else {
       this.selectedPlat = plat;
+      this.setIngredients();
     }
   }
-
+  /** obtenir la liste des événements en fonction du plat choisi */
+  setIngredients(){
+    this.selectedIngredients = this.nutri.ciqual.filter(ing => this.selectedPlat.ingredients.includes(String(ing.alim_code)))
+  }
   // Méthode pour le mat-select des evaluations
   onSelectEval(event: any, evaluation: EvalI): void {
     if (event.isUserInput) {
@@ -73,5 +80,17 @@ export class PlatsComponent implements OnInit {
       width: '400px',
       data: 'Êtes vous sur de vouloir supprimer ce plat ?',
     });
+  }
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
   }
 }

@@ -2,7 +2,7 @@
   <section>
     <header>
       <button class="bg-valide" (click)="openDialog()">{{ l.t.nutrition['PLAT_AJOUT'] }}</button>
-      <h1>{{  l.t.nutrition['PLATS_DISPO'] }}</h1>
+      <h1>{{ l.t.nutrition['PLATS_DISPO'] }}</h1>
     </header>
     <article>
       <ul>
@@ -16,16 +16,6 @@
             <li><mat-icon class="nutrition">grade</mat-icon></li>
             <li><mat-icon class="nutrition">grade</mat-icon></li>
           </ul>
-          <!-- <button mat-raised-button
-            [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
-            {{ plat.statut }}
-            </button> -->
-          <!-- <ul class="row">
-              <li><mat-icon class="nutrition">history</mat-icon><span>{{ l.t.nutrition['DUREE'] }}</span></li>
-              <li><mat-icon class="nutrition">stockpot</mat-icon><span>{{ l.t.nutrition['MATERIEL'] }}</span></li>
-              <li><mat-icon class="nutrition">opacity</mat-icon><span>{{ l.t.nutrition['DIFFICULTE'] }}</span></li>
-            </ul> -->
-          <!-- </div> -->
         </li>
       </ul>
     </article>
@@ -33,55 +23,65 @@
   <section>
     <app-ariane></app-ariane>
     <header>
-      <!-- <h3>2 - Ajouter un plat</h3> -->
       <form>
-      <mat-form-field>
-        <mat-label>Filtrer les plats par noms</mat-label>
-        <input matInput [(ngModel)]="filtre" name="libre">
-      </mat-form-field>
-      <mat-form-field>
-        <mat-label>Filtrer en fonction des évaluations</mat-label>
-        <mat-select [(ngModel)]="filtreEval">
-          <mat-option value=2>Tous les plats</mat-option>
-          <mat-option value=1>Plats évalués et validés</mat-option>
-          <mat-option value=0>Plats évalués et problématiques</mat-option>
-          <mat-option value=-1>Plats non évalués</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <fieldset>
-        <mat-checkbox>{{ l.t.nutrition['COMMUNAUTE'] }}</mat-checkbox>
-        <mat-checkbox>{{ l.t.nutrition['MES_PLATS'] }}</mat-checkbox>
-        <mat-checkbox>{{ l.t.nutrition['ALLERGENES_SANS'] }}</mat-checkbox>
-      </fieldset>
-    </form>
+        <mat-form-field>
+          <mat-label>{{ l.t.nutrition['PLATS_FILTRE_NOMS'] }}</mat-label>
+          <input matInput [(ngModel)]="filtre" name="libre">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.nutrition['PLATS_FILTRE_EVALS'] }}</mat-label>
+          <mat-select [(ngModel)]="filtreEval">
+            <mat-option value=2>{{ l.t.nutrition['PLATS_TOUS'] }}</mat-option>
+            <mat-option value=1>{{ l.t.nutrition['PLATS_EVAL'] }}</mat-option>
+            <mat-option value=0>{{ l.t.nutrition['PLATS_EVAL_PROBLEME'] }}</mat-option>
+            <mat-option value=-1>{{ l.t.nutrition['PLATS_EVAL_NON'] }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <fieldset>
+          <mat-checkbox>{{ l.t.nutrition['COMMUNAUTE'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['MES_PLATS'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['ALLERGENES_SANS'] }}</mat-checkbox>
+        </fieldset>
+      </form>
     </header>
     <article *ngIf="selectedPlat.id != -1">
-      <h4>{{ selectedPlat.titre }}</h4>
-      <p>Description</p>
-      <textarea name="" id="" cols="30" rows="5">{{ selectedPlat.description }}</textarea>
-      <div>
-        <p>Ingrédients</p>
-        <p>Quantités</p>
-        <p>Valeurs nutrionnelles</p>
-        <p>Allèrgenes</p>
-        <p>Retour de la communauté</p>
-      </div>
-      <span *ngFor="let ingredients of nutri.ciqual| ingredient:alimCodeFiltre">
-        <p>{{ ingredients.alim_nom_fr }}</p>
-        <p><img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
-          Composition - Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
-          Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
-          Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
-          Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
-        </p>
-        <p><img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
-          Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
-          B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
-          B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
-          B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-          B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-        </p>
-      </span>
+      <h2>{{ selectedPlat.titre }}</h2>
+      <h3>{{ l.t.pages['DESCR'] }}</h3>
+      <p>{{ selectedPlat.description }}</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>{{ l.t.nutrition['INGREDIENTS'] }}</th>
+            <th>{{ l.t.nutrition['QTS'] }}</th>
+            <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+            <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+            <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingredient of selectedIngredients">
+            <td><p>{{ ingredient.alim_nom_fr }}</p>
+              <p><img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
+                Composition - Protéines : {{ ingredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+                Glucides : {{ ingredient['Glucides (g\/100 g)'] }} Gr -
+                Lipide : {{ ingredient['Lipides (g\/100 g)'] }} Gr -
+                Sucre : {{ ingredient['Sucres (g/100 g)'] }} Gr
+              </p>
+              <p><img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
+                Vitamines C : {{ ingredient["Vitamine C (mg\/100 g)"] }} Mg -
+                B1 : {{ ingredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+                B2 : {{ ingredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+                B3 : {{ ingredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+                B5 : {{ ingredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+              </p></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
       <mat-form-field id="ajouter" appearance="outline">
         <mat-label>AJOUTER</mat-label>
         <mat-select> </mat-select>
