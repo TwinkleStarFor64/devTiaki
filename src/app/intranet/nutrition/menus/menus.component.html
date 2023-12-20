@@ -1,111 +1,82 @@
-<section id="platMenu">
-  <section id="sectionPrincipale">
-    <article id="listePlats">
-      <button id="ajoutButton" mat-raised-button color="primary" (click)="openDialog()">
-        1 - Ajouter un nouveau menu
-      </button>
-      <!-- <button>1 - Ajouter un nouveau menu</button> -->
-      <h1>Reprendre un menus précédent</h1>
-      <article id="evalBouton">
-      <!-- Dans les boutons la méthode triParTexte() prend la valeur indiqué -->
-        <button mat-raised-button color="primary" (click)="triParTexte(0)">Menus évalués et validés</button>
-        <button mat-raised-button color="primary" (click)="triParTexte()">Menus non évalués</button>
-        <button mat-raised-button color="primary" (click)="triParTexte(1)">Menus évalués et problématiques</button>
-        <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau menu</button>
-      </article>
-      <!-- Ci-dessous Article pour revenir à l'affichage initial -->
-      <article id="filter" *ngIf="affichageDefaut !== 1">
-        <button mat-raised-button (click)="triParTexte(1)">Effacer les filtres</button>
-      </article>
-      <article id="listing">
-        <div *ngFor="let menu of menus">
-      <!-- ngIf qui affiche tout les menu au départ (Valeur 1) OU le menu.statut qui change quand je clique sur les boutons au dessus  -->
-          <h2 style="cursor: pointer" *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut" (click)="onSelectMenu(menu)">{{ menu.titre }}</h2>
-          <p *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut">{{ menu.description }}</p>
-          <div *ngIf="affichageDefaut === 1 || affichageDefaut === menu.statut">
-            <span id="pastilleEval"
-            [ngClass]="{ 'Eval': menu.statut === -1, 'EvalYes': menu.statut === 0, 'EvalNo': menu.statut === 1 }">
-            </span>
-            <img src="assets/images/pictos/horloge.svg" alt="durée" />
-            <p>Durée</p>
-            <img src="assets/images/pictos/nutri/casserole.svg" alt="matériel" />
-            <p id="dashed">Matériels</p>
-          </div>
-        </div>
-      </article>
-    </article>
+<section id="nutrition">
+  <section>
+    <header>
+      <button (click)="openDialog()" class="bg-valide align-self-center"><mat-icon>add_box</mat-icon>{{
+        l.t.nutrition['MENU_CREE'] }}</button>
+      <h1>{{ l.t.nutrition['MENUS_DISPO'] }}</h1>
+    </header>
     <article>
-      <h3>2 - Ajouter un menu</h3>
-      <div id="selectBalise">
-        <img src="assets/images/pictos/nutri/ingredient.svg" alt="Icône d'ajout" />
-        <mat-form-field appearance="outline">
-          <mat-label>VOS MENUS</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let menu of menus" [value]="menu.titre" (onSelectionChange)="onSelect($event, menu)">
-              {{ menu.titre }}
-            </mat-option>
+      <ul>
+        <li *ngFor="let menu of nutri.listeMenus" [class.actif]="menu.id == selectedMenu!.id" (click)="setPlat(menu)">
+          <h2>{{ menu.titre }}</h2>
+          <p>{{ menu.description }}</p>
+          <app-eval [id]="selectedMenu.id!" [table]="'menus'" [classe]="'nutrition'"></app-eval>
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section>
+    <app-ariane></app-ariane>
+    <header>
+      <form>
+        <mat-form-field>
+          <mat-label>{{ l.t.nutrition['MENUS_FILTRE_NOMS'] }}</mat-label>
+          <input matInput [(ngModel)]="filtre" name="libre">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.nutrition['MENUS_FILTRE_EVALS'] }}</mat-label>
+          <mat-select [(ngModel)]="filtreEval">
+            <mat-option value=2>{{ l.t.nutrition['MENUS_TOUS'] }}</mat-option>
+            <mat-option value=1>{{ l.t.nutrition['MENUS_EVAL'] }}</mat-option>
+            <mat-option value=0>{{ l.t.nutrition['MENUS_EVAL_PROBLEME'] }}</mat-option>
+            <mat-option value=-1>{{ l.t.nutrition['MENUS_EVAL_NON'] }}</mat-option>
           </mat-select>
         </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>LES MENUS DE LA COMMUNAUTÉ</mat-label>
-          <mat-select> </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>ALLERGIES D'ÉMILIE</mat-label>
-          <mat-select> </mat-select>
-        </mat-form-field>
-      </div>
-      <span *ngIf="selectedRepas">
-        <h4>{{ selectedRepas.titre }}</h4>
-        <p>Description</p>
-        <textarea name="" id="" cols="30" rows="5">{{ selectedRepas.description }}</textarea>
-        <div>
-          <p>Ingrédients</p>
-          <p>Quantités</p>
-          <p>Valeurs nutrionnelles</p>
-          <p>Allèrgenes</p>
-          <p>Retour de la communauté</p>
-        </div>
-        <span *ngFor="let ingredients of aliment | ingredient : alimCodeFiltre">
-          <p>{{ ingredients.alim_nom_fr }}</p>
-          <p>
-            <img src="assets/images/pictos/nutri/compl.svg" alt="icône composition" />
-            Composition : Protéines :
-            {{ ingredients["Protéines, N x 6.25 (g\/100 g)"] }} Gr - Glucides :
-            {{ ingredients["Glucides (g\/100 g)"] }} Gr - Lipide :
-            {{ ingredients["Lipides (g\/100 g)"] }} Gr - Sucre :
-            {{ ingredients["Sucres (g/100 g)"] }} Gr
-          </p>
-          <p><img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
-            Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
-            B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
-            B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
-            B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-            B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-         </p>
-        </span>
-        <mat-form-field id="ajouter" appearance="outline">
-          <mat-label>AJOUTER</mat-label>
-          <mat-select> </mat-select>
-        </mat-form-field>
-        <div id="boutonPageMenus">
-          <span>
-            <mat-form-field appearance="outline">
-              <mat-label>ÉVALUER CE MENU</mat-label>
-              <mat-select [(ngModel)]="selectedEvaluation">
-                <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
-                  {{ eval.statut }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="getMenusId()">ÉVALUER</button>
-          </span>
-          <span>
-            <button mat-raised-button color="primary" (click)="deleteMenu(selectedRepas.id)">SUPPRIMER</button>
-            <button mat-raised-button color="primary">VALIDER</button>
-          </span>
-        </div>
-      </span>
+        <fieldset>
+          <mat-checkbox>{{ l.t.nutrition['COMMUNAUTE'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['MES_MENUS'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['ALLERGENES_SANS'] }}</mat-checkbox>
+        </fieldset>
+      </form>
+    </header>
+    <article *ngIf="selectedMenu.id != -1">
+      <h2>{{ selectedMenu.titre }} <button class="bg-valide"><mat-icon>date_range</mat-icon>{{
+          l.t.nutrition['MENU_AGENDA'] }}</button></h2>
+      <h3>{{ l.t.pages['DESCR'] }}</h3>
+      <p>{{ selectedMenu.description }}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>{{ l.t.nutrition['INGREDIENTS'] }}<mat-icon class="valide">add_box</mat-icon>
+            </th>
+            <th>{{ l.t.nutrition['QTS'] }}</th>
+            <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+            <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+            <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ingr of selectedIngredients" class="over">
+            <td>{{ ingr.alim_nom_fr }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <app-eval [id]="selectedMenu.id!" [table]="'menus'" [classe]="'nutrition'"></app-eval>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </article>
+    <article *ngIf="selectedMenu.id == -1">
+      <h2>Sélectionnez un menu</h2>
+      <p>Sélectionnez des menus pour connaître leurs compositions, en créer un nouveau, l'ajouter à un menu ou à votre
+        planning</p>
     </article>
   </section>
 </section>

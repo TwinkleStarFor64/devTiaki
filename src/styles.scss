@@ -99,7 +99,8 @@ h2 img,
 h3 img,
 h1 mat-icon,
 h2 mat-icon,
-h3 mat-icon {
+h3 mat-icon,
+button mat-icon {
   margin-right: 10px;
 }
 
@@ -185,7 +186,15 @@ thead{
   border-top:1px dashed $aside-color1;
   border-bottom:1px dashed $aside-color1;
 }
-thead tr{
+table mat-icon{
+  margin:0 10px;
+  vertical-align: text-bottom;
+  transition: all .3s ease;
+}
+table mat-icon:hover{
+  transform: scale(1.2);
+}
+tr{
 }
 th{
   padding:20px 0;
@@ -318,12 +327,26 @@ td{
 .mat-icone:hover {
   transform: scale(1.1);
 }
-
+.over{
+  transition:all .3s ease;
+  cursor: pointer;
+}
+.over:hover{
+  background-color: $aside-color3;
+}
 .align-right {
   display: flex;
   justify-content: flex-end;
 }
-
+.align-self-right{
+  align-self:flex-end;
+}
+.align-self-center{
+  align-self:center;
+}
+.align-self-left{
+  align-self:flex-start;
+}
 .bg-nutrition {
   color: $clair;
   background-color: $card-nutri;
@@ -348,12 +371,16 @@ td{
   color: $clair;
   background-color: $vert;
 }
-
+.valide{
+  color:$vert;
+}
 .bg-annule {
   color: $clair;
   background-color: $aside-color3;
 }
-
+.annule{
+  color:$aside-color3;
+}
 .bg-delete {
   color: $clair;
   background-color: $card-nutri;
@@ -592,7 +619,6 @@ article.cartel {
     width: 100%;
     height: 100%;
     margin: 0 -20px -20px;
-    // background-position:0 50%;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -682,6 +708,17 @@ article.cartel {
 }
 
 // -------------------------------------------------
+app-eval{
+  display:flex;
+}
+app-eval ul {
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
+}
+app-eval li {
+  padding:0 !important;
+}
 // Fil d'ariane
 app-ariane article {
   display: flex;
@@ -978,6 +1015,13 @@ header>form div.mat-mdc-form-field-infix {
   width: 100%;
   flex-flow: column nowrap;
 }
+#nutrition h2 {
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
 #nutrition header > form {
   width: 100%;
   flex-flow: row nowrap;
@@ -1026,14 +1070,19 @@ header>form div.mat-mdc-form-field-infix {
   position: relative;
   padding: 0 15px;
 }
+#nutrition>section:nth-child(1) ul li app-eval {
+  pointer-events: none;
+}
 #nutrition>section:nth-child(1) ul h2{
   margin:0 0 5px;
 }
 #nutrition>section:nth-child(1) article > ul > li {
-  margin:10px 0;
+  margin:10px;
+  border:1px solid rgba($aside-color1, .4);
+  padding:10px;
 }
 #nutrition>section:nth-child(1) article > ul > li:after {
-  content: '.......................';
+  // content: '.......................';
   position: absolute;
   right: 0;
   bottom: -5px;
@@ -1071,7 +1120,15 @@ header>form div.mat-mdc-form-field-infix {
 #nutrition>section:nth-child(2) article {
   flex-flow: column nowrap;
 }
+#nutrition ::-webkit-scrollbar {
+  background-color: #e7adb7;
+  width: 10px;
+}
 
+#nutrition ::-webkit-scrollbar-thumb {
+  height: 200px;
+  background-color: #d9042b;
+}
 /** PAGES OUTILS */
 .outils {
   flex-flow: row nowrap;

@@ -85,7 +85,9 @@
     "INFIRMIER":"Infirmier",
     "INFIRMIERS":"Infirmiers",
     "CORPS_MEDICAL":"Corps médical",
-    "DESCR":"Description"
+    "DESCR":"Description",
+    "ADD":"Ajouter",
+    "PLUS":"Plus"
   },
   "statuts":{
     "-1":"Dépublié",
@@ -98,15 +100,24 @@
     "PLATS_DISPO":"Plats disponibles",
     "PLATS_TOUS":"Tous les plats",
     "PLATS_FILTRE":"Filtrer la liste des plats",
-    "PLATS_FILTRE_NOMS":"Filtrer par noms",
-    "PLATS_FILTRE_EVALS":"Filtrer en fonction des évaluations",
+    "FILTRE_NOMS":"Filtrer par noms",
+    "FILTRE_EVALS":"Filtrer en fonction des évaluations",
     "PLATS_EVAL":"Plats évalués par la communautés et validés",
     "PLATS_EVAL_NON":"Plats pas encore évalués",
     "PLATS_EVAL_PROBLEME":"Plats évalués et problématiques",
-    "PLAT_AJOUT":"Plats disponibles",
+    "PLAT_CREE":"Créer un plat",
     "PLAT":"Plat",
+    "PLAT_AGENDA":"Ajouter ce plat dans l'agenda",
     "MENUS":"Menus",
     "MENU":"Menu",
+    "MENUS_DISPO":"Menus disponibles",
+    "MENUS_TOUS":"Tous les menus",
+    "MENUS_FILTRE":"Filtrer la liste des menus",
+    "MENUS_EVAL":"Menus évalués par la communautés et validés",
+    "MENUS_EVAL_NON":"Menus pas encore évalués",
+    "MENUSS_EVAL_PROBLEME":"Menus évalués et problématiques",
+    "MENU_CREE":"Créer un menu",
+    "MENU_AGENDA":"Ajouter ce menu dans l'agenda",
     "INGREDIENTS":"Ingrédients",
     "INGREDIENTS_FILTRE":"Filtrer les ingrédients",
     "INGREDIENT_MAL":"Ingrédient mal supporté",
@@ -125,7 +136,10 @@
     "COMMUNAUTE":"Les plats de la communauté",
     "COMMUNAUTE_EVALS":"Les évaluations de la communauté",
     "MES_PLATS":"Mes plats",
-    "ALLERGENES_SANS":"Tenir compte des allergenes"
+    "ALLERGENES":"Allergènes",
+    "ALLERGENES_SANS":"Tenir compte des allergenes",
+    "QTS":"Quantités",
+    "EVAL_PLAT":"Evaluer ce plat"
   },
   "opto":{
     "OPTO":"Optométrie",
@@ -144,8 +158,7 @@
     "AGENDA_NOTE_REAC":"Réaction allergique",
     "AGENDA_NOTE_NONE":"Aucune donnée",
     "AGENDA_MENU":"Menus programmés",
-    "AGENDA_MEDECIN":"Vos prochains rendez-vous",
-    "QTS":"Quantités"
+    "AGENDA_MEDECIN":"Vos prochains rendez-vous"
   },
   "profil":{
     "PROFIL":"Profil",

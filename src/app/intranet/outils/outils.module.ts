@@ -14,7 +14,6 @@ import localeFr from '@angular/common/locales/fr';
 import { CalendarDateFormatter, CalendarModule, CalendarNativeDateFormatter, DateAdapter, DateFormatterParams } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
-
 registerLocaleData(localeFr, 'fr'); // Pour Angular Calendar - Utilisation du format Français
 
 @Injectable() // Pour l'erreur de dépréciation
@@ -29,7 +28,6 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
     return new Intl.DateTimeFormat(locale, {hour: 'numeric', minute: 'numeric'}).format(date);
   }
 }
-
 
 @NgModule({
   declarations: [

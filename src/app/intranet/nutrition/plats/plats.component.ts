@@ -20,7 +20,7 @@ export class PlatsComponent implements OnInit {
   //selectedIngredients?: CiqualI;
   selectedPlat: PlatI = { id: -1, titre: '', ingredients: [] };
   selectedEvaluation!: EvalI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
-  selectedIngredients:Array<CiqualI> = [];
+  selectedIngredients:Array<any> = [];
 
   evaluationId!: number; // Pour la méthode onSelectEval()
   evaluationStatut!: number; // Pour la méthode onSelectEval()
@@ -50,7 +50,9 @@ export class PlatsComponent implements OnInit {
   }
   /** obtenir la liste des événements en fonction du plat choisi */
   setIngredients(){
-    this.selectedIngredients = this.nutri.ciqual.filter(ing => this.selectedPlat.ingredients.includes(String(ing.alim_code)))
+    this.selectedIngredients = [];
+    this.selectedIngredients = this.nutri.ciqual.filter(ing => this.selectedPlat.ingredients.includes(String(ing.alim_code)));
+    console.log(this.selectedIngredients);
   }
   // Méthode pour le mat-select des evaluations
   onSelectEval(event: any, evaluation: EvalI): void {

@@ -2,9 +2,9 @@
 export interface MenuI {
   id: number;
   titre: string;
+  date?:number;
   description?: string;
   plats: Array<number>;
-  regimes?:Array<RegimeI>;
   programmes?:Array<NutriProgrammeI>;
   statut?: -1 | 0 | 1;
 }

@@ -28,6 +28,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NoteComponent } from '../intranet/template/note/note.component';
+import { EvalComponent } from '../intranet/template/eval/eval.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NoteComponent } from '../intranet/template/note/note.component';
     ExercicesPipe,
     ArianeComponent,
     CarrouselComponent,
-    NoteComponent
+    NoteComponent,
+    EvalComponent
   ],
   exports:[
     MenuComponent,
@@ -60,6 +62,7 @@ import { NoteComponent } from '../intranet/template/note/note.component';
     FormatDateToFrenchPipe,
     ExercicesPipe,
     CarrouselComponent,
+    EvalComponent,
     MatRadioModule,
     MatDatepickerModule,
     MatButtonModule,

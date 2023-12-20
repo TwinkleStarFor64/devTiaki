@@ -13,10 +13,10 @@ import { InfosService } from 'src/app/partage/services/infos.service';
 })
 export class NutritionService {
 
-  listeProgrammes: Array<ExoPogrammeI> = [];
-  listeMenus: Array<MenuI> = [];
-  listePlats: Array<PlatI> = [];
-  ciqual!: Array<CiqualI>;
+  listeProgrammes: Array<ExoPogrammeI> = []; // Liste des programmes nutritionnels tirés de la base de données
+  listeMenus: Array<MenuI> = []; // Liste des menus récupérée depuis la base de données
+  listePlats: Array<PlatI> = []; // Liste des plats récupérée depuis la base de données
+  ciqual!: Array<CiqualI>; // La base Ciqual tirée du fichier JSON
 
   private supabase: SupabaseClient; // Instance du client Supabase
 
@@ -27,7 +27,7 @@ export class NutritionService {
     );
     if (!this.ciqual) this.getCiqual();
   }
-  /** Récupérer la liste des ingrédients */
+  /** Récupérer la liste des ingrédients depuis le fichier JSON */
   getCiqual() {
     this.get.getJsonData('ciqual').subscribe(
       {

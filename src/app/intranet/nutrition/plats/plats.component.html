@@ -1,7 +1,8 @@
 <section id="nutrition">
   <section>
     <header>
-      <button class="bg-valide" (click)="openDialog()">{{ l.t.nutrition['PLAT_AJOUT'] }}</button>
+      <button (click)="openDialog()" class="bg-valide align-self-center"><mat-icon>add_box</mat-icon>{{
+        l.t.nutrition['PLAT_CREE'] }}</button>
       <h1>{{ l.t.nutrition['PLATS_DISPO'] }}</h1>
     </header>
     <article>
@@ -9,13 +10,7 @@
         <li *ngFor="let plat of nutri.listePlats" [class.actif]="plat.id == selectedPlat!.id" (click)="setPlat(plat)">
           <h2>{{ plat.titre }}</h2>
           <p>{{ plat.description }}</p>
-          <ul class="row">
-            <li><mat-icon class="nutrition">grade</mat-icon></li>
-            <li><mat-icon class="nutrition">grade</mat-icon></li>
-            <li><mat-icon class="nutrition">grade</mat-icon></li>
-            <li><mat-icon class="nutrition">grade</mat-icon></li>
-            <li><mat-icon class="nutrition">grade</mat-icon></li>
-          </ul>
+          <app-eval [id]="selectedPlat.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval>
         </li>
       </ul>
     </article>
@@ -45,14 +40,15 @@
       </form>
     </header>
     <article *ngIf="selectedPlat.id != -1">
-      <h2>{{ selectedPlat.titre }}</h2>
+      <h2>{{ selectedPlat.titre }} <button class="bg-valide"><mat-icon>date_range</mat-icon>{{
+          l.t.nutrition['PLAT_AGENDA'] }}</button></h2>
       <h3>{{ l.t.pages['DESCR'] }}</h3>
       <p>{{ selectedPlat.description }}</p>
-
       <table>
         <thead>
           <tr>
-            <th>{{ l.t.nutrition['INGREDIENTS'] }}</th>
+            <th>{{ l.t.nutrition['INGREDIENTS'] }}<mat-icon class="valide">add_box</mat-icon>
+            </th>
             <th>{{ l.t.nutrition['QTS'] }}</th>
             <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
             <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
@@ -60,50 +56,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ingredient of selectedIngredients">
-            <td><p>{{ ingredient.alim_nom_fr }}</p>
-              <p><img src="assets/images/pictos/nutri/compl.svg" alt="icône composition">
-                Composition - Protéines : {{ ingredient['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
-                Glucides : {{ ingredient['Glucides (g\/100 g)'] }} Gr -
-                Lipide : {{ ingredient['Lipides (g\/100 g)'] }} Gr -
-                Sucre : {{ ingredient['Sucres (g/100 g)'] }} Gr
-              </p>
-              <p><img src="assets/images/pictos/nutri/vitamine.svg" alt="icône vitamine">
-                Vitamines C : {{ ingredient["Vitamine C (mg\/100 g)"] }} Mg -
-                B1 : {{ ingredient["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
-                B2 : {{ ingredient["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
-                B3 : {{ ingredient["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-                B5 : {{ ingredient["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-              </p></td>
+          <tr *ngFor="let ingr of selectedIngredients" class="over">
+            <td>{{ ingr.alim_nom_fr }}</td>
             <td></td>
             <td></td>
             <td></td>
             <td></td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <app-eval [id]="selectedPlat.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval>
+            </td>
+          </tr>
+        </tfoot>
       </table>
-      <mat-form-field id="ajouter" appearance="outline">
-        <mat-label>AJOUTER</mat-label>
-        <mat-select> </mat-select>
-      </mat-form-field>
-      <div id="boutonPageMenus">
-        <span>
-          <mat-form-field appearance="outline">
-            <mat-label>ÉVALUER CE PLAT</mat-label>
-            <mat-select [(ngModel)]="selectedEvaluation">
-              <mat-option *ngFor="let eval of evaluation" [value]="eval.statut"
-                (onSelectionChange)="onSelectEval($event, eval)">
-                {{ eval.statut }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <!-- <button mat-raised-button color="primary" (click)="nutri.getPlatsId()">ÉVALUER</button> -->
-        </span>
-        <span>
-          <!-- <button mat-raised-button color="primary" (click)="nutri.deletePlat(selectedPlat.id!)">SUPPRIMER</button> -->
-          <button class="bg-valide">{{ l.t.form['VALIDER'] }}</button>
-        </span>
-      </div>
     </article>
     <article *ngIf="selectedPlat.id == -1">
       <h2>Sélectionnez un plat</h2>
