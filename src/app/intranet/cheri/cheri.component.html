@@ -1,20 +1,151 @@
 <header>
-<h2>{{ cheri.nom }}</h2>
+<h2>{{ get.cheri.nom }}</h2>
 </header>
 <mat-tab-group>
   <mat-tab [label]="l.t.profil['INFOS_SANTE']">
+    <h2>{{ l.t.profil['INFOS_SANTE'] }}</h2>
     <section>
-      <h3>{{ l.t.profil['INFOS_SANTE'] }}</h3>
+        <!-- Premiére balise article - Partie gauche -->
+        <article>
+          <h3>Gestation</h3>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_AGE_MOM'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_AGE_MOM']" name="gestationAge">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_PATHO'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_PATHO']" name="gestationPatho">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_AL'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_AL']" name="gestationAllergies">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_FECON'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_FECON']" name="gestationFecondation">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_COND'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_COND']" name="gestationConditions">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_FECON'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_FECON']" name="gestationFecondation">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_ALIM'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_ALIM']" name="gestationAlim">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_EXAMS'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.profil['GEST_EXAMS']" name="gestationAlim">
+          </mat-form-field>
+        </article>
+        <article>
+          <h3>Accouchement</h3>
+          <span>
+            <input matInput type="search" placeholder="Semaine de gestation" />
+            <input matInput type="search" placeholder="Epidural" />
+            <input matInput type="search" placeholder="Induit" />
+            <input matInput type="search" placeholder="Matériel d’extraction" />
+            <input matInput type="search" placeholder="Urgences médicales" />
+          </span>
+          <h3>Naissance</h3>
+          <span>
+            <input matInput type="search" placeholder="Poids de l’enfant" />
+            <input matInput type="search" placeholder="Taille de l’enfant" />
+            <input matInput type="search" placeholder="Périmètre crânien" />
+            <input matInput type="search" placeholder="Contact direct avec la maman" />
+            <input matInput type="search" placeholder="Assistance respiratoire" />
+            <input matInput type="search" placeholder="Couveuse" />
+            <input matInput type="search" placeholder="Jaunisse" />
+            <input matInput type="search" placeholder="Allaitement" />
+          </span>
+        </article>
+        <article>
+          <h3>Premier temps de vie</h3>
+          <span>
+            <input matInput type="search" placeholder="Intolérance au lait" />
+            <input matInput type="search" placeholder="Collique ou irritabilité" />
+            <input matInput
+              placeholder="Date de péridode d’intoroduction des aliments"
+            />
+          </span>
+          <div>
+            <button class="modifier">Modifier</button>
+            <button class="sauvegarder">Sauvegarder</button>
+          </div>
+        </article>
+        <!-- Seconde balise article - Partie droite -->
+        <article>
+          <h3>Profil de la/des personne(s) à charge et questionnaire infantile.</h3>
+          <span>
+            <input matInput type="search" placeholder="Nom" />
+            <input matInput type="search" placeholder="Prénom" />
+            <input matInput type="search" placeholder="Date de naissance" />
+            <input matInput type="search" placeholder="Pathologie" />
+            <input matInput type="search" placeholder="Allergie" />
+            <input matInput type="search" placeholder="Date apparition première allergie" />
+            <input matInput type="search" placeholder="Problèmes respiratoires" />
+            <input matInput type="search" placeholder="Problèmes digestifs" />
+          </span>
+          <div>
+            <button class="modifier">Modifier</button>
+            <button class="sauvegarder">Sauvegarder</button>
+          </div>
+          <h3>Condition générale</h3>
+          <span>
+            <input matInput type="search" placeholder="Diagnostique de handicap" />
+            <input matInput type="search" placeholder="Date diagnostique" />
+            <input matInput type="search" placeholder="Age apparition premier symptômes" />
+            <input matInput type="search" placeholder="Explication des premiers symptômes" />
+            <input matInput type="search" placeholder="Épilepsie" />
+          </span>
+        </article>
+        <article>
+          <h3>Suivi médical</h3>
+          <span>
+            <input matInput type="search" placeholder="Fréquence maladie" />
+            <input matInput
+              placeholder="Allergies ou intolérances alimentaires"
+            />
+            <input matInput
+              placeholder="Allergies ou intolérances chimiques"
+            />
+            <input matInput type="search" placeholder="Problèmes cardiaques" />
+            <input matInput type="search" placeholder="Déglutition" />
+            <input matInput type="search" placeholder="Mastication" />
+            <input matInput type="search" placeholder="Reflux" />
+            <input matInput type="search" placeholder="Bruxisme" />
+            <input matInput type="search" placeholder="Bavage" />
+            <input matInput type="search" placeholder="Problèmes urogénital" />
+            <input matInput type="search" placeholder="Problèmes circulatoire" />
+            <input matInput type="search" placeholder="Problèmes d’eczémas" />
+            <input matInput type="search" placeholder="Problèmes de vision" />
+          </span>
+        </article>
+        <article>
+          <h3>Examens complémentaire/opérations</h3>
+          <span>
+            <input matInput type="search" placeholder="Opérations" />
+            <input matInput type="search" placeholder="Radiographie" />
+            <input matInput type="search" placeholder="Scanner" />
+          </span>
+          <div>
+            <button class="modifier">Modifier</button>
+            <button class="sauvegarder">Sauvegarder</button>
+          </div>
+        </article>
     </section>
   </mat-tab>
   <mat-tab [label]="l.t.profil['SYNTHESE']">
     <section>
-      <h3>{{ l.t.profil['SYNTHESE'] }}</h3>
+      <h2>{{ l.t.profil['SYNTHESE'] }}</h2>
     </section>
   </mat-tab>
   <mat-tab [label]="l.t.profil['HISTORIQUE']">
     <section>
-      <h3>{{ l.t.profil['HISTORIQUE'] }}</h3>
+      <h2>{{ l.t.profil['HISTORIQUE'] }}</h2>
     </section>
   </mat-tab>
 </mat-tab-group>
@@ -22,13 +153,13 @@
   <h2>{{ l.t.profil['ECOSYSTEME'] }}</h2>
   <section>
     <article>
-      <h3>{{ l.t.pages['CORPS_MEDICAL'] }}</h3>
+      <h2>{{ l.t.pages['CORPS_MEDICAL'] }}</h2>
     </article>
     <article>
-      <h3>{{ l.t.pages['COMMUNAUTE'] }}</h3>
+      <h2>{{ l.t.pages['COMMUNAUTE'] }}</h2>
     </article>
     <article>
-      <h3>{{ l.t.pages['ANIMATIONS'] }}</h3>
+      <h2>{{ l.t.pages['ANIMATIONS'] }}</h2>
     </article>
   </section>
 </footer>

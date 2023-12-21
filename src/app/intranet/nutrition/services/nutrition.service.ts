@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CiqualI, MenuI, PlatI, ExoPogrammeI } from '../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
-import {
-  createClient,
-  SupabaseClient,
-} from '@supabase/supabase-js';
-import { environment } from 'src/environments/environment';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { UtilsService } from '../../partage/services/utils.service';
 
@@ -18,8 +13,6 @@ export class NutritionService {
   listeMenus: Array<MenuI> = []; // Liste des menus récupérée depuis la base de données
   listePlats: Array<PlatI> = []; // Liste des plats récupérée depuis la base de données
   ciqual!: Array<CiqualI>; // La base Ciqual tirée du fichier JSON
-
-  private supabase: SupabaseClient; // Instance du client Supabase
   /**
    *
    * @param get Etablir des requêtes d'appels vers la base
@@ -27,10 +20,6 @@ export class NutritionService {
    * @param utils Code partagé avec des fonctions utilitaires
    */
   constructor(public get: DonneesService, public l: InfosService, private utils:UtilsService) {
-    this.supabase = createClient(
-      environment.supabaseUrl,
-      environment.supabaseKey
-    );
     if (!this.ciqual) this.getCiqual();
   }
   /** Récupérer la liste des ingrédients depuis le fichier JSON */
@@ -59,7 +48,7 @@ export class NutritionService {
   }
   /** Récupérer la liste des menus disponibles */
   getMenus() {
-    this.supabase.from('menus')
+    this.get.supa.from('menus')
     .select(`*, encas:attribuerMenusEncas!attribuerMenusEncas_idMenu_fkey(enfant:plats(*)),
                 ptitdejs:attribuerMenusPtitDejs!attribuerMenusPtitDejs_idMenu_fkey(enfant:plats(*)),
                 dejs:attribuerMenusDejs!attribuerMenusDejs_idMenu_fkey(enfant:plats(*)),
@@ -74,7 +63,7 @@ export class NutritionService {
   /** Récupérer la liste des plats */
   // Exemple de recquête : .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
   getPlats() {
-    this.supabase.from('plats')
+    this.get.supa.from('plats')
       .select('*, types:attribuerPlatsTypes!attribuerPlatsTypes_idPlat_fkey(enfant:platsTypes(*))')
       .then(({ data, error }) => {
         this.listePlats = data as Array<PlatI>;

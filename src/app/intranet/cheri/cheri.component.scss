@@ -13,7 +13,10 @@ mat-tab-group {
 section {
   padding:10px 20px;
 }
-
+article{
+  flex-flow:column nowrap;
+  margin:0 10px;
+}
 footer {
   height: 250px;
   justify-content: space-around;

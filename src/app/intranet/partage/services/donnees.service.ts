@@ -5,7 +5,6 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,11 +19,11 @@ export class DonneesService {
   therapeutes: Array<TherapeuteI> = [];
   cheris:Array<CheriI> = []; // Liste des chéris
 
-  private supabase: SupabaseClient; // Instance du client Supabase
+  public supa: SupabaseClient; // Instance du client Supabase
   historiqueJournal: Array<JournalI> = [];
 
   constructor(private http: HttpClient) {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+    this.supa = createClient(environment.supabaseUrl, environment.supabaseKey);
     this.getSousMenus(); // Récupérer la liste des menus
   }
   /** Récupérer les données de l'accueil */
@@ -54,11 +53,11 @@ export class DonneesService {
   }
   /** Appeler la liste des aidants dans Supabase */
   async getAidant() {
-    return await this.supabase.from('aidant').select('id, nom');
+    return await this.supa.from('aidant').select('id, nom');
   }
   /** Appeler la liste des journaux */
   async getHistoriqueJournal() {
-    return await this.supabase
+    return await this.supa
       .from('journalEvenement')
       .select(
         'id, date, objet, description, commentaire, groupeEvenement (id)'
@@ -70,7 +69,7 @@ export class DonneesService {
     journalEvenementId: number
   ) {
     /** Renvoi tous les journaux qui sont liés au groupe sauf celui "jounalEvenementId" */
-    return await this.supabase
+    return await this.supa
       .from('journalEvenement') //La table journalEvenement
       .select('id, date, objet, description, commentaire, groupeEvenement (id)')
       .eq('groupeEvenement (id)', groupeEvenementId)
@@ -84,7 +83,7 @@ export class DonneesService {
    */
   async getCurrentJournal(id: number) {
     // l'ID va être dynamique quand j'appelle ma méthode dans le component
-    const { data: currentData, error: currentError } = await this.supabase
+    const { data: currentData, error: currentError } = await this.supa
       .from('journalEvenement')
       .select('id, date, objet, description, commentaire, groupeEvenement (*)')
       .eq('id', id);
@@ -92,7 +91,7 @@ export class DonneesService {
     if (currentData) {
       currentData.forEach((journal) => {
         // forEach car je reçois un tableau
-        console.log('journal.objet - supabase.service :', journal.objet);
+        console.log('journal.objet - supa.service :', journal.objet);
       });
       return currentData;
     }
@@ -103,8 +102,7 @@ export class DonneesService {
    * @returns Renvoie les évaluations
    */
   async getEvaluation() {
-    const evaluation = await this.supabase.from('evaluation').select('*');
-    //console.log(evaluation);
+    const evaluation = await this.supa.from('evaluation').select('*');
     return evaluation;
   }
 
@@ -114,7 +112,7 @@ export class DonneesService {
    * @returns
    */
   async getEvaluationById(id: number) {
-    const { data, error } = await this.supabase
+    const { data, error } = await this.supa
       .from('evaluation')
       .select('id')
       .eq('id', id)
@@ -134,7 +132,7 @@ export class DonneesService {
    * @returns
    */
   async getHistoriqueMessage() {
-    return await this.supabase
+    return await this.supa
       .from('message')
       .select(
         'id, medecin, activite, objet, echange, groupeMessage (id), date'

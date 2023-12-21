@@ -110,6 +110,7 @@
     "PLAT_CREE":"Créer un plat",
     "PLAT_AGENDA":"Ajouter ce plat dans l'agenda",
     "PLATS_PERSO":"Mes plats",
+    "PARTS":"Portions",
     "MENUS":"Menus",
     "MENU":"Menu",
     "MENUS_DISPO":"Menus disponibles",
@@ -175,5 +176,15 @@
     "INFOS_SANTE":"Informations de santé",
     "SYNTHESE":"Synthèse des problèmes identifiés",
     "ECOSYSTEME":"Son écosystème de santé"
+
+  },
+  "cheri":{
+    "GEST_AGE_MOM":"Age de la maman pendant la gestation",
+    "GEST_PATHO":"Problème pathologique de la maman/gestant",
+    "GEST_AL":"Problème pathologique de la maman/gestant",
+    "GEST_FECON":"Fécondation naturelle ou artificielle",
+    "GEST_COND":"Condition de la gestation",
+    "GEST_ALIM":"Alimentation pendant la gestation",
+    "GEST_EXAMS":"Examens pendant la gestation"
   }
 }
