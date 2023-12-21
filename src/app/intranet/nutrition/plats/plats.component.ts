@@ -5,6 +5,7 @@ import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 import { NutritionService } from '../services/nutrition.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
+import { UtilsService } from '../../partage/services/utils.service';
 
 @Component({
   selector: 'app-plats',
@@ -50,7 +51,6 @@ export class PlatsComponent implements OnInit {
   }
   /** obtenir la liste des événements en fonction du plat choisi */
   setIngredients(){
-    this.selectedIngredients = [];
     this.selectedIngredients = this.nutri.ciqual.filter(ing => this.selectedPlat.ingredients.includes(String(ing.alim_code)));
     console.log(this.selectedIngredients);
   }

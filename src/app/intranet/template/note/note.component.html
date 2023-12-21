@@ -22,11 +22,11 @@
   <form *ngIf="note">
     <mat-form-field>
       <mat-label>{{ l.t.pages['NOTE_SAISIE'] }}</mat-label>
-      <input matInput [(ngModel)]="note.titre" [placeholder]="l.t.pages['NOTE_SAISIE']">
+      <input matInput name="titre" [(ngModel)]="note.titre" [placeholder]="l.t.pages['NOTE_SAISIE']">
     </mat-form-field>
     <mat-form-field>
       <mat-label>{{ l.t.pages['NOTE_SAISIE'] }}</mat-label>
-      <textarea matInput [(ngModel)]="note.contenu" [placeholder]="l.t.pages['NOTE_SAISIE']"></textarea>
+      <textarea matInput name="contenu" [(ngModel)]="note.contenu" [placeholder]="l.t.pages['NOTE_SAISIE']"></textarea>
     </mat-form-field>
   </form>
 </section>

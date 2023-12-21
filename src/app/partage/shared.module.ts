@@ -29,6 +29,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { NoteComponent } from '../intranet/template/note/note.component';
 import { EvalComponent } from '../intranet/template/eval/eval.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { EvalComponent } from '../intranet/template/eval/eval.component';
     MatNativeDateModule,
     NoteComponent,
     MatTabsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTooltipModule
   ],
   imports: [
     CommonModule,

@@ -2,68 +2,73 @@
 export interface MenuI {
   id: number;
   titre: string;
-  date?:number;
+  date?: number;
   description?: string;
-  plats: Array<number>;
-  programmes?:Array<NutriProgrammeI>;
+  ptitDejs?: Array<PlatI>;
+  encas?: Array<PlatI>;
+  dejs?: Array<PlatI>;
+  gouters?: Array<PlatI>;
+  diners?: Array<PlatI>;
+  programmes?: Array<NutriProgrammeI>;
   statut?: -1 | 0 | 1;
 }
-export interface NutriProgrammeI{
+export interface NutriProgrammeI {
   id: number;
   titre: string;
   description?: string;
   statut: -1 | 0 | 1;
 }
 export interface PlatI {
-  id?:number;
+  id?: number;
   titre: string;
   description?: string;
-  statut?:-1 | 0 | 1;
-  qualites?:string;
-  allergenes?:Array<number>;
-  ingredients:Array<string>;
-  nutriments?:Array<NutrimentI>;
-  astuces?:string;
-  notes?:string;
-  date?:string | number;
+  statut?: -1 | 0 | 1;
+  qualites?: string;
+  allergenes?: Array<number>;
+  ingredients: Array<string>;
+  nutriments?: Array<NutrimentI>;
+  astuces?: string;
+  notes?: string;
+  date?: string | number;
+  types?: Array<PlatE>;
 }
-export interface IngredientI{
-  id:number;
-  alim_code:string;
-  quantite:number;
-  mesure:MesuresE;
+export interface IngredientI {
+  id: number;
+  alim_code: string;
+  quantite: number;
+  mesure: MesuresE;
 }
-export interface NutrimentI{
-  id:number;
-  titre:string;
-  quantite:number;
-  mesure:MesuresE;
+export interface NutrimentI {
+  id: number;
+  titre: string;
+  quantite: number;
+  mesure: MesuresE;
 }
-export interface AllergeneI{
-  id:number;
-  titre:string;
-  description?:string;
-  type:'ingredient' | 'nutriment'
+export interface AllergeneI {
+  id: number;
+  titre: string;
+  description?: string;
+  type: 'ingredient' | 'nutriment'
 }
-export interface RegimeI{
-  id:number;
-  titre:string;
-  description?:string;
-  type?:string
+export interface RegimeI {
+  id: number;
+  titre: string;
+  description?: string;
+  type?: string
 }
 /** TYPE OPTO */
 export interface ExerciceI {
-  id:number;
+  id: number;
   titre: string;
-  intro?:string;
+  intro?: string;
   description: string;
   duree: number;
   media?: MediaI;
-  editeurs?:Array<UtilisateurI>;
+  editeurs?: Array<UtilisateurI>;
   materiels?: Array<MaterielI>;
 }
 export interface ExoPogrammeI extends ExerciceI {
-  exercices:Array<ExerciceI>;
+  exercices: Array<ExerciceI>;
 }
 export interface AsideI {
   nom?: string;
@@ -96,14 +101,14 @@ export interface MessageI {
   };
   linkedMessage?: MessageI[];
 }
-export interface EventI{
+export interface EventI {
   date: number;
   titre: string;
-  note?:string;
+  note?: string;
   observations?: string;
-  importance?:ImportanceE;
-  idMedecin?:number;
-  idMenu?:number;
+  importance?: ImportanceE;
+  idMedecin?: number;
+  idMenu?: number;
 }
 // Interface de la page journal pour les réalisations
 export interface RealisationI {
@@ -111,7 +116,7 @@ export interface RealisationI {
 }
 //Interface de la page d'accueil Nutrition
 export interface NutritionI {
-  id:number;
+  id: number;
   title: string;
   text: string;
   button: string;
@@ -125,59 +130,59 @@ export interface MessageJournalI {
 }
 // Interface pour les cards de l'accueil
 export interface AccueilI {
-  id:number;
-  titre:string;
-  description:string;
-  bouton:string;
-  image:string;
-  url:string;
+  id: number;
+  titre: string;
+  description: string;
+  bouton: string;
+  image: string;
+  url: string;
 }
 export interface AccueilModulesI {
-  id?:number;
-  titre:string;
-  description:string;
-  bouton:string;
-  image:string;
-  url:string;
+  id?: number;
+  titre: string;
+  description: string;
+  bouton: string;
+  image: string;
+  url: string;
 }
 // Interface pour la page profil(exemple)
 export interface UtilisateurI {
-  id?:number;
+  id?: number;
   nom: string;
   prenom: string;
   dateNaissance?: number | string | Date;
   email?: string;
-  telephone?:string;
-  mobile?:string;
+  telephone?: string;
+  mobile?: string;
   adresse?: string;
-  ville?:string;
-  codePostal?:number | string;
-  avatar?:string;
-  roles?:Array<RoleI>;
+  ville?: string;
+  codePostal?: number | string;
+  avatar?: string;
+  roles?: Array<RoleI>;
 }
-export interface AidantI extends UtilisateurI{
-  idAidant?:number;
-  cheris:Array<CheriI>;
-  therapeutes:Array<TherapeuteI>;
+export interface AidantI extends UtilisateurI {
+  idAidant?: number;
+  cheris: Array<CheriI>;
+  therapeutes: Array<TherapeuteI>;
 }
-export interface CheriI extends UtilisateurI{
-  idCheri?:number;
-  therapeutes?:Array<TherapeuteI>;
-  progressions?:Array<any>;
+export interface CheriI extends UtilisateurI {
+  idCheri?: number;
+  therapeutes?: Array<TherapeuteI>;
+  progressions?: Array<any>;
 }
-export interface TherapeuteI extends UtilisateurI{
-  idTerapeute:number;
-  specialites:Array<string>;
-  type:TherapeuteE;
-  organisme:OrganismeI;
+export interface TherapeuteI extends UtilisateurI {
+  idTerapeute: number;
+  specialites: Array<string>;
+  type: TherapeuteE;
+  organisme: OrganismeI;
 }
-interface RoleI{
-  id:number;
-  role:string;
+interface RoleI {
+  id: number;
+  role: string;
 }
 // Interface pour la page ingrédient de la table Ciqual
 export interface CiqualI {
-  id?:number,
+  id?: number,
   alim_code: number;
   alim_nom_fr: string;
   ['Protéines, N x 6.25 (g/100 g)']?: string;
@@ -197,20 +202,20 @@ export interface CiqualI {
 /** INTERFACES POUR LA COMMUNAUTE */
 export interface CommentaireI {
   id: number;
-  aidant:number;
-  contenu?:string;
+  aidant: number;
+  contenu?: string;
   statut?: -1 | 0 | 1;
-  date?:number;
-  parent?:number;
+  date?: number;
+  parent?: number;
 }
-export interface EvalI extends CommentaireI{
-  etoiles:number;
+export interface EvalI extends CommentaireI {
+  etoiles: number;
 }
-export interface NoteI{
-  id:number;
-  idUtilisateur:number;
-  titre:string;
-  contenu:string;
+export interface NoteI {
+  id: number;
+  idUtilisateur: number;
+  titre: string;
+  contenu: string;
 }
 /** NAVIGATIONS */
 export interface NavI {
@@ -230,44 +235,44 @@ export interface NavTableau {
 }
 export interface OrganismeI {
   id: number;
-  titre:string;
-  type:string;
+  titre: string;
+  type: string;
 }
 // Lister des matéries
-export interface MaterielI{
-  id:string;
-  titre:string;
-  description?:string;
-  media?:MediaI;
-  commentaire?:string;
+export interface MaterielI {
+  id: string;
+  titre: string;
+  description?: string;
+  media?: MediaI;
+  commentaire?: string;
 }
-export interface LienI{
-  id:number;
-  titre:string;
-  url:string;
-  description?:string;
-  cible?:'_self' | '_blank'
+export interface LienI {
+  id: number;
+  titre: string;
+  url: string;
+  description?: string;
+  cible?: '_self' | '_blank'
 }
 // Ajouter un média aux autres types
-export interface MediaI{
-  id?:number;
-  titre:string;
-  url:string;
-  description?:string;
-  auteur?:string;
+export interface MediaI {
+  id?: number;
+  titre: string;
+  url: string;
+  description?: string;
+  auteur?: string;
   type?: 'image' | 'video' | 'audio'
 }
-export interface ParamsI{
-  app:Array<ParamI>;
+export interface ParamsI {
+  app: Array<ParamI>;
 }
 // Paramètres
-export interface ParamI{
-  titre:string;
-  description:string;
-  url:string;
+export interface ParamI {
+  titre: string;
+  description: string;
+  url: string;
 }
 // Enumération pour nos types
-export enum MesuresE{
+export enum MesuresE {
   mgr = 'mgr',
   gr = 'gr',
   kgs = 'kgs'
@@ -277,20 +282,20 @@ export enum NoteE {
   note = "Note",
   eval = "Evaluation"
 }
-export enum TherapeuteE{
+export enum TherapeuteE {
   infirmiere = 'infirmiere',
   infirmier = 'infirmier',
   medecin = 'generaliste',
   specialiste = 'specialiste',
   therapeute = 'therapeute'
 }
-export enum ImportanceE{
+export enum ImportanceE {
   faible = 'Faible',
   moyenne = 'Moyenne',
   forte = 'Forte',
   critique = 'Critique'
 }
-export enum PlatE{
+export enum PlatE {
   ptitdej = "P'tit déj.",
   encas = "Encas",
   dejeuner = "Déjeuner",

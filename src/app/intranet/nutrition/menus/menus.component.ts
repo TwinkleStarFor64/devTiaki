@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MenusService } from './services/menus.service';
-import { CiqualI, EvalI, MenuI } from '../../partage/modeles/Types';
+import { EvalI, MenuI } from '../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
-import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { DonneesService } from '../../partage/services/donnees.service';
-import { AdminService } from '../../partage/services/admin.service';
-import { EditService } from '../../partage/services/edit.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { NutritionService } from '../services/nutrition.service';
 
@@ -22,7 +17,7 @@ export class MenusComponent implements OnInit {
   filtre: string = ''; // Filtrer les plats par noms
 
   //selectedIngredients?: CiqualI;
-  selectedMenu: MenuI = {id:-1, titre:'', plats:[]};
+  selectedMenu: MenuI = {id:-1, titre:''};
   selectedEvaluation!: EvalI; // Pour le ngModel "<mat-select [(ngModel)]="selectedEvaluation">"
   selectedIngredients:Array<any> = [];
 
@@ -40,7 +35,7 @@ export class MenusComponent implements OnInit {
   }
   /** Initialiser un plat vide */
   initPlat() {
-    this.selectedMenu = {id:-1, titre:'', plats:[]};
+    this.selectedMenu = {id:-1, titre:''};
   }
   /** Sélectionner un plat */
   setPlat(menu: MenuI) {

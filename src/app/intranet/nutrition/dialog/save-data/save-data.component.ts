@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MenusService } from '../../menus/services/menus.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
 import { EditService } from 'src/app/intranet/partage/services/edit.service';
 import { NutritionService } from '../../services/nutrition.service';
@@ -20,7 +19,7 @@ export class SaveDataComponent implements OnInit {
   //public searchControl : FormControl = new FormControl(); // Pour ngx-mat-select-search
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>, public menuService: MenusService, private get:DonneesService, private edit:EditService, public nutrition:NutritionService ) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>, private get:DonneesService, private edit:EditService, public nutrition:NutritionService ) {}
 
   async ngOnInit(): Promise<void>  {
 
@@ -60,23 +59,20 @@ export class SaveDataComponent implements OnInit {
     });
   }
   async fetchMenus() {
-    const { data, error } = await this.menuService.getRepas();
-    if (data) {
-      //Ici, nous utilisons la méthode map pour créer un nouveau tableau repas à partir de data.
-      //Chaque élément de data est représenté par l'objet { [x: string]: any; }, que nous convertissons en un objet MesMenusI en utilisant les propriétés nécessaires.
-      this.repas = data.map((item: { [x: string]: any }) => ({
-        id: item['id'],
-        nom: item['nom'],
-        description: item['description'],
-        alim_code: item['alim_code'],
-        statut: item['statut']
-      }));
-      console.log(this.repas.map((item) => item['id']));
-    }
-    if (error) {
-      //Si une erreur
-      console.log(error);
-    }
+    // const { data, error } = await this.menuService.getRepas();
+    // if (data) {
+    //   this.repas = data.map((item: { [x: string]: any }) => ({
+    //     id: item['id'],
+    //     nom: item['nom'],
+    //     description: item['description'],
+    //     alim_code: item['alim_code'],
+    //     statut: item['statut']
+    //   }));
+    //   console.log(this.repas.map((item) => item['id']));
+    // }
+    // if (error) {
+    //   console.log(error);
+    // }
   }
 
 

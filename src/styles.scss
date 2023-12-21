@@ -318,6 +318,11 @@ td{
 .row li:hover{
   transform:scale(1.1);
 }
+.mat-mdc-tab-header{
+  border-top:1px dashed $aside-color1;
+  border-bottom: 1px dashed $aside-color1;
+  margin-bottom: 15px;
+}
 .mat-icone {
   font-size: $icone;
   width: $icone !important;
@@ -423,6 +428,7 @@ td{
   color:$clair;
   padding-top:10px !important;
   padding-bottom:10px !important;
+  border-color: $clair;
 }
 /** COMPOSANTS */
 .cal-event-title {
@@ -1111,7 +1117,7 @@ header>form div.mat-mdc-form-field-infix {
   bottom:0;
 }
 #nutrition>section:nth-child(2) {
-  flex: 3;
+  flex: 4;
   padding: 0 30px;
   overflow-x: hidden;
   overflow-y: auto;

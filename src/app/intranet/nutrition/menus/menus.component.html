@@ -20,12 +20,12 @@
     <header>
       <form>
         <mat-form-field>
-          <mat-label>{{ l.t.nutrition['MENUS_FILTRE_NOMS'] }}</mat-label>
+          <mat-label>{{ l.t.nutrition['FILTRE_NOMS'] }}</mat-label>
           <input matInput [(ngModel)]="filtre" name="libre">
         </mat-form-field>
         <mat-form-field>
-          <mat-label>{{ l.t.nutrition['MENUS_FILTRE_EVALS'] }}</mat-label>
-          <mat-select [(ngModel)]="filtreEval">
+          <mat-label>{{ l.t.nutrition['FILTRE_EVALS'] }}</mat-label>
+          <mat-select [(ngModel)]="filtreEval" name="filtreEval">
             <mat-option value=2>{{ l.t.nutrition['MENUS_TOUS'] }}</mat-option>
             <mat-option value=1>{{ l.t.nutrition['MENUS_EVAL'] }}</mat-option>
             <mat-option value=0>{{ l.t.nutrition['MENUS_EVAL_PROBLEME'] }}</mat-option>
@@ -34,44 +34,134 @@
         </mat-form-field>
         <fieldset>
           <mat-checkbox>{{ l.t.nutrition['COMMUNAUTE'] }}</mat-checkbox>
-          <mat-checkbox>{{ l.t.nutrition['MES_MENUS'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['MENUS_PERSO'] }}</mat-checkbox>
           <mat-checkbox>{{ l.t.nutrition['ALLERGENES_SANS'] }}</mat-checkbox>
         </fieldset>
       </form>
     </header>
     <article *ngIf="selectedMenu.id != -1">
-      <h2>{{ selectedMenu.titre }} <button class="bg-valide"><mat-icon>date_range</mat-icon>{{
-          l.t.nutrition['MENU_AGENDA'] }}</button></h2>
+      <h2>{{ selectedMenu.titre }}
+        <button class="bg-valide"><mat-icon>date_range</mat-icon>{{ l.t.nutrition['MENU_AGENDA'] }}</button>
+      </h2>
       <h3>{{ l.t.pages['DESCR'] }}</h3>
       <p>{{ selectedMenu.description }}</p>
-      <table>
-        <thead>
-          <tr>
-            <th>{{ l.t.nutrition['INGREDIENTS'] }}<mat-icon class="valide">add_box</mat-icon>
-            </th>
-            <th>{{ l.t.nutrition['QTS'] }}</th>
-            <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
-            <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
-            <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let ingr of selectedIngredients" class="over">
-            <td>{{ ingr.alim_nom_fr }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5">
-              <app-eval [id]="selectedMenu.id!" [table]="'menus'" [classe]="'nutrition'"></app-eval>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+      <mat-tab-group>
+        <mat-tab [label]="l.t.nutrition['PTIT_DEJ']">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ l.t.nutrition['PLAT'] }}<mat-icon class="valide">add_box</mat-icon>
+                </th>
+                <th>{{ l.t.nutrition['PARTS'] }}</th>
+                <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+                <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+                <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ptitdej of selectedMenu.ptitDejs" class="over">
+                <td>{{ ptitdej.titre }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><app-eval [id]="ptitdej.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab [label]="l.t.nutrition['ENCAS']">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ l.t.nutrition['PLAT'] }}<mat-icon class="valide">add_box</mat-icon>
+                </th>
+                <th>{{ l.t.nutrition['PARTS'] }}</th>
+                <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+                <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+                <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let encas of selectedMenu.encas" class="over">
+                <td>{{ encas.titre }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><app-eval [id]="encas.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab [label]="l.t.nutrition['DEJ']">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ l.t.nutrition['PLAT'] }}<mat-icon class="valide">add_box</mat-icon>
+                </th>
+                <th>{{ l.t.nutrition['PARTS'] }}</th>
+                <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+                <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+                <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let dej of selectedMenu.dejs" class="over">
+                <td>{{ dej.titre }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><app-eval [id]="dej.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab [label]="l.t.nutrition['GOUTER']">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ l.t.nutrition['PLAT'] }}<mat-icon class="valide">add_box</mat-icon>
+                </th>
+                <th>{{ l.t.nutrition['PARTS'] }}</th>
+                <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+                <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+                <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let gouter of selectedMenu.gouters" class="over">
+                <td>{{ gouter.titre }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><app-eval [id]="gouter.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+        <mat-tab [label]="l.t.nutrition['DINER']">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ l.t.nutrition['PLAT'] }}<mat-icon class="valide">add_box</mat-icon>
+                </th>
+                <th>{{ l.t.nutrition['PARTS'] }}</th>
+                <th>{{ l.t.nutrition['VALEURS_NUTRI'] }}</th>
+                <th>{{ l.t.nutrition['ALLERGENES'] }}</th>
+                <th>{{ l.t.nutrition['COMMUNAUTE_EVALS'] }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let diner of selectedMenu.diners" class="over">
+                <td>{{ diner.titre }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><app-eval [id]="diner.id!" [table]="'plats'" [classe]="'nutrition'"></app-eval></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+      </mat-tab-group>
     </article>
     <article *ngIf="selectedMenu.id == -1">
       <h2>Sélectionnez un menu</h2>

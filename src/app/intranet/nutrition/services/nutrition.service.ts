@@ -7,6 +7,7 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 import { InfosService } from 'src/app/partage/services/infos.service';
+import { UtilsService } from '../../partage/services/utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +20,13 @@ export class NutritionService {
   ciqual!: Array<CiqualI>; // La base Ciqual tirée du fichier JSON
 
   private supabase: SupabaseClient; // Instance du client Supabase
-
-  constructor(public get: DonneesService, public l:InfosService) {
+  /**
+   *
+   * @param get Etablir des requêtes d'appels vers la base
+   * @param l Gestion des traductions
+   * @param utils Code partagé avec des fonctions utilitaires
+   */
+  constructor(public get: DonneesService, public l: InfosService, private utils:UtilsService) {
     this.supabase = createClient(
       environment.supabaseUrl,
       environment.supabaseKey
@@ -53,23 +59,29 @@ export class NutritionService {
   }
   /** Récupérer la liste des menus disponibles */
   getMenus() {
-    this.get.getJsonData('nutrition-menus').subscribe(
-      {
-        next: m => this.listeMenus = m,
-        error: er => console.log(er),
-        complete: () => console.log("Données chargées")
-      }
-    );
+    this.supabase.from('menus')
+    .select(`*, encas:attribuerMenusEncas!attribuerMenusEncas_idMenu_fkey(enfant:plats(*)),
+                ptitdejs:attribuerMenusPtitDejs!attribuerMenusPtitDejs_idMenu_fkey(enfant:plats(*)),
+                dejs:attribuerMenusDejs!attribuerMenusDejs_idMenu_fkey(enfant:plats(*)),
+                gouters:attribuerMenusGouters!attribuerMenusGouters_idMenu_fkey(enfant:plats(*)),
+                diners:attribuerMenusDiners!attribuerMenusDiners_idMenu_fkey(enfant:plats(*))`)
+      .then(({ data, error }) => {
+        this.listeMenus = this.utils.flatChilds(data!, 'enfant');
+        console.log("Menus récupérés", this.listeMenus);
+        if (error) this.l.erreur("Erreur dans le chargement des données des menus", error);
+      });
   };
   /** Récupérer la liste des plats */
   // Exemple de recquête : .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
-
   getPlats() {
     this.supabase.from('plats')
-      .select('*')
-      .then(({data, error}) => {
-        console.log("Données du profil récupéré", data);
+      .select('*, types:attribuerPlatsTypes!attribuerPlatsTypes_idPlat_fkey(enfant:platsTypes(*))')
+      .then(({ data, error }) => {
         this.listePlats = data as Array<PlatI>;
+        this.listePlats.forEach( plat => {
+          plat.types = this.utils.flatEnfants(plat.types!, 'enfant');
+        });
+        console.log("Plats récupérés", this.listePlats);
         if (error) this.l.erreur("Erreur dans le chargement des données du profil", error);
       });
   };

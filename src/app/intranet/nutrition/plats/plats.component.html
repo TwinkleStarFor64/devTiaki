@@ -20,11 +20,11 @@
     <header>
       <form>
         <mat-form-field>
-          <mat-label>{{ l.t.nutrition['PLATS_FILTRE_NOMS'] }}</mat-label>
+          <mat-label>{{ l.t.nutrition['FILTRE_NOMS'] }}</mat-label>
           <input matInput [(ngModel)]="filtre" name="libre">
         </mat-form-field>
         <mat-form-field>
-          <mat-label>{{ l.t.nutrition['PLATS_FILTRE_EVALS'] }}</mat-label>
+          <mat-label>{{ l.t.nutrition['FILTRE_EVALS'] }}</mat-label>
           <mat-select [(ngModel)]="filtreEval">
             <mat-option value=2>{{ l.t.nutrition['PLATS_TOUS'] }}</mat-option>
             <mat-option value=1>{{ l.t.nutrition['PLATS_EVAL'] }}</mat-option>
@@ -34,7 +34,7 @@
         </mat-form-field>
         <fieldset>
           <mat-checkbox>{{ l.t.nutrition['COMMUNAUTE'] }}</mat-checkbox>
-          <mat-checkbox>{{ l.t.nutrition['MES_PLATS'] }}</mat-checkbox>
+          <mat-checkbox>{{ l.t.nutrition['PLTS_PERSO'] }}</mat-checkbox>
           <mat-checkbox>{{ l.t.nutrition['ALLERGENES_SANS'] }}</mat-checkbox>
         </fieldset>
       </form>
