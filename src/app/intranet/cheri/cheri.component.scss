@@ -9,13 +9,19 @@ header{
 mat-tab-group {
   height: calc(100vh - 250px);
 }
-
+mat-form-field{
+  margin:10px;
+}
 section {
+  flex-flow: column nowrap;
   padding:10px 20px;
 }
 article{
-  flex-flow:column nowrap;
+  flex-flow:row wrap;
   margin:0 10px;
+}
+article h3{
+  width:100%;
 }
 footer {
   height: 250px;

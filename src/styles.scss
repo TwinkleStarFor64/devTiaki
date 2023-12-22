@@ -375,7 +375,7 @@ td{
 .bg-valide {
   color: $clair;
   background-color: $vert;
-}
+}xxxxxxxxxxxx
 .valide{
   color:$vert;
 }
@@ -436,6 +436,9 @@ td{
   padding-top:10px !important;
   padding-bottom:10px !important;
   border-color: $clair;
+}
+.avatar{
+  max-width:70px;
 }
 /** COMPOSANTS */
 .cal-event-title {
