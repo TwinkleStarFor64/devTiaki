@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActualiteI } from '../modeles/types';
+import { ConnexionService } from './connexion.service';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,20 @@ export class InfosService {
     console.log(msg, er);
     if(typeof er !== 'string') er = JSON.stringify(er);
     throw new Error(msg + ' : \n' + er);
+  }
+  /**
+   * Récupérer les données de connexion dans la session
+   * @param key Clé de la données à récupérer dans la session
+   */
+  getSession(key:string){
+    if(sessionStorage.getItem(key)) return JSON.parse(sessionStorage.getItem(key)!);
+  }
+  /**
+   * Ecrire des données dans la session
+   * @param key CLé à écrire dans la session
+   * @param data Données attachées à la clé écrite
+   */
+  setSession(key:string, data:any){
+    sessionStorage.setItem(key, JSON.stringify(data));
   }
 }

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { ExerciceI } from '../modeles/Types';
-import { UtilsService } from '../services/utils.service';
+import { UtilsService } from '../../../partage/services/utils.service';
 
 @Pipe({
   name: 'programme'

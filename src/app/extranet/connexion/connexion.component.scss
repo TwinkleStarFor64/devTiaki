@@ -79,6 +79,10 @@ app-infos {
 }
 
 @media screen and (max-width: 980px) {
+  section{
+    flex-flow: column nowrap;
+    overflow-y: auto;
+  }
   article {
     margin: auto 15%;
     max-width: 100%;

@@ -79,65 +79,6 @@
   ],
   "outils":[
     {
-      "image":"assets/images/pictos/menus/programme.png",
-      "titre":"Journal",
-      "info":"Naviguer dans votre historique alimentaire",
-      "lien":"Journal",
-      "url":"/intranet/nutrition/journal",
-      "active": false
-    },
-    {
-      "image":"assets/images/aside/Group2.svg",
-      "titre":"Menus",
-      "info":"Les listes de vos menus et de ceux de la communautés",
-      "lien":"Menus",
-      "url":"/intranet/nutrition/menus",
-      "active": false
-    },
-    {
-      "image":"assets/images/pictos/menus/plat.png",
-      "titre":"Plats",
-      "info":"Vos plats ou ceux de la communauté",
-      "lien":"Plats",
-      "url":"/intranet/nutrition/plats",
-      "active": false
-    },
-    {
-      "image":"assets/images/pictos/menus/ingredient.png",
-      "titre":"Ingrédients",
-      "info":"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-      "lien":"Ingredients",
-      "url":"/intranet/nutrition/ingredients",
-      "active": false
-    }
-  ],
-  "principal":[
-    {
-      "nom":"Émilie",
-      "image":"assets/images/pictos/cheerleader.svg",
-      "url":"/intranet/tableau"
-    },
-    {
-      "nom":"Kalhifa",
-      "image":"assets/images/pictos/skier.svg",
-      "url":"/intranet/tableau"
-    },
-    {
-      "nom":"Nutrition",
-      "image":"assets/images/pictos/nutrition.svg",
-      "url":"/intranet/nutrition"
-    },
-    {
-      "nom":"Kiné",
-      "image":"assets/images/pictos/kine.svg",
-      "url":"/intranet/kine"
-    },
-    {
-      "nom":"Opto",
-      "image":"assets/images/pictos/opto.svg",
-      "url":"/intranet/opto"
-    },
-    {
       "nom":"Journal",
       "image":"assets/images/pictos/journal.svg",
       "url":"/intranet/outils/journaux"
@@ -161,6 +102,23 @@
       "nom":"Paramètre",
       "image":"assets/images/pictos/params.svg",
       "url":"/intranet/outils/parametres"
+    }
+  ],
+  "principal":[
+    {
+      "nom":"Nutrition",
+      "image":"assets/images/pictos/nutrition.svg",
+      "url":"/intranet/nutrition"
+    },
+    {
+      "nom":"Kiné",
+      "image":"assets/images/pictos/kine.svg",
+      "url":"/intranet/kine"
+    },
+    {
+      "nom":"Opto",
+      "image":"assets/images/pictos/opto.svg",
+      "url":"/intranet/opto"
     }
   ],
   "reserve":[

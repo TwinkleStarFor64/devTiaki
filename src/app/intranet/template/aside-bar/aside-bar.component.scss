@@ -11,14 +11,34 @@ $l: 65px;
 #burger-icon {
   display: none;
 }
-
-nav {
-  height: 100vh;
+section{
+  height:100vh;
+  padding:0;
+  margin:0;
   width: $l;
+  flex-flow:column nowrap;
+  // align-items: stretch;
+  // justify-content: space-evenly;
+  background-color: #270140;
+}
+nav {
+  width:100%;
+  flex:1;
   display: flex;
   flex-direction: column;
   align-items: center;
 
+  &:nth-child(1){
+    flex:2;
+  }
+
+  &:nth-child(2){
+    flex:3;
+  }
+
+  &:nth-child(3){
+    flex:5;
+  }
   ul {
     display: flex;
     flex-direction: column;
@@ -26,7 +46,6 @@ nav {
     width: 100%;
     padding: 0;
     margin: 0;
-    background-color: #270140;
 
     li {
       list-style: none;
@@ -35,24 +54,6 @@ nav {
       flex-grow: 1;
       display: flex;
       width: 100%;
-
-      &:nth-child(n+3) {
-        background-color: #805E96;
-        border-bottom: 1px dashed #ffffff;
-      }
-
-      &:nth-child(5) {
-        border-bottom: none;
-      }
-
-      &:nth-child(n+6) {
-        background-color: #F0C02E;
-        border-bottom: 1px dashed #000000;
-      }
-
-      &:nth-child(10) {
-        border-bottom: none;
-      }
 
       a {
         display: flex;
@@ -68,6 +69,9 @@ nav {
           margin-top:-10px;
           transition:all .3s ease;
         }
+        img{
+          width:32px;
+        }
       }
       a:hover > span{
         opacity:1;
@@ -78,7 +82,6 @@ nav {
 }
 
 @media screen and (max-width: 768px) {
-
   nav {
     width: 100%;
     float: right;

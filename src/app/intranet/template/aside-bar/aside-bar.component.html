@@ -1,14 +1,37 @@
 <button mat-icon-button id="burger-icon" (click)="toggleNavbar()">
   <mat-icon>menu</mat-icon>
 </button>
+<section [class.active]="navbarVisible">
+  <nav class="bg-admin" *ngIf="conn.user">
+    <ul>
+      <li *ngFor="let cheri of conn.user.cheris; let i = index">
+        <a [routerLink]="['/intranet/cheri', i]" [title]="cheri.prenom">
+          <img [src]="cheri.avatar" [alt]="" />
+          <span>{{ cheri.prenom }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-<nav [class.active]="navbarVisible">
-  <ul>
-    <li *ngFor="let lien of get.listeSousMenus['principal']; let i = index">
-      <a [routerLink]="[lien.url]" [title]="lien.nom">
-        <img [src]="lien.image" [alt]="" />
-        <span>{{ lien.nom }}</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+  <nav class="bg-neutre">
+    <ul>
+      <li *ngFor="let lien of get.listeSousMenus['principal']; let i = index">
+        <a [routerLink]="[lien.url]" [title]="lien.nom">
+          <img [src]="lien.image" [alt]="" />
+          <span>{{ lien.nom }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="bg-annule">
+    <ul>
+      <li *ngFor="let lien of get.listeSousMenus['outils']; let i = index">
+        <a [routerLink]="[lien.url]" [title]="lien.nom">
+          <img [src]="lien.image" [alt]="" />
+          <span>{{ lien.nom }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>

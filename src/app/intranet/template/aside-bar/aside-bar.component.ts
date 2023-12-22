@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AsideI } from 'src/app/intranet//partage/modeles/Types.js';
 import { DonneesService } from '../../partage/services/donnees.service';
+import { ConnexionService } from 'src/app/partage/services/connexion.service';
 
 @Component({
   selector: 'app-aside-bar',
@@ -15,7 +16,7 @@ export class AsideBarComponent implements OnInit {
   public asides: AsideI[] = [];
   public hoveredIndex: number | null = null;
 
-  constructor(public get:DonneesService) {}
+  constructor(public get:DonneesService, public conn:ConnexionService) {}
 
   ngOnInit(): void {}
   toggleNavbar() {

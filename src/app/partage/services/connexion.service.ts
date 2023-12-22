@@ -7,6 +7,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { InfosService } from './infos.service';
 import { Router } from '@angular/router';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class ConnexionService {
   user: any;
 
   /**  */
-  constructor(private l: InfosService, private router: Router) {
+  constructor(private l: InfosService, private router: Router, private utils:UtilsService) {
     this.supabase = createClient(
       environment.supabaseUrl,
       environment.supabaseKey
@@ -80,11 +81,16 @@ export class ConnexionService {
     console.log("User id", this.user.id);
     this.supabase.from('aidants')
       // .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
-      .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*))')
+      .select(`*,
+          infos:utilisateurs(*, roles:attribuerRoles!attribuerRoles_idUtilisateur_fkey(enfant:roles(role))),
+          cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*))
+      `)
       .eq('utilisateur', this.user.id)
       .then(({data, error}) => {
-        console.log("Données du profil récupéré", data);
-        // this.router.navigate(['intranet']);
+        this.user = this.utils.flatChilds(data as Array<any>, 'enfant')[0];
+        console.log("Données du profil récupéré", this.user);
+        this.setAuthSession(); // Sauvegarde de l'aidant dans la session
+        this.router.navigate(['/intranet']);
         if (error) this.l.erreur("Erreur dans le chargement des données du profil", error);
       });
   }
@@ -94,5 +100,15 @@ export class ConnexionService {
     .from('utilisateur')
     .select("*, roles:attribuerRole!inner(roles(role))")
     // .select("*, roles:attribuerRoles!inner(id, roles!inner(role))")
+  }
+  /** Sauvegarder l'utilisateur dans la session locale */
+  async setAuthSession(){
+    await sessionStorage.setItem('aidant', JSON.stringify(this.user));
+  }
+  /** Récupérer l'utilisateur dans la session locale */
+  async getAuthSession(){
+    if(!this.user && await sessionStorage.getItem('aidant')){
+      this.user = await JSON.parse(sessionStorage.getItem('aidant')!);
+    }
   }
 }

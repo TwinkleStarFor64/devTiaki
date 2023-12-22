@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { InfosService } from './partage/services/infos.service';
+import { ConnexionService } from './partage/services/connexion.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { InfosService } from './partage/services/infos.service';
 export class AppComponent implements OnInit {
   title = 'Tiaki, pour aider les aidants';
 
-  constructor(private router: Router, private l: InfosService) { }
+  constructor(private router: Router, private l: InfosService, private conn:ConnexionService) { }
 
   ngOnInit(): void {
     if (!this.l.t) this.l.getTraductions(); // Récupérer les traductions si elles n'ont pas déjà été loadées
@@ -28,10 +29,10 @@ export class AppComponent implements OnInit {
               path,
               titre: this.l.t.routes[u.toUpperCase()],
               classe: this.l.setClasse(this.router.url)
-            })
+            });
           }
           );
-        console.log("Ariane", this.l.ariane);
+        this.conn.getAuthSession();
         }
       },
       error: er => console.log(er),

@@ -160,10 +160,11 @@ export interface UtilisateurI {
   avatar?: string;
   roles?: Array<RoleI>;
 }
-export interface AidantI extends UtilisateurI {
+export interface AidantI {
   idAidant?: number;
   cheris: Array<CheriI>;
   therapeutes: Array<TherapeuteI>;
+  infos:UtilisateurI;
 }
 export interface CheriI extends UtilisateurI {
   idCheri?: number;
