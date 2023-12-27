@@ -5,7 +5,7 @@
   <nav class="bg-admin" *ngIf="conn.user">
     <ul>
       <li *ngFor="let cheri of conn.user.cheris; let i = index">
-        <a [routerLink]="['/intranet/cheri', i]" [title]="cheri.prenom">
+        <a [routerLink]="['/intranet/cheri', i]" [title]="cheri.prenom" *ngIf="cheri.avatar">
           <img [src]="cheri.avatar" [alt]="" />
           <span>{{ cheri.prenom }}</span>
         </a>

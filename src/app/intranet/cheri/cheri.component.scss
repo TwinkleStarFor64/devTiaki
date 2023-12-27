@@ -15,12 +15,16 @@ mat-form-field{
 section {
   flex-flow: column nowrap;
   padding:10px 20px;
+  width:50%;
 }
 article{
   flex-flow:row wrap;
   margin:0 10px;
 }
-article h3{
+h2{
+  padding:0 20px;
+}
+h3{
   width:100%;
 }
 footer {

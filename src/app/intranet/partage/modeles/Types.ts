@@ -150,7 +150,7 @@ export interface UtilisateurI {
   id?: number;
   nom: string;
   prenom: string;
-  dateNaissance?: number | string | Date;
+  dateNaissance?: number | Date;
   email?: string;
   telephone?: string;
   mobile?: string;

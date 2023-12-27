@@ -71,6 +71,7 @@
     "PUBLIC":"Public",
     "COMMENT":"Comment ça marche ?",
     "RDV":"Rendez-vous",
+    "RDV_NEXT":"Prochains rendez-vous",
     "NOTE":"Note",
     "NOTES":"Vos notes",
     "NOTES_LISTE":"Liste des annotations",
@@ -89,7 +90,10 @@
     "CORPS_MEDICAL":"Corps médical",
     "DESCR":"Description",
     "ADD":"Ajouter",
-    "PLUS":"Plus"
+    "PLUS":"Plus",
+    "FILE":"Fichier",
+    "FILES":"Fichiers",
+    "FILE_OF":"Fichier de"
   },
   "statuts":{
     "-1":"Dépublié",
@@ -235,6 +239,7 @@
     "EXAMS":"Examens complémentaire/opérations",
     "OPERATIONS":"Opérations",
     "RADIO":"Radiographies",
-    "SCAN":"Scanners"
+    "SCAN":"Scanners",
+    "AVATAR":"Avatar"
   }
 }

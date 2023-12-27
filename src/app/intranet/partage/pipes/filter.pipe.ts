@@ -44,6 +44,7 @@ export class FormatDateToFrenchPipe implements PipeTransform {
     if (!date) {
       return ''; // Retourne tous les exercices si le filtre est vide
     }
-    return format(date, 'dd/MM/yyyy', { locale: fr });
+
+    return format(new Date(date), 'eeee dd/MM/yyyy à hh:mm', { locale: fr });
   }
 }

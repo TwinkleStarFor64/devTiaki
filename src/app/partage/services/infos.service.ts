@@ -17,7 +17,7 @@ export class InfosService {
    * @param http instance de la classe HttpClient
    */
   constructor(private http: HttpClient) {
-    this.getTraductions();
+    if(!this.infos) this.getTraductions();
   }
   /** Récupérer les actualités dans le fichier json local */
   getActus() {

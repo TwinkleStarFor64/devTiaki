@@ -1,0 +1,239 @@
+<header>
+<h2 *ngIf="cheri"><img [src]="cheri.avatar" alt="" class="avatar">{{ cheri.prenom }} {{ cheri.nom }}</h2>
+</header>
+<mat-tab-group>
+  <!-- PROFIL & PROGRESSIONS -->
+  <mat-tab [label]="l.t.profil['PROFIL'] + ' & ' +l.t.cheri['PROGRESSIONS']">
+    <h2>{{ l.t.profil['PROFIL'] + ' & ' +l.t.cheri['PROGRESSIONS'] }}</h2>
+  </mat-tab>
+  <!-- FORMLAIRE DE SANTE -->
+  <mat-tab [label]="l.t.profil['INFOS_SANTE']">
+    <h2>{{ l.t.profil['INFOS_SANTE'] }}</h2>
+    <section>
+        <!-- Premiére balise article - Partie gauche -->
+        <article>
+          <h3>{{ l.t.cheri['GEST'] }}<mat-icon>edit</mat-icon></h3>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_AGE_MOM'] }} *</mat-label>
+            <input matInput type="number" [placeholder]="l.t.cheri['GEST_AGE_MOM']" name="gestationAge">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_PATHO'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_PATHO']" name="gestationPatho">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_AL'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_AL']" name="gestationAllergies">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_FECON'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_FECON']" name="gestationFecondation">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_COND'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_COND']" name="gestationConditions">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_FECON'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_FECON']" name="gestationFecondation">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_ALIM'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_ALIM']" name="gestationAlim">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_EXAMS'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_EXAMS']" name="gestationAlim">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['GEST_SEMAINES'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['GEST_SEMAINES']" name="gestationSemaines">
+          </mat-form-field>
+        </article>
+        <article>
+          <h3>{{ l.t.cheri['ACC'] }}<mat-icon>edit</mat-icon></h3>
+          <fieldset>
+            <mat-checkbox name="accSemaines">{{ l.t.cheri['ACC_EPID'] }}</mat-checkbox>
+            <mat-checkbox name="accInduit">{{ l.t.cheri['ACC_INDUIT'] }}</mat-checkbox>
+          </fieldset>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['ACC_MATERIELS'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['ACC_MATERIELS']" name="accMatos">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['ACC_URGENCES'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['ACC_URGENCES']" name="accUrgences">
+          </mat-form-field>
+          </article>
+          <article>
+          <h3>{{ l.t.cheri['NE'] }}<mat-icon>edit</mat-icon></h3>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_POIDS'] }} *</mat-label>
+            <input matInput type="number" [placeholder]="l.t.cheri['NE_POIDS']" name="nePoids">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_TAILLE'] }} *</mat-label>
+            <input matInput type="number" [placeholder]="l.t.cheri['NE_TAILLE']" name="neTaille">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_CRANE'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_CRANE']" name="neCrane">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_CONTACT'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_CONTACT']" name="neContact">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_RESPIRE'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_RESPIRE']" name="neRespire">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_COUVEUSE'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_COUVEUSE']" name="neCouveuse">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_JAUNISSE'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_JAUNISSE']" name="neJaunisse">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['NE_LAIT'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['NE_LAIT']" name="neLait">
+          </mat-form-field>
+        </article>
+        <article>
+          <h3>{{ l.t.cheri['DEB'] }}<mat-icon>edit</mat-icon></h3>
+          <fieldset>
+            <mat-checkbox name="debLait">{{ l.t.cheri['DEB_LAIT'] }}</mat-checkbox>
+            <mat-checkbox name="debCol">{{ l.t.cheri['DEB_COL'] }}</mat-checkbox>
+          </fieldset>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['DEB_INTRO_ALIMS'] }} *</mat-label>
+            <input matInput type="date" [placeholder]="l.t.cheri['DEB_INTRO_ALIMS']" name="debAlim">
+          </mat-form-field>
+        </article>
+        <!-- Seconde balise article - Partie droite -->
+        <article>
+          <h3>{{ l.t.cheri['COND'] }}<mat-icon>edit</mat-icon></h3>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['COND_DIAG'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['COND_DIAG']" name="condDiag">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['COND_DIAG_DATE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['COND_DIAG_DATE']" name="condDiagDate">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['SYMPTOMES_AGE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['SYMPTOMES_AGE']" name="condSymptAge">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['SYMPTOMES_EXPL'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['SYMPTOMES_EXPL']" name="condSymptExplic">
+            </mat-form-field>
+            <mat-checkbox name="condEpilepsie">{{ l.t.cheri['EPILEPSIE'] }}</mat-checkbox>
+        </article>
+        <article>
+          <h3>{{ l.t.cheri['SUIVI'] }}<mat-icon>edit</mat-icon></h3>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['FREQUENCE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['FREQUENCE']" name="suivFreq">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['INTOLERANCES'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['INTOLERANCES']" name="suivInto">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['CARDIAQUE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['CARDIAQUE']" name="suiviCard">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['DEGLUTI'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['DEGLUTI']" name="suivDegluti">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['MASTIC'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['MASTIC']" name="suivMastic">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['REFLUX'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['REFLUX']" name="suivReflux">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['BRUXISME'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['BRUXISME']" name="suivBrux">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['BAVAGE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['BAVAGE']" name="suivBav">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['URO'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['URO']" name="suivUro">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['CIRCUL'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['CIRCUL']" name="suivCircul">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['ECZEMA'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['ECZEMA']" name="suivEczema">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ l.t.cheri['VUE'] }} *</mat-label>
+              <input matInput [placeholder]="l.t.cheri['VUE']" name="suivVue">
+            </mat-form-field>
+        </article>
+        <article>
+          <h3>{{ l.t.cheri['EXAMS'] }}<mat-icon>edit</mat-icon></h3>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['OPERATIONS'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['OPERATIONS']" name="examsOp">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['RADIO'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['RADIO']" name="examsRadio">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{ l.t.cheri['SCAN'] }} *</mat-label>
+            <input matInput [placeholder]="l.t.cheri['SCAN']" name="examsScans">
+          </mat-form-field>
+          <fieldset>
+            <button class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
+            <button class="bg-valide">{{ l.t.pages['SAVE'] }}</button>
+          </fieldset>
+        </article>
+    </section>
+  </mat-tab>
+  <!-- SYNTHESE DES PROBLEMES IDENTIFIES -->
+  <mat-tab [label]="l.t.profil['SYNTHESE']">
+    <section>
+      <h2>{{ l.t.profil['SYNTHESE'] }}</h2>
+    </section>
+  </mat-tab>
+<!--
+  <mat-tab [label]="l.t.profil['HISTORIQUE']">
+    <section>
+      <h2>{{ l.t.profil['HISTORIQUE'] }}</h2>
+    </section>
+  </mat-tab> -->
+</mat-tab-group>
+<footer>
+  <h2>{{ l.t.profil['ECOSYSTEME'] }}</h2>
+  <section>
+    <article>
+      <h3>{{ l.t.pages['CORPS_MEDICAL'] }}</h3>
+      <ul *ngIf="cheri.therapeutes">
+        <li *ngFor="let t of cheri.therapeutes"></li>
+      </ul>
+    </article>
+    <!-- <article>
+      <h3>{{ l.t.pages['COMMUNAUTE'] }}</h3>
+    </article> -->
+    <article>
+      <h3>{{ l.t.pages['RDV_NEXT'] }}</h3>
+      <ul *ngIf="cheri.therapeutes">
+        <li *ngFor="let t of cheri.therapeutes"></li>
+      </ul>
+    </article>
+  </section>
+</footer>

@@ -15,6 +15,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ArianeComponent } from '../intranet/template/ariane/ariane.component';
@@ -74,7 +75,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NoteComponent,
     MatTabsModule,
     MatStepperModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   imports: [
     CommonModule,
