@@ -5,7 +5,7 @@ import {
   TableauBordTherapeuteI,
   TableauBordProblemeI,
   TableauReussiteI
-} from '../partage/modeles/Types';
+} from 'src/app/partage/modeles/Types';
 import { TableauService } from './services/tableau.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 

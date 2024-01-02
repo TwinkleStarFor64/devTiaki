@@ -1,9 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PlatI } from 'src/app/intranet/partage/modeles/Types';
-import { DonneesService } from 'src/app/intranet/partage/services/donnees.service';
-import { EditService } from 'src/app/intranet/partage/services/edit.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { PlatI } from 'src/app/partage/modeles/Types';
 import { NutritionService } from '../../services/nutrition.service';
 
 @Component({

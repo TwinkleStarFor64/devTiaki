@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, PlatI } from '../../partage/modeles/Types';
+import { CiqualI, PlatI } from '../../../partage/modeles/Types';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { NutritionService } from '../services/nutrition.service';
-import { IngredientsPipe } from '../../partage/pipes/nutrition.pipe';
 import { InfosService } from 'src/app/partage/services/infos.service';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent

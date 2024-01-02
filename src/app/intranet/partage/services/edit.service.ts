@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {createClient, PostgrestSingleResponse, SupabaseClient} from '@supabase/supabase-js';
+import {createClient, SupabaseClient} from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { JournalI, MessageI } from '../modeles/Types';
+import { JournalI, MessageI } from '../../../partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CiqualI, PlatI } from '../modeles/Types';
+import { CiqualI, PlatI } from '../../../partage/modeles/Types';
 import { NutritionService } from '../../nutrition/services/nutrition.service';
 
 @Pipe({

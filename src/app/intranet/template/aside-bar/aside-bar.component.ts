@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AsideI } from 'src/app/intranet//partage/modeles/Types.js';
+import { AsideI } from 'src/app/partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 import { ConnexionService } from 'src/app/partage/services/connexion.service';
 
@@ -18,7 +18,9 @@ export class AsideBarComponent implements OnInit {
 
   constructor(public get:DonneesService, public conn:ConnexionService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.conn.getAuthSession();
+  }
   toggleNavbar() {
     this.navbarVisible = !this.navbarVisible;
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
+import { ExerciceI } from 'src/app/partage/modeles/Types';
 import { KineService } from '../services/kine.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 

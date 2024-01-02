@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccueilI } from '../partage/modeles/Types';
+import { AccueilI } from '../../partage/modeles/Types';
 import { DonneesService } from '../partage/services/donnees.service';
 
 @Component({

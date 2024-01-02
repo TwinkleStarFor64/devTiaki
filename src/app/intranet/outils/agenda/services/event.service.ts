@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CalendarEvent } from 'angular-calendar';
 import { AuthSession, createClient, SupabaseClient } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import { EventI } from 'src/app/intranet/partage/modeles/Types';
+import { EventI } from 'src/app/partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root'

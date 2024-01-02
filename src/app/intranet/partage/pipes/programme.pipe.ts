@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ExerciceI } from '../modeles/Types';
+import { ExerciceI } from '../../../partage/modeles/Types';
 import { UtilsService } from '../../../partage/services/utils.service';
 
 @Pipe({

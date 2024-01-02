@@ -33,4 +33,5 @@ export class UtilsService {
   flatEnfants(data: Array<any>, key: string) {
     return data.map(d => { if(d.hasOwnProperty(key)) return d = d[key] });
   }
+
 }

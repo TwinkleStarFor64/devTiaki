@@ -1,12 +1,273 @@
-<section id="main">
+<header>
+  <h2 *ngIf="get.profil"><img [src]="get.profil.infos.avatar" alt="" class="avatar">{{ get.profil.infos.prenom }} {{
+    get.profil.infos.nom }}</h2>
+</header>
+<mat-tab-group>
+  <!-- get.profil & PROGRESSIONS -->
+  <mat-tab [label]="l.t.profil['PROFIL']">
+    <section>
+      <h2>{{ l.t.profil['PROFIL'] }}</h2>
+      <article>
+        <img [src]="get.profil.infos.avatar" [alt]="l.t.profil['AVATAR']">
+        <ul>
+          <li>{{ get.profil.infos.nom }}</li>
+          <li>{{ get.profil.infos.prenom }}</li>
+          <li>{{ get.profil.infos.dateNaissance! | formatDateToFrench}}</li>
+        </ul>
+      </article>
+    </section>
+    <section>
+      <h3>{{ l.t.profil['CHERIS'] }}</h3>
+      <article *ngFor="let c of get.profil.cheris">
+        <h4>{{ c.prenom }} {{ c.nom }}</h4>
+        <p>{{ c.dateNaissance }}</p>
+        <div class="row">
+          <button [matTooltip]="l.t.profil['RGPD_SUPPR']" class="bg-delete"><mat-icon>data_thresholding</mat-icon></button>
+          <button [matTooltip]="l.t.profil['RGPD_SANTE_SUPPR']"
+            class="bg-delete"><mat-icon>heart_broken</mat-icon></button>
+        </div>
+      </article>
+    </section>
+  </mat-tab>
+  <!-- FORMLAIRE DE SANTE -->
+  <mat-tab [label]="l.t.profil['INFOS_SANTE']">
+    <section>
+      <h2>{{ l.t.profil['INFOS_SANTE'] }}</h2>
+      <!-- Premiére balise article - Partie gauche -->
+      <article>
+        <h3>{{ l.t.profil['GEST'] }}<mat-icon (click)="setEdition('gestation')">edit</mat-icon></h3>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_AGE_MOM'] }} *</mat-label>
+          <input matInput type="number" [placeholder]="l.t.profil['GEST_AGE_MOM']" name="gestationAge">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_PATHO'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_PATHO']" name="gestationPatho">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_AL'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_AL']" name="gestationAllergies">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_FECON'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_FECON']" name="gestationFecondation">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_COND'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_COND']" name="gestationConditions">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_FECON'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_FECON']" name="gestationFecondation">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_ALIM'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_ALIM']" name="gestationAlim">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_EXAMS'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_EXAMS']" name="gestationAlim">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['GEST_SEMAINES'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['GEST_SEMAINES']" name="gestationSemaines">
+        </mat-form-field>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['ACC'] }}<mat-icon>edit</mat-icon></h3>
+        <fieldset>
+          <mat-checkbox name="accSemaines">{{ l.t.profil['ACC_EPID'] }}</mat-checkbox>
+          <mat-checkbox name="accInduit">{{ l.t.profil['ACC_INDUIT'] }}</mat-checkbox>
+        </fieldset>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['ACC_MATERIELS'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['ACC_MATERIELS']" name="accMatos">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['ACC_URGENCES'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['ACC_URGENCES']" name="accUrgences">
+        </mat-form-field>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['NE'] }}<mat-icon>edit</mat-icon></h3>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_POIDS'] }} *</mat-label>
+          <input matInput type="number" [placeholder]="l.t.profil['NE_POIDS']" name="nePoids">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_TAILLE'] }} *</mat-label>
+          <input matInput type="number" [placeholder]="l.t.profil['NE_TAILLE']" name="neTaille">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_CRANE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_CRANE']" name="neCrane">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_CONTACT'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_CONTACT']" name="neContact">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_RESPIRE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_RESPIRE']" name="neRespire">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_COUVEUSE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_COUVEUSE']" name="neCouveuse">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_JAUNISSE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_JAUNISSE']" name="neJaunisse">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['NE_LAIT'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['NE_LAIT']" name="neLait">
+        </mat-form-field>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['DEB'] }}<mat-icon>edit</mat-icon></h3>
+        <fieldset>
+          <mat-checkbox name="debLait">{{ l.t.profil['DEB_LAIT'] }}</mat-checkbox>
+          <mat-checkbox name="debCol">{{ l.t.profil['DEB_COL'] }}</mat-checkbox>
+        </fieldset>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['DEB_INTRO_ALIMS'] }} *</mat-label>
+          <input matInput type="date" [placeholder]="l.t.profil['DEB_INTRO_ALIMS']" name="debAlim">
+        </mat-form-field>
+      </article>
 
-</section>
+    </section>
+    <section>
+      <!-- Seconde balise article - Partie droite -->
+      <article>
+        <h3>{{ l.t.profil['COND'] }}<mat-icon>edit</mat-icon></h3>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['COND_DIAG'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['COND_DIAG']" name="condDiag">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['COND_DIAG_DATE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['COND_DIAG_DATE']" name="condDiagDate">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['SYMPTOMES_AGE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['SYMPTOMES_AGE']" name="condSymptAge">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['SYMPTOMES_EXPL'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['SYMPTOMES_EXPL']" name="condSymptExplic">
+        </mat-form-field>
+        <mat-checkbox name="condEpilepsie">{{ l.t.profil['EPILEPSIE'] }}</mat-checkbox>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['SUIVI'] }}<mat-icon>edit</mat-icon></h3>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['FREQUENCE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['FREQUENCE']" name="suivFreq">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['INTOLERANCES'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['INTOLERANCES']" name="suivInto">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['CARDIAQUE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['CARDIAQUE']" name="suiviCard">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['DEGLUTI'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['DEGLUTI']" name="suivDegluti">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['MASTIC'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['MASTIC']" name="suivMastic">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['REFLUX'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['REFLUX']" name="suivReflux">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['BRUXISME'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['BRUXISME']" name="suivBrux">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['BAVAGE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['BAVAGE']" name="suivBav">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['URO'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['URO']" name="suivUro">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['CIRCUL'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['CIRCUL']" name="suivCircul">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['ECZEMA'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['ECZEMA']" name="suivEczema">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['VUE'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['VUE']" name="suivVue">
+        </mat-form-field>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['EXAMS'] }}<mat-icon>edit</mat-icon></h3>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['OPERATIONS'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['OPERATIONS']" name="examsOp">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['RADIO'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['RADIO']" name="examsRadio">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{ l.t.profil['SCAN'] }} *</mat-label>
+          <input matInput [placeholder]="l.t.profil['SCAN']" name="examsScans">
+        </mat-form-field>
+        <fieldset>
+          <button class="bg-annule">{{ l.t.pages['ANNULER'] }}</button>
+          <button class="bg-valide">{{ l.t.pages['SAVE'] }}</button>
+        </fieldset>
+      </article>
+    </section>
+  </mat-tab>
+  <!-- SYNTHESE DES PROBLEMES IDENTIFIES -->
+  <mat-tab [label]="l.t.profil['SYNTHESE']">
+    <section>
+      <h2>{{ l.t.profil['SYNTHESE'] }}</h2>
+      <article>
+        <h3>{{ l.t.profil['PB_NUTRI'] }}</h3>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['PB_OPTO'] }}</h3>
+      </article>
+      <article>
+        <h3>{{ l.t.profil['PB_KINE'] }}</h3>
+      </article>
+    </section>
+  </mat-tab>
+  <mat-tab [label]="l.t.pages['FILE_OF'] + ' ' + get.profil.infos.prenom">
+    <section>
+      <h2>{{ l.t.pages['FILE_OF'] + ' ' + get.profil.infos.prenom }}</h2>
+    </section>
+  </mat-tab>
+</mat-tab-group>
 <footer>
-  <article *ngFor="let liste of profil.bottomBarTableau">
-    <h5>{{ liste.titre }}</h5>
-    <ul>
-      <li>{{ liste.firstInfo }}</li>
-      <li>{{ liste.secondInfo }}</li>
-    </ul>
-  </article>
+  <h2>{{ l.t.profil['ECOSYSTEME'] }}</h2>
+  <section>
+    <article>
+      <h3>{{ l.t.pages['CORPS_MEDICAL'] }}</h3>
+      <ul *ngIf="get.profil.therapeutes">
+        <li *ngFor="let t of get.profil.therapeutes"></li>
+      </ul>
+    </article>
+    <!-- <article>
+      <h3>{{ l.t.pages['COMMUNAUTE'] }}</h3>
+    </article> -->
+    <article>
+      <h3>{{ l.t.pages['RDV_NEXT'] }}</h3>
+      <ul *ngIf="get.profil.therapeutes">
+        <li *ngFor="let t of get.profil.therapeutes"></li>
+      </ul>
+    </article>
+  </section>
 </footer>

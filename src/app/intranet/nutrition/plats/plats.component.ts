@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CiqualI, EvalI, PlatI } from '../../partage/modeles/Types';
+import { EvalI, PlatI } from '../../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 import { NutritionService } from '../services/nutrition.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
-import { UtilsService } from '../../../partage/services/utils.service';
 
 @Component({
   selector: 'app-plats',

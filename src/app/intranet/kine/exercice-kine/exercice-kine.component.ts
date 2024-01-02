@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
+import { ExerciceI } from 'src/app/partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
 import { InfosService } from 'src/app/partage/services/infos.service';

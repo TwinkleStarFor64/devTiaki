@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { EvalI } from '../../partage/modeles/Types';
+import { EvalI } from '../../../partage/modeles/Types';
 
 @Component({
   selector: 'app-eval',

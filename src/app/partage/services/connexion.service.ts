@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { InfosService } from './infos.service';
 import { Router } from '@angular/router';
 import { UtilsService } from './utils.service';
+import { AidantI } from 'src/app/partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,10 @@ export class ConnexionService {
   private supabase: SupabaseClient; // Instance du client Supabase
   _session: AuthSession | null = null; // Session d'authentification
   user: any;
+  profil!: AidantI;
 
   /**  */
-  constructor(private l: InfosService, private router: Router, private utils:UtilsService) {
+  constructor(private l: InfosService, private router: Router) {
     this.supabase = createClient(
       environment.supabaseUrl,
       environment.supabaseKey
@@ -36,7 +38,7 @@ export class ConnexionService {
         }
         console.log("Utilisateur connecté", res, res.data);
         this.connecte = true;
-        this.getProfilAidant();
+        this.router.navigateByUrl('/intranet');
       })
       .catch(er => this.l.erreur("Erreur dans l'authentification", er));
   }
@@ -74,40 +76,13 @@ export class ConnexionService {
     });
     return data;
   }
-  /** Récupérer les données du profil de la personne identifiée
-   * L'utilisation des alias permet d'identifier un tableau relié (ex. cheris) ou un enfant à aplatir dans la réponse
-  */
-  getProfilAidant() {
-    console.log("User id", this.user.id);
-    this.supabase.from('aidants')
-      // .select('*, enfant:utilisateurs(*), cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*, enfant:utilisateurs(*)))')
-      .select(`*,
-          infos:utilisateurs(*, roles:attribuerRoles!attribuerRoles_idUtilisateur_fkey(enfant:roles(role))),
-          cheris:attribuerCheris!attribuerCheris_idAidant_fkey(enfant:cheris(*))
-      `)
-      .eq('utilisateur', this.user.id)
-      .then(({data, error}) => {
-        this.user = this.utils.flatChilds(data as Array<any>, 'enfant')[0];
-        console.log("Données du profil récupéré", this.user);
-        this.setAuthSession(); // Sauvegarde de l'aidant dans la session
-        this.router.navigate(['/intranet']);
-        if (error) this.l.erreur("Erreur dans le chargement des données du profil", error);
-      });
-  }
-  // Récupérer les utilisateurs sur la table public.utilisateur
-  async getListeUtilisateurs() {
-    return await this.supabase
-    .from('utilisateur')
-    .select("*, roles:attribuerRole!inner(roles(role))")
-    // .select("*, roles:attribuerRoles!inner(id, roles!inner(role))")
-  }
   /** Sauvegarder l'utilisateur dans la session locale */
-  async setAuthSession(){
-    await sessionStorage.setItem('aidant', JSON.stringify(this.user));
+  setAuthSession() {
+    sessionStorage.setItem('aidant', JSON.stringify(this.user));
   }
   /** Récupérer l'utilisateur dans la session locale */
-  async getAuthSession(){
-    if(!this.user && await sessionStorage.getItem('aidant')){
+  async getAuthSession() {
+    if (!this.user && await sessionStorage.getItem('aidant')) {
       this.user = await JSON.parse(sessionStorage.getItem('aidant')!);
     }
   }

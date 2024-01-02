@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DonneesService } from '../../partage/services/donnees.service';
-import { NavI } from '../../partage/modeles/Types';
+import { NavI } from '../../../partage/modeles/Types';
 import { Router } from '@angular/router';
 
 @Component({

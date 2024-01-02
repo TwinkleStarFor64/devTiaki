@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CiqualI, MenuI, PlatI, ExoPogrammeI } from '../../partage/modeles/Types';
+import { CiqualI, MenuI, PlatI, ExoPogrammeI } from '../../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { UtilsService } from '../../../partage/services/utils.service';

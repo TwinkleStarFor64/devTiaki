@@ -2,9 +2,9 @@
   <mat-icon>menu</mat-icon>
 </button>
 <section [class.active]="navbarVisible">
-  <nav class="bg-admin" *ngIf="conn.user">
+  <nav class="bg-admin" *ngIf="get.profil">
     <ul>
-      <li *ngFor="let cheri of conn.user.cheris; let i = index">
+      <li *ngFor="let cheri of get.profil.cheris; let i = index">
         <a [routerLink]="['/intranet/cheri', i]" [title]="cheri.prenom" *ngIf="cheri.avatar">
           <img [src]="cheri.avatar" [alt]="" />
           <span>{{ cheri.prenom }}</span>

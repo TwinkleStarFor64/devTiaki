@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ExerciceI } from '../../partage/modeles/Types';
+import { ExerciceI } from '../../../partage/modeles/Types';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 

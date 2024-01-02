@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ExerciceI } from 'src/app/intranet/partage/modeles/Types';
+import { ExerciceI } from 'src/app/partage/modeles/Types';
 
 @Component({
   selector: 'app-modal-ex-kine',

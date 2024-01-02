@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
+import { ExerciceI } from 'src/app/partage/modeles/Types';
 
 @Component({
   selector: 'app-progression-opto',

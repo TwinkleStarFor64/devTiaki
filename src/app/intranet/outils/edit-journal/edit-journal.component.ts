@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RealisationI } from '../../partage/modeles/Types';
+import { RealisationI } from '../../../partage/modeles/Types';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DonneesService } from '../../partage/services/donnees.service';

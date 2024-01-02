@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RealisationI, MessageJournalI } from 'src/app/intranet/partage/modeles/Types';
+import { RealisationI, MessageJournalI } from 'src/app/partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 import { EditService } from '../../partage/services/edit.service';
 

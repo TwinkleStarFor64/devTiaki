@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CalendarEvent, CalendarEventAction, CalendarView, DateAdapter } from 'angular-calendar';
 import { format, isSameDay, isSameMonth, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
-import { EventI, MenuI, PlatI } from '../../partage/modeles/Types';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventI, MenuI, PlatI } from 'src/app/partage/modeles/Types';
+import { FormGroup } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CheckJournalComponent } from '../../nutrition/dialog/check-journal/check-journal.component';

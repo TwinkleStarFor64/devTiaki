@@ -18,11 +18,19 @@
     <section>
       <article>
         <h3>{{ l.t.kine['KINE'] }}</h3>
-        <mat-progress-spinner color="accent" mode="determinate" [value]="60"></mat-progress-spinner>
+        <ul>
+          <li>
+            <mat-progress-spinner color="accent" mode="determinate" [value]="60"></mat-progress-spinner>
+          </li>
+        </ul>
       </article>
       <article>
         <h3>{{ l.t.opto['OPTO'] }}</h3>
-        <mat-progress-spinner color="accent" mode="determinate" [value]="40"></mat-progress-spinner>
+        <ul>
+          <li>
+            <mat-progress-spinner color="accent" mode="determinate" [value]="40"></mat-progress-spinner>
+          </li>
+        </ul>
       </article>
     </section>
   </mat-tab>
@@ -32,7 +40,7 @@
       <h2>{{ l.t.profil['INFOS_SANTE'] }}</h2>
       <!-- Premiére balise article - Partie gauche -->
       <article>
-        <h3>{{ l.t.cheri['GEST'] }}<mat-icon>edit</mat-icon></h3>
+        <h3>{{ l.t.cheri['GEST'] }}<mat-icon (click)="setEdition('gestation')">edit</mat-icon></h3>
         <mat-form-field>
           <mat-label>{{ l.t.cheri['GEST_AGE_MOM'] }} *</mat-label>
           <input matInput type="number" [placeholder]="l.t.cheri['GEST_AGE_MOM']" name="gestationAge">
@@ -231,6 +239,15 @@
   <mat-tab [label]="l.t.profil['SYNTHESE']">
     <section>
       <h2>{{ l.t.profil['SYNTHESE'] }}</h2>
+      <article>
+        <h3>{{ l.t.cheri['PB_NUTRI']  }}</h3>
+      </article>
+      <article>
+        <h3>{{ l.t.cheri['PB_OPTO']  }}</h3>
+      </article>
+      <article>
+        <h3>{{ l.t.cheri['PB_KINE']  }}</h3>
+      </article>
     </section>
   </mat-tab>
   <mat-tab [label]="l.t.pages['FILE_OF'] + ' ' + cheri.prenom">
@@ -238,12 +255,6 @@
       <h2>{{ l.t.pages['FILE_OF'] + ' ' + cheri.prenom }}</h2>
     </section>
   </mat-tab>
-  <!--
-  <mat-tab [label]="l.t.profil['HISTORIQUE']">
-    <section>
-      <h2>{{ l.t.profil['HISTORIQUE'] }}</h2>
-    </section>
-  </mat-tab> -->
 </mat-tab-group>
 <footer>
   <h2>{{ l.t.profil['ECOSYSTEME'] }}</h2>

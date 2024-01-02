@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { InfosService } from 'src/app/partage/services/infos.service';
 import { DonneesService } from '../../partage/services/donnees.service';
-import { ParamI, ParamsI } from '../../partage/modeles/Types';
+import { ParamI, ParamsI } from '../../../partage/modeles/Types';
 
 @Component({
   selector: 'app-parametre',

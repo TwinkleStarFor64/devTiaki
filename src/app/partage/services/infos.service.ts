@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActualiteI } from '../modeles/types';
-import { ConnexionService } from './connexion.service';
+import { ActualiteI } from 'src/app/partage/modeles/Types';
 
 @Injectable({
   providedIn: 'root'

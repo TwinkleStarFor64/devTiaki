@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EvalI, MenuI } from '../../partage/modeles/Types';
+import { EvalI, MenuI } from '../../../partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 import { InfosService } from 'src/app/partage/services/infos.service';

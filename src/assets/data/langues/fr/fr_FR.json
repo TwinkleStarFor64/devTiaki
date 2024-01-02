@@ -93,7 +93,7 @@
     "PLUS":"Plus",
     "FILE":"Fichier",
     "FILES":"Fichiers",
-    "FILE_OF":"Fichier de"
+    "FILE_OF":"Fichiers de"
   },
   "statuts":{
     "-1":"Dépublié",
@@ -178,10 +178,13 @@
   },
   "profil":{
     "PROFIL":"Profil",
-    "HISTORIQUE":"Historique des réalisations",
     "INFOS_SANTE":"Informations de santé",
     "SYNTHESE":"Synthèse des problèmes identifiés",
-    "ECOSYSTEME":"Son écosystème de santé"
+    "ECOSYSTEME":"Son écosystème de santé",
+    "RGPD":"Données personnelles et de santé",
+    "RGPD_SUPPR":"Supprimer les données personnelles",
+    "RGPD_SANTE_SUPPR":"Supprimer les données de santé",
+    "CHERIS":"Les personnes que je suis"
   },
   "cheri":{
     "PROGRESSIONS":"Progressions",
@@ -240,6 +243,10 @@
     "OPERATIONS":"Opérations",
     "RADIO":"Radiographies",
     "SCAN":"Scanners",
-    "AVATAR":"Avatar"
+    "AVATAR":"Avatar",
+    "PB":"Problèmes",
+    "PB_NUTRI":"Problèmes nutritionnels",
+    "PB_OPTO":"Problèmes optométriques",
+    "PB_KINE":"Problèmes de kiné"
   }
 }

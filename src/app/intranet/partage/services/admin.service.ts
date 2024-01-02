@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
-import {createClient, PostgrestSingleResponse, SupabaseClient} from '@supabase/supabase-js';
-import { environment } from 'src/environments/environment';
+import { PostgrestSingleResponse} from '@supabase/supabase-js';
+import { AidantI } from 'src/app/partage/modeles/Types';
+import { DonneesService } from './donnees.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-  private supabase: SupabaseClient; // Instance du client Supabase
+  profil!:AidantI;
 
-  constructor() {
-    this.supabase = createClient(environment.supabaseUrl,environment.supabaseKey);
+  constructor(private get:DonneesService) {
   }
-
   /**
    * Supprimer un menu
    * @param id Id du menu à supprimer
    */
   async deleteMenu(id: number) {
-    const { error: deleteError } = await this.supabase
+    const { error: deleteError } = await this.get.supa
       .from('repas')
       .delete()
       .eq('id', id);
@@ -31,7 +30,7 @@ export class AdminService {
    * @param id Id du plat à supprimer
    */
   async deletePlat(id: number) {
-    const { error: deleteError } = await this.supabase
+    const { error: deleteError } = await this.get.supa
       .from('plats')
       .delete()
       .eq('id', id);
@@ -44,7 +43,7 @@ export class AdminService {
    * @param id {number} Id du journal
   */
   async deleteJournal(id: number): Promise<PostgrestSingleResponse<any>> {
-    const { data: journalData, error: journalError } = await this.supabase
+    const { data: journalData, error: journalError } = await this.get.supa
       .from('journalEvenement') // La table journalEvenement
       .select('groupeEvenement') // Je select la colone groupeEvenement
       .eq('id', id) // L'id de la colone journalEvenement correspond à mon paramétre ID
@@ -58,14 +57,14 @@ export class AdminService {
      * Récupérer le journaux en lien avec l'ID journalData.groupeEvenement
      */
     const { data: linkedJournalsData, error: linkedJournalsError } =
-      await this.supabase
+      await this.get.supa
         .from('journalEvenement')
         .select('id')
         .eq('groupeEvenement', journalData?.groupeEvenement);
 
     /** Suppression du groupe si le journal supprimé était le seul présent dans le groupe */
     if (linkedJournalsData && linkedJournalsData.length === 1) {
-      const { error: groupError } = await this.supabase
+      const { error: groupError } = await this.get.supa
         .from('groupeEvenement')
         .delete()
         .eq('id', journalData?.groupeEvenement); // L'id de la colone groupeEvenement correspond à l'id récupérer au dessus - stocker dans journalData.groupeEvenement
@@ -75,6 +74,6 @@ export class AdminService {
       }
     }
 
-    return await this.supabase.from('journalEvenement').delete().eq('id', id);
+    return await this.get.supa.from('journalEvenement').delete().eq('id', id);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI, ExoPogrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ExoPogrammeI } from '../../../partage/modeles/Types';
 import { KineService } from '../services/kine.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 

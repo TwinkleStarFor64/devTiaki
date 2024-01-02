@@ -2,7 +2,6 @@ import { Injectable, NgModule } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { JournalComponent } from './journal/journal.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
-import { ProfilComponent } from './profil/profil.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { DeleteComponent } from './dialog/delete/delete.component';
 import { JournalPipe } from '../partage/pipes/journal.pipe';
@@ -33,7 +32,6 @@ class CustomDateFormatter extends CalendarNativeDateFormatter {
   declarations: [
     JournalComponent,
     MessagerieComponent,
-    ProfilComponent,
     ParametreComponent,
     DeleteComponent,
     EditJournalComponent,

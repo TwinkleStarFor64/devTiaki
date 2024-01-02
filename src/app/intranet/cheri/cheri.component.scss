@@ -12,10 +12,17 @@ mat-tab-group {
 mat-form-field{
   margin:10px;
 }
+mat-progress-spinner{
+  max-width: 50px;
+}
 section {
   flex-flow: column nowrap;
   padding:10px 20px;
   width:50%;
+}
+li{
+  display: flex;
+  flex-flow:row wrap;
 }
 article{
   flex-flow:row wrap;

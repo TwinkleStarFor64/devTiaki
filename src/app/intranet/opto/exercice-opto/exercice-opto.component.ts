@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/partage/modeles/Types.js';
-import { FormControl } from '@angular/forms';
+import { ExerciceI } from 'src/app/partage/modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';
 import { OptoService } from '../services/opto.service';
 import { InfosService } from 'src/app/partage/services/infos.service';

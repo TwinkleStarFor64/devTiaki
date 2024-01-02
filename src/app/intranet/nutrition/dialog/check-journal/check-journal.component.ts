@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { CiqualI, MenuI, PlatI } from 'src/app/intranet/partage/modeles/Types';
+import { CiqualI, MenuI, PlatI } from 'src/app/partage/modeles/Types';
 
 @Component({
   selector: 'app-check-journal',

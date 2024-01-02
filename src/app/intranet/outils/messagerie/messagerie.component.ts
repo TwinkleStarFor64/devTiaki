@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RealisationI } from '../../partage/modeles/Types';
+import { RealisationI } from '../../../partage/modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from '../../partage/services/edit.service';

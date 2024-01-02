@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ExerciceI, ExoPogrammeI } from '../../partage/modeles/Types';
+import { ExerciceI, ExoPogrammeI } from '../../../partage/modeles/Types';
 import { DonneesService } from '../../partage/services/donnees.service';
 
 @Injectable({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UtilisateurI } from 'src/app/intranet/partage/modeles/Types';
+import { UtilisateurI } from 'src/app/partage/modeles/Types';
 import { ConnexionService } from 'src/app/partage/services/connexion.service';
 import { InfosService } from 'src/app/partage/services/infos.service';
 

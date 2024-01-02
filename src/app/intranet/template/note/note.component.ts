@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
 import { InfosService } from 'src/app/partage/services/infos.service';
-import { NoteI } from '../../partage/modeles/Types';
+import { NoteI } from '../../../partage/modeles/Types';
 
 @Component({
   selector: 'app-note',
