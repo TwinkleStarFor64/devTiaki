@@ -6,20 +6,21 @@ import { CheriService } from './cheri.service';
 import { ConnexionService } from 'src/app/partage/services/connexion.service';
 import { CommonModule } from '@angular/common';
 import { CheriI } from 'src/app/partage/modeles/Types';
+import { DonneesService } from '../partage/services/donnees.service';
 
 @Component({
   selector: 'app-cheri',
   templateUrl: './cheri.component.html',
   styleUrls: ['./cheri.component.scss'],
   standalone: true,
-  providers: [CheriService, InfosService],
+  providers: [CheriService, InfosService, DonneesService],
   imports: [CommonModule, SharedModule]
 })
 export class CheriComponent implements OnInit {
 
   l: InfosService = inject(InfosService);
-  get: CheriService = inject(CheriService);
-  conn: ConnexionService = inject(ConnexionService);
+  serv: CheriService = inject(CheriService);
+  get:DonneesService = inject(DonneesService);
   route: ActivatedRoute = inject(ActivatedRoute);
   router: Router = inject(Router);
 
@@ -30,7 +31,7 @@ export class CheriComponent implements OnInit {
 
   ngOnInit(): void {
     this.setCheri(this.route.snapshot.params['id']);
-    console.log(this.cheri, this.conn.user);
+    console.log(this.cheri, this.get.profil);
     // Ecouteur pour le cas ou on changerait de route en passant d'un chéri à l'autre
     this.router.events.subscribe({
       next: (r) => {
@@ -49,8 +50,8 @@ export class CheriComponent implements OnInit {
    */
   setCheri(index: number) {
     this.id = index;
-    this.cheri = this.conn.user.cheris[this.id];
-    this.get.getInfosCheri();
+    this.cheri = this.get.profil.cheris[this.id];
+    this.serv.getInfosCheri();
   }
   /**
    * Mettre à jour des données

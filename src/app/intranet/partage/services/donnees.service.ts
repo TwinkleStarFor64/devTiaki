@@ -35,7 +35,6 @@ export class DonneesService {
    * L'utilisation des alias permet d'identifier un tableau relié (ex. cheris) ou un enfant à aplatir dans la réponse
   */
   getProfilAidant() {
-    console.log("User id", this.conn.user.id);
     if (!sessionStorage.getItem('profil')) {
       this.supa.from('aidants')
         .select(`*,
@@ -51,6 +50,7 @@ export class DonneesService {
         });
     } else {
       this.profil = this.l.getSession('profil');
+      console.log("Profil de la session", this.profil);
     }
   }
   // Récupérer les utilisateurs sur la table public.utilisateur
@@ -83,8 +83,7 @@ export class DonneesService {
     } else {
       this.sousMenu = this.listeSousMenus[id];
     };
-    // Enchainer en récupérant les thérapeutes
-    // this.getTherapeutes();
+    console.log("SOus menus appelés");
     this.getProfilAidant();
   }
   /** Appeler la liste des journaux */

@@ -260,16 +260,13 @@
   <h2>{{ l.t.profil['ECOSYSTEME'] }}</h2>
   <section>
     <article>
-      <h3>{{ l.t.pages['CORPS_MEDICAL'] }}</h3>
+      <h3><mat-icon>health_and_safety</mat-icon>{{ l.t.cheri['THERAPEUTES'] }}</h3>
       <ul *ngIf="cheri.therapeutes">
         <li *ngFor="let t of cheri.therapeutes"></li>
       </ul>
     </article>
-    <!-- <article>
-      <h3>{{ l.t.pages['COMMUNAUTE'] }}</h3>
-    </article> -->
     <article>
-      <h3>{{ l.t.pages['RDV_NEXT'] }}</h3>
+      <h3><mat-icon>calendar_month</mat-icon>{{ l.t.pages['RDV_NEXT'] }}</h3>
       <ul *ngIf="cheri.therapeutes">
         <li *ngFor="let t of cheri.therapeutes"></li>
       </ul>
