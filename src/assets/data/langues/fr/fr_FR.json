@@ -155,7 +155,13 @@
     "DEJ":"Déjeuner",
     "GOUTER":"Goûter",
     "APERO":"Apéritif",
-    "DINER":"Diner"
+    "DINER":"Diner",
+    "PROGRAMMES":[
+      {"id":0, "slug":"diabete","titre":"Diabète"},
+      {"id":0, "slug":"diabete","titre":"Diabète"},
+      {"id":0, "slug":"diabete","titre":"Diabète"},
+      {"id":0, "slug":"diabete","titre":"Diabète"}
+    ]
   },
   "opto":{
     "OPTO":"Optométrie",

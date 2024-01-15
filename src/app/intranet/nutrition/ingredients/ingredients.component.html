@@ -34,7 +34,7 @@
     </article>
     <article *ngIf="selectedIngredient.alim_code != -1">
       <header>
-        <h2>{{ selectedIngredient.alim_nom_fr}}</h2>
+        <h2>{{ selectedIngredient.alim_nom_fr }} ({{ selectedIngredient.alim_code }})</h2>
         <p>Cet ingrédient est mal supporté <mat-checkbox>{{ l.t.nutrition['INGREDIENT_MAL'] }}</mat-checkbox></p>
       </header>
         <h3>Valeurs et compositions</h3>
