@@ -6,7 +6,7 @@ import { HistoriqueComponent } from './historique/historique.component';
 import { MessagerieComponent } from './messagerie/messagerie.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -22,34 +22,26 @@ import { MatOptionModule } from '@angular/material/core';
 
 
 
-@NgModule({
-  declarations: [
-    JournalComponent,
-    HistoriqueComponent,
-    MessagerieComponent,
-    ProfilComponent,
-    ParametreComponent,
-    DeleteComponent,
-    EditJournalComponent, 
-    JournalPipe    
-        
-  ],
-  imports: [
-    CommonModule,
-    OutilsRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatIconModule,
-    FormsModule,
-    NgxMatSelectSearchModule,
-    MatOptionModule
-    
-  ],
-  entryComponents: [DeleteComponent],
-})
+@NgModule({ declarations: [
+        JournalComponent,
+        HistoriqueComponent,
+        MessagerieComponent,
+        ProfilComponent,
+        ParametreComponent,
+        DeleteComponent,
+        EditJournalComponent,
+        JournalPipe
+    ],
+    entryComponents: [DeleteComponent], imports: [CommonModule,
+        OutilsRoutingModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatIconModule,
+        FormsModule,
+        NgxMatSelectSearchModule,
+        MatOptionModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class OutilsModule {}
