@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
 import { CiqualI, EvaluationI, MesMenusI } from '../../utils/modeles/Types';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
@@ -38,7 +38,7 @@ export class MenusComponent implements OnInit {
     //this.menuService.getMesMenus();
     this.fetchMenus();
     this.fetchCiqual();
-    this.fetchEvaluation();    
+    this.fetchEvaluation();
   } // <----- Fin du ngOnInit()
 
   async fetchMenus() {
@@ -208,7 +208,7 @@ export class MenusComponent implements OnInit {
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
 
-  
+
 }
 
 
@@ -251,7 +251,7 @@ export class MenusComponent implements OnInit {
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
         ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
       }));
-      console.log(this.aliment.map((item) => item['Protéines, N x 6.25 (g/100 g)']));           
+      console.log(this.aliment.map((item) => item['Protéines, N x 6.25 (g/100 g)']));
     }
     if (groupError) {
       console.log(groupError);

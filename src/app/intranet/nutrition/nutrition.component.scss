@@ -9,39 +9,4 @@ $clair: white;
 $sombre: black;
 
 $head: 60px; // Hauteur de l'entête des pages
-$foot: 150px; // Hauteur des menus du bas  
-
-
-section {
-  flex-flow: column nowrap;
-  height: calc(100vh - $foot);
-
-  #head {
-    flex-flow: column nowrap;
-  }
-
-  #head>p {
-    color: $card-kine;
-    font-size: 3rem;
-    font-weight: 300;
-    @media screen and (max-width: 480px) {
-      display: none;
-  }
-  }
-
-  #head>a:nth-child(1) {
-    color: $card-kine;
-  }
-}
-#accueil>#head>p{
-  color: $card-nutri;
-}
-
-#accueil>section:nth-child(2)>article{
-  background-color: $card-nutri;
-
-    button {
-      color: $card-nutri;
-      border-color: $card-nutri;
-    }
-}
+$foot: 150px; // Hauteur des menus du bas

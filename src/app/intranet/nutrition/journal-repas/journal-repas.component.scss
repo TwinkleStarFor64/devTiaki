@@ -217,19 +217,11 @@ section {
         justify-content: space-around;
         align-items: center;
         height: 10vh;
-        span:nth-child(1) {
-          button {
-            
-          }
-        }
+        
         p { // La date en texte
           font-size: 1.5rem;
         }
-        span:nth-child(2) {
-          button {
-            
-          }
-        }
+        
       }  
   
       div:nth-child(2) { // La div contenant le calendrier
@@ -273,12 +265,13 @@ section {
     } //<------- Fin du premier article
 
     #interface { // L'article contenant l'interface d'ajout
-      height: 60vh;
+      height: 64vh;
       width: 25vw;
       margin-top: 7vh;
       display: flex;
       flex-direction: column;
-      //background-color: #ffffff;
+      overflow-y: auto;
+      padding-right: 20px;
       h1 { // La balise <h1> Renseigner votre journal des repas
         font-weight: 500;
         font-size: 1.3rem;

@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600;800&display=swap');
-@import "../node_modules/angular-calendar/css/angular-calendar.css"; // Pour Angular Calendar
-
+/** Variables SCSS */
 $font-family: 'Raleway', sans-serif;
 $card-nutri: #D9042B;
 $card-kine: #F22F1D;
@@ -16,15 +14,120 @@ $head: 60px; // Hauteur de l'entête des pages
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
 
+/** BALISES GENERIQUES HTML */
+html,
+body {
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('./assets/images/bg/bg.svg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: $font-family;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main,
+section,
+article,
+header,
+footer {
+  display: flex;
+}
+main{
+  width:100vw;
+  height:100vh;
+}
+a {
+  text-decoration: none;
+  color: $aside-color1;
+  transition:all .3s ease;
+}
+a:hover{
+  font-weight: 600;
+  color: $aside-color2;
+}
+button{
+  padding:25px 20px;
+  border:none;
+  transition:all .3s ease;
+  cursor: pointer;
+  font-weight:600;
+  width: fit-content;
+  background-color:$clair;
+  color:$aside-color1;
+  font-size: 16px;
+}
+button:hover{
+  background-color: $aside-color3;
+  color: $aside-color1;
+  transform: scale(1.1);
+}
+/** CLASSES GENERIQUES */
+.logo{
+  width:150px;
+}
+.ariane{
+  display:flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  color: $aside-color2;
+  height:$head;
+}
+.ariane h1, .ariane h2{
+  font-weight: 100;
+  margin-left:20px;
+}
+.ariane h2:before{
+  content:'...... '
+}
+.ariane h2:after{
+  content:' ......'
+}
+/** CLASSES POUR LES COULEURS DE LA CHARTE GRAPHIQUE */
+.bg-nutrition{
+  color:$clair;
+  background-color: $card-nutri;
+}
+.bg-opto{
+  color:$clair;
+  background-color: $card-opto;
+}
+.bg-kine{
+  color:$clair;
+  background-color: $card-kine;
+}
+.bg-admin{
+  color:$clair;
+  background-color: $aside-color1;
+}
+.nutrition{
+  color: $card-nutri;
+}
+.opto{
+  color:$card-opto
+}
+.kine{
+  color:$card-kine;
+}
+/** COMPOSANTS */
 .cal-event-title { // Le texte dans le calendrier
-  color: #ffffff;
+  color: $clair;
 }
 // L'affichage des events dans la vue calendrier mois (dans la barre grise après un clic sur le jour)
 mwl-calendar-open-day-events {
   div {
     div {
       display: flex;
-      flex-direction: row;  
+      flex-direction: row;
       //align-items: center;
       gap: 1vw;
     }
@@ -32,8 +135,8 @@ mwl-calendar-open-day-events {
 }
 
 // Le label 'Éléments par page :' de mat-paginator
-.mat-mdc-paginator-page-size {  
-    display: none!important;  
+.mat-mdc-paginator-page-size {
+    display: none!important;
 }
 // Le label 'x sur x' de mat-paginator
 .mat-mdc-paginator-range-label {
@@ -58,7 +161,7 @@ mwl-calendar-open-day-events {
 // Pour le label dans les 3 balises (Vos menus - les menus de la communauté - allergie d'émilie et toutes les balises mat-select suivantes)
 .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
   @media screen and (max-width: 480px) {
-    top: 50%; // Pour positionner le label au milieu du select    
+    top: 50%; // Pour positionner le label au milieu du select
   }
 }
 
@@ -66,166 +169,92 @@ mwl-calendar-open-day-events {
 #textarea {
   .mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
     @media screen and (max-width: 480px) {
-      top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)  
+      top: 28px; // Pour positionner le label à sa valeur initial (Pas 50% comme au dessus)
     }
   }
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  border-spacing: 0;
-  margin: 0;
-  padding: 0;
-  background: url('./assets/imgAsidebar/BgVector2.svg'), rgba(242, 183, 5, 0.1);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  min-height: 100vh;
-  border-spacing: 0;
-}
-
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-}
-
-body {
-  margin: 0;
-  font-family: $font-family;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-main,
-section,
-article,
-header,
-footer {
-  display: flex;
-
-}
-
-a {
-  text-decoration: none;
-  color: $aside-color1;
-}
-
 // AFFICHAGE PAGE DE CONNEXION
-#actualites {
-  height: 100vh;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: space-around;
+// #actualites {
+//   height: 100vh;
+//   width: 100%;
+//   flex-direction: column;
+//   align-items: center;
+//   text-align: center;
+//   justify-content: space-around;
 
+// }
+
+// #actualites>article:nth-child(1) {
+//   width: 100%;
+//   justify-content: space-around;
+
+//   img {
+//     width: 10vw;
+//   }
+
+//   h2 {
+//     font-size: 2rem;
+//     font-weight: 400;
+//     color: $aside-color1;
+//   }
+// }
+
+// #actualites>article:nth-child(n+2) {
+//   flex-direction: column;
+
+//   h3 {
+//     color: $aside-color2;
+//     font-weight: 400;
+//     font-size: 1.5rem;
+//     margin: 0;
+//   }
+
+//   img {
+//     width: 20vw;
+//   }
+// }
+
+/** ------------------------------------------------------
+// COMPOSANT ACCUEIL DE L'INTRANET
+*/
+// app-intranet > main > router-outlet > *{
+
+// }
+app-accueil {
+  height: 100vh;
+  flex-direction: column;
 }
 
-#actualites>article:nth-child(1) {
-  width: 100%;
-  justify-content: space-around;
+// Les 3 Cartes
+section.accueil {
+  flex-direction: row;
+  height: calc(100vh - $head);
+}
 
-  img {
-    width: 10vw;
-  }
+article.cartel {
+  margin: auto 2% 0;
+  flex-direction: column;
+  text-align: center;
+  color: $clair;
+  transition: all .3s ease;
+  height: 75%;
+  flex: 1 1 0px;
+  overflow: hidden;
+  justify-content: space-between;
 
   h2 {
     font-size: 2rem;
-    font-weight: 400;
-    color: $aside-color1;
   }
-}
-
-#actualites>article:nth-child(n+2) {
-  flex-direction: column;
-
-  h3 {
-    color: $aside-color2;
-    font-weight: 400;
-    font-size: 1.5rem;
-    margin: 0;
+  p {
+    padding: 15px;
   }
-
-  img {
-    width: 20vw;
-  }
-}
-
-// ------------------------------------------------------
-// Affichage page d'accueil
-#accueil {
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;
-}
-
-// Titre et description
-#accueil>#head-accueil {
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
-  color: $aside-color2;
-  // margin: 50px;
-}
-
-#accueil>#head-accueil>div {
-  display: flex;
-  align-items: flex-end;
 
   a {
-    margin: 0;
-    color: $card-nutri ;
-    font-size: 3rem;
-    font-weight: 100;
-    font-style: normal;
-  }
-
-  p {
-    font-size: 1rem;
-    text-align: center;
-  }
-}
-
-#accueil>article>div::before {
-  content: ".........";
-}
-
-#accueil>article>div::after {
-  content: ".........";
-}
-
-#accueil>article>p {
-  font-size: 2.2rem;
-}
-
-// Les 3 Cartes 
-
-#accueil>section:nth-child(2) {
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-  height: 100%;
-}
-
-#accueil>section:nth-child(2)>article {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  transition: transform 250ms;
-  height: 75%;
-  width: 22%;
-
-  &:hover {
-    transform: translateY(-3vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &:nth-child(1) {
@@ -233,7 +262,6 @@ a {
 
     button {
       color: $card-opto;
-      border-color: $card-opto;
     }
   }
 
@@ -242,7 +270,6 @@ a {
 
     button {
       color: $card-nutri;
-      border-color: $card-nutri;
     }
   }
 
@@ -251,7 +278,6 @@ a {
 
     button {
       color: $card-kine;
-      border-color: $card-kine ;
     }
   }
 
@@ -260,288 +286,204 @@ a {
 
     button {
       color: $aside-color3;
-      border-color: $aside-color3 ;
     }
   }
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 500;
+  & > div{
+    height:66%;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    padding:20px;
+    transition:all .3s ease;
   }
-
-  p {
-    font-size: 2.2vh;
-    font-weight: 400;
-    margin: 15px;
+  & > div > *{
+    margin:0 auto;
   }
-
+  figure{
+    margin:0 -20px -20px;
+    padding:0;
+    border-top-left-radius:70%;
+    border-top-right-radius: 50%;
+    height:34%;
+    overflow: hidden;
+    transition:all .5s ease;
+  }
+  figure > div{
+    width:100%;
+    height:100%;
+    margin:0 -20px -20px;
+    // background-position:0 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   a {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-
-    button {
-      background-color: #ffffff;
-      width: 10vw;
-      height: 8vh;
-      margin-bottom: 1vw;
-      font-weight: bolder;
-      font-size: 1vw;
-      cursor: pointer;
-    }
 
     img {
       width: 100%;
     }
-
+    button:hover{
+      background-color: $clair;
+    }
     &:nth-child(2) {
       color: $card-nutri;
     }
   }
+  // Animation sur le hover
+  &:hover {
+    padding:30px 50px 0;
+    transform: scale(1.1);
+  }
+  &:hover > div {
+    height:50%;
+    padding-bottom:40px;
+  }
+  &:hover > figure {
+    margin:0 -70px 0;
+    border-radius: 0;
+    height:50%;
+  }
 
 }
 
-
-#accueil>section:nth-child(2)>article {
-  justify-content: space-between;
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-    margin: 15px;
-  }
-
-  a {
-    display: flex;
+@media screen and (max-width: 960px) {
+  section.accueil {
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
   }
-}
+  article.cartel {
+    flex-direction: row;
+    margin:0;
 
-@media screen and (max-width: 1200px) {
-  #accueil>section:nth-child(2)>article {
-    height: 60%;
-
-    h2 {
-      font-size: 1.5rem;
+    &:hover {
+      padding:0;
+      transform: scale(1);
     }
-
-    p {
-      font-size: 1rem;
+    &:hover > div {
+      height:100%;
+      padding-bottom:0;
     }
-  }
-}
-
-// Media query pour les écrans de taille moyenne
-@media screen and (max-width: 912px) and (min-height:928px) {
-  #accueil>#head-accueil {
-    height: 30%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #accueil>section:nth-child(2) {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    gap: 10vw;
-  }
-
-  #accueil>section:nth-child(2)>article {
-    height: 95%;
-    width: 70%;
-    cursor: pointer;
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
-      }
-
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(10%);
-      }
+    &:hover > figure {
+      margin:0 -70px 0;
+      border-radius: 0;
+      height:100%;
     }
   }
-}
-
-
-
-@media (max-width:688px) and (max-height: 1032px) and (orientation: portrait) {
-  #accueil>#head-accueil {
-    height: 30%;
-    align-items: center;
-    justify-content: center;
+  article.cartel div{
+    width:55%;
+    height:100%;
+  }
+  article.cartel figure{
+    width:45%;
+    height:100%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 15%;
+    border-bottom-left-radius: 15%;
   }
 
-  #accueil>section:nth-child(2) {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 70%;
-    width: 100%;
-    overflow-y: auto;
-    scrollbar-color: $card-opto #be861e;
-    scrollbar-width: auto;
-    gap: 10vw;
-  }
-
-  #accueil>section:nth-child(2)>article {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    height: 95%;
-    width: 70%;
-    cursor: pointer;
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 500;
-    }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      margin: 15px;
-    }
-
-    a {
-      button {
-        display: none
-      }
-
-      img {
-        height: 100%;
-        width: 80%;
-        transform: translateY(10%);
-      }
-    }
-  }
 }
 
 
 // Media query pour les écrans plus petits
-@media screen and (max-width: 480px) {
-  #accueil {
-    margin-left: 10%;
-    // justify-content: center;
+// @media screen and (max-width: 480px) {
+//   app-accueil {
+//     margin-left: 10%;
+//     // justify-content: center;
 
-    >#head-accueil {
-      height: 20%;
+//     > header {
+//       height: 20%;
 
-      a {
-        font-size: 1.8rem;
-        width: 100%;
-        text-align: center;
-      }
+//       a {
+//         font-size: 1.8rem;
+//         width: 100%;
+//         text-align: center;
+//       }
 
-      p {
-        font-size: 1.2rem;
-      }
-    }
+//       p {
+//         font-size: 1.2rem;
+//       }
+//     }
 
-    >section:nth-child(2)>article {
-      margin-left: 20px;
+//     > section > article {
+//       margin-left: 20px;
 
-      h2 {
-        font-size: 1rem;
-      }
+//       h2 {
+//         font-size: 1rem;
+//       }
 
-      p {
-        font-size: 0.7rem;
-        margin: 15px;
-      }
+//       p {
+//         font-size: 0.7rem;
+//         margin: 15px;
+//       }
 
-      a {
-        button {
-          display: none
-        }
+//       a {
+//         button {
+//           display: none
+//         }
 
-        img {
-          height: 100%;
-          width: 80%;
-          transform: translateY(5%);
-        }
-      }
-    }
-  }
-}
+//         img {
+//           height: 100%;
+//           width: 80%;
+//           transform: translateY(5%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 384px) and (max-height:640px) {
-  #accueil {
+// @media screen and (max-width: 384px) and (max-height:640px) {
+//   app-accueil {
 
-    >#head-accueil {
-      >a {
-        font-size: 1.8rem;
-      }
+//     > header{
+//       >a {
+//         font-size: 1.8rem;
+//       }
 
-      p {
-        font-size: 1.2rem;
-      }
-    }
+//       p {
+//         font-size: 1.2rem;
+//       }
+//     }
 
-    #accueil>section:nth-child(2)>article {
+//     article.cartel {
 
-      h2 {
-        font-size: 1rem;
-        font-weight: 500;
-      }
+//       h2 {
+//         font-size: 1rem;
+//         font-weight: 500;
+//       }
 
-      p {
-        font-size: 0.7rem;
-        font-weight: 400;
-        margin: 15px;
-      }
+//       p {
+//         font-size: 0.7rem;
+//         font-weight: 400;
+//         margin: 15px;
+//       }
 
-      a {
-        button {
-          display: none
-        }
+//       a {
+//         button {
+//           display: none
+//         }
 
-        img {
-          height: 100%;
-          width: 80%;
-          transform: translateY(5%);
-        }
-      }
-    }
-  }
-}
+//         img {
+//           height: 100%;
+//           width: 80%;
+//           transform: translateY(5%);
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 376px) {
-  #accueil>#head-accueil>p {
-    font-size: 0.9rem;
-  }
+// @media screen and (max-width: 376px) {
+//   app-accueil > header > p {
+//     font-size: 0.9rem;
+//   }
 
-  #accueil>section:nth-child(2)>article>p {
-    font-size: 0.8rem;
-  }
-}
+//   app-accueil >section > article > p {
+//     font-size: 0.8rem;
+//   }
+// }
 
 // Navbar icone burger
 #burger-icon {
@@ -549,77 +491,67 @@ a {
 }
 
 //HEADER PAGES D'ACCUEIL DES INTERFACES
-#head-accueil {
-  flex-flow: row nowrap;
-  height: $head;
-  padding: 10px;
-  margin: 0;
-  align-items: center;
-}
 
-#head-accueil>a {
-  font-size: 2.8rem;
-  font-weight: 100;
-  width: 40%;
-  text-align: center;
-  margin-top: 6vh;
+// #head-accueil > a {
+//   font-size: 2.8rem;
+//   font-weight: 100;
+//   width: 40%;
+//   text-align: center;
+//   margin-top: 6vh;
 
-  @media (max-width: 954px) {
-    font-size: 2.5rem;
-  }
+//   @media (max-width: 954px) {
+//     font-size: 2.5rem;
+//   }
 
-  @media (max-width: 706px) {
-    font-size: 2rem;
-  }
+//   @media (max-width: 706px) {
+//     font-size: 2rem;
+//   }
 
-  @media (max-width: 490px) {
-    font-size: 1rem;
-  }
-}
+//   @media (max-width: 490px) {
+//     font-size: 1rem;
+//   }
+// }
 
-#head-accueil>a:nth-child(1):after {
-  content: '   ......';
-  font-size: 50%;
-}
 
-#head-accueil img {
-  width: 30px;
-}
 
-#head-accueil>p {
-  font-size: 2rem;
-  font-weight: 500;
-  text-align: center;
+// #head-accueil img {
+//   width: 30px;
+// }
 
-  @media (max-width: 1020px) {
-    font-size: 1.8rem;
-  }
+// #head-accueil>p {
+//   font-size: 2rem;
+//   font-weight: 500;
+//   text-align: center;
 
-  @media (max-width: 906px) {
-    font-size: 1.6rem;
-  }
+//   @media (max-width: 1020px) {
+//     font-size: 1.8rem;
+//   }
 
-  @media (max-width: 793px) {
-    font-size: 1.5rem;
-  }
+//   @media (max-width: 906px) {
+//     font-size: 1.6rem;
+//   }
 
-  @media (max-width: 706px) {
-    font-size: 1.3rem;
-  }
+//   @media (max-width: 793px) {
+//     font-size: 1.5rem;
+//   }
 
-  @media (max-width: 490px) {
-    font-size: 1rem;
-  }
-}
+//   @media (max-width: 706px) {
+//     font-size: 1.3rem;
+//   }
 
-#head-accueil>article {
-  align-items: start;
-}
+//   @media (max-width: 490px) {
+//     font-size: 1rem;
+//   }
+// }
 
-#head-accueil>* {
-  margin: 5px;
-  padding: 0;
-}
+// #head-accueil>article {
+//   align-items: start;
+// }
+
+// #head-accueil>* {
+//   margin: 5px;
+//   padding: 0;
+// }
 
 // -------------------------------------------------
 // HEADER DES PAGES AUTRES QU'ACCUEIL
@@ -725,7 +657,6 @@ a {
   color: $sombre;
   height: calc(100vh - $foot);
 
-
   @media (max-width: 768px) {
     height: calc(100vh - 100px);
   }
@@ -751,11 +682,11 @@ a {
   width: 100%;
   //gap: 1.5vw;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   img {
     // L'icône de loupe
     margin-left: 25vw;
-    
+
   }
 
   @media screen and (max-width:502px) {
@@ -838,7 +769,7 @@ a {
   //background-color: #33BB27;
   display: flex;
   flex-direction: row;
-  gap: 0.5vw; 
+  gap: 0.5vw;
 
   select {
     width: 75vw;
@@ -866,7 +797,7 @@ a {
   }
 }
 
-// titre 
+// titre
 #programmes article:nth-child(4)>article>div:nth-child(1) h1 {
   font-size: 1.2rem;
   margin: 0;
@@ -1021,7 +952,7 @@ a {
   border-bottom: dashed 1px black;
 }
 
-// articles générer avec le ngFor avec la photo ou video et le titre la description 
+// articles générer avec le ngFor avec la photo ou video et le titre la description
 #exercices article {
   flex-flow: column nowrap;
   width: 20%;
@@ -1244,7 +1175,15 @@ a {
   article:nth-child(1) {
     display: flex;
     justify-content: end;
-    height: 2%;
+
+
+    .mat-icon {
+      cursor: pointer;
+      font-size: 32px;
+      height: auto;
+      width: auto;
+      margin: 5px 5px 0 0px;
+    }
   }
 
   article:nth-child(2) {
@@ -1344,7 +1283,7 @@ a {
 // CSS des pages plats et menus
 #platMenu {
   @media screen and (max-width: 480px) {
-    width: calc(100% + 68px); // Pour l'aside Bar    
+    width: calc(100% + 68px); // Pour l'aside Bar
     align-items: flex-start;
     overflow: auto;
   }
@@ -1403,7 +1342,7 @@ a {
     }
   }
 
-  // Article qui contient les 3 boutons pour évaluer 
+  // Article qui contient les 3 boutons pour évaluer
   #evalBouton {
     display: flex;
     flex-direction: row;
@@ -1531,7 +1470,7 @@ a {
     gap: 1vw;
     align-items: center;
 
-    // L'icône d'ajout 
+    // L'icône d'ajout
     img {
       height: 3vh;
       width: 3vh;
@@ -1778,13 +1717,6 @@ a {
 }
 
 /* ---------------- CSS de la Page Plats -------------------- */
-// Contenant principale
-/* #sectionPrincipale {
-  display: flex;
-  flex-direction: row;
-  
-} */
-
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
   height: calc(100vh - $head - $foot);
@@ -1856,7 +1788,7 @@ a {
     }
   }
 
-  // Article qui contient les 3 boutons pour évaluer 
+  // Article qui contient les 3 boutons pour évaluer
   #evalBouton {
     display: flex;
     flex-direction: row;
@@ -2125,7 +2057,7 @@ a {
       margin-top: 2vh;
     }
 
-    // L'icône d'ajout 
+    // L'icône d'ajout
     img {
       height: 3vh;
       width: 3vh;
@@ -2262,7 +2194,7 @@ a {
   }
 
   /* span:nth-child(3)>span>p:nth-child(2) {
-    width: 75%;    
+    width: 75%;
   } */
 
   // La balise select AJOUTER
@@ -2575,13 +2507,3 @@ a {
   justify-content: flex-end;
   gap: 0.3vw;
 }
-
-html,
-body {
-  height: 100%;
-}
-
-/*  body { // Pourquoi c'est ici ça ??!!
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}  */

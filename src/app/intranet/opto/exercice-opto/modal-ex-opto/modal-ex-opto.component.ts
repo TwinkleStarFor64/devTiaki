@@ -1,7 +1,7 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ExerciceI } from 'src/app/intranet/modeles/Types';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
   selector: 'app-modal-ex-opto',

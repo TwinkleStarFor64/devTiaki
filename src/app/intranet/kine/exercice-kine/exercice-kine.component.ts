@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
 import { FormControl } from '@angular/forms';

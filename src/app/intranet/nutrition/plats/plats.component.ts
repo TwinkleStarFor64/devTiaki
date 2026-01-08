@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlatsService } from './services/plats.service';
 import { CiqualI, EvaluationI, MesPlatsI } from '../../utils/modeles/Types';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
@@ -22,7 +22,7 @@ export class PlatsComponent implements OnInit {
 
   selectedPlatsId!: number; // Pour la méthode onSelect()
   evaluationId!: number; // Pour la méthode onSelectEval()
-  evaluationStatut!: string; // Pour la méthode onSelectEval() 
+  evaluationStatut!: string; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
   affichageDefaut: string = 'allPlats';
@@ -34,7 +34,7 @@ export class PlatsComponent implements OnInit {
     //this.platService.getCiqual();
     this.fetchPlats();
     this.fetchCiqual();
-    this.fetchEvaluation();   
+    this.fetchEvaluation();
   }
 
   async fetchPlats() {
@@ -46,10 +46,10 @@ export class PlatsComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'], 
-        statut: item['statut']       
+        alim_code: item['alim_code'],
+        statut: item['statut']
       }));
-      console.log(this.plats.map((item) => item['id']));           
+      console.log(this.plats.map((item) => item['id']));
     }
     if (error) {
       //Si une erreur
@@ -62,7 +62,7 @@ export class PlatsComponent implements OnInit {
       await this.supa.getCiqual();
     if (groupData) {
       this.aliment = groupData.map((item: { [x: string]: any }) => ({
-        alim_code: item['alim_code'],        
+        alim_code: item['alim_code'],
         alim_nom_fr: item['alim_nom_fr'],
         ['Protéines, N x 6.25 (g/100 g)']: item['Protéines, N x 6.25 (g/100 g)'],
         ['Glucides (g/100 g)']: item['Glucides (g/100 g)'],
@@ -78,7 +78,7 @@ export class PlatsComponent implements OnInit {
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
         ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
       }));
-      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));           
+      //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
     }
     if (groupError) {
       console.log(groupError);
@@ -92,11 +92,11 @@ export class PlatsComponent implements OnInit {
       this.evaluation = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
         statut: item['statut']
-      }));    
-      console.log(this.evaluation.map((item) => item['statut']).join(', '));      
+      }));
+      console.log(this.evaluation.map((item) => item['statut']).join(', '));
     }
     if (error) {
-      console.log(error);      
+      console.log(error);
     }
   }
 
@@ -110,7 +110,7 @@ export class PlatsComponent implements OnInit {
       this.alimCodeFiltre = plats.alim_code;
       console.log('Je veux ce code : ' + this.alimCodeFiltre);
       this.selectedPlatsId = plats.id;
-      console.log("Voici l'id du plat : " + this.selectedPlatsId); 
+      console.log("Voici l'id du plat : " + this.selectedPlatsId);
     }
   }
 
@@ -118,8 +118,8 @@ export class PlatsComponent implements OnInit {
 onSelectEval(event: any, evaluation: EvaluationI): void {
   if (event.isUserInput) {
     this.evaluationId = evaluation.id;
-    console.log("Voici l'id de l'eval : " + this.evaluationId); 
-    this.evaluationStatut = evaluation.statut;     
+    console.log("Voici l'id de l'eval : " + this.evaluationId);
+    this.evaluationStatut = evaluation.statut;
   }
 }
 
@@ -176,23 +176,23 @@ onSelectPlat(plats: MesPlatsI): void {
     if (this.selectedPlatsId ) {
       console.log("Voici l'id du plat choisi :" + this.selectedPlatsId );
       await this.supa.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
-      console.log("L'id de l'évaluation que je donne au plat : " + this.evaluationId);        
+      console.log("L'id de l'évaluation que je donne au plat : " + this.evaluationId);
       await this.supa.updateEvalPlat(this.selectedPlatsId, this.evaluationStatut)
       // Id dynamique pour le EQ de la méthode supabase
       // Statut dynamique pour le UPDATE de la méthode supabase
       .then(() => {
-        this.fetchPlats();        
-      })        
+        this.fetchPlats();
+      })
     } else {
       throw new Error
     }
-  }  
+  }
 
-// Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)  
+// Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
-  
+
 
 
 

@@ -2,14 +2,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CalendarEvent, CalendarEventAction, CalendarView, DateAdapter } from 'angular-calendar';
 import { format, isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { Subject } from 'rxjs';
+import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
 import { MenusService } from '../menus/services/menus.service';
 import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
-import {Router} from "@angular/router"
+import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CheckJournalComponent } from '../dialog/check-journal/check-journal.component';
 
 
 @Component({
@@ -38,7 +40,7 @@ export class JournalRepasComponent implements OnInit {
   public color: ThemePalette = 'primary';
 
 
-  public formatDateToFrench(date: Date): string {
+  public formatDateToFrench(date: Date): any {
     return format(date, 'dd/MM/yyyy', { locale: fr });
   }  
 
@@ -50,6 +52,8 @@ export class JournalRepasComponent implements OnInit {
   CalendarView = CalendarView;
 
   events: CalendarEvent[] = []; // events de type CalendarEvent[]
+  selectedId: any; // Pour stocker l'id dans la méthode eventClicked()
+  selectedTitle: any; // Pour stocker le title (Le nom du plat dans la BDD events) dans la méthode eventClicked()
 
   activeDayIsOpen = false; // Pour la méthode dayClicked()
 
@@ -76,16 +80,24 @@ export class JournalRepasComponent implements OnInit {
     }
   };  
 
+//.then(() => { 
+              // this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
+            //})
+
   actions: CalendarEventAction [] = [
     {
       label: '<img src="assets/trashBlue.svg"/>',
           onClick: ({ event }: { event: CalendarEvent }): void => {
             /* this.events = this.events.filter((iEvent) => iEvent !== event);
             console.log('Event deleted', event); */
-            this.eventService.deleteEvent(event.id); // Appel de la méthode pour delete sur supabase
-            // Code angular calendar pour supprimer sur l'affichage HTML
-            this.events = this.events.filter((iEvent) => iEvent.id !== event.id); 
-            console.log('Event deleted', event.id);
+            this.deleteEventConfirm(event.id) // Appel de la méthode pour delete qui contient la Modal et la méthode supabase
+// Aprés validation de la méthode au dessus je gére l'affichage HTML du calendrier - Code ci-dessous pour supprimer sur l'affichage HTML
+            .then((isConfirmed: boolean) => { // isConfirmed est soit vrai soit faux
+              if (isConfirmed) { // Si isConfirmed est vrai je filtre les événements avec .filter() dans le tableau this.events
+                this.events = this.events.filter((iEvent) => iEvent.id !== event.id);
+// Ci-dessus filter() itère sur chaque élément de this.events et vérifie si la propriété id de l'événement (iEvent.id) est différente de l'ID de l'événement que je veux supprimer (event.id)
+              }
+            });
           },
     }
   ]
@@ -97,7 +109,7 @@ export class JournalRepasComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private dialog: MatDialog) {
     /* const event1 = {
       title: "Saut en parachute",
       start: new Date ("2023-07-17T14:00"),
@@ -116,14 +128,15 @@ export class JournalRepasComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.fetchEvents();
     this.fetchMenus();
-    this.fetchRepas();
+    this.fetchPlats();
     this.eventService.getEvaluation();    
 
     this.formData = this.formBuilder.group ({
-      choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf
+      choice: [null, [Validators.required]], // Pour les mat-radio-button et la gestion du ngIf - Par défaut j'affiche aucun select - pour choisir le select menu remplacer null par 'menu'
       title: [null, [Validators.required]],
       color: [null, [Validators.required]], 
-      start: [Date, [Validators.required]]    
+      start: [Date, [Validators.required]],
+      observations: [null]    
     });    
     
   }  
@@ -156,9 +169,33 @@ export class JournalRepasComponent implements OnInit {
     }
   }
 
-  eventClicked(event:any) {
-    console.log(event); 
-    //this.router.navigate(['intranet/nutrition/plats'])   
+  openDialog() {
+    const dataToSend = { // J'attribue à data l'id et le nom de l'event ou je clique
+      selectedId: this.selectedId,
+      selectedTitle: this.selectedTitle       
+    }
+    return this.dialog.open(CheckJournalComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '800px',
+      width: '1000px',
+      data: dataToSend, // data de la modal - renvoie un ID utiliser pour la modal check-journal      
+    });
+    
+  }
+
+// Méthode pour cliquer sur un évenement du calendrier
+// {event} est une variable à laquelle j'attribue un event de type CalendarEvent - Doc : https://mattlewis92.github.io/angular-calendar/#/clickable-events
+  eventClicked({ event }: { event: CalendarEvent }): void {
+    console.log("Méthode eventCliked - j'ai cliqué sur l'id : ", event.id);
+    this.selectedId = event.id; // J'attribue l'id de l'event sur lequel j'ai cliqué
+    console.log("Variable selectedId contient l'id : ", this.selectedId);
+    
+    console.log("Méthode eventClicked - j'ai cliqué sur le nom : ", event.title);
+    this.selectedTitle = event.title;
+    console.log("Variable selectedTitle contient le nom : ", this.selectedTitle);
+    
+    this.openDialog(); // J'ouvre la modal
   }
 
 // Si je veux pouvoir modifier et déplacer les éléments affichés dans le calendrier - non utilisé pour le moment
@@ -168,15 +205,37 @@ export class JournalRepasComponent implements OnInit {
     this.refresh.next();
   }
   
-  // Méthode pour supprimer un événement
-  deleteEvent(event: CalendarEvent): void {
-    const eventIndex = this.events.indexOf(event);
-    if (eventIndex > -1) {
-      this.events.splice(eventIndex, 1);
-      this.refresh.next();
-    }
+// Modal Material Angular pour confirmer la suppression d'un menu
+  deleteDialog() {
+    return this.dialog.open(DeleteDataComponent, {
+      disableClose: true,
+      autoFocus: true,
+      height: '200px',
+      width: '400px',
+      data: 'Êtes vous sur de vouloir supprimer ?',
+    });
   }
 
+// Méthode faisant appel à la Modal de confirmation puis à la méthode de suppression dans supabase
+// Je renvoie une promesse "Promise<boolean>" pour indiquer si la suppression a été confirmée 
+async deleteEventConfirm(id: any): Promise<boolean> {
+  try {
+// J'utilise firstValueFrom pour attendre le premier élément émis par l'observable retourné par this.deleteDialog().afterClosed()
+// afterClosed() retourne un Observable qui émet la valeur lorsque la boîte de dialogue est fermée
+    const result = await firstValueFrom(this.deleteDialog().afterClosed());
+    if (result) {
+      await this.eventService.deleteEvent(id);
+      return true; // Suppression confirmée et effectuée avec succès.
+    } else {
+      return false; // Suppression annulée ou la boîte de dialogue a été fermée sans confirmer.
+    }
+  } catch (error) {
+    console.error('Erreur lors de la gestion de la suppression de l\'événement :', error);
+    return false; // En cas d'erreur, renvoie false.
+  }
+}
+
+// Méthode pour récupérer les événements enregistrés sur le calendrier
   async fetchEvents() {
     const { data, error } = await this.eventService.getEvents();
     if (data) {
@@ -185,10 +244,12 @@ export class JournalRepasComponent implements OnInit {
         title: item['title'],
         start: parseISO(item['start']), // J'utilise parseISO pour convertir en un objet Date valide
         color: this.colors[item['color']] || this.colors.Neutre,
-        cssClass: 'calendarTitle',
-        actions: this.actions
+        choice: item['choice'],
+        observations: item['observations'],
+        cssClass: 'calendarTitle', // Si je veux attribuer une classe CSS
+        actions: this.actions // Utile ??
       }));     
-      console.log(this.events.map((item) => item['title']));
+      console.log("fetchEvents de journal-repas",this.events.map((item) => item['title']));
     }
     if (error) {
       console.log(error);      
@@ -217,7 +278,7 @@ export class JournalRepasComponent implements OnInit {
     }
   }
 
-  async fetchRepas() {
+  async fetchPlats() {
     const { data, error } = await this.platService.getPlats();
     if (data) {
       this.plats = data.map((item: { [x:string]: any }) => ({
@@ -236,18 +297,54 @@ export class JournalRepasComponent implements OnInit {
   async onSubmitForm() {
     console.log(this.formData.value);
     const newEntry = {
+      choice: this.formData.value.choice,
       title: this.formData.value.title,
       color: this.formData.value.color,
-      start: this.formData.value.start
+      start: this.formData.value.start,
+      observations: this.formData.value.observations
     };
     await this.eventService.createEvent(newEntry).then(() => {
       this.fetchEvents();
-      this.formData.reset();
+      this.formData.reset();      
       //window.location.reload();
     })    
   }
-
-  
-  
-
 }
+
+
+
+
+
+// Méthode pour supprimer un événement - Remplacer par la méthode supabase contenu dans event.service
+/* deleteEvent(event: CalendarEvent): void {
+  const eventIndex = this.events.indexOf(event);
+  if (eventIndex > -1) {      
+        this.events.splice(eventIndex, 1);
+        this.refresh.next();
+      }    
+  } */
+
+
+  /* eventClicked(event:any) {
+    console.log(event);
+    this.openDialog();      
+  } */
+
+
+
+// Ancienne méthode pour supprimer un Event
+ /*  async deleteEventConfirm(id: any) {
+    this.deleteDialog() // J'appelle la Modal deleteDialog()
+    .afterClosed()
+    .subscribe((res) => { // Je souscris si résolution
+      if (res) {
+        this.eventService.deleteEvent(id) // J'appelle la méthode dans event.service
+        .then(() => {
+          this.fetchEvents(); // Puis (.then) je refais un fetch des évenements
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression de l\'événement :', error);
+        });                 
+      }      
+    })    
+  }  */

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
-import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
@@ -10,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./accueil.component.scss'],
 })
 export class AccueilComponent implements OnInit {
-  
+
   // public cards:any = [
   //   {
     //     title:"Optométrie",
@@ -35,11 +33,11 @@ export class AccueilComponent implements OnInit {
   //   },
 
   // ]
-  
+
   imageAccueil!: AccueilI[];
 
   constructor( public sanity: SanityService) {}
-  
+
  ngOnInit(): void {
   this.sanity.getAccueil().then((data) => {
     this.imageAccueil = data.sort((a, b) => a.id - b.id);

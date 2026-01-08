@@ -11,7 +11,7 @@ import { RgpdComponent } from './extranet/rgpd/rgpd.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './extranet/pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MentionsLegalesComponent,
     RgpdComponent,
     PagenotfoundComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -32,8 +32,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     RouterModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,    
-    
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

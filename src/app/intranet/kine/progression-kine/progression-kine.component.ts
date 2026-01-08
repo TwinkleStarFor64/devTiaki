@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
   selector: 'app-progression-kine',
@@ -11,7 +11,7 @@ export class ProgressionKineComponent implements OnInit {
   avatar!: string;
   exercicesKine!: ExerciceI[];
   exercicesFiltres: ExerciceI[] = [];
- 
+
   constructor(public sanity:SanityService) {}
 
   ngOnInit(): void {

@@ -4,10 +4,10 @@
 
 <nav [class.active]="navbarVisible">
   <ul>
-    <li *ngFor="let aside of asides; let i = index" (mouseenter)="hoveredIndex = i" (mouseleave)="hoveredIndex = null">
-      <a [routerLink]="[aside.url]" [title]="">
-        <img [src]="aside.image" [alt]="" />
-        <p *ngIf="hoveredIndex === i && aside.nom && aside.nom.length > 0">{{ aside.nom }}</p>
+    <li *ngFor="let lien of asides; let i = index">
+      <a [routerLink]="[lien.url]" [title]="lien.nom">
+        <img [src]="lien.image" [alt]="" />
+        <span>{{ lien.nom }}</span>
       </a>
     </li>
   </ul>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
 import { FormControl } from '@angular/forms';
-import { SanityService } from 'src/app/services/sanity.service';
+import { SanityService } from 'src/app/partage/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';

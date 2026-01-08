@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SupabaseService } from 'src/app/services/supabase.service';
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { PlatsService } from '../../plats/services/plats.service';
 import { MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
 
@@ -13,11 +13,11 @@ import { MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
 export class SavePlatComponent implements OnInit {
   formData!: FormGroup;
   public plats: any[] = []; // Utiliser dans fetchCiqual()
-  result: any; // Pour stocker le résultat ingrédient du formulaire 
-  mesPlats: MesPlatsI[] = []; 
-  
+  result: any; // Pour stocker le résultat ingrédient du formulaire
+  mesPlats: MesPlatsI[] = [];
+
   filtre: string = ''; // Utiliser comme filtre dans ngModel et le pipe aliments
-  filtreControl = new FormControl(); // Pour ngx-mat-select-search 
+  filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>,
                private formBuilder: FormBuilder, public supa: SupabaseService, public platService: PlatsService ) {}
@@ -26,22 +26,22 @@ export class SavePlatComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.fetchCiqual();
     this.fetchPlats();
-    
+
 
     this.formData = new FormGroup ({
       nom: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       ingredient: new FormControl('')
-    });  
+    });
 
     // Ci-dessous je récupére la valeur du champ ingrédient du formulaire
-    // Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredient()    
+    // Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredient()
     const ingredientControl = this.formData.get('ingredient') as FormControl;
     ingredientControl.valueChanges.subscribe( async (selectedIngredient) => {
       if (selectedIngredient) {
         const ingredientAlimCode = selectedIngredient.alim_code;
-        console.log(ingredientAlimCode);                      
-        this.result = await this.supa.getCurrentIngredient(ingredientAlimCode);        
+        console.log(ingredientAlimCode);
+        this.result = await this.supa.getCurrentIngredient(ingredientAlimCode);
         console.log(this.result);
       }
     });
@@ -56,13 +56,13 @@ export class SavePlatComponent implements OnInit {
     console.log(this.formData.value);
     const newEntry = {
       nom: this.formData.value.nom,
-      description: this.formData.value.description,       
-      alim_code: this.result.alim_code   
+      description: this.formData.value.description,
+      alim_code: this.result.alim_code
     };
-    await this.supa.createPlat(newEntry).then(() => { 
-      this.fetchPlats();     
+    await this.supa.createPlat(newEntry).then(() => {
+      this.fetchPlats();
       window.location.reload(); // Bonne solution ??
-    });    
+    });
   }
 
   async fetchCiqual() {
@@ -84,10 +84,10 @@ export class SavePlatComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'], 
-        statut: item['statut']       
+        alim_code: item['alim_code'],
+        statut: item['statut']
       }));
-      console.log(this.mesPlats.map((item) => item['nom']));           
+      console.log(this.mesPlats.map((item) => item['nom']));
     }
     if (error) {
       //Si une erreur
