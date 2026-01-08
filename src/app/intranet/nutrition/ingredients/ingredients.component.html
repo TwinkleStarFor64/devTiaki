@@ -20,7 +20,7 @@
         <!-- Doc sur ng-container - https://angular.io/api/core/ng-container#description -->
         <span>
           <!-- filteredIngredients correspond à composition.ciqual - voir le ng-container au dessus -->
-          @for (ingredient of filteredIngredients  | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage  let i=index; track ingredient) {
+          @for (ingredient of filteredIngredients  | slice:(currentPage * itemsPerPage): (currentPage + 1) * itemsPerPage; track ingredient; let i = $index) {
             <article>
               <!-- Dans h4 tout les noms des ingrédients sont afficher via *ngFor qui récupére l'interface CiqualI -->
               <!-- Sur ces ingrédients j'applique la méthode onSelect via un clic -->

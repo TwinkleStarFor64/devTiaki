@@ -31,8 +31,7 @@ import { MatOptionModule } from '@angular/material/core';
         DeleteComponent,
         EditJournalComponent,
         JournalPipe
-    ],
-    entryComponents: [DeleteComponent], imports: [CommonModule,
+    ], imports: [CommonModule,
         OutilsRoutingModule,
         ReactiveFormsModule,
         MatFormFieldModule,

@@ -3,50 +3,32 @@
     <a routerLink="/intranet"><span>Tiaki</span></a>
     <p>Optométrie> <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
   </header>
-<<<<<<< HEAD
-  <section class="exercice">
-    <article *ngFor="let exercice of exercices">
-      <!-- <figure [style.backgroundImage]=""></figure> -->
-      <img [src]="exercice.photo" alt="photo-exercice" />
-      <h6>{{ exercice.titre }}</h6>
-      <p>{{ exercice.description }}</p>
-      <div>
-        <img [src]="exercice.horloge" alt="horloge" />
-        <p>Durée</p>
-        <img [src]="exercice.materiel" alt="materiel" />
-        <p>Matériels</p>
-=======
   <section>
-    <article *ngFor="let exercice of exercicesFiltres">
-      <div class="photo-exo">
-        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-        <h6>{{ exercice.title }}</h6>
-        <div class="exercice-texte">
-          <p>{{ exercice.description }}</p>
-          <div>
-            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
-            <!-- mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-            <p>
-              <!-- (mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-              Durée
-            </p>
-            <img
-              [src]="sanity.urlFor(exercice.materielIcon).url()"
-              alt="materiel"
-            />
-            <p>Matériels</p>
+    @for (exercice of exercicesFiltres; track exercice) {
+      <article>
+        <div class="photo-exo">
+          <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
+          <h6>{{ exercice.title }}</h6>
+          <div class="exercice-texte">
+            <p>{{ exercice.description }}</p>
+            <div>
+              <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+              <p>Durée</p>
+              <img
+                [src]="sanity.urlFor(exercice.materielIcon).url()"
+                alt="materiel"
+              />
+              <p>Matériels</p>
+            </div>
           </div>
         </div>
->>>>>>> 4be1fdcbff09444b3ce3c34adb72ab8da813a7a6
-      </div>
-      <div class="progress-bar">
-        <a>&#9664;</a>
-       <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-       <a>&#9654;</a>
-     </div>
-    </article>
+        <div class="progress-bar">
+          <a>&#9664;</a>
+         <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+         <a>&#9654;</a>
+       </div>
+      </article>
+    }
   </section>
 </section>
 <!-- <app-footer></app-footer> -->
