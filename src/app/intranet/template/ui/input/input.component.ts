@@ -7,9 +7,10 @@ import { ProgrammeI } from 'src/app/intranet/utils/modeles/Types';
 import { ModalService } from 'src/app/intranet/utils/services/modal.service';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    styleUrls: ['./input.component.scss'],
+    standalone: false
 })
 export class InputComponent implements OnInit {
   avatar!: string;

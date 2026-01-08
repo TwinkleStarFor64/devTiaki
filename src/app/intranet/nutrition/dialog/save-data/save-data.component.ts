@@ -5,9 +5,10 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 
 @Component({
-  selector: 'app-save-data',
-  templateUrl: './save-data.component.html',
-  styleUrls: ['./save-data.component.scss'],
+    selector: 'app-save-data',
+    templateUrl: './save-data.component.html',
+    styleUrls: ['./save-data.component.scss'],
+    standalone: false
 })
 export class SaveDataComponent implements OnInit {
   formData!: FormGroup;

@@ -7,9 +7,10 @@ import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 
 @Component({
-  selector: 'app-menus',
-  templateUrl: './menus.component.html',
-  styleUrls: ['./menus.component.scss'],
+    selector: 'app-menus',
+    templateUrl: './menus.component.html',
+    styleUrls: ['./menus.component.scss'],
+    standalone: false
 })
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];

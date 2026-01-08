@@ -7,9 +7,10 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
-  selector: 'app-exercice-kine',
-  templateUrl: './exercice-kine.component.html',
-  styleUrls: ['./exercice-kine.component.scss'],
+    selector: 'app-exercice-kine',
+    templateUrl: './exercice-kine.component.html',
+    styleUrls: ['./exercice-kine.component.scss'],
+    standalone: false
 })
 export class ExerciceKineComponent implements OnInit {
   avatar!: string;

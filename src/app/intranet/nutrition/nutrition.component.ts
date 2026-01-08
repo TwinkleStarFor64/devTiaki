@@ -4,9 +4,10 @@ import { BottomI, NutritionI } from '../modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
-  selector: 'app-nutrition',
-  templateUrl: './nutrition.component.html',
-  styleUrls: ['./nutrition.component.scss']
+    selector: 'app-nutrition',
+    templateUrl: './nutrition.component.html',
+    styleUrls: ['./nutrition.component.scss'],
+    standalone: false
 })
 export class NutritionComponent implements OnInit {
 

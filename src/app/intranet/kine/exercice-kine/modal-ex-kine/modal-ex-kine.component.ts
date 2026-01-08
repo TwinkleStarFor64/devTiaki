@@ -4,9 +4,10 @@ import { ExerciceI } from 'src/app/intranet/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
-  selector: 'app-modal-ex-kine',
-  templateUrl: './modal-ex-kine.component.html',
-  styleUrls: ['./modal-ex-kine.component.scss'],
+    selector: 'app-modal-ex-kine',
+    templateUrl: './modal-ex-kine.component.html',
+    styleUrls: ['./modal-ex-kine.component.scss'],
+    standalone: false
 })
 export class ModalExKineComponent implements OnInit {
   exercicesKine!: ExerciceI[];

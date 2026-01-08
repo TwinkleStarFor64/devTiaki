@@ -7,9 +7,10 @@ import { ProgrammeKineService } from './services/programme-kine.service';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatSelect } from '@angular/material/select';
 @Component({
-  selector: 'app-programme-kine',
-  templateUrl: './programme-kine.component.html',
-  styleUrls: ['./programme-kine.component.scss'],
+    selector: 'app-programme-kine',
+    templateUrl: './programme-kine.component.html',
+    styleUrls: ['./programme-kine.component.scss'],
+    standalone: false
 })
 export class ProgrammeKineComponent implements OnInit {
   avatar!: string;

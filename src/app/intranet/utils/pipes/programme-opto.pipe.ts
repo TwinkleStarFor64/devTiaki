@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'programmeOpto'
+    name: 'programmeOpto',
+    standalone: false
 })
 export class ProgrammeOptoPipe implements PipeTransform {
 

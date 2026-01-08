@@ -4,9 +4,10 @@ import { ExerciceI } from 'src/app/intranet/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
-  selector: 'app-modal-ex-opto',
-  templateUrl: './modal-ex-opto.component.html',
-  styleUrls: ['./modal-ex-opto.component.scss'],
+    selector: 'app-modal-ex-opto',
+    templateUrl: './modal-ex-opto.component.html',
+    styleUrls: ['./modal-ex-opto.component.scss'],
+    standalone: false
 })
 export class ModalExOptoComponent {
   exercicesOpto!: ExerciceI[];

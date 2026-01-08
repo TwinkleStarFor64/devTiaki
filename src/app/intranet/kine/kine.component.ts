@@ -3,9 +3,10 @@ import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
 
 @Component({
-  selector: 'app-kine',
-  templateUrl: './kine.component.html',
-  styleUrls: ['./kine.component.scss'],
+    selector: 'app-kine',
+    templateUrl: './kine.component.html',
+    styleUrls: ['./kine.component.scss'],
+    standalone: false
 })
 export class KineComponent implements OnInit {
   // public cards: any = [

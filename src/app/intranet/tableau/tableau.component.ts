@@ -11,9 +11,10 @@ import { TableauService } from './services/tableau.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-tableau',
-  templateUrl: './tableau.component.html',
-  styleUrls: ['./tableau.component.scss'],
+    selector: 'app-tableau',
+    templateUrl: './tableau.component.html',
+    styleUrls: ['./tableau.component.scss'],
+    standalone: false
 })
 export class TableauComponent {
   enCours?: TableauEnCoursI;

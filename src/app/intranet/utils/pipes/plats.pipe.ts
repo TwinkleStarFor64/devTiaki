@@ -3,7 +3,8 @@ import { IngredientsServiceService } from '../../nutrition/ingredients/services/
 import { MesPlatsI } from '../modeles/Types';
 
 @Pipe({
-  name: 'plats'
+    name: 'plats',
+    standalone: false
 })
 export class PlatsPipe implements PipeTransform {
   constructor(public composition:IngredientsServiceService) { } //Injection de IngredientsServiceService pour l'utiliser dans transform

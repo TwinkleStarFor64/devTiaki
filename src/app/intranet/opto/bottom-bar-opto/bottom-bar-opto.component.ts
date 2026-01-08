@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { BottomI } from 'src/app/intranet/modeles/Types.js';
 
 @Component({
-  selector: 'app-bottom-bar-opto',
-  templateUrl: './bottom-bar-opto.component.html',
-  styleUrls: ['./bottom-bar-opto.component.scss'],
+    selector: 'app-bottom-bar-opto',
+    templateUrl: './bottom-bar-opto.component.html',
+    styleUrls: ['./bottom-bar-opto.component.scss'],
+    standalone: false
 })
 export class BottomBarOptoComponent implements OnInit {
   public bottoms: BottomI[] = [

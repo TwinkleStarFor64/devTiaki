@@ -3,9 +3,10 @@ import { ConnexionService } from '../../partage/services/connexion.service';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
-  selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
+    selector: 'app-connexion',
+    templateUrl: './connexion.component.html',
+    styleUrls: ['./connexion.component.scss'],
+    standalone: false
 })
 export class ConnexionComponent implements OnInit {
   titre:string="Se connecter";

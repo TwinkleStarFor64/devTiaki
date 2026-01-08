@@ -4,9 +4,10 @@ import { BottomI } from 'src/app/intranet/modeles/Types.js';
 
 
 @Component({
-  selector: 'app-bottom-bar-kine',
-  templateUrl: './bottom-bar-kine.component.html',
-  styleUrls: ['./bottom-bar-kine.component.scss']
+    selector: 'app-bottom-bar-kine',
+    templateUrl: './bottom-bar-kine.component.html',
+    styleUrls: ['./bottom-bar-kine.component.scss'],
+    standalone: false
 })
 export class BottomBarKineComponent implements OnInit {
   

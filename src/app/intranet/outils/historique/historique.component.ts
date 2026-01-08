@@ -7,9 +7,10 @@ import { DeleteComponent } from '../dialog/delete/delete.component';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-historique',
-  templateUrl: './historique.component.html',
-  styleUrls: ['./historique.component.scss'],
+    selector: 'app-historique',
+    templateUrl: './historique.component.html',
+    styleUrls: ['./historique.component.scss'],
+    standalone: false
 })
 export class HistoriqueComponent implements OnInit {
   public medecinImg!: string;

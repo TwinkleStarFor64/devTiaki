@@ -26,9 +26,10 @@ class MyPaginatorIntl extends MatPaginatorIntl {
 }
 
 @Component({
-  selector: 'app-ingredients',
-  templateUrl: './ingredients.component.html',
-  styleUrls: ['./ingredients.component.scss'],
+    selector: 'app-ingredients',
+    templateUrl: './ingredients.component.html',
+    styleUrls: ['./ingredients.component.scss'],
+    standalone: false
 })
 export class IngredientsComponent implements OnInit {
   filtre: string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel

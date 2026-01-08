@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { BottomI } from 'src/app/intranet/modeles/Types';
 
 @Component({
-  selector: 'app-bottom-bar-nutri',
-  templateUrl: './bottom-bar-nutri.component.html',
-  styleUrls: ['./bottom-bar-nutri.component.scss'],
+    selector: 'app-bottom-bar-nutri',
+    templateUrl: './bottom-bar-nutri.component.html',
+    styleUrls: ['./bottom-bar-nutri.component.scss'],
+    standalone: false
 })
 export class BottomBarNutriComponent implements OnInit {
   public bottoms: BottomI[] = [

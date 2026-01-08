@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ExerciceI } from '../../modeles/Types';
 
 @Pipe({
-  name: 'filter'
+    name: 'filter',
+    standalone: false
 })
 export class FilterPipe implements PipeTransform {
   transform(exercices: ExerciceI[], filtre: string): ExerciceI[] {

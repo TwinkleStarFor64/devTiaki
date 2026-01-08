@@ -3,9 +3,10 @@ import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
-  selector: 'app-progression-kine',
-  templateUrl: './progression-kine.component.html',
-  styleUrls: ['./progression-kine.component.scss'],
+    selector: 'app-progression-kine',
+    templateUrl: './progression-kine.component.html',
+    styleUrls: ['./progression-kine.component.scss'],
+    standalone: false
 })
 export class ProgressionKineComponent implements OnInit {
   avatar!: string;

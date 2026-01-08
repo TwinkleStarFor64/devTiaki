@@ -7,9 +7,10 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';
 
 @Component({
-  selector: 'app-exercice-otpo',
-  templateUrl: './exercice-opto.component.html',
-  styleUrls: ['./exercice-opto.component.scss'],
+    selector: 'app-exercice-otpo',
+    templateUrl: './exercice-opto.component.html',
+    styleUrls: ['./exercice-opto.component.scss'],
+    standalone: false
 })
 export class ExerciceOptoComponent implements OnInit {
   avatar!: string;

@@ -12,9 +12,10 @@ import { DeleteComponent } from '../dialog/delete/delete.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-edit-journal',
-  templateUrl: './edit-journal.component.html',
-  styleUrls: ['./edit-journal.component.scss'],
+    selector: 'app-edit-journal',
+    templateUrl: './edit-journal.component.html',
+    styleUrls: ['./edit-journal.component.scss'],
+    standalone: false
 })
 export class EditJournalComponent {
   formJournal!: FormGroup;

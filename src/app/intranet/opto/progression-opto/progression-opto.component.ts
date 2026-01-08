@@ -4,9 +4,10 @@ import { ExerciceOptoService } from '../exercice-opto/services/exercice-opto.ser
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
 @Component({
-  selector: 'app-progression-opto',
-  templateUrl: './progression-opto.component.html',
-  styleUrls: ['./progression-opto.component.scss'],
+    selector: 'app-progression-opto',
+    templateUrl: './progression-opto.component.html',
+    styleUrls: ['./progression-opto.component.scss'],
+    standalone: false
 })
 export class ProgressionOptoComponent implements OnInit {
   avatar!: string;

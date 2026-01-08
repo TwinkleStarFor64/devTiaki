@@ -6,9 +6,10 @@ import { PlatsService } from '../../plats/services/plats.service';
 import { MesPlatsI } from 'src/app/intranet/utils/modeles/Types';
 
 @Component({
-  selector: 'app-save-plat',
-  templateUrl: './save-plat.component.html',
-  styleUrls: ['./save-plat.component.scss']
+    selector: 'app-save-plat',
+    templateUrl: './save-plat.component.html',
+    styleUrls: ['./save-plat.component.scss'],
+    standalone: false
 })
 export class SavePlatComponent implements OnInit {
   formData!: FormGroup;

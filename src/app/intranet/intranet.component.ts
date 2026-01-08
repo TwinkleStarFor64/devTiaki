@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { BottomI } from './modeles/Types';
 
 @Component({
-  selector: 'app-intranet',
-  templateUrl: './intranet.component.html',
-  styleUrls: ['./intranet.component.scss'],
+    selector: 'app-intranet',
+    templateUrl: './intranet.component.html',
+    styleUrls: ['./intranet.component.scss'],
+    standalone: false
 })
 export class IntranetComponent implements OnInit {
   public bottoms: BottomI[] = [

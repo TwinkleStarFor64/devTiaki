@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { CiqualI } from '../modeles/Types';
 
 @Pipe({
-  name: 'ingredients',
+    name: 'ingredients',
+    standalone: false
 })
 export class IngredientsPipe implements PipeTransform {
   transform(items: CiqualI[], codeAlim: number): any {

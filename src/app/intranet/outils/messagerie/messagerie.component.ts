@@ -5,9 +5,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
-  selector: 'app-messagerie',
-  templateUrl: './messagerie.component.html',
-  styleUrls: ['./messagerie.component.scss'],
+    selector: 'app-messagerie',
+    templateUrl: './messagerie.component.html',
+    styleUrls: ['./messagerie.component.scss'],
+    standalone: false
 })
 export class MessagerieComponent implements OnInit {
   public medecinImg!: string;

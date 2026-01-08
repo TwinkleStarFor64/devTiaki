@@ -4,9 +4,10 @@ import { RecettesService } from './services/recettes.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-recettes',
-  templateUrl: './recettes.component.html',
-  styleUrls: ['./recettes.component.scss'],
+    selector: 'app-recettes',
+    templateUrl: './recettes.component.html',
+    styleUrls: ['./recettes.component.scss'],
+    standalone: false
 })
 export class RecettesComponent implements OnInit {
   control = new FormControl('');

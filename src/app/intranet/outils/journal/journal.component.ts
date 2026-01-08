@@ -8,9 +8,10 @@ import {
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
-  selector: 'app-journal',
-  templateUrl: './journal.component.html',
-  styleUrls: ['./journal.component.scss'],
+    selector: 'app-journal',
+    templateUrl: './journal.component.html',
+    styleUrls: ['./journal.component.scss'],
+    standalone: false
 })
 export class JournalComponent implements OnInit {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()

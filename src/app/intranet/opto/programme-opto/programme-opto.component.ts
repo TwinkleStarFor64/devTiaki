@@ -5,9 +5,10 @@ import { ProgrammeI } from '../../utils/modeles/Types';
 import { ProgrammeOptoService } from './services/programme-opto.service';
 
 @Component({
-  selector: 'app-programme-opto',
-  templateUrl: './programme-opto.component.html',
-  styleUrls: ['./programme-opto.component.scss'],
+    selector: 'app-programme-opto',
+    templateUrl: './programme-opto.component.html',
+    styleUrls: ['./programme-opto.component.scss'],
+    standalone: false
 })
 export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');

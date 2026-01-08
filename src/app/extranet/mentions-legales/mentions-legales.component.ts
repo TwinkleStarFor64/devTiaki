@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-mentions-legales',
-  templateUrl: './mentions-legales.component.html',
-  styleUrls: ['./mentions-legales.component.scss']
+    selector: 'app-mentions-legales',
+    templateUrl: './mentions-legales.component.html',
+    styleUrls: ['./mentions-legales.component.scss'],
+    standalone: false
 })
 export class MentionsLegalesComponent implements OnInit {
 

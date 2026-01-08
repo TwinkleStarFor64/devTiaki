@@ -3,9 +3,10 @@ import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.scss'],
+    selector: 'app-accueil',
+    templateUrl: './accueil.component.html',
+    styleUrls: ['./accueil.component.scss'],
+    standalone: false
 })
 export class AccueilComponent implements OnInit {
 

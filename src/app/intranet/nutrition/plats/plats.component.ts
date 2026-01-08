@@ -7,9 +7,10 @@ import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
 
 @Component({
-  selector: 'app-plats',
-  templateUrl: './plats.component.html',
-  styleUrls: ['./plats.component.scss'],
+    selector: 'app-plats',
+    templateUrl: './plats.component.html',
+    styleUrls: ['./plats.component.scss'],
+    standalone: false
 })
 export class PlatsComponent implements OnInit {
   aliment: CiqualI[] = [];

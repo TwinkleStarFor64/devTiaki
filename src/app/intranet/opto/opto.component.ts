@@ -3,9 +3,10 @@ import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
 
 @Component({
-  selector: 'app-opto',
-  templateUrl: './opto.component.html',
-  styleUrls: ['./opto.component.scss']
+    selector: 'app-opto',
+    templateUrl: './opto.component.html',
+    styleUrls: ['./opto.component.scss'],
+    standalone: false
 })
 export class OptoComponent implements OnInit {
   // public cards: any = [

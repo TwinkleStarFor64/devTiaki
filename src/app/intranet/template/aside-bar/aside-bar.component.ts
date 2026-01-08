@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AsideI } from 'src/app/intranet/modeles/Types.js';
 
 @Component({
-  selector: 'app-aside-bar',
-  templateUrl: './aside-bar.component.html',
-  styleUrls: ['./aside-bar.component.scss'],
+    selector: 'app-aside-bar',
+    templateUrl: './aside-bar.component.html',
+    styleUrls: ['./aside-bar.component.scss'],
+    standalone: false
 })
 export class AsideBarComponent implements OnInit {
   value: number = 7;

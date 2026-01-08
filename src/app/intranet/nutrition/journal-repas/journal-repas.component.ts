@@ -15,12 +15,11 @@ import { CheckJournalComponent } from '../dialog/check-journal/check-journal.com
 
 
 @Component({
-  selector: 'app-journal-repas',
-  templateUrl: './journal-repas.component.html',
-  styleUrls: ['./journal-repas.component.scss'],
-  providers: [
-    
-  ]
+    selector: 'app-journal-repas',
+    templateUrl: './journal-repas.component.html',
+    styleUrls: ['./journal-repas.component.scss'],
+    providers: [],
+    standalone: false
 })
 export class JournalRepasComponent implements OnInit {
   @ViewChild('picker') picker: any; // Ajouter pour Date Time Picker - Voir la doc https://www.npmjs.com/package/@angular-material-components/datetime-picker

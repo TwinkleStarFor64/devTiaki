@@ -5,9 +5,10 @@ import { ParametreService } from './services/parametre.service';
 import { EchangeI } from '../../utils/modeles/Types';
 
 @Component({
-  selector: 'app-parametre',
-  templateUrl: './parametre.component.html',
-  styleUrls: ['./parametre.component.scss'],
+    selector: 'app-parametre',
+    templateUrl: './parametre.component.html',
+    styleUrls: ['./parametre.component.scss'],
+    standalone: false
 })
 export class ParametreComponent {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()

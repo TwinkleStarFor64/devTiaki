@@ -10,9 +10,10 @@ import { ModalService } from '../../utils/services/modal.service';
 import { ProgrammeI } from '../../utils/modeles/Types';
 
 @Component({
-  selector: 'app-carousel-opto',
-  templateUrl: './carousel-opto.component.html',
-  styleUrls: ['./carousel-opto.component.scss'],
+    selector: 'app-carousel-opto',
+    templateUrl: './carousel-opto.component.html',
+    styleUrls: ['./carousel-opto.component.scss'],
+    standalone: false
 })
 export class CarouselOptoComponent {
   @ViewChild('carouselContainer', { static: true })

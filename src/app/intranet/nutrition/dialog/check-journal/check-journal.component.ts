@@ -8,9 +8,10 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 
 @Component({
-  selector: 'app-check-journal',
-  templateUrl: './check-journal.component.html',
-  styleUrls: ['./check-journal.component.scss']
+    selector: 'app-check-journal',
+    templateUrl: './check-journal.component.html',
+    styleUrls: ['./check-journal.component.scss'],
+    standalone: false
 })
 export class CheckJournalComponent implements OnInit {
 

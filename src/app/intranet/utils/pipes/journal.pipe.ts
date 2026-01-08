@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'journal'
+    name: 'journal',
+    standalone: false
 })
 export class JournalPipe implements PipeTransform {
 

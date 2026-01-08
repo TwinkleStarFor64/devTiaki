@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-custom-accordion',
-  templateUrl: './custom-accordion.component.html',
-  styleUrls: ['./custom-accordion.component.scss'],
+    selector: 'app-custom-accordion',
+    templateUrl: './custom-accordion.component.html',
+    styleUrls: ['./custom-accordion.component.scss'],
+    standalone: false
 })
 export class CustomAccordionComponent {
   @Input() items: any[];
