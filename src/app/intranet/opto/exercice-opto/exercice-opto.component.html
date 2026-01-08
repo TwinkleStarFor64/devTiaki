@@ -4,72 +4,75 @@
     <p>Optométrie > Choisir un exercice</p>
   </header>
   <!-- Article contenant le formulaire permettant de rechercher les exercices -->
-    <article>
-      <form class="example-form">
-        <input
-          id="input-programmes"
-          class="example-input"
-          type="search"
-          name="myEx"
-          placeholder="Recherche libre"
-          [formControl]="control"
-          [matAutocomplete]="auto"
-          (keyup)="filtrerExercices()"
-          [value]="selectedImageTitle"
+  <article>
+    <form class="example-form">
+      <input
+        id="input-programmes"
+        class="example-input"
+        type="search"
+        name="myEx"
+        placeholder="Recherche libre"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+        (keyup)="filtrerExercices()"
+        [value]="selectedImageTitle"
         />
         <mat-autocomplete
           #auto="matAutocomplete"
           (optionSelected)="onOptionSelected($event)"
-        >
-          <mat-option
-            *ngFor="let exercice of exercicesFiltres"
-            [value]="exercice"
-            (mouseover)="hoverSelectedExercice(exercice)"
           >
-            {{ exercice.title }}
-          </mat-option>
+          @for (exercice of exercicesFiltres; track exercice) {
+            <mat-option
+              [value]="exercice"
+              (mouseover)="hoverSelectedExercice(exercice)"
+              >
+              {{ exercice.title }}
+            </mat-option>
+          }
         </mat-autocomplete>
         <input  type="checkbox"
-        id="input-ckeckbox"
-        name="jamaisFait"
-        value="jamaisFait">
-        <span>Tenir compte de mes allergies</span>
-        <input  type="checkbox"
-        id="input-ckeckbox"
-        name="jamaisFait"
-        value="jamaisFait">
-        <span>Jamais faites</span>
-      </form>
-     <div>
-       <img class="searchMobile" src="assets/iconeKineOpto/loupe.png">
-     </div> 
-    </article>
-  <article></article>
-  <section>
-    <article *ngFor="let exercice of exercicesFiltres">
-      <div (click)="openDialog(exercice)"  class="photo-exo">
-        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-        <h6>{{ exercice.title }}</h6>
-        <div (click)="openDialog(exercice)" class="exercice-texte">
-          <p>{{ exercice.description }}</p>
+          id="input-ckeckbox"
+          name="jamaisFait"
+          value="jamaisFait">
+          <span>Tenir compte de mes allergies</span>
+          <input  type="checkbox"
+            id="input-ckeckbox"
+            name="jamaisFait"
+            value="jamaisFait">
+            <span>Jamais faites</span>
+          </form>
           <div>
-            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
-            <!-- mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-            <p>
-              <!-- (mouseenter)="exerciceDureeSurvole = exercice"
-              (mouseleave)="exerciceDureeSurvole = null" -->
-              Durée
-            </p>
-            <img
-              [src]="sanity.urlFor(exercice.materielIcon).url()"
-              alt="materiel"
-            />
-            <p>Matériels</p>
+            <img class="searchMobile" src="assets/iconeKineOpto/loupe.png">
           </div>
-        </div>
-      </div>
-    </article>
-  </section>
-</section>
-<app-bottom-bar-opto></app-bottom-bar-opto>
+        </article>
+        <article></article>
+        <section>
+          @for (exercice of exercicesFiltres; track exercice) {
+            <article>
+              <div (click)="openDialog(exercice)"  class="photo-exo">
+                <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
+                <h6>{{ exercice.title }}</h6>
+                <div (click)="openDialog(exercice)" class="exercice-texte">
+                  <p>{{ exercice.description }}</p>
+                  <div>
+                    <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+                    <!-- mouseenter)="exerciceDureeSurvole = exercice"
+                    (mouseleave)="exerciceDureeSurvole = null" -->
+                    <p>
+                      <!-- (mouseenter)="exerciceDureeSurvole = exercice"
+                      (mouseleave)="exerciceDureeSurvole = null" -->
+                      Durée
+                    </p>
+                    <img
+                      [src]="sanity.urlFor(exercice.materielIcon).url()"
+                      alt="materiel"
+                      />
+                      <p>Matériels</p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            }
+          </section>
+        </section>
+        <app-bottom-bar-opto></app-bottom-bar-opto>

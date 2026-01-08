@@ -12,10 +12,12 @@
     <article class="medecin">
       <div>
         <img [src]="[medecinImg]" alt="logo medecin" />
-        <h2>Médecins</h2> 
+        <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        @for (medecin of medecins; track medecin) {
+          <li>{{ medecin.nom }}</li>
+        }
       </ul>
     </article>
     <article class="realisation">
@@ -24,9 +26,11 @@
         <h2>Organismes</h2>
       </div>
       <ul>
-        <li *ngFor="let organisme of echanges.nomOrga">
-          {{ organisme.nomOrganisme }}
-        </li>
+        @for (organisme of echanges.nomOrga; track organisme) {
+          <li>
+            {{ organisme.nomOrganisme }}
+          </li>
+        }
       </ul>
     </article>
   </section>
@@ -70,15 +74,19 @@
         <mat-form-field appearance="outline">
           <mat-label>Sélectionnez un médecin</mat-label>
           <mat-select formControlName="medecin">
-            <mat-option value={{med.nom}} *ngFor="let med of medecins">{{ med.nom }}</mat-option>
+            @for (med of medecins; track med) {
+              <mat-option value={{med.nom}}>{{ med.nom }}</mat-option>
+            }
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Activité concernée</mat-label>
           <mat-select formControlName="activite">
-            <mat-option value={{rel.nom}} *ngFor="let rel of realisations">{{
-              rel.nom
+            @for (rel of realisations; track rel) {
+              <mat-option value={{rel.nom}}>{{
+                rel.nom
               }}</mat-option>
+            }
           </mat-select>
         </mat-form-field>
         <mat-form-field appearance="outline">
@@ -92,9 +100,11 @@
         <mat-form-field appearance="outline">
           <mat-label>Copier un message de l’historique</mat-label>
           <mat-select formControlName="link">
-            <mat-option *ngFor="let link of linkMessages" [value]="link">{{
-              supa.formatDate(link.date)+ ": " + link.objet
+            @for (link of linkMessages; track link) {
+              <mat-option [value]="link">{{
+                supa.formatDate(link.date)+ ": " + link.objet
               }}</mat-option>
+            }
           </mat-select>
         </mat-form-field>
       </form>
@@ -109,13 +119,13 @@
 </section>
 
 <!-- <input type="text" placeholder="Selectionner un médecin" />
-      <input type="text" placeholder="Activité concernée" />
-      <input type="text" placeholder="Objet" />
-      <textarea
-        name=""
-        id=""
-        cols="30"
-        rows="20"
-        placeholder="Message"
-      ></textarea>
-      <input type="text" placeholder="Copier un message de l’historique" /> -->
+<input type="text" placeholder="Activité concernée" />
+<input type="text" placeholder="Objet" />
+<textarea
+  name=""
+  id=""
+  cols="30"
+  rows="20"
+  placeholder="Message"
+></textarea>
+<input type="text" placeholder="Copier un message de l’historique" /> -->

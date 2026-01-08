@@ -17,7 +17,9 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        @for (medecin of medecins; track medecin) {
+          <li>{{ medecin.nom }}</li>
+        }
       </ul>
     </article>
     <article class="realisation">
@@ -26,9 +28,11 @@
         <h2>Réalisations</h2>
       </div>
       <ul>
-        <li *ngFor="let realisation of realisations">
-          {{ realisation.nom }}
-        </li>
+        @for (realisation of realisations; track realisation) {
+          <li>
+            {{ realisation.nom }}
+          </li>
+        }
       </ul>
     </article>
   </section>
@@ -48,10 +52,12 @@
       <p>Historiques des journaux sur ces activités</p>
     </div>
     <ul>
-      <li *ngFor="let relier of reliers">
-        Journal du {{ supa.formatDate(relier.date) }} <br />
-        {{ relier.objet }}
-      </li>
+      @for (relier of reliers; track relier) {
+        <li>
+          Journal du {{ supa.formatDate(relier.date) }} <br />
+          {{ relier.objet }}
+        </li>
+      }
     </ul>
   </section>
   <!-- Section Ajouter un journal avec le formulaire -->
@@ -83,9 +89,11 @@
           <mat-label>Relier un journal précédent</mat-label>
           <mat-select formControlName="relier">
             <!-- Ci-dessous je fais un *ngFor sur l'interface reliers qui contient tout les journaux existant -->
-            <mat-option *ngFor="let rel of reliers" [value]="rel">{{
-              supa.formatDate(rel.date) + " - " + rel.objet
-            }}</mat-option>
+            @for (rel of reliers; track rel) {
+              <mat-option [value]="rel">{{
+                supa.formatDate(rel.date) + " - " + rel.objet
+              }}</mat-option>
+            }
           </mat-select>
         </mat-form-field>
         <span class="spanBouton">
@@ -97,7 +105,7 @@
               type="submit"
               (click)="onSubmitForm()"
               [disabled]="formJournal.invalid"
-            >
+              >
               Enregistrer
             </button>
             <!-- Le bouton Enregistrer est disabled si les champs avec Validators.required ne sont pas remplis -->
@@ -155,35 +163,35 @@
 </section>
 
 <!-- <span class="p-float-label">
-          <input type="text" formControlName="objet" pInputText />
-          <label for="float-input">Objet</label>
-        </span> -->
+<input type="text" formControlName="objet" pInputText />
+<label for="float-input">Objet</label>
+</span> -->
 
 <!-- <span class="p-float-label">
-          <textarea
-            id="float-input"
-            rows="5"
-            cols="30"
-            formControlName="note"
-            pInputTextarea
-                      ></textarea>
-          <label for="float-input">Note</label>
-        </span> -->
+<textarea
+  id="float-input"
+  rows="5"
+  cols="30"
+  formControlName="note"
+  pInputTextarea
+></textarea>
+<label for="float-input">Note</label>
+</span> -->
 
 <!-- <span class="p-float-label">
-          <textarea
-            id="float-input"
-            rows="5"
-            cols="30"
-            formControlName="commentaire"
-            pInputTextarea
-          ></textarea>
-          <label for="float-input">Commentaire</label>
-        </span> -->
+<textarea
+  id="float-input"
+  rows="5"
+  cols="30"
+  formControlName="commentaire"
+  pInputTextarea
+></textarea>
+<label for="float-input">Commentaire</label>
+</span> -->
 
 <!-- <span>
-    <p-dropdown class="relier" [options]="reliers" placeholder="Relier un journal précédent" optionLabel="nom" [showClear]="true" formControlName="relier"></p-dropdown>
-  </span> -->
+<p-dropdown class="relier" [options]="reliers" placeholder="Relier un journal précédent" optionLabel="nom" [showClear]="true" formControlName="relier"></p-dropdown>
+</span> -->
 
 <!-- <p-button label="Partager" styleClass="partager" class="partager"  [ngStyle]="{'text-align':'center'}" ></p-button> -->
 <!-- Ci-dessous le code primeNg pour un bouton annuler et sa confirmation -https://www.primefaces.org/primeng/confirmdialog -->

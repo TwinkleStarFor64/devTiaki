@@ -16,68 +16,71 @@
         (keyup)="filtrerProgrammes()"
         (click)="allProgrammes()"
         [value]="selectedImageTitle"
-      />
-      <mat-autocomplete
-        #auto="matAutocomplete"
-        (optionSelected)="onOptionSelected($event)"
-      >
-        <mat-option
-          *ngFor="let programme of programmesFiltres"
-          [value]="programme"
-          (mouseover)="hoverSelectedProgramme(programme)"
-        >
-          {{ programme.titre }}
-        </mat-option>
-      </mat-autocomplete>
-    </form>
-    <!-- <app-input></app-input> -->
-    <input
-      type="checkbox"
-      id="input-ckeckbox"
-      name="observations"
-      value="observation"
-    />
-    <label for="input-ckeckbox">Tenir comptes de mes observations</label>
-    <input
-      type="checkbox"
-      id="input-ckeckbox"
-      name="jamaisFait"
-      value="jamaisFait"
-    />
-    <label for="jamaisFait">Jamais faites </label>
-    <img src="assets/iconeKineOpto/loupe.png" alt="">
-  </article>
-  <article></article>
-  <article *ngIf="selectedProgrammeKine; selectedProgramme">
-    <img src="{{ selectedProgrammeKine.photo }}" alt="imageKine" />
-    <article>
-      <div>
-        <h1>{{ selectedProgrammeKine.titre }}</h1>
-        <p>{{ selectedProgrammeKine.description }}</p>
-      </div>
-      <div>
-        <div>
-          <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
-          <p>{{ selectedProgrammeKine.duree }}</p>
-        </div>
-        <div>
-          <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
-          <p>{{ selectedProgrammeKine.materiel }}</p>
-        </div>
-      </div>
-      <app-carousel
-        [items]="programmesFiltres"
-        (onSelect)="onSelectProgramme($event)"
-        (carouselItemClick)="onCarouselItemClick($event)"
-      ></app-carousel>
-    </article>
-    <article>
-      <img src="assets/iconeKineOpto/pouce.png" alt="">
-      <select name="" id="">
-        <option value="">Avis et commentaires de la communauté</option>
-      </select>
-    </article>
-  </article>
-</section>
-<app-bottom-bar-kine></app-bottom-bar-kine>
-<!-- <app-footer></app-footer> -->
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+          >
+          @for (programme of programmesFiltres; track programme) {
+            <mat-option
+              [value]="programme"
+              (mouseover)="hoverSelectedProgramme(programme)"
+              >
+              {{ programme.titre }}
+            </mat-option>
+          }
+        </mat-autocomplete>
+      </form>
+      <!-- <app-input></app-input> -->
+      <input
+        type="checkbox"
+        id="input-ckeckbox"
+        name="observations"
+        value="observation"
+        />
+        <label for="input-ckeckbox">Tenir comptes de mes observations</label>
+        <input
+          type="checkbox"
+          id="input-ckeckbox"
+          name="jamaisFait"
+          value="jamaisFait"
+          />
+          <label for="jamaisFait">Jamais faites </label>
+          <img src="assets/iconeKineOpto/loupe.png" alt="">
+        </article>
+        <article></article>
+        @if (selectedProgrammeKine; selectedProgramme) {
+          <article>
+            <img src="{{ selectedProgrammeKine.photo }}" alt="imageKine" />
+            <article>
+              <div>
+                <h1>{{ selectedProgrammeKine.titre }}</h1>
+                <p>{{ selectedProgrammeKine.description }}</p>
+              </div>
+              <div>
+                <div>
+                  <img src="assets/iconeKineOpto/horloge.svg" alt="horloge" />
+                  <p>{{ selectedProgrammeKine.duree }}</p>
+                </div>
+                <div>
+                  <img src="assets/iconeKineOpto/materiel.svg" alt="materiel" />
+                  <p>{{ selectedProgrammeKine.materiel }}</p>
+                </div>
+              </div>
+              <app-carousel
+                [items]="programmesFiltres"
+                (onSelect)="onSelectProgramme($event)"
+                (carouselItemClick)="onCarouselItemClick($event)"
+              ></app-carousel>
+            </article>
+            <article>
+              <img src="assets/iconeKineOpto/pouce.png" alt="">
+              <select name="" id="">
+                <option value="">Avis et commentaires de la communauté</option>
+              </select>
+            </article>
+          </article>
+        }
+      </section>
+      <app-bottom-bar-kine></app-bottom-bar-kine>
+      <!-- <app-footer></app-footer> -->

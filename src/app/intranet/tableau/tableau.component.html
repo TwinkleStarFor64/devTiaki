@@ -3,59 +3,65 @@
     <a routerLink="/intranet">Tiaki</a>
     <h1>Tableau de bord d'Émilie</h1>
   </header>
-    <section class="reussite">
-      <article class="tableau-gauche">
-        <article class="historique">
-          <h2>Historique des événements</h2>
-          <div class="genial">
-            <img src="assets/imageTableau/fete.svg" alt="fete" />
-            <h3>Génial c'est réussi !</h3>
-          </div>
-          <div>
-            <img src="assets/imageTableau/medaille.svg" alt="medaille" />
-            <ul *ngFor="let reussite of tableaux.tableauReussite">
+  <section class="reussite">
+    <article class="tableau-gauche">
+      <article class="historique">
+        <h2>Historique des événements</h2>
+        <div class="genial">
+          <img src="assets/imageTableau/fete.svg" alt="fete" />
+          <h3>Génial c'est réussi !</h3>
+        </div>
+        <div>
+          <img src="assets/imageTableau/medaille.svg" alt="medaille" />
+          @for (reussite of tableaux.tableauReussite; track reussite) {
+            <ul>
               <li>{{ reussite.totalExercice }}</li>
               <li>{{ reussite.exerciceOptoReussi }}</li>
               <li>{{ reussite.exerciceKineReussi }}</li>
               <li>{{ reussite.repasNutri }}</li>
             </ul>
-          </div>
-        </article>
-        <article class="encours">
-          <div class="travail">
-            <img src="assets/imageTableau/courreur.svg" alt="courreur" />
-            <h3>Le travail est en cours</h3>
-          </div>
-          <div>
-            <ul *ngFor="let enCours of tableaux.tableauEnCours">
+          }
+        </div>
+      </article>
+      <article class="encours">
+        <div class="travail">
+          <img src="assets/imageTableau/courreur.svg" alt="courreur" />
+          <h3>Le travail est en cours</h3>
+        </div>
+        <div>
+          @for (enCours of tableaux.tableauEnCours; track enCours) {
+            <ul>
               <li>{{ enCours.exerciceEnCours }}</li>
               <li>{{ enCours.progressionOpto }}</li>
               <li>{{ enCours.progressionNutri }}</li>
             </ul>
-          </div>
-        </article>
+          }
+        </div>
       </article>
-      <article class="tableau-droite">
-        <h2>Information de santé</h2>
-        <div class="sante-container">
-          <div *ngFor="let profil of sante">
+    </article>
+    <article class="tableau-droite">
+      <h2>Information de santé</h2>
+      <div class="sante-container">
+        @for (profil of sante; track profil) {
+          <div>
             <img [src]="profil.img" alt="icone-tableau" />
             <p>{{ profil.nom }}</p>
           </div>
-        </div>
-        <h3>Profil de santé</h3>
-        <ul>
-          <li>14 exercices réussis</li>
-          <li>3 progressions remarquées en optométrie</li>
-          <li>5 progressions sur la souplesse</li>
-        </ul>
-      </article>
-    </section>
-    <section class="column">
+        }
+      </div>
+      <h3>Profil de santé</h3>
+      <ul>
+        <li>14 exercices réussis</li>
+        <li>3 progressions remarquées en optométrie</li>
+        <li>5 progressions sur la souplesse</li>
+      </ul>
+    </article>
+  </section>
+  <section class="column">
+    @for (liste of tableaux.tableauBordHistorique; track liste; let index = $index) {
       <article
         class="infoColumn"
-        *ngFor="let liste of tableaux.tableauBordHistorique; let index = index"
-      >
+        >
         <h3>Synthèse des problèmes identifiés</h3>
         <div>
           <h4>De nutrition</h4>
@@ -74,10 +80,11 @@
           </ul>
         </div>
       </article>
+    }
+    @for (liste of tableaux.tableauBordMedecin; track liste; let index = $index) {
       <article
         class="infoColumn"
-        *ngFor="let liste of tableaux.tableauBordMedecin; let index = index"
-      >
+        >
         <h3>Ecosystème de santé</h3>
         <div class="ecosysteme">
           <h4>Médecins traitants</h4>
@@ -89,19 +96,20 @@
           </ul>
         </div>
       </article>
-      <article class="infoColumn">
-        <h3></h3>
-        <div class="ecosysteme">
-          <h4>Suivi quotidien</h4>
-          <ul>
-            <li>Infirmière: Mme Alonzo</li>
-          </ul>
-        </div>
-      </article>
-      <article class="accordion">
-        <cdk-accordion class="example-accordion">
+    }
+    <article class="infoColumn">
+      <h3></h3>
+      <div class="ecosysteme">
+        <h4>Suivi quotidien</h4>
+        <ul>
+          <li>Infirmière: Mme Alonzo</li>
+        </ul>
+      </div>
+    </article>
+    <article class="accordion">
+      <cdk-accordion class="example-accordion">
+        @for (item of items; track item; let index = $index) {
           <cdk-accordion-item
-            *ngFor="let item of items; let index = index"
             #accordionItem="cdkAccordionItem"
             class="example-accordion-item"
             role="button"
@@ -109,11 +117,11 @@
             [attr.id]="'accordion-header-' + index"
             [attr.aria-expanded]="accordionItem.expanded"
             [attr.aria-controls]="'accordion-body-' + index"
-          >
+            >
             <div
               class="example-accordion-item-header"
               (click)="accordionItem.toggle()"
-            >
+              >
               {{ item.header }}
               <span class="example-accordion-item-description">
                 Click to {{ accordionItem.expanded ? "close" : "open" }}
@@ -128,17 +136,20 @@
               [innerHTML]="sanitizeHTML(item.content)"
             ></div>
           </cdk-accordion-item>
-        </cdk-accordion>
-        <!-- <app-custom-accordion></app-custom-accordion> -->
-      </article>
-    </section>
+        }
+      </cdk-accordion>
+      <!-- <app-custom-accordion></app-custom-accordion> -->
+    </article>
   </section>
+</section>
 <footer>
-  <article *ngFor="let liste of tableaux.bottomBarTableau">
-    <h5>{{ liste.titre }}</h5>
-    <ul>
-      <li>{{ liste.firstInfo }}</li>
-      <li>{{ liste.secondInfo }}</li>
-    </ul>
-  </article>
+  @for (liste of tableaux.bottomBarTableau; track liste) {
+    <article>
+      <h5>{{ liste.titre }}</h5>
+      <ul>
+        <li>{{ liste.firstInfo }}</li>
+        <li>{{ liste.secondInfo }}</li>
+      </ul>
+    </article>
+  }
 </footer>

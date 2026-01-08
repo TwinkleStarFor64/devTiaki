@@ -3,17 +3,19 @@
   <h2>Application numérique pour les aidants familiaux</h2>
 </header>
 <section class="accueil">
-  <article *ngFor="let card of imageAccueil" class="cartel">
-    <div>
-      <h2>{{ card.title }}</h2>
-      <p>{{ card.text }}</p>
-      <a [routerLink]="[card.url]">
-        <button>{{ card.button }}</button>
-      </a>
-    </div>
-    <figure>
-      <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
+  @for (card of imageAccueil; track card) {
+    <article class="cartel">
+      <div>
+        <h2>{{ card.title }}</h2>
+        <p>{{ card.text }}</p>
+        <a [routerLink]="[card.url]">
+          <button>{{ card.button }}</button>
+        </a>
       </div>
-    </figure>
-  </article>
+      <figure>
+        <div [style.background-image]="'url(' + sanity.urlFor(card.image).url() + ')'" alt="Image d'illustration">
+        </div>
+      </figure>
+    </article>
+  }
 </section>

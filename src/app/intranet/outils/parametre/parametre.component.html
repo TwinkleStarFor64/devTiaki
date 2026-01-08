@@ -14,7 +14,9 @@
         <h2>Médecins</h2>
       </div>
       <ul>
-        <li *ngFor="let medecin of medecins">{{ medecin.nom }}</li>
+        @for (medecin of medecins; track medecin) {
+          <li>{{ medecin.nom }}</li>
+        }
       </ul>
     </article>
     <article class="realisation">
@@ -23,9 +25,11 @@
         <h2>Organismes</h2>
       </div>
       <ul>
-        <li *ngFor="let organisme of echanges.nomOrga">
-          {{ organisme.nomOrganisme }}
-        </li>
+        @for (organisme of echanges.nomOrga; track organisme) {
+          <li>
+            {{ organisme.nomOrganisme }}
+          </li>
+        }
       </ul>
     </article>
   </section>
@@ -43,18 +47,22 @@
     <!-- <h3>Historique des échanges</h3> -->
     <section class="contenuEchange">
       <section class="echangeMedecin">
-        <article *ngFor="let message of echanges.echangeMedecin">
-          <h4>{{ message.nom }}</h4>
-          <p>{{ message.message }}</p>
-          <img src="assets/imgEchange/modif.svg" />
-        </article>
+        @for (message of echanges.echangeMedecin; track message) {
+          <article>
+            <h4>{{ message.nom }}</h4>
+            <p>{{ message.message }}</p>
+            <img src="assets/imgEchange/modif.svg" />
+          </article>
+        }
       </section>
       <section class="echangeMedecin2">
-        <article *ngFor="let message of echanges.echangeOrga">
-          <h4>{{ message.nom }}</h4>
-          <p>{{ message.message }}</p>
-          <img src="assets/imgEchange/modif.svg" />
-        </article>
+        @for (message of echanges.echangeOrga; track message) {
+          <article>
+            <h4>{{ message.nom }}</h4>
+            <p>{{ message.message }}</p>
+            <img src="assets/imgEchange/modif.svg" />
+          </article>
+        }
       </section>
     </section>
   </section>

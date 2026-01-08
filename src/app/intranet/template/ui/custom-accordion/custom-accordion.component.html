@@ -1,5 +1,6 @@
 <div class="custom-accordion">
-    <div *ngFor="let item of items; let index = index" class="custom-accordion-item">
+  @for (item of items; track item; let index = $index) {
+    <div class="custom-accordion-item">
       <div class="custom-accordion-item-header" (click)="toggleAccordion(index)">
         {{ item.header }}
         <span class="custom-accordion-item-description">
@@ -12,4 +13,5 @@
         </div>
       </div>
     </div>
-  </div>
+  }
+</div>

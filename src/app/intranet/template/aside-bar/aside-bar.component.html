@@ -4,11 +4,13 @@
 
 <nav [class.active]="navbarVisible">
   <ul>
-    <li *ngFor="let lien of asides; let i = index">
-      <a [routerLink]="[lien.url]" [title]="lien.nom">
-        <img [src]="lien.image" [alt]="" />
-        <span>{{ lien.nom }}</span>
-      </a>
-    </li>
+    @for (lien of asides; track lien; let i = $index) {
+      <li>
+        <a [routerLink]="[lien.url]" [title]="lien.nom">
+          <img [src]="lien.image" [alt]="" />
+          <span>{{ lien.nom }}</span>
+        </a>
+      </li>
+    }
   </ul>
 </nav>

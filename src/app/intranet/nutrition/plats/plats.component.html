@@ -7,61 +7,74 @@
     <article id="listePlats">
       <button id="ajoutButton" mat-raised-button color="primary" (click)="openDialog()">
         1 - Ajouter un nouveau plat
-      </button>      
+      </button>
       <h1>Reprendre un repas précédent</h1>
       <article id="evalBouton">
-      <!-- Dans la méthode triParTexte() je passe en paramétre le texte du bouton -->
+        <!-- Dans la méthode triParTexte() je passe en paramétre le texte du bouton -->
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et validés')">Plats évalués et validés</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évaluer')">Plats non évalués</button>
         <button mat-raised-button color="primary" (click)="triParTexte('Évalués et problématiques')">Plats évalués et problématiques</button>
         <button mat-raised-button color="primary" (click)="openDialog()">Ajouter un nouveau plat</button>
       </article>
-      <article id="filter" *ngIf="affichageDefaut !== 'allPlats'">          
-        <button mat-raised-button (click)="triParTexte('allPlats')">Effacer les filtres</button>
-      </article>
+      @if (affichageDefaut !== 'allPlats') {
+        <article id="filter">
+          <button mat-raised-button (click)="triParTexte('allPlats')">Effacer les filtres</button>
+        </article>
+      }
       <article id="listing">
-        <div *ngFor="let plat of plats">
-          <h2 *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut" (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
-          <p *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">{{ plat.description }}</p>
-          <div *ngIf="affichageDefaut === 'allPlats' || affichageDefaut === plat.statut">
-            <span id="pastilleEval"              
-             [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
-             <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
-            </span>
-            <!-- <button mat-raised-button                      
-            [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
-            {{ plat.statut }}
-            </button> -->
-            <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
-            <p>Durée</p>
-            <img src="assets/photoNutri/casserole.svg" alt="matériel" />
-            <p id="dashed">Matériels</p>
-          </div>
+        @for (plat of plats; track plat) {
+          <div>
+            @if (affichageDefaut === 'allPlats' || affichageDefaut === plat.statut) {
+              <h2 (click)="onSelectPlat(plat)" style="cursor: pointer">{{ plat.nom }}</h2>
+            }
+            @if (affichageDefaut === 'allPlats' || affichageDefaut === plat.statut) {
+              <p>{{ plat.description }}</p>
+            }
+            @if (affichageDefaut === 'allPlats' || affichageDefaut === plat.statut) {
+              <div>
+                <span id="pastilleEval"
+                  [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
+                  <!-- [ngClass] afin de gérer le CSS suivant le contenu textuel du bouton -->
+                </span>
+                <!-- <button mat-raised-button
+                [ngClass]="{ 'Eval': plat.statut === 'Évaluer', 'EvalYes': plat.statut === 'Évalués et validés', 'EvalNo': plat.statut === 'Évalués et problématiques' }">
+                {{ plat.statut }}
+              </button> -->
+              <img src="assets/iconeKineOpto/horloge.svg" alt="durée" />
+              <p>Durée</p>
+              <img src="assets/photoNutri/casserole.svg" alt="matériel" />
+              <p id="dashed">Matériels</p>
+            </div>
+          }
         </div>
-      </article>
+      }
     </article>
-    <article>
-      <h3>2 - Ajouter un plat</h3>
-      <div id="selectBalise">
-        <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout" />
-        <mat-form-field appearance="outline">
-          <mat-label>VOS PLATS</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let plat of plats" [value]="plat.nom" (onSelectionChange)="onSelect($event, plat)">
+  </article>
+  <article>
+    <h3>2 - Ajouter un plat</h3>
+    <div id="selectBalise">
+      <img src="assets/photoNutri/ingredient.svg" alt="Icône d'ajout" />
+      <mat-form-field appearance="outline">
+        <mat-label>VOS PLATS</mat-label>
+        <mat-select>
+          @for (plat of plats; track plat) {
+            <mat-option [value]="plat.nom" (onSelectionChange)="onSelect($event, plat)">
               {{ plat.nom }}
             </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>LES PLATS DE LA COMMUNAUTÉ</mat-label>
-          <mat-select> </mat-select>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>ALLERGIES D'ÉMILIE</mat-label>
-          <mat-select> </mat-select>
-        </mat-form-field>
-      </div>
-      <span *ngIf="selectedPlats">
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>LES PLATS DE LA COMMUNAUTÉ</mat-label>
+        <mat-select> </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>ALLERGIES D'ÉMILIE</mat-label>
+        <mat-select> </mat-select>
+      </mat-form-field>
+    </div>
+    @if (selectedPlats) {
+      <span>
         <h4>{{ selectedPlats.nom }}</h4>
         <p>Description</p>
         <textarea name="" id="" cols="30" rows="5">{{ selectedPlats.description }}</textarea>
@@ -72,22 +85,24 @@
           <p>Allèrgenes</p>
           <p>Retour de la communauté</p>
         </div>
-        <span *ngFor="let ingredients of aliment | ingredients:alimCodeFiltre">
-          <p>{{ ingredients.alim_nom_fr }}</p>
-          <p><img src="assets/photoNutri/compl.svg" alt="icône composition">
-             Composition - Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
-             Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
-             Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
-             Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
-          </p>
-          <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
-             Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
-             B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
-             B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
-             B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
-             B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
-          </p>          
-        </span>
+        @for (ingredients of aliment | ingredients:alimCodeFiltre; track ingredients) {
+          <span>
+            <p>{{ ingredients.alim_nom_fr }}</p>
+            <p><img src="assets/photoNutri/compl.svg" alt="icône composition">
+              Composition - Protéines : {{ ingredients['Protéines, N x 6.25 (g\/100 g)'] }} Gr -
+              Glucides : {{ ingredients['Glucides (g\/100 g)'] }} Gr -
+              Lipide : {{ ingredients['Lipides (g\/100 g)'] }} Gr -
+              Sucre : {{ ingredients['Sucres (g/100 g)'] }} Gr
+            </p>
+            <p><img src="assets/photoNutri/vitamine.svg" alt="icône vitamine">
+              Vitamines C : {{ ingredients["Vitamine C (mg\/100 g)"] }} Mg -
+              B1 : {{ ingredients["Vitamine B1 ou Thiamine (mg\/100 g)"] }} Mg -
+              B2 : {{ ingredients["Vitamine B2 ou Riboflavine (mg\/100 g)"] }} Mg -
+              B3 : {{ ingredients["Vitamine B3 ou PP ou Niacine (mg\/100 g)"] }} Mg -
+              B5 : {{ ingredients["Vitamine B5 ou Acide pantothénique (mg\/100 g)"] }} Mg
+            </p>
+          </span>
+        }
         <mat-form-field id="ajouter" appearance="outline">
           <mat-label>AJOUTER</mat-label>
           <mat-select> </mat-select>
@@ -97,11 +112,13 @@
             <mat-form-field appearance="outline">
               <mat-label>ÉVALUER CE PLAT</mat-label>
               <mat-select [(ngModel)]="selectedEvaluation">
-                <mat-option *ngFor="let eval of evaluation" [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
-                  {{ eval.statut }}                
-                </mat-option>
+                @for (eval of evaluation; track eval) {
+                  <mat-option [value]="eval.statut" (onSelectionChange)="onSelectEval($event, eval)">
+                    {{ eval.statut }}
+                  </mat-option>
+                }
               </mat-select>
-            </mat-form-field>          
+            </mat-form-field>
             <button mat-raised-button color="primary" (click)="getPlatsId()">ÉVALUER</button>
           </span>
           <span>
@@ -110,8 +127,9 @@
           </span>
         </div>
       </span>
-    </article>
-    <!-- <app-footer></app-footer> -->
-  </section>
+    }
+  </article>
+  <!-- <app-footer></app-footer> -->
+</section>
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>

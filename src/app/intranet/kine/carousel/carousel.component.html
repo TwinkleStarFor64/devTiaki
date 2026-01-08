@@ -1,10 +1,12 @@
 <a class="carousel-prev" (click)="prevSlide()"></a>
 <div class="carousel">
   <div class="carousel-container" #carouselContainer>
-    <div class="carousel-slide" *ngFor="let item of items; let i = index;" [ngClass]="{ 'active': i === currentSlide }" (click)="onCarouselItemClick(item)">
-      <img [src]="item.photo" alt="Image">
-      <p>Lorem ipsum</p>
-    </div>
+    @for (item of items; track item; let i = $index) {
+      <div class="carousel-slide" [ngClass]="{ 'active': i === currentSlide }" (click)="onCarouselItemClick(item)">
+        <img [src]="item.photo" alt="Image">
+        <p>Lorem ipsum</p>
+      </div>
+    }
   </div>
 </div>
 <a class="carousel-next" (click)="nextSlide()"></a>
