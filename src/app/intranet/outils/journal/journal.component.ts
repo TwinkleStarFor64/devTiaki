@@ -1,17 +1,32 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
 import {
+import { SupabaseService } from 'src/app/partage/services/supabase.service';
   MedecinI,
   RealisationI,
 } from 'src/app/intranet/modeles/Types';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
     selector: 'app-journal',
     templateUrl: './journal.component.html',
     styleUrls: ['./journal.component.scss'],
-    standalone: false
+    standalone: true
+  standalone: true,
+  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
+  
 })
 export class JournalComponent implements OnInit {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()

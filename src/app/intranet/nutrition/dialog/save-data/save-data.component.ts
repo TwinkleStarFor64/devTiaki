@@ -1,14 +1,28 @@
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
+import { AlimentsPipe } from "../../../utils/pipes/filter.pipe";
 
 @Component({
-    selector: 'app-save-data',
-    templateUrl: './save-data.component.html',
-    styleUrls: ['./save-data.component.scss'],
-    standalone: false
+  selector: 'app-save-data',
+  templateUrl: './save-data.component.html',
+  styleUrls: ['./save-data.component.scss'],
+  standalone: true,
+  imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, AlimentsPipe],
+
 })
 export class SaveDataComponent implements OnInit {
   formData!: FormGroup;
@@ -20,21 +34,21 @@ export class SaveDataComponent implements OnInit {
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SaveDataComponent>,
-               private formBuilder: FormBuilder, public supa: SupabaseService, public menuService: MenusService ) {}
+    private formBuilder: FormBuilder, public supa: SupabaseService, public menuService: MenusService) { }
 
-  async ngOnInit(): Promise<void>  {
+  async ngOnInit(): Promise<void> {
     this.fetchCiqual();
 
-    this.formData = new FormGroup ({
+    this.formData = new FormGroup({
       nom: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
       ingredient: new FormControl('')
     });
 
-// Ci-dessous je récupére la valeur du champ ingrédient du formulaire
-// Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredient()
+    // Ci-dessous je récupére la valeur du champ ingrédient du formulaire
+    // Je subcribe à cette valeur pour l'attribuer à la variable ingredientAlimCode la valeur de alim_code que je récupére via getCurrentIngredient()
     const ingredientControl = this.formData.get('ingredient') as FormControl;
-    ingredientControl.valueChanges.subscribe( async (selectedIngredient) => {
+    ingredientControl.valueChanges.subscribe(async (selectedIngredient) => {
       if (selectedIngredient) {
         const ingredientAlimCode = selectedIngredient.alim_code;
         console.log(ingredientAlimCode);
@@ -44,7 +58,7 @@ export class SaveDataComponent implements OnInit {
     });
 
 
-} // <------- Fin du ngOnInit()
+  } // <------- Fin du ngOnInit()
 
   closeDialog() {
     this.dialogRef.close(false);

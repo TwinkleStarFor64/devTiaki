@@ -1,18 +1,23 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 import { Component, OnInit } from '@angular/core';
 import { ConnexionService } from '../../partage/services/connexion.service';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
-    selector: 'app-connexion',
-    templateUrl: './connexion.component.html',
-    styleUrls: ['./connexion.component.scss'],
-    standalone: false
+  selector: 'app-connexion',
+  templateUrl: './connexion.component.html',
+  styleUrls: ['./connexion.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, FormsModule],
+  
 })
 export class ConnexionComponent implements OnInit {
-  titre:string="Se connecter";
+  titre: string = "Se connecter";
 
-  constructor(public conn: ConnexionService, public supa:SupabaseService) { }
-
+  constructor(public conn: ConnexionService, public supa: SupabaseService) { }
 
   async ngOnInit(): Promise<void> {
     const { data, error } = await this.supa.getAidant();
@@ -21,9 +26,8 @@ export class ConnexionComponent implements OnInit {
     //console.log(data);
   }
 
-   // Méthode pour afficher l'états des données
-  dataObject(){
+  // Méthode pour afficher l'états des données
+  dataObject() {
     console.log(this.conn.connexion);
   }
-
 }

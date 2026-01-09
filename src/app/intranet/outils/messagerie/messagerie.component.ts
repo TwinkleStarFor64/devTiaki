@@ -1,3 +1,15 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI } from '../../modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
@@ -5,10 +17,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
 @Component({
-    selector: 'app-messagerie',
-    templateUrl: './messagerie.component.html',
-    styleUrls: ['./messagerie.component.scss'],
-    standalone: false
+  selector: 'app-messagerie',
+  templateUrl: './messagerie.component.html',
+  styleUrls: ['./messagerie.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
+
 })
 export class MessagerieComponent implements OnInit {
   public medecinImg!: string;
@@ -49,7 +63,7 @@ export class MessagerieComponent implements OnInit {
     public echanges: MessagerieService,
     private formBuilder: FormBuilder,
     public supa: SupabaseService
-  ) {}
+  ) { }
 
   async ngOnInit(): Promise<void> {
     this.formMessage = this.formBuilder.group({
@@ -83,7 +97,7 @@ export class MessagerieComponent implements OnInit {
     }
   }
 
-// Methode pour envoyer un message via le button
+  // Methode pour envoyer un message via le button
 
   async onSubmitFormMessage() {
 

@@ -1,11 +1,18 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 import { Component, OnInit } from '@angular/core';
 import { AsideI } from 'src/app/intranet/modeles/Types.js';
 
 @Component({
-    selector: 'app-aside-bar',
-    templateUrl: './aside-bar.component.html',
-    styleUrls: ['./aside-bar.component.scss'],
-    standalone: false
+  selector: 'app-aside-bar',
+  templateUrl: './aside-bar.component.html',
+  styleUrls: ['./aside-bar.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, MatButtonModule, MatIconModule],
+  
 })
 export class AsideBarComponent implements OnInit {
   value: number = 7;

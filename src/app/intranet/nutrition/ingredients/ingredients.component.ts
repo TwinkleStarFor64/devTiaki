@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
-import { IngredientsServiceService } from './services/ingredients-service.service';
+import { Component, inject, OnInit } from '@angular/core';
+import { IntranetModule } from '../../intranet.module';
+import { PlatsPipe, AlimentsPipe } from '../../utils/pipes/filter.pipe';
+import { DonneesService } from '../../utils/services/donnees.service';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
+import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
+import { SlicePipe, UpperCasePipe } from '@angular/common';
+import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
 class MyPaginatorIntl extends MatPaginatorIntl {
@@ -29,7 +33,8 @@ class MyPaginatorIntl extends MatPaginatorIntl {
     selector: 'app-ingredients',
     templateUrl: './ingredients.component.html',
     styleUrls: ['./ingredients.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [IntranetModule, AlimentsPipe, PlatsPipe, SlicePipe, UpperCasePipe, BottomBarNutriComponent]
 })
 export class IngredientsComponent implements OnInit {
   filtre: string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel
@@ -41,14 +46,16 @@ export class IngredientsComponent implements OnInit {
 
   currentPage = 0; // Page actuelle pour MatPaginator 
   itemsPerPage = 20; // Nombre de pages à afficher pour MatPaginator
+
+  donnees:DonneesService = inject(DonneesService); // Injection du service DonneesService afin d'accéder aux données globales
     
-  constructor(public composition: IngredientsServiceService, private paginatorIntl: MatPaginatorIntl) {} // Injection du service
+  constructor(private paginatorIntl: MatPaginatorIntl) {} // Injection du service
 
   ngOnInit(): any {
     //Lancer la récupération de la table ciqual
     //Je récupére la méthode getCiqual() de ingredients-service.services
-    this.composition.getCiqual();
-    this.composition.getMesPlats();    
+    this.donnees.getCiqual();
+    this.donnees.getMesPlats();    
 
     // Ci-dessous je modifie les labels de MatPaginator en initialisant une nouvelle instance de la classe
     const myPaginatorIntl = new MyPaginatorIntl();

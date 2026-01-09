@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import {
   Component,
   ElementRef,
@@ -13,7 +15,8 @@ import { ProgrammeI } from '../../utils/modeles/Types';
     selector: 'app-carousel-opto',
     templateUrl: './carousel-opto.component.html',
     styleUrls: ['./carousel-opto.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [CommonModule]
 })
 export class CarouselOptoComponent {
   @ViewChild('carouselContainer', { static: true })

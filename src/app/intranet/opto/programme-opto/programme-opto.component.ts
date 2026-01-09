@@ -1,14 +1,30 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ProgrammeI } from '../../utils/modeles/Types';
 import { ProgrammeOptoService } from './services/programme-opto.service';
+import { CarouselOptoComponent } from "../carousel-opto/carousel-opto.component";
+import { BottomBarOptoComponent } from "../bottom-bar-opto/bottom-bar-opto.component";
 
 @Component({
-    selector: 'app-programme-opto',
-    templateUrl: './programme-opto.component.html',
-    styleUrls: ['./programme-opto.component.scss'],
-    standalone: false
+  selector: 'app-programme-opto',
+  templateUrl: './programme-opto.component.html',
+  styleUrls: ['./programme-opto.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CarouselOptoComponent, BottomBarOptoComponent],
+
 })
 export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
@@ -19,7 +35,7 @@ export class ProgrammeOptoComponent implements OnInit {
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-  constructor(public programmeOpto: ProgrammeOptoService) {}
+  constructor(public programmeOpto: ProgrammeOptoService) { }
 
   // Récupère les données du service programmeOptoService et les enregistre grâce au subscribe
   ngOnInit(): void {

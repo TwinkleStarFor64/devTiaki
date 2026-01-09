@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -5,7 +7,9 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
     selector: 'app-custom-accordion',
     templateUrl: './custom-accordion.component.html',
     styleUrls: ['./custom-accordion.component.scss'],
-    standalone: false
+    standalone: true
+  imports: [CommonModule],
+  
 })
 export class CustomAccordionComponent {
   @Input() items: any[];

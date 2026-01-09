@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
+import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
 import { BottomI } from './modeles/Types';
 
 @Component({
-    selector: 'app-intranet',
-    templateUrl: './intranet.component.html',
-    styleUrls: ['./intranet.component.scss'],
-    standalone: false
+  selector: 'app-intranet',
+  templateUrl: './intranet.component.html',
+  styleUrls: ['./intranet.component.scss'],
+  standalone: true,
+  imports: [RouterOutlet, AsideBarComponent],
+  
 })
 export class IntranetComponent implements OnInit {
   public bottoms: BottomI[] = [

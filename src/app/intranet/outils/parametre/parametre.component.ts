@@ -1,3 +1,6 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { MedecinI, RealisationI } from '../../modeles/Types';
 import { MessageJournalI } from '../../modeles/journal';
@@ -5,10 +8,12 @@ import { ParametreService } from './services/parametre.service';
 import { EchangeI } from '../../utils/modeles/Types';
 
 @Component({
-    selector: 'app-parametre',
-    templateUrl: './parametre.component.html',
-    styleUrls: ['./parametre.component.scss'],
-    standalone: false
+  selector: 'app-parametre',
+  templateUrl: './parametre.component.html',
+  styleUrls: ['./parametre.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule],
+
 })
 export class ParametreComponent {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
@@ -41,7 +46,7 @@ export class ParametreComponent {
       nom: "Ajout du plat 'Soupe de courgette'",
     },
   ];
-  constructor(public echanges: ParametreService) {}
+  constructor(public echanges: ParametreService) { }
 
   ngOnInit() {
     this.pacman = 'assets/imageOutils/Maskgroup.svg';

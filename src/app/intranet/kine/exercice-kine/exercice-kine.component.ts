@@ -5,12 +5,15 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { IntranetModule } from '../../intranet.module';
 
 @Component({
-    selector: 'app-exercice-kine',
-    templateUrl: './exercice-kine.component.html',
-    styleUrls: ['./exercice-kine.component.scss'],
-    standalone: false
+  selector: 'app-exercice-kine',
+  templateUrl: './exercice-kine.component.html',
+  styleUrls: ['./exercice-kine.component.scss'],
+  standalone: true,
+  imports: [IntranetModule],
+
 })
 export class ExerciceKineComponent implements OnInit {
   avatar!: string;
@@ -23,7 +26,7 @@ export class ExerciceKineComponent implements OnInit {
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
 
-  constructor(public sanity: SanityService, private dialog: MatDialog) {}
+  constructor(public sanity: SanityService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';

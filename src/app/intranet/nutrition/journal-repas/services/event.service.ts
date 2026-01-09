@@ -11,8 +11,6 @@ import {
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 
-
-
 @Injectable({
   providedIn: 'root'
 })

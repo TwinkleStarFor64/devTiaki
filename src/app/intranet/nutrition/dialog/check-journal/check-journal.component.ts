@@ -1,3 +1,13 @@
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EventService } from '../../journal-repas/services/event.service';
@@ -8,10 +18,12 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 
 @Component({
-    selector: 'app-check-journal',
-    templateUrl: './check-journal.component.html',
-    styleUrls: ['./check-journal.component.scss'],
-    standalone: false
+  selector: 'app-check-journal',
+  templateUrl: './check-journal.component.html',
+  styleUrls: ['./check-journal.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
+
 })
 export class CheckJournalComponent implements OnInit {
 
@@ -24,8 +36,8 @@ export class CheckJournalComponent implements OnInit {
   repas: MesMenusI[] = [];
   aliment: CiqualI[] = [];
 
-// Dans le constructor j'utilise data - voir la doc pour les modals
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CheckJournalComponent>, public eventService: EventService, public platsService: PlatsService, public menuService: MenusService, public supa: SupabaseService) {}
+  // Dans le constructor j'utilise data - voir la doc pour les modals
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<CheckJournalComponent>, public eventService: EventService, public platsService: PlatsService, public menuService: MenusService, public supa: SupabaseService) { }
 
   ngOnInit(): void {
     this.fetchPlats();
@@ -33,11 +45,11 @@ export class CheckJournalComponent implements OnInit {
     this.fetchEvents();
     this.fetchCiqual();
 
-// Le data de this.data provient de la méthode openDialog dans journal-repas.component - elle contient l'id de l'élément sur lequel j'ai cliqué et aussi son nom (title dans la BDD)
+    // Le data de this.data provient de la méthode openDialog dans journal-repas.component - elle contient l'id de l'élément sur lequel j'ai cliqué et aussi son nom (title dans la BDD)
     this.selectedIdValue = this.data.selectedId; // this.selectedIdValue contient maintenant l'id de l'event calendar sur lequel j'ai cliqué
     console.log("this.selectedIdValue : ", this.selectedIdValue);
     this.selectedTitleValue = this.data.selectedTitle; // this.selectedTitleValue contient maintenant le nom (title) de l'event calendar sur lequel j'ai cliqué
-    console.log("this.selectedTitleValue : ",this.selectedTitleValue);
+    console.log("this.selectedTitleValue : ", this.selectedTitleValue);
 
     //console.log("console.log de this.data", JSON.stringify(this.data));
     //console.log('selectedID', this.selectedId);
@@ -71,7 +83,7 @@ export class CheckJournalComponent implements OnInit {
   async fetchPlats() {
     const { data, error } = await this.platsService.getPlats();
     if (data) {
-      this.plats = data.map((item: { [x:string]: any }) => ({
+      this.plats = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
@@ -131,18 +143,18 @@ export class CheckJournalComponent implements OnInit {
     }
   }
 
-// Méthode pour afficher les données de la table plats & ciqual en BDD seulement si elles correspondent à selectedTitleValue
+  // Méthode pour afficher les données de la table plats & ciqual en BDD seulement si elles correspondent à selectedTitleValue
   getFilteredPlatsData(): any[] {
     if (!this.selectedTitleValue) {
       return [];
     }
-//Ci-dessous sur plats (qui contient tout les plats grâce au fetch) je filtre les plats dont le nom est égale à selectedTitleValue
+    //Ci-dessous sur plats (qui contient tout les plats grâce au fetch) je filtre les plats dont le nom est égale à selectedTitleValue
     const filteredPlats = this.plats.filter(
       (plat) => plat.nom === this.selectedTitleValue
     );
-//Avec map je parcours le tableau filteredPlats créer au dessus pour faire un nouvel objet filteredPlats
-//Ce nouveau filteredPlats contient plat.nom et plat.alim_code et ingredients qui est de type CiqualI[]
-//Sur ingredient je filtre les alim_code des ingrédients qui correspondent à l'alim_code du plat
+    //Avec map je parcours le tableau filteredPlats créer au dessus pour faire un nouvel objet filteredPlats
+    //Ce nouveau filteredPlats contient plat.nom et plat.alim_code et ingredients qui est de type CiqualI[]
+    //Sur ingredient je filtre les alim_code des ingrédients qui correspondent à l'alim_code du plat
     return filteredPlats.map((plat) => {
       return {
         nom: plat.nom,
@@ -152,16 +164,16 @@ export class CheckJournalComponent implements OnInit {
         ),
       };
     });
-        //L'objet final contient : {
-        /*   nom: "Nom du plat",
-             alimCode: "Code de l'aliment",
-             ingredients:
-                        [
-                        Tableau des ingrédients associés au plat
-                        {  Ingrédient 1  },
-                        {  Ingrédient 2  },
-                        ]
-                      } */
+    //L'objet final contient : {
+    /*   nom: "Nom du plat",
+         alimCode: "Code de l'aliment",
+         ingredients:
+                    [
+                    Tableau des ingrédients associés au plat
+                    {  Ingrédient 1  },
+                    {  Ingrédient 2  },
+                    ]
+                  } */
   } // <--------------- FIN DE getFilteredPlatsData()-----------------------------------
 
   getFilteredMenusData(): any[] {
@@ -171,15 +183,15 @@ export class CheckJournalComponent implements OnInit {
     const filteredMenus = this.repas.filter(
       (menu) => menu.nom === this.selectedTitleValue
     );
-      return filteredMenus.map((menu) => {
-        return {
-          nom: menu.nom,
-          alimCode: menu.alim_code,
-          ingredients: this.aliment.filter(
-            (ingredient) => ingredient.alim_code === menu.alim_code
-          ),
-        };
-      });
+    return filteredMenus.map((menu) => {
+      return {
+        nom: menu.nom,
+        alimCode: menu.alim_code,
+        ingredients: this.aliment.filter(
+          (ingredient) => ingredient.alim_code === menu.alim_code
+        ),
+      };
+    });
   }
 
 }

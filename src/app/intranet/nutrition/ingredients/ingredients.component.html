@@ -15,7 +15,7 @@
       <!-- j'appelle le pipe aliments auquel j'applique la variable filtre appellé dans [(ngModel)]  -->
       <!-- Grâce au pipe et au filtre je peux effectuer une recherche d'ingrédients -->
       <!-- En utlisant "as" je crée une variable temporaire utilisable dans ng-container sans besoin de déclarer filteredIngredients dans le component -->
-      @if (composition.ciqual | aliments:filtre; as filteredIngredients) {
+      @if (donnees.ciqual | aliments:filtre; as filteredIngredients) {
         <!-- Ci-dessus j'utilise le pipe de filtrage et je stock le résultat dans la variable filteredIngredients -->
         <!-- Doc sur ng-container - https://angular.io/api/core/ng-container#description -->
         <span>
@@ -81,7 +81,7 @@
           @if (selectedPlat) {
             <span>
               <h5>Plats contenant cet ingrédient</h5>
-              @for (mesPlats of composition.plat | plats : alimCodeFiltre; track mesPlats) {
+              @for (mesPlats of donnees.plats | plats : alimCodeFiltre; track mesPlats) {
                 <div
                   class="mesPlats"
                   >
@@ -95,7 +95,7 @@
               <h6>Réactions constatées</h6>
               <!-- Ci-dessous j'utilise la variable locale Angular "first" afin d'afficher uniquement la premiére iteration de la balise img https://angular.io/api/common/NgFor#description -->
               @for (
-                mesPlats of composition.plat | plats : alimCodeFiltre; track
+                mesPlats of donnees.plats | plats : alimCodeFiltre; track
                 mesPlats; let first = $first) {
                 <div
                   class="mesObservations"
@@ -114,10 +114,3 @@
   </section>
 </section>
 <app-bottom-bar-nutri></app-bottom-bar-nutri>
-<!-- <p *ngIf="mesPlats.alim_code == alimCodeFiltre; else elseBlock">{{ mesPlats.nom }}</p>
-<ng-template #elseBlock>
-  coucou
-</ng-template> -->
-
-<!-- <p>Note du dev : Travail en cours sur la base de donnée</p>
-<img src="https://cdn.pixabay.com/photo/2017/08/07/16/36/cat-2605502_960_720.jpg" alt="miaou"> -->

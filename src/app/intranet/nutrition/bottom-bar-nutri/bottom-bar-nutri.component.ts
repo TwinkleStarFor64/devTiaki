@@ -1,3 +1,6 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BottomI } from 'src/app/intranet/modeles/Types';
@@ -6,7 +9,8 @@ import { BottomI } from 'src/app/intranet/modeles/Types';
     selector: 'app-bottom-bar-nutri',
     templateUrl: './bottom-bar-nutri.component.html',
     styleUrls: ['./bottom-bar-nutri.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [RouterLink, CommonModule]
 })
 export class BottomBarNutriComponent implements OnInit {
   public bottoms: BottomI[] = [

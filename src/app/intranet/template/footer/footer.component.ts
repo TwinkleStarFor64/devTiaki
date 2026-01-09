@@ -1,3 +1,6 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BottomI } from '../../modeles/Types';
@@ -8,7 +11,9 @@ import { OptoService } from '../../opto/services/opto.service';
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    standalone: false
+    standalone: true
+  imports: [RouterLink, CommonModule],
+  
 })
 export class FooterComponent implements OnInit {
 

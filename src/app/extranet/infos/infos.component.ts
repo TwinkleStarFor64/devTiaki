@@ -1,19 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Component, OnInit, inject } from '@angular/core';
 import { InfosService } from '../../partage/services/infos.service';
 
 @Component({
-    selector: 'app-infos',
-    templateUrl: './infos.component.html',
-    styleUrls: ['./infos.component.scss'],
-    standalone: false
+  selector: 'app-infos',
+  templateUrl: './infos.component.html',
+  styleUrls: ['./infos.component.scss'],
+  standalone: true,
+  imports: [],
 })
 export class InfosComponent implements OnInit {
-
-  constructor(public actus:InfosService) {
-  }
+  infos:InfosService = inject(InfosService);
 
   ngOnInit(): void {
-    this.actus.getActus();
+    this.infos.getActus();
   }
-
 }

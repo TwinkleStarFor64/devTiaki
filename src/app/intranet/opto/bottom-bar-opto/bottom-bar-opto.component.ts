@@ -1,3 +1,6 @@
+import { RouterLink } from '@angular/router';
+import { NgStyle } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BottomI } from 'src/app/intranet/modeles/Types.js';
@@ -6,7 +9,8 @@ import { BottomI } from 'src/app/intranet/modeles/Types.js';
     selector: 'app-bottom-bar-opto',
     templateUrl: './bottom-bar-opto.component.html',
     styleUrls: ['./bottom-bar-opto.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [NgStyle, RouterLink]
 })
 export class BottomBarOptoComponent implements OnInit {
   public bottoms: BottomI[] = [

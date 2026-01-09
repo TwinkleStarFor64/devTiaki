@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ModalService } from '../../utils/services/modal.service';
 import { FormControl } from '@angular/forms';
 import { ProgrammeI } from '../../utils/modeles/Types';
 import { ProgrammeKineService } from './services/programme-kine.service';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatSelect } from '@angular/material/select';
+import { IntranetModule } from '../../intranet.module';
+
 @Component({
-    selector: 'app-programme-kine',
-    templateUrl: './programme-kine.component.html',
-    styleUrls: ['./programme-kine.component.scss'],
-    standalone: false
+  selector: 'app-programme-kine',
+  templateUrl: './programme-kine.component.html',
+  styleUrls: ['./programme-kine.component.scss'],
+  standalone: true,
+  imports: [IntranetModule],
+
 })
 export class ProgrammeKineComponent implements OnInit {
   avatar!: string;
@@ -24,11 +27,9 @@ export class ProgrammeKineComponent implements OnInit {
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
 
-  constructor(
-    public sanitizer: DomSanitizer,
-    public modalService: ModalService,
-    public programmeKine: ProgrammeKineService
-  ) {}
+  sanitizer: DomSanitizer = inject(DomSanitizer);
+  modalService: ModalService = inject(ModalService);
+  programmeKine: ProgrammeKineService = inject(ProgrammeKineService);
 
   showMedia(i: number) {
     this.selectedMedia = this.mediaList[i];

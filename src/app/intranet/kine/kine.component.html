@@ -8,7 +8,7 @@
       <div>
         <h2>{{ card.title }}</h2>
         <p>{{ card.text }}</p>
-        <a [routerLink]="[card.url]">
+        <a [routerLink]="card.url">
           <button>{{ card.button }}</button>
         </a>
       </div>
@@ -19,4 +19,4 @@
     </article>
   }
 </section>
-<!-- <app-bottom-bar-kine></app-bottom-bar-kine> -->
+<app-bottom-bar-kine></app-bottom-bar-kine>

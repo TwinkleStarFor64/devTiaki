@@ -1,33 +1,30 @@
 <section id="exercices">
   <header id="head">
     <a routerLink="/intranet"><span>Tiaki</span></a>
-    <p>Optométrie> <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
+    <p>Optométrie <img [src]="avatar" /> Le parcours de Cheer Émilie</p>
   </header>
   <section>
     @for (exercice of exercicesFiltres; track exercice) {
-      <article>
-        <div class="photo-exo">
-          <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
-          <h6>{{ exercice.title }}</h6>
-          <div class="exercice-texte">
-            <p>{{ exercice.description }}</p>
-            <div>
-              <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
-              <p>Durée</p>
-              <img
-                [src]="sanity.urlFor(exercice.materielIcon).url()"
-                alt="materiel"
-              />
-              <p>Matériels</p>
-            </div>
+    <article>
+      <div class="photo-exo">
+        <img [src]="sanity.urlFor(exercice.photo).url()" alt="photo-exercice" />
+        <h6>{{ exercice.title }}</h6>
+        <div class="exercice-texte">
+          <p>{{ exercice.description }}</p>
+          <div>
+            <img [src]="sanity.urlFor(exercice.dureeIcon).url()" alt="horloge" />
+            <p>Durée</p>
+            <img [src]="sanity.urlFor(exercice.materielIcon).url()" alt="materiel" />
+            <p>Matériels</p>
           </div>
         </div>
-        <div class="progress-bar">
-          <a>&#9664;</a>
-         <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-         <a>&#9654;</a>
-       </div>
-      </article>
+      </div>
+      <div class="progress-bar">
+        <a>&#9664;</a>
+        <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
+        <a>&#9654;</a>
+      </div>
+    </article>
     }
   </section>
 </section>

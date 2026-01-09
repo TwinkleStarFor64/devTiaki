@@ -32,15 +32,6 @@ export class PlatsService {
     return this.plat;
   }
 
-  getCiqual() {
-    this.http.get<CiqualI[]>('assets/data/ciqual.json').subscribe({
-      next: (r) => (this.ciqual = r),
-      error: (er) => console.log(er),
-      complete: () => console.log(this.ciqual),
-    });
-    return this.ciqual;
-  }
-
   //Je récupére les données de la BDD supaBase
   async getPlats() {
     const plats = await this.supabase

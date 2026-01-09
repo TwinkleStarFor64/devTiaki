@@ -1,3 +1,15 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { MedecinI, RealisationI, RelierI } from '../../modeles/Types';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
@@ -5,12 +17,15 @@ import { HistoriqueJournalI } from '../../modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { FormControl } from '@angular/forms';
+import { JournalPipe } from '../../utils/pipes/filter.pipe';
 
 @Component({
-    selector: 'app-historique',
-    templateUrl: './historique.component.html',
-    styleUrls: ['./historique.component.scss'],
-    standalone: false
+  selector: 'app-historique',
+  templateUrl: './historique.component.html',
+  styleUrls: ['./historique.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, MatDialogModule, MatProgressBarModule, CdkAccordionModule, JournalPipe],
+
 })
 export class HistoriqueComponent implements OnInit {
   public medecinImg!: string;

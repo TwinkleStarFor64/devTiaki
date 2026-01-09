@@ -1,12 +1,17 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
 
 @Component({
-    selector: 'app-opto',
-    templateUrl: './opto.component.html',
-    styleUrls: ['./opto.component.scss'],
-    standalone: false
+  selector: 'app-opto',
+  templateUrl: './opto.component.html',
+  styleUrls: ['./opto.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule],
+
 })
 export class OptoComponent implements OnInit {
   // public cards: any = [

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { AccueilI } from '../modeles/Types';
+import { IntranetModule } from '../intranet.module';
 
 @Component({
-    selector: 'app-kine',
-    templateUrl: './kine.component.html',
-    styleUrls: ['./kine.component.scss'],
-    standalone: false
+  selector: 'app-kine',
+  templateUrl: './kine.component.html',
+  styleUrls: ['./kine.component.scss'],
+  standalone: true,
+  imports: [IntranetModule],
+
 })
 export class KineComponent implements OnInit {
   // public cards: any = [

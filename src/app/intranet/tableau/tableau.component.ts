@@ -1,4 +1,9 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {
   TableauEnCoursI,
   TableauBordHistoriqueI,
@@ -8,13 +13,14 @@ import {
   SanteI,
 } from '../utils/modeles/Types';
 import { TableauService } from './services/tableau.service';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-    selector: 'app-tableau',
-    templateUrl: './tableau.component.html',
-    styleUrls: ['./tableau.component.scss'],
-    standalone: false
+  selector: 'app-tableau',
+  templateUrl: './tableau.component.html',
+  styleUrls: ['./tableau.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, CdkAccordionModule],
+  
 })
 export class TableauComponent {
   enCours?: TableauEnCoursI;

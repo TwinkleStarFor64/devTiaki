@@ -1,3 +1,15 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { PlatsService } from './services/plats.service';
 import { CiqualI, EvaluationI, MesPlatsI } from '../../utils/modeles/Types';
@@ -5,16 +17,20 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
+import { IngredientsPipe } from '../../utils/pipes/filter.pipe';
 
 @Component({
-    selector: 'app-plats',
-    templateUrl: './plats.component.html',
-    styleUrls: ['./plats.component.scss'],
-    standalone: false
+  selector: 'app-plats',
+  templateUrl: './plats.component.html',
+  styleUrls: ['./plats.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, BottomBarNutriComponent, IngredientsPipe],
+
 })
 export class PlatsComponent implements OnInit {
   aliment: CiqualI[] = [];
-  plats: MesPlatsI [] = [];
+  plats: MesPlatsI[] = [];
   evaluation: EvaluationI[] = [];
 
   //selectedIngredients?: CiqualI;
@@ -28,7 +44,7 @@ export class PlatsComponent implements OnInit {
   alimCodeFiltre: number = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
   affichageDefaut: string = 'allPlats';
 
-  constructor(public platService: PlatsService, public supa: SupabaseService, private dialog:MatDialog) {}
+  constructor(public platService: PlatsService, public supa: SupabaseService, private dialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
     this.platService.getMesPlats();
@@ -86,7 +102,7 @@ export class PlatsComponent implements OnInit {
     }
   }
 
-// Méthode pour récupérer la table Evaluation
+  // Méthode pour récupérer la table Evaluation
   async fetchEvaluation() {
     const { data, error } = await this.supa.getEvaluation();
     if (data) {
@@ -115,22 +131,22 @@ export class PlatsComponent implements OnInit {
     }
   }
 
-// Méthode pour le mat-select des evaluations
-onSelectEval(event: any, evaluation: EvaluationI): void {
-  if (event.isUserInput) {
-    this.evaluationId = evaluation.id;
-    console.log("Voici l'id de l'eval : " + this.evaluationId);
-    this.evaluationStatut = evaluation.statut;
+  // Méthode pour le mat-select des evaluations
+  onSelectEval(event: any, evaluation: EvaluationI): void {
+    if (event.isUserInput) {
+      this.evaluationId = evaluation.id;
+      console.log("Voici l'id de l'eval : " + this.evaluationId);
+      this.evaluationStatut = evaluation.statut;
+    }
   }
-}
 
-onSelectPlat(plats: MesPlatsI): void {
-  this.selectedPlats = plats;
-  this.alimCodeFiltre = plats.alim_code;
+  onSelectPlat(plats: MesPlatsI): void {
+    this.selectedPlats = plats;
+    this.alimCodeFiltre = plats.alim_code;
     console.log('Je veux ce code : ' + this.alimCodeFiltre);
     this.selectedPlatsId = plats.id;
     console.log("Voici l'id du plat : " + this.selectedPlatsId);
-}
+  }
 
   // Modal Material Angular contenant le formulaire pour ajouter un nouveau plat
   openDialog() {
@@ -157,39 +173,39 @@ onSelectPlat(plats: MesPlatsI): void {
   // Méthode pour delete un plat
   async deletePlat(id: number) {
     this.deleteDialog() // J'appelle la modal deleteDialog
-    .afterClosed()
-    // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
-    .subscribe((res) => {
-      if (res) {
-        this.supa.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
-          .then(() => {
-            this.fetchPlats();
-            //window.location.reload(); // Bonne solution ??
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    });
+      .afterClosed()
+      // subscribe() est une méthode qui permet de souscrire à un observable et de recevoir les événements qui y sont émis.
+      .subscribe((res) => {
+        if (res) {
+          this.supa.deletePlat(id) // La méthode deleteMenu de supabase.service.ts
+            .then(() => {
+              this.fetchPlats();
+              //window.location.reload(); // Bonne solution ??
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
+      });
   }
 
   async getPlatsId(): Promise<any> { // Méthode sur le bouton Évaluer
-    if (this.selectedPlatsId ) {
-      console.log("Voici l'id du plat choisi :" + this.selectedPlatsId );
+    if (this.selectedPlatsId) {
+      console.log("Voici l'id du plat choisi :" + this.selectedPlatsId);
       await this.supa.getEvaluationById(this.evaluationId) // Id dynamique pour la méthode supabase
       console.log("L'id de l'évaluation que je donne au plat : " + this.evaluationId);
       await this.supa.updateEvalPlat(this.selectedPlatsId, this.evaluationStatut)
-      // Id dynamique pour le EQ de la méthode supabase
-      // Statut dynamique pour le UPDATE de la méthode supabase
-      .then(() => {
-        this.fetchPlats();
-      })
+        // Id dynamique pour le EQ de la méthode supabase
+        // Statut dynamique pour le UPDATE de la méthode supabase
+        .then(() => {
+          this.fetchPlats();
+        })
     } else {
       throw new Error
     }
   }
 
-// Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)
+  // Méthode pour trier les plats suivant leur evaluation (Voir aussi menu.components)
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }

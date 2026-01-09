@@ -1,3 +1,15 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
 import { CiqualI, EvaluationI, MesMenusI } from '../../utils/modeles/Types';
@@ -5,12 +17,16 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
+import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
+import { IngredientsPipe } from '../../utils/pipes/filter.pipe';
 
 @Component({
-    selector: 'app-menus',
-    templateUrl: './menus.component.html',
-    styleUrls: ['./menus.component.scss'],
-    standalone: false
+  selector: 'app-menus',
+  templateUrl: './menus.component.html',
+  styleUrls: ['./menus.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, BottomBarNutriComponent, IngredientsPipe],
+
 })
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
@@ -25,15 +41,15 @@ export class MenusComponent implements OnInit {
   evaluationStatut!: string; // Pour la méthode onSelectEval()
 
   alimCodeFiltre: any = 0; //La valeur par défaut qui sera modifié dynamiquement dans la méthode onSelect()
-// Ci-dessous affichageDefaut est utilisé dans le ngIf est dans la méthode triParTexte()
-// Sa valeur par défaut 'allMenus' permet d'afficher tout les menus - Dans la méthode triParTexte je change sa valeur
+  // Ci-dessous affichageDefaut est utilisé dans le ngIf est dans la méthode triParTexte()
+  // Sa valeur par défaut 'allMenus' permet d'afficher tout les menus - Dans la méthode triParTexte je change sa valeur
   affichageDefaut: string = 'allMenus';
 
   constructor(
     public menuService: MenusService,
     public supa: SupabaseService,
     private dialog: MatDialog
-  ) {}
+  ) { }
 
   async ngOnInit(): Promise<void> {
     //this.menuService.getMesMenus();
@@ -137,9 +153,9 @@ export class MenusComponent implements OnInit {
   onSelectMenu(menus: MesMenusI): void {
     this.selectedRepas = menus;
     this.alimCodeFiltre = menus.alim_code;
-      console.log('Je veux ce code : ' + this.alimCodeFiltre);
-      this.selectedMenusId = menus.id;
-      console.log("Voici l'id du plat : " + this.selectedMenusId);
+    console.log('Je veux ce code : ' + this.alimCodeFiltre);
+    this.selectedMenusId = menus.id;
+    console.log("Voici l'id du plat : " + this.selectedMenusId);
   }
 
   // Modal Material Angular contenant le formulaire pour ajouter un nouveau menu
@@ -204,7 +220,7 @@ export class MenusComponent implements OnInit {
     }
   }
 
-// Méthode pour trier les plats suivant leur evaluation
+  // Méthode pour trier les plats suivant leur evaluation
   triParTexte(statut: string) { // statut va prendre la valeur texte du bouton ou je clique dans le html
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }

@@ -1,13 +1,15 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ProgrammeI } from '../../utils/modeles/Types';
+import { NgClass } from '@angular/common';
 
 @Component({
-    selector: 'app-carousel',
-    templateUrl: './carousel.component.html',
-    styleUrls: ['./carousel.component.scss'],
-    standalone: false
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.scss'],
+  standalone: true,
+  imports: [NgClass],
 })
-export class CarouselComponent {
+export class CarouselKineComponent {
   @ViewChild('carouselContainer', { static: true }) carouselContainer: ElementRef;
   @Input() items: ProgrammeI[] = [];
   @Output() onSelect: EventEmitter<ProgrammeI> = new EventEmitter<ProgrammeI>();

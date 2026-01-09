@@ -1,42 +1,32 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IntranetRoutingModule } from './intranet-routing.module';
-import { IntranetComponent } from './intranet.component';
-import { AsideBarComponent } from './template/aside-bar/aside-bar.component';
-import { AccueilComponent } from './accueil/accueil.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TableauComponent } from './tableau/tableau.component';
-import { ButtonComponent } from './template/ui/button/button.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { CustomAccordionComponent } from './template/ui/custom-accordion/custom-accordion.component';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CarouselKineComponent } from './kine/carousel/carousel.component';
+import { BottomBarKineComponent } from './kine/bottom-bar-kine/bottom-bar-kine.component';
+import { RouterLink } from '@angular/router';
 
 
 @NgModule({
-  declarations: [
-    IntranetComponent,
-    AsideBarComponent,
-    AccueilComponent,
-    TableauComponent,
-    ButtonComponent,
-    CustomAccordionComponent,
-        
-  ],
+  declarations: [],
   imports: [
-    CommonModule,
-    IntranetRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatSelectModule,
-    MatIconModule,
-    CdkAccordionModule,
-    MatProgressBarModule
+    FormsModule, ReactiveFormsModule, RouterLink,
+    CarouselKineComponent, BottomBarKineComponent, BottomBarKineComponent,
+    MatSelectModule, MatIconModule,CdkAccordionModule, MatProgressBarModule,
+    MatButtonModule,MatInputModule,MatPaginatorModule, MatSelectModule, MatAutocompleteModule
   ],
+  exports: [
+    FormsModule, ReactiveFormsModule, RouterLink,
+    CarouselKineComponent, BottomBarKineComponent, BottomBarKineComponent,
+    MatSelectModule, MatIconModule,
+    CdkAccordionModule, MatProgressBarModule, MatButtonModule,
+    MatInputModule,MatPaginatorModule, MatSelectModule, MatAutocompleteModule
+  ]
 })
 export class IntranetModule {}

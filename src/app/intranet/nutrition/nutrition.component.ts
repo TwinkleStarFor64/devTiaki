@@ -1,48 +1,54 @@
+import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BottomI, NutritionI } from '../modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
+import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
 
 @Component({
-    selector: 'app-nutrition',
-    templateUrl: './nutrition.component.html',
-    styleUrls: ['./nutrition.component.scss'],
-    standalone: false
+  selector: 'app-nutrition',
+  templateUrl: './nutrition.component.html',
+  styleUrls: ['./nutrition.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CommonModule, BottomBarNutriComponent],
+
 })
 export class NutritionComponent implements OnInit {
 
-  public bottoms:BottomI[] = [
+  public bottoms: BottomI[] = [
     {
-      image:"assets/iconeBottom/journalBottom.png",
-      titre:"Journal",
-      info:"Naviguer dans votre historique alimentaire",
-      lien:'Journal',
-      url:'/intranet/nutrition/journalRepas',
-      active:false
+      image: "assets/iconeBottom/journalBottom.png",
+      titre: "Journal",
+      info: "Naviguer dans votre historique alimentaire",
+      lien: 'Journal',
+      url: '/intranet/nutrition/journalRepas',
+      active: false
     },
     {
-      image:"assets/iconeBottom/journalBottom.png",
-      titre:"Menus",
-      info:"Les listes de vos menus et de ceux de la communautés",
-      lien:'Menus',
-      url:'/intranet/nutrition/menus',
-      active:false
+      image: "assets/iconeBottom/journalBottom.png",
+      titre: "Menus",
+      info: "Les listes de vos menus et de ceux de la communautés",
+      lien: 'Menus',
+      url: '/intranet/nutrition/menus',
+      active: false
     },
     {
-      image:"assets/iconeBottom/platBottom.png",
-      titre:"Plats",
-      info:"Vos plats ou ceux de la communauté",
-      lien:'Plats',
-      url:'/intranet/nutrition/plats',
-      active:false
+      image: "assets/iconeBottom/platBottom.png",
+      titre: "Plats",
+      info: "Vos plats ou ceux de la communauté",
+      lien: 'Plats',
+      url: '/intranet/nutrition/plats',
+      active: false
     },
     {
-      image:"assets/iconeBottom/ingredientBottom.png",
-      titre:"Ingrédients",
-      info:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-      lien:'Ingredients',
-      url:'/intranet/nutrition/ingredients',
-      active:false
+      image: "assets/iconeBottom/ingredientBottom.png",
+      titre: "Ingrédients",
+      info: "La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
+      lien: 'Ingredients',
+      url: '/intranet/nutrition/ingredients',
+      active: false
     }
   ];
 
@@ -80,12 +86,12 @@ export class NutritionComponent implements OnInit {
   accueilNutrition!: NutritionI[];
 
 
-  constructor( private router: Router, public sanity: SanityService) { }
+  constructor(private router: Router, public sanity: SanityService) { }
 
   ngOnInit(): void {
     const activeUrl = this.router.url;
     this.bottoms.forEach(item => {
-        item.active = activeUrl.startsWith(item.url);
+      item.active = activeUrl.startsWith(item.url);
     });
     // Pour voir le résultat dans la console
     // this.sanity.getAccueilNutrition().then((data) => console.log(this.accueilNutrition = data));
@@ -96,7 +102,7 @@ export class NutritionComponent implements OnInit {
 
   }
 
-  onNavItemClick(bottom:BottomI) {
+  onNavItemClick(bottom: BottomI) {
     this.bottoms.forEach(item => item.active = false);
     bottom.active = true;
   }
