@@ -6,19 +6,22 @@ $card-opto: #F28705;
 $aside-color1: #270140;
 $aside-color2: #805E96;
 $aside-color3: #F0C02E;
+$vert: rgb(23, 173, 43);
 
 $clair: white;
 $sombre: black;
 
-$head: 60px; // Hauteur de l'entête des pages
+$head: 20vh; // Hauteur de l'entête des pages d'accueil
+$breadcrumb: 60px; // Hauteur du fil d'ariane
 $foot: 150px; // Hauteur des menus du bas
 $l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+$icone: 36px;
 
 /** BALISES GENERIQUES HTML */
 html,
 body {
   height: 100%;
-  width:100%;
+  width: 100%;
   overflow: hidden;
 }
 
@@ -39,89 +42,313 @@ main,
 section,
 article,
 header,
+form,
+fieldset,
 footer {
   display: flex;
 }
-main{
-  width:100vw;
-  height:100vh;
+
+main {
+  width: 100vw;
+  height: 100vh;
 }
+
+form {
+  flex-flow: column nowrap;
+}
+fieldset{
+  border: none;
+  flex-flow: column nowrap;
+}
+input {
+  font-family: $font-family;
+  padding:10px;
+  border: solid 1px $aside-color2;
+}
+h1 {
+  color: $card-nutri;
+  font-weight: 100;
+  font-size: 62px;
+  margin: 20px 0 10px;
+}
+
+h1:before,
+h1:after {
+  content: '......'
+}
+
+h1 a,
+h1 a:hover {
+  color: $card-nutri;
+}
+
+h1,
+h2,
+h3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1 img,
+h2 img,
+h3 img,
+h1 mat-icon,
+h2 mat-icon,
+h3 mat-icon {
+  margin-right: 10px;
+}
+
 a {
   text-decoration: none;
   color: $aside-color1;
-  transition:all .3s ease;
+  font-weight:300;
+  transition: all .3s ease;
 }
-a:hover{
-  font-weight: 600;
+
+a:hover {
+  font-weight: 900;
   color: $aside-color2;
 }
-button{
-  padding:25px 20px;
-  border:none;
-  transition:all .3s ease;
+
+figure {
+  background: 50% 50% no-repeat;
+  background-size: 100%;
+  transition: all .3s ease;
+  overflow: hidden;
+  display: flex;
+}
+
+figure:hover {
+  background-size: 120%;
+}
+
+button {
+  position: relative;
+  padding: 15px 20px;
+  border: none;
+  transition: all .3s ease;
   cursor: pointer;
-  font-weight:600;
+  font-weight: 600;
   width: fit-content;
-  background-color:$clair;
-  color:$aside-color1;
+  background-color: $clair;
+  color: $aside-color1;
   font-size: 16px;
 }
-button:hover{
+
+button:hover {
   background-color: $aside-color3;
   color: $aside-color1;
   transform: scale(1.1);
 }
+
+button.active:before {
+  content: 'O';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+ul {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+ul li {
+  list-style: circle;
+  padding: 5px 10px 5px 0;
+}
+
 /** CLASSES GENERIQUES */
-.logo{
-  width:150px;
+.logo {
+  width: 150px;
 }
-.ariane{
-  display:flex;
+
+.entete {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  text-align: center;
+  justify-content: flex-end;
+  height: $head;
+  margin: 0;
+}
+
+.entete h1,
+.entete h2 {
+  margin: auto;
+}
+
+.ariane {
+  display: flex;
   flex-flow: row nowrap;
-  align-items: flex-end;
+  align-items: center;
   color: $aside-color2;
-  height:$head;
+  height: $breadcrumb;
 }
-.ariane h1, .ariane h2{
+
+.ariane h1,
+.ariane h2 {
   font-weight: 100;
-  margin-left:20px;
+  font-size: 24px;
+  margin: 0 0 0 20px;
 }
-.ariane h2:before{
-  content:'...... '
+
+.ariane h2:before {
+  content: '...... '
 }
-.ariane h2:after{
-  content:' ......'
+
+.ariane h2:after {
+  content: ' ......'
 }
+
+#menus-themes {
+  display: flex;
+  justify-content: space-around;
+  height: 150px;
+  width: 100%;
+  padding: 15px;
+}
+
+#menus-themes>a {
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 15px;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+#menus-themes>a section {
+  height: 100%;
+  align-items: center;
+}
+
+#menus-themes>a section>img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  transition: all .3s ease;
+}
+
+#menus-themes>a section>article {
+  color: #ffffff;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  justify-content: center;
+}
+
+#menus-themes>a section>article * {
+  margin: 0;
+}
+
+#menus-themes>a:hover {
+  transform: scale(1.05);
+}
+
+#menus-themes>a:hover img {
+  width: 4vw;
+  margin-right: 20px;
+}
+
 /** CLASSES POUR LES COULEURS DE LA CHARTE GRAPHIQUE */
-.bg-nutrition{
-  color:$clair;
+.icone {
+  width: 30px;
+  cursor: pointer;
+}
+
+.mat-icone {
+  font-size: $icone;
+  width: $icone !important;
+  height: $icone !important;
+}
+
+.mat-icone:hover {
+  transform: scale(1.1);
+}
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bg-nutrition {
+  color: $clair;
   background-color: $card-nutri;
 }
-.bg-opto{
-  color:$clair;
+
+.bg-opto {
+  color: $clair;
   background-color: $card-opto;
 }
-.bg-kine{
-  color:$clair;
+
+.bg-kine {
+  color: $clair;
   background-color: $card-kine;
 }
-.bg-admin{
-  color:$clair;
+
+.bg-admin {
+  color: $clair;
   background-color: $aside-color1;
 }
-.nutrition{
+.bg-admin a {
+  color:$clair;
+}
+
+.bg-valide {
+  color: $clair;
+  background-color: $vert;
+}
+
+.bg-annule {
+  color: $clair;
+  background-color: $aside-color3;
+}
+
+.bg-delete {
+  color: $clair;
+  background-color: $card-nutri;
+}
+
+.nutrition {
   color: $card-nutri;
 }
-.opto{
-  color:$card-opto
+
+.nutrition svg path {
+  fill: $card-nutri;
 }
-.kine{
-  color:$card-kine;
+
+.opto {
+  color: $card-nutri;
 }
+
+.opto svg path {
+  fill: $card-opto;
+}
+
+.kine {
+  color: $card-kine;
+}
+
+.kine svg path {
+  fill: $card-kine;
+}
+
+.admin {
+  color: $aside-color1;
+}
+
+.admin svg path {
+  fill: $aside-color1;
+}
+
 /** COMPOSANTS */
-.cal-event-title { // Le texte dans le calendrier
+.cal-event-title {
+  // Le texte dans le calendrier
   color: $clair;
 }
+
 // L'affichage des events dans la vue calendrier mois (dans la barre grise après un clic sur le jour)
 mwl-calendar-open-day-events {
   div {
@@ -134,24 +361,37 @@ mwl-calendar-open-day-events {
   }
 }
 
+mat-panel-title {
+  padding: 5px;
+  font-weight: bold;
+}
+
+mat-panel-title>mat-icon {
+  margin-right: 15px;
+}
+
 // Le label 'Éléments par page :' de mat-paginator
 .mat-mdc-paginator-page-size {
-    display: none!important;
+  display: none !important;
 }
+
 // Le label 'x sur x' de mat-paginator
 .mat-mdc-paginator-range-label {
-  margin: 0!important;
+  margin: 0 !important;
   font-family: $font-family;
+
   @media screen and (max-width: 1310px) {
     display: none;
   }
 }
+
 // La couleurs des fléches dans la pagination
 .mat-mdc-paginator-icon {
   fill: red;
 }
 
 .mat-mdc-option {
+
   // Pour les options de choix dans tout les menus déroulants
   @media screen and (max-width: 834px) {
     font-size: 0.6rem;
@@ -174,53 +414,9 @@ mwl-calendar-open-day-events {
   }
 }
 
-// AFFICHAGE PAGE DE CONNEXION
-// #actualites {
-//   height: 100vh;
-//   width: 100%;
-//   flex-direction: column;
-//   align-items: center;
-//   text-align: center;
-//   justify-content: space-around;
-
-// }
-
-// #actualites>article:nth-child(1) {
-//   width: 100%;
-//   justify-content: space-around;
-
-//   img {
-//     width: 10vw;
-//   }
-
-//   h2 {
-//     font-size: 2rem;
-//     font-weight: 400;
-//     color: $aside-color1;
-//   }
-// }
-
-// #actualites>article:nth-child(n+2) {
-//   flex-direction: column;
-
-//   h3 {
-//     color: $aside-color2;
-//     font-weight: 400;
-//     font-size: 1.5rem;
-//     margin: 0;
-//   }
-
-//   img {
-//     width: 20vw;
-//   }
-// }
-
 /** ------------------------------------------------------
 // COMPOSANT ACCUEIL DE L'INTRANET
 */
-// app-intranet > main > router-outlet > *{
-
-// }
 app-accueil {
   height: 100vh;
   flex-direction: column;
@@ -238,7 +434,7 @@ article.cartel {
   text-align: center;
   color: $clair;
   transition: all .3s ease;
-  height: 75%;
+  height: 85%;
   flex: 1 1 0px;
   overflow: hidden;
   justify-content: space-between;
@@ -246,6 +442,7 @@ article.cartel {
   h2 {
     font-size: 2rem;
   }
+
   p {
     padding: 15px;
   }
@@ -288,34 +485,37 @@ article.cartel {
       color: $aside-color3;
     }
   }
-  & > div{
-    height:66%;
-    display:flex;
+
+  &>div {
+    height: 60%;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    padding:20px;
-    transition:all .3s ease;
+    padding: 20px;
+    transition: all .3s ease;
   }
-  & > div > *{
-    margin:0 auto;
+
+  &>div>* {
+    margin: 0 auto;
   }
-  figure{
-    margin:0 -20px -20px;
-    padding:0;
-    border-top-left-radius:70%;
+
+  figure {
+    margin: 0 -20px -20px;
+    padding: 0;
+    border-top-left-radius: 70%;
     border-top-right-radius: 50%;
-    height:34%;
-    overflow: hidden;
-    transition:all .5s ease;
+    height: 40%;
   }
-  figure > div{
-    width:100%;
-    height:100%;
-    margin:0 -20px -20px;
+
+  figure>div {
+    width: 100%;
+    height: 100%;
+    margin: 0 -20px -20px;
     // background-position:0 50%;
     background-repeat: no-repeat;
     background-size: cover;
   }
+
   a {
     display: flex;
     flex-direction: column;
@@ -326,26 +526,31 @@ article.cartel {
     img {
       width: 100%;
     }
-    button:hover{
+
+    button:hover {
       background-color: $clair;
     }
+
     &:nth-child(2) {
       color: $card-nutri;
     }
   }
+
   // Animation sur le hover
   &:hover {
-    padding:30px 50px 0;
+    padding: 30px 50px 0;
     transform: scale(1.1);
   }
-  &:hover > div {
-    height:50%;
-    padding-bottom:40px;
+
+  &:hover>div {
+    height: 50%;
+    padding-bottom: 40px;
   }
-  &:hover > figure {
-    margin:0 -70px 0;
+
+  &:hover>figure {
+    margin: 0 -70px 0;
     border-radius: 0;
-    height:50%;
+    height: 50%;
   }
 
 }
@@ -354,815 +559,491 @@ article.cartel {
   section.accueil {
     flex-direction: column;
   }
+
   article.cartel {
     flex-direction: row;
-    margin:0;
+    margin: 0;
 
     &:hover {
-      padding:0;
+      padding: 0;
       transform: scale(1);
     }
-    &:hover > div {
-      height:100%;
-      padding-bottom:0;
+
+    &:hover>div {
+      height: 100%;
+      padding-bottom: 0;
     }
-    &:hover > figure {
-      margin:0 -70px 0;
+
+    &:hover>figure {
+      margin: 0 -70px 0;
       border-radius: 0;
-      height:100%;
+      height: 100%;
     }
   }
-  article.cartel div{
-    width:55%;
-    height:100%;
+
+  article.cartel div {
+    width: 55%;
+    height: 100%;
   }
-  article.cartel figure{
-    width:45%;
-    height:100%;
+
+  article.cartel figure {
+    width: 45%;
+    height: 100%;
     border-top-right-radius: 0;
     border-top-left-radius: 15%;
     border-bottom-left-radius: 15%;
   }
-
 }
-
-
-// Media query pour les écrans plus petits
-// @media screen and (max-width: 480px) {
-//   app-accueil {
-//     margin-left: 10%;
-//     // justify-content: center;
-
-//     > header {
-//       height: 20%;
-
-//       a {
-//         font-size: 1.8rem;
-//         width: 100%;
-//         text-align: center;
-//       }
-
-//       p {
-//         font-size: 1.2rem;
-//       }
-//     }
-
-//     > section > article {
-//       margin-left: 20px;
-
-//       h2 {
-//         font-size: 1rem;
-//       }
-
-//       p {
-//         font-size: 0.7rem;
-//         margin: 15px;
-//       }
-
-//       a {
-//         button {
-//           display: none
-//         }
-
-//         img {
-//           height: 100%;
-//           width: 80%;
-//           transform: translateY(5%);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 384px) and (max-height:640px) {
-//   app-accueil {
-
-//     > header{
-//       >a {
-//         font-size: 1.8rem;
-//       }
-
-//       p {
-//         font-size: 1.2rem;
-//       }
-//     }
-
-//     article.cartel {
-
-//       h2 {
-//         font-size: 1rem;
-//         font-weight: 500;
-//       }
-
-//       p {
-//         font-size: 0.7rem;
-//         font-weight: 400;
-//         margin: 15px;
-//       }
-
-//       a {
-//         button {
-//           display: none
-//         }
-
-//         img {
-//           height: 100%;
-//           width: 80%;
-//           transform: translateY(5%);
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 376px) {
-//   app-accueil > header > p {
-//     font-size: 0.9rem;
-//   }
-
-//   app-accueil >section > article > p {
-//     font-size: 0.8rem;
-//   }
-// }
 
 // Navbar icone burger
 #burger-icon {
   color: $card-kine;
 }
 
-//HEADER PAGES D'ACCUEIL DES INTERFACES
-
-// #head-accueil > a {
-//   font-size: 2.8rem;
-//   font-weight: 100;
-//   width: 40%;
-//   text-align: center;
-//   margin-top: 6vh;
-
-//   @media (max-width: 954px) {
-//     font-size: 2.5rem;
-//   }
-
-//   @media (max-width: 706px) {
-//     font-size: 2rem;
-//   }
-
-//   @media (max-width: 490px) {
-//     font-size: 1rem;
-//   }
-// }
-
-
-
-// #head-accueil img {
-//   width: 30px;
-// }
-
-// #head-accueil>p {
-//   font-size: 2rem;
-//   font-weight: 500;
-//   text-align: center;
-
-//   @media (max-width: 1020px) {
-//     font-size: 1.8rem;
-//   }
-
-//   @media (max-width: 906px) {
-//     font-size: 1.6rem;
-//   }
-
-//   @media (max-width: 793px) {
-//     font-size: 1.5rem;
-//   }
-
-//   @media (max-width: 706px) {
-//     font-size: 1.3rem;
-//   }
-
-//   @media (max-width: 490px) {
-//     font-size: 1rem;
-//   }
-// }
-
-// #head-accueil>article {
-//   align-items: start;
-// }
-
-// #head-accueil>* {
-//   margin: 5px;
-//   padding: 0;
-// }
-
 // -------------------------------------------------
-// HEADER DES PAGES AUTRES QU'ACCUEIL
-
-//HEADER
-#head {
-  flex-flow: row nowrap;
-  height: $head;
-  padding: 10px;
+// Fil d'ariane
+app-ariane article {
+  display: flex;
+  flex-flow: row nowrap !important;
+  height: $breadcrumb;
+  padding: 5px;
   margin: 0;
   align-items: center;
-
-  @media screen and (max-width:502px) {
-    font-size: 1rem;
-  }
-}
-
-#head>a:nth-child(1) {
-  font-size: 1.6rem;
+  font-size: 18px;
   font-weight: 100;
-  width: 10%;
-
-  @media screen and (max-width:906px) {
-    width: 14%;
-  }
-
-  @media screen and (max-width:804px) {
-    font-size: 1.6rem;
-  }
-
-  @media screen and (max-width: 664px) {
-    font-size: 1.4rem;
-  }
-
-  @media screen and (max-width:586px) {
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 525px) {
-    font-size: 1.1rem;
-  }
-
-  @media screen and (max-width: 484px) {
-    font-size: 1rem;
-  }
-
 }
 
-#head>a:nth-child(1):after {
-  content: '   ......';
-  font-size: 50%;
+app-ariane a {
+  margin-right: 5px;
 }
 
-#head img {
+app-ariane a:after {
+  padding-left: 0;
+  content: '';
+}
+
+app-ariane a:not(:last-child)::after {
+  transition: padding .3s ease;
+  padding-left: 5px;
+  content: ' » '
+}
+
+app-ariane a:hover:after {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+app-ariane img {
   width: 30px;
 }
 
-#head p {
-  font-size: 1.6rem;
-  font-weight: 500;
-  // width: 50%;
-
-  @media screen and (max-width: 910px) {
-    font-size: 1.2rem;
-  }
-
-  @media screen and (max-width: 800px) {
-    font-size: 1.1rem;
-  }
-
-  @media screen and (max-width: 686px) {
-    font-size: 1rem;
-  }
-
-  @media screen and (max-width: 633px) {
-    font-size: 0.9rem;
-  }
-
-  @media screen and (max-width: 584px) {
-    font-size: 0.8rem;
-  }
-
-  @media screen and (max-width: 498px) {
-    font-size: 0.7rem;
-  }
-
-  @media screen and (max-width: 360px) {
-    font-size: 0.6rem;
-  }
-}
-
-#head>* {
-  margin: 5px;
-  padding: 0;
-}
-
-// -----------------------------------------------
-// AFFICHAGE PAGES PROGRAMMES
-#programmes {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  color: $sombre;
-  height: calc(100vh - $foot);
-
-  @media (max-width: 768px) {
-    height: calc(100vh - 100px);
-  }
-
-  @media screen and (max-width:480px) {
-    width: calc(100% + 65px);
-  }
-}
-
-// section principale
-#programmes>section {
-  width: 100%;
-  flex-direction: column;
-  height: calc(100vh - $head - $foot);
-  overflow-x: hidden;
-  overflow-y: auto;
-  max-height: 100vh;
-
-}
-
-// search bar
-#programmes>article:nth-child(2) {
-  width: 100%;
-  //gap: 1.5vw;
-  justify-content: center;
-  align-items: center;
-  img {
-    // L'icône de loupe
-    margin-left: 25vw;
-
-  }
-
-  @media screen and (max-width:502px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 20px;
-  }
-}
-
-// article ligne dashed
-#programmes>article:nth-child(3) {
-  width: 80%;
-  align-self: center;
-  height: 2vh;
-  border-bottom: dashed 1px black;
-}
-
-// article qui apparait lors du choix du programme
-#programmes>article:nth-child(4) {
-  width: 100%;
-  height: calc(100vh - $foot );
-  flex-direction: column;
-  align-items: center;
-  justify-self: center;
-  overflow-y: auto;
-  scrollbar-color: $card-opto #be861e;
-  scrollbar-width: auto;
-  padding-top: 30px;
-
-  @media screen and (max-width:768px) {
-    max-width: 100%;
-  }
-
-}
-
-// image du programme
-#programmes article:nth-child(4)>img {
-  width: 75%;
-  max-height: 90%;
-  align-self: center;
-
-  @media screen and (max-width:1440px) {
-    width: 50%;
-    max-height: 70%;
-  }
-}
-
-// Article de description
-#programmes article:nth-child(4)>article {
-  margin: 50px;
-  margin-left: 11vw;
-  align-self: baseline;
-  align-items: center;
-  justify-content: space-evenly;
-  gap: 4vw;
-  width: 78%;
-
-  @media screen and (max-width:1440px) {
-    font-size: 0.9rem;
-    gap: 5vw;
-  }
-
-  @media screen and (max-width:1024px) {
-    gap: 5vw;
-  }
-
-  @media screen and (max-width:768px) {
-    flex-direction: column-reverse;
-    width: 100%;
-    margin: 0;
-    margin-top: 20px;
-    gap: 1vw;
-  }
-}
-
-// Article avec l'image de pouce et le select "Avis et commentaire de la communauté"
-#programmes article:nth-child(4)>article:nth-child(3) {
-  //background-color: #33BB27;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5vw;
-
-  select {
-    width: 75vw;
-    height: 5vh;
-    background: none;
-    font-size: 1.2rem;
-    color: #3D3D3D;
-  }
-}
-
-#programmes article:nth-child(4)>article>div:nth-child(1) {
-  display: flex;
-  flex-direction: column;
-  max-width: 30%;
-  text-align: justify;
-
-  @media screen and (max-width:1024px) {
-    font-size: 0.8rem;
-    max-width: 30%;
-  }
-
-  @media screen and (max-width:768px) {
-    font-size: 1.1rem;
-    max-width: 70%;
-  }
-}
-
-// titre
-#programmes article:nth-child(4)>article>div:nth-child(1) h1 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-// durée materiel
-#programmes article:nth-child(4)>article>div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  width: 12%;
-
-  @media screen and (max-width:1024px) {
-    font-size: 0.8rem;
-  }
-
-  @media screen and (max-width:768px) {
-    flex-direction: row;
-    width: 50%;
-    align-items: center;
-  }
-}
-
-// block horloge et materiels
-#programmes article:nth-child(4)>article>div:nth-child(2) div {
-  display: flex;
-  align-items: center;
-  gap: 0.5vw;
-  height: 40%;
-  width: 100%;
-}
-
-// img horloge materiel
-#programmes article:nth-child(4)>article>div:nth-child(2) div img {
-  height: 2vh;
-  width: 3vw;
-}
-
-
-// AFFICHAGE POUR LES PAGES D'EXERCIES (OPTO ET KINE)
-#exercices {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  color: $sombre;
-  height: calc(100vh - $foot);
-  overflow-y: auto;
-  scrollbar-color: $card-nutri #e7adb7;
-  scrollbar-width: auto;
-  justify-content: center;
-
-  @media screen and (max-width:768px) {
-    height: calc(100vh - 100px);
-  }
-
-  @media screen and (max-width: 480px) {
-    width: calc(100% + 65px); // 65px pour l'aside bar
-  }
-}
-
-//Section principale
-#exercices>* {
-  width: 100%;
-}
-
-// barre de recherche exercices
-#exercices #head article {
-  background: none;
-  width: 40vw;
-  // align-items: end;
-
-  @media (max-width: 706px) {
-    width: 30vw;
-    align-items: center;
-  }
-
-  @media (max-width: 490px) {
-    align-items: center;
-    width: 30vw;
-  }
-}
-
 // Loupe de recherche à gauche de la search  bar
-#exercices #head article form {
+header>form {
   display: flex;
+  flex-flow: row nowrap;
   align-items: center;
-  gap: 4vw;
+  margin: 0 auto;
+}
 
-  .searchMobile {
-    width: auto;
-    height: 3vh;
+header>form>* {
+  margin: 10px;
+}
 
-    @media screen and (max-width: 597px) {
-      margin-top: 20px;
-    }
-  }
+header>form div.mat-mdc-form-field-infix {
+  min-width: 300px;
 }
 
 //section exercice
-#exercices>section {
-  width: 100%;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  height: calc(100vh - $head - $foot);
-
-  @media (max-width: 768px) {
-    height: calc(100vh - $head - 100px);
-  }
-}
-
-// search bar
-#exercices>article:nth-child(2) {
-  width: 80%;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  flex-direction: row;
-
-  @media screen and (max-width:502px) {
-    font-size: 0.8rem;
-  }
-
-  @media (max-width: 480px) {
-    margin-left: 20px;
-  }
-}
-
-#exercices>article:nth-child(2)>form {
-  display: flex;
-  width: 90%;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5vw;
-}
-
-#exercices>article:nth-child(2)>div {
-  width: 10%;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-
-// #exercices>article:nth-child(2)>div>img {
-//   width: 1.5vw;
-//   height: 3vh;
-// }
-
-// article ligne dashed
-#exercices>article:nth-child(3) {
-  width: 80%;
-  align-self: center;
-  height: 1vh;
-  background: none;
-  border-bottom: dashed 1px black;
-}
-
-// articles générer avec le ngFor avec la photo ou video et le titre la description
-#exercices article {
+#module {
+  width: calc(100vw - $breadcrumb);
+  height: calc(100vh - $breadcrumb);
   flex-flow: column nowrap;
-  width: 20%;
-  max-height: 100vh;
+  overflow: hidden;
+}
+
+#module>header {
+  height: $breadcrumb;
+}
+
+#module>section {
+  height: calc(100% - $breadcrumb - $foot);
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+#module.progression>section {
+  height: calc(100% - $foot);
+}
+
+#module>app-menu {
+  height: $foot;
+}
+
+// articles générés avec le ngFor avec la photo ou video et le titre la description
+#module>section>article {
+  flex-flow: column nowrap;
+  flex: 1;
+  // flex-basis:1;
+  // max-width:17%;
+  // gap:3vw;
   background: $clair;
   margin: 10px;
-  gap: 0.5vw;
   justify-content: space-between;
   cursor: pointer;
+  position: relative;
+  transition: all .3s ease;
+  border: 1px solid rgba(0, 0, 0, .1);
 }
 
-//div des photos ou videos de l'exo
-#exercices section>article>.photo-exo {
+#module>section>article:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 4px $aside-color1;
+}
+
+#module>section>article:hover>figure {
+  background-size: 120%;
+  filter: grayscale(100%);
+}
+
+#module>section>article>ul {
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  align-self: flex-end;
   align-items: center;
-  text-align: justify;
-
+  margin: 0 0 10px 0;
 }
 
-// video ou photo
-#exercices section>article>.photo-exo>img {
+#module>section>article>ul li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+#module>section>article>ul li:hover {
+  transform: scale(1.05);
+}
+
+#module>section>article>ul li>* {
+  margin-right: 10px;
+}
+
+#module>section>article>figure {
   width: 100%;
+  height: 175px;
+  margin: 0;
+  position: relative;
+  align-items: flex-end;
+  background-position: 50% 0%;
+}
+
+#module>section>article>nav {
+  background-color: $clair;
+  width: 40%;
+  height: 34px;
+  margin-top: -34px;
+  justify-content: space-around;
+  align-self: flex-end;
+  z-index: 2;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+#module>section>article>nav i {
+  align-self: flex-end;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: all .3s ease;
+}
+
+#module>section>article>nav i svg {}
+
+#module>section>article>nav i:hover {
+  transform: scale(1.1);
+}
+
+#module>section>article>nav i span {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  transition: all .3s ease;
+  font-size: 80%;
+}
+
+#module>section>article>h3,
+#module>section>article>p {
+  margin: 10px;
 }
 
 //div pour progress bar
-#exercices article>.progress-bar {
+#module article>.progress-bar {
   display: flex;
   justify-content: space-around;
   height: 3vh;
   align-items: center;
 }
-#exercices article>.progress-bar a{
+
+#module article>.progress-bar a {
   color: #bfbfbf;
 }
+
+// Afficher un programme sur les pages programmes
+#module .programme {
+  flex-flow: column nowrap;
+  padding: 10px;
+}
+
+#module .programme article {
+  flex: none;
+  width: 100%;
+  margin: 0;
+}
+
+#module .programme article:hover {
+  transform: scale(1);
+}
+
+#module .programme article:hover>figure {
+  transform: scale(1);
+  filter: grayscale(0);
+}
+
+.programme>article:nth-child(1) {
+  flex-flow: column nowrap;
+  height: calc(100% - $breadcrumb);
+}
+
+#module .programme mat-expansion-panel {
+  width: 100%;
+}
+
+.programme>article>* {
+  width: 100%;
+}
+
+#module .programme>article>figure {
+  height: 75%;
+}
+
+#module .programme>article>figure h1 {
+  color: $clair;
+  margin: 0;
+  text-shadow: 1px 1px 0 $sombre;
+}
+
+.programme div {
+  display: flex;
+}
+
+.programme>article>div {
+  flex-flow: row nowrap;
+  padding: 10px;
+  height: 25%;
+
+  >p {
+    flex: 4
+  }
+
+  >div {
+    flex: 1;
+  }
+
+  >app-carrousel {
+    flex: 4;
+  }
+}
+
+.programme>article>div>p {
+  padding: 10px 15px;
+}
+
+.programme>article>div>div {
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.programme>article>div>div img {
+  margin-right: 10px;
+}
+
+.programme>article>div>div>div {
+  flex-flow: row nowrap;
+  align-items: center;
+  height: 25%;
+  padding: 10px 15px;
+}
+
 .progress-bar .mat-mdc-progress-bar {
   align-self: center;
   height: 100%;
   width: 80%;
   border: 1px solid black;
   border-radius: 3px;
-  --mat-progress-bar-active-indicator-color: #f28705;
-  --mat-progress-bar-track-height: 200px;
+  --mdc-linear-progress-active-indicator-color: #f28705;
+  --mdc-linear-progress-track-height: 200px;
 }
 
-// titre de l'exercice
-#exercices article>div>h6 {
-  margin: 10px 0 0 0;
-  justify-self: center;
-  font-size: 1.1rem;
-  font-weight: 500;
-  align-self: flex-start;
-  color: $sombre;
-  ;
-
-  @media (max-width: 1024px) {
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-    margin-top: 10px;
-  }
+/** PAGES OUTILS */
+.outils {
+  flex-flow: row nowrap;
+  width: calc(100vw - $breadcrumb);
+  height: 100vh;
 }
 
-
-// balise img de durée et materiel
-#exercices section article>div:nth-child(2)>div>div>img {
-  height: 2vh;
-  width: 1vw;
+.outils h1,
+.outils h2 {
+  font-size: 24px;
+  width: 100%;
+  clear: both;
+  color: $clair;
 }
 
-// balise p durée et materiel
-#exercices section article>div>p {
-  font-size: 1rem;
-  margin: 5px;
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-  }
-}
-
-// conteneur de description et du lien vers la modal
-#exercices article>div>.exercice-texte {
-  display: flex;
-  flex-direction: column;
-  max-height: 50vh;
-  justify-content: space-between;
-  gap: 1vw;
-}
-
-// div durée et materiel
-#exercices article>div>.exercice-texte>div {
-  display: flex;
-  align-items: center;
-  gap: 0.5vw;
-  min-height: 4vh;
-  justify-content: flex-end;
-}
-
-// description
-#exercices article>div>.exercice-texte>p {
-  font-size: 1rem;
-  text-align: justify;
-  word-spacing: -2px;
-
-  @media (max-width: 1024px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.9rem;
-  }
-}
-
-// lien vers la modal
-#exercices article>div>.exercice-texte>span {
-  align-self: flex-end;
-  font-weight: 700;
+.outils li {
   cursor: pointer;
-  color: $aside-color1;
-
-  @media (max-width: 1020px) {
-    font-size: 1rem;
-  }
-
-  @media (max-width: 906px) {
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 793px) {
-    font-size: 0.8rem;
-  }
+  transition: all .3s ease;
 }
 
-// #exercices article>figure {
-//   width: 100%;
-//   margin: -10px -10px 0;
-//   background-size: contain;
-//   background-position: 50%;
-// }
-
-#exercices>footer {
-  height: $foot;
-  width: calc(100vw - $l)
+.outils li:hover {
+  transform: scale(1.05);
+  font-weight: 600;
 }
 
-// Modal
+.outils>section {
+  flex-flow: column nowrap;
+  width: 15%;
+  padding: 10px 15px;
+}
 
+.outils>section article {
+  flex-flow: column nowrap;
+}
 
-// Partie responsive essai
-/* Styles pour les écrans de taille supérieure à 1154px */
-@media (max-width: 1154px) {
-  #exercices section {
+.outils section:nth-child(1) {
+  background-color: #F0C02E;
+}
+
+.outils section:nth-child(2) {
+  background-color: #F8E6AF;
+}
+
+.outils section:nth-child(3) {
+  flex: 3;
+}
+
+.outils section:nth-child(4) {
+  background-color: #F8E6AF;
+}
+
+.outils section:nth-child(4) article {
+  flex-flow: row wrap;
+}
+
+.outils section:nth-child(4) article button {
+  font-size: 80%;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+/** CARROUSEL PROGRAMMES **/
+.carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+
+  >div {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  #exercices article {
-    width: 30%;
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 906px) {
-  #exercices section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  #exercices article {
-    width: 40%;
-    margin-bottom: 20px;
-  }
-}
-
-/* Styles pour < 560px */
-@media (max-width: 560px) {
-  #exercices section {
-    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
   }
 
-  #exercices article {
-    align-items: center;
-    width: 80%;
+  .carousel-container {
+    display: flex;
+    flex-flow: row nowrap;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    width: 100%;
   }
 
-  #exercices article {
-    background: #f2f2f2;
+  .carousel-slide {
+    position: relative;
+    display: flex;
+    width: 25% !important;
+    height: 100%;
+
+    img {
+      height: auto;
+      filter: grayscale(1);
+      width: 100%;
+      transition: filter .3s ease;
+    }
+
+    figure {
+      height: 100%;
+      width: 100%;
+      filter: grayscale(1);
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      padding: 5px 15px;
+      position: absolute;
+      color: $clair;
+      left: 0;
+      bottom: 0;
+      font-weight: bold;
+      transition: all .3s ease;
+      max-width: 100%;
+      overflow: hidden;
+    }
   }
 
-  #exercices article .photo-exo img {
-    max-height: 100%;
-    max-width: 100%;
+  .carousel-slide:hover {
+    transform: scale(1.05);
+
+    img {
+      filter: grayscale(0);
+    }
+
+    figure {
+      filter: grayscale(0);
+      background-size: 140%;
+    }
+
+    p {
+      background-color: $clair;
+      color: $sombre;
+      padding: 10px;
+    }
   }
 
-  #exercices article p {
-    margin: 5px;
-  }
+  .carousel-slide.active {
+    img {
+      filter: grayscale(0);
+    }
 
-  #exercices article .exercice-texte {
-    margin: 10px;
+    figure {
+      filter: grayscale(0);
+    }
   }
 }
 
 // Modal exercices Kine et Opto
-
 #modalExercices {
   background: url("/assets/imgAsidebar/BgVector2.svg") rgba(242, 183, 5, 0.1);
   background-repeat: no-repeat;
@@ -1260,25 +1141,6 @@ article.cartel {
   }
 }
 
-
-
-// Responsive Modal
-// .modalExercies{
-//   mat-dialog-container {
-//   //   @media screen and (max-width: 1024px) and (max-height: 855px) {
-//   //     max-height: 80vh ;
-//   //     max-width: 90vw ;
-//   //   }
-
-//   //   @media screen and (max-width: 768px) and (max-height:860) {
-//   //     max-height: 40vh;
-//   //     max-width: 50vw;
-//   //   }
-//   // }
-// }
-
-
-
 // -----------------------------------------------------------------
 // CSS des pages plats et menus
 #platMenu {
@@ -1303,7 +1165,7 @@ article.cartel {
 
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 30%;
   padding-top: 5vh;
   display: flex;
@@ -1443,7 +1305,7 @@ article.cartel {
 
 // La partie droite avec la fonction de création d'un plat
 #sectionPrincipale article:nth-child(2) {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -1609,16 +1471,19 @@ article.cartel {
       font-size: 2rem;
       font-weight: 700;
       width: 60%;
+
       @media only screen and (max-width: 1280px) {
         font-size: 1.7rem;
       }
     }
+
     // La balise <h1>de suivi</h1>
     h1:nth-child(2) {
       margin: 0 0 1vh 0;
       font-size: 1.5rem;
       font-weight: 700;
       width: 60%;
+
       @media only screen and (max-width: 1280px) {
         font-size: 1.2rem;
       }
@@ -1719,7 +1584,7 @@ article.cartel {
 /* ---------------- CSS de la Page Plats -------------------- */
 // La partie gauche avec la liste des plats/menus enregistrés
 #sectionPrincipale>#listePlats {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 30%;
   padding-top: 5vh;
   display: flex;
@@ -1729,7 +1594,7 @@ article.cartel {
   align-items: center;
 
   @media screen and (max-width: 834px) {
-    height: calc(100vh - $head - 100px);
+    height: calc(100vh - $breadcrumb - 100px);
     width: 35%;
   }
 
@@ -2004,7 +1869,7 @@ article.cartel {
 
 // La partie droite avec la fonction de création d'un plat
 #sectionPrincipale article:nth-child(2) {
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -2013,7 +1878,7 @@ article.cartel {
   overflow: auto;
 
   @media screen and (max-width: 834px) {
-    height: calc(100vh - $head - 100px);
+    height: calc(100vh - $breadcrumb - 100px);
     width: 65%;
   }
 
@@ -2419,7 +2284,7 @@ article.cartel {
 #recettes>section {
   flex-flow: row wrap;
   justify-content: space-around;
-  height: calc(100vh - $head - $foot);
+  height: calc(100vh - $breadcrumb - $foot);
 }
 
 #recettes article {

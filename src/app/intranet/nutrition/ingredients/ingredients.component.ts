@@ -5,7 +5,6 @@ import { DonneesService } from '../../utils/services/donnees.service';
 import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { CiqualI, MesPlatsI } from '../../utils/modeles/Types';
 import { SlicePipe, UpperCasePipe } from '@angular/common';
-import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
 
 // Je déclare la classe MyPaginatorIntl en dehors de la classe IngredientsComponent
 class MyPaginatorIntl extends MatPaginatorIntl {
@@ -34,7 +33,7 @@ class MyPaginatorIntl extends MatPaginatorIntl {
     templateUrl: './ingredients.component.html',
     styleUrls: ['./ingredients.component.scss'],
     standalone: true,
-    imports: [IntranetModule, AlimentsPipe, PlatsPipe, SlicePipe, UpperCasePipe, BottomBarNutriComponent]
+    imports: [IntranetModule, AlimentsPipe, PlatsPipe, SlicePipe, UpperCasePipe]
 })
 export class IngredientsComponent implements OnInit {
   filtre: string = ''; //Ce qui va servir à filtrer le tableau des ingrédients - utiliser dans ngModel

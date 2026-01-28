@@ -7,18 +7,17 @@ import { ProgrammeKineService } from './services/programme-kine.service';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { IntranetModule } from '../../intranet.module';
 
-@Component({
-  selector: 'app-programme-kine',
+@Component({selector: 'app-programme-kine',
   templateUrl: './programme-kine.component.html',
   styleUrls: ['./programme-kine.component.scss'],
-  standalone: true,
   imports: [IntranetModule],
-
-})
+  standalone: true})
 export class ProgrammeKineComponent implements OnInit {
   avatar!: string;
-  selectedMedia: { type: string; url: string } | null = null;
-  mediaList: { type: string; url: string }[] = [];
+  selectedMedia: { type: string;
+  url: string } | null = null;
+  mediaList: { type: string;
+  url: string }[] = [];
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');
   filtre: string = '';
@@ -26,7 +25,6 @@ export class ProgrammeKineComponent implements OnInit {
   programmesFiltres: ProgrammeI[] = [];
   hoveredProgramme?: ProgrammeI;
   selectedImageTitle: string = '';
-
   sanitizer: DomSanitizer = inject(DomSanitizer);
   modalService: ModalService = inject(ModalService);
   programmeKine: ProgrammeKineService = inject(ProgrammeKineService);

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ExerciceI } from '../../modeles/Types';
+import { ExerciceI } from '../modeles/Types';
 import { CiqualI, MesPlatsI } from '../modeles/Types';
 
 @Pipe({

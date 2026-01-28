@@ -1,0 +1,64 @@
+{
+  "routes": {
+    "EXERCICES": "Les exercices",
+    "INTRANET": "Accueil",
+    "OPTO": "Optométrie",
+    "KINE": "Kinésithérapie",
+    "NUTRITION": "Nutrition",
+    "PLANIFICATION-REPAS": "Planification des repas",
+    "AGENDA": "Agenda",
+    "JOURNAUX": "Vos journaux enregistrés",
+    "HISTORIQUES": "Historique de vos activités",
+    "MESSAGERIE": "Messagerie",
+    "PROFIL": "Votre profil",
+    "PARAMETRES": "Paramètres",
+    "MENUS": "Les menus",
+    "PLATS":"Les pats",
+    "INGREDIENTS":"Les ingrédients & valeurs",
+    "MENU": "Menu",
+    "PROGRESSIONS":"vos progressions",
+    "PROGRAMMES":"les programmes",
+    "OUTILS":"Outils"
+  },
+  "pages":{
+    "TIAKI":"Tiaki",
+    "SLOGAN":"Pour aider les aidants",
+    "DE":"de",
+    "POUR":"pour",
+    "ALLERIES":"Allergies",
+    "ALLERGIES-FILTRE":"Tenir compte de mes allergies",
+    "PAS-FAITS":"Jamais faits",
+    "RECHERCHE":"Rcherche libre",
+    "RECHERCHER":"Recherche",
+    "PROGRAMMES":"Programmes",
+    "PROGRAMME":"Proramme",
+    "VALIDER":"Valider",
+    "ANNULER":"Annuler",
+    "FILTRER":"Filtrer",
+    "FILTRE-APPLIQUER":"Appliquer des filtres",
+    "LISTE-CONTENUS":"Liste des contenus",
+    "CHOIX-CONTENUS":"Choisissez ce que vous voulez afficher",
+    "COMMENTAIRE":"Commentaire",
+    "COMMENTAIRES":"Commentaires",
+    "COMMENTAIRES-TITRE":"Notes et commentaires",
+    "COMMENTAIRES-DESCR":"Consulter les commentaires de la communauté sur ce contenu",
+    "PARAMS":"Paramètres",
+    "CLOUD":"Cloud",
+    "COMMENT":"Comment ça marche ?"
+  },
+  "nutrition":{
+    "NUTRITION":"Nutrition",
+    "PLATS":"Plats",
+    "PLAT":"Plat",
+    "MENUS":"Menus",
+    "MENU":"Menu"
+  },
+  "opto":{
+    "OPTO":"Optométrie",
+    "EXERCICES":"Exercices d'optométrie",
+    "PROGRAMMES":"Programmes d'optométrie"
+  },
+  "kine":{
+    "KINE":"Kinésithérapie"
+  }
+}

@@ -1,32 +1,16 @@
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageJournalI } from 'src/app/intranet/modeles/journal.js';
-import {
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
-  MedecinI,
-  RealisationI,
-} from 'src/app/intranet/modeles/Types';
+import { MedecinI, RealisationI, MessageJournalI } from '../../utils/modeles/Types';
+import { IntranetModule } from '../../intranet.module';
 
 @Component({
-    selector: 'app-journal',
-    templateUrl: './journal.component.html',
-    styleUrls: ['./journal.component.scss'],
-    standalone: true
+  selector: 'app-journal',
+  templateUrl: './journal.component.html',
+  styleUrls: ['./journal.component.scss'],
   standalone: true,
-  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
-  
+  imports: [IntranetModule],
+
 })
 export class JournalComponent implements OnInit {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
@@ -34,7 +18,7 @@ export class JournalComponent implements OnInit {
   public realisationImg!: string;
   public pacman!: string;
 
-  public medecins: MedecinI[] = [
+  public medecins: Array<MedecinI> = [
     {
       nom: 'Docteur Ferreira',
     },
@@ -46,7 +30,7 @@ export class JournalComponent implements OnInit {
     },
   ];
 
-  public realisations: RealisationI[] = [
+  public realisations: Array<RealisationI> = [
     {
       nom: 'Occlumotricité',
     },
@@ -89,7 +73,7 @@ export class JournalComponent implements OnInit {
       if (data[0].date) {
         // Tri des objets data par date décroissante
         data.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+          (a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime()
         );
       }
       this.reliers = data; //La variable reliers de type HistoriqueJournalI contient les données de data

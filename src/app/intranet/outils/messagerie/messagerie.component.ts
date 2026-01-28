@@ -11,19 +11,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI } from '../../modeles/Types';
+import { MedecinI, RealisationI } from '../../utils/modeles/Types';
 import { MessagerieService } from './services/messagerie.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 
-@Component({
-  selector: 'app-messagerie',
+@Component({selector: 'app-messagerie',
   templateUrl: './messagerie.component.html',
   styleUrls: ['./messagerie.component.scss'],
-  standalone: true,
   imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
-
-})
+  standalone: true})
 export class MessagerieComponent implements OnInit {
   public medecinImg!: string;
   public blackMedecinImg!: string;

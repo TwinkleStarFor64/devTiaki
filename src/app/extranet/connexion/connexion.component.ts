@@ -1,33 +1,37 @@
 import { RouterLink } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConnexionService } from '../../partage/services/connexion.service';
-import { SupabaseService } from 'src/app/partage/services/supabase.service';
+import { AuthService } from '../../partage/services/auth.service';
 
 @Component({
   selector: 'app-connexion',
   templateUrl: './connexion.component.html',
   styleUrls: ['./connexion.component.scss'],
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
-  
+  imports: [RouterLink, FormsModule, CommonModule]
 })
 export class ConnexionComponent implements OnInit {
   titre: string = "Se connecter";
+  isLoading = false;
+  errorMessage = '';
 
-  constructor(public conn: ConnexionService, public supa: SupabaseService) { }
+  conn:ConnexionService = inject(ConnexionService);
+  auth:AuthService = inject(AuthService);
+  r:Router = inject(Router);
 
   async ngOnInit(): Promise<void> {
-    const { data, error } = await this.supa.getAidant();
-    console.log(data);
-    //const { data, error } = await this.supa.getHistoriqueJournal();
-    //console.log(data);
+    console.log('connexion');
+    if(localStorage.getItem("user")){
+      this.auth.user = JSON.parse(localStorage.getItem("user")!);
+      this.r.navigate(['/intranet']);
+    };
   }
 
-  // Méthode pour afficher l'états des données
-  dataObject() {
-    console.log(this.conn.connexion);
+  onConnexion(form: NgForm) {
+    if (form.valid) {this.conn.connecter();}
   }
 }

@@ -1,15 +1,3 @@
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
 import { Component, OnInit } from '@angular/core';
 import { PlatsService } from './services/plats.service';
 import { CiqualI, EvaluationI, MesPlatsI } from '../../utils/modeles/Types';
@@ -17,16 +5,15 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SavePlatComponent } from '../dialog/save-plat/save-plat.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
 import { IngredientsPipe } from '../../utils/pipes/filter.pipe';
+import { IntranetModule } from '../../intranet.module';
+import { NgClass } from '@angular/common';
 
-@Component({
-  selector: 'app-plats',
+@Component({selector: 'app-plats',
   templateUrl: './plats.component.html',
   styleUrls: ['./plats.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, BottomBarNutriComponent, IngredientsPipe],
-
+  imports: [IntranetModule, IngredientsPipe, NgClass],
+  standalone: true
 })
 export class PlatsComponent implements OnInit {
   aliment: CiqualI[] = [];
@@ -93,7 +80,7 @@ export class PlatsComponent implements OnInit {
         ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
         ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
+        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)']
       }));
       //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
     }
@@ -155,7 +142,7 @@ export class PlatsComponent implements OnInit {
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: 'Ajouter un plat',
+      data: 'Ajouter un plat'
     });
   }
 
@@ -166,7 +153,7 @@ export class PlatsComponent implements OnInit {
       autoFocus: true,
       height: '200px',
       width: '400px',
-      data: 'Êtes vous sur de vouloir supprimer ce plat ?',
+      data: 'Êtes vous sur de vouloir supprimer ce plat ?'
     });
   }
 
@@ -210,15 +197,7 @@ export class PlatsComponent implements OnInit {
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
 
-
-
-
 }
-
-
-
-
-
 
 /* ----------------- Ancienne méthode de trie suivant les évaluations ------------------------ */
 //triActif: boolean = true; // Pour la méthode triParTexte

@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
 
 export const outilsRoutes: Routes = [
-  // Temporarily disabled due to syntax errors
-  // {
-  //   path: 'journal',
-  //   loadComponent: () => import('./journal/journal.component').then(c => c.JournalComponent)
-  // },
+  {
+    path: 'journal',
+    loadComponent: () => import('./journal/journal.component').then(c => c.JournalComponent)
+  },
   {
     path: 'historique',
     loadComponent: () => import('./historique/historique.component').then(c => c.HistoriqueComponent)
@@ -21,8 +20,8 @@ export const outilsRoutes: Routes = [
   {
     path: 'parametre',
     loadComponent: () => import('./parametre/parametre.component').then(c => c.ParametreComponent)
-  },
-  // Temporarily disabled due to syntax errors
+  }
+  // Temporairement désactivé à cause d'erreurs de syntaxe
   // {
   //   path: 'modifier/:id',
   //   loadComponent: () => import('./edit-journal/edit-journal.component').then(c => c.EditJournalComponent)

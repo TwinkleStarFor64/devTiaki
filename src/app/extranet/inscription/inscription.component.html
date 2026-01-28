@@ -1,0 +1,167 @@
+<div class="inscription-container">
+  <div class="inscription-card">
+    <div class="header">
+      <h1>Créer un compte</h1>
+      <p>Rejoignez Tiaki pour accéder à tous nos services</p>
+    </div>
+
+    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()" class="inscription-form">
+      
+      <!-- Informations de connexion -->
+      <div class="form-section">
+        <h3>Informations de connexion</h3>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Adresse email</mat-label>
+          <input matInput type="email" formControlName="email" required>
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error *ngIf="email?.invalid && email?.touched">
+            {{ getErrorMessage('email') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="password?.invalid && password?.touched">
+            {{ getErrorMessage('password') }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Confirmer le mot de passe</mat-label>
+          <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword" required>
+          <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button">
+            <mat-icon>{{ hideConfirmPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPassword?.invalid && confirmPassword?.touched">
+            {{ getErrorMessage('confirmPassword') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Informations personnelles -->
+      <div class="form-section">
+        <h3>Informations personnelles</h3>
+        
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Nom</mat-label>
+            <input matInput formControlName="nom" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="nom?.invalid && nom?.touched">
+              {{ getErrorMessage('nom') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Prénom</mat-label>
+            <input matInput formControlName="prenom" required>
+            <mat-icon matSuffix>person</mat-icon>
+            <mat-error *ngIf="prenom?.invalid && prenom?.touched">
+              {{ getErrorMessage('prenom') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Téléphone</mat-label>
+            <input matInput formControlName="telephone" placeholder="0123456789">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-error *ngIf="telephone?.invalid && telephone?.touched">
+              {{ getErrorMessage('telephone') }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Date de naissance</mat-label>
+            <input matInput type="date" formControlName="dateNaissance">
+            <mat-icon matSuffix>cake</mat-icon>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Profession</mat-label>
+          <mat-select formControlName="profession">
+            <mat-option value="">Sélectionner une profession</mat-option>
+            <mat-option value="medecin">Médecin</mat-option>
+            <mat-option value="infirmier">Infirmier/ère</mat-option>
+            <mat-option value="kinesitherapeute">Kinésithérapeute</mat-option>
+            <mat-option value="orthoptiste">Orthoptiste</mat-option>
+            <mat-option value="nutritionniste">Nutritionniste</mat-option>
+            <mat-option value="psychologue">Psychologue</mat-option>
+            <mat-option value="aidant">Aidant familial</mat-option>
+            <mat-option value="autre">Autre</mat-option>
+          </mat-select>
+          <mat-icon matSuffix>work</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Adresse -->
+      <div class="form-section">
+        <h3>Adresse (optionnel)</h3>
+        
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Adresse</mat-label>
+          <input matInput formControlName="adresse">
+          <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Ville</mat-label>
+            <input matInput formControlName="ville">
+            <mat-icon matSuffix>location_city</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Code postal</mat-label>
+            <input matInput formControlName="codePostal" placeholder="75000">
+            <mat-icon matSuffix>markunread_mailbox</mat-icon>
+            <mat-error *ngIf="codePostal?.invalid && codePostal?.touched">
+              {{ getErrorMessage('codePostal') }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Conditions -->
+      <div class="form-section">
+        <mat-checkbox formControlName="accepterCGU" required>
+          J'accepte les <a routerLink="/mentions-legales" target="_blank">conditions générales d'utilisation</a>
+          <mat-error *ngIf="accepterCGU?.invalid && accepterCGU?.touched">
+            Vous devez accepter les conditions générales d'utilisation
+          </mat-error>
+        </mat-checkbox>
+
+        <mat-checkbox formControlName="accepterNewsletter">
+          Je souhaite recevoir la newsletter et les informations sur les nouveautés
+        </mat-checkbox>
+      </div>
+
+      <!-- Boutons -->
+      <div class="form-actions">
+        <button 
+          mat-raised-button 
+          color="primary" 
+          type="submit" 
+          [disabled]="inscriptionForm.invalid || isLoading"
+          class="submit-button">
+          <mat-icon *ngIf="isLoading">hourglass_empty</mat-icon>
+          <span *ngIf="!isLoading">Créer mon compte</span>
+          <span *ngIf="isLoading">Création en cours...</span>
+        </button>
+
+        <div class="login-link">
+          <p>Vous avez déjà un compte ? 
+            <a routerLink="/" class="link">Se connecter</a>
+          </p>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-$l: 65px;
+$l: 60px;
 $foot: 150px;
 $foot-color: #f22f1d;
 
@@ -19,11 +19,16 @@ main {
   width: calc(100vw - $l);
   flex-direction: column;
 }
-
-main>* {
-  width: calc(100vw - $l);
+main > header {
+  width:100%;
+  height:$l;
+  justify-content: flex-end;
+  // margin-bottom:- $l;
 }
-
-main>footer {
-  background-color: $foot-color;
+main > section{
+  width:100%;
+  height:calc(100vh - $l);
+}
+:host ::ng-deep router-outlet + *{
+  width:100%;
 }

@@ -1,0 +1,8 @@
+<article>
+  <a routerLink="/intranet"><strong>Tiaki</strong></a>
+  @for(r of l.ariane; track $index){
+  <!-- @if($index < l.ariane.length -1){
+  <span> &gt; </span>} -->
+  <a [routerLink]="[r.path]" [class]="r.classe">{{ r.titre }}</a>
+  }
+</article>

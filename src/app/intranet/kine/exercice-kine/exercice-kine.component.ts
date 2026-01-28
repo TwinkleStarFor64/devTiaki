@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
+import { ExerciceI } from '../../utils/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalExKineComponent } from './modal-ex-kine/modal-ex-kine.component';
@@ -7,14 +7,11 @@ import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { IntranetModule } from '../../intranet.module';
 
-@Component({
-  selector: 'app-exercice-kine',
+@Component({selector: 'app-exercice-kine',
   templateUrl: './exercice-kine.component.html',
   styleUrls: ['./exercice-kine.component.scss'],
-  standalone: true,
   imports: [IntranetModule],
-
-})
+  standalone: true})
 export class ExerciceKineComponent implements OnInit {
   avatar!: string;
   exercicesKine!: ExerciceI[];
@@ -45,7 +42,7 @@ export class ExerciceKineComponent implements OnInit {
       autoFocus: true,
       height: '850px',
       width: '1500px',
-      data: exercice,
+      data: exercice
     });
   }
 

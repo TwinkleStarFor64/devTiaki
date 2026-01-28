@@ -2,19 +2,14 @@ import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { Component } from '@angular/core';
-import { MedecinI, RealisationI } from '../../modeles/Types';
-import { MessageJournalI } from '../../modeles/journal';
+import { MedecinI, RealisationI, MessageJournalI, EchangeI } from '../../utils/modeles/Types';
 import { ParametreService } from './services/parametre.service';
-import { EchangeI } from '../../utils/modeles/Types';
 
-@Component({
-  selector: 'app-parametre',
+@Component({selector: 'app-parametre',
   templateUrl: './parametre.component.html',
   styleUrls: ['./parametre.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule],
-
-})
+  imports: [RouterLink],
+  standalone: true})
 export class ParametreComponent {
   public msgs: MessageJournalI[] = []; //Le contenu du tableau est décrit dans la méthode onCancel()
   public medecinImg!: string;

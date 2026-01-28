@@ -1,0 +1,41 @@
+/** Variables SCSS */
+$font-family: 'Raleway', sans-serif;
+$card-nutri: #D9042B;
+$card-kine: #F22F1D;
+$card-opto: #F28705;
+$aside-color1: #270140;
+$aside-color2: #805E96;
+$aside-color3: #F0C02E;
+
+$clair: white;
+$sombre: black;
+
+$head: 20vh; // Hauteur de l'entête des pages d'accueil
+$breadcrumb: 60px; // Hauteur du fil d'ariane
+$foot: 150px; // Hauteur des menus du bas
+$l: 65px; // Largeur du menu de droite qui permet de calculer la largeur des éléments de la page
+
+@media screen and (max-width : 1450px) {
+  #module > section > article {
+    // max-width:22%;
+  }
+}
+@media screen and (max-width : 1250px) {
+
+}
+@media screen and (max-width : 1100px) {
+  #module > section > article {
+    // max-width:28%;
+  }
+}
+@media screen and (max-width : 875px) {
+  #module > section > article {
+    // max-width:45%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #module > section > article {
+    // max-width:95%;
+  }
+}

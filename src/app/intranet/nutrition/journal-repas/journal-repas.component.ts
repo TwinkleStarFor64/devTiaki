@@ -1,65 +1,54 @@
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { CalendarEvent, CalendarEventAction, CalendarView, DateAdapter } from 'angular-calendar';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { DateAdapter, provideCalendar, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarEvent, CalendarView, CalendarDatePipe, CalendarEventAction } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { format, isSameDay, isSameMonth, parse, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Subject, firstValueFrom } from 'rxjs';
 import { EventService } from './services/event.service';
 import { MenusService } from '../menus/services/menus.service';
 import { MesMenusI, MesPlatsI } from '../../utils/modeles/Types';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PlatsService } from '../plats/services/plats.service';
 import { ThemePalette } from '@angular/material/core';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { MatDialog } from '@angular/material/dialog';
 import { CheckJournalComponent } from '../dialog/check-journal/check-journal.component';
-import { MatRadioModule } from '@angular/material/radio';
-import { CalendarModule } from 'angular-calendar';
-import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
-
+import { IntranetModule } from '../../intranet.module';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-journal-repas',
   templateUrl: './journal-repas.component.html',
   styleUrls: ['./journal-repas.component.scss'],
-  providers: [],
-  standalone: true,
-  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatRadioModule, CalendarModule, BottomBarNutriComponent],
-
+  providers: [
+    provideCalendar({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+  ],
+  imports: [IntranetModule, CalendarMonthViewComponent, CalendarWeekViewComponent, CalendarDayViewComponent, CalendarDatePipe, CalendarPreviousViewDirective, CalendarTodayDirective, CalendarNextViewDirective],
+  standalone: true
 })
 export class JournalRepasComponent implements OnInit {
-  @ViewChild('picker') picker: any; // Ajouter pour Date Time Picker - Voir la doc https://www.npmjs.com/package/@angular-material-components/datetime-picker
+  // Ajouter pour Date Time Picker - Voir la doc: https://www.npmjs.com/package/@angular-material-components/datetime-picker
+  @ViewChild('picker') picker: any;
 
-  public dateTime: Date = new Date();
-  //public dateTime = parse('2023-07-20', 'yyyy-MM-dd', new Date()); 
-  public disabled = false;
-  public showSpinners = true;
-  public showSeconds = false;
-  public touchUi = false;
-  public enableMeridian = false;
-  public minDate!: Date;
-  public maxDate!: Date;
-  public stepHour = 1;
-  public stepMinute = 1;
-  public stepSecond = 1;
-  public color: ThemePalette = 'primary';
+  dateTime: Date = new Date();
+  // dateTime = parse('2023-07-20', 'yyyy-MM-dd', new Date()); 
+  disabled = false;
+  showSpinners = true;
+  showSeconds = false;
+  touchUi = false;
+  enableMeridian = false;
+  minDate!: Date;
+  maxDate!: Date;
+  stepHour = 1;
+  stepMinute = 1;
+  stepSecond = 1;
+  color: ThemePalette = 'primary';
 
-
-  public formatDateToFrench(date: Date): any {
+  formatDateToFrench(date: Date): any {
     return format(date, 'dd/MM/yyyy', { locale: fr });
   }
-
 
   //--------------------------------------------- Ci-dessous code pour les réglages du calendrier ------------------------------------
 
@@ -76,7 +65,6 @@ export class JournalRepasComponent implements OnInit {
   refresh = new Subject<void>(); // Pour la méthode eventTimesChanged()
 
   selectedButton: number = -1; //Pour le CSS des boutons
-
   colors: any = {
     Positif: {
       primary: '#33BB27',
@@ -84,11 +72,11 @@ export class JournalRepasComponent implements OnInit {
     },
     Observations: {
       primary: '#F0C02E',
-      secondary: '#F0C02E',
+      secondary: '#F0C02E'
     },
     Allergies: {
       primary: '#D9042B',
-      secondary: '#D9042B',
+      secondary: '#D9042B'
     },
     Neutre: {
       primary: '#D1D1D1',
@@ -114,7 +102,7 @@ export class JournalRepasComponent implements OnInit {
               // Ci-dessus filter() itère sur chaque élément de this.events et vérifie si la propriété id de l'événement (iEvent.id) est différente de l'ID de l'événement que je veux supprimer (event.id)
             }
           });
-      },
+      }
     }
   ]
 
@@ -125,21 +113,11 @@ export class JournalRepasComponent implements OnInit {
 
   formData!: FormGroup;
 
-  constructor(public eventService: EventService, public menuService: MenusService, public platService: PlatsService, private formBuilder: FormBuilder, private dialog: MatDialog) {
-    /* const event1 = {
-      title: "Saut en parachute",
-      start: new Date ("2023-07-17T14:00"),
-      end: new Date ("2023-07-17T17:00"),
-      color: this.colors.yellow,
-      draggable: true,
-      resizable: {
-        beforeStart: true,
-        afterEnd: true
-      }
-    }
-
-    this.events.push(event1); */
-  }
+  eventService: EventService = inject(EventService);
+  menuService: MenusService = inject(MenusService);
+  platService: PlatsService = inject(PlatsService);
+  private formBuilder: FormBuilder = inject(FormBuilder);
+  private dialog: MatDialog = inject(MatDialog);
 
   async ngOnInit(): Promise<void> {
     this.fetchEvents();
@@ -157,14 +135,16 @@ export class JournalRepasComponent implements OnInit {
 
   }
 
-
   //--------------------------------------------------- Ci-dessous les méthodes pour le calendrier -----------------------------------------------------
   setView(view: CalendarView) {
     this.view = view;
     // Pour changer l'affichage ( vue du mois, de la semaine ou du jour)
   }
 
-  dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+  dayClicked({ date, events }: {
+    date: Date;
+    events: CalendarEvent[]
+  }): void {
     //Cette condition vérifie si le jour cliqué (date) appartient au même mois que la date actuellement affichée (viewDate).Si c'est le cas, cela signifie que l'utilisateur a cliqué sur un jour déjà ouvert. 
     //Cela permet de s'assurer que l'ouverture ou la fermeture des événements est effectuée uniquement lorsque l'utilisateur clique sur un jour du mois affiché à l'écran.
     if (isSameMonth(date, this.viewDate)) {
@@ -228,7 +208,7 @@ export class JournalRepasComponent implements OnInit {
       autoFocus: true,
       height: '200px',
       width: '400px',
-      data: 'Êtes vous sur de vouloir supprimer ?',
+      data: 'Êtes vous sur de vouloir supprimer ?'
     });
   }
 
@@ -258,7 +238,7 @@ export class JournalRepasComponent implements OnInit {
       this.events = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
         title: item['title'],
-        start: parseISO(item['start']), // J'utilise parseISO pour convertir en un objet Date valide
+        start: parseISO(item['start'] ||''), // J'utilise parseISO pour convertir en un objet Date valide
         color: this.colors[item['color']] || this.colors.Neutre,
         choice: item['choice'],
         observations: item['observations'],
@@ -284,7 +264,7 @@ export class JournalRepasComponent implements OnInit {
         nom: item['nom'],
         description: item['description'],
         alim_code: item['alim_code'],
-        statut: item['statut'],
+        statut: item['statut']
       }));
       //console.log(this.repas.map((item) => item['id']));
     }
@@ -327,10 +307,6 @@ export class JournalRepasComponent implements OnInit {
   }
 }
 
-
-
-
-
 // Méthode pour supprimer un événement - Remplacer par la méthode supabase contenu dans event.service
 /* deleteEvent(event: CalendarEvent): void {
   const eventIndex = this.events.indexOf(event);
@@ -340,13 +316,10 @@ export class JournalRepasComponent implements OnInit {
       }
   } */
 
-
 /* eventClicked(event:any) {
   console.log(event);
   this.openDialog();
 } */
-
-
 
 // Ancienne méthode pour supprimer un Event
 /*  async deleteEventConfirm(id: any) {

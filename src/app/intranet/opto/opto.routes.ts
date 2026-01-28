@@ -1,20 +1,16 @@
 import { Routes } from '@angular/router';
+import { OptoComponent } from './opto.component';
+import { ProgressionOptoComponent } from './progression-opto/progression-opto.component';
+import { ExerciceOptoComponent } from './exercice-opto/exercice-opto.component';
+import { ProgrammeOptoComponent } from './programme-opto/programme-opto.component';
 
 export const optoRoutes: Routes = [
   {
-    path: '',
-    loadComponent: () => import('./opto.component').then(c => c.OptoComponent)
+    path: '', component: OptoComponent, children: [
+      { path: 'progressions', component: ProgressionOptoComponent },
+      { path: 'exercices', component: ExerciceOptoComponent },
+      { path: 'programmes', component: ProgrammeOptoComponent }
+    ]
   },
-  {
-    path: 'progression-Opto',
-    loadComponent: () => import('./progression-opto/progression-opto.component').then(c => c.ProgressionOptoComponent)
-  },
-  {
-    path: 'exercice-Opto',
-    loadComponent: () => import('./exercice-opto/exercice-opto.component').then(c => c.ExerciceOptoComponent)
-  },
-  {
-    path: 'programme-Opto',
-    loadComponent: () => import('./programme-opto/programme-opto.component').then(c => c.ProgrammeOptoComponent)
-  }
+
 ];

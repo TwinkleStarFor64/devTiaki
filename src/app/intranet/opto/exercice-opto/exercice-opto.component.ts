@@ -1,32 +1,18 @@
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
+import { Component, OnInit, inject } from '@angular/core';
+import { ExerciceI } from '../../utils/modeles/Types';
 import { FormControl } from '@angular/forms';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ModalExOptoComponent } from './modal-ex-opto/modal-ex-opto.component';
 import { BottomBarOptoComponent } from "../bottom-bar-opto/bottom-bar-opto.component";
+import { IntranetModule } from '../../intranet.module';
 
-@Component({
-  selector: 'app-exercice-otpo',
+@Component({selector: 'app-exercice-otpo',
   templateUrl: './exercice-opto.component.html',
   styleUrls: ['./exercice-opto.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, BottomBarOptoComponent],
-
-})
+  imports: [IntranetModule, BottomBarOptoComponent],
+  standalone: true})
 export class ExerciceOptoComponent implements OnInit {
   avatar!: string;
   exercicesOpto!: ExerciceI[];
@@ -38,7 +24,8 @@ export class ExerciceOptoComponent implements OnInit {
   exerciceDureeSurvole: ExerciceI | null = null;
   exerciceMaterielSurvole: ExerciceI | null = null;
 
-  constructor(public sanity: SanityService, private dialog: MatDialog) { }
+  sanity:SanityService = inject(SanityService);
+  private dialog:MatDialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.avatar = 'assets/imgAsidebar/cheerleader1.svg';
@@ -54,7 +41,7 @@ export class ExerciceOptoComponent implements OnInit {
       disableClose: true,
       autoFocus: true,
       panelClass: 'modalExercices',
-      data: exercice,
+      data: exercice
     });
   }
   // filtrer les exercices

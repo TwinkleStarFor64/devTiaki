@@ -1,4 +1,9 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
+import { UserI } from '../modeles/types';
 
 @Injectable({
   providedIn: 'root'
@@ -15,25 +20,40 @@ export class ConnexionService {
     }
   };
 
-  private currentUser: any = null;
+  private user: any = null;
   private userRoles: string[] = [];
+  private http:HttpClient = inject(HttpClient);
+  private env:any = environment;
+  private r:Router = inject(Router);
+  private auth:AuthService = inject(AuthService);
 
   constructor() {
     // Load user data from localStorage if available
     this.loadUserFromStorage();
   }
-
+  connecter(){
+    return this.http.post<UserI>(this.env.API_URL + 'auth/login', {email:this.connexion.id.value, password:this.connexion.mdp.value}).subscribe({
+      next: resp => {
+        this.auth.user = resp;
+        // Redirection vers l'intranet
+          this.r.navigate(['/intranet']);
+      },
+      error: (er:any) => {
+        console.log(er);
+      }
+    })
+  }
   /**
    * Check if user is authenticated
    */
   estAuthentifie(): boolean {
-    return this.currentUser !== null && this.hasValidToken();
+    return this.user !== null && this.tokenValide();
   }
 
   /**
    * Check if user has a specific role
    */
-  hasRole(role: string): boolean {
+  aRole(role: string): boolean {
     return this.userRoles.includes(role);
   }
 
@@ -41,7 +61,7 @@ export class ConnexionService {
    * Get current user
    */
   getCurrentUser(): any {
-    return this.currentUser;
+    return this.user;
   }
 
   /**
@@ -55,16 +75,16 @@ export class ConnexionService {
    * Set current user after successful authentication
    */
   setCurrentUser(user: any, roles: string[] = []): void {
-    this.currentUser = user;
+    this.user = user;
     this.userRoles = roles;
-    this.saveUserToStorage();
+    this.setLocalUser();
   }
 
   /**
    * Logout user
    */
   logout(): void {
-    this.currentUser = null;
+    this.user = null;
     this.userRoles = [];
     this.clearUserFromStorage();
   }
@@ -72,19 +92,19 @@ export class ConnexionService {
   /**
    * Check if token is valid (placeholder implementation)
    */
-  private hasValidToken(): boolean {
+  private tokenValide(): boolean {
     // TODO: Implement actual token validation
     // This should check JWT token expiration, etc.
     const token = localStorage.getItem('auth_token');
     return token !== null;
-  }
+  };
 
   /**
    * Save user data to localStorage
    */
-  private saveUserToStorage(): void {
-    if (this.currentUser) {
-      localStorage.setItem('current_user', JSON.stringify(this.currentUser));
+  private setLocalUser(): void {
+    if (this.user) {
+      localStorage.setItem('current_user', JSON.stringify(this.user));
       localStorage.setItem('user_roles', JSON.stringify(this.userRoles));
     }
   }
@@ -97,7 +117,7 @@ export class ConnexionService {
     const userRoles = localStorage.getItem('user_roles');
     
     if (userData) {
-      this.currentUser = JSON.parse(userData);
+      this.user = JSON.parse(userData);
     }
     
     if (userRoles) {

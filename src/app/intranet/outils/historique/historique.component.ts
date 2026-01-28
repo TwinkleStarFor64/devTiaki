@@ -11,22 +11,19 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Component, OnInit } from '@angular/core';
-import { MedecinI, RealisationI, RelierI } from '../../modeles/Types';
+import { MedecinI, RealisationI, RelierI, HistoriqueJournalI } from '../../utils/modeles/Types';
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
-import { HistoriqueJournalI } from '../../modeles/Types';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../dialog/delete/delete.component';
 import { FormControl } from '@angular/forms';
 import { JournalPipe } from '../../utils/pipes/filter.pipe';
+import { IntranetModule } from '../../intranet.module';
 
-@Component({
-  selector: 'app-historique',
+@Component({selector: 'app-historique',
   templateUrl: './historique.component.html',
   styleUrls: ['./historique.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, MatDialogModule, MatProgressBarModule, CdkAccordionModule, JournalPipe],
-
-})
+  imports: [IntranetModule, JournalPipe],
+  standalone: true})
 export class HistoriqueComponent implements OnInit {
   public medecinImg!: string;
   public realisationImg!: string;

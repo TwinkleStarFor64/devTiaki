@@ -6,11 +6,7 @@ import {
   SupabaseClient,
 } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
-import {
-  HistoriqueJournalI,
-  HistoriqueMessageI,
-} from '../../intranet/modeles/Types';
-
+import { HistoriqueJournalI, HistoriqueMessageI } from 'src/app/intranet/utils/modeles/Types';
 @Injectable({
   providedIn: 'root',
 })
@@ -48,7 +44,8 @@ export class SupabaseService {
   }
   /** Appeler la liste des aidants dans Supabase */
   async getAidant() {
-    return await this.supabase.from('aidant').select('id, nom');
+    // return await this.supabase.from('aidant').select('id, nom');
+    return {data: [], error: null};
   }
   //------------------------ Methode pour la page journal--------------------------------
   /** DELETE un journal et son groupe sur la table groupeEvenement

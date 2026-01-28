@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/modeles/Types.js';
+import { ExerciceI } from '../../utils/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 import { IntranetModule } from '../../intranet.module';
 
-@Component({
-  selector: 'app-progression-kine',
+@Component({selector: 'app-progression-kine',
   templateUrl: './progression-kine.component.html',
   styleUrls: ['./progression-kine.component.scss'],
-  standalone: true,
   imports: [IntranetModule],
-
-})
+  standalone: true})
 export class ProgressionKineComponent implements OnInit {
   avatar!: string;
   exercicesKine!: ExerciceI[];

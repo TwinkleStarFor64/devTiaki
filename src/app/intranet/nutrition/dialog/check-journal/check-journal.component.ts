@@ -17,14 +17,11 @@ import { CiqualI, MesMenusI, MesPlatsI } from 'src/app/intranet/utils/modeles/Ty
 import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 
-@Component({
-  selector: 'app-check-journal',
+@Component({selector: 'app-check-journal',
   templateUrl: './check-journal.component.html',
   styleUrls: ['./check-journal.component.scss'],
-  standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
-
-})
+  standalone: true})
 export class CheckJournalComponent implements OnInit {
 
   events: any[] = [];
@@ -106,7 +103,7 @@ export class CheckJournalComponent implements OnInit {
         nom: item['nom'],
         description: item['description'],
         alim_code: item['alim_code'],
-        statut: item['statut'],
+        statut: item['statut']
       }));
       console.log(this.repas.map((item) => item['id']));
     }
@@ -134,7 +131,7 @@ export class CheckJournalComponent implements OnInit {
         ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
         ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
+        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)']
       }));
       //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
     }
@@ -161,7 +158,7 @@ export class CheckJournalComponent implements OnInit {
         alimCode: plat.alim_code,
         ingredients: this.aliment.filter(
           (ingredient) => ingredient.alim_code === plat.alim_code
-        ),
+        )
       };
     });
     //L'objet final contient : {
@@ -189,13 +186,10 @@ export class CheckJournalComponent implements OnInit {
         alimCode: menu.alim_code,
         ingredients: this.aliment.filter(
           (ingredient) => ingredient.alim_code === menu.alim_code
-        ),
+        )
       };
     });
   }
 
 }
-
-
-
 

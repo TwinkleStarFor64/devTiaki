@@ -1,44 +1,87 @@
-<!-- <app-infos></app-infos> -->
-<!-- <form #f="ngForm">
-        <input name="id" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel"  [placeholder]="conn.connexion.id.placeholder" required>
-        <span *ngIf="ctlId.invalid"> Vous devez renseigner vôtre identifiant ou un mail </span>
-        <input name="mdp"  [(ngModel)]="conn.connexion.mdp.value" #ctlMdp="ngModel" type="password" [placeholder]="conn.connexion.mdp.placeholder">
-        <span *ngIf="ctlMdp.invalid"> Mot de passe? </span>
-        <div>
-            <input type="reset" value="Annuler">
-            <input type="submit" value="Se connecter" [disabled]="f.invalid">
-        </div>
-        <a routerLink='intranet'>Cliquer ici pour accéder à l'application en cours de développement </a>
-    </form> -->
+<header>
+  <a href="https://tiaki-app.org" title="Voir le site de Tiaki" target="_blank">
+    <img src="assets/images/logos/tiaki.svg" alt="Logo Tiaki" class="logo">
+  </a>
+  <p>Pour aider les aidants</p>
+</header>
 <section>
-  <!-- <header>
-      <a href="https://tiaki-app.org" title="Accéder au site de Tiaki"><img src="assets/images/logos/twinkle.svg" alt="Logo Twinkle Star for 64" class="logo"></a>
-  </header> -->
-  <article>
-    <a href="https://tiaki-app.org" title="Voir le site de Tiaki" target="_blank"><img
-        src="assets/images/logos/tiaki.svg" alt="Logo Tiaki" class="logo"></a>
-    <!-- <h1>Tiaki</h1> -->
-    <h2>Une application pour les aidants</h2>
-    <p>L'application en cours de développement apportera des outiles pour les aidants de personnes dépendantes et en
-      situation de handicap.</p>
-    <p>Elle regroupera des fonctionnalités pour élaborer des plats, suivre des exercices de kinésithérapie et
-      d'optométrie quotidien et offrir des outils de gestion de rendez-vous et des soins.</p>
-    <button routerLink="/intranet" class="bg-admin">Voir le prototype en cours</button>
-    <div class="alerte bg-admin">
-      L'application Tiaki n'a pas encore de version mobile, elle sera disponible dans quelques semaines. Merci de consulter le logiciel sur votre ordinateur.
+  <!-- Formulaire de connexion -->
+  <form #connexionForm="ngForm" (ngSubmit)="onConnexion(connexionForm)" class="bg-annule">
+
+    <h2>Se connecter</h2>
+    <fieldset>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" [(ngModel)]="conn.connexion.id.value" #ctlId="ngModel"
+        [placeholder]="conn.connexion.id.placeholder" required email>
+      @if(ctlId.invalid && ctlId.touched){
+      <span class="error">
+        Veuillez entrer une adresse email valide
+      </span>}
+    </fieldset>
+
+    <fieldset>
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" [(ngModel)]="conn.connexion.mdp.value" #ctlMdp="ngModel"
+        [placeholder]="conn.connexion.mdp.placeholder" required>
+      @if(ctlMdp.invalid && ctlMdp.touched){
+      <span class="error">
+        Le mot de passe est requis
+      </span>}
+    </fieldset>
+
+    <div>
+      <button type="submit" [disabled]="connexionForm.invalid" class="bg-valide">
+        Se connecter
+      </button>
+      <button type="reset" class="bg-opto">
+        Annuler
+      </button>
+    </div>
+
+    <div>
+      <a routerLink="/inscription" class="inscription-link">
+        Créer un compte
+      </a>
+      <a routerLink="/reset-password" class="forgot-password">
+        Mot de passe oublié ?
+      </a>
+    </div>
+  </form>
+  <!-- Accès temporaire au prototype -->
+  <article class="bg-admin">
+    <h3>Accéder au prototype</h3>
+    <p>Ce prototype est en cours de développement. Il s'adresse aux aidants de personnes dépendantes. Initiative de l'association <a href="https://twinklestar64.org/" target="_blank">Twinkle Star For 64</a>, porté par un consortium internation transfrontalier franco-espagnol. Vous pouvez <a href="" target="_blank">consulter le site du projet</a> pour en savoir plus.</p>
+    <p>Nous travaillons ardemment pour fournir des outils et services gratuits à destination des aidants espagnols et français. Dans ce prototype vous pourrez trouver :</p>
+    <ul>
+      <li>Des tutoriels de kinésithérapie et d'optométrie pour assurer des soins quotidiens.</li>
+      <li>Des outils pour constituer et planifier des repas qui tiennent compte des allergies de la personne que vous aidez.</li>
+      <li>Des commentaires de la communauté.</li>
+      <li>Des outils pour organiser votre quotidien et fluidifier votre relation avec le corps médical.</li>
+    </ul>
+    <button routerLink="/intranet">
+      Voir le prototype en cours
+    </button>
+    <div class="alerte">
+      L'application Tiaki n'a pas encore de version mobile, elle sera disponible dans quelques semaines.
+      Merci de consulter le logiciel sur votre ordinateur.
     </div>
   </article>
-
-  <footer>
-    <h4>Les partenaires du projet,<br>chaleureusement remerciés</h4>
-    <a href="https://step.eo" title="Partenaire STEP" target="_blank"><img src="assets/images/logos/logo_step.png"
-        alt="Logo de la société STEP"></a>
-    <a href="https://www.capgemini.com/fr-fr/" title="Partenaire Cap Gemini" target="_blank"><img
-        src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini"></a>
-    <a href="https://www.nouvelle-aquitaine.fr/" title="Partenaire Région Nouvelle Aquitaine" target="_blank"><img
-        src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine"></a>
-    <a href="https://www.helloasso.com/associations/danser-sous-la-pluie" title="Partenaire Danser sous la pluie"
-      target="_blank"><img src="assets/images/logos/logo_dansesouslapluie.png"
-        alt="Logo de l'association Danser sous la pluie'"></a>
-  </footer>
 </section>
+<footer>
+  <h4>Les partenaires du projet,<br />chaleureusement remerciés</h4>
+  <div class="logos-partenaires">
+    <a href="https://step.eo" title="Partenaire STEP" target="_blank">
+      <img src="assets/images/logos/logo_step.png" alt="Logo de la société STEP">
+    </a>
+    <a href="https://www.capgemini.com/fr-fr/" title="Partenaire Cap Gemini" target="_blank">
+      <img src="assets/images/logos/logo_capgemini.jpg" alt="Logo de la société Cap Gemini">
+    </a>
+    <a href="https://www.nouvelle-aquitaine.fr/" title="Partenaire Région Nouvelle Aquitaine" target="_blank">
+      <img src="assets/images/logos/logo-naq.svg" alt="Logo de la région nouvelle-aquitaine">
+    </a>
+    <a href="https://www.helloasso.com/associations/danser-sous-la-pluie" title="Partenaire Danser sous la pluie"
+      target="_blank">
+      <img src="assets/images/logos/logo_dansesouslapluie.png" alt="Logo de l'association Danser sous la pluie">
+    </a>
+  </div>
+</footer>

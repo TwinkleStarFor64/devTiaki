@@ -1,15 +1,3 @@
-import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-
 import { Component, OnInit } from '@angular/core';
 import { MenusService } from './services/menus.service';
 import { CiqualI, EvaluationI, MesMenusI } from '../../utils/modeles/Types';
@@ -17,17 +5,15 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SaveDataComponent } from '../dialog/save-data/save-data.component';
 import { DeleteDataComponent } from '../dialog/delete-data/delete-data.component';
-import { BottomBarNutriComponent } from '../bottom-bar-nutri/bottom-bar-nutri.component';
 import { IngredientsPipe } from '../../utils/pipes/filter.pipe';
+import { IntranetModule } from '../../intranet.module';
+import { NgClass } from '@angular/common';
 
-@Component({
-  selector: 'app-menus',
+@Component({selector: 'app-menus',
   templateUrl: './menus.component.html',
   styleUrls: ['./menus.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, BottomBarNutriComponent, IngredientsPipe],
-
-})
+  imports: [IntranetModule, IngredientsPipe, NgClass],
+  standalone: true})
 export class MenusComponent implements OnInit {
   aliment: CiqualI[] = [];
   repas: MesMenusI[] = [];
@@ -68,7 +54,7 @@ export class MenusComponent implements OnInit {
         nom: item['nom'],
         description: item['description'],
         alim_code: item['alim_code'],
-        statut: item['statut'],
+        statut: item['statut']
       }));
       console.log(this.repas.map((item) => item['id']));
     }
@@ -101,7 +87,7 @@ export class MenusComponent implements OnInit {
         ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
         ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
+        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)']
       }));
       //console.log(this.aliment.map((item) => item['alim_code']).join(', '));
     }
@@ -116,7 +102,7 @@ export class MenusComponent implements OnInit {
     if (data) {
       this.evaluation = data.map((item: { [x: string]: any }) => ({
         id: item['id'],
-        statut: item['statut'],
+        statut: item['statut']
       }));
       console.log(this.evaluation.map((item) => item['statut']).join(', '));
     }
@@ -165,7 +151,7 @@ export class MenusComponent implements OnInit {
       autoFocus: true,
       height: '800px',
       width: '1000px',
-      data: 'Ajouter un menu',
+      data: 'Ajouter un menu'
     });
   }
 
@@ -176,7 +162,7 @@ export class MenusComponent implements OnInit {
       autoFocus: true,
       height: '200px',
       width: '400px',
-      data: 'Êtes vous sur de vouloir supprimer ce menu ?',
+      data: 'Êtes vous sur de vouloir supprimer ce menu ?'
     });
   }
 
@@ -225,9 +211,7 @@ export class MenusComponent implements OnInit {
     this.affichageDefaut = statut; // affichageDefaut prend comme nouvelle valeur statut
   }
 
-
 }
-
 
 //------------------ Ci-dessous code si j'utilise pas la méthode fetchMenus() ----------------
 /* const { data, error } = await this.menuService.getRepas();
@@ -238,7 +222,7 @@ export class MenusComponent implements OnInit {
         id: item['id'],
         nom: item['nom'],
         description: item['description'],
-        alim_code: item['alim_code'],
+        alim_code: item['alim_code']
       }));
       console.log(this.repas);
     }
@@ -266,7 +250,7 @@ export class MenusComponent implements OnInit {
         ['Magnésium (mg/100 g)']: item['Magnésium (mg/100 g)'],
         ['Potassium (mg/100 g)']: item['Potassium (mg/100 g)'],
         ['Cuivre (mg/100 g)']: item['Cuivre (mg/100 g)'],
-        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)'],
+        ['Manganèse (mg/100 g)']: item['Manganèse (mg/100 g)']
       }));
       console.log(this.aliment.map((item) => item['Protéines, N x 6.25 (g/100 g)']));
     }

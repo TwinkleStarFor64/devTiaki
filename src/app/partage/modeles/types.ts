@@ -15,3 +15,15 @@ export interface AidantI {
   id: number;
   nom: string;
 }
+export interface UserI{
+    token?:string;
+    role:string;
+    email:string;
+}
+export interface TradI {
+    routes:any;
+    pages:any;
+    nutrition:any;
+    opto:any;
+    kine:any;
+}

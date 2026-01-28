@@ -1,45 +1,27 @@
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BottomI } from '../../modeles/Types';
-import { KineService } from '../../kine/services/kine.service';
-import { OptoService } from '../../opto/services/opto.service';
+import { DonneesService } from '../../utils/services/donnees.service';
+import { ToolsService } from '../../utils/services/tools.service';
 
 @Component({
-    selector: 'app-footer',
-    templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss'],
-    standalone: true
-  imports: [RouterLink, CommonModule],
-  
+  selector: 'app-footer-menu',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
+  standalone: true,
+  imports: [ RouterLink, CommonModule ],
+
 })
-export class FooterComponent implements OnInit {
+export class FooterMenuComponent implements OnInit {
 
   // public bottoms: BottomI[] = [];
-   
-  constructor(private router: Router, public activatedRoute: ActivatedRoute, public kineFooter: KineService, public optoFooter: OptoService) { }
+  r:Router = inject(Router);
+  ar:ActivatedRoute = inject(ActivatedRoute);
+  d:DonneesService = inject(DonneesService);
+  to:ToolsService = inject(ToolsService);
 
-  ngOnInit(): void {
-    const activeUrl = this.router.url;
-    this.kineFooter.getBottomKine().forEach(item => {
-      item.active = activeUrl.startsWith(item.url);
-      console.log(item.active);
-    });
-    const bottoms = this.kineFooter.getBottomKine();
-    console.log(bottoms);
-    this.optoFooter.getBottomOpto();
-  }
-
-  // onActivatedUrl(urlBottom: BottomI) {
-  //   this.bottoms.forEach(url => url.active = true);
-  //   urlBottom.active = true;
-  // }
-
-  onNavItemClick(bottom: BottomI) {
-    this.kineFooter.getBottomKine().forEach(item => item.active = false);
-    bottom.active = true;
-  }
+  ngOnInit(): void {}
 
 }

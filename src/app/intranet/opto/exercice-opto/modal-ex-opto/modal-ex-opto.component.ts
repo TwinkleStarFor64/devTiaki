@@ -10,17 +10,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ExerciceI } from 'src/app/intranet/modeles/Types';
+import { ExerciceI } from 'src/app/intranet/utils/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
 
-@Component({
-  selector: 'app-modal-ex-opto',
+@Component({selector: 'app-modal-ex-opto',
   templateUrl: './modal-ex-opto.component.html',
   styleUrls: ['./modal-ex-opto.component.scss'],
-  standalone: true,
   imports: [CommonModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
-
-})
+  standalone: true})
 export class ModalExOptoComponent {
   exercicesOpto!: ExerciceI[];
   exerciceModal!: ExerciceI;

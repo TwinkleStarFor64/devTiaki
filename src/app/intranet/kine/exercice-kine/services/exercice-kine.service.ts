@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ExerciceI } from 'src/app/intranet/modeles/Types';
+import { ExerciceI } from 'src/app/intranet/utils/modeles/Types';
 
 @Injectable({
   providedIn: 'root'

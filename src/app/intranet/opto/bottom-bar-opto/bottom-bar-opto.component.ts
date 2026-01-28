@@ -3,7 +3,7 @@ import { NgStyle } from '@angular/common';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI } from 'src/app/intranet/modeles/Types.js';
+import { BottomI } from '../../utils/modeles/Types';
 
 @Component({
     selector: 'app-bottom-bar-opto',

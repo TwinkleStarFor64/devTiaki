@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { Component, OnInit } from '@angular/core';
 import { SanityService } from 'src/app/partage/services/sanity.service';
-import { AccueilI } from '../modeles/Types';
+import { AccueilI } from '../utils/modeles/Types';
 
 @Component({
   selector: 'app-accueil',

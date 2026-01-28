@@ -16,14 +16,11 @@ import { SupabaseService } from 'src/app/partage/services/supabase.service';
 import { MenusService } from '../../menus/services/menus.service';
 import { AlimentsPipe } from "../../../utils/pipes/filter.pipe";
 
-@Component({
-  selector: 'app-save-data',
+@Component({selector: 'app-save-data',
   templateUrl: './save-data.component.html',
   styleUrls: ['./save-data.component.scss'],
-  standalone: true,
   imports: [FormsModule, ReactiveFormsModule, MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, AlimentsPipe],
-
-})
+  standalone: true})
 export class SaveDataComponent implements OnInit {
   formData!: FormGroup;
   public repas: any[] = []; // Utiliser dans fetchCiqual()
@@ -56,7 +53,6 @@ export class SaveDataComponent implements OnInit {
         console.log(this.result);
       }
     });
-
 
   } // <------- Fin du ngOnInit()
 
@@ -107,11 +103,5 @@ export class SaveDataComponent implements OnInit {
       console.log(error);
     }
   }
-
-
-
-
-
-
 
 }

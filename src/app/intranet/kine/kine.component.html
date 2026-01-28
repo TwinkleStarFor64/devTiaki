@@ -1,7 +1,5 @@
-<header class="ariane">
-  <h1><a routerLink="/intranet">Tiaki</a></h1>
-  <h2>Kinésithérapie</h2>
-</header>
+<router-outlet></router-outlet>
+@if(u){
 <section class="accueil">
   @for (card of accueilKine; track card) {
     <article class="cartel">
@@ -19,4 +17,19 @@
     </article>
   }
 </section>
-<app-bottom-bar-kine></app-bottom-bar-kine>
+}
+@else{
+<footer>
+    @for (bottom of bottoms; track bottom) {
+    <a [routerLink] ="[bottom.url]" (click)="onNavItemClick(bottom)">
+      <section [ngStyle]="{'filter': bottom.active ? 'none' : 'opacity(50%)'}">
+        <img [src]="bottom.image" alt="image d'exercice" />
+        <article>
+          <h1>{{ bottom.titre}}</h1>
+          <p>{{ bottom.info }}</p>
+        </article>
+      </section>
+    </a>
+  }
+</footer>
+}

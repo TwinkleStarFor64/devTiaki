@@ -9,23 +9,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CarouselKineComponent } from './kine/carousel/carousel.component';
-import { BottomBarKineComponent } from './kine/bottom-bar-kine/bottom-bar-kine.component';
 import { RouterLink } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioButton } from '@angular/material/radio';
 
 
 @NgModule({
   declarations: [],
   imports: [
     FormsModule, ReactiveFormsModule, RouterLink,
-    CarouselKineComponent, BottomBarKineComponent, BottomBarKineComponent,
-    MatSelectModule, MatIconModule,CdkAccordionModule, MatProgressBarModule,
+    CarouselKineComponent, MatRadioButton,
+    MatSelectModule, MatIconModule,CdkAccordionModule, MatProgressBarModule, MatDialogModule,
     MatButtonModule,MatInputModule,MatPaginatorModule, MatSelectModule, MatAutocompleteModule
   ],
   exports: [
     FormsModule, ReactiveFormsModule, RouterLink,
-    CarouselKineComponent, BottomBarKineComponent, BottomBarKineComponent,
-    MatSelectModule, MatIconModule,
-    CdkAccordionModule, MatProgressBarModule, MatButtonModule,
+    CarouselKineComponent,
+    MatSelectModule, MatIconModule, MatRadioButton,
+    CdkAccordionModule, MatProgressBarModule, MatButtonModule, MatDialogModule,
     MatInputModule,MatPaginatorModule, MatSelectModule, MatAutocompleteModule
   ]
 })

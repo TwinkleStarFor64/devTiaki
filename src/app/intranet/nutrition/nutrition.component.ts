@@ -1,95 +1,26 @@
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BottomI, NutritionI } from '../modeles/Types';
+import { BottomI, NutritionI } from '../utils/modeles/Types';
 import { SanityService } from 'src/app/partage/services/sanity.service';
-import { BottomBarNutriComponent } from './bottom-bar-nutri/bottom-bar-nutri.component';
+import { FooterMenuComponent } from '../template/footer/footer.component';
 
-@Component({
-  selector: 'app-nutrition',
+@Component({selector: 'app-nutrition',
   templateUrl: './nutrition.component.html',
   styleUrls: ['./nutrition.component.scss'],
-  standalone: true,
-  imports: [RouterLink, CommonModule, BottomBarNutriComponent],
-
-})
+  imports: [RouterLink, CommonModule, FooterMenuComponent],
+  standalone: true})
 export class NutritionComponent implements OnInit {
-
-  public bottoms: BottomI[] = [
-    {
-      image: "assets/iconeBottom/journalBottom.png",
-      titre: "Journal",
-      info: "Naviguer dans votre historique alimentaire",
-      lien: 'Journal',
-      url: '/intranet/nutrition/journalRepas',
-      active: false
-    },
-    {
-      image: "assets/iconeBottom/journalBottom.png",
-      titre: "Menus",
-      info: "Les listes de vos menus et de ceux de la communautés",
-      lien: 'Menus',
-      url: '/intranet/nutrition/menus',
-      active: false
-    },
-    {
-      image: "assets/iconeBottom/platBottom.png",
-      titre: "Plats",
-      info: "Vos plats ou ceux de la communauté",
-      lien: 'Plats',
-      url: '/intranet/nutrition/plats',
-      active: false
-    },
-    {
-      image: "assets/iconeBottom/ingredientBottom.png",
-      titre: "Ingrédients",
-      info: "La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-      lien: 'Ingredients',
-      url: '/intranet/nutrition/ingredients',
-      active: false
-    }
-  ];
-
-  // public cards:any = [
-  //   {
-  //     title:"Journal",
-  //     text:"Naviguer dans votre historique alimentaire",
-  //     button:"Accéder à la page Journal",
-  //     image:"assets/photoNutri/accueilJournal.svg",
-  //     url:'journal-Repas'
-  //   },
-  //   {
-  //     title:"Menus",
-  //     text:"Les listes de vos menus et de ceux de la communautés",
-  //     button:"Accéder à la page des Menus",
-  //     image:"assets/photoNutri/accueilMenus.svg",
-  //     url:'menus'
-  //   },
-  //   {
-  //     title:"Plats",
-  //     text:"Vos plats ou ceux de la communauté",
-  //     button:"Accéder à la page des Plats",
-  //     image:"assets/photoNutri/accueilPlats.svg",
-  //     url:'plats'
-  //   },
-  //   {
-  //     title:"Ingrédients",
-  //     text:"La liste des ingrédients prenant en compte les allergies et les valeurs nutritionnelles",
-  //     button:"Accéder à la page Ingrédients",
-  //     image:"assets/photoNutri/accueilIngredients.svg",
-  //     url:'ingredients'
-  //   },
-  // ];
+  bottoms: BottomI[] = [];
+  r:Router = inject(Router);
+  sanity:SanityService = inject(SanityService);
 
   accueilNutrition!: NutritionI[];
 
-
-  constructor(private router: Router, public sanity: SanityService) { }
-
   ngOnInit(): void {
-    const activeUrl = this.router.url;
+    const activeUrl = this.r.url;
     this.bottoms.forEach(item => {
       item.active = activeUrl.startsWith(item.url);
     });
@@ -100,10 +31,5 @@ export class NutritionComponent implements OnInit {
       this.accueilNutrition = data.sort((a, b) => a.id - b.id);
     });
 
-  }
-
-  onNavItemClick(bottom: BottomI) {
-    this.bottoms.forEach(item => item.active = false);
-    bottom.active = true;
   }
 }

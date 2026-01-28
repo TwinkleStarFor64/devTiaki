@@ -10,14 +10,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-@Component({
-  selector: 'app-delete',
+@Component({selector: 'app-delete',
   templateUrl: './delete.component.html',
   styleUrls: ['./delete.component.scss'],
-  standalone: true,
   imports: [MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CdkAccordionModule, MatDialogModule, MatProgressBarModule],
-
-})
+  standalone: true})
 export class DeleteComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DeleteComponent>) { }

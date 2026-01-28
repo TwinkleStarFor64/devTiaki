@@ -18,14 +18,11 @@ import { ProgrammeOptoService } from './services/programme-opto.service';
 import { CarouselOptoComponent } from "../carousel-opto/carousel-opto.component";
 import { BottomBarOptoComponent } from "../bottom-bar-opto/bottom-bar-opto.component";
 
-@Component({
-  selector: 'app-programme-opto',
+@Component({selector: 'app-programme-opto',
   templateUrl: './programme-opto.component.html',
   styleUrls: ['./programme-opto.component.scss'],
-  standalone: true,
   imports: [RouterLink, CommonModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, CarouselOptoComponent, BottomBarOptoComponent],
-
-})
+  standalone: true})
 export class ProgrammeOptoComponent implements OnInit {
   control = new FormControl('');
   myProg = new FormControl<any | ProgrammeI>('');

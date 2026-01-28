@@ -17,31 +17,25 @@ import { PlatsService } from '../../plats/services/plats.service';
 import { MesPlatsI } from '../../../utils/modeles/Types';
 import { AlimentsPipe } from '../../../utils/pipes/filter.pipe';
 
-@Component({
-  selector: 'app-save-plat',
+@Component({selector: 'app-save-plat',
   templateUrl: './save-plat.component.html',
   styleUrls: ['./save-plat.component.scss'],
-  standalone: true,
   imports: [CommonModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatIconModule, MatInputModule, MatSelectModule, MatAutocompleteModule, AlimentsPipe, MatDialogModule],
-
-})
+  standalone: true})
 export class SavePlatComponent implements OnInit {
   formData!: FormGroup;
   public plats: any[] = []; // Utiliser dans fetchCiqual()
   result: any; // Pour stocker le résultat ingrédient du formulaire
   mesPlats: MesPlatsI[] = [];
-
   filtre: string = ''; // Utiliser comme filtre dans ngModel et le pipe aliments
   filtreControl = new FormControl(); // Pour ngx-mat-select-search
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<SavePlatComponent>,
     private formBuilder: FormBuilder, public supa: SupabaseService, public platService: PlatsService) { }
 
-
   async ngOnInit(): Promise<void> {
     this.fetchCiqual();
     this.fetchPlats();
-
 
     this.formData = new FormGroup({
       nom: new FormControl('', [Validators.required]),
